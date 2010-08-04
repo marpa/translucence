@@ -3009,6 +3009,17 @@ function set_derivative_options() {
 		}
 		
 	}
+
+	/******************************************************************************
+	 * Display colophon with border only if footer-widget-area has no border
+	 ******************************************************************************/
+
+	if ($options['bottom-border-style'] == 'none') {
+		$options['colophon-border-type'] = "dotted";
+	} else {
+		$options['colophon-border-type'] = "none";
+	}
+
 	
 	/******************************************************************************
 	 * Entry, Tag and Category link style options
