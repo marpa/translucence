@@ -39,15 +39,6 @@
  */
 
 /**
- * Set the content width based on the theme's design and stylesheet.
- *
- * Used to set the width of images and content. Should be equal to the width the theme
- * is designed for, generally via the style.css stylesheet.
- */
-// if ( ! isset( $content_width ) )
-// 	$content_width = 640;
-
-/**
  * Sets up theme defaults and registers support for various WordPress features.
 */
 if (file_exists(dirname(__FILE__).'/config.php')) {
@@ -103,6 +94,14 @@ function variation_admin_menu() {
     add_theme_page($theme_options, $theme_options, 'edit_themes', 'Variations', 'variation_options');
 }
 
+/**
+ * Set the content width based on the theme's design and stylesheet.
+ *
+ * Used to set the width of images and content. Should be equal to the width the theme
+ * is designed for, generally via the style.css stylesheet.
+ */
+if ( ! isset( $content_width ) )
+	$content_width = 640;
 
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
