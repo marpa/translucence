@@ -29,6 +29,12 @@ get_header(); ?>
 
 			</div><!-- #content -->
 
-<?php get_sidebar(); ?>
+<?php if ( $options['category-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('primary'); ?>	
+<?php endif; ?>	
+<?php if ( $options['category-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('secondary'); ?>	
+<?php endif; ?>	
+
 		</div><!-- #container -->
 <?php get_footer(); ?>

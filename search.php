@@ -31,7 +31,14 @@ get_header(); ?>
 				</div><!-- #post-0 -->
 <?php endif; ?>
 			</div><!-- #content -->
+
+
+<?php if ( $options['search-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('primary'); ?>	
+<?php endif; ?>	
+<?php if ( $options['search-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('secondary'); ?>	
+<?php endif; ?>	
 		</div><!-- #container -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
