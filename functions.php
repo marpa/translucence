@@ -82,7 +82,7 @@ $options['theme-url'] = $variation_config['theme-url'];
 $options['theme-name'] = $variation_config['theme-name'];
 
 $current_widgets = get_option ('sidebars_widgets');
-//printpre($current_widgets['sidebar-2']);
+//printpre($current_widgets);
 
 //set_variation_options();
 
@@ -1503,10 +1503,10 @@ function variation_options() {
 					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right01-heading-color'].";'>Right Sidebar</h2></div>
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right01-link-color']."'>";
 
-					if (is_active_sidebar("sidebar-2")) {
+					if (is_active_sidebar("primary-widget-area")) {
 						print "<a style='color:".$options['right01-link-color']."; border-color:".$options['right01-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
-						if (is_array($current_widgets['sidebar-2'])) {
-							foreach ($current_widgets['sidebar-2'] as $widget) {
+						if (is_array($current_widgets['primary-widget-area'])) {
+							foreach ($current_widgets['primary-widget-area'] as $widget) {
 								$widget = str_replace("-", " ", $widget);
 								$widget = str_replace("_", " ", $widget);
 								$widget = rtrim(ucwords($widget), "0..9");
@@ -1572,10 +1572,10 @@ function variation_options() {
 					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right02-heading-color'].";'>2nd Right Sidebar</h2></div>
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
 
-					if (is_active_sidebar("sidebar-3")) {
+					if (is_active_sidebar("secondary-widget-area")) {
 						print "<a style='color:".$options['right02-link-color']."; border-color:".$options['right02-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
-						if (is_array($current_widgets['sidebar-3'])) {
-							foreach ($current_widgets['sidebar-3'] as $widget) {
+						if (is_array($current_widgets['secondary-widget-area'])) {
+							foreach ($current_widgets['secondary-widget-area'] as $widget) {
 								$widget = str_replace("-", " ", $widget);
 								$widget = str_replace("_", " ", $widget);
 								$widget = rtrim(ucwords($widget), "0..9");
