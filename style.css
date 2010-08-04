@@ -936,11 +936,11 @@ body.page .edit-link {
 }
 .entry-meta a,
 .entry-utility a {
-	color: #888;
+	color: #036;
 }
 .entry-meta a:hover,
 .entry-utility a:hover {
-	color: #ff4b33;
+	color: #036;
 }
 #content .video-player {
 	padding: 0;
