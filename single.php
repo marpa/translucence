@@ -64,7 +64,7 @@ get_header(); ?>
 <?php endwhile; // end of the loop. ?>
 
 			</div><!-- #content -->
-		</div><!-- #container -->
+
 
 
 <?php if ( $options['post-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
@@ -74,5 +74,5 @@ get_header(); ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 
-
+		</div><!-- #container -->
 <?php get_footer(); ?>
