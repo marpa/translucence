@@ -537,17 +537,18 @@ div.menu li {
 #main {
 	clear: both;
 	overflow: hidden;
-	padding: 40px 0 0 0;
+	padding: 1px 0 0 0;
 }
 #content {
-	margin-bottom: 36px;
+	margin-bottom: 25px;
 }
 #content,
 #content input,
 #content textarea {
 	color: #333;
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 12px;
+	line-height: 17px;
+	text-align: left;
 }
 #content p,
 #content ul,
@@ -643,21 +644,39 @@ div.menu li {
 	color: #ff4b33;
 }
 #content .entry-title {
-	color: #000;
+	color: #036;
 	font-size: 21px;
-	font-weight: bold;
+	font-weight: normal;
 	line-height: 1.3em;
 	margin-bottom: 0;
 }
 .entry-title a:link,
 .entry-title a:visited {
-	color: #000;
-	text-decoration: none;
+	color: #036;
 }
+/*
 .entry-title a:active,
 .entry-title a:hover {
 	color: #ff4b33;
 }
+*/
+
+.post h2 {
+	color: #036;
+	display: block;
+	text-align: left;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.post h2:hover {
+	border-bottom: 1px solid #036;
+}
+
+.post h2 a {
+	display: block;
+	border-bottom: none;
+}
+
 .entry-meta {
 	color: #888;
 	font-size: 12px;
