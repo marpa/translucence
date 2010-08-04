@@ -36,6 +36,22 @@
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+<style type="text/css" >
+<?php 
+	global $variation_css, $options; 
+	print $variation_css;
+	
+	// IE hack opacity options
+	print $options['header-color-ie']."\n"; 
+	print $options['top-color-ie']."\n"; 
+	print $options['content-color-ie']."\n"; 
+	print $options['bottom-color-ie']."\n"; 
+	print $options['left01-color-ie']."\n"; 
+	print $options['right01-color-ie']."\n"; 
+	print $options['right02-color-ie']."\n"; 
+?>
+</style>
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
