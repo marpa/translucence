@@ -740,6 +740,63 @@ div.menu li {
 	text-align: left;
 	width: 33%;
 }
+.entry-content h2, .entry-content-content h3, .entry-content h1 {
+	color: #444444;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.entry-content h2:hover, .entry-content h2:hover, .entry-content h1:hover {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.entry-content h2 a, .entry-content h3 a, entry-content h1 a {
+	display: block;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.entry-content h2 a:hover, .entry-content h3 a:hover, .entry-content h1 a:hover {
+	display: block;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+.entry-content a {
+	color: #003366;	
+	text-decoration:none;
+	border-bottom: 1px dotted ;
+	padding:0.07em;
+}
+
+.entry-content a:hover {
+	border-bottom: 1px solid; 
+	background-color: #efc;
+}
+
+.entry-content a:visited {
+	color: #777777;		
+	border-bottom: 1px dotted ;
+}
+
+.entry-content h2 a:hover, .entry-content h3 a:hover {
+	border-bottom: none;
+	text-decoration: none;
+}
+
+.entry-content .more-link a {
+	display: block;			
+	text-align: center;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	text-decoration: none;
+}
+
+.more-link a:hover {
+	background-color: transparent;
+	color: #003366;
+	border-top: 1px solid #003366;
+	border-bottom: 1px dotted #003366;
+}
 .page-link {
 	color: #000;
 	font-weight: bold;
