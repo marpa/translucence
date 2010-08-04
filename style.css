@@ -178,22 +178,31 @@ div.menu,
 #main,
 #wrapper {
 	margin: 0 auto;
-	width: 940px;
+	width: 942px;
 }
 #wrapper {
-	background: #fff;
-	margin-top: 20px;
-	padding: 0 20px;
+	background: transparent;
+	margin-top: 1px;
+	margin-bottom: 50px;
+	padding: 20px 20px;
+	border: 1px solid #CCCCCC;
 }
 
 /* Structure the footer area */
 #footer-widget-area {
 	overflow: hidden;
+	color:  #333;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 1px dotted #CCCCCC;
 }
 #footer-widget-area .widget-area {
+	color:  #333;
+	background-color: rgba(255, 255, 255, 0.5);
 	float: left;
-	margin-right: 20px;
-	width: 220px;
+	margin-right: 1px;
+	padding: 20px;
+	width: 175px;
+
 }
 #footer-widget-area #fourth {
 	margin-right: 0;
