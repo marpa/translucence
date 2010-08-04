@@ -64,26 +64,42 @@ DESCRIPTION: Two-column fixed layout with one sidebar right of content
 */
 
 #container {
-	float: left;
-	margin: 0 -240px 0 0;
+	overflow: hidden;
+	margin: 0 0px 0 0;
 	width: 100%;
+
 }
 #content {
-	margin: 0 280px 0 20px;
+	float: left;
+	width: 375px;
+	background-color: rgba(255, 255, 255, 1);
+	margin-right: 1px;
+	padding: 20px;
+	border: 1px dotted #CCCCCC;
 }
-#primary,
-#secondary {
-	float: right;
-	overflow: hidden;
+#primary {
+	float: left;
 	width: 220px;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin-right: 1px;
+	margin-bottom: auto;
+	padding: 20px;
+	border: 1px dotted #CCCCCC;
 }
 #secondary {
-	clear: right;
+	float: left;
+	margin-right: 0px;
+	width: 220px;
+	background-color: rgba(255, 255, 255, 0);
+	padding: 20px;
+	border: 1px dotted #CCCCCC;
+
 }
 #footer {
 	clear: both;
-	width: 100%;
+	width: 950px;
 }
+
 
 /*
 LAYOUT: One column, no sidebar
