@@ -69,17 +69,44 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<div class="sitewrapper">
+	
+	<div class="headermeta_right">
+		<span class="bgtextcolor">
+		<?php print stripslashes($options['headerright']);
+
+		if (current_user_can( 'publish_pages' )) print "<a href='".get_bloginfo('siteurl')."/wp-admin/'>Dashboard</a>";
+		if (current_user_can( 'edit_themes' )) print " | <a href='".get_bloginfo('siteurl')."/wp-admin/themes.php?page=Variations'>Design</a>";
+		
+		if (current_user_can( 'edit_posts' )) {
+			print " | <a href='".get_bloginfo('siteurl')."/wp-admin/profile.php'>";
+			print wp_get_current_user()->display_name."</a>";
+		}
+		
+		if ($options['headermeta'] == "on") {
+			if (is_user_logged_in() == 'true') print " - ";	
+
+			print wp_loginout('','')."";
+
+		}
+		?>	
+		</span><br/>
+	</div>
+	<div class="headermeta_left">
+		<span class="bgtextcolor">
+		<?php print stripslashes($options['headerleft']); ?>
+		</span><br/><br/>
+	</div>
+	
+</div>
+
+
 <div id="wrapper" class="hfeed">
 	<div id="header">
 		<div id="masthead">
 			<div id="branding" role="banner">
-				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
-				<<?php echo $heading_tag; ?> id="site-title">
-					<span>
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-					</span>
-				</<?php echo $heading_tag; ?>>
-				<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+
 
 				<?php
 					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
@@ -90,7 +117,21 @@
 						// Houston, we have a new header image!
 						echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
 					else : ?>
-						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
+						<!-- <img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" /> -->
+						
+						<div class="headerblock" onclick="location.href='<?php echo get_option('home'); ?>';" style="cursor: pointer;">
+
+							<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
+							<<?php echo $heading_tag; ?> id="site-title">
+								<span>
+									<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+								</span>
+							</<?php echo $heading_tag; ?>>
+							<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+
+							
+							
+						</div>
 					<?php endif; ?>
 			</div><!-- #branding -->
 
@@ -102,5 +143,6 @@
 			</div><!-- #access -->
 		</div><!-- #masthead -->
 	</div><!-- #header -->
+	
 
 	<div id="main">
