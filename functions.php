@@ -67,6 +67,30 @@ $theme_settings = $theme_id."_settings";
 $theme_css = $theme_id."_css";
 $theme_options = $variation_config['theme-name']." Options";
 
+/******************************************************************************
+ *  Get options
+ ******************************************************************************/
+  
+if (!is_array(get_option($theme_settings))) {
+    add_option($theme_settings, array('init' => 1));    
+} else {	
+	$options = get_option($theme_settings);
+}
+   
+if (!get_option($theme_css)) {
+	add_option($theme_css, "");	
+} else {
+	$variation_css = get_option($theme_css);	
+}
+
+$options['theme-url'] = $variation_config['theme-url'];
+$options['theme-name'] = $variation_config['theme-name'];
+
+$current_widgets = get_option ('sidebars_widgets');
+//printpre($current_widgets['sidebar-2']);
+
+//set_variation_options();
+
 
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
