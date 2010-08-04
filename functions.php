@@ -47,6 +47,16 @@
 // if ( ! isset( $content_width ) )
 // 	$content_width = 640;
 
+/**
+ * Sets up theme defaults and registers support for various WordPress features.
+*/
+if (file_exists(dirname(__FILE__).'/config.php')) {
+	require_once('config.php');
+} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
+	require_once('config-sample.php');
+}
+
+
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'twentyten_setup' );
 
