@@ -2316,28 +2316,28 @@ function save_options() {
 		
 		/* Begin entry/post links */
 		
-		.entry {
+		.entry-content {
 			text-align: ".$options['entry-text-align'].";
 		}
 		
-		.entry a {
+		.entry-content a {
 			color: ".$options['linkcolor'].";	
 			text-decoration:none;
 			border-bottom: 1px ".$options['entry-link-border'].";
 			padding:0.07em;
 		}
 
-		.entry a:hover {
+		.entry-content a:hover {
 			border-bottom: 1px ".$options['entry-link-hover-border']."; 
 			background-color: ".$options['entry-link-hover-background_color'].";
 		}
 
-		.entry a:visited {
+		.entry-content a:visited {
 			color: ".$options['linkcolor_visited'].";		
 			border-bottom: 1px ".$options['entry-link-border'].";
 		}
-
-		.entry .morelink a {
+		
+		.entry-content .more-link a {
 			display: block;			
 			text-align: center;
 			border-top: 1px solid #CCCCCC;
@@ -2345,13 +2345,13 @@ function save_options() {
 			text-decoration: none;
 		}
 		
-		.morelink a:hover {
+		.more-link a:hover {
 			background-color: transparent;
 			color: ".$options['linkcolor'].";
 			border-top: 1px solid ".$options['content-link-color'].";
 			border-bottom: 1px dotted ".$options['content-link-color'].";
 		}
-
+		
 		.postmetadata.alt {
 			clear: both;
 			text-align: center;
