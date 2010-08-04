@@ -1,0 +1,32 @@
+
+Translucence Change Log
+
+
+v. 1.0.1 (the future)
+----------------------------------------------------
+This release adds most of the theme options and design elements of the WordPress
+ShadowBox theme
+		
+		
+	* New feature: 
+		Updated 2010 to include Translucence theme options
+		(2010-08-04 - Alex Chapin)	
+	
+
+
+
+v. 1.0.0 (2010-08-04)
+----------------------------------------------------
+This release is no different from WordPress twentyten v1.1. Future versions of this
+theme will include theme options for adjusting the color and opacity of various
+areas of theme layout
+		
+		
+	* New feature: 
+		WordPress twentyten v1.1 to be transformed into 2010 Translucence
+		(2010-06-09 - Alex Chapin)	
+	
+
+
+
+

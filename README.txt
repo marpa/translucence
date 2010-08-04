@@ -1,0 +1,68 @@
+
+Translucence v. 1.0.1 (the future)
+=================================
+
+What is Translucence?
+------------------
+Translucence is a customizable, flexible and extensible theme for WordPress based on
+the WordPress twentyten default theme
+
+
+Current Version Notes
+---------------------
+This release adds most of the theme options and design elements of the WordPress
+ShadowBox theme
+
+
+Downloads
+---------------------
+For the latest and archived versions, please download from WordPress.
+
+http://wordpress.org/extend/themes/translucence
+
+
+Documentation
+---------------------
+Translucence documentation can be found online at:
+
+http://segueproject.org/themes/translucence-documentation/
+
+
+Installation
+---------------------
+See the INSTALL.txt file:
+
+
+
+
+Bug Tracker
+---------------------
+
+
+
+
+
+
+
+
+===================================================================
+| Prior Translucence Release Notes
+| (See the Translucence change log for more details)
+===================================================================
+
+
+v. 1.0.1 (the future)
+----------------------------------------------------
+This release adds most of the theme options and design elements of the WordPress
+ShadowBox theme
+
+
+
+v. 1.0.0 (2010-08-04)
+----------------------------------------------------
+This release is no different from WordPress twentyten v1.1. Future versions of this
+theme will include theme options for adjusting the color and opacity of various
+areas of theme layout
+
+
+
