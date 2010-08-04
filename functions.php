@@ -2380,7 +2380,7 @@ function save_options() {
 		}
 		
 		/* Begin tag links */
-		.tag a {
+		.tag-links a {
 			-moz-border-radius-bottomleft:3px; 
 			-moz-border-radius-bottomright:3px; 
 			-moz-border-radius-topleft:3px; 
@@ -2393,14 +2393,14 @@ function save_options() {
 			margin:2px 0.2em; padding:0.1em 0.2em;			
 		}
 		
-		.tag a:hover {
+		.tag-links a:hover {
 			text-decoration: ".$options['tag-link-hover-decoration'].";
 			background-color: ".$options['tag-link-background'].";
 			border:1px solid ".$options['linkcolor']."; 
 		}
 		
 		/* Begin category links */
-		.category a {
+		.cat-links a {
 			-moz-border-radius-bottomleft:3px; 
 			-moz-border-radius-bottomright:3px; 
 			-moz-border-radius-topleft:3px; 
@@ -2413,11 +2413,11 @@ function save_options() {
 			margin:2px 0.2em; padding:0.1em 0.2em;	
 		}
 
-		.category a:hover {
+		.cat-links a:hover {
 			text-decoration: ".$options['category-link-hover-decoration'].";
 			background-color: ".$options['category-link-background'].";
 			border:1px solid ".$options['linkcolor']."; 
-		}		
+		}			
 		
 		/* Begin editing UI links */
 		.postlink a {
