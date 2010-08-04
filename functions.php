@@ -164,12 +164,26 @@ function twentyten_setup() {
 	// Your changeable header business starts here
 	define( 'HEADER_TEXTCOLOR', '' );
 	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/images/headers/path.jpg' );
+	//define( 'HEADER_IMAGE', '%s/images/headers/path.jpg' );
 
 	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
 	// Add a filter to twentyten_header_image_width and twentyten_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 940 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
+	//define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 940 ) );
+	//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
+	
+	//$header_image = "%s/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+	$header_image_width = $options['header-width'] - $options['custom-header-width-offset'];
+	$header_image_height = $options['header-block-height'];
+	
+	//define('HEADER_IMAGE', $header_image); // %s is theme dir uri
+	define( 'HEADER_IMAGE', '%s/images/headers/trans01-940x198' );
+	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
+	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
+	define( 'HEADER_TEXTCOLOR', $options['header-text-color']);
+	define( 'HEADER_BGCOLOR', $options['header-color-rgb']);
+	define( 'NO_HEADER_TEXT', true );
+	define( 'NO_HEADER_DESCRIPTION', true );	
+	
 
 	// We'll be using post thumbnails for custom header images on posts and pages.
 	// We want them to be 940 pixels wide by 198 pixels tall.
@@ -177,11 +191,11 @@ function twentyten_setup() {
 	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
 
 	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', true );
+	define( 'NO_HEADER_TEXT', false );
 
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( '', 'twentyten_admin_header_style' );
+	add_custom_image_header( 'header_style', 'twentyten_admin_header_style' );
 
 	// ... and thus ends the changeable header business.
 
@@ -263,6 +277,28 @@ function twentyten_admin_header_style() {
 <?php
 }
 endif;
+
+ /**
+ * Styles the header image displayed in blog
+ *
+ * Referenced via wp_head() function in header.php
+ *
+ * @since 2010 Translucence 1.0
+ */
+
+function header_style() {
+	?>	
+	<style type="text/css">
+	.headerblock {
+		background-color: <?php echo HEADER_BGCOLOR; ?>;
+		background-image: url(<?php header_image(); ?>);
+		background-position: right;
+		background-repeat: no-repeat;
+	}
+	</style>	
+	<?php
+}
+
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
