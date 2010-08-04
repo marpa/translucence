@@ -409,6 +409,40 @@ a:hover {
 	display: block;
 }
 
+#branding img {
+	border: 1px dotted #000;
+	clear: both;
+	display: block;
+}
+
+#site-title {
+	font-size: 30px;
+	font-weight: normal;
+	border-bottom: none;
+}
+
+#site-title a {
+	padding-top: 25px;
+	padding-left: 10px;
+	display: block;
+	color: #036;	
+}
+
+#site-title a:hover {
+	display: block;
+	padding-top: 25px;
+	padding-left: 10px;
+	color: #036;	
+	border-bottom: none;
+}
+
+.headerblock #site-description {
+	display: block;
+	padding-left: 15px;
+	color: #333;
+	font-size: 12px;
+}
+
 
 /* =Menu
 -------------------------------------------------------------- */
