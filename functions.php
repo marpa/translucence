@@ -1963,6 +1963,76 @@ function save_options() {
 			border-bottom: 1px solid ".$options['topbar-link-color'].";	
 		}
 
+		#access {
+			color:  ".$options['top-text-color'].";
+			background-color: ".$options['top-color-rgb'].";
+			display: block;
+			border-top: 1px none ".$options['top-border-top'].";
+			border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";	
+			border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
+			border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
+			float: left;
+			margin: 0 auto;
+			width: ".$headerwidth.";
+		}
+		
+		#access a {
+			color: ".$options['top-link-color'].";	
+			display: block;
+			line-height: 38px;
+			padding: 0 10px;
+			text-decoration: none;
+		}
+		#access ul ul {
+			box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+			-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+			display: none;
+			position: absolute;
+			top: 38px;
+			left: 0;
+			float: left;
+			width: 180px;
+			z-index: 99999;
+		}
+		
+		#access ul ul a {
+			background-color: ".$options['top-color-rgb'].";
+			line-height: 1em;
+			padding: 10px;
+			width: 160px;
+			height: auto;
+		}	
+		
+		#access li:hover > a,
+		#access ul ul :hover > a {
+			color:  ".$options['top-link-color'].";
+			background-color: ".$options['top-color-rgb'].";
+			text-decoration: underline;	
+			border-bottom: none;
+		}
+		
+		#access ul li:hover > ul {
+			display: block;
+			border-bottom: none;
+		}
+		
+		#access ul li.current_page_item > a,
+		#access ul li.current-menu-ancestor > a,
+		#access ul li.current-menu-item > a,
+		#access ul li.current-menu-parent > a {
+			color:  ".$options['top-text-color'].";		
+		}
+		
+		* html #access ul li.current_page_item a,
+		* html #access ul li.current-menu-ancestor a,
+		* html #access ul li.current-menu-item a,
+		* html #access ul li.current-menu-parent a,
+		* html #access ul li a:hover {
+			color:  ".$options['top-text-color'].";
+			border-bottom: none;
+		}
+
 		.bottomblock {
 			color:  ".$options['bottom-text-color'].";
 			background-color: ".$options['bottom-color-rgb'].";
