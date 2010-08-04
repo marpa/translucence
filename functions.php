@@ -1877,6 +1877,36 @@ function save_options() {
 			padding-bottom: 20px;
 		}
 
+		#content {
+			color: ".$options['content-text-color'].";
+			background-color: ".$options['content-color-rgb'].";
+			border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
+			border-bottom: 1px ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
+			border-left: 1px ".$options['content-border-style'] ." ".$options['content-border-left'].";
+			border-right: 1px ".$options['content-border-style'] ." ".$options['content-border-right'].";
+			padding-right: 20px;
+			padding-left: 20px;
+			padding-bottom: 20px;
+		}
+		#primary {
+			float: left;
+			width: ".$options['right01-width']."px;
+			background-color: rgba(255, 255, 255, 0.5);
+			margin-right: 1px;
+			margin-bottom: auto;
+			padding: 20px;
+			border: 1px dotted #CCCCCC;
+		}
+		#secondary {
+			float: left;
+			margin-right: 0px;
+			width: ".$options['right02-width']."px;
+			background-color: rgba(255, 255, 255, 0);
+			padding: 20px;
+			border: 1px dotted #CCCCCC;
+		
+		}
+
 		h1, h2, h3 {
 			color: ".$options['content-text-color'].";
 			border-bottom: 1px solid #CCCCCC;
