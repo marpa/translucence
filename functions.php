@@ -2420,7 +2420,8 @@ function save_options() {
 		}			
 		
 		/* Begin editing UI links */
-		.postlink a {
+		.post-link a {
+			color: ".$options['linkcolor'].";
 			display: block;
 			border: 1px dotted ".$options['linkcolor'].";
 			text-align: center;
@@ -2428,7 +2429,7 @@ function save_options() {
 			margin-top: 10px;
 		}
 
-		.postlink a:hover {
+		.post-link a:hover {
 			display: block;
 			border: 1px solid ".$options['linkcolor'].";
 			text-align: center;
@@ -2436,7 +2437,7 @@ function save_options() {
 			margin-top: 10px;
 		}
 
-		.editlink a {
+		.edit-link a {
 			display: block;
 			border: 1px dotted ".$options['linkcolor'].";
 			text-align: center;
@@ -2446,7 +2447,7 @@ function save_options() {
 			margin-bottom: 10px;
 		}
 
-		.editlink a:hover {
+		.edit-link a:hover {
 			background-color: transparent;
 			text-decoration: none;
 			border: 1px solid ".$options['linkcolor'].";
