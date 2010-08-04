@@ -2981,3 +2981,35 @@ function set_derivative_options() {
 	$options['page-image-width'] = $options['site-width']-50;
 
 }
+
+/******************************************************************************
+ * Delete options deletes the theme options and resets to defaults for the
+ * currently selected variation
+ * (This is needed only when updating Variations themes and cleaning out
+ * old options...)
+ ******************************************************************************/
+
+function delete_options() {
+    global $variation_config, $options, $variation_css, $theme_settings, $theme_css;
+	
+	$options = array();
+	$variation_css = "";
+	$_POST = array();
+	
+	delete_option($theme_settings); 	
+	delete_option($theme_css);
+	
+	add_option($theme_settings, array('init' => 1));  	
+ 	add_option($theme_css, "");
+	
+	set_variation_options();
+
+	//$options['revert'] = 0; 
+	
+	update_option($theme_settings, $options);
+
+ 	$options = get_option($theme_settings);
+
+}
+
+
