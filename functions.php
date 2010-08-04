@@ -2091,18 +2091,21 @@ function save_options() {
 			margin-bottom: 0px;
 		}
 		
-		.headertext a {
-			display: ".$options['show-header-text'].";
-			padding-top: ".$options['header-text-padding-top']."px;
-			padding-left: ".$options['header-text-padding-left']."px;
-			color: ".$options['header-blogtitle-color'].";
+		#site-title {
 			font-size: ".$options['header-blogtitle-size']."px;
-			font-weight: normal;	
-			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
+			font-weight: normal;
 			border-bottom: none;
+			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
+		}
+		
+		#site-title a {
+			display: ".$options['show-header-text'].";
+			padding-top: ".$options['header-text-padding-top']."px;
+			padding-left: ".$options['header-text-padding-left']."px;
+			color: ".$options['header-blogtitle-color'].";
 		}
 
-		.headertext a:hover {
+		#site-title a:hover {
 			display: ".$options['show-header-text'].";
 			padding-top: ".$options['header-text-padding-top']."px;
 			padding-left: ".$options['header-text-padding-left']."px;
@@ -2110,7 +2113,6 @@ function save_options() {
 			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 			border-bottom: none;
 		}
-
 		
 		.headerblock .description {
 			display: ".$options['show-header-text'].";
