@@ -588,7 +588,8 @@ function variation_options() {
    			$custom_header_set = 0;
    		}
    	} else {
-   		$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+   		//$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+   		$model_header_image = get_header_image();
    	}
 
 	if ($options['site-width'] == 100) {
