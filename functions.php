@@ -2508,6 +2508,20 @@ function save_options() {
 			text-decoration: none;
 			border-bottom: none;
 		}
+
+		.entry-meta {
+			color: ".$options['textcolor'].";
+			font-size: 12px;
+		}
+		
+		.entry-meta a,
+		.entry-utility a {
+			color: ".$options['linkcolor'].";
+		}
+		.entry-meta a:hover,
+		.entry-utility a:hover {
+			color: ".$options['linkcolor'].";
+		}
 				
 		/* Begin comments */
 		#commentform textarea {
