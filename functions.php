@@ -1737,7 +1737,9 @@ function save_options() {
 		$headerwidth = $options['header-width']-10;
 		$headerwidth = $headerwidth."%";
 	} else {
-		$headerwidth = $options['header-width']."px";
+		$headerwidth_measure = $options['header-width'] - 8;
+		$headerwidth = $headerwidth_measure."px";
+		$contentwidth = ($headerwidth_measure-20)."px";
 	}
 
 	/******************************************************************************
