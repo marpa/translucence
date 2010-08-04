@@ -1772,6 +1772,20 @@ function save_options() {
 			margin-right: auto;
 		}
 
+		#wrapper,
+		#branding {
+			margin: 0 auto;
+			width: ".$headerwidth.";		
+		}
+
+		/* The main theme structure */
+		#access .menu-header,
+		div.menu,
+		#colophon,
+		#main {
+			margin: 0 auto;
+			width: ".$contentwidth.";
+		}
 
 		.page_top {
 			background-image: ".$options['page_top_background_image'].";
