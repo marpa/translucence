@@ -207,6 +207,26 @@ div.menu,
 #footer-widget-area #fourth {
 	margin-right: 0;
 }
+
+.footermeta_left {
+	font-size: 12px;
+	width: 50%;	
+	text-align: left;
+	margin-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.footermeta_right {
+	font-size: 12px;
+	width: 40%;
+	text-align: right;
+	float: right;
+	margin-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
 #site-info {
 	float: left;
 	font-size: 14px;
