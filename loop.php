@@ -19,6 +19,13 @@
  */
 ?>
 
+<?php /* display link to new post if user is at least an author */?>
+<?php if (current_user_can( 'edit_posts' )) : ?>
+	<div class='post-link'>
+	<a href="<?php get_bloginfo('url'); ?>/wp-admin/post-new.php">New Post</a>
+	</div>
+<?php endif; ?>
+
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 	<div id="nav-above" class="navigation">
@@ -91,7 +98,7 @@
 			<div class="entry-utility">
 				<a href="<?php echo get_term_link( _x('gallery', 'gallery category slug', 'twentyten'), 'category' ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'twentyten' ); ?>"><?php _e( 'More Galleries', 'twentyten' ); ?></a>
 				<span class="meta-sep">|</span>
-				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></span>
+				<div class="comments-link"><?php comments_popup_link( __( 'No comments', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></div>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
@@ -107,7 +114,7 @@
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
+				<?php the_content( __( 'More  <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
@@ -128,6 +135,11 @@
 			<div class="entry-meta">
 				<?php twentyten_posted_on(); ?>
 			</div><!-- .entry-meta -->
+			<?php if ( count( get_the_category() ) ) : ?>
+				<span class="cat-links">
+					<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
+				</span>
+			<?php endif; ?>
 
 	<?php if ( is_archive() || is_search() ) : // Only display excerpts for archives and search. ?>
 			<div class="entry-summary">
@@ -135,29 +147,22 @@
 			</div><!-- .entry-summary -->
 	<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
+				<?php the_content( __( 'More <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 	<?php endif; ?>
 
 			<div class="entry-utility">
-				<?php if ( count( get_the_category() ) ) : ?>
-					<span class="cat-links">
-						<?php printf( __( '<span class="%1$s">Posted in</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
-					</span>
-					<span class="meta-sep">|</span>
-				<?php endif; ?>
 				<?php
 					$tags_list = get_the_tag_list( '', ', ' );
 					if ( $tags_list ):
 				?>
-					<span class="tag-links">
-						<?php printf( __( '<span class="%1$s">Tagged</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
-					</span>
-					<span class="meta-sep">|</span>
+					<div class="tag-links">
+						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
+					</div>
 				<?php endif; ?>
-				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></span>
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+				<div class="comments-link"><?php comments_popup_link( __( 'No comments »', 'twentyten' ), __( '1 Comment »', 'twentyten' ), __( '% Comments »', 'twentyten' ) ); ?></div>
+				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
 
