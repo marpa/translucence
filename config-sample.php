@@ -9,7 +9,7 @@
 $variation_config = array();
 
 $variation_config['theme-url'] = "http://segueproject.org/wordpress/themes/";
-$variation_config['theme-name'] = "Translucence";
+$variation_config['theme-name'] = "2010 Translucence";
 
 /******************************************************************************
  * Header meta left options
@@ -150,7 +150,10 @@ $variation_config['model'][64]  = 'author-single-sidebar';
 $variation_config['model'][65]  = 'search-single-sidebar';
 $variation_config['model'][66]  = 'archives-single-sidebar';
 $variation_config['model'][67]  = 'entry-text-align';
-
+$variation_config['model'][68]  = 'header-text-shadow-offset';
+$variation_config['model'][69]  = 'header-text-shadow-blur';
+$variation_config['model'][70]  = 'header-text-shadow-color';
+$variation_config['model'][71]  = 'colophon-border-type';
 
 /******************************************************************************
  * Disabled Variations 
