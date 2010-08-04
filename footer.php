@@ -10,6 +10,7 @@
  * @since Twenty Ten 1.0
  */
 ?>
+<?php global $options; ?>
 	</div><!-- #main -->
 
 	<div id="footer" role="contentinfo">
@@ -22,23 +23,29 @@
 	get_sidebar( 'footer' );
 ?>
 
-			<div id="site-info">
-				<a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-					<?php bloginfo( 'name' ); ?>
-				</a>
-			</div><!-- #site-info -->
-
-			<div id="site-generator">
-				<?php do_action( 'twentyten_credits' ); ?>
-				<a href="<?php echo esc_url( __('http://wordpress.org/', 'twentyten') ); ?>"
-						title="<?php esc_attr_e('Semantic Personal Publishing Platform', 'twentyten'); ?>" rel="generator">
-					<?php printf( __('Proudly powered by %s.', 'twentyten'), 'WordPress' ); ?>
-				</a>
-			</div><!-- #site-generator -->
 
 		</div><!-- #colophon -->
 	</div><!-- #footer -->
 
+</div><!-- #wrapper -->
+
+<div id="wrapper" style="border: none;">
+
+<div class="footermeta_right">
+	<span class="bgtextcolor">
+	<a href="<?php print stripslashes($options['theme-url']); ?>">
+	<?php print stripslashes($options['theme-name']); ?></a>
+	<a href="<?php print stripslashes($options['background-source-url']); ?>">
+	<?php print stripslashes($options['background-source-credit']); ?></a>
+	| <a href="http://www.wordpress.org/">WordPress</a>	
+	</span><br/>
+</div>
+
+<div class="footermeta_left">
+	<span class="bgtextcolor">
+	<?php print stripslashes($options['footerleft']); ?>
+	</span><br/>
+</div>
 </div><!-- #wrapper -->
 
 <?php
