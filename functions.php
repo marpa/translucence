@@ -2033,20 +2033,39 @@ function save_options() {
 			border-bottom: none;
 		}
 
-		.bottomblock {
+		#footer {
+			clear: both;
+			width: ".$headerwidth.";
+		}
+
+		#colophon {
+			border-top: 1px ".$options['colophon-border-type']." #000;
+			margin-top: -4px;
+			overflow: hidden;
+			padding: 18px 0;
+		}
+
+		
+		#footer-widget-area {
+			overflow: hidden;
 			color:  ".$options['bottom-text-color'].";
 			background-color: ".$options['bottom-color-rgb'].";
 			border-top: 1px ".$options['bottom-border-style']." ".$options['bottom-border-top'].";
 			border-bottom: 1px ".$options['bottom-border-style']." ".$options['bottom-border-bottom'].";
 			border-left: 1px ".$options['bottom-border-style']." ".$options['bottom-border-left'].";
 			border-right: 1px ".$options['bottom-border-style']." ".$options['bottom-border-right'].";				
-			padding-top: 2px;
-			padding-bottom: 2px;
-			padding-left: 10px;
-			margin-right: 5px;
+		}
+
+		#footer-widget-area .widget-area {
+			float: left;
+			margin-right: 1px;
+			color:  ".$options['bottom-text-color'].";
+			background-color: ".$options['bottom-color-rgb'].";
+			padding: 20px;
+			width: 175px;
 		}
 		
-		.bottomblock:hover {
+		#footer-widget-area:hover {
 			background-color: ".$options['bottom-color-hover-rgb'].";
 			border-top: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-top'].";
 			border-bottom: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-bottom'].";
@@ -2054,11 +2073,11 @@ function save_options() {
 			border-right: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-right'].";		
 		}		
 
-		.bottomblock a {
+		#footer-widget-area a {
 			color: ".$options['bottom-link-color'].";		
 		}
 
-		.bottomblock a:hover {
+		#footer-widget-area a:hover {
 			color: ".$options['bottom-link-color'].";	
 			border-bottom: 1px solid ".$options['bottom-link-color'].";	
 		}
