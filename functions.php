@@ -134,7 +134,7 @@ if ( ! function_exists( 'twentyten_setup' ) ):
  * @since Twenty Ten 1.0
  */
 function twentyten_setup() {
-
+	global $options;
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
