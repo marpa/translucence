@@ -822,6 +822,84 @@ body.page .edit-link {
 	clear: both;
 	display: block;
 }
+.edit-link {
+	clear: both;
+	display: block;
+}
+
+.cat-links a {
+	-moz-border-radius-bottomleft:3px; 
+	-moz-border-radius-bottomright:3px; 
+	-moz-border-radius-topleft:3px; 
+	-moz-border-radius-topright:3px; 
+	color:#003366;
+	background-color:#e9e9c9;
+	border:1px solid #ccc; 
+	cursor:pointer; 
+	display:inline-block; 
+	margin:2px 0.2em; padding:0.1em 0.2em;	
+}
+
+.cat-links a:hover {
+	text-decoration: none;
+	background-color: #FFF8C6;
+}
+
+.tag-links a {
+	-moz-border-radius-bottomleft:3px; 
+	-moz-border-radius-bottomright:3px; 
+	-moz-border-radius-topleft:3px; 
+	-moz-border-radius-topright:3px; 
+	color:#003366;
+	background-color:#FFF8C6;
+	border:1px solid #ccc; 
+	cursor:pointer; 
+	display:inline-block; 
+	margin:2px 0.2em; padding:0.1em 0.2em;			
+}
+
+.tag-links a:hover {
+	text-decoration: none;
+	background-color: #e9e9c9;
+}
+
+.post-link a {
+	color: #036;
+	display: block;
+	border: 1px dotted #003366;
+	text-align: center;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+.post-link a:hover {
+	display: block;
+	border: 1px solid #003366;
+	text-align: center;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+
+.edit-link a {
+	display: block;
+	border: 1px dotted #003366;
+	text-align: center;
+	text-decoration: none;
+	padding: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.edit-link a:hover {
+	background-color: transparent;
+	text-decoration: none;
+	border: 1px solid #003366;
+}
+
+.comments-link {
+	text-align: right;
+}
 #entry-author-info {
 	background: #f2f7fc;
 	border-top: 4px solid #000;
