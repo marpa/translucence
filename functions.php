@@ -2131,7 +2131,7 @@ function save_options() {
 			padding-right: 10px;
 		}
 		
-		.sidebarright01 ul ul li, .sidebarright01 ul ol li {
+		#primary ul ul li, #primary ul ol li {
 			font-size: 12px;
 			color: ".$options['right01-text-color'].";
 			list-style-type:none;
@@ -2140,7 +2140,7 @@ function save_options() {
 			padding-right: 10px;
 		}
 
-		.sidebarright02 ul ul li, .sidebarright02 ul ol li {
+		#secondary ul ul li, .sidebarright02 ul ol li {
 			font-size: 12px;
 			color: ".$options['right02-text-color'].";
 			list-style-type:none;
@@ -2158,7 +2158,7 @@ function save_options() {
 			padding: 2px;			
 		}
 
-		.sidebarright01  #searchform #s {
+		#primary  #searchform #s {
 			background-color: ".$options['searchbox-color'].";
 			color: ".$options['linkcolor'].";
 			border: 1px solid #999999;
@@ -2166,7 +2166,7 @@ function save_options() {
 			padding: 2px;				
 		}
 
-		.sidebarright02  #searchform #s {
+		#secondary  #searchform #s {
 			background-color: ".$options['searchbox-color'].";
 			color: ".$options['linkcolor'].";
 			border: 1px solid #999999;
@@ -2193,7 +2193,7 @@ function save_options() {
 			border-right: 1px ".$options['left01-hover-border-style']." ".$options['left01-border-right'].";
 		}
 				
-		.right01block {
+		#primary {
 			color: ".$options['right01-text-color'].";
 			background-color: ".$options['right01-color-rgb'].";
 			border-top: 1px ".$options['right01-border-style']." ".$options['right01-border-top'].";
@@ -2203,7 +2203,7 @@ function save_options() {
 			width: ".$options['right01-width']."px;
 		}
 		
-		.right01block:hover {
+		#primary:hover {
 			background-color: ".$options['right01-color-hover-rgb'].";
 			border-top: 1px ".$options['right01-hover-border-style']." ".$options['right01-border-top'].";
 			border-bottom: 1px ".$options['right01-hover-border-style']." ".$options['right01-border-right'].";
@@ -2211,7 +2211,7 @@ function save_options() {
 			border-right: 1px ".$options['right01-hover-border-style']." ".$options['right01-border-right'].";
 		}
 
-		.right02block {
+		#secondary {
 			color: ".$options['right02-text-color'].";
 			background-color: ".$options['right02-color-rgb'].";
 			border-top: 1px ".$options['right02-border-style']." ".$options['right02-border-top'].";
@@ -2221,7 +2221,7 @@ function save_options() {
 			width: ".$options['right02-width']."px;
 		}
 
-		.right02block:hover {
+		#secondary:hover {
 			background-color: ".$options['right02-color-hover-rgb'].";
 			border-top: 1px ".$options['right02-hover-border-style']." ".$options['right02-border-top'].";
 			border-bottom: 1px ".$options['right02-hover-border-style']." ".$options['right02-border-right'].";
@@ -2238,14 +2238,14 @@ function save_options() {
 			padding-right: 25px;
 		}
 
-		.sidebarright01 {
+		#primary {
 			width: ".$options['right01-width']."px;
 			visibility: ".$options['right01-visibility'].";
 			padding-left: 25px;
 			padding-right: 25px;
 		}
 
-		.sidebarright02 {
+		#secondary {
 			width: ".$options['right02-width']."px;
 			visibility: ".$options['right02-visibility'].";
 			padding-left: 25px;
@@ -2263,22 +2263,22 @@ function save_options() {
 			border-bottom:1px solid ".$options['left01-link-color'].";
 		}
 		
-		.sidebarright01 a {
+		#primary a {
 			color: ".$options['right01-link-color'].";
 			border-bottom:1px none ".$options['right01-link-color'].";
 		}
 				
-		.sidebarright01 a:hover {
+		#primary a:hover {
 			color: ".$options['right01-link-color'].";
 			border-bottom:1px solid ".$options['right01-link-color'].";
 		}
 
-		.sidebarright02 a {
+		#secondary a {
 			color: ".$options['right02-link-color'].";
 			border-bottom:1px none ".$options['right02-link-color'].";
 		}
 
-		.sidebarright02 a:hover {
+		#secondary a:hover {
 			color: ".$options['right02-link-color'].";
 			border-bottom:1px solid ".$options['right02-link-color'].";
 		}		
@@ -2302,13 +2302,13 @@ function save_options() {
 			border-bottom: 1px none #CCCCCC;
 		}
 				
-		.sidebarright01 h2 {
+		#primary h2, #primary h3 {
 			color: ".$options['right01-heading-color'].";
 			padding-left: 0px;
 			border-bottom: 1px none #CCCCCC;
 		}
 
-		.sidebarright02 h2 {
+		#secondary h2, #secondary h3 {
 			color: ".$options['right02-heading-color'].";
 			padding-left: 0px;
 			border-bottom: 1px none #CCCCCC;
