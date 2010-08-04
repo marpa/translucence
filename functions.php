@@ -91,6 +91,18 @@ $current_widgets = get_option ('sidebars_widgets');
 
 //set_variation_options();
 
+/*********************************************************
+ * Setup admin menu
+ *********************************************************/ 
+
+add_action('admin_menu', 'variation_admin_menu');
+
+function variation_admin_menu() {
+	global $theme_options, $variation_config;
+	
+    add_theme_page($theme_options, $theme_options, 'edit_themes', 'Variations', 'variation_options');
+}
+
 
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
