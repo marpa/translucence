@@ -2542,3 +2542,442 @@ function set_variation_options() {
 	
 	set_derivative_options();	
 }
+
+/*********************************************************
+ * Set directive options uses primary options (i.e. those exposed in UI)
+ * to set derivative options
+ *********************************************************/
+
+function set_derivative_options() {
+	global $variation_config, $_POST, $options, $options_values;
+
+	/******************************************************************************
+	 * Header left links (derived from  header_meta_left_options
+	 ******************************************************************************/
+
+	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blog'] == "") {
+		$options['headerleft'] = "<a href='http:".$current_site->domain . $current_site->path."wp-signup.php' title='View your Blogs'>WordPress</a>";
+	} else if ($options['header-meta-left'] == 'custom') {
+		$options['headerleft'] = stripslashes($options['headerleftcustom']);
+	} else {
+		$options['headerleft'] = $variation_config['header_meta_left_options'][$options['header-meta-left']]['option_value'];					
+	}
+
+	/******************************************************************************
+	 * Header right links (derived from header_meta_right_options)
+	 ******************************************************************************/
+
+	if (isset($variation_config['header_meta_right_options'])) {
+		$options['headerright'] = $variation_config['header_meta_right_options']['option_value'];
+	} else {
+		$options['headerright'] = "";
+	}
+
+	/******************************************************************************
+	 * Footer left links (derived from meta_right_options
+	 ******************************************************************************/
+
+	if ($options['footer-meta-left'] == 'custom') {
+		$options['footerleft'] = stripslashes($options['footerleftcustom']);
+	} else {
+		$options['footerleft'] = $variation_config['footer_meta_left_options'][$options['footer-meta-left']]['option_value'];					
+	}
+
+	/******************************************************************************
+	 * Blog title and description display option 
+	 * (derived from header-text-display and header-block-height options)
+	 ******************************************************************************/
+	if ($options['header-text-display'] != "hide") {
+		$options['show-header-text'] = "block";
+	} else {
+		$options['show-header-text'] = "none";
+	}
+	
+	if ($options['header-text-display'] == "top") {
+		$options['header-text-padding-top'] = 3;
+		
+	} else if ($options['header-text-display'] == "middle") {
+		if ($options['header-block-height'] == 50) {
+			$options['header-text-padding-top'] = 5;
+		} else if ($options['header-block-height'] == 70) {
+			$options['header-text-padding-top'] = 10;
+		} else if ($options['header-block-height'] == 100) {
+			$options['header-text-padding-top'] = 25;		
+		} else if ($options['header-block-height'] == 125) {
+			$options['header-text-padding-top'] = 45;		
+		} else if ($options['header-block-height'] == 150) {
+			$options['header-text-padding-top'] = 55;		
+		} else if ($options['header-block-height'] == 175) {
+			$options['header-text-padding-top'] = 65;		
+		} else if ($options['header-block-height'] == 200) {
+			$options['header-text-padding-top'] = 80;
+		} else if ($options['header-block-height'] == 225) {
+			$options['header-text-padding-top'] = 90;
+		} else if ($options['header-block-height'] == 250) {
+			$options['header-text-padding-top'] = 110;
+		} else if ($options['header-block-height'] == 300) {
+			$options['header-text-padding-top'] = 145;
+		}
+		
+	} else if ($options['header-text-display'] == "bottom") {
+		$options['header-text-padding-top'] = $options['header-block-height'] - 50;
+		
+	} else {
+		$options['header-text-padding-top'] = 15;
+	}
+
+	/******************************************************************************
+	 * visited link color options (derived from link and text colors
+	 ******************************************************************************/
+	
+	// dark blue or gold
+	if ($options['linkcolor'] == '#003366' || $options['linkcolor'] == '#625b1d') {	
+		// black
+		if ($options['textcolor'] == '#222222') {
+			$options['linkcolor_visited'] = "#000000";
+		// 80% gray
+		} else if ($options['textcolor'] == '#333333') {
+			$options['linkcolor_visited'] = "#000000";
+		// 70% gray
+		} else if ($options['textcolor'] == '#444444') {
+			$options['linkcolor_visited'] = "#000000";
+		// 60% gray
+		} else if ($options['textcolor'] == '#555555') {
+			$options['linkcolor_visited'] = "#000000";
+		// 50% gray
+		} else if ($options['textcolor'] == '#666666') {
+			$options['linkcolor_visited'] = "#000000";
+		// 40% gray
+		} else if ($options['textcolor'] == '#777777') {
+			$options['linkcolor_visited'] = "#000000";
+		// 30% gray
+		} else if ($options['textcolor'] == '#888888') {
+			$options['linkcolor_visited'] = "#333333";
+		// 20% gray
+		} else if ($options['textcolor'] == '#CCCCCC') {
+			$options['linkcolor_visited'] = "#333333";
+		// 10% gray	
+		} else if ($options['textcolor'] == '#EEEEEE') {
+			$options['linkcolor_visited'] = "#CCCCCC";
+		}
+		
+		
+	//  light blue
+	} else if ($options['linkcolor'] == '#0066cc') {	
+		$options['linkcolor_visited'] = "#003366";
+	// red
+	} else if ($options['linkcolor'] == '#990000') {	
+		$options['linkcolor_visited'] = "#996666";
+	// green
+	}  else if ($options['linkcolor'] == '#265e15') {	
+		$options['linkcolor_visited'] = "#6D9C54";
+		
+	// pale yellow
+	}  else if ($options['linkcolor'] == '#FFFFCC') {	
+		// 40% gray
+		if ($options['textcolor'] == '#777777') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 30% gray
+		} else if ($options['textcolor'] == '#888888') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 20% gray
+		} else if ($options['textcolor'] == '#CCCCCC') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 10% gray	
+		} else if ($options['textcolor'] == '#EEEEEE') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		} else {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		}	
+	// yellow
+	}  else if ($options['linkcolor'] == '#FFCC33') {
+	
+		// 40% gray
+		if ($options['textcolor'] == '#777777') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 30% gray
+		} else if ($options['textcolor'] == '#888888') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 20% gray
+		} else if ($options['textcolor'] == '#CCCCCC') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		// 10% gray	
+		} else if ($options['textcolor'] == '#EEEEEE') {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		} else {
+			$options['linkcolor_visited'] = "#FFFFFF";
+		}	
+	
+	// black
+	}  else if ($options['linkcolor'] == '#222222') {	
+		$options['linkcolor_visited'] = "#333333";	
+	
+	}
+
+
+	/******************************************************************************
+	 * sidebar color and link options
+	 ******************************************************************************/	
+
+	$widget_bars = array('top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content');
+	
+	foreach($widget_bars as $bar) {
+		
+		// white
+		if ($options[$bar.'-color'] == '#FFFFFF') {
+			$options[$bar.'-border-top'] = "#CCCCCC";
+			$options[$bar.'-border-left'] = "#CCCCCC";
+			$options[$bar.'-border-bottom'] = "#CCCCCC";
+			$options[$bar.'-border-right'] = "#CCCCCC";
+			$options[$bar.'-heading-color'] = "#666666";
+			$options[$bar.'-link-color'] = $options['linkcolor'];
+			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = "#666666";
+				$options[$bar.'-border02-top'] = "#CCCCCC";
+				$options[$bar.'-border02-bottom'] = "#CCCCCC";
+			}
+		// gray blue
+		} else if ($options[$bar.'-color'] == '#364559') {
+			$options[$bar.'-border-top'] = "#666666";
+			$options[$bar.'-border-left'] = "#666666";
+			$options[$bar.'-border-bottom'] = "#666666";
+			$options[$bar.'-border-right'] = "#666666";
+			$options[$bar.'-heading-color'] = "#CCCC99";
+			$options[$bar.'-link-color'] = "#EEEEEE";
+			$options[$bar.'-text-color'] = "#CCCCCC";
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = "#FFFFFF";
+				$options[$bar.'-border02-top'] = "#333333";
+				$options[$bar.'-border02-bottom'] = "#333333";
+			}
+		// black
+		} else if ($options[$bar.'-color'] == '#000000' || $options[$bar.'-color'] == '#262626') {
+			$options[$bar.'-border-top'] = "#666666";
+			$options[$bar.'-border-left'] = "#666666";
+			$options[$bar.'-border-bottom'] = "#666666";
+			$options[$bar.'-border-right'] = "#666666";
+			$options[$bar.'-heading-color'] = "#FFFFFF";
+			$options[$bar.'-link-color'] = $options['linkcolor'];
+			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
+				$options[$bar.'-border02-top'] = "#FFFFCC";
+				$options[$bar.'-border02-bottom'] = "#FFFFCC";
+			}
+		// green	
+		} else if ($options[$bar.'-color'] == '#83A776') {
+			$options[$bar.'-border-top'] = "#666666";
+			$options[$bar.'-border-left'] = "#666666";
+			$options[$bar.'-border-bottom'] = "#666666";
+			$options[$bar.'-border-right'] = "#666666";
+			$options[$bar.'-heading-color'] = "#FFFFFF";
+			$options[$bar.'-link-color'] = $options['linkcolor'];
+			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
+				$options[$bar.'-border02-top'] = "#333333";
+				$options[$bar.'-border02-bottom'] = "#333333";
+			}
+		// muted yellow
+		}  else if ($options[$bar.'-color'] == '#e9e9c9') {
+			$options[$bar.'-border-top'] = "#999999";
+			$options[$bar.'-border-left'] = "#999999";
+			$options[$bar.'-border-bottom'] = "#999999";
+			$options[$bar.'-border-right'] = "#999999";
+			$options[$bar.'-heading-color'] = "#AAA448";
+			$options[$bar.'-link-color'] = "#FFFFFF";
+			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
+				$options[$bar.'-border02-top'] = "#333333";
+				$options[$bar.'-border02-bottom'] = "#333333";
+			}
+		// all other colors
+		}  else {
+			$options[$bar.'-border-top'] = "#CCCCCC";
+			$options[$bar.'-border-left'] = "#CCCCCC";
+			$options[$bar.'-border-bottom'] = "#CCCCCC";
+			$options[$bar.'-border-right'] = "#CCCCCC";
+			$options[$bar.'-heading-color'] = "#333333";
+			$options[$bar.'-link-color'] = $options['linkcolor'];
+			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = "#666666";
+				$options[$bar.'-border02-top'] = "#999999";
+				$options[$bar.'-border02-bottom'] = "#999999";
+			}			
+		} 
+		
+		/******************************************************************************
+		 * Bar borders 
+		 ******************************************************************************/
+		if ($options[$bar.'-border-style'] == "none") {
+			$options[$bar.'-hover-border-style'] = "none";
+		} else {
+			$options[$bar.'-hover-border-style'] = "solid";
+		}
+		
+
+		/******************************************************************************
+		 * Only variations with dark background colors or images should have 
+		 * different colors for low opacity settings
+		 ******************************************************************************/
+
+		if ($options[$bar.'-opacity'] < .7) {
+			$options[$bar.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
+			$options[$bar.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
+			$options[$bar.'-heading-color'] = $options['transparent-heading-color'];
+			$options[$bar.'-link-color'] = $options['transparent-link-color'];
+			$options[$bar.'-text-color'] = $options['transparent-text-color'];						
+		}
+		
+		// opacity			
+		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";
+		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.1).")";
+		$options[$bar.'-color-hover02-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.2).")";
+		$options[$bar.'-color-ie'] = ".".$bar."block {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		
+		// visibility
+		if ($options[$bar.'-width'] == '0') {
+			$options[$bar.'-visibility'] = "hidden";
+			$options[$bar.'-border-style'] = "none";			
+		} else {
+			$options[$bar.'-visibility'] = "visible";
+		}
+		
+	}
+	
+	/******************************************************************************
+	 * Entry, Tag and Category link style options
+	 ******************************************************************************/
+
+	$link_types = array('entry', 'tag', 'category');
+	
+	foreach($link_types as $link_type) {
+		if ($options[$link_type.'-link-style'] == "none") {
+			$options[$link_type.'-link-border'] = "none";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-hover-background_color'] = $options['content-color'];
+			$options[$link_type.'-link-hover-decoration'] = "underline";
+			$options[$link_type.'-link-background'] = "none";
+			$options[$link_type.'-link-color'] = $options['linkcolor'];
+			
+		} else if ($options[$link_type.'-link-style'] == "underline") {
+			$options[$link_type.'-link-border'] = "dotted";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid"; 
+			$options[$link_type.'-link-hover-background_color'] = $options['content-color'];
+			$options[$link_type.'-link-hover-decoration'] = "underline";
+			$options[$link_type.'-link-background'] = "none";
+			$options[$link_type.'-link-color'] = $options['linkcolor'];
+
+		} else if ($options[$link_type.'-link-style'] == "ww") {
+			$options[$link_type.'-link-border'] = "dotted ";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			if ($options['content-color'] == '#000000') {
+				$options[$link_type.'-link-hover-background_color'] = "#262626";
+			} else if ($options['content-color'] == '#262626') {
+				$options[$link_type.'-link-hover-background_color'] = "#000000";
+			} else {
+				$options[$link_type.'-link-hover-background_color'] = "#efc";
+			}
+			
+		} else if ($options[$link_type.'-link-style'] == "right-sidebar-box") {
+			$options[$link_type.'-link-border'] = "solid";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-background'] = $options['right01-color'];
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-color'] = $options['right01-link-color'];
+	
+		} else if ($options[$link_type.'-link-style'] == "right02-sidebar-box") {
+			$options[$link_type.'-link-border'] = "solid";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-background'] = $options['right02-color'];
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-color'] = $options['right02-link-color'];
+	
+			
+		} else if ($options[$link_type.'-link-style'] == "left-sidebar-box") {
+			$options[$link_type.'-link-border'] = "solid";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-background'] = $options['left01-color'];
+			$options[$link_type.'-link-hover-decoration'] = "none"; 
+			$options[$link_type.'-link-color'] = $options['left01-link-color'];
+		
+		//ww style links
+		} else if ($options[$link_type.'-link-style'] == "yellow-box") {
+			$options[$link_type.'-link-border'] = "solid";
+			$options[$link_type.'-link-decoration'] = "none";
+			$options[$link_type.'-link-hover-border'] = "solid";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-background'] = "#FFF8C6";
+			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-color'] = $options['linkcolor'];
+		} 
+		
+	}	
+
+	/******************************************************************************
+	 * Sidebar display options
+	 * Options for which sidebars to display on various pages
+	 ******************************************************************************/
+	$pages = array('post', 'category', 'tag', 'author', 'search', 'archives');
+
+	foreach($pages as $page) {
+		if ($options[$page.'-single-sidebar'] == 'right01') {
+			$options[$page.'-sidebar-left-display'] = "hide";
+			$options[$page.'-sidebar-right-display'] = "show";
+			$options[$page.'-sidebar-right02-display'] = "hide";
+			
+		} else if ($options[$page.'-single-sidebar'] == 'left01') {
+			$options[$page.'-sidebar-left-display'] = "show";
+			$options[$page.'-sidebar-right-display'] = "hide";
+			$options[$page.'-sidebar-right02-display'] = "hide";
+	
+		} else if ($options[$page.'-single-sidebar'] == 'right02') {
+			$options[$page.'-sidebar-left-display'] = "hide";
+			$options[$page.'-sidebar-right-display'] = "hide";
+			$options[$page.'-sidebar-right02-display'] = "show";
+			
+		} else if ($options[$page.'-single-sidebar'] == 'left01right01') {
+			$options[$page.'-sidebar-left-display'] = "show";
+			$options[$page.'-sidebar-right-display'] = "show";
+			$options[$page.'-sidebar-right02-display'] = "hide";
+	
+		} else if ($options[$page.'-single-sidebar'] == 'left01right02') {
+			$options[$page.'-sidebar-left-display'] = "show";
+			$options[$page.'-sidebar-right-display'] = "hide";
+			$options[$page.'-sidebar-right02-display'] = "show";
+			
+		} else if ($options[$page.'-single-sidebar'] == 'right01right02') {
+			$options[$page.'-sidebar-left-display'] = "hide";
+			$options[$page.'-sidebar-right-display'] = "show";
+			$options[$page.'-sidebar-right02-display'] = "show";
+			
+		} else if ($options[$page.'-single-sidebar'] == 'none') {
+			$options[$page.'-sidebar-left-display'] = "hide";
+			$options[$page.'-sidebar-right-display'] = "hide";
+			$options[$page.'-sidebar-right02-display'] = "hide";
+		}	
+	}
+	
+			
+	$options['page-image-width'] = $options['site-width']-50;
+
+}
