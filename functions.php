@@ -2114,7 +2114,7 @@ function save_options() {
 			border-bottom: none;
 		}
 		
-		.headerblock .description {
+		.headerblock #site-description {
 			display: ".$options['show-header-text'].";
 			padding-left: 15px;
 			color: ".$options['header-blogdescription-color'].";
