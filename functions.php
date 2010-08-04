@@ -2452,7 +2452,21 @@ function save_options() {
 			text-decoration: none;
 			border: 1px solid ".$options['linkcolor'].";
 		}
-		
+
+		#content .entry-title {
+			color: ".$options['linkcolor'].";
+			font-size: 21px;
+			font-weight: normal;
+			line-height: 1.3em;
+			margin-bottom: 0;
+		}
+
+
+		.entry-title a:link,
+		.entry-title a:visited {
+			color: ".$options['linkcolor'].";
+		}
+
 		.post h2 {
 			color: ".$options['linkcolor'].";
 			display: block;
