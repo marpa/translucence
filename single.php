@@ -66,5 +66,13 @@ get_header(); ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php get_sidebar(); ?>
+
+<?php if ( $options['post-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('primary'); ?>	
+<?php endif; ?>	
+<?php if ( $options['post-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('secondary'); ?>	
+<?php endif; ?>	
+
+
 <?php get_footer(); ?>

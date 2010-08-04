@@ -56,5 +56,11 @@ if ( get_the_author_meta( 'description' ) ) : ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php get_sidebar(); ?>
+<?php if ( $options['author-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('primary'); ?>	
+<?php endif; ?>	
+<?php if ( $options['author-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+	<?php get_sidebar('secondary'); ?>	
+<?php endif; ?>	
+
 <?php get_footer(); ?>
