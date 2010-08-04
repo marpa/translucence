@@ -1772,16 +1772,6 @@ function save_options() {
 			margin-right: auto;
 		}
 
-		.block_background .block_background_content {
-			background-color: ".$options['content-background'].";
-			padding: 15px;
-			text-align: left;
-			margin: 0px;
-		}
-				
-		.block_foreground {
-		
-		}
 
 		.page_top {
 			background-image: ".$options['page_top_background_image'].";
