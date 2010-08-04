@@ -2407,3 +2407,138 @@ function save_options() {
 	
 }
 
+/*********************************************************
+ * set primary options (options exposed to user in model)
+ *********************************************************/
+ 
+function set_primary_options() {
+	global $_POST, $options, $allowedposttags, $variation_config;
+
+	foreach ($variation_config['model'] as $option => $value) {
+
+		//sanitize options that contain HTML
+		if ($value == "headerleftcustom") {
+			$options['headerleftcustom'] = wp_kses($_POST['headerleftcustom'], $allowedposttags);
+		} else if ($value == "footerleftcustom") {
+			$options['footerleftcustom'] = wp_kses($_POST['footerleftcustom'], $allowedposttags);
+		
+		// replaces any characters that are not allowed with null
+		} else if (isset($_POST[$value]))  {
+			$options[$value] = preg_replace('/[^0-9a-z%#,\.\s-+_\/:~]/i','', stripslashes($_POST[$value]));
+		}	
+	}
+	
+	if ($variation_config['headermeta'] == "on") $options['headermeta'] = "on";
+
+	if (isset($_POST['model-instructions'])) {
+		$options['model-instructions'] = "on";
+	} else if (!isset($_POST['model-instructions']) || $options['model-instructions'] == "off") {
+		$options['model-instructions'] = "off";
+	} else {
+		$options['model-instructions'] = "on";
+	}
+}
+
+/******************************************************************************
+ * set options for variations (set with options['background'])
+ * 
+ ******************************************************************************/
+
+function set_variation_options() {
+	global $_POST, $options, $options_values, $variations;
+
+	/******************************************************************************
+	 * Default options and option value lists
+	 ******************************************************************************/
+
+	if (file_exists(dirname(__FILE__).'/variations/default/variation.php')) {
+		include('variations/default/variation.php');		
+	}
+
+	/*********************************************************
+	 * Custom backgrounds
+	 * Following options are set in the model UI
+	 * background_image_url, background_color
+	 * background_repeat, background_position
+	 * bgtextcolor, bglinkcolor
+	 *********************************************************/
+	if ($options['background'] == "custom") {			
+		$options['background_image'] = "url('".$options['background_image_url']."')";	
+		$options['background_color'] = $options['custom_background_color'];
+		$options['background_repeat'] = $options['custom_background_repeat'];
+		$options['background_position'] = $options['custom_background_position'];
+		$options['bgtextcolor'] = $options['custom_bgtextcolor'];
+		$options['bglinkcolor'] = $options['custom_bglinkcolor'];
+		$options['transparent-blogtitle-color'] = $options['custom_header_color'];
+		$options['transparent-blogdescription-color'] = $options['custom_bgtextcolor'];
+		$options['transparent-heading-color'] = $options['custom_header_color'];
+		$options['transparent-link-color']  = $options['custom_bglinkcolor'];
+		$options['transparent-text-color']  = $options['custom_bgtextcolor'];
+		$options['background-source-url'] = $options['custom_background-source-url'];
+		$options['background-source-credit'] = $options['custom_background-source-credit'];
+	} 
+
+	/******************************************************************************
+	 * Defaults for variations
+	 * variations use defaults unless otherwise specified
+	 * variations can have default option values and default option value lists
+	 * option value lists are the option values users can select in the theme model UI
+	 * (variation info in extracted from variation.php file using same functions
+	 * used to extract theme info rom theme style.php
+	 ******************************************************************************/
+	
+	$variations = array();
+	$themes_allowed_tags = "";
+	
+	if (file_exists(dirname(__FILE__).'/variations')) {
+		$variation_path = dirname(__FILE__).'/variations';
+		
+		if ($handle = opendir($variation_path)) {
+			while (false !== ($file = readdir($handle))) {
+				
+				if (is_dir($variation_path.'/'.$file) && $file !="default") {
+					
+					if (file_exists($variation_path.'/'.$file.'/variation.php')) {
+						include($variation_path.'/'.$file.'/variation.php');
+						
+						$variation_data = implode( '', file( $variation_path.'/'.$file.'/variation.php' ) );
+						$variation_data = str_replace ( '\r', '\n', $variation_data );
+						
+						// get variation name
+						if ( preg_match( '|Variation Name:(.*)$|mi', $variation_data, $variation_name ) )
+							$name = $variation = wp_kses( _cleanup_header_comment($variation_name[1]), $themes_allowed_tags );
+						else
+							$name = $variation = '';
+						
+						// get variation id
+						if ( preg_match( '|Variation ID:(.*)$|mi', $variation_data, $variation_id ) )
+							$id = $variation = wp_kses( _cleanup_header_comment($variation_id[1]), $themes_allowed_tags );
+						else
+							$id = $variation = '';						
+						$variations[$name] = $id;
+					}
+				}
+			}			
+		}
+		closedir($handle);
+		ksort($variations);
+		
+	}
+		
+	// if no variation has been selected then use theme defaults
+	if (isset($_POST)) {
+		if (!in_array($options['header-color'], array_values($options_values['sidebar-color']))) $options['header-color'] = "#F9F9F9";
+		if (!in_array($options['top-color'], array_values($options_values['sidebar-color']))) $options['top-color'] = "#FFFFFF";
+		if (!in_array($options['left01-color'], array_values($options_values['sidebar-color']))) $options['left01-color'] = "#F3F3F3";
+		if (!in_array($options['content-color'], array_values($options_values['sidebar-color']))) $options['content-color'] = "#FFFFFF";
+		if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#F3F3F3";
+		if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#F3F3F3";
+		if (!in_array($options['bottom-color'], array_values($options_values['sidebar-color']))) $options['bottom-color'] = "#FFFFFF";
+		if (!in_array($options['linkcolor'], array_values($options_values['linkcolor']))) $options['linkcolor'] = "#003366";
+		if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#444444";
+		if (!in_array($options['entry-link-style'], array_values($options_values['entry-link-style']))) $options['entry-link-style'] = "underline";
+		if (!in_array($options['header-blogtitle-color'], array_values($options_values['linkcolor']))) $options['header-blogtitle-color'] = $options['linkcolor'];	
+	}
+	
+	set_derivative_options();	
+}
