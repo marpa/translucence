@@ -244,7 +244,7 @@ div.menu,
 
 /* Main global 'theme' and typographic styles */
 body {
-	background: #f1f1f1;
+	background: #FFFFFF;
 }
 body,
 input,
@@ -356,14 +356,14 @@ textarea {
 	padding: 2px;
 }
 a:link {
-	color: #0066cc;
+	color: #003366;
 }
 a:visited {
-	color: #743399;
+	color: #000000;
 }
 a:active,
 a:hover {
-	color: #ff4b33;
+	color: #003366;
 }
 
 /* Text meant only for screen readers */
