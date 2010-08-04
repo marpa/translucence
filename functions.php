@@ -538,3 +538,1179 @@ function twentyten_posted_in() {
 	);
 }
 endif;
+
+/*********************************************************
+ * ShadowBox theme options
+ * renders UI and theme model for chosing and previewing options
+ *********************************************************/
+
+function variation_options() {	
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;
+    
+    	
+	if (isset($_POST['reset']) || $options['revert'] == 1) {
+		delete_options();
+		save_options(); 
+		$options['revert'] = 0;
+		
+    } else if ($_POST['action'] == 'save') {
+		save_options();        
+	}
+	
+	//read_css_file("style.css");
+	//printpre ($options['headerleft']);
+	
+	set_variation_options();	
+		
+	update_option($theme_settings, $options);
+	update_option($theme_css, $variation_css);
+
+	$options = get_option($theme_settings);
+	$variation_css = get_option($theme_css);
+	
+	$current_widgets = get_option ('sidebars_widgets');	
+    
+	/*********************************************************
+	 * Define theme layout model values
+	 *********************************************************/
+
+    $model_right_sidebar_width = $options['right01-width']+50;
+    $model_right_sidebar_width02 = $options['right02-width']+50;
+    $model_left_sidebar_width = $options['left01-width']+50;
+    
+    $model_header_image = get_header_image();
+	if ($options['header-image-options'] == "custom") {
+   		$match = preg_match('/variations/', $model_header_image);
+   		if ($match == 0) {
+   			$custom_header_set = 1;
+   		} else {
+   			$custom_header_set = 0;
+   		}
+   	} else {
+   		$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+   	}
+
+	if ($options['site-width'] == 100) {
+		$model_site_width = $options['site-width']-5;
+		$model_header_text_width = $model_site_width - 200;
+  	//	$model_content_width = $options['site-width'] - ($options['left-width'] + $options['right-width'] + $options['right02-width'] + 150);
+		$model_site_width = $model_site_width."%";
+				
+	} else {
+		$model_site_width = $options['site-width']-22;
+		if ($options['site-width'] >= $options['header-width']) {
+			$model_header_width = $options['header-width']-$options['custom-header-width-offset']-7;
+		} else {
+			$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
+		}
+		$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
+		$model_header_text_width = $model_site_width - 200;
+		$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
+		$model_site_width = $model_site_width."";
+		$model_site_width_css = $model_site_width."px";
+	}
+
+	
+	/*********************************************************
+	 * Define theme model css
+	 * model css uses most of the actual theme's css except
+	 * theme body css 
+	 * model css adds css for theme edit UI components
+	 *********************************************************/
+ 	
+ 	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
+ 	print "
+ 	<style type='text/css'>".$model_css."
+
+		.modelwrapper {
+			background-image: ".$options['background_image'].";
+			background-position: ".$options['background_position'].";
+			background-color: ".$options['background_color'].";
+			background-repeat: ".$options['background_repeat'].";
+ 			width: ".$model_site_width_css.";
+			margin-top: 1px;
+			margin-right: 10px;
+			background-color: ".$options['background_color'].";
+			color: #000000;
+			padding: 1px 10px 10px 10px;
+			border: 1px solid #CCCCCC;
+		}
+		
+		.contentwrapper {
+			background-color: ".$options['background_color'].";
+		
+		}
+		
+		.headerwrapper {
+			width: ".$options['header-width'].";
+		}
+						
+		.headerblock {
+			background-image: url(".$model_header_image.");
+			background-position: right center;
+			background-repeat: no-repeat;
+		}
+		 		
+ 		.contentblock {
+ 			width: ".$model_content_width."px;
+ 		}
+
+ 		.editheaderlink {
+ 			color: ".$options['bglinkcolor'].";
+ 			font-size: 9px;
+ 			white-space:nowrap; 			
+ 		}
+ 		
+		.editheaderlink a {
+ 			color: ".$options['bglinkcolor'].";
+ 			padding: 3px;
+ 			border: 1px dotted ".$options['bglinkcolor'].";
+		}
+
+ 		.editheaderlink a:hover {
+			 border: 1px solid ".$options['bglinkcolor'].";
+			 text-decoration: none;
+			 color: ".$options['bglinkcolor'].";
+		}
+		
+		.modelheadertextposition {
+			font-size: 20px; 
+			margin-left: 5px;
+			padding-top: ".$options['header-text-padding-top']."px;
+			color: ".$options['headertext'].";
+		}
+
+ 		.rss  {
+			font-size: 10px;
+			text-align: center;
+ 			color: ".$options['linkcolor'].";
+		} 	
+		
+		#appgroupedit textarea {
+			width: 300px;
+		}
+
+ 		.metatext {
+ 			font-size: 9px; 
+ 			color: ".$options['bglinkcolor'].";
+
+ 		}
+ 		
+ 		.metatext a {
+ 			color: ".$options['bglinkcolor'].";
+ 		}
+
+		.horizontalbar {
+			padding-top: 4px;
+			padding-bottom: 4px;
+			margin-bottom: 4px;
+			text-align: right;
+		}
+ 		.editwidgetlink {
+			display: block;
+ 			color: ".$options['linkcolor'].";
+ 			
+ 		}
+ 		
+ 		.editwidgetlink a {
+			display: block;
+ 			color: ".$options['linkcolor'].";
+			border: 1px dotted;
+ 			padding: 3px;
+ 			margin-bottom: 3px;
+		} 		
+ 		
+ 		.editwidgetlink a:hover {
+			 border: 1px solid;
+			 text-decoration: none;
+		}
+								
+		.instructions {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-right: 0px;
+			margin-left: 0px;
+			background-color: #fffeeb;
+			color: #000000;
+			font-size: 10px;
+			line-height: 1.5em;
+			padding: 5px;
+			border: 1px solid #CCCCCC;
+		}
+		
+		.optionsrow {
+			border-bottom: 1px dotted;
+			font-size: 10px;
+		}
+		
+		.options-select {
+			font-size: 10px;
+		}
+		
+		.entry a:visited {
+			color: ".$options['linkcolor'].";		
+			border-bottom: 1px ".$options['entry-link-border'].";
+		}
+
+		.entry-visited {
+			cursor: pointer;
+			color: ".$options['linkcolor_visited'].";		
+			border-bottom: 1px ".$options['entry-link-border'].";
+		}
+
+		.entry-visited:hover {
+			color: ".$options['linkcolor_visited'].";
+			background-color: ".$options['entry-link-hover-background_color'].";
+			border-bottom: 1px ".$options['entry-link-hover-border'].";
+		}
+		
+		a, h2 a:hover, h3 a:hover {
+			text-decoration: none;
+			border-bottom: none;
+		}
+
+		a:hover {
+			text-decoration: none;
+			border-bottom: none;
+		}
+
+		.entry a:hover {
+			background-color: ".$options['entry-link-hover-background_color'].";
+			border-bottom: 1px ".$options['entry-link-hover-border'].";		
+		}
+		
+		h1, h2, h3 {	
+			border-bottom: none;		
+		}
+		
+		.widgetbox {
+			font-size: 10px;
+			border-width: 1px;
+			border-style: solid;
+			padding: 5px;
+			margin: 3px;
+		}
+
+		".$options['header-color-ie']."
+		".$options['top-color-ie']."
+		".$options['content-color-ie']." 
+		".$options['bottom-color-ie']."
+		".$options['left01-color-ie']."
+		".$options['right01-color-ie']."
+		".$options['right02-color-ie']."
+
+ 	</style>";	 
+    
+	/*********************************************************
+	 * Form action 
+	 *********************************************************/
+
+	print "
+	<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
+	<input type='hidden' id='action' name='action' value='save'/>";
+
+	/*********************************************************
+	 *  Header meta options
+	 *  Header meta left set in config
+	 *********************************************************/
+	print 
+	"
+	<table width = '".$model_site_width."' cellpadding='0' style='background-color: transparent;'>
+		<tr>
+			<td width='20%'>
+			<span class='submit'><input type='submit' value='Update' name='save'/></span>
+			</td>
+			<td width='60%' align='left'>
+			<div class='instructions' style='font-size: 9px;'>	
+			<i>Below is a model of your blog's layout and colors. It does not show all the details of your blog's header, borders or sidebar widgets.  
+			As well, the width of sidebars and content areas may not be accurate in this preview.</i>&nbsp;&nbsp;
+			 <strong>Show recommendations: </strong><input type='checkbox' name='model-instructions' id='model-instructions' ".(isset($options['model-instructions']) && $options['model-instructions'] == "on" ? ' checked' : '') . " onchange='this.form.submit();'/>
+			</div>			
+			</td>
+			<td width='20%'>
+			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='reset'/></div>
+			</td>
+		</tr>
+		<tr>
+		<td width='20%'>"; 
+			// header meta right appgroups options	
+			if (in_array("header-meta-left", $variation_config['model'])) {
+				print "<span style='font-size: 9px;'>Header Links:</span>\n";
+				print "<select name='header-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
+				foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
+					print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
+					print ($options['header-meta-left'] == $variation_config['header_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
+					print $variation_config['header_meta_left_options'][$meta_left_option]['option_label']."</option>";						
+				}
+				print "</select>";
+			}
+			print "
+			</td>
+			<td style='text-align: center;'>";	
+			// background options		
+			if (in_array("background", $variation_config['model'])) {				
+				print "
+				<span style='font-size: 10px;'>Variation:</span>
+				<select name='background' style='font-size: 10px;' onchange='this.form.submit();'>";
+					// custom background image					
+					if (!in_array("custom", $variation_config['variations_disabled']))
+						print "\n<option value='custom'".($options['background'] == $value ? ' selected' : '') . ">Custom</option>";
+					
+					// variations defined in variations folder
+					foreach ($variations as $label => $value) {
+						if (!in_array($value, $variation_config['variations_disabled']))
+							print "\n<option value='".$value."'".($options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
+					}									
+				print "</select>";
+			}
+	
+			//site width			
+			get_option_selector ("Site Width", "site-width", $options_values['site-width']);
+
+			//header width
+			get_option_selector ("Header Width", "header-width", $options_values['header-width']);
+							
+			print "
+			</td>
+			<td width='20%' align='right'>";
+	
+			// log in link options		
+			if (in_array("headermeta", $variation_config['model']) && $variation_config['headermeta'] != "on") {	
+				print "
+				<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>Log in:
+				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
+					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
+					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
+				</select>
+				</span>";
+			} else {
+				$options['headermeta'] = 'on';
+			}
+
+			print "
+			</td>
+		</tr>
+		<tr>
+			<td colspan='3' style='text-align: center;'>";
+			if ($options['background'] == 'custom') {
+		
+				// background image url
+				get_option_field ("Background Image URL", "background_image_url", 70);
+				print "<br/>";
+								
+				// background repeat
+				get_option_selector ("Background Repeat", "custom_background_repeat", $options_values['background_repeat']);
+
+				// background position
+				get_option_selector ("Background Position", "background_position", $options_values['background_position']);
+				print "<br/>";
+				
+				// background color
+				get_option_field ("Background Color", "custom_background_color", 8);
+
+				// background link color
+				get_option_field ("Background Link Color", "custom_bglinkcolor", 8);	
+				
+				// background text color
+				get_option_selector ("Background Text Color", "custom_bgtextcolor", $options_values['textcolor']);
+				print "<br/>";
+
+				// Blog title and background heading colors	
+				get_option_field ("Translucent Blog Title Color", "custom_header_color", 8);
+				if (in_array("custom_header_color", $variation_config['model']))
+					print "<span style='font-size: 9px;'>(when header opacity < 80%)</span>";
+					
+				// Background source url
+				print "<br/>";
+				get_option_field ("Variation source URL", "custom_background-source-url", 50);
+				// Background source credit	
+				get_option_field ("Variation Name/Credit", "custom_background-source-credit", 20);
+			}				
+			print "</td>
+		</tr>
+	</table>
+	
+	<div class='modelwrapper'>";
+	
+
+	/*********************************************************
+	 *  Header meta and background  model
+	 *********************************************************/
+	
+	print "	
+	<table width='100%' cellpadding='5'>
+	<tr>
+		<td colspan='3'>
+			<table width='100%' cellspacing='0' cellpadding='5'>
+			<tr>
+			<td width='70%'>
+			<div class='metatext'>";
+			
+			if ($options['headerleft'] == "") {
+				print "no links defined...";				
+			} else {
+				print $options['headerleft'];
+			}
+					
+			// if header left links selection is custom
+			if ($options['header-meta-left'] == 'custom') {
+				print "
+					<input id='appgroupdo' type='hidden' name='appgroupdo' value='0'/> - 			
+					<a href='javascript: document.getElementById(\"appgroupedit\").style.display = \"block\"; document.getElementById(\"appgroupdo\").value = \"1\"; exit; '>edit</a>					
+					<div id='appgroupedit' style='display: none;'>					
+					<textarea name='headerleftcustom' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+					print stripslashes(stripslashes(trim($options['headerleftcustom'])));
+					print "</textarea>		
+					&nbsp;&nbsp;&nbsp;
+					<a href='javascript: document.getElementById(\"appgroupedit\").style.display = \"none\"; document.getElementById(\"appgroupdo\").value = \"0\"; exit;'>Cancel</a> - 
+					<span class='submit'><input type='submit' value='Update' name='save'/></span>
+					</div>
+				";
+			}
+			print "
+			</div>	
+			</td>
+			<td width='30%' valign='top'>";
+			
+			print "<div class='metatext' style='float: right; clear: both;'>";
+			
+			// header right meta options
+			print $options['headerright'];
+			print "Dashboard ";
+			
+			
+			// Log in link options
+			if ($options['headermeta'] == "on") {
+				print " | ".wp_get_current_user()->display_name;
+				print " - Log out";
+			}
+			
+			print "
+			</div>
+			</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width='20%'>";
+		
+		// header-text-display options		
+		if (in_array("header-text-display", $variation_config['model'])) {	
+			print "
+			<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>Blog Title Position:
+			<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
+				<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
+				<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
+				<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
+				<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
+			</select>
+			</span>";
+		}		
+		print "</td>
+		<td width='80%' colspan='2'>";
+				
+		// header height options
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("Header Height", "header-block-height", $options_values['header-block-height']);
+		print "</span>";
+		
+		// header color
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("Header Color", "header-color", $options_values['sidebar-color']);
+		print "</span>";
+
+		// header opacity
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("Header Opacity", "header-opacity", $options_values['header-opacity']);
+		print "</span>";
+		
+		// header border
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("Header Border", "header-border-style", $options_values['border-style']);
+		print "</span>";
+				
+		// header image options
+		if (in_array("header-image-options", $variation_config['model'])) {
+			print " <span style='white-space:nowrap'><span style='font-size: 10px; color:".$options['bgtextcolor']."'>Header Image:</span>\n";
+
+			if ($options['header-image-options'] == "custom" && $custom_header_set == 1) {
+				print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
+			} else {
+				print "<select name='header-image-options' style='font-size: 10px;'  onchange='this.form.submit();'>\n";
+				foreach (array_keys($variation_config['header_image_options']) as $header_image_option) {						
+					print "<option value='".$variation_config['header_image_options'][$header_image_option]['option_name']."' ";
+					print ($options['header-image-options'] == $variation_config['header_image_options'][$header_image_option]['option_name'] ? ' selected' : '') . ">";
+					print $variation_config['header_image_options'][$header_image_option]['option_label']."</option>\n";						
+				}
+				print "</select>";
+				if ($options['header-image-options'] == "custom" && $custom_header_set == 0) 
+					print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
+			}
+		}
+		print "</span>";
+		print "
+		</td>		
+	</tr>
+	<tr><td colspan='3'>";		
+		if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+			print "
+			<div class='instructions' style='font-size: 8px;'>	
+				<i>If you use your own custom header image, consider an image with transparent background for graphics or logo type images. 
+				If your custom header image spans the entire width of the header, move the blog title and description to top or bottom or hide it </i>
+			</div>		
+			";		
+		}		
+		print "	
+	</td></tr>	
+	</table>
+	";
+
+	/*********************************************************
+	 * theme model and options
+	 *********************************************************/
+	print "	
+	<div class='page_top'></div>
+	<div class='page_main'>	
+	<table width = '".$model_header_width."' align='center' cellpadding='20' style='background-color: transparent;'>
+	<tr>
+		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:100px;'>";
+			
+			// blog title and description model
+			if ($options['header-text-display'] != "hide") {
+				print "<div class='headertext'><a href = '#'>".get_bloginfo('name')."</a></div>";
+				print "<div class='description'>".get_bloginfo('description')."</div>";
+			} else {
+				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
+			}
+			print "
+
+		</td>
+	</tr>
+	</table>
+
+	<table width = '".$model_page_width."' align='center' cellpadding='0' cellspacing='2' style='background-color: ".$options['content-background'].";'>
+	<tr>
+	<td>				
+			<tr>
+				<td colspan='4' style='background-color: transparent;'>
+				<table width='100%' cellspacing='2' cellpadding='0'>
+				<tr>
+				<td width='80%' class='topblock'>";
+								
+				/*********************************************************
+				 * top bar
+				 *********************************************************/
+				
+				if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+					print "
+					<div class='instructions' style='margin: 2px;'>	
+						<span style='font-size: 8px;'><i>Use this area for announcements, or links to other related sites.  Recommended widget: Text/HTML 
+						(don't bother with giving your Text widget a title here, probably take too much space...) </i></span>
+					</div>						
+					";		
+				}		
+				print "
+				<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Top Bar</h2>
+				<div class='horizontalbar' style='font-size: 8px; float: left;'>";
+
+				// color
+				get_option_selector ("", "top-color", $options_values['sidebar-color']);
+
+				// opacity
+				get_option_selector ("", "top-opacity", $options_values['sidebar-opacity']);
+
+				// border
+				get_option_selector ("", "top-border-style", $options_values['border-style']);
+				print"
+				</div>
+				<div style='float: left;  margin-top: 3px; width: 100%'>
+				<div class='editwidgetlink' style='text-align: center; float: left; margin-top: -3px;'> 
+				<a style='color:".$options['top-link-color']."; font-size: 10px; border-color: ".$options['top-link-color']."' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>
+				</div>				
+				";
+				if (is_array($current_widgets['sidebar-4'])) {
+					foreach ($current_widgets['sidebar-4'] as $widget) {
+						$widget = str_replace("-", " ", $widget);
+						$widget = str_replace("_", " ", $widget);
+						$widget = rtrim(ucwords($widget), "0..9");
+						print "<span class='widgetbox' style='color: ".$options['top-heading-color']."; border-color: ".$options['top-heading-color'].";'>";
+						print $widget;
+						print "</span> ";					
+					}
+				}
+				print"
+				</div>
+				</td>
+				
+				<td width='20%' class='topblock'>
+				<div class='rss' style='color:".$options['top-link-color'].";'>Posts RSS | Comments RSS</div>
+				</td>
+				</tr>
+				</table>
+			</tr>
+			<tr>";
+						
+			/******************************************************************************
+			 * left sidebar model
+			 ******************************************************************************/
+
+			if ($options['left01-width'] != 0) {
+				print"
+				<td valign='top' width='".$model_left_sidebar_width."' class='left01block'>
+					<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr; </div>
+					<div style='font-size: 8px; margin: 4px;'>					
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>
+					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['leftt01-link-color']."'>";
+					
+					if (is_active_sidebar("sidebar-1")) {
+						print "<a style='color:".$options['left01-link-color']."; border-color:".$options['left01-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
+						if (is_array($current_widgets['sidebar-1'])) {
+							foreach ($current_widgets['sidebar-1'] as $widget) {
+								$widget = str_replace("-", " ", $widget);
+								$widget = str_replace("_", " ", $widget);
+								$widget = rtrim(ucwords($widget), "0..9");
+								print "<div class='widgetbox' style='color: ".$options['left01-heading-color']."; border-color: ".$options['left01-heading-color'].";'>";
+								print $widget;
+								print "</div>";	
+							}
+						}
+
+					} else {
+						print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
+						print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
+						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or hide sidebar...</div>";
+					}
+					
+					print "</div>";
+										
+					if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+						print "
+						<div class='instructions' style='font-size: 8px;'>	
+							<i>Recommended widgets:<br/>";					
+							if ($options['right01-width'] == 0 && $options['right02-width'] == 0) {
+								print "								
+								1. Search<br/>
+								2. Pages<br/>
+								3. Recent Posts<br/>
+								4. Recent Comments<br/>
+								5. Categories<br/>
+								6. Tag Cloud<br/>";
+							} else {
+								print "
+								1. Pages<br/>
+								2. Categories<br/>";							
+							}
+							print "
+							</i>
+						</div>		
+						";							
+					}
+					print "
+					
+				</td>";
+			}
+			
+			/*********************************************************
+			 * model main column contains options for:
+			 * sidebar colors and widths
+			 * post model with text and link color and style options
+			 *********************************************************/
+			
+			print "
+			<td class='contentblock' style='color: ".$options['textcolor']."'>	
+				<div style='font-size: 10px; text-align: center;'> &larr; ".$model_content_width." px &rarr;</div>
+				<div style='font-size: 10px; text-align: center;'>";
+				
+				/*********************************************************
+				 * Content Sidebar Options
+				 *********************************************************/			
+				print "<span style='font-size: 10px;'>Content</span>\n";
+				
+				// color
+				get_option_selector ("", "content-color", $options_values['sidebar-color']);
+
+				// opacity
+				get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
+
+				// border
+				get_option_selector ("", "content-border-style", $options_values['border-style']);
+				print "
+				</div>
+				<table width = '100%' cellpadding='0'>
+					<tr><td valign='top'>
+						<table width = '100%' cellpadding='0'>";
+						
+							/*********************************************************
+							 * Left Sidebar Options
+							 *********************************************************/							
+							
+							print "<tr><td class='optionsrow'>";
+							print "<div>Left Sidebar</div>\n";
+							// color
+							get_option_selector ("", "left01-color", $options_values['sidebar-color']);
+							// opacity
+							get_option_selector ("", "left01-opacity", $options_values['sidebar-opacity']);
+							//width
+							get_option_selector ("", "left01-width", $options_values['sidebar-width']);
+							// border
+							get_option_selector ("", "left01-border-style", $options_values['border-style']);
+							if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
+								print "<span style='font-size: 10px;'>hidden widgets!</span>";
+							}
+							
+							print "
+							</td></tr>
+						</table>
+						
+					</td><td>					
+						<table width = '100%' cellpadding='0'>";
+					
+						/*********************************************************
+						 * Right Sidebar Options
+						 *********************************************************/
+						print "<tr><td class='optionsrow' style='text-align: right;'>\n";
+						print "<div>Right Sidebar</div>\n";
+						
+						// color
+						get_option_selector ("", "right01-color", $options_values['sidebar-color']);
+
+						// opacity
+						get_option_selector ("", "right01-opacity", $options_values['sidebar-opacity']);
+
+						// width
+						get_option_selector ("", "right01-width", $options_values['sidebar-width']);
+
+						// border
+						get_option_selector ("", "right01-border-style", $options_values['border-style']);
+						
+						// hidden widgets warning
+						if (is_active_sidebar("sidebar-2") && $options['right01-width'] == 0) {
+							print "<span style='font-size: 10px;'>hidden widgets!</span>";
+						}
+
+						print "</td></tr>";
+					
+						/*********************************************************
+						 * 2nd Right Sidebar Options
+						 *********************************************************/
+						print "<tr><td class='optionsrow' style='text-align: right;'>\n";
+						print "<div>2nd Right Sidebar</div>\n";
+
+						// color
+						get_option_selector ("", "right02-color", $options_values['sidebar-color']);
+
+						// opacity
+						get_option_selector ("", "right02-opacity", $options_values['sidebar-opacity']);
+
+						// width
+						get_option_selector ("", "right02-width", $options_values['sidebar-width']);
+
+						// border
+						get_option_selector ("", "right02-border-style", $options_values['border-style']);
+						
+						// hidden widgets warning
+						if (is_active_sidebar("sidebar-3") && $options['right02-width'] == 0) {
+							print "<span style='font-size: 10px;'>hidden widgets!</span>";
+						}
+
+						print "
+						</td></tr>								
+					</table>						
+					</td></tr>
+				</table>
+				<hr/>
+				";
+				
+				/*********************************************************
+				 * Post model
+				 *********************************************************/
+				 
+				// post single sidebar options
+				print "<div style='float: right; clear: left; font-size: 10px;'>\n";
+				get_option_selector ("<span style='font-size: 9px;'>single post pages include</span>", "post-single-sidebar", $options_values['sidebar-display']);
+				print "
+				</div>
+				<div style='color: ".$options['linkcolor']."; font-size: 16px; font-weight: bold;'>Post Title</div>";
+				
+				// author sidebar options
+				print "<div style='float: right; clear: both; font-size: 10px;'>\n";
+				get_option_selector ("<span style='font-size: 9px;'>author pages include</span>", "author-single-sidebar", $options_values['sidebar-display']);
+ 				print "						
+				</div>
+				<div style='font-size: 9px;'>April 16th, 2009 by Author</div>";
+								
+				// category sidebar options				
+				print "<div style='float: right; clear: both; font-size: 10px;'>\n";
+				get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $options_values['sidebar-display']);
+				print "
+				</div>
+				
+				<div>
+				<span class='entry'>Categories: </span><span class='category'><a href='#'>Category</a></span>
+				</div>
+				
+				<div class='entry'>
+				<p>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> 
+				adipiscing elit. Donec ac felis non mauris tristique vehicula. 
+				Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. 
+				Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</p>
+				</div>";
+								
+				// tag sidebar options
+				print "<div style='float: right; clear: left; font-size: 10px;'>\n";
+				get_option_selector ("<span style='font-size: 9px;'>tag archive includes</span>", "tag-single-sidebar", $options_values['sidebar-display']);
+				print"
+				</div>
+				<div>
+				<span class='entry'>Tags: </span><span class='tag'><a href='#'>tag</a></span>
+				</div>
+				
+				<div class='entry' style='text-align: right;'>No Comments &#187;</div><br/>";
+
+				// search sidebar options
+				print "<div style='float: right; clear: both; font-size: 10px;'>";
+				get_option_selector ("<span style='font-size: 9px;'>search archive includes</span><br/>", "search-single-sidebar", $options_values['sidebar-display']);
+				print "</div>";
+
+				// archives sidebar options
+				print "<div style=' font-size: 10px;'>";
+				get_option_selector ("<span style='font-size: 9px;'>archives page includes</span><br/>", "archives-single-sidebar", $options_values['sidebar-display']);
+				print "</div>";
+
+				/*********************************************************
+				 * Text, Link, Category and Tag options
+				 *********************************************************/
+				
+				print "
+				<hr/>
+				<table width = '100%' cellpadding='0'>
+				<tr><td valign='top'>	
+
+					<table width = '100%' cellpadding='0'>
+						<tr>
+						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
+						<td style='border-bottom: 1px dotted; text-align: right;'>";
+						
+						// text color options
+						get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
+						print "		 							
+						</td>								
+						</tr>						<tr>
+						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text color</span></td>							
+						<td style='border-bottom: 1px dotted; text-align: right;'>";
+						
+						// text color options
+						get_option_selector ("", "textcolor", $options_values['textcolor']);
+						print "		 							
+						</td>								
+						</tr>
+						<tr>
+						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>Link color</span></td>
+						<td style='border-bottom: 1px dotted; text-align: right;'>";							
+						// link color options
+						get_option_selector ("", "linkcolor", $options_values['linkcolor']);
+						print "
+						</td>								
+						</tr>						
+					</table>
+				</td><td valign='top' width='50%'>
+					<table width = '100%' cellpadding='0'>
+						<tr>";
+						
+						// category link style
+						print "
+						<td style='border-bottom: 1px dotted;'><span class='category' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
+						<td style='border-bottom: 1px dotted; text-align: right;'>";
+						
+						get_option_selector ("", "category-link-style", $options_values['category-link-style']);
+						print "
+						</td>								
+						</tr><tr>";
+						
+						// Tag link style
+						print "
+						<td style='border-bottom: 1px dotted;'><span class='tag' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
+						<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+						get_option_selector ("", "tag-link-style", $options_values['tag-link-style']);
+						print "
+						</td>
+						</tr><tr>";
+						// Entry link style
+						print "
+						<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>Entry Link</a></span></td>
+						<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+						get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
+						print "
+						
+
+					</table>						
+				</table>
+			</td>";
+			
+			/*********************************************************
+			 * right sidebar model
+			 *********************************************************/
+
+			if ($options['right01-width'] != 0) {
+				print"
+				<td valign='top' width='".$model_right_sidebar_width."' class='right01block'>
+					<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>
+					<div style='font-size: 8px; margin: 4px;'>
+					<div style='font-size: 8px;'>
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right01-heading-color'].";'>Right Sidebar</h2></div>
+					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right01-link-color']."'>";
+
+					if (is_active_sidebar("sidebar-2")) {
+						print "<a style='color:".$options['right01-link-color']."; border-color:".$options['right01-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
+						if (is_array($current_widgets['sidebar-2'])) {
+							foreach ($current_widgets['sidebar-2'] as $widget) {
+								$widget = str_replace("-", " ", $widget);
+								$widget = str_replace("_", " ", $widget);
+								$widget = rtrim(ucwords($widget), "0..9");
+								print "<div class='widgetbox' style='color: ".$options['right01-heading-color']."; border-color: ".$options['right01-heading-color'].";'>";
+								print $widget;
+								print "</div>";	
+							}
+						}
+						
+					} else {
+						print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+						print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
+						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
+						print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+					}
+					
+					
+					
+					if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+						print "
+						<div class='instructions' style='font-size: 8px;'>	
+							<i>Recommended widgets:<br/>";
+							if ($options['left01-width'] == 0 && $options['right02-width'] == 0) {
+								print "								
+								1. Search<br/>
+								2. Pages<br/>
+								3. Recent Posts<br/>
+								4. Recent Comments<br/>
+								5. Categories<br/>
+								6. Tag Cloud<br/>";
+							} else if ($options['left01-width'] == 0 && $options['right02-width'] == 1) {
+								print "
+								1. Search<br/>
+								2. Recent Posts<br/>
+								3. Recent Comments<br/>";								
+								
+							} else {	
+								print "
+								1. Search<br/>
+								2. Recent Posts<br/>
+								3. Recent Comments<br/>
+								4. Tag Cloud<br/>";							
+							}
+							print "
+							</i>
+						</div>		
+						";		
+					}
+					print "
+					</div>	
+				</td>";
+			}
+			/*********************************************************
+			 * 2nd right sidebar model
+			 *********************************************************/
+
+			if ($options['right02-width'] != 0) {
+				print"
+				<td valign='top' width='".$model_right_sidebar_width02."'  class='right02block'>
+					<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$model_right_sidebar_width02." px &rarr;</div>
+					<div style='font-size: 8px; margin: 4px;'>
+					<div style='font-size: 8px;'>
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right02-heading-color'].";'>2nd Right Sidebar</h2></div>
+					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
+
+					if (is_active_sidebar("sidebar-3")) {
+						print "<a style='color:".$options['right02-link-color']."; border-color:".$options['right02-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
+						if (is_array($current_widgets['sidebar-3'])) {
+							foreach ($current_widgets['sidebar-3'] as $widget) {
+								$widget = str_replace("-", " ", $widget);
+								$widget = str_replace("_", " ", $widget);
+								$widget = rtrim(ucwords($widget), "0..9");
+								print "<div class='widgetbox' style='color: ".$options['right02-heading-color']."; border-color: ".$options['right02-heading-color'].";'>";
+								print $widget;
+								print "</div>";	
+							}
+						}
+
+					} else {
+						print "<a style='color:".$options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
+						print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>no widgets...</div>";
+						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>add widgets or hide sidebar...</div>";
+					}
+
+					print "</div>";
+					
+					if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+						print "
+						<div class='instructions' style='font-size: 8px;'>	
+							<i>Recommended widgets:<br/>";
+							if ($options['left01-width'] == 0 && $options['right01-width'] == 0 ) {
+								print "								
+								1. Search<br/>
+								2. Pages<br/>
+								3. Recent Posts<br/>
+								4. Recent Comments<br/>
+								5. Categories<br/>
+								6. Tag Cloud<br/>";
+							} else if ($options['left01-width'] == 0 && $options['right01-width'] == 1) {
+								print "
+								1. Pages<br/>
+								2. Categories<br/>
+								3. Tag Cloud<br/>";
+							} else {
+								print "
+								1. Pages<br/>
+								2. Categories<br/>
+								3. Tag Cloud<br/>";							
+							}
+							print "
+							</i>
+						</div>		
+						";		
+					}
+					print "
+				</td>";
+			}
+			print "	
+			</tr>
+		</table>
+	
+		<table width='100%' cellspacing='2' cellpadding='0'>
+		<tr>
+		<td class='bottomblock'>";	
+		
+		/*********************************************************
+		 *  bottom bar model
+		 *********************************************************/
+		
+		if ($options['model-instructions'] == "init" || $options['model-instructions'] == "on") {
+			print "
+			<div class='instructions' style='margin: 2px;'>	
+				<span style='font-size: 8px;'><i>Use this area for additional RSS feeds, links to other related sites.  Recommended widgets: Text/HTML, RSS</i></span>
+			</div>		
+			";		
+		}		
+		print "	
+		<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Bottom Bar</h2>
+		<div class='horizontalbar' style='font-size: 8px; float: left;'>";
+		// color
+		get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
+
+		// opacity
+		get_option_selector ("", "bottom-opacity", $options_values['sidebar-opacity']);
+
+		// border
+		get_option_selector ("", "bottom-border-style", $options_values['border-style']);			 				
+		print"
+		</div>		
+		<div style='float: left;  margin-top: 3px; width: 100%'>
+		<div class='editwidgetlink' style='text-align: center; float: left; margin-top: -3px;'> 
+		<a style='color:".$options['top-link-color']."; font-size: 10px; border-color: ".$options['top-link-color']."' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>
+		</div>				
+		";
+		if (is_array($current_widgets['sidebar-5'])) {
+			foreach ($current_widgets['sidebar-5'] as $widget) {
+				$widget = str_replace("-", " ", $widget);
+				$widget = str_replace("_", " ", $widget);
+				$widget = rtrim(ucwords($widget), "0..9");
+				print "<span class='widgetbox' style='color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print $widget;
+				print "</span>";					
+			}
+		}
+		
+		print "
+		</div>
+		</td>
+		</tr>
+		</table>
+
+	<table width='100%' cellpadding='5'>
+	<tr><td width='80%'>
+	</td>
+	<td valign='bottom' width='20%'>
+
+	</td></tr>
+	</table>
+	</div>
+	<div class='page_bottom'></div>
+	
+	<div style='font-size: 9px; float: right; clear: left; color: ".$options['bgtextcolor'].";'>";
+	print $options['theme-name'];
+	print " | WordPress
+	</div>
+	
+	<div style='font-size: 9px; color: ".$options['bgtextcolor'].";'>";
+
+		if ($options['footerleft'] == "") {
+			print "no links defined...";
+		} else {
+			print $options['footerleft'];
+		}
+		if ($options['footer-meta-left'] == 'custom') {
+			print "
+				<input id='footerleftdo' type='hidden' name='footerleftdo' value='0'/> - 
+		
+				<a href='javascript: document.getElementById(\"footerleftedit\").style.display = \"block\"; document.getElementById(\"footerleftdo\").value = \"1\"; exit;'>edit</a>
+				
+				<div id='footerleftedit' style='display: none;'>
+				
+				<textarea name='footerleftcustom' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+				print stripslashes(stripslashes(trim($options['footerleftcustom'])));
+				print "</textarea>		
+				&nbsp;&nbsp;&nbsp;
+				<a href='javascript: document.getElementById(\"footerleftedit\").style.display = \"none\"; document.getElementById(\"footerlefteditdo\").value = \"0\"; exit;'>Cancel</a> - 
+				<span class='submit'><input type='submit' value='Update' name='save'/></span>	
+				</div>
+			";
+	
+			print "</div>\n";
+		}
+	print "</div>";
+	// end options		
+
+	/*********************************************************
+	 * ShadowBox Theme instructions and Save Changes button
+	 *********************************************************/
+
+    	// footer meta left appgroups options		
+	if (in_array("footer-meta-left", $variation_config['model'])) {
+		print "<span style='font-size: 9px;'>Footer Links:</span>\n";
+		print "<select name='footer-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
+		
+		foreach (array_keys($variation_config['footer_meta_left_options']) as $meta_left_option) {						
+			print "<option value='".$variation_config['footer_meta_left_options'][$meta_left_option]['option_name']."' ";
+			print ($options['footer-meta-left'] == $variation_config['footer_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
+			print $variation_config['footer_meta_left_options'][$meta_left_option]['option_label']."</option>";						
+		}
+		print "</select>";
+		
+	}
+	print "
+    <table width = '".$model_site_width."' align='center' cellpadding='5' cellspacing='5' border='0'>
+    <tr><td>
+    <span class='submit'><input type='submit' value='Update' name='save'/></span>
+    </td><td>
+    <div class='instructions'>	
+	When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
+	text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
+	</div>
+	</td><td>
+	<span class='submit'><input type='submit' value='Revert to Default' name='reset'/></span>
+	</td></tr>
+	</table>
+	</form>";
+
+}	
