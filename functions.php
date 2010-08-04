@@ -3012,4 +3012,104 @@ function delete_options() {
 
 }
 
+/******************************************************************************
+ * Provides feedback to user about theme option choses
+ ******************************************************************************/
+
+function print_option_feedback() {
+	global $_POST, $options, $variation_config;
+	
+	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
+	$message = "<strong>Your changes have been saved.</strong>";
+	$error = "false";
+		
+	if ($options['revert'] == 1) {
+		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.<br/><br/>See the Variation menu below for variations of this theme";
+		$error = "true";
+
+	} else if (isset($_POST['reset'])) {
+		$message .= " <br/><br/>The ".$options['theme-name']." theme options have been reverted to their default settings.";
+		$error = "true";
+
+	} else {
+
+		if ($options['background_color'] == '#0F0F0F') {
+			$message .= " Black is a good choice for blogs that focus on images, particularly photos.";
+						
+			if ($options['header-image-options'] == "whitegradient") {
+				$message .= " <br/><br/>The white gradient image really doesn't look good here.  Best to upload your own custom image or use none.";
+				$error = "true";
+			} 
+
+		} 		
+		
+		if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
+			$message .= " <br/><br/>Your left sidebar is hidden but contains widgets.";
+			$error = "true";
+		}
+
+		if (is_active_sidebar("sidebar-2") && $options['right01-width'] == 0) {
+			$message .= " <br/><br/>Your right sidebar is hidden but contains widgets.";
+			$error = "true";
+		}
+
+		if (is_active_sidebar("sidebar-3") && $options['right02-width'] == 0) {
+			$message .= " <br/><br/>Your 2nd right sidebar is hidden but contains widgets.";
+			$error = "true";
+		}
+				
+		if ($options['left01-width'] == "125") {
+			$message .= "<br/>Your left sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$error = "true";
+		} 
+
+		if ($options['right01-width'] == "125") {
+			$message .= "<br/>Your right sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$error = "true";
+		} 
+
+		if ($options['right02-width'] == "125") {
+			$message .= "<br/>Your 2nd right sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$error = "true";
+		} 		
+			
+		$pages = array('post', 'category', 'tag', 'author', 'search');
+		
+		foreach($pages as $page) {
+		
+			if ($options[$page.'-sidebar-right-display'] == "show" && $options['right01-width'] == 0) {
+				$message .= " <br/>You wanted to show your right sidebar on ".$page." pages but you have hidden it...";
+				$error = "true";
+			} 
+	
+			if ($options[$page.'-sidebar-right02-display'] == "show" && $options['right02-width'] == 0) {
+				$message .= " <br/>You wanted to show your 2nd right sidebar on ".$page." pages but you have hidden it...";
+				$error = "true";
+			} 
+		
+			if ($options[$page.'-sidebar-left-display'] == "show" && $options['left01-visibility'] == "hidden") {
+				$message .= " <br/>You wanted to show your left sidebar on ".$page." pages but you have hidden it...";
+				$error = "true";
+			} 			
+		}
+		
+		if ($error == "false") {
+			$message .= " Visit the site";
+		}
+
+	}
+	
+    print
+    "
+        <div class='updated fade' id='message'
+            style='background-color: #fff3cc;
+                    margin-right: 50px;
+                    margin-top: 30px;
+                    margin-left: 20px'>
+            <p><em>".$message.".</em></p>
+        </div>
+    ";
+
+}
+
 
