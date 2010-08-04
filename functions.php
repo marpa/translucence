@@ -1084,8 +1084,8 @@ function variation_options() {
 			
 			// blog title and description model
 			if ($options['header-text-display'] != "hide") {
-				print "<div class='headertext'><a href = '#'>".get_bloginfo('name')."</a></div>";
-				print "<div class='description'>".get_bloginfo('description')."</div>";
+				print "<div id='site-title'><a href = '#'>".get_bloginfo('name')."</a></div>";
+				print "<div id='site-description'>".get_bloginfo('description')."</div>";
 			} else {
 				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
 			}
@@ -1460,7 +1460,7 @@ function variation_options() {
 
 			if ($options['right01-width'] != 0) {
 				print"
-				<td valign='top' width='".$model_right_sidebar_width."' class='right01block'>
+				<td valign='top' width='".$model_right_sidebar_width."' id='primary' style='float: none;'>
 					<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>
 					<div style='font-size: 8px; margin: 4px;'>
 					<div style='font-size: 8px;'>
@@ -1529,7 +1529,7 @@ function variation_options() {
 
 			if ($options['right02-width'] != 0) {
 				print"
-				<td valign='top' width='".$model_right_sidebar_width02."'  class='right02block'>
+				<td valign='top' width='".$model_right_sidebar_width02."'   id='secondary' style='float: none'>
 					<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$model_right_sidebar_width02." px &rarr;</div>
 					<div style='font-size: 8px; margin: 4px;'>
 					<div style='font-size: 8px;'>
