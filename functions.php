@@ -56,6 +56,18 @@ if (file_exists(dirname(__FILE__).'/config.php')) {
 	require_once('config-sample.php');
 }
 
+/*********************************************************
+ * Define theme id, settings, css and options
+ *********************************************************/
+
+$theme_id = strtolower($variation_config['theme-name']);
+$theme_id = str_replace(" ", "_", $theme_id);
+
+$theme_settings = $theme_id."_settings";
+$theme_css = $theme_id."_css";
+$theme_options = $variation_config['theme-name']." Options";
+
+
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'twentyten_setup' );
