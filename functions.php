@@ -3198,4 +3198,40 @@ function ie_opacity_css ($color, $opacity) {
 	return $out;
 }
 
+/*********************************************************
+ * Compile CSS for current variation with defaults
+ * for theme style.css
+ *********************************************************/
 
+function read_css_file($css_file) {
+
+	if (file_exists(TEMPLATEPATH.'/'.$css_file)) {
+		$default_css_filepath = TEMPLATEPATH.'/'.$css_file;
+		printpre($default_css_filepath);
+	}
+	
+	
+    if( ! ($default_css = @file("$default_css_filepath", FILE_IGNORE_NEW_LINES)) ) {
+        print("Unable to read css file: $css_file");
+        return(false);
+    }
+}
+
+/*********************************************************
+ * debugging
+ *********************************************************/
+
+
+function printpre($array, $return=FALSE) {
+	ob_start();
+	print "\n<pre>";
+	print_r($array);
+	print "\n</pre>";
+	
+	if ($return)
+		return ob_get_clean();
+	else
+		ob_end_flush();
+}
+
+?>
