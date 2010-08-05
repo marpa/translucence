@@ -40,9 +40,11 @@ $options['foreground_color'] = "#FFFFFF";
 $options['content-background'] = "transparent";
 $options['header-text-padding-left'] = "10";
 $options['header-blogtitle-size'] = "30";
-$options['header-text-shadow-color'] = "#777777";
+
+// text shadow for site-title and poat-title
+$options['header-text-shadow-color'] = "#444444";
 $options['header-text-shadow-offset'] = "2px 2px";
-$options['header-text-shadow-blur'] = "0.09em";
+$options['header-text-shadow-blur'] = "3px";
 $options['post-text-shadow-color'] = "#CCCCCC";
 $options['post-text-shadow-offset'] = "1px 1px";
 $options['post-text-shadow-blur'] = "0.05em";
