@@ -35,12 +35,12 @@ if ($options['background'] == "translucence-black") {
 	$options['background_color'] = "#0F0F0F";
 	$options['foreground_color'] = "#000000";	
 	
-	$options['header-text-shadow-color'] = "#FFFFFF";
-	$options['header-text-shadow-offset'] = "1px 1px";
-	$options['header-text-shadow-blur'] = "0.07em";
-	$options['post-text-shadow-color'] = "#FFFFFF";
+	$options['header-text-shadow-color'] = "#000000";
+	$options['header-text-shadow-offset'] = "2px 2px";
+	$options['header-text-shadow-blur'] = "5px";
+	$options['post-text-shadow-color'] = "#333333";
 	$options['post-text-shadow-offset'] = "1px 0px";
-	$options['post-text-shadow-blur'] = "0.08em";
+	$options['post-text-shadow-blur'] = "1px";
 
 								
 	$options['thread-even-bgcolor'] = "#333333";
