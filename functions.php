@@ -2014,6 +2014,8 @@ function save_options() {
 			float: left;
 			margin: 0 auto;
 			width: ".$headerwidth.";
+			margin-bottom: 10px; 
+			/* need  options top-margin-style */
 		}
 		
 		#access a {
@@ -2024,9 +2026,9 @@ function save_options() {
 			text-decoration: none;
 		}
 		#access ul ul {
-			box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-			-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
-			-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+			box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+			-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
 			display: none;
 			position: absolute;
 			top: 38px;
@@ -2054,8 +2056,28 @@ function save_options() {
 		
 		#access ul li:hover > ul {
 			display: block;
+
+		}
+		
+		#access .sub-menu {
+			background-color: ".$options['top-color-rgb'].";
+			box-shadow: 0px 3px 3px ".$options['header-text-shadow-color'].";
+			-moz-box-shadow: 0px 3px 3px ".$options['header-text-shadow-color'].";
+			-webkit-box-shadow: 0px 3px 3px ".$options['header-text-shadow-color'].";
+			border-top: 1px none ".$options['top-border-top'].";
+			border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";	
+			border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
+			border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
+		}
+		
+		#access .sub-menu ul {
+			border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";
+		}
+
+		#access .sub-menu ul li {
 			border-bottom: none;
 		}
+
 		
 		#access ul li.current_page_item > a,
 		#access ul li.current-menu-ancestor > a,
