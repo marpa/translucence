@@ -43,7 +43,7 @@ $options['custom-header-width-offset'] = 7;
 $options['foreground_color'] = "#FFFFFF";
 $options['content-background'] = "transparent";
 $options['header-text-padding-left'] = "10";
-$options['header-blogtitle-size'] = "30";
+//$options['header-text-size'] = "30";
 
 // text shadow for site-title and poat-title
 $options['header-text-shadow-color'] = "#444444";
@@ -209,6 +209,19 @@ $options_values['header-width'] = array(
 	'800px' => '800',
 	'750px' => '750',
 	'100%' => '100'
+	);
+
+$options_values['header-text-size'] = array(
+	'15px' => '15',
+	'16px' => '16',
+	'17px' => '17',
+	'18px' => '18',
+	'19px' => '19',
+	'20px' => '20',
+	'25px' => '25',
+	'30px' => '30',
+	'35px' => '35',
+	'40px' => '40'
 	);
 
 $options_values['header-opacity'] = array(
