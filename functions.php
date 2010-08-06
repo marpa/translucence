@@ -105,7 +105,7 @@ function variation_admin_menu() {
  * is designed for, generally via the style.css stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640;
+	$content_width = 373;
 
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
@@ -1781,6 +1781,9 @@ function save_options() {
 		$headerwidth = $headerwidth_measure."px";
 		$contentwidth = ($headerwidth_measure-20)."px";
 	}
+	
+	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+180);
+	printpre($content_width);
 
 	/******************************************************************************
 	 * add theme options to theme CSS
@@ -1795,7 +1798,8 @@ function save_options() {
 			background-color: ".$options['background_color'].";
 			background-image: ".$options['background_image'].";
 			background-repeat: ".$options['background_repeat'].";
-			background-position: ".$options['background_position'].";	 
+			background-position: ".$options['background_position'].";
+			background-attachment: ".$options['background_attachment'].";
 			margin-top: 10px;
 		}
 	
@@ -1918,6 +1922,7 @@ function save_options() {
 		}
 
 		#content {
+			width: ".$content_width."px;
 			color: ".$options['content-text-color'].";
 			background-color: ".$options['content-color-rgb'].";
 			border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
