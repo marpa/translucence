@@ -248,7 +248,20 @@ function twentyten_setup() {
 			'thumbnail_url' => '%s/images/headers/sunset-thumbnail.jpg',
 			/* translators: header image description */
 			'description' => __( 'Sunset', 'twentyten' )
+		),
+		'none' => array(
+			'url' => '%s/images/headers/trans-1200x300.png',
+			'thumbnail_url' => '%s/images/headers/trans-1200x300-thumbnail.png',
+			/* translators: header image description */
+			'description' => __( 'None', 'twentyten' )
+		),
+		'whitegradient' => array(
+			'url' => '%s/images/headers/whitegradient-1200x200.png',
+			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
+			/* translators: header image description */
+			'description' => __( 'White Gradient', 'twentyten' )
 		)
+
 	) );
 }
 endif;
