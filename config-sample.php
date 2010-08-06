@@ -156,6 +156,8 @@ $variation_config['model'][70]  = 'header-text-shadow-color';
 $variation_config['model'][71]  = 'colophon-border-type';
 $variation_config['model'][72]  = 'background_attachment';
 $variation_config['model'][73]  = 'footer-widget-width';
+$variation_config['model'][74]  = 'site-title-size';
+$variation_config['model'][75]  = 'site-title-color';
 
 /******************************************************************************
  * Disabled Variations 

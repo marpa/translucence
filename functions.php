@@ -285,7 +285,7 @@ function twentyten_admin_header_style() {
 /* If NO_HEADER_TEXT is false, you would style the text with these selectors:
 	#headimg #name { }
 	#headimg #desc { }
-*/
+
 </style>
 <?php
 }
@@ -690,6 +690,7 @@ function variation_options() {
 			padding: 1px 10px 10px 10px;
 			border: 1px solid #CCCCCC;
 		}
+
 		
 		.contentwrapper {
 			background-color: ".$options['background_color'].";
@@ -1048,22 +1049,36 @@ function variation_options() {
 		</td>
 	</tr>
 	<tr>
-		<td width='20%'>";
+		<td width='30%'>";
 		
 		// header-text-display options		
 		if (in_array("header-text-display", $variation_config['model'])) {	
 			print "
-			<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>Blog Title Position:
+			<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>Site Title Position:
 			<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
 				<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
 				<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
 				<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
 				<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
 			</select>
-			</span>";
-		}		
+			</div>";
+		}	
+		// header-text-size options		
+		if (in_array("site-title-size", $variation_config['model'])) {	
+			print "<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("Site Title Size", "site-title-size", $options_values['header-text-size']);
+			print "</div>";
+		}	
+		
+		// header-text-color options		
+		if (in_array("site-title-color", $variation_config['model'])) {	
+			print "<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			print "Site Title Color: #<input name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
+			print "</div>";
+		}
+		
 		print "</td>
-		<td width='80%' colspan='2'>";
+		<td width='70%' colspan='2'>";
 				
 		// header height options
 		print "<span style='color:".$options['bgtextcolor']."'>";
@@ -1129,8 +1144,8 @@ function variation_options() {
 	<div class='page_main'>	
 	<table width = '".$model_header_width."' align='center' cellpadding='20' style='background-color: transparent;'>
 	<tr>
-		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:100px;'>";
-			
+		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:100px;'>
+			<div id='branding'>";
 			// blog title and description model
 			if ($options['header-text-display'] != "hide") {
 				print "<div id='site-title'><a href = '#'>".get_bloginfo('name')."</a></div>";
@@ -1139,7 +1154,7 @@ function variation_options() {
 				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
 			}
 			print "
-
+			</div>
 		</td>
 	</tr>
 	</table>
@@ -2196,8 +2211,8 @@ function save_options() {
 			margin-bottom: 0px;
 		}
 		
-		#site-title {
-			font-size: ".$options['header-blogtitle-size']."px;
+		#branding #site-title {
+			font-size: ".$options['site-title-size']."px;
 			font-weight: normal;
 			border-bottom: none;
 			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
@@ -2207,7 +2222,7 @@ function save_options() {
 			display: ".$options['show-header-text'].";
 			padding-top: ".$options['header-text-padding-top']."px;
 			padding-left: ".$options['header-text-padding-left']."px;
-			color: ".$options['header-blogtitle-color'].";
+			color: #".$options['site-title-color'].";
 		}
 
 		#site-title a:hover {
@@ -2674,7 +2689,7 @@ function save_options() {
  
 function set_primary_options() {
 	global $_POST, $options, $allowedposttags, $variation_config;
-
+	//printpre($_POST);
 	foreach ($variation_config['model'] as $option => $value) {
 
 		//sanitize options that contain HTML
