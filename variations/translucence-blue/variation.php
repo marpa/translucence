@@ -19,6 +19,7 @@ if ($options['background'] == "translucence-blue") {
 	$options['background_image'] .= "/".$options['background_image_file']."')";
 	$options['background_repeat'] = "no-repeat";
 	$options['background_position'] = "center top";
+	$options['background_attachment'] = "fixed";
 	// 	$options['background-source-url'] = "";
  	$options['background-source-credit'] = "Blue";
 	

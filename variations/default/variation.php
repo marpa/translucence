@@ -18,14 +18,18 @@ if ($options['background'] != "custom") {
 	$options['background_image'] = "none";
 	$options['background_position'] = "top";
 	$options['background_repeat'] = "repeat-x";
+	$options['background_attachment'] = "scroll";
+	
 	$options['bgbordercolor'] = "#999999";
 	$options['bgtextcolor']	= "#CCCCCC";
 	$options['bglinkcolor']	= "#CCCCCC";
+	
 	$options['transparent-blogtitle-color'] = "#999999"; 
 	$options['transparent-blogdescription-color'] = "#555555"; 
 	$options['transparent-heading-color'] = "#999999";
 	$options['transparent-link-color']  = "#999999";
 	$options['transparent-text-color']  = "#999999";
+	
 	$options['background-source-url'] = "";
 	$options['background-source-credit'] = "";
 }
