@@ -450,7 +450,7 @@ function twentyten_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Primary Widget Area', 'twentyten' ),
 		'id' => 'primary-widget-area',
-		'description' => __( 'The primary widget area', 'twentyten' ),
+		'description' => __( '1st Right Sidebar', 'twentyten' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -461,7 +461,7 @@ function twentyten_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Secondary Widget Area', 'twentyten' ),
 		'id' => 'secondary-widget-area',
-		'description' => __( 'The secondary widget area', 'twentyten' ),
+		'description' => __( '2nd Right Sidebar', 'twentyten' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -1153,7 +1153,7 @@ function variation_options() {
 					";		
 				}		
 				print "
-				<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Top Bar</h2>
+				<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Menu Bar</h2>
 				<div class='horizontalbar' style='font-size: 8px; float: left;'>";
 
 				// color
@@ -1164,23 +1164,6 @@ function variation_options() {
 
 				// border
 				get_option_selector ("", "top-border-style", $options_values['border-style']);
-				print"
-				</div>
-				<div style='float: left;  margin-top: 3px; width: 100%'>
-				<div class='editwidgetlink' style='text-align: center; float: left; margin-top: -3px;'> 
-				<a style='color:".$options['top-link-color']."; font-size: 10px; border-color: ".$options['top-link-color']."' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>
-				</div>				
-				";
-				if (is_array($current_widgets['sidebar-4'])) {
-					foreach ($current_widgets['sidebar-4'] as $widget) {
-						$widget = str_replace("-", " ", $widget);
-						$widget = str_replace("_", " ", $widget);
-						$widget = rtrim(ucwords($widget), "0..9");
-						print "<span class='widgetbox' style='color: ".$options['top-heading-color']."; border-color: ".$options['top-heading-color'].";'>";
-						print $widget;
-						print "</span> ";					
-					}
-				}
 				print"
 				</div>
 				</td>
@@ -1644,7 +1627,7 @@ function variation_options() {
 			";		
 		}		
 		print "	
-		<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Bottom Bar</h2>
+		<h2 style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</h2>
 		<div class='horizontalbar' style='font-size: 8px; float: left;'>";
 		// color
 		get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
@@ -1656,21 +1639,63 @@ function variation_options() {
 		get_option_selector ("", "bottom-border-style", $options_values['border-style']);			 				
 		print"
 		</div>		
-		<div style='float: left;  margin-top: 3px; width: 100%'>
-		<div class='editwidgetlink' style='text-align: center; float: left; margin-top: -3px;'> 
-		<a style='color:".$options['top-link-color']."; font-size: 10px; border-color: ".$options['top-link-color']."' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>
-		</div>				
+		<div id='footer-widget-area' style='float: left; clear: both;'>
 		";
-		if (is_array($current_widgets['sidebar-5'])) {
-			foreach ($current_widgets['sidebar-5'] as $widget) {
+		
+		print "<div class='widget-area'>";
+		if (is_active_sidebar( 'first-footer-widget-area' )) {
+			print "First Footer Widget Area";
+			foreach ($current_widgets['first-footer-widget-area'] as $widget) {
 				$widget = str_replace("-", " ", $widget);
 				$widget = str_replace("_", " ", $widget);
 				$widget = rtrim(ucwords($widget), "0..9");
-				print "<span class='widgetbox' style='color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print "<div class='widgetbox' style='width: 150px; color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
 				print $widget;
-				print "</span>";					
+				print "</div>";					
 			}
 		}
+		print "</div>";
+
+		print "<div class='widget-area'>";
+		if (is_active_sidebar( 'second-footer-widget-area' )) {
+			print "Second Footer Widget Area";
+			foreach ($current_widgets['second-footer-widget-area'] as $widget) {
+				$widget = str_replace("-", " ", $widget);
+				$widget = str_replace("_", " ", $widget);
+				$widget = rtrim(ucwords($widget), "0..9");
+				print "<div class='widgetbox' style='width: 150px; color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print $widget;
+				print "</div>";					
+			}
+		}
+		print "</div>";
+		print "<div class='widget-area'>";
+		if (is_active_sidebar( 'third-footer-widget-area' )) {
+			print "Third Footer Widget Area";
+			foreach ($current_widgets['third-footer-widget-area'] as $widget) {
+				$widget = str_replace("-", " ", $widget);
+				$widget = str_replace("_", " ", $widget);
+				$widget = rtrim(ucwords($widget), "0..9");
+				print "<div class='widgetbox' style='width: 150px; color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print $widget;
+				print "</div>";					
+			}
+		}
+		print "</div>";
+		print "<div class='widget-area'>";
+		if (is_active_sidebar( 'fourth-footer-widget-area' )) {
+		print "Fourth Footer Widget Area";
+			foreach ($current_widgets['fourth-footer-widget-area'] as $widget) {
+				$widget = str_replace("-", " ", $widget);
+				$widget = str_replace("_", " ", $widget);
+				$widget = rtrim(ucwords($widget), "0..9");
+				print "<div class='widgetbox' style='width: 150px; color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print $widget;
+				print "</div>";					
+			}
+		}
+		print "</div>";
+		
 		
 		print "
 		</div>
@@ -1783,7 +1808,7 @@ function save_options() {
 	}
 	
 	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+180);
-	printpre($content_width);
+	//printpre($content_width);
 
 	/******************************************************************************
 	 * add theme options to theme CSS
@@ -2129,7 +2154,7 @@ function save_options() {
 			color:  ".$options['bottom-text-color'].";
 			background-color: ".$options['bottom-color-rgb'].";
 			padding: 20px;
-			width: 175px;
+			width: ".$options['footer-widget-width']."px;
 		}
 		
 		#footer-widget-area:hover {
@@ -3086,6 +3111,19 @@ function set_derivative_options() {
 	} else {
 		$options['colophon-border-type'] = "none";
 	}
+	
+	/******************************************************************************
+	 * calculate width of footer widget areas based on site width
+	 ******************************************************************************/
+	$active_widgets = 0;
+	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
+	
+	$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-60;
+	
+	//printpre($options['footer-widget-width']);
 
 	
 	/******************************************************************************
