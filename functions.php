@@ -675,6 +675,7 @@ function variation_options() {
  	
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
  	print "
+ 	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>".$model_css."
 
 		.modelwrapper {
@@ -1017,7 +1018,7 @@ function variation_options() {
 		// header-text-color options		
 		if (in_array("site-title-color", $variation_config['model'])) {	
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			print "Color: #<input name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
+			print "Color: #<input class='color' name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
 			print "</span>";
 		}
 		// header-text-display options		
@@ -1057,7 +1058,7 @@ function variation_options() {
 		// header-description-color options		
 		if (in_array("site-description-color", $variation_config['model'])) {	
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			print "Color: #<input name='site-description-color' type='text' size='5' maxlength='6' value='".$options['site-description-color']."'>";
+			print "Color: #<input class='color' name='site-description-color' type='text' size='5' maxlength='6' value='".$options['site-description-color']."'>";
 			print "</span>";
 		}
 		print "</div>";
