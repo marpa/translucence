@@ -906,8 +906,8 @@ function variation_options() {
 			// background options		
 			if (in_array("background", $variation_config['model'])) {				
 				print "
-				<span style='font-size: 10px;'>Variation:</span>
-				<select name='background' style='font-size: 10px;' onchange='this.form.submit();'>";
+				<span style='font-size: 10px;'></span>
+				<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
 					// custom background image					
 					if (!in_array("custom", $variation_config['variations_disabled']))
 						print "\n<option value='custom'".($options['background'] == $value ? ' selected' : '') . ">Custom</option>";
