@@ -48,8 +48,8 @@ $options['header-text-padding-left'] = "10";
 
 // text shadow for site-title and poat-title
 $options['header-text-shadow-color'] = "#444444";
-$options['header-text-shadow-offset'] = "2px 2px";
-$options['header-text-shadow-blur'] = "3px";
+//$options['header-text-shadow-offset'] = "2px 2px";
+//$options['header-text-shadow-blur'] = "3px";
 $options['post-text-shadow-color'] = "#CCCCCC";
 $options['post-text-shadow-offset'] = "1px 1px";
 $options['post-text-shadow-blur'] = "0.05em";
@@ -244,6 +244,26 @@ $options_values['header-opacity'] = array(
 	'20%'=> '.2',
 	'0%'=> '0'
 	);
+
+$options_values['text-shadow-offset'] = array(
+	'1px' => '1px 1px',
+	'2px' => '2px 2px',
+	'3px' => '3px 3px',
+	'4px' => '4px 4px',
+	'5px' => '5px 5px'
+	);
+
+$options_values['text-shadow-blur'] = array(
+	'1px' => '1px',
+	'2px' => '2px',
+	'3px' => '3px',
+	'4px' => '4px',
+	'5px' => '5px',
+	'10px' => '10px',
+	'15px' => '15px',
+	'20px' => '20px'
+	);
+
 	
 $options_values['border-style'] = array(
 	'No Border' => 'none',

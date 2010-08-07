@@ -1005,39 +1005,68 @@ function variation_options() {
 		</td>
 	</tr>
 	<tr>
-		<td width='30%'>";
+		<td width='40%'>";
 		
+		print "<div>";
+		// header-text-size options		
+		if (in_array("site-title-size", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("Site Title: ", "site-title-size", $options_values['header-text-size']);
+			print "</span>";
+		}
+		// header-text-color options		
+		if (in_array("site-title-color", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			print "Color: #<input name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
+			print "</span>";
+		}
 		// header-text-display options		
 		if (in_array("header-text-display", $variation_config['model'])) {	
 			print "
-			<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>Site Title Position:
+			<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>
 			<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
 				<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
 				<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
 				<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
 				<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
 			</select>
-			</div>";
-		}	
-		// header-text-size options		
-		if (in_array("site-title-size", $variation_config['model'])) {	
-			print "<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			get_option_selector ("Site Title Size", "site-title-size", $options_values['header-text-size']);
-			print "</div>";
-		}	
-		
-		// header-text-color options		
-		if (in_array("site-title-color", $variation_config['model'])) {	
-			print "<div style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			print "Site Title Color: #<input name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
-			print "</div>";
+			</span>";
 		}
+		print "</div>";
+		print "<div>";
+		// header-text-offset options		
+		if (in_array("header-text-shadow-offset", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("offset: ", "header-text-shadow-offset", $options_values['text-shadow-offset']);
+			print "</span>";
+		}	
+		// header-text-blur options		
+		if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
+			print "</span>";
+		}
+		print "</div>";
+		print "<div>";
+		// header-description-size options		
+		if (in_array("site-description-size", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("Tagline: ", "site-description-size", $options_values['header-text-size']);
+			print "</span>";
+		}
+		// header-description-color options		
+		if (in_array("site-description-color", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			print "Color: #<input name='site-description-color' type='text' size='5' maxlength='6' value='".$options['site-description-color']."'>";
+			print "</span>";
+		}
+		print "</div>";
 		
 		print "</td>
-		<td width='70%' colspan='2'>
+		<td width='60%' colspan='2'>
 		";
 		
-		print "<div>";
+		print "<div style='float: left; width: 50%;'>";
 		//site width
 		print "<span style='color:".$options['bgtextcolor']."'>";
 		get_option_selector ("Site: ", "site-width", $options_values['site-width']);
@@ -1056,7 +1085,7 @@ function variation_options() {
 		print "</span>";
 		print "</div>";
 
-		print "<div>";
+		print "<div style='float: right; width: 50%;'>";
 		// header height options
 		print "<span style='color:".$options['bgtextcolor']."'>";
 		get_option_selector ("Header:", "header-block-height", $options_values['header-block-height']);
@@ -1805,16 +1834,16 @@ function save_options() {
 	}
 
 	if ($options['header-width'] == 100) {
-		$headerwidth = $options['header-width']-10;
+		$headerwidth = $options['site-width']-10;
 		$headerwidth = $headerwidth."%";
 	} else {
-		$headerwidth_measure = $options['header-width'] - 8;
+		$headerwidth_measure = $options['site-width'] - 35;
 		$headerwidth = $headerwidth_measure."px";
 		$contentwidth = ($headerwidth_measure-20)."px";
 	}
 	
 	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+230);
-	printpre($content_width);
+	//printpre($content_width);
 
 	/******************************************************************************
 	 * add theme options to theme CSS
@@ -2213,22 +2242,22 @@ function save_options() {
 			padding-top: ".$options['header-text-padding-top']."px;
 			padding-left: ".$options['header-text-padding-left']."px;
 			color: #".$options['site-title-color'].";
+			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 		}
 
 		#site-title a:hover {
 			display: ".$options['show-header-text'].";
 			padding-top: ".$options['header-text-padding-top']."px;
 			padding-left: ".$options['header-text-padding-left']."px;
-			color: ".$options['header-blogtitle-color'].";
-			text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
+			color: #".$options['site-title-color'].";
 			border-bottom: none;
 		}
 		
 		.headerblock #site-description {
 			display: ".$options['show-header-text'].";
 			padding-left: 15px;
-			color: ".$options['header-blogdescription-color'].";
-			font-size: 12px;
+			color: #".$options['site-description-color'].";
+			font-size: ".$options['site-description-size']."px;
 		}
 		
 		/* Begin sidebar list */
@@ -3151,7 +3180,7 @@ function set_derivative_options() {
 	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
 	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
 	
-	$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-60;
+	$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-80;
 	
 	//printpre($options['footer-widget-width']);
 

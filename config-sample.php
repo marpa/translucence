@@ -167,6 +167,10 @@ $variation_config['model'][81]  = 'site-border-left';
 $variation_config['model'][82]  = 'site-border-right';
 $variation_config['model'][83]  = 'site-padding-top';
 $variation_config['model'][84]  = 'site-padding-bottom';
+$variation_config['model'][85]  = 'header-text-shadow-offset';
+$variation_config['model'][86]  = 'header-text-shadow-blur';
+$variation_config['model'][87]  = 'site-description-color';
+$variation_config['model'][88]  = 'site-description-size';
 
 /******************************************************************************
  * Disabled Variations 
