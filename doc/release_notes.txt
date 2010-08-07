@@ -10,8 +10,9 @@ the WordPress twentyten default theme
 
 Current Version Notes
 ---------------------
-This release adds most of the theme options and design elements of the WordPress
-ShadowBox theme
+This release adds most of the theme options and design elements of the ShadowBox
+theme to the Twentyten theme as well as adds new options not in its predessesor such
+as site-title, size and color and spacing between menu bar and main content area.
 
 
 Downloads
@@ -53,8 +54,9 @@ Bug Tracker
 
 v. 1.0.1 (the future)
 ----------------------------------------------------
-This release adds most of the theme options and design elements of the WordPress
-ShadowBox theme
+This release adds most of the theme options and design elements of the ShadowBox
+theme to the Twentyten theme as well as adds new options not in its predessesor such
+as site-title, size and color and spacing between menu bar and main content area.
 
 
 
