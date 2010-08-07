@@ -176,7 +176,7 @@ function twentyten_setup() {
 	$header_image_height = $options['header-block-height'];
 	
 	//define('HEADER_IMAGE', $header_image); // %s is theme dir uri
-	define( 'HEADER_IMAGE', '%s/images/headers/trans01-940x198' );
+	define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory').'/images/headers/trans01-940x198' );
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
 	define( 'HEADER_TEXTCOLOR', $options['header-text-color']);
@@ -920,11 +920,8 @@ function variation_options() {
 				print "</select>";
 			}
 	
-			//site width			
-			get_option_selector ("Site Width", "site-width", $options_values['site-width']);
-
 			//header width
-			get_option_selector ("Header Width", "header-width", $options_values['header-width']);
+			//get_option_selector ("Header Width", "header-width", $options_values['header-width']);
 							
 			print "
 			</td>
@@ -1078,47 +1075,69 @@ function variation_options() {
 		}
 		
 		print "</td>
-		<td width='70%' colspan='2'>";
-				
+		<td width='70%' colspan='2'>
+		";
+		
+		print "<div>";
+		//site width
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("Site: ", "site-width", $options_values['site-width']);
+		print "</span>";
+		// site color
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("", "site-color", $options_values['sidebar-color']);
+		print "</span>";
+		// site opacity
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("", "site-opacity", $options_values['header-opacity']);
+		print "</span>";
+		// site border
+		print "<span style='color:".$options['bgtextcolor']."'>";
+		get_option_selector ("", "site-border-style", $options_values['border-style']);
+		print "</span>";
+		print "</div>";
+
+		print "<div>";
 		// header height options
 		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Header Height", "header-block-height", $options_values['header-block-height']);
+		get_option_selector ("Header:", "header-block-height", $options_values['header-block-height']);
 		print "</span>";
 		
 		// header color
 		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Header Color", "header-color", $options_values['sidebar-color']);
+		get_option_selector ("", "header-color", $options_values['sidebar-color']);
 		print "</span>";
 
 		// header opacity
 		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Header Opacity", "header-opacity", $options_values['header-opacity']);
+		get_option_selector ("", "header-opacity", $options_values['header-opacity']);
 		print "</span>";
 		
 		// header border
 		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Header Border", "header-border-style", $options_values['border-style']);
+		get_option_selector ("", "header-border-style", $options_values['border-style']);
 		print "</span>";
+		print "</div>";
 				
 		// header image options
-		if (in_array("header-image-options", $variation_config['model'])) {
-			print " <span style='white-space:nowrap'><span style='font-size: 10px; color:".$options['bgtextcolor']."'>Header Image:</span>\n";
-
-			if ($options['header-image-options'] == "custom" && $custom_header_set == 1) {
-				print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
-			} else {
-				print "<select name='header-image-options' style='font-size: 10px;'  onchange='this.form.submit();'>\n";
-				foreach (array_keys($variation_config['header_image_options']) as $header_image_option) {						
-					print "<option value='".$variation_config['header_image_options'][$header_image_option]['option_name']."' ";
-					print ($options['header-image-options'] == $variation_config['header_image_options'][$header_image_option]['option_name'] ? ' selected' : '') . ">";
-					print $variation_config['header_image_options'][$header_image_option]['option_label']."</option>\n";						
-				}
-				print "</select>";
-				if ($options['header-image-options'] == "custom" && $custom_header_set == 0) 
-					print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
-			}
-		}
-		print "</span>";
+// 		if (in_array("header-image-options", $variation_config['model'])) {
+// 			print " <span style='white-space:nowrap'><span style='font-size: 10px; color:".$options['bgtextcolor']."'>Header Image:</span>\n";
+// 
+// 			if ($options['header-image-options'] == "custom" && $custom_header_set == 1) {
+// 				print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
+// 			} else {
+// 				print "<select name='header-image-options' style='font-size: 10px;'  onchange='this.form.submit();'>\n";
+// 				foreach (array_keys($variation_config['header_image_options']) as $header_image_option) {						
+// 					print "<option value='".$variation_config['header_image_options'][$header_image_option]['option_name']."' ";
+// 					print ($options['header-image-options'] == $variation_config['header_image_options'][$header_image_option]['option_name'] ? ' selected' : '') . ">";
+// 					print $variation_config['header_image_options'][$header_image_option]['option_label']."</option>\n";						
+// 				}
+// 				print "</select>";
+// 				if ($options['header-image-options'] == "custom" && $custom_header_set == 0) 
+// 					print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
+// 			}
+// 		}
+// 		print "</span>";
 		print "
 		</td>		
 	</tr>
@@ -1835,8 +1854,8 @@ function save_options() {
 		$contentwidth = ($headerwidth_measure-20)."px";
 	}
 	
-	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+180);
-	//printpre($content_width);
+	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+230);
+	printpre($content_width);
 
 	/******************************************************************************
 	 * add theme options to theme CSS
@@ -1874,6 +1893,18 @@ function save_options() {
 			margin: 0 auto;
 			width: ".$headerwidth.";		
 		}
+		
+		#wrapper {
+			background-color: ".$options['site-color-rgb'].";
+			border-top: 1px ".$options['site-border-style'] ." ".$options['site-border-top'].";
+			border-bottom: 1px ".$options['site-border-style'] ." ".$options['site-border-bottom'].";
+			border-left: 1px ".$options['site-border-style'] ." ".$options['site-border-left'].";
+			border-right: 1px ".$options['site-border-style'] ." ".$options['site-border-right'].";
+			margin-top: 1px;
+			margin-bottom: 10px;
+			padding: ".$options['site-padding-top'] ."px ".$options['site-padding-bottom'] ."px;
+		}
+
 
 		/* The main theme structure */
 		#access .menu-header,
@@ -2828,6 +2859,18 @@ function set_derivative_options() {
 	global $variation_config, $_POST, $options, $options_values;
 
 	/******************************************************************************
+	 * Site top padding (derived from  site-border-style)
+	 ******************************************************************************/
+	
+	if ($options['site-border-style'] != 'none') {
+		$options['site-padding-top'] = "20";
+		$options['site-padding-bottom'] = "20";
+	} else {
+		$options['site-padding-top'] = "10";
+		$options['site-padding-bottom'] = "10";
+	}
+
+	/******************************************************************************
 	 * Header left links (derived from  header_meta_left_options
 	 ******************************************************************************/
 
@@ -2995,7 +3038,7 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content');
 	
 	foreach($widget_bars as $bar) {
 		
