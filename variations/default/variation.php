@@ -128,7 +128,7 @@ $options['searchbox-color'] = "#FFFFFF";
  ******************************************************************************/
 if (!isset($options['headermeta'])) $options['headermeta'] = "on";
  
-if (!isset($options['background'])) $options['background'] = "translucence-blue";
+if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 if (!isset($options['site-width'])) $options['site-width'] = "900";
 if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
 if (!isset($options['header-blogtitle-size'])) $options['header-blogtitle-size'] = "30";
