@@ -908,9 +908,6 @@ function variation_options() {
 				print "
 				<span style='font-size: 10px;'></span>
 				<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
-					// custom background image					
-					if (!in_array("custom", $variation_config['variations_disabled']))
-						print "\n<option value='custom'".($options['background'] == $value ? ' selected' : '') . ">Custom</option>";
 					
 					// variations defined in variations folder
 					foreach ($variations as $label => $value) {
@@ -943,45 +940,7 @@ function variation_options() {
 			print "
 			</td>
 		</tr>
-		<tr>
-			<td colspan='3' style='text-align: center;'>";
-			if ($options['background'] == 'custom') {
-		
-				// background image url
-				get_option_field ("Background Image URL", "background_image_url", 70);
-				print "<br/>";
-								
-				// background repeat
-				get_option_selector ("Background Repeat", "custom_background_repeat", $options_values['background_repeat']);
-
-				// background position
-				get_option_selector ("Background Position", "background_position", $options_values['background_position']);
-				print "<br/>";
-				
-				// background color
-				get_option_field ("Background Color", "custom_background_color", 8);
-
-				// background link color
-				get_option_field ("Background Link Color", "custom_bglinkcolor", 8);	
-				
-				// background text color
-				get_option_selector ("Background Text Color", "custom_bgtextcolor", $options_values['textcolor']);
-				print "<br/>";
-
-				// Blog title and background heading colors	
-				get_option_field ("Translucent Blog Title Color", "custom_header_color", 8);
-				if (in_array("custom_header_color", $variation_config['model']))
-					print "<span style='font-size: 9px;'>(when header opacity < 80%)</span>";
-					
-				// Background source url
-				print "<br/>";
-				get_option_field ("Variation source URL", "custom_background-source-url", 50);
-				// Background source credit	
-				get_option_field ("Variation Name/Credit", "custom_background-source-credit", 20);
-			}				
-			print "</td>
-		</tr>
-	</table>
+		</table>
 	
 	<div class='modelwrapper'>";
 	
