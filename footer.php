@@ -29,7 +29,7 @@
 
 </div><!-- #wrapper -->
 
-<div id="wrapper" style="border: none;">
+<div class="sitewrapper">
 
 <div class="footermeta_right">
 	<span class="bgtextcolor">

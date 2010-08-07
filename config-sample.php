@@ -158,6 +158,15 @@ $variation_config['model'][72]  = 'background_attachment';
 $variation_config['model'][73]  = 'footer-widget-width';
 $variation_config['model'][74]  = 'site-title-size';
 $variation_config['model'][75]  = 'site-title-color';
+$variation_config['model'][76]  = 'site-color';
+$variation_config['model'][77]  = 'site-opacity';
+$variation_config['model'][78]  = 'site-border-style';
+$variation_config['model'][79]  = 'site-border-top';
+$variation_config['model'][80]  = 'site-border-bottom';
+$variation_config['model'][81]  = 'site-border-left';
+$variation_config['model'][82]  = 'site-border-right';
+$variation_config['model'][83]  = 'site-padding-top';
+$variation_config['model'][84]  = 'site-padding-bottom';
 
 /******************************************************************************
  * Disabled Variations 
