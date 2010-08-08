@@ -15,20 +15,32 @@
 
 get_header(); ?>
 
-		<div id="container">
-			<div id="content" role="main">
+<?php $options; ?>
+	
+<div id="container">
 
-			<?php
-			/* Run the loop to output the posts.
-			 * If you want to overload this in a child theme then include a file
-			 * called loop-index.php and that will be used instead.
-			 */
-			 get_template_part( 'loop', 'index' );
-			?>
-			</div><!-- #content -->
+	<?php if (is_active_sidebar("tertiary-widget-area") && $options['left01-width'] != '0') : ?>
+		<?php get_sidebar('tertiary'); ?>	
+	<?php endif; ?>	
+	
+		<div id="content" role="main">
+	
+		<?php
+		/* Run the loop to output the posts.
+		 * If you want to overload this in a child theme then include a file
+		 * called loop-index.php and that will be used instead.
+		 */
+		 get_template_part( 'loop', 'index' );
+		?>
+		</div><!-- #content -->
+	
+	<?php if (is_active_sidebar("primary-widget-area")  && $options['right01-width'] != '0') : // Only display sidebar if single. ?>
+		<?php get_sidebar('primary'); ?>	
+	<?php endif; ?>	
+	<?php if (is_active_sidebar("secondary-widget-area")  && $options['right02-width'] != '0' ) : // Only display sidebar if single. ?>
+		<?php get_sidebar('secondary'); ?>	
+	<?php endif; ?>		
 
-
-<?php get_sidebar(); ?>
-		</div><!-- #container -->
+</div><!-- #container -->
 <?php get_footer(); ?>
 

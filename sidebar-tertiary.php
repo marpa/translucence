@@ -14,15 +14,13 @@
 	 * then the sidebar simply doesn't exist, so we'll hard-code in
 	 * some default sidebar stuff just in case.
 	 */
-	// A second sidebar for widgets, just because.
-	
-	global $options;
-	if ( is_active_sidebar( 'secondary-widget-area' ) && $options['right02-width'] != '0') : ?>
+	// A tertiary sidebar for widgets, just because.
+	if ( is_active_sidebar( 'tertiary-widget-area' ) ) : ?>
 
-		<div id="secondary" class="widget-area" role="complementary">
+		<div id="tertiary" class="widget-area" role="complementary">
 			<ul class="xoxo">
-				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
+				<?php dynamic_sidebar( 'tertiary-widget-area' ); ?>
 			</ul>
-		</div><!-- #secondary .widget-area -->
+		</div><!-- #tertiary .widget-area -->
 
 <?php endif; ?>
