@@ -658,13 +658,13 @@ function variation_options() {
    	}
 
 	if ($options['site-width'] == 100) {
-		$model_site_width = $options['site-width']-5;
+		$model_site_width = $options['site-width']+20;
 		$model_header_text_width = $model_site_width - 200;
   	//	$model_content_width = $options['site-width'] - ($options['left-width'] + $options['right-width'] + $options['right02-width'] + 150);
 		$model_site_width = $model_site_width."%";
 				
 	} else {
-		$model_site_width = $options['site-width']-22;
+		$model_site_width = $options['site-width']+10;
 		if ($options['site-width'] >= $options['header-width']) {
 			$model_header_width = $options['header-width']-$options['custom-header-width-offset']-7;
 		} else {
@@ -676,8 +676,11 @@ function variation_options() {
 		$model_site_width = $model_site_width."";
 		$model_site_width_css = $model_site_width."px";
 	}
-
 	
+	$background_color = get_background_color();
+	if ($background_color !="") $options['background_color'] = "#".$background_color;
+	
+			
 	/*********************************************************
 	 * Define theme model css
 	 * model css uses most of the actual theme's css except
@@ -686,6 +689,8 @@ function variation_options() {
 	 *********************************************************/
  	
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
+ 	
+
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>".$model_css."
@@ -695,9 +700,9 @@ function variation_options() {
 			background-position: ".$options['background_position'].";
 			background-color: ".$options['background_color'].";
 			background-repeat: ".$options['background_repeat'].";
- 			width: ".$model_site_width_css.";
+ 			width: ".$model_site_width."px;
 			margin-top: 1px;
-			margin-right: 10px;
+			margin-right: 0px;
 			background-color: ".$options['background_color'].";
 			color: #000000;
 			padding: 1px 10px 10px 10px;
@@ -1160,8 +1165,7 @@ function variation_options() {
 	 * theme model and options
 	 *********************************************************/
 	print "	
-	<div class='page_top'></div>
-	<div class='page_main'>	
+
 	<table width = '".$model_header_width."' align='center' cellpadding='20' style='background-color: transparent;'>
 	<tr>
 		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:100px;'>
@@ -1892,7 +1896,7 @@ function save_options() {
 		#wrapper,
 		#branding {
 			margin: 0 auto;
-			width: ".$headerwidth.";		
+			width: ".$sitewidth.";		
 		}
 		
 		#wrapper {
@@ -2213,7 +2217,8 @@ function save_options() {
 			border-top: 1px ".$options['bottom-border-style']." ".$options['bottom-border-top'].";
 			border-bottom: 1px ".$options['bottom-border-style']." ".$options['bottom-border-bottom'].";
 			border-left: 1px ".$options['bottom-border-style']." ".$options['bottom-border-left'].";
-			border-right: 1px ".$options['bottom-border-style']." ".$options['bottom-border-right'].";				
+			border-right: 1px ".$options['bottom-border-style']." ".$options['bottom-border-right'].";	
+			width: ".$model_header_width."px;
 		}
 
 		#footer-widget-area .widget-area {
@@ -2222,7 +2227,7 @@ function save_options() {
 			color:  ".$options['bottom-text-color'].";
 			background-color: ".$options['bottom-color-rgb'].";
 			padding: 20px;
-			width: ".$options['footer-widget-width']."px;
+			width: ".$model_header_width."px;
 		}
 		
 		#footer-widget-area:hover {
