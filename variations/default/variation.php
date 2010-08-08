@@ -229,7 +229,9 @@ $options_values['header-text-size'] = array(
 	'25px' => '25',
 	'30px' => '30',
 	'35px' => '35',
-	'40px' => '40'
+	'40px' => '40',
+	'50px' => '50',
+	'60px' => '60',
 	);
 
 $options_values['header-opacity'] = array(
@@ -246,6 +248,7 @@ $options_values['header-opacity'] = array(
 	);
 
 $options_values['text-shadow-offset'] = array(
+	'0px' => '0px 0px',
 	'1px' => '1px 1px',
 	'2px' => '2px 2px',
 	'3px' => '3px 3px',
@@ -254,6 +257,7 @@ $options_values['text-shadow-offset'] = array(
 	);
 
 $options_values['text-shadow-blur'] = array(
+	'0px' => '0px',
 	'1px' => '1px',
 	'2px' => '2px',
 	'3px' => '3px',
