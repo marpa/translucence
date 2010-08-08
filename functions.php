@@ -2417,6 +2417,13 @@ function save_options() {
 			padding-left: 0px;
 			border-bottom: 1px none #CCCCCC;
 		}
+
+		#tertiary h2, #tertiary h3 {
+			color: ".$options['left01-heading-color'].";
+			padding-left: 0px;
+			border-bottom: 1px none #CCCCCC;
+		}
+
 		
 		/* Begin entry/post links */
 		
