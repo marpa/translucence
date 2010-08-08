@@ -657,28 +657,18 @@ function variation_options() {
    		$model_header_image = get_header_image();
    	}
 
-	if ($options['site-width'] == 100) {
-		$model_site_width = $options['site-width']+20;
-		$model_header_text_width = $model_site_width - 200;
-  	//	$model_content_width = $options['site-width'] - ($options['left-width'] + $options['right-width'] + $options['right02-width'] + 150);
-		$model_site_width = $model_site_width."%";
-				
-	} else {
-		$model_site_width = $options['site-width']+10;
-		if ($options['site-width'] >= $options['header-width']) {
-			$model_header_width = $options['header-width']-$options['custom-header-width-offset']-7;
-		} else {
-			$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
-		}
-		$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
-		$model_header_text_width = $model_site_width - 200;
-		$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
-		$model_site_width = $model_site_width."";
-		$model_site_width_css = $model_site_width."px";
-	}
+
+	$model_site_width = $options['site-width']+10;
+
+	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	
-	
-	
+	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
+	$model_header_text_width = $model_site_width - 200;
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
+	$model_site_width = $model_site_width."";
+	$model_site_width_css = $model_site_width."px";
+
+		
 	$custom_background_color = get_background_color();
 	$custom_background_image = get_background_image();
 	if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
@@ -1178,9 +1168,9 @@ function variation_options() {
 	 *********************************************************/
 	print "	
 
-	<table width = '".$model_header_width."' align='center' cellpadding='20' style='background-color: transparent;'>
+	<table width = '".$model_site_width."' align='center' cellpadding='20' style='background-color: transparent;'>
 	<tr>
-		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:100px;'>
+		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:0px;'>
 			<div id='branding'>";
 			// blog title and description model
 			if ($options['header-text-display'] != "hide") {
@@ -1195,7 +1185,7 @@ function variation_options() {
 	</tr>
 	</table>
 
-	<table width = '".$model_page_width."' align='center' cellpadding='0' cellspacing='2' style='background-color: ".$options['content-background'].";'>
+	<table width = '".$model_page_width."' align='center' cellpadding='0' cellspacing='2' id='wrapper' style='padding: 0px;'>
 	<tr>
 	<td>				
 			<tr>
@@ -1675,7 +1665,7 @@ function variation_options() {
 			</tr>
 		</table>
 	
-		<table width='100%' cellspacing='2' cellpadding='0'>
+		<table width='100%' cellspacing='2' cellpadding='0' id='wrapper' style='padding: 0px;'>
 		<tr>
 		<td class='bottomblock'>";	
 		
@@ -1904,7 +1894,7 @@ function save_options() {
 		
 		#branding {
 			margin: 0 auto;
-					
+			width: ".$site_width."px;		
 		}
 		
 		#access .menu-header,
@@ -2071,7 +2061,7 @@ function save_options() {
 			border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";	
 			border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
 			border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
-
+			width: ".$menu_width."px;
 			margin-bottom: 10px; 
 			/* need  options top-margin-style */
 		}
@@ -2155,7 +2145,7 @@ function save_options() {
 
 		#footer {
 			clear: both;
-			width: ".$headerwidth.";
+			width: ".$site_width."px;
 		}
 
 		#colophon {
