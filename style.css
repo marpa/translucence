@@ -189,6 +189,7 @@ div.menu,
 	margin: 0 auto;
 	width: 950px;
 }
+
 #wrapper {
 	background: transparent;
 	margin-top: 1px;
@@ -492,7 +493,7 @@ div.menu li {
 	color: #333;
 	display: block;
 	line-height: 38px;
-	padding: 0 10px;
+	padding: 0 0px;
 	text-decoration: none;
 }
 #access ul ul {
