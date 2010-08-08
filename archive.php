@@ -55,7 +55,6 @@ get_header(); ?>
 ?>
 
 			</div><!-- #content -->
-		</div><!-- #container -->
 
 <?php if ( $options['archives-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
 	<?php get_sidebar('primary'); ?>	
@@ -63,5 +62,7 @@ get_header(); ?>
 <?php if ( $options['archives-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
+
+		</div><!-- #container -->
 
 <?php get_footer(); ?>
