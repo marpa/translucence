@@ -459,7 +459,7 @@ endif;
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
-	// Area 1, located at the top of the sidebar.
+	// Area 1, located at the 1st right sidebar.
 	register_sidebar( array(
 		'name' => __( 'Primary Widget Area', 'twentyten' ),
 		'id' => 'primary-widget-area',
@@ -470,7 +470,7 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
+	// Area 2, located in the 2nd right sidebar. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Secondary Widget Area', 'twentyten' ),
 		'id' => 'secondary-widget-area',
@@ -481,7 +481,19 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 3, located in the footer. Empty by default.
+	// Area 3, located in the left sidebar. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Tertiary Widget Area', 'twentyten' ),
+		'id' => 'tertiary-widget-area',
+		'description' => __( 'Left Sidebar', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+
+	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'First Footer Widget Area', 'twentyten' ),
 		'id' => 'first-footer-widget-area',
@@ -492,7 +504,7 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 4, located in the footer. Empty by default.
+	// Area 5, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
 		'id' => 'second-footer-widget-area',
@@ -503,7 +515,7 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 5, located in the footer. Empty by default.
+	// Area 6, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
 		'id' => 'third-footer-widget-area',
@@ -514,7 +526,7 @@ function twentyten_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 6, located in the footer. Empty by default.
+	// Area 7, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
 		'id' => 'fourth-footer-widget-area',
@@ -1228,14 +1240,14 @@ function variation_options() {
 					// opacity
 					get_option_selector ("", "left01-width", $options_values['sidebar-width']);
 					// border
-										
+					get_option_selector ("", "left01-border-style", $options_values['border-style']);										
 					print"
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['leftt01-link-color']."'>";
 					
-					if (is_active_sidebar("sidebar-1")) {
+					if (is_active_sidebar("tertiary-widget-area")) {
 						print "<a style='color:".$options['left01-link-color']."; border-color:".$options['left01-link-color']." ' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a></div><br/>";
-						if (is_array($current_widgets['sidebar-1'])) {
-							foreach ($current_widgets['sidebar-1'] as $widget) {
+						if (is_array($current_widgets['tertiary-widget-area'])) {
+							foreach ($current_widgets['tertiary-widget-area'] as $widget) {
 								$widget = str_replace("-", " ", $widget);
 								$widget = str_replace("_", " ", $widget);
 								$widget = rtrim(ucwords($widget), "0..9");
@@ -1316,12 +1328,11 @@ function variation_options() {
 							
 							print "<tr><td class='optionsrow'>";
 							print "<div>Left Sidebar</div>\n";
-							//width
-							get_option_selector ("", "left01-width", $options_values['sidebar-width']);
-
 							if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
 								print "<span style='font-size: 10px;'>hidden widgets!</span>";
 							}
+							//width
+							get_option_selector ("", "left01-width", $options_values['sidebar-width']);
 							
 							print "
 							</td></tr>
@@ -1350,14 +1361,13 @@ function variation_options() {
 						 *********************************************************/
 						print "<tr><td class='optionsrow' style='text-align: right;'>\n";
 						print "<div>2nd Right Sidebar</div>\n";
-
-						// width
-						get_option_selector ("", "right02-width", $options_values['sidebar-width']);
-
+						
 						// hidden widgets warning
 						if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
 							print "<span style='font-size: 10px;'>hidden widgets!</span>";
 						}
+						// width
+						get_option_selector ("", "right02-width", $options_values['sidebar-width']);
 
 						print "
 						</td></tr>								
@@ -1845,7 +1855,7 @@ function save_options() {
 		$contentwidth = ($headerwidth_measure-20)."px";
 	}
 	
-	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+230);
+	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+240);
 	//printpre($content_width);
 
 	/******************************************************************************
@@ -1997,6 +2007,7 @@ function save_options() {
 		}
 
 		#content {
+			float: left;
 			width: ".$content_width."px;
 			color: ".$options['content-text-color'].";
 			background-color: ".$options['content-color-rgb'].";
@@ -2023,8 +2034,15 @@ function save_options() {
 			width: ".$options['right02-width']."px;
 			background-color: rgba(255, 255, 255, 0);
 			padding: 20px;
-			border: 1px dotted #CCCCCC;
-		
+			border: 1px dotted #CCCCCC;		
+		}
+		#tertiary {
+			float: left;
+			margin-right: 1px;
+			width: ".$options['left01-width']."px;
+			background-color: rgba(255, 255, 255, 0);
+			padding: 20px;
+			border: 1px dotted #CCCCCC;		
 		}
 
 		h1, h2, h3 {
@@ -2264,7 +2282,7 @@ function save_options() {
 		}
 		
 		/* Begin sidebar list */
-		.sidebarleft01 ul ul li, .sidebarleft01 ul ol li {
+		#tertiary ul ul li, .sidebarleft01 ul ol li {
 			font-size: 12px;
 			color: ".$options['left01-text-color'].";
 			list-style-type:none;
@@ -2292,7 +2310,7 @@ function save_options() {
 		}
 		
 		/* Begin sidebar search form */
-		.sidebarleft01  #searchform #s {
+		#tertiary  #searchform #s {
 			background-color: ".$options['searchbox-color'].";
 			color: ".$options['linkcolor'].";
 			border: 1px solid #999999;
@@ -2317,7 +2335,7 @@ function save_options() {
 		}
 
 		/* Begin block color borders and opacity */
-		.left01block {
+		#tertiary {
 			color: ".$options['left01-text-color'].";
 			background-color: ".$options['left01-color-rgb'].";
 			border-top: 1px ".$options['left01-border-style']." ".$options['left01-border-top'].";
@@ -2327,7 +2345,7 @@ function save_options() {
 			width: ".$options['left01-width']."px;
 		}
 
-		.left01block:hover {
+		#tertiary:hover {
 			background-color: ".$options['left01-color-hover-rgb'].";
 			border-top: 1px ".$options['left01-hover-border-style']." ".$options['left01-border-top'].";
 			border-bottom: 1px ".$options['left01-hover-border-style']." ".$options['left01-border-left'].";
@@ -2372,7 +2390,7 @@ function save_options() {
 		}
 		
 		/* Begin sidebar text, width and visibility  */
-		.sidebarleft01 {
+		#tertiary {
 			color: ".$options['left01-text-color'].";
 			width: ".$options['left01-width']."px;
 			visibility: ".$options['left01-visibility'].";
@@ -2395,12 +2413,12 @@ function save_options() {
 		}
 		
 		/* Begin sidebar links */
-		.sidebarleft01 a {
+		#tertiary a {
 			color: ".$options['left01-link-color'].";
 			border-bottom:1px none ".$options['left01-link-color'].";
 		}
 				
-		.sidebarleft01 a:hover {
+		#tertiary a:hover {
 			color: ".$options['left01-link-color'].";
 			border-bottom:1px solid ".$options['left01-link-color'].";
 		}
@@ -2438,7 +2456,7 @@ function save_options() {
 			border-bottom: 1px none #CCCCCC;
 		}
 
-		.sidebarleft01 h2 {
+		#tertiary h2 {
 			color: ".$options['left01-heading-color'].";
 			padding-left: 0px;
 			border-bottom: 1px none #CCCCCC;
@@ -3377,17 +3395,17 @@ function print_option_feedback() {
 
 		} 		
 		
-		if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
+		if (is_active_sidebar("tertiary-widget-area") && $options['left01-width'] == 0) {
 			$message .= " <br/><br/>Your left sidebar is hidden but contains widgets.";
 			$error = "true";
 		}
 
-		if (is_active_sidebar("sidebar-2") && $options['right01-width'] == 0) {
+		if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
 			$message .= " <br/><br/>Your right sidebar is hidden but contains widgets.";
 			$error = "true";
 		}
 
-		if (is_active_sidebar("sidebar-3") && $options['right02-width'] == 0) {
+		if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
 			$message .= " <br/><br/>Your 2nd right sidebar is hidden but contains widgets.";
 			$error = "true";
 		}
