@@ -1356,7 +1356,9 @@ h3#reply-title {
 }
 .widget-title {
 	color: #222;
-	font-weight: bold;
+	font-size: 18px;
+	font-variant: small-caps;
+	padding-bottom: 10px;
 }
 .widget-area a:link,
 .widget-area a:visited {
