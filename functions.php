@@ -1234,15 +1234,15 @@ function variation_options() {
 
 			if ($options['left01-width'] != 0) {
 				print"
-				<td valign='top' width='".$model_left_sidebar_width."' class='left01block'>
+				<td valign='top' width='".$model_left_sidebar_width."' id='tertiary'>
 					<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr; </div>
 					<div style='font-size: 8px; margin: 4px;'>					
 					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>";
-
+					
+					// opacity
+					get_option_selector ("", "left01-opacity", $options_values['sidebar-opacity']);
 					// color
 					get_option_selector ("", "left01-color", $options_values['sidebar-color']);
-					// opacity
-					get_option_selector ("", "left01-width", $options_values['sidebar-width']);
 					// border
 					get_option_selector ("", "left01-border-style", $options_values['border-style']);										
 					print"
@@ -2013,7 +2013,6 @@ function save_options() {
 			border-left: 1px ".$options['header-border-style']." ".$options['header-border-left'].";
 			border-right: 1px ".$options['header-border-style']." ".$options['header-border-right'].";				
 			padding-top: 0px;
-
 			width: ".$header_width."px;
 			height: ".$options['header-block-height']."px;
 		}
