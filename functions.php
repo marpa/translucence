@@ -1843,21 +1843,13 @@ function save_options() {
 	// options specific to a particular variation
 	set_variation_options();
 	
-	if ($options['site-width'] == 100) {
-		$sitewidth = $options['site-width']-10;
-		$sitewidth = $sitewidth."%";
-	} else {
-		$sitewidth = $options['site-width']."px";
-	}
-
-	if ($options['header-width'] == 100) {
-		$headerwidth = $options['site-width']-10;
-		$headerwidth = $headerwidth."%";
-	} else {
-		$headerwidth_measure = $options['site-width'] - 35;
-		$headerwidth = $headerwidth_measure."px";
-		$contentwidth = ($headerwidth_measure-20)."px";
-	}
+	$site_width = $options['site-width'];
+	$header_width = $options['site-width']-10;
+	$menu_width =$options['site-width']-10;
+	
+	// $headerwidth_measure = $options['site-width'] - 35;
+// 	$headerwidth = $headerwidth_measure."px";
+	//$contentwidth = ($headerwidth_measure-20)."px";
 	
 	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+240);
 	//printpre($content_width);
@@ -1879,24 +1871,31 @@ function save_options() {
 			background-attachment: ".$options['background_attachment'].";
 			margin-top: 10px;
 		}
-	
+
+		/* The main theme structure */	
 		.sitewrapper {
-			width: ".$sitewidth.";
+			width: ".$site_width."px;
 			margin-left: auto;
 			margin-right: auto;
 			margin-top: ".$options['site-margin-top']."px;
 		}
 
-		.headerwrapper {
-			width: ".$headerwidth.";
-			margin-left: auto;
-			margin-right: auto;
+		#wrapper {
+			margin: 0 auto;
+			width: ".$site_width."px;		
 		}
-
-		#wrapper,
+		
 		#branding {
 			margin: 0 auto;
-			width: ".$sitewidth.";		
+					
+		}
+		
+		#access .menu-header,
+		div.menu,
+		#colophon,
+		#main {
+			margin: 0 auto;
+			width: ".$menu_width."px;	
 		}
 		
 		#wrapper {
@@ -1911,55 +1910,9 @@ function save_options() {
 		}
 
 
-		/* The main theme structure */
-		#access .menu-header,
-		div.menu,
-		#colophon,
-		#main {
-			margin: 0 auto;
-			width: ".$contentwidth.";
-		}
-
-		.page_top {
-			background-image: ".$options['page_top_background_image'].";
-			background-repeat: no-repeat;
-			background-position: center;
-			border-top: 1px none #000000;
-			border-left: 1px none #000000;
-			border-right: 1px none #000000;
-			padding-top: ".$options['page_top_padding']."px;
-			margin-top: ".$options['page_top_margin']."px;
-		}
-		
-		.page_main {
-			background-color: transparent;
-			background-image:  ".$options['page_main_background_image']."; 
-			background-repeat: repeat-y; 
-			background-position: center;
-			border-left: 1px none #000000;
-			border-right: 1px none #000000;
-			padding-top: ".$options['page_main_top_padding']."px;
-			padding-right: ".$options['page_main_padding']."px;
-			padding-left: ".$options['page_main_padding']."px;
-		}
-				
-		.page_bottom {
-			background-color: transparent;
-			background-image:  ".$options['page_bottom_background_image'].";
-			background-repeat: no-repeat; 
-			background-position: center;
-			border-bottom: 1px none #000000;
-			border-left: 1px none #000000;
-			border-right: 1px none #000000;
-			padding-top: ".$options['page_bottom_padding']."px;
-			margin-bottom: ".$options['page_bottom_margin']."px;
-		}
-
 		#header {
-			border-bottom: 1px ".$options['header-outer-border-style']." ".$options['header-border02-top'].";
-			border-top: 1px ".$options['header-outer-border-style']." ".$options['header-border02-bottom'].";
-			margin: 0 0 0 1px;
-			padding: 0 2px 0 2px;
+			margin: 0 auto;
+			padding: 0 0px 0 0px;
 		}
 
 		.headermeta_left {
@@ -1995,19 +1948,6 @@ function save_options() {
 			margin-right: ".$options['footer-meta-right-margin'].";
 			padding-top: 5px;
 			padding-bottom: 10px;
-		}
-
-
-		.contentblock, .widecolumn, .narrowcolumn {
-			color: ".$options['content-text-color'].";
-			background-color: ".$options['content-color-rgb'].";
-			border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
-			border-bottom: 1px ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
-			border-left: 1px ".$options['content-border-style'] ." ".$options['content-border-left'].";
-			border-right: 1px ".$options['content-border-style'] ." ".$options['content-border-right'].";
-			padding-right: 20px;
-			padding-left: 20px;
-			padding-bottom: 20px;
 		}
 
 		#content {
@@ -2073,6 +2013,8 @@ function save_options() {
 			border-left: 1px ".$options['header-border-style']." ".$options['header-border-left'].";
 			border-right: 1px ".$options['header-border-style']." ".$options['header-border-right'].";				
 			padding-top: 0px;
+
+			width: ".$header_width."px;
 			height: ".$options['header-block-height']."px;
 		}
 		
@@ -2113,9 +2055,7 @@ function save_options() {
 			border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";	
 			border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
 			border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
-			float: left;
-			margin: 0 auto;
-			width: ".$headerwidth.";
+
 			margin-bottom: 10px; 
 			/* need  options top-margin-style */
 		}
