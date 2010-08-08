@@ -1018,7 +1018,7 @@ function variation_options() {
 		// header-text-color options		
 		if (in_array("site-title-color", $variation_config['model'])) {	
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			print "Color: #<input class='color' name='site-title-color' type='text' size='5' maxlength='6' value='".$options['site-title-color']."'>";
+			get_option_field ("Color: #", "site-title-color", 6);
 			print "</span>";
 		}
 		// header-text-display options		
@@ -1056,9 +1056,9 @@ function variation_options() {
 			print "</span>";
 		}
 		// header-description-color options		
-		if (in_array("site-description-color", $variation_config['model'])) {	
+		if (in_array("site-description-color", $variation_config['model'])) {
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			print "Color: #<input class='color' name='site-description-color' type='text' size='5' maxlength='6' value='".$options['site-description-color']."'>";
+			get_option_field ("Color: #", "site-description-color", 6);
 			print "</span>";
 		}
 		print "</div>";
@@ -1221,7 +1221,15 @@ function variation_options() {
 				<td valign='top' width='".$model_left_sidebar_width."' class='left01block'>
 					<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr; </div>
 					<div style='font-size: 8px; margin: 4px;'>					
-					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>";
+
+					// color
+					get_option_selector ("", "left01-color", $options_values['sidebar-color']);
+					// opacity
+					get_option_selector ("", "left01-width", $options_values['sidebar-width']);
+					// border
+										
+					print"
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['leftt01-link-color']."'>";
 					
 					if (is_active_sidebar("sidebar-1")) {
@@ -1308,14 +1316,9 @@ function variation_options() {
 							
 							print "<tr><td class='optionsrow'>";
 							print "<div>Left Sidebar</div>\n";
-							// color
-							get_option_selector ("", "left01-color", $options_values['sidebar-color']);
-							// opacity
-							get_option_selector ("", "left01-opacity", $options_values['sidebar-opacity']);
 							//width
 							get_option_selector ("", "left01-width", $options_values['sidebar-width']);
-							// border
-							get_option_selector ("", "left01-border-style", $options_values['border-style']);
+
 							if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
 								print "<span style='font-size: 10px;'>hidden widgets!</span>";
 							}
@@ -1332,24 +1335,14 @@ function variation_options() {
 						 *********************************************************/
 						print "<tr><td class='optionsrow' style='text-align: right;'>\n";
 						print "<div>Right Sidebar</div>\n";
-						
-						// color
-						get_option_selector ("", "right01-color", $options_values['sidebar-color']);
 
-						// opacity
-						get_option_selector ("", "right01-opacity", $options_values['sidebar-opacity']);
-
-						// width
-						get_option_selector ("", "right01-width", $options_values['sidebar-width']);
-
-						// border
-						get_option_selector ("", "right01-border-style", $options_values['border-style']);
-						
 						// hidden widgets warning
-						if (is_active_sidebar("sidebar-2") && $options['right01-width'] == 0) {
+						if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
 							print "<span style='font-size: 10px;'>hidden widgets!</span>";
 						}
-
+						// width
+						get_option_selector ("", "right01-width", $options_values['sidebar-width']);
+						
 						print "</td></tr>";
 					
 						/*********************************************************
@@ -1358,20 +1351,11 @@ function variation_options() {
 						print "<tr><td class='optionsrow' style='text-align: right;'>\n";
 						print "<div>2nd Right Sidebar</div>\n";
 
-						// color
-						get_option_selector ("", "right02-color", $options_values['sidebar-color']);
-
-						// opacity
-						get_option_selector ("", "right02-opacity", $options_values['sidebar-opacity']);
-
 						// width
 						get_option_selector ("", "right02-width", $options_values['sidebar-width']);
 
-						// border
-						get_option_selector ("", "right02-border-style", $options_values['border-style']);
-						
 						// hidden widgets warning
-						if (is_active_sidebar("sidebar-3") && $options['right02-width'] == 0) {
+						if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
 							print "<span style='font-size: 10px;'>hidden widgets!</span>";
 						}
 
@@ -1519,7 +1503,16 @@ function variation_options() {
 					<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>
 					<div style='font-size: 8px; margin: 4px;'>
 					<div style='font-size: 8px;'>
-					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right01-heading-color'].";'>Right Sidebar</h2></div>
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right01-heading-color'].";'>Right Sidebar</h2></div>";
+
+					// opacity
+					get_option_selector ("", "right01-opacity", $options_values['sidebar-opacity']);
+					// color
+					get_option_selector ("", "right01-color", $options_values['sidebar-color']);
+					// border
+					get_option_selector ("", "right01-border-style", $options_values['border-style']);
+					
+					print"
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right01-link-color']."'>";
 
 					if (is_active_sidebar("primary-widget-area")) {
@@ -1588,7 +1581,16 @@ function variation_options() {
 					<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$model_right_sidebar_width02." px &rarr;</div>
 					<div style='font-size: 8px; margin: 4px;'>
 					<div style='font-size: 8px;'>
-					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right02-heading-color'].";'>2nd Right Sidebar</h2></div>
+					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['right02-heading-color'].";'>2nd Right Sidebar</h2></div>";
+					// opacity
+					get_option_selector ("", "right02-opacity", $options_values['sidebar-opacity']);
+					// color
+					get_option_selector ("", "right02-color", $options_values['sidebar-color']);
+					// border
+					get_option_selector ("", "right02-border-style", $options_values['border-style']);
+					
+					
+					print"
 					<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
 
 					if (is_active_sidebar("secondary-widget-area")) {
@@ -3473,8 +3475,8 @@ function get_option_field ($option_title, $option_name, $option_field_width) {
 
 	if (in_array($option_name, $variation_config['model'])) {			
 		print "<span style='white-space:nowrap'>";
-		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title.":</span>\n";
-		print "<input name='".$option_name."' type='text' size='".$option_field_width."' style='font-size: 10px;' 
+		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title."</span>\n";
+		print "<input name='".$option_name."' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
 		value='".(isset($options[$option_name]) ? $options[$option_name] : '')."'/></span>";
 	}
 }
