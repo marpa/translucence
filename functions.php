@@ -677,8 +677,17 @@ function variation_options() {
 		$model_site_width_css = $model_site_width."px";
 	}
 	
-	$background_color = get_background_color();
-	if ($background_color !="") $options['background_color'] = "#".$background_color;
+	
+	
+	$custom_background_color = get_background_color();
+	$custom_background_image = get_background_image();
+	if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
+	if ($custom_background_image !="") $options['background_image'] = "#".$custom_background_image;
+	if ($custom_background_color !="" || $custom_background_image !="") {
+		$custom_background = true;
+		$options['background'] = "custom";
+		$options['background_image'] = "";
+	}
 	
 			
 	/*********************************************************
@@ -922,7 +931,7 @@ function variation_options() {
 			</td>
 			<td style='text-align: center;'>";	
 			// background options		
-			if (in_array("background", $variation_config['model'])) {				
+			if (in_array("background", $variation_config['model']) && $custom_background != true) {				
 				print "
 				<span style='font-size: 10px;'></span>
 				<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
@@ -931,8 +940,11 @@ function variation_options() {
 					foreach ($variations as $label => $value) {
 						if (!in_array($value, $variation_config['variations_disabled']))
 							print "\n<option value='".$value."'".($options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
-					}									
+					}	
 				print "</select>";
+			} else {
+					print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['bgtextcolor']."'>";
+					print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Background</a></div>";				
 			}
 	
 			//header width
