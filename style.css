@@ -1364,7 +1364,7 @@ h3#reply-title {
 }
 .widget-area a:active,
 .widget-area a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 .widget-area .entry-meta {
 	font-size: 11px;
