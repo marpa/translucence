@@ -602,7 +602,7 @@ div.menu li {
 #content h4,
 #content h5,
 #content h6 {
-	color: #000;
+	color: #333;
 	line-height: 1.5em;
 	margin: 0 0 20px 0;
 }
@@ -641,25 +641,17 @@ div.menu li {
 	margin: 0 0 36px 0;
 }
 .page-title {
-	color: #000;
-	font-size: 14px;
-	font-weight: bold;
-	margin: 0 0 36px 0;
 }
 .page-title span {
-	color: #333;
-	font-size: 16px;
-	font-style: italic;
 	font-weight: normal;
 }
 .page-title a:link,
 .page-title a:visited {
-	color: #888;
-	text-decoration: none;
+
 }
 .page-title a:active,
 .page-title a:hover {
-	color: #ff4b33;
+
 }
 
 #content .entry-title {
@@ -667,8 +659,7 @@ div.menu li {
 	font-size: 21px;
 	font-weight: normal;
 	line-height: 1.3em;
-	margin-bottom: 0;
-	
+	margin-bottom: 0;	
 	display: block;
 	text-align: left;
 	text-shadow: #CCC 1px 1px 0.05em;
