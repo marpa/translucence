@@ -17,12 +17,6 @@
 
 	
 		<new author='alex' date='the future'>
-			Templates: added profile info to authors template.
-		</new>		
-		<new author='alex' date='the future'>
-			Templates: added feed links to home, single, category, tag, author template files.
-		</new>		
-		<new author='alex' date='the future'>
 			Theme options: added option for setting distance between menu bar main content area
 		</new>		
 		<new author='alex' date='the future'>
@@ -31,6 +25,12 @@
 		<new author='alex' date='the future'>
 			Created page templates with various configurations of sidebar display
 		</new>	
+		<new author='alex' date='2010-08-14'>
+			Templates: added profile info to authors template.
+		</new>		
+		<new author='alex' date='2010-08-14'>
+			Templates: added feed links to home, single, category, tag, author template files.
+		</new>		
 		<new author='alex' date='2010-08-07'>
 			Theme options: added options for setting the site title size, color, shadow offset and blur. Also added options for setting the
 			site tag line color and size

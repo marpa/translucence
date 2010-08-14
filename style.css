@@ -904,8 +904,7 @@ body.page .edit-link {
 	text-align: right;
 }
 #entry-author-info {
-	background: #f2f7fc;
-	border-top: 4px solid #000;
+	border: 1px solid #CCCCCC;
 	clear: both;
 	font-size: 14px;
 	line-height: 20px;
