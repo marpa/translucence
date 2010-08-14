@@ -29,7 +29,11 @@ get_header(); ?>
 					<div class="entry-meta">
 						<?php twentyten_posted_on(); ?>
 					</div><!-- .entry-meta -->
-
+					<?php if ( count( get_the_category() ) ) : ?>
+						<span class="cat-links">
+							<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
+						</span>
+					<?php endif; ?>
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
@@ -51,9 +55,15 @@ get_header(); ?>
 						</div><!-- #author-description -->
 					</div><!-- #entry-author-info -->
 <?php endif; ?>
-
+					
+					<?php  $tags_list = get_the_tag_list( '', ' ' ); ?>
+					<?php if ( $tags_list ):?>
+					<div class="tag-links">						
+						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
+					</div>
+					<?php endif; ?>
 					<div class="entry-utility">
-						<?php twentyten_posted_in(); ?>
+						<?php //twentyten_posted_in(); ?>
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-utility -->
 				</div><!-- #post-## -->
