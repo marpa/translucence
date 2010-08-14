@@ -2584,29 +2584,25 @@ function save_options() {
 			font-weight: normal;
 			line-height: 1.3em;
 			margin-bottom: 0;
-		}
-
-
-		.entry-title a:link,
-		.entry-title a:visited {
-			color: ".$options['linkcolor'].";
-		}
-
-		.post h2 {
-			color: ".$options['linkcolor'].";
+			
 			display: block;
 			text-align: left;
 			text-shadow: ".$options['post-text-shadow-color']." ".$options['post-text-shadow-offset']." ".$options['post-text-shadow-blur'].";
 			border-bottom: 1px solid #CCCCCC;
 		}
-		
-		.post h2:hover {
+
+		#content .entry-title:hover {
 			border-bottom: 1px solid ".$options['linkcolor'].";
 		}
 		
-		.post h2 a {
+		#content .entry-title a {
 			display: block;
 			border-bottom: none;
+		}
+
+		.entry-title a:link,
+		.entry-title a:visited {
+			color: ".$options['linkcolor'].";
 		}
 
 		.entry-content h2, .entry-content h3, .entry-content h1 {
