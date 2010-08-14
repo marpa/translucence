@@ -63,6 +63,11 @@ get_header(); ?>
 					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentyten' ) . '</span>' ); ?></div>
 				</div><!-- #nav-below -->
 
+			<div id="syndication">
+				<span><?php post_comments_feed_link('Comments RSS'); ?></span>
+			</div>
+
+
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; // end of the loop. ?>

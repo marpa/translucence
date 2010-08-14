@@ -1434,6 +1434,28 @@ h3#reply-title {
 #footer-widget-area {
 }
 
+#syndication{
+	width: 100%; 
+	text-align: right;
+	font-size: 11px;
+	padding: 5px 0 0 0;
+	white-space:nowrap;
+}
+
+#syndication span {
+	padding: 5px 10px 0 23px;
+	background: url(variations/feed.png) no-repeat 0 1px;
+	border-bottom: none;
+}
+
+
+#syndication a.feed{
+	padding: 5px 10px 0 23px;
+	background: url(variations/feed.png) no-repeat 0 1px;
+	border-bottom: none;
+}
+
+
 
 /* =Footer
 -------------------------------------------------------------- */
