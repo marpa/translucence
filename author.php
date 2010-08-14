@@ -45,7 +45,7 @@ get_header(); ?>
 <?php //endif; ?>
 <div>
 
-<h3>Posts by <?php echo $current_author->display_name; ?></h3>
+<h3>Posts by <?php print get_the_author_meta( 'display_name' ) ?></h3>
 
 <?php
 	/* Since we called the_post() above, we need to
