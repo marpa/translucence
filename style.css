@@ -1138,13 +1138,10 @@ body.page .edit-link {
 }
 h3#comments-title,
 h3#reply-title {
-	color: #000;
-	font-size: 20px;
-	font-weight: bold;
-	margin-bottom: 0;
+
 }
 h3#comments-title {
-	padding: 24px 0;
+
 }
 .commentlist {
 	list-style: none;
@@ -1184,7 +1181,7 @@ h3#comments-title {
 .comment-author cite {
 	color: #000;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: normal;
 }
 .comment-author .says {
 	font-style: italic;
