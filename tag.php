@@ -7,13 +7,23 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header(); 
+$this_tag = get_tags($tag);
+$tag_id = get_query_var('tag_id');
+?>
 
 		<div id="container">
 			<div id="content" role="main">
+			
+			<div style = "width: 50%; float: right;">
+				<div id="syndication">
+				<a href="<?php print get_tag_feed_link( $tag_id, 'rss2' ); ?>" class="feed">
+				&#8216;<?php single_cat_title(); ?>&#8217; Category RSS</a>
+				</div>
+			</div>
 
 				<h1 class="page-title"><?php
-					printf( __( 'Tag Archives: %s', 'twentyten' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					printf( __( 'Tags » %s', 'twentyten' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?></h1>
 
 <?php
