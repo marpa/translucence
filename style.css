@@ -661,38 +661,32 @@ div.menu li {
 .page-title a:hover {
 	color: #ff4b33;
 }
+
 #content .entry-title {
 	color: #036;
 	font-size: 21px;
 	font-weight: normal;
 	line-height: 1.3em;
 	margin-bottom: 0;
-}
-.entry-title a:link,
-.entry-title a:visited {
-	color: #036;
-}
-/*
-.entry-title a:active,
-.entry-title a:hover {
-	color: #ff4b33;
-}
-*/
-
-.post h2 {
-	color: #036;
+	
 	display: block;
 	text-align: left;
+	text-shadow: #CCC 1px 1px 0.05em;
 	border-bottom: 1px solid #CCCCCC;
 }
 
-.post h2:hover {
+#content .entry-title:hover {
 	border-bottom: 1px solid #036;
 }
 
-.post h2 a {
+#content .entry-title a {
 	display: block;
 	border-bottom: none;
+}
+
+.entry-title a:link,
+.entry-title a:visited {
+	color: #036;
 }
 
 .entry-meta {
