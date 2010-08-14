@@ -18,12 +18,14 @@
  * @since Twenty Ten 1.0
  */
 ?>
+<?php if (!is_single() && !is_archive() && !is_search()) : ?>
 <div style = "width: 50%; float: right;">
 	<div id="syndication">
 		<a href="<?php bloginfo('rss2_url'); ?>" class="feed">Posts RSS</a> 
 		<a href="<?php bloginfo('comments_rss2_url'); ?>" class="feed">Comments RSS</a>
 	</div>
 </div>
+<?php endif; ?>
 
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
