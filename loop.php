@@ -18,21 +18,31 @@
  * @since Twenty Ten 1.0
  */
 ?>
+<div style = "width: 50%; float: right;">
+	<div id="syndication">
+		<a href="<?php bloginfo('rss2_url'); ?>" class="feed">Posts RSS</a> 
+		<a href="<?php bloginfo('comments_rss2_url'); ?>" class="feed">Comments RSS</a>
+	</div>
+</div>
 
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
-	<div class='post-link'>
+	<div class='post-link' style="clear: right;">
 	<a href="<?php get_bloginfo('url'); ?>/wp-admin/post-new.php">New Post</a>
 	</div>
 <?php endif; ?>
 
+
+
+<div style="display: block;">
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
-	<div id="nav-above" class="navigation">
+	<div id="nav-above" class="navigation" style="clear: right;">
 		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
 		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
 	</div><!-- #nav-above -->
 <?php endif; ?>
+</div>
 
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if ( ! have_posts() ) : ?>
