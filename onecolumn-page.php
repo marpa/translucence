@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: One column, no sidebar
+ * Templates Name: One column, no sidebar //modified to disable
  *
  * A custom page template without sidebar.
  *
- * The "Template Name:" bit above allows this to be selectable
+ * The "Templates Name:" bit above allows this to be selectable
  * from a dropdown menu on the edit page screen.
  *
  * @package WordPress
