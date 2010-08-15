@@ -15,6 +15,7 @@
 	 * some default sidebar stuff just in case.
 	 */
 	// A tertiary sidebar for widgets, just because.
+	global $options;
 	if ( is_active_sidebar( 'tertiary-widget-area' )  && $options['left01-width'] != '0') : ?>
 
 		<div id="tertiary" class="widget-area" role="complementary">
