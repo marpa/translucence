@@ -15,6 +15,8 @@
 get_header(); ?>
 
 		<div id="container">
+		<?php get_sidebar('tertiary'); ?>	
+		
 			<div id="content" role="main">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -40,6 +42,7 @@ get_header(); ?>
 			</div><!-- #content -->
 
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('primary'); ?>
+<?php get_sidebar('secondary'); ?>
 		</div><!-- #container -->
 <?php get_footer(); ?>
