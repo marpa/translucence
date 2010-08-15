@@ -1210,11 +1210,11 @@ h3#comments-title {
 }
 .reply a,
 a.comment-edit-link {
-	color: #888;
+
 }
 .reply a:hover,
 a.comment-edit-link:hover {
-	color: #ff4b33;
+
 }
 .commentlist .children {
 	list-style: none;
