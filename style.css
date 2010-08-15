@@ -1090,19 +1090,19 @@ body.page .edit-link {
 -------------------------------------------------------------- */
 
 .navigation {
-	color: #888;
+
 	font-size: 12px;
 	line-height: 18px;
 	overflow: hidden;
 }
 .navigation a:link,
 .navigation a:visited {
-	color: #888;
+
 	text-decoration: none;
 }
 .navigation a:active,
 .navigation a:hover {
-	color: #ff4b33;
+
 }
 .nav-previous {
 	float: left;
