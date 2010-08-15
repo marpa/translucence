@@ -627,7 +627,7 @@ function variation_options() {
 	//printpre ($options['headerleft']);
 	
 	set_variation_options();	
-		
+			
 	update_option($theme_settings, $options);
 	update_option($theme_css, $variation_css);
 
@@ -657,7 +657,6 @@ function variation_options() {
    		$model_header_image = get_header_image();
    	}
 
-
 	$model_site_width = $options['site-width']+10;
 
 	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
@@ -667,17 +666,6 @@ function variation_options() {
 	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
-
-		
-	$custom_background_color = get_background_color();
-	$custom_background_image = get_background_image();
-	if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
-	if ($custom_background_image !="") $options['background_image'] = "#".$custom_background_image;
-	if ($custom_background_color !="" || $custom_background_image !="") {
-		$custom_background = true;
-		$options['background'] = "custom";
-		$options['background_image'] = "";
-	}
 	
 			
 	/*********************************************************
@@ -921,7 +909,7 @@ function variation_options() {
 			</td>
 			<td style='text-align: center;'>";	
 			// background options		
-			if (in_array("background", $variation_config['model']) && $custom_background != true) {				
+			if (in_array("background", $variation_config['model'])) {				
 				print "
 				<span style='font-size: 10px;'></span>
 				<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
@@ -932,6 +920,9 @@ function variation_options() {
 							print "\n<option value='".$value."'".($options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
 					}	
 				print "</select>";
+				
+				if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
+				printpre($custom_background_color);
 			} else {
 					print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['bgtextcolor']."'>";
 					print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Background</a></div>";				
@@ -2773,6 +2764,8 @@ function set_variation_options() {
 		$options['background-source-url'] = $options['custom_background-source-url'];
 		$options['background-source-credit'] = $options['custom_background-source-credit'];
 	} 
+	
+	
 
 	/******************************************************************************
 	 * Defaults for variations
@@ -2817,6 +2810,22 @@ function set_variation_options() {
 			}			
 		}
 		closedir($handle);
+		
+		/******************************************************************************
+		 * 
+		 ******************************************************************************/
+	
+		$custom_background_color = get_background_color();
+		$custom_background_image = get_background_image();
+		if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
+		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;
+		if ($custom_background_color !="" || $custom_background_image !="") {
+			$custom_background = true;
+			//$options['background'] = "custom";
+			//$options['background_image'] = "";
+		}
+		
+		//printpre($custom_background_color);
 		ksort($variations);
 		
 	}
