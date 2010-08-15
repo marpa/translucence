@@ -2674,6 +2674,15 @@ function save_options() {
 		small, .nocomments, .postmetadata, blockquote, strike {		
 			color: ".$options['textcolor'].";
 		}	
+		
+		#syndication a {
+			color: ".$options['linkcolor'].";
+		}
+
+		#syndication a:visited {
+			color: ".$options['linkcolor'].";
+		}
+		
 					
 	";
 		
