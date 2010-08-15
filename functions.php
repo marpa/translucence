@@ -2683,6 +2683,12 @@ function save_options() {
 			color: ".$options['linkcolor'].";
 			text-decoration: none;
 		}
+
+		.navigation a:link,
+		.navigation a:visited {
+			color: ".$options['linkcolor'].";
+			text-decoration: none;
+		}
 		
 					
 	";
