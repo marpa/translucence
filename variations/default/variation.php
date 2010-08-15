@@ -220,6 +220,7 @@ $options_values['header-width'] = array(
 	);
 
 $options_values['header-text-size'] = array(
+	'14px' => '14',
 	'15px' => '15',
 	'16px' => '16',
 	'17px' => '17',
