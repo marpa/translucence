@@ -442,6 +442,7 @@ a:hover {
 #site-title a {
 	padding-top: 25px;
 	padding-left: 10px;
+	margin-bottom: 5px;
 	display: block;
 	color: #036;	
 }
