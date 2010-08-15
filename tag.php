@@ -18,7 +18,7 @@ $tag_id = get_query_var('tag_id');
 			<div style = "width: 50%; float: right;">
 				<div id="syndication">
 				<a href="<?php print get_tag_feed_link( $tag_id, 'rss2' ); ?>" class="feed">
-				&#8216;<?php single_cat_title(); ?>&#8217; Category RSS</a>
+				&#8216;<?php single_cat_title(); ?>&#8217; Tags RSS</a>
 				</div>
 			</div>
 
