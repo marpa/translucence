@@ -633,7 +633,7 @@ div.menu li {
 }
 .home .sticky {
 	background: transparent;
-	border: 1px solid #CCCCCC;
+	border-bottom: 3px solid #CCCCCC;
 	margin-top: 2px;
 	margin-left: -10px;
 	margin-right: -10px;
