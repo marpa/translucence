@@ -2462,7 +2462,7 @@ function save_options() {
 			border-bottom: 1px ".$options['entry-link-border'].";
 		}
 		
-		.entry-content .more-link a {
+		.more-link {
 			display: block;			
 			text-align: center;
 			border-top: 1px solid #CCCCCC;
@@ -2470,7 +2470,7 @@ function save_options() {
 			text-decoration: none;
 		}
 		
-		.more-link a:hover {
+		.more-link:hover {
 			background-color: transparent;
 			color: ".$options['linkcolor'].";
 			border-top: 1px solid ".$options['content-link-color'].";

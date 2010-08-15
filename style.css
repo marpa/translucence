@@ -787,7 +787,7 @@ div.menu li {
 	text-decoration: none;
 }
 
-.entry-content .more-link a {
+.more-link  {
 	display: block;			
 	text-align: center;
 	border-top: 1px solid #CCCCCC;
@@ -795,7 +795,7 @@ div.menu li {
 	text-decoration: none;
 }
 
-.more-link a:hover {
+.more-link:hover {
 	background-color: transparent;
 	color: #003366;
 	border-top: 1px solid #003366;
