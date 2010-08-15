@@ -1168,7 +1168,7 @@ function variation_options() {
 	 *********************************************************/
 	print "	
 
-	<table width = '".$model_site_width."' align='center' cellpadding='20' style='background-color: transparent;'>
+	<table width = '".$model_site_width."' align='center' cellpadding='0' style='background-color: transparent;'>
 	<tr>
 		<td valign='top' height='".$options['header-block-height']."' class='headerblock' style='margin-right:0px;'>
 			<div id='branding'>";
@@ -1185,7 +1185,7 @@ function variation_options() {
 	</tr>
 	</table>
 
-	<table width = '".$model_page_width."' align='center' cellpadding='0' cellspacing='2' id='wrapper' style='padding: 0px;'>
+	<table width = '100%' align='center' cellpadding='0' cellspacing='0' id='wrapper' style='padding: 0px;'>
 	<tr>
 	<td>				
 			<tr>
@@ -1236,7 +1236,7 @@ function variation_options() {
 
 			if ($options['left01-width'] != 0) {
 				print"
-				<td valign='top' width='".$model_left_sidebar_width."' id='tertiary'>
+				<td valign='top' width='".$model_left_sidebar_width."' id='tertiary' style='float: left; '>
 					<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr; </div>
 					<div style='font-size: 8px; margin: 4px;'>					
 					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>";
@@ -1305,7 +1305,7 @@ function variation_options() {
 			 *********************************************************/
 			
 			print "
-			<td class='contentblock' style='color: ".$options['textcolor']."'>	
+			<td id='content' style='color: ".$options['textcolor']." style='float: left; clear: left; padding: 1px;'>	
 				<div style='font-size: 10px; text-align: center;'> &larr; ".$model_content_width." px &rarr;</div>
 				<div style='font-size: 10px; text-align: center;'>";
 				
@@ -2062,7 +2062,7 @@ function save_options() {
 			border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
 			border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
 			width: ".$menu_width."px;
-			margin-bottom: 10px; 
+			margin-bottom: 20px; 
 			/* need  options top-margin-style */
 		}
 		
@@ -2171,7 +2171,7 @@ function save_options() {
 			float: left;
 			margin-right: 1px;
 			color:  ".$options['bottom-text-color'].";
-			background-color: ".$options['bottom-color-rgb'].";
+			background-color: transparent;
 			padding: 20px;
 			width: ".$model_header_width."px;
 		}
