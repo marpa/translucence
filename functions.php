@@ -2682,6 +2682,16 @@ function save_options() {
 		#syndication a:visited {
 			color: ".$options['linkcolor'].";
 		}
+		.reply a,
+		a.comment-edit-link {
+			color: ".$options['linkcolor'].";
+		}
+
+		.comment-meta a:link,
+		.comment-meta a:visited {
+			color: ".$options['linkcolor'].";
+			text-decoration: none;
+		}
 		
 					
 	";

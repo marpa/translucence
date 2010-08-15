@@ -1181,7 +1181,7 @@ h3#comments-title {
 .comment-author {
 }
 .comment-author cite {
-	color: #000;
+
 	font-style: normal;
 	font-weight: normal;
 }
@@ -1194,12 +1194,12 @@ h3#comments-title {
 }
 .comment-meta a:link,
 .comment-meta a:visited {
-	color: #888;
+
 	text-decoration: none;
 }
 .comment-meta a:active,
 .comment-meta a:hover {
-	color: #ff4b33;
+
 }
 .commentlist .even {
 }
@@ -1211,7 +1211,7 @@ h3#comments-title {
 }
 .reply a,
 a.comment-edit-link {
-
+	color: #036;
 }
 .reply a:hover,
 a.comment-edit-link:hover {
