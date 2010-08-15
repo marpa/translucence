@@ -656,7 +656,7 @@ function variation_options() {
    		//$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
    		$model_header_image = get_header_image();
    	}
-
+   	
 	$model_site_width = $options['site-width']+10;
 
 	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
@@ -676,6 +676,8 @@ function variation_options() {
 	 *********************************************************/
  	
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
+	$custom_background_color = get_background_color();
+	$custom_background_image = get_background_image();
  	
 
  	print "
@@ -921,12 +923,12 @@ function variation_options() {
 					}	
 				print "</select>";
 				
-				if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
-				printpre($custom_background_color);
-			} else {
-					print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['bgtextcolor']."'>";
-					print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Background</a></div>";				
-			}
+				if ($custom_background_color !="" || $custom_background_image !="") {
+					print "<div  style='font-size: 10px; text-align: center; border-color: ".$options['bgtextcolor']."'>";
+					print "(Custom background color or image may change the background of this variation)";	
+					print "</div>";
+				}
+			}	
 	
 			//header width
 			//get_option_selector ("Header Width", "header-width", $options_values['header-width']);
@@ -965,6 +967,18 @@ function variation_options() {
 	<tr>
 		<td colspan='3'>
 			<table width='100%' cellspacing='0' cellpadding='5'>
+			<tr>
+			<td colspan='2'>";
+
+			if ($custom_background_color !="" || $custom_background_image !="") {
+				print "<div class='editwidgetlink' style='font-size: 10px; text-align: center; border-color: ".$options['bgtextcolor']."'>";
+				print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Custom Background</a>";	
+				print "</div>";
+			}
+			//print $custom_background_image;
+	print"
+			</td>
+			</tr>
 			<tr>
 			<td width='70%'>
 			<div class='metatext'>";
@@ -2818,20 +2832,23 @@ function set_variation_options() {
 		closedir($handle);
 		
 		/******************************************************************************
-		 * 
+		 * Override veriation background color and image if customs background color
+		 * and image have been set
 		 ******************************************************************************/
 	
 		$custom_background_color = get_background_color();
 		$custom_background_image = get_background_image();
+		
+		if ($custom_background_color !="" || $custom_background_image !="") {
+			if ($options['background_image_file'] != "none") {
+				$options['background'] = "translucence-gray";		
+			}
+		}
+				
 		if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
 		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;
-		if ($custom_background_color !="" || $custom_background_image !="") {
-			$custom_background = true;
-			//$options['background'] = "custom";
-			//$options['background_image'] = "";
-		}
 		
-		//printpre($custom_background_color);
+
 		ksort($variations);
 		
 	}
