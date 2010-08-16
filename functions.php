@@ -2731,6 +2731,9 @@ function save_options() {
 			text-decoration: none;
 		}
 		
+		#comments a {
+			color: ".$options['linkcolor'].";
+		}
 					
 	";
 		
