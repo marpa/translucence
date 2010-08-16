@@ -69,6 +69,30 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 		option_label =>	'Custom',
 		option_value => ''
 	);
+	
+/******************************************************************************
+ * Preset Widgets:
+ * specify widgets to include when theme is 1st activated
+ * sidebar-1 = left sidebar
+ * sidebar-2 = right sidebar
+ * sidebar-3 = 2nd right sidebar 
+ ******************************************************************************/
+
+// Update the sidebars with those widgets
+
+$preset_widgets = array (
+	 'primary-widget-area' => array(
+			'search-2',		
+			'recent-posts-2',
+			'recent-comments-2',
+		),
+		'secondary-widget-area' => array(
+			'categories-2',
+			'tag_cloud-2',
+		),
+		'wp_inactive_widgets' => array(),
+	);
+
 
 /******************************************************************************
  * Miscellaneous Config

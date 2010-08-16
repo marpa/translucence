@@ -266,6 +266,32 @@ function twentyten_setup() {
 }
 endif;
 
+/**
+ * Preset widgets, including three sidebars and four widget-ready columns in the footer.
+ *
+ * preset widgets defined in the theme config.php
+ *
+ * @since 2010 Translucence
+ * @uses register_sidebar
+ */
+
+
+ $current_theme = get_option( 'template' ); // variable stores the current theme
+ $target_theme = $variation_config['theme-name']; // variable stores the theme we want to target
+
+// add preset widgets only if theme is 1st activated and has not been activated previously
+if (isset($_POST['default_widgets']) || (isset( $_GET['activated'] ) && $current_theme == $target_theme && !get_option($theme_css))) {
+	update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
+	update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+	update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+	update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+	update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+	update_option( 'widget_tag_cloud', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+	update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+
+	update_option( 'sidebars_widgets', $preset_widgets);		
+}
+
 if ( ! function_exists( 'twentyten_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
@@ -449,13 +475,14 @@ function twentyten_comment( $comment, $args, $depth ) {
 }
 endif;
 
+
 /**
- * Register widgetized areas, including two sidebars and four widget-ready columns in the footer.
+ * Register widgetized areas, including three sidebars and four widget-ready columns in the footer.
  *
  * To override twentyten_widgets_init() in a child theme, remove the action hook and add your own
  * function tied to the init hook.
  *
- * @since Twenty Ten 1.0
+ * @since 2010 Translucence
  * @uses register_sidebar
  */
 function twentyten_widgets_init() {
@@ -1858,7 +1885,7 @@ function save_options() {
 // 	$headerwidth = $headerwidth_measure."px";
 	//$contentwidth = ($headerwidth_measure-20)."px";
 	
-	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+170);
+	$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+175);
 	$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
 // 	printpre($options['left01-width']);
 // 	printpre($options['right01-width']);
