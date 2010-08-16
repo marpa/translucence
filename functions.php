@@ -3240,7 +3240,8 @@ function set_derivative_options() {
 	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
 	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
 	
-	$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-80;
+	if ($active_widgets > 0)
+		$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-80;
 	
 	//printpre($options['footer-widget-width']);
 
