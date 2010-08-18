@@ -45,15 +45,24 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 /**
  * Sets up theme defaults and registers support for various WordPress features.
 */
-if (file_exists(dirname(__FILE__).'/config.php')) {
-	require_once('config.php');
-} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
-	require_once('config-sample.php');
-}
 
 /*********************************************************
  * Define theme id, settings, css and options
  *********************************************************/
+ if (!function_exists('add_translucence_config')) {
+	function add_translucence_config() {
+	   if (file_exists(dirname(__FILE__).'/config.php')) {
+			require_once('config.php');
+		} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
+			require_once('config-sample.php');
+		}
+	return $variation_config;
+	}
+}
+
+ 
+// this theme may have child themes that override this config.
+$variation_config = add_translucence_config();
 
 $theme_id = strtolower($variation_config['theme-name']);
 $theme_id = str_replace(" ", "_", $theme_id);
@@ -137,6 +146,7 @@ function twentyten_setup() {
 	global $options;
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
+
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
@@ -2731,9 +2741,6 @@ function save_options() {
 			text-decoration: none;
 		}
 		
-		#comments a {
-			color: ".$options['linkcolor'].";
-		}
 					
 	";
 		
@@ -2780,6 +2787,27 @@ function set_primary_options() {
  * set options for variations (set with options['background'])
  * 
  ******************************************************************************/
+if (!function_exists('get_variation_default')) {
+	function get_variation_default() {
+	
+		if (file_exists(dirname(__FILE__).'/variations/default/variation.php')) {
+			$variation_default = dirname(__FILE__).'/variations/default/variation.php';
+		}
+		return $variation_default;
+	}
+}
+
+if (!function_exists('get_variations_source')) {
+	function get_variations_source() {
+	
+		if (file_exists(dirname(__FILE__).'/variations/')) {
+			$variations_path = dirname(__FILE__).'/variations';
+		}
+		return $variations_path;
+	}
+}
+
+
 
 function set_variation_options() {
 	global $_POST, $options, $options_values, $variations;
@@ -2788,7 +2816,7 @@ function set_variation_options() {
 	 * Default options and option value lists
 	 ******************************************************************************/
 
-	if (file_exists(dirname(__FILE__).'/variations/default/variation.php')) {
+	if (file_exists(get_variation_default())) {
 		include('variations/default/variation.php');		
 	}
 
@@ -2829,8 +2857,10 @@ function set_variation_options() {
 	$variations = array();
 	$themes_allowed_tags = "";
 	
-	if (file_exists(dirname(__FILE__).'/variations')) {
-		$variation_path = dirname(__FILE__).'/variations';
+	//$variation_path = get_variations_source();
+	
+	if (file_exists(get_variations_source())) {
+		$variation_path = get_variations_source();
 		
 		if ($handle = opendir($variation_path)) {
 			while (false !== ($file = readdir($handle))) {
@@ -3162,6 +3192,22 @@ function set_derivative_options() {
 			$options[$bar.'-heading-color'] = "#AAA448";
 			$options[$bar.'-link-color'] = "#FFFFFF";
 			$options[$bar.'-text-color'] = $options['textcolor'];
+			if ($bar == "header") {
+				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
+				$options[$bar.'-border02-top'] = "#333333";
+				$options[$bar.'-border02-bottom'] = "#333333";
+			}
+		// green
+		}  else if ($options[$bar.'-color'] == '#4a6339') {
+			$options[$bar.'-border-top'] = "#999999";
+			$options[$bar.'-border-left'] = "#999999";
+			$options[$bar.'-border-bottom'] = "#999999";
+			$options[$bar.'-border-right'] = "#999999";
+			$options[$bar.'-heading-color'] = "#c7c6a7";
+			$options[$bar.'-link-color'] = "#FFFFFF";
+			$options[$bar.'-link-color'] = "#EEEEEE";
+			$options[$bar.'-text-color'] = "#CCCCCC";
 			if ($bar == "header") {
 				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
 				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
