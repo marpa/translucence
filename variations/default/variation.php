@@ -16,7 +16,7 @@ if ($options['background'] != "custom") {
 	$options['background_color'] = "#FFFFFF";
 	$options['background_image_file'] = "none";
 	$options['background_image'] = "none";
-	$options['background_position'] = "top";
+	$options['background_position'] = "top center";
 	$options['background_repeat'] = "repeat-x";
 	$options['background_attachment'] = "scroll";
 	
@@ -326,7 +326,8 @@ $options_values['sidebar-color'] = array(
 	'Gray' => '#F3F3F3',
 	'Yellow' => '#FFF8C6',
 	'Muted Yellow' => '#e9e9c9',
-	'Gray Blue'	=> '#364559'
+	'Gray Blue'	=> '#364559',
+	'Green' 	=> '#4a6339'
 	);
 
 
@@ -347,7 +348,7 @@ $options_values['linkcolor'] = array(
 	'Dark Blue' => '#003366',
 	'Light Blue' => '#0066cc',
 	'Red' => '#990000',
-	'Green' => '#265e15',
+	'Green' => '#146C3A',
 	'Black' => '#222222',
 	'Gold'	=>	'#625B1D'
 	);
