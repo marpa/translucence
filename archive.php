@@ -15,6 +15,9 @@
 get_header(); ?>
 
 		<div id="container">
+		<?php if ( $options['archives-sidebar-left-display'] == "show" ) : ?>
+		<?php get_sidebar('tertiary'); ?>
+		<?php endif; ?>	
 			<div id="content" role="main">
 
 <?php
@@ -56,10 +59,10 @@ get_header(); ?>
 
 			</div><!-- #content -->
 
-<?php if ( $options['archives-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['archives-sidebar-right-display'] == "show" ) : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['archives-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['archives-sidebar-right02-display'] == "show" ) : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

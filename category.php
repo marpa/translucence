@@ -13,6 +13,9 @@ $cat_id = $this_category->term_id;
 ?>
 
 		<div id="container">
+		<?php if ( $options['category-sidebar-left-display'] == "show" ) : ?>
+		<?php get_sidebar('tertiary'); ?>
+		<?php endif; ?>	
 			<div id="content" role="main">
 
 			<div style = "width: 50%; float: right;">
@@ -39,10 +42,10 @@ $cat_id = $this_category->term_id;
 
 			</div><!-- #content -->
 
-<?php if ( $options['category-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['category-sidebar-right-display'] == "show" ) : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['category-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['category-sidebar-right02-display'] == "show" ) : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 
