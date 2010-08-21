@@ -700,7 +700,7 @@ function variation_options() {
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 50);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
 	
@@ -716,6 +716,13 @@ function variation_options() {
 	$custom_background_color = get_background_color();
 	$custom_background_image = get_background_image();
  	
+ 	//printpre ($custom_background_image);
+ 	if ($custom_background_image) {
+ 		$options['background_image'] = "url('".$custom_background_image."')";
+ 		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
+ 		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
+ 		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
+ 	}
 
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
@@ -726,6 +733,7 @@ function variation_options() {
 			background-position: ".$options['background_position'].";
 			background-color: ".$options['background_color'].";
 			background-repeat: ".$options['background_repeat'].";
+			background-attachment: ".$options['background_attachment'].";
  			width: ".$model_site_width."px;
 			margin-top: 1px;
 			margin-right: 0px;
@@ -734,16 +742,6 @@ function variation_options() {
 			padding: 1px 10px 10px 10px;
 			border: 1px solid #CCCCCC;
 		}
-
-		
-		.contentwrapper {
-			background-color: ".$options['background_color'].";
-		
-		}
-		
-		.headerwrapper {
-			width: ".$options['header-width'].";
-		}
 						
 		.headerblock {
 			background-image: url(".$model_header_image.");
@@ -751,8 +749,20 @@ function variation_options() {
 			background-repeat: no-repeat;
 		}
 		 		
- 		.contentblock {
+ 		#content {
  			width: ".$model_content_width."px;
+ 		}
+ 		
+ 		#primary {
+ 			width: ".$options['right01-width']."px;
+ 		}
+
+ 		#secondary {
+ 			width: ".$options['right02-width']."px;
+ 		}
+ 		
+ 		#tertiary {
+ 			width: ".$options['left01-width']."px;
  		}
 
  		.editheaderlink {
@@ -1227,7 +1237,7 @@ function variation_options() {
 	</tr>
 	</table>
 
-	<table width = '100%' align='center' cellpadding='0' cellspacing='0' id='wrapper' style='padding: 0px;'>
+	<table width = '100%' align='center' cellpadding='0' cellspacing='0' id='modelwrapper' style='padding: 0px;'>
 	<tr>
 	<td>				
 			<tr>
@@ -1278,7 +1288,7 @@ function variation_options() {
 
 			if ($options['left01-width'] != 0) {
 				print"
-				<td valign='top' width='".$model_left_sidebar_width."' id='tertiary' style='float: left; '>
+				<td valign='top' width='".$model_left_sidebar_width."' id='tertiary' style='float: none; '>
 					<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr; </div>
 					<div style='font-size: 8px; margin: 4px;'>					
 					<h2 style='margin-bottom: 2px; margin-top: 2px; color: ".$options['left01-heading-color'].";'>Left Sidebar</h2>";
@@ -1347,7 +1357,7 @@ function variation_options() {
 			 *********************************************************/
 			
 			print "
-			<td id='content' style='color: ".$options['textcolor']." style='float: left; clear: left; padding: 1px;'>	
+			<td id='content' style='color: ".$options['textcolor']."; float: none; padding: 1px;'>	
 				<div style='font-size: 10px; text-align: center;'> &larr; ".$model_content_width." px &rarr;</div>
 				<div style='font-size: 10px; text-align: center;'>";
 				
@@ -1707,7 +1717,7 @@ function variation_options() {
 			</tr>
 		</table>
 	
-		<table width='100%' cellspacing='2' cellpadding='0' id='wrapper' style='padding: 0px;'>
+		<table cellspacing='2' cellpadding='0' id='wrapper' style='padding: 0px;'>
 		<tr>
 		<td class='bottomblock'>";	
 		
