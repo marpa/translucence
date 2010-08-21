@@ -735,11 +735,9 @@ function variation_options() {
 			background-repeat: ".$options['background_repeat'].";
 			background-attachment: ".$options['background_attachment'].";
  			width: ".$model_site_width."px;
-			margin-top: 1px;
-			margin-right: 0px;
 			background-color: ".$options['background_color'].";
 			color: #000000;
-			padding: 1px 10px 10px 10px;
+			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
 						
@@ -1901,11 +1899,26 @@ function variation_options() {
 		$header_width = $options['site-width']-10;
 		$menu_width =$options['site-width']-10;
 		
-		// $headerwidth_measure = $options['site-width'] - 35;
-	// 	$headerwidth = $headerwidth_measure."px";
-		//$contentwidth = ($headerwidth_measure-20)."px";
-		
-		$content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+175);
+		// calculate the width of the content div based on widths of sidebars
+		// sidebar width = sidebar width + 50
+		// if sidebar width = 0 then width = 0
+		$left01_width = 0;
+		if ($options['left01-width'] != 0) {
+			$left01_width = $options['left01-width'] + 50;
+		}
+	
+		$right01_width = 0;
+		if ($options['right01-width'] != 0) {
+			$right01_width = $options['right01-width'] + 50;
+		}
+	
+		$right02_width = 0;
+		if ($options['right02-width'] != 0) {
+			$right02_width = $options['right02-width'] + 50;
+		}
+				
+		$content_width = $options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
+		$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
 		$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
 	// 	printpre($options['left01-width']);
 	// 	printpre($options['right01-width']);
