@@ -10,6 +10,9 @@
 get_header(); ?>
 
 		<div id="container">
+		<?php if ( $options['author-sidebar-right-display'] == "show" ) : ?>
+		<?php get_sidebar('tertiary'); ?>
+		<?php endif; ?>	
 			<div id="content" role="main">
 
 <?php
@@ -63,10 +66,10 @@ get_header(); ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php if ( $options['author-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['author-sidebar-right-display'] == "show" ) : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['author-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['author-sidebar-right02-display'] == "show" ) : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

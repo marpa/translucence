@@ -10,6 +10,9 @@
 get_header(); ?>
 
 		<div id="container">
+		<?php if ( $options['search-sidebar-left-display'] == "show" ) : ?>
+		<?php get_sidebar('tertiary'); ?>
+		<?php endif; ?>	
 			<div id="content" role="main">
 
 <?php if ( have_posts() ) : ?>
@@ -33,10 +36,10 @@ get_header(); ?>
 			</div><!-- #content -->
 
 
-<?php if ( $options['search-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['search-sidebar-right-display'] == "show" ) : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['search-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['search-sidebar-right02-display'] == "show" ) : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 		</div><!-- #container -->

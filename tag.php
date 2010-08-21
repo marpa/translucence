@@ -12,7 +12,10 @@ $this_tag = get_tags($tag);
 $tag_id = get_query_var('tag_id');
 ?>
 
-		<div id="container">
+	<div id="container">
+	<?php if ( $options['tag-sidebar-left-display'] == "show" ) : ?> 		
+	<?php get_sidebar('tertiary'); ?>
+	<?php endif; ?>	
 			<div id="content" role="main">
 			
 			<div style = "width: 50%; float: right;">
@@ -35,10 +38,10 @@ $tag_id = get_query_var('tag_id');
 ?>
 			</div><!-- #content -->
 
-<?php if ( $options['tag-sidebar-right-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['tag-sidebar-right-display'] == "show" ) : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['tag-sidebar-right02-display'] == "show" ) : // Only display sidebar if single. ?>
+<?php if ( $options['tag-sidebar-right02-display'] == "show" ) : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 		</div><!-- #container -->
