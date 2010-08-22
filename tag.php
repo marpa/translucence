@@ -10,13 +10,14 @@
 get_header(); 
 $this_tag = get_tags($tag);
 $tag_id = get_query_var('tag_id');
+$content_width = get_content_width ("tag");
 ?>
 
 	<div id="container">
 	<?php if ( $options['tag-sidebar-left-display'] == "show" ) : ?> 		
 	<?php get_sidebar('tertiary'); ?>
 	<?php endif; ?>	
-			<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 			
 			<div style = "width: 50%; float: right;">
 				<div id="syndication">

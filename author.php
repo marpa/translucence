@@ -7,13 +7,15 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header(); 
+$content_width = get_content_width ("author");
+?>
 
 		<div id="container">
 		<?php if ( $options['author-sidebar-right-display'] == "show" ) : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
-			<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php
 	/* Queue the first post, that way we know who
