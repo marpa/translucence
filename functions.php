@@ -2807,11 +2807,10 @@ function set_primary_options() {
  ******************************************************************************/
 if (!function_exists('get_variation_default')) {
 	function get_variation_default() {
-	
 		if (file_exists(dirname(__FILE__).'/variations/default/variation.php')) {
 			$variation_default = dirname(__FILE__).'/variations/default/variation.php';
 		}
-		return $variation_default;
+		return $variation_default;		
 	}
 }
 
@@ -2835,8 +2834,9 @@ function set_variation_options() {
 	 ******************************************************************************/
 
 	if (file_exists(get_variation_default())) {
-		include('variations/default/variation.php');		
-	}
+		$variation_default = get_variation_default();
+		include($variation_default);
+	} 
 
 	/*********************************************************
 	 * Custom backgrounds
