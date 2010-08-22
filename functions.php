@@ -1177,25 +1177,6 @@ function variation_options() {
 		print "</span>";
 		print "</div>";
 				
-		// header image options
-// 		if (in_array("header-image-options", $variation_config['model'])) {
-// 			print " <span style='white-space:nowrap'><span style='font-size: 10px; color:".$options['bgtextcolor']."'>Header Image:</span>\n";
-// 
-// 			if ($options['header-image-options'] == "custom" && $custom_header_set == 1) {
-// 				print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
-// 			} else {
-// 				print "<select name='header-image-options' style='font-size: 10px;'  onchange='this.form.submit();'>\n";
-// 				foreach (array_keys($variation_config['header_image_options']) as $header_image_option) {						
-// 					print "<option value='".$variation_config['header_image_options'][$header_image_option]['option_name']."' ";
-// 					print ($options['header-image-options'] == $variation_config['header_image_options'][$header_image_option]['option_name'] ? ' selected' : '') . ">";
-// 					print $variation_config['header_image_options'][$header_image_option]['option_label']."</option>\n";						
-// 				}
-// 				print "</select>";
-// 				if ($options['header-image-options'] == "custom" && $custom_header_set == 0) 
-// 					print "<span class ='editheaderlink'><a href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header Image</a></span>";
-// 			}
-// 		}
-// 		print "</span>";
 		print "
 		</td>		
 	</tr>
