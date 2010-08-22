@@ -30,7 +30,7 @@
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
 	<div class='post-link' style="clear: right;">
-	<a href="<?php get_bloginfo('url'); ?>/wp-admin/post-new.php">New Post</a>
+	<a href="<?php bloginfo('url'); ?>/wp-admin/post-new.php">New Post</a>
 	</div>
 <?php endif; ?>
 
