@@ -19,7 +19,7 @@
  */
 ?>
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>
-<div style = "width: 50%; float: right;">
+<div style = "width: 100%; float: right;">
 	<div id="syndication">
 		<a href="<?php bloginfo('rss2_url'); ?>" class="feed">Posts RSS</a> 
 		<a href="<?php bloginfo('comments_rss2_url'); ?>" class="feed">Comments RSS</a>
