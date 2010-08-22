@@ -1008,6 +1008,7 @@ function variation_options() {
 	 *********************************************************/
 	
 	print "	
+	<div style='background-color:".$options['site-color-rgb'].";'>
 	<table width='100%' cellpadding='5'>
 	<tr>
 		<td colspan='3'>
@@ -1829,6 +1830,7 @@ function variation_options() {
 	
 			print "</div>\n";
 		}
+	print "</div>";
 	print "</div>";
 	// end options		
 
