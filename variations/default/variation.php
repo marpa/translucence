@@ -40,10 +40,10 @@ $options['site-margin-top'] = "0";
 $options['page-image-width'] = $options['site-width']-50;
 $options['custom-header-width-offset'] = 7;
 
-$options['foreground_color'] = "#FFFFFF";
-$options['content-background'] = "transparent";
+//$options['foreground_color'] = "#FFFFFF";
+//$options['content-background'] = "transparent";
 $options['header-text-padding-left'] = "10";
-//$options['header-text-size'] = "30";
+//$options['site-title-size'] = "30";
 
 
 // text shadow for site-title and poat-title
@@ -131,8 +131,12 @@ if (!isset($options['headermeta'])) $options['headermeta'] = "on";
  
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 if (!isset($options['site-width'])) $options['site-width'] = "900";
+
 if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
-if (!isset($options['header-blogtitle-size'])) $options['header-blogtitle-size'] = "30";
+if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
+if (!isset($options['site-title-color'])) $options['site-title-color'] = "#003366";
+if (!isset($options['site-description-color'])) $options['site-description-color'] = "#333333";
+
 if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom";
 if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
 if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = "";
@@ -145,13 +149,13 @@ if (!isset($options['header-text-display'])) $options['header-text-display'] = "
 if (!isset($options['entry-link-style'])) $options['entry-link-style'] = "ww";
 if (!isset($options['tag-link-style'])) $options['tag-link-style'] = "yellow-box";
 if (!isset($options['category-link-style'])) $options['category-link-style'] = "yellow-box";
-if (!isset($options['entry-text-align'])) $options['entry-text-align'] = "justify";
+if (!isset($options['entry-text-align'])) $options['entry-text-align'] = "left";
 
-if (!isset($options['site-padding-top'])) $options['site-padding-top'] = "10";
+if (!isset($options['site-padding-top'])) $options['site-padding-top'] = "20";
 if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = "20";
 
 if (!isset($options['site-color'])) $options['site-color'] = "#FFFFFF";
-if (!isset($options['header-color'])) $options['header-color'] = "#F9F9F9";
+if (!isset($options['header-color'])) $options['header-color'] = "#FFFFFF";
 if (!isset($options['top-color'])) $options['top-color'] = "#F9F9F9";
 if (!isset($options['left01-color'])) $options['left01-color'] = "#F9F9F9";
 if (!isset($options['content-color'])) $options['content-color'] = "#FFFFFF";
@@ -159,10 +163,9 @@ if (!isset($options['right01-color'])) $options['right01-color'] = "#F9F9F9";
 if (!isset($options['right02-color'])) $options['right02-color'] = "#F9F9F9";
 if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
 
-if (!isset($options['site-opacity'])) $options['site-opacity'] = "1";
-if (!isset($options['header-opacity'])) $options['header-opacity'] = ".2";
-if (!isset($options['header-opacity'])) $options['header-opacity'] = ".2";
-if (!isset($options['top-opacity'])) $options['top-opacity'] = "0";
+if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
+if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
+if (!isset($options['top-opacity'])) $options['top-opacity'] = ".6";
 if (!isset($options['left01-opacity'])) $options['left01-opacity'] = ".6";
 if (!isset($options['content-opacity'])) $options['content-opacity'] = "1";
 if (!isset($options['right01-opacity'])) $options['right01-opacity'] = ".3";
@@ -171,12 +174,12 @@ if (!isset($options['bottom-opacity'])) $options['bottom-opacity'] = "0";
 
 if (!isset($options['site-border-style'])) $options['site-border-style'] = "none";
 if (!isset($options['header-border-style'])) $options['header-border-style'] = "dotted";
-if (!isset($options['top-border-style'])) $options['content-border-style'] = "none";
-if (!isset($options['content-border-style'])) $options['content-border-style'] = "none";
+if (!isset($options['top-border-style'])) $options['top-border-style'] = "solid";
+if (!isset($options['content-border-style'])) $options['content-border-style'] = "solid";
 if (!isset($options['left01-border-style'])) $options['left01-border-style'] = "dotted";
 if (!isset($options['right01-border-style'])) $options['right01-border-style'] = "dotted";
 if (!isset($options['right02-border-style'])) $options['right02-border-style'] = "dotted";
-if (!isset($options['bottom-border-style'])) $options['bottom-border-style'] = "none";
+if (!isset($options['bottom-border-style'])) $options['bottom-border-style'] = "dotted";
 
 if (!isset($options['header-width'])) $options['header-width'] = $options['site-width'];
 if (!isset($options['left01-width'])) $options['left01-width'] = "0";
@@ -234,6 +237,18 @@ $options_values['header-text-size'] = array(
 	'50px' => '50',
 	'60px' => '60',
 	);
+
+$options_values['header-text-offset'] = array(
+	'5px' => '5px',
+	'10px' => '10px',
+	'15px' => '15px',
+	'20px' => '20px',
+	'25px' => '25px',
+	'30px' => '30px',
+	'35px' => '35px'
+	);
+
+
 
 $options_values['header-opacity'] = array(
 	'100%' => '1',
