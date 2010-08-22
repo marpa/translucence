@@ -3681,6 +3681,30 @@ function get_option_field ($option_title, $option_name, $option_field_width) {
 	}
 }
 
+function get_content_width ($template) {
+	global $options;
+	
+	if ($options[$template.'-sidebar-left-display'] != "show" ) {
+		$left01_width = 0;
+	} else {
+		$left01_width = $options['left01-width']+50;
+	}
+	
+	if ($options[$template.'-sidebar-right-display'] != "show" ) {
+		$right01_width = 0;
+	} else {
+		$right01_width = $options['right01-width']+50;
+	}
+	
+	if ($options[$template.'-sidebar-right02-display'] != "show" ) {
+		$right02_width = 0;
+	} else {
+		$right02_width = $options['right02-width']+50;
+	}
+	
+	$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	return $content_width;
+}
 
 /*********************************************************
  * Hext to RGB converter for setting transparency using RGBa

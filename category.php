@@ -10,13 +10,14 @@
 get_header(); 
 $this_category = get_category($cat);
 $cat_id = $this_category->term_id;
+$content_width = get_content_width ("category");
 ?>
 
 		<div id="container">
 		<?php if ( $options['category-sidebar-left-display'] == "show" ) : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
-			<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 			<div style = "width: 50%; float: right;">
 				<div id="syndication">

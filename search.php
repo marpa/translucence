@@ -7,13 +7,15 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header(); 
+$content_width = get_content_width ("search");
+?>
 
 		<div id="container">
 		<?php if ( $options['search-sidebar-left-display'] == "show" ) : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
-			<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php if ( have_posts() ) : ?>
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
