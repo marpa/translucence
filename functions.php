@@ -1919,12 +1919,6 @@ function variation_options() {
 				
 		$content_width = $options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
 		$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
-		$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
-	// 	printpre($options['left01-width']);
-	// 	printpre($options['right01-width']);
-	// 	printpre($options['right02-width']);
-	// 	printpre($content_width);
-	// 	printpre($total);
 	
 		/******************************************************************************
 		 * add theme options to theme CSS
