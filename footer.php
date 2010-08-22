@@ -14,7 +14,7 @@
 	</div><!-- #main -->
 
 	<div id="footer" role="contentinfo">
-		<div id="colophon">
+		<div id="colophon">	</div><!-- #colophon -->
 
 <?php
 	/* A sidebar in the footer? Yep. You can can customize
@@ -23,8 +23,6 @@
 	get_sidebar( 'footer' );
 ?>
 
-
-		</div><!-- #colophon -->
 	</div><!-- #footer -->
 
 </div><!-- #wrapper -->
