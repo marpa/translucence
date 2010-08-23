@@ -1188,7 +1188,7 @@ div.menu,
  
 #secondary {
 	float: left;
-	margin-right: 0px;
+	margin-right: 1px;
 	background-color: rgba(255, 255, 255, 0);
 }
  
@@ -1278,7 +1278,7 @@ div.menu,
 	padding-top: 25px;
 	padding-left: 10px;
 	margin-bottom: 7px;
-	color: ##003366;
+	color: #003366;
 	text-shadow: #444444  ;
 }
  
