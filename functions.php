@@ -2070,12 +2070,13 @@ div.menu,
 	text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 }
 
+
 #site-title a {
+	color: #".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
 	margin-bottom: 7px;
-	color: #".$options['site-title-color'].";
 	text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 }
 
@@ -2083,7 +2084,7 @@ div.menu,
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
-	color: #".$options['site-title-color'].";
+	color: ".$options['site-title-color'].";
 	border-bottom: none;
 }
 
