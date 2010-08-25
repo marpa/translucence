@@ -2680,7 +2680,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['tag-link-color'].";
 	background-color:".$options['tag-link-background'].";
-	border:1px solid #ccc; 
+	border: ".$options['category-link-border']." solid #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;			
@@ -2688,7 +2688,7 @@ a:hover {
 
 .tag-links a:hover {
 	text-decoration: ".$options['tag-link-hover-decoration'].";
-	border: 1px solid ".$options['linkcolor']."; 
+	border: 1px ".$options['category-link-border']." ".$options['linkcolor']."; 
 }
 
 /* Begin category links */
@@ -2699,7 +2699,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['category-link-color'].";
 	background-color:".$options['category-link-background'].";
-	border:1px solid #ccc; 
+	border: ".$options['category-link-border']." solid #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
@@ -2707,7 +2707,7 @@ a:hover {
 
 .cat-links a:hover {
 	text-decoration: ".$options['category-link-hover-decoration'].";
-	border: 1px solid ".$options['linkcolor']."; 
+	border: 1px ".$options['category-link-border']." ".$options['linkcolor']."; 
 }			
 
 /* Begin editing UI links */
@@ -3378,7 +3378,7 @@ function set_derivative_options() {
 			$options[$link_type.'-link-hover-border'] = "solid";
 			$options[$link_type.'-link-hover-background_color'] = $options['content-color'];
 			$options[$link_type.'-link-hover-decoration'] = "underline";
-			$options[$link_type.'-link-background'] = "none";
+			$options[$link_type.'-link-background'] = "transparent";
 			$options[$link_type.'-link-color'] = $options['linkcolor'];
 			
 		} else if ($options[$link_type.'-link-style'] == "underline") {
