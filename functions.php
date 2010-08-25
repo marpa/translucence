@@ -2080,15 +2080,17 @@ div.menu,
 
 #content {
 	float: left;
+	margin-top: ".$options['content-margin-top']."px;
+	margin-right: ".$options['content-margin-right']."px;
+	
 	width: ".$content_width."px;
 	color: ".$options['content-text-color'].";
 	background-color: ".$options['content-color-rgb'].";
 	padding: 20px;
-	margin-right: 1px;
-	border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
-	border-bottom: 1px ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
-	border-left: 1px ".$options['content-border-style'] ." ".$options['content-border-left'].";
-	border-right: 1px ".$options['content-border-style'] ." ".$options['content-border-right'].";
+	border-top: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-top'].";
+	border-bottom: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
+	border-left: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-left'].";
+	border-right: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-right'].";
 }
 
 
@@ -2097,7 +2099,8 @@ div.menu,
 
 #tertiary {
 	float: left;
-	margin-right: 1px;
+	margin-top: ".$options['left01-margin-top']."px;
+	margin-right: ".$options['left01-margin-right']."px;
 	background-color: rgba(255, 255, 255, 0);
 	
 	color: ".$options['left01-text-color'].";
@@ -2107,7 +2110,6 @@ div.menu,
 	border-left: 1px ".$options['left01-border-style']." ".$options['left01-border-left'].";
 	border-right: 1px ".$options['left01-border-style']." ".$options['left01-border-right'].";
 	
-	color: ".$options['left01-text-color'].";
 	width: ".$options['left01-width']."px;
 	visibility: ".$options['left01-visibility'].";
 	padding-top: 10px;
@@ -2127,10 +2129,10 @@ div.menu,
 #primary {
 	float: left;
 	background-color: rgba(255, 255, 255, 0.5);
-	margin-right: 1px;
+	margin-top: ".$options['right01-margin-top']."px;
+	margin-right: ".$options['right01-margin-right']."px;
 	margin-bottom: auto;
 
-	color: ".$options['right01-text-color'].";
 	background-color: ".$options['right01-color-rgb'].";
 	border-top: 1px ".$options['right01-border-style']." ".$options['right01-border-top'].";
 	border-bottom: 1px ".$options['right01-border-style']." ".$options['right01-border-bottom'].";
@@ -2155,10 +2157,10 @@ div.menu,
 
 #secondary {
 	float: left;
-	margin-right: 0px;
+	margin-top: ".$options['right02-margin-top']."px;
+	margin-right: ".$options['right02-margin-right']."px;
 	background-color: rgba(255, 255, 255, 0);
 	
-	color: ".$options['right02-text-color'].";
 	background-color: ".$options['right02-color-rgb'].";
 	border-top: 1px ".$options['right02-border-style']." ".$options['right02-border-top'].";
 	border-bottom: 1px ".$options['right02-border-style']." ".$options['right02-border-bottom'].";

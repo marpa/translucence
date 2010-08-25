@@ -191,10 +191,21 @@ $variation_config['model'][81]  = 'site-border-left';
 $variation_config['model'][82]  = 'site-border-right';
 $variation_config['model'][83]  = 'site-padding-top';
 $variation_config['model'][84]  = 'site-padding-bottom';
-$variation_config['model'][85]  = 'header-text-shadow-offset';
-$variation_config['model'][86]  = 'header-text-shadow-blur';
+// $variation_config['model'][85]  = 'header-text-shadow-offset';
+// $variation_config['model'][86]  = 'header-text-shadow-blur';
 $variation_config['model'][87]  = 'site-description-color';
 $variation_config['model'][88]  = 'site-description-size';
+
+//  primary options not exposed in theme model
+$variation_config['model'][89]  = 'left01-margin-right';
+$variation_config['model'][90]  = 'right01-margin-right';
+$variation_config['model'][91]  = 'right02-margin-right';
+$variation_config['model'][92]  = 'content-margin-right';
+
+$variation_config['model'][93]  = 'left01-margin-top';
+$variation_config['model'][94]  = 'right01-margin-top';
+$variation_config['model'][95]  = 'right02-margin-top';
+$variation_config['model'][96]  = 'content-margin-top';
 
 /******************************************************************************
  * Disabled Variations 

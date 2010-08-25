@@ -12,7 +12,8 @@ Author URI:
 
 // defaults for all but custom background images 
 
-if ($options['background'] != "custom") {	 
+if ($options['background'] != "custom") {	
+
 	$options['background_color'] = "#FFFFFF";
 	$options['background_image_file'] = "none";
 	$options['background_image'] = "none";
@@ -48,8 +49,8 @@ $options['header-text-padding-left'] = "10";
 
 // text shadow for site-title and poat-title
 $options['header-text-shadow-color'] = "#444444";
-//$options['header-text-shadow-offset'] = "2px 2px";
-//$options['header-text-shadow-blur'] = "3px";
+//$options['header-text-shadow-offset'] = "1px 1px";
+//$options['header-text-shadow-blur'] = "2px";
 $options['post-text-shadow-color'] = "#CCCCCC";
 $options['post-text-shadow-offset'] = "1px 1px";
 $options['post-text-shadow-blur'] = "0.05em";
@@ -80,11 +81,27 @@ if (isset($options['textcolor'])) {
 }
 
 
+// margins
 $options['header-meta-left-margin'] = "0px";
 $options['header-meta-right-margin'] = "0px";
 $options['footer-meta-left-margin'] = "10px";
 $options['footer-meta-right-margin'] = "10px";
 
+$options['left01-margin-right'] = "1";
+$options['content-margin-right'] = "1";
+$options['right01-margin-right'] = "1";
+$options['right02-margin-right'] = "0";
+
+$options['left01-margin-top'] = "0";
+$options['content-margin-top'] = "0";
+$options['right01-margin-top'] = "0";
+$options['right02-margin-top'] = "0";
+
+// content border width
+$options['content-border-width'] = "1px";
+
+
+// widget heading colors
 $options['left01-heading-color'] = "#999999";
 $options['right01-heading-color'] = "#999999";
 $options['right02-heading-color'] = "#999999";
@@ -136,6 +153,8 @@ if (!isset($options['header-block-height'])) $options['header-block-height'] = "
 if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
 if (!isset($options['site-title-color'])) $options['site-title-color'] = "#003366";
 if (!isset($options['site-description-color'])) $options['site-description-color'] = "#333333";
+if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = "1px 1px";
+if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
 
 if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom";
 if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
@@ -336,7 +355,6 @@ $options_values['sidebar-opacity'] = array(
 
 
 $options_values['sidebar-color'] = array(
-	'White' => '#FFFFFF',
 	'Silver' => '#F9F9F9',
 	'Gray' => '#F3F3F3',
 	'Yellow' => '#FFF8C6',
@@ -380,7 +398,6 @@ $options_values['entry-link-style'] = array(
 );
 
 $options_values['textcolor'] = array(
-	'White' => '#FFFFFF',
 	'10% Gray' => '#EEEEEE',
 	'20% Gray' => '#CCCCCC',
 	'30% Gray' => '#888888',
