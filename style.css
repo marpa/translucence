@@ -1,11 +1,11 @@
 /*
-Theme Name: Twenty Ten
-Theme URI: http://wordpress.org/
-Description: The 2010 theme for WordPress is stylish, customizable, simple, and readable -- make it yours with a custom menu, header image, and background. Twenty Ten supports six widgetized areas (two in the sidebar, four in the footer) and featured images (thumbnails for gallery posts and custom header images for posts and pages). It includes stylesheets for print and the admin Visual Editor, special styles for posts in the "Asides" and "Gallery" categories, and has an optional one-column page template that removes the sidebar.
-Author: the WordPress team
-Version: 1.1
-Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
-*/
+Theme Name: Translucence
+Theme URI: http://blogs.middlebury.edu/wordpress/themes/translucence/
+Description: Flexible and extensible theme with a WYSIWYG theme editor that includes options for 1-3 sidebars, custom header image and a dozen variations.
+Version: 2.0
+Author: Alex Chapin
+Author URI: http://blogs.middlebury.edu/achapin
+Tags: custom-colors, custom-header, theme-options, one-column, two-columns, three-columns
 
 
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
@@ -57,7 +57,7 @@ a img {
 
 
 /* =Fonts and links
-* Add Translucence child default fonts and link color
+* Add Translucence child default Site title and headers fonts and link color
 -------------------------------------------------------------- */
 body,
 input,
@@ -113,6 +113,75 @@ a:active,
 a:hover {
 	color: #003366;
 }
+
+#branding #site-title {
+	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-size: 30px;
+	font-weight: normal;
+	border-bottom: none;
+	text-shadow: #444444 1px 1px 2px;
+}
+
+#site-title a {
+	color: #003366;
+	display: block;
+	padding-top: 25px;
+	padding-left: 10px;
+	margin-bottom: 7px;
+	text-shadow: #444444 1px 1px 2px;
+}
+ 
+#site-title a:hover {
+	display: block;
+	padding-top: 25px;
+	padding-left: 10px;
+	color: 003366;
+	border-bottom: none;
+}
+ 
+.headerblock #site-description {
+	display: block;
+	padding-left: 15px;
+	color: #333333;
+	font-size: 14px;
+}
+
+.widget-title {
+	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	color: #036;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: normal;
+	padding: 5px;
+}
+
+#content .entry-title {
+	font-family: 'Times New Roman', Times, serif;
+	color: #036;
+	font-size: 2em;
+	font-weight: normal;
+	line-height: 1.3em;
+	margin-bottom: 0;	
+	display: block;
+	text-align: left;
+	text-shadow: #CCC 0px 0px 0em;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-weight: bold;
+	line-height: 1.5em;
+	margin: 0 0 20px 0;
+}
+
+
+
 
 /* End Fonts and Links
 -------------------------------------------------------------- */
@@ -1141,7 +1210,7 @@ div.menu,
 }
  
 #wrapper {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: rgba(249, 249, 249, 0);
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px none #CCCCCC;
 	border-left: 1px none #CCCCCC;
@@ -1171,8 +1240,9 @@ div.menu,
 	float: left;
 	width: 580px;
 	color: #444444;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(249, 249, 249, 1);
 	padding: 20px;
+	margin-right: 1px;
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
@@ -1188,7 +1258,7 @@ div.menu,
  
 #secondary {
 	float: left;
-	margin-right: 1px;
+	margin-right: 0px;
 	background-color: rgba(255, 255, 255, 0);
 }
  
@@ -1248,7 +1318,7 @@ div.menu,
  
 .headerblock {
 	color: #444444;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: rgba(249, 249, 249, .6);
 	border-top: 1px dotted #CCCCCC;
 	border-bottom: 1px dotted #CCCCCC;
 	border-left: 1px dotted #CCCCCC;
@@ -1259,7 +1329,7 @@ div.menu,
 }
  
 .headerblock:hover {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(249, 249, 249, 0.7);
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
@@ -1270,31 +1340,32 @@ div.menu,
 	font-size: 30px;
 	font-weight: normal;
 	border-bottom: none;
-	text-shadow: #444444  ;
+	text-shadow: #444444 1px 1px 2px;
 }
  
+ 
 #site-title a {
+	color: #003366;
 	display: block;
 	padding-top: 25px;
 	padding-left: 10px;
 	margin-bottom: 7px;
-	color: #003366;
-	text-shadow: #444444  ;
+	text-shadow: #444444 1px 1px 2px;
 }
  
 #site-title a:hover {
 	display: block;
 	padding-top: 25px;
 	padding-left: 10px;
-	color: ##003366;
+	color: 003366;
 	border-bottom: none;
 }
  
 .headerblock #site-description {
 	display: block;
 	padding-left: 15px;
-	color: ##333333;
-	font-size: px;
+	color: #333333;
+	font-size: 14px;
 }
  
 /* Misc full width area settings */
@@ -1388,6 +1459,7 @@ div.menu,
 	color: #444444;
 	width: 0px;
 	visibility: hidden;
+	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
 }
@@ -1395,6 +1467,7 @@ div.menu,
 #primary {
 	width: 200px;
 	visibility: visible;
+	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
 }
@@ -1402,6 +1475,7 @@ div.menu,
 #secondary {
 	width: 0px;
 	visibility: hidden;
+	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
 }
@@ -1416,7 +1490,7 @@ div.menu,
 	float: left;
 	background-color: transparent;
 	margin-right: 1px;
-	width: 200px;
+	width: 215px;
 }
  
 #footer-widget-area #fourth {
@@ -2034,9 +2108,9 @@ small, .nocomments, .postmetadata, blockquote, strike {
 	color: #444444;
 }	
  
-.headerblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF);zoom: 1;}
+.headerblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
 .topblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
-.contentblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF,endColorstr=#FFFFFFFF);zoom: 1;}
+.contentblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF9F9F9,endColorstr=#FFF9F9F9);zoom: 1;}
 .bottomblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00F9F9F9,endColorstr=#00F9F9F9);zoom: 1;}
 .left01block {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
 .right01block {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4CF9F9F9,endColorstr=#4CF9F9F9);zoom: 1;}
