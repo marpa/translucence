@@ -30,15 +30,18 @@ if ($options['background'] == "translucence-black") {
 	$options['bgtextcolor'] = "#CCCCCC";
 	$options['bglinkcolor'] = "#FFFFFF";
 	$options['bgbordercolor'] = "#FFFFFF";
+	
+// 	$options['site-title-color'] = "#CCCC99";
+// 	$options['site-description-color'] = "#FFFFFF";
 		
 
 	$options['background_color'] = "#0F0F0F";
 	$options['foreground_color'] = "#000000";	
 	
-	$options['header-text-shadow-color'] = "#000000";
+// 	$options['header-text-shadow-color'] = "#000000";
 	$options['header-text-shadow-offset'] = "2px 2px";
 	$options['header-text-shadow-blur'] = "5px";
-	$options['post-text-shadow-color'] = "#333333";
+// 	$options['post-text-shadow-color'] = "#333333";
 	$options['post-text-shadow-offset'] = "1px 0px";
 	$options['post-text-shadow-blur'] = "1px";
 
