@@ -21,8 +21,8 @@ $content_width = get_content_width ("post");
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 				<div id="nav-above" class="navigation">
-					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentyten' ) . '</span> %title' ); ?></div>
-					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentyten' ) . '</span>' ); ?></div>
+					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&laquo;', 'Previous post link', 'twentyten' ) . '</span> %title' ); ?></div>
+					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&raquo;', 'Next post link', 'twentyten' ) . '</span>' ); ?></div>
 				</div><!-- #nav-above -->
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -51,7 +51,7 @@ $content_width = get_content_width ("post");
 							<?php the_author_meta( 'description' ); ?>
 							<div id="author-link">
 								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-									<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'twentyten' ), get_the_author() ); ?>
+									<?php printf( __( 'View all posts by %s <span class="meta-nav">&raquo;</span>', 'twentyten' ), get_the_author() ); ?>
 								</a>
 							</div><!-- #author-link	-->
 						</div><!-- #author-description -->
@@ -71,8 +71,8 @@ $content_width = get_content_width ("post");
 				</div><!-- #post-## -->
 
 				<div id="nav-below" class="navigation">
-					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentyten' ) . '</span> %title' ); ?></div>
-					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentyten' ) . '</span>' ); ?></div>
+					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&laquo;', 'Previous post link', 'twentyten' ) . '</span> %title' ); ?></div>
+					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&raquo;', 'Next post link', 'twentyten' ) . '</span>' ); ?></div>
 				</div><!-- #nav-below -->
 
 			<div id="syndication">
