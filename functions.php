@@ -2722,15 +2722,13 @@ a:hover {
 	border: 1px dotted ".$options['linkcolor'].";
 	text-align: center;
 	padding: 5px;
-	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .post-link a:hover {
 	display: block;
 	border: 1px solid ".$options['linkcolor'].";
-	text-align: center;
-	padding: 5px;
-	margin-top: 10px;
+
 }
 
 .edit-link a {
@@ -3327,7 +3325,26 @@ function set_derivative_options() {
 		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";
 		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.1).")";
 		$options[$bar.'-color-hover02-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.2).")";
-		$options[$bar.'-color-ie'] = ".".$bar."block {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		
+		if ($bar == "left01") {
+			$area = "tertiary";
+		} else if ($bar == "right01") {
+			$area = "primary";
+		} else if ($bar == "right02") {
+			$area = "secondary";
+		} else if ($bar == "top") {
+			$area = "access";
+		} else if ($bar == "bottom") {
+			$area = "footer-widget-area";
+		} else if ($bar == "content") {
+			$area = "content";
+		}
+		
+		$options[$bar.'-color-ie'] = "#".$area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		
+		if ($bar == "top") {
+			$options['submenu-color-ie'] = "#access .children {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		}
 		
 		// visibility
 		if ($options[$bar.'-width'] == '0') {
