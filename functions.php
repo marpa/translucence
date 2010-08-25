@@ -1954,46 +1954,6 @@ div.menu,
 	margin-top: ".$options['site-margin-top']."px;
 }
 
-/* The main theme layout areas */
-
-#container {
-	overflow: hidden;
-	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
-	width: 100%;			
-}
-
-#content {
-	float: left;
-	width: ".$content_width."px;
-	color: ".$options['content-text-color'].";
-	background-color: ".$options['content-color-rgb'].";
-	padding: 20px;
-	margin-right: 1px;
-	border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
-	border-bottom: 1px ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
-	border-left: 1px ".$options['content-border-style'] ." ".$options['content-border-left'].";
-	border-right: 1px ".$options['content-border-style'] ." ".$options['content-border-right'].";
-}
-
-#primary {
-	float: left;
-	background-color: rgba(255, 255, 255, 0.5);
-	margin-right: 1px;
-	margin-bottom: auto;
-}
-
-#secondary {
-	float: left;
-	margin-right: 0px;
-	background-color: rgba(255, 255, 255, 0);
-}
-
-#tertiary {
-	float: left;
-	margin-right: 1px;
-	background-color: rgba(255, 255, 255, 0);
-}
 
 /* The theme meta areas */
 
@@ -2108,17 +2068,52 @@ div.menu,
 	width: ".$site_width."px;
 }
 
+/* =Content and Container
+-------------------------------------------------------------- */	
+
+#container {
+	overflow: hidden;
+	margin: 0 0px 0 0;
+	padding: 0px 0px 0px 4px;
+	width: 100%;			
+}
+
+#content {
+	float: left;
+	width: ".$content_width."px;
+	color: ".$options['content-text-color'].";
+	background-color: ".$options['content-color-rgb'].";
+	padding: 20px;
+	margin-right: 1px;
+	border-top: 1px ".$options['content-border-style'] ." ".$options['content-border-top'].";
+	border-bottom: 1px ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
+	border-left: 1px ".$options['content-border-style'] ." ".$options['content-border-left'].";
+	border-right: 1px ".$options['content-border-style'] ." ".$options['content-border-right'].";
+}
+
+
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
 
-/* Begin widget area color, borders and opacity */
 #tertiary {
+	float: left;
+	margin-right: 1px;
+	background-color: rgba(255, 255, 255, 0);
+	
 	color: ".$options['left01-text-color'].";
 	background-color: ".$options['left01-color-rgb'].";
 	border-top: 1px ".$options['left01-border-style']." ".$options['left01-border-top'].";
 	border-bottom: 1px ".$options['left01-border-style']." ".$options['left01-border-bottom'].";
 	border-left: 1px ".$options['left01-border-style']." ".$options['left01-border-left'].";
 	border-right: 1px ".$options['left01-border-style']." ".$options['left01-border-right'].";
+	
+	color: ".$options['left01-text-color'].";
+	width: ".$options['left01-width']."px;
+	visibility: ".$options['left01-visibility'].";
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	
 }
 
 #tertiary:hover {
@@ -2130,12 +2125,24 @@ div.menu,
 }
 		
 #primary {
+	float: left;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin-right: 1px;
+	margin-bottom: auto;
+
 	color: ".$options['right01-text-color'].";
 	background-color: ".$options['right01-color-rgb'].";
 	border-top: 1px ".$options['right01-border-style']." ".$options['right01-border-top'].";
 	border-bottom: 1px ".$options['right01-border-style']." ".$options['right01-border-bottom'].";
 	border-left: 1px ".$options['right01-border-style']." ".$options['right01-border-left'].";
 	border-right: 1px ".$options['right01-border-style']." ".$options['right01-border-right'].";
+
+	width: ".$options['right01-width']."px;
+	visibility: ".$options['right01-visibility'].";
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	
 }
 
 #primary:hover {
@@ -2147,12 +2154,22 @@ div.menu,
 }
 
 #secondary {
+	float: left;
+	margin-right: 0px;
+	background-color: rgba(255, 255, 255, 0);
+	
 	color: ".$options['right02-text-color'].";
 	background-color: ".$options['right02-color-rgb'].";
 	border-top: 1px ".$options['right02-border-style']." ".$options['right02-border-top'].";
 	border-bottom: 1px ".$options['right02-border-style']." ".$options['right02-border-bottom'].";
 	border-left: 1px ".$options['right02-border-style']." ".$options['right02-border-left'].";
 	border-right: 1px ".$options['right02-border-style']." ".$options['right02-border-right'].";
+
+	width: ".$options['right02-width']."px;
+	visibility: ".$options['right02-visibility'].";
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 #secondary:hover {
@@ -2170,6 +2187,10 @@ div.menu,
 	border-bottom: 1px ".$options['bottom-border-style']." ".$options['bottom-border-bottom'].";
 	border-left: 1px ".$options['bottom-border-style']." ".$options['bottom-border-left'].";
 	border-right: 1px ".$options['bottom-border-style']." ".$options['bottom-border-right'].";	
+
+	overflow: hidden;
+	width: ".$header_width."px;
+	padding: 20px 0px 0px 4px;
 }
 
 #footer-widget-area:hover {
@@ -2178,40 +2199,7 @@ div.menu,
 	border-bottom: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-bottom'].";
 	border-left: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-left'].";
 	border-right: 1px ".$options['bottom-hover-border-style']." ".$options['bottom-border-right'].";		
-}		
-/* End widget area color, borders and opacity */
-
-/* Begin widget text, width, padding and visibility  */
-#tertiary {
-	color: ".$options['left01-text-color'].";
-	width: ".$options['left01-width']."px;
-	visibility: ".$options['left01-visibility'].";
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
-
-#primary {
-	width: ".$options['right01-width']."px;
-	visibility: ".$options['right01-visibility'].";
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
-
-#secondary {
-	width: ".$options['right02-width']."px;
-	visibility: ".$options['right02-visibility'].";
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
-
-#footer-widget-area {
-	overflow: hidden;
-	width: ".$header_width."px;
-	padding: 20px 0px 0px 4px;
-}
+}	
 
 #footer-widget-area .widget-area {
 	float: left;
@@ -2224,7 +2212,6 @@ div.menu,
 	margin-right: 0;
 }
 
-/* End widget text, width, padding and visibility  */
 
 /* Begin widget links */
 #tertiary a {
@@ -3384,7 +3371,7 @@ function set_derivative_options() {
 	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
 	
 	if ($active_widgets > 0)
-		$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-100;
+		$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-10;
 	
 	//printpre($options['footer-widget-width']);
 
