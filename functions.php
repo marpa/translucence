@@ -746,6 +746,10 @@ function variation_options() {
 			background-position: right center;
 			background-repeat: no-repeat;
 		}
+
+ 		#site-title a {
+ 			color: ".$options['site-title-color']."
+ 		}
 		 		
  		#content {
  			width: ".$model_content_width."px;
