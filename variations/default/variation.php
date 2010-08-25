@@ -147,7 +147,7 @@ $options['searchbox-color'] = "#FFFFFF";
 if (!isset($options['headermeta'])) $options['headermeta'] = "on";
  
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
-if (!isset($options['site-width'])) $options['site-width'] = "900";
+if (!isset($options['site-width'])) $options['site-width'] = "950";
 
 if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
 if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
@@ -184,7 +184,7 @@ if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
 
 if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
 if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
-if (!isset($options['top-opacity'])) $options['top-opacity'] = ".6";
+if (!isset($options['top-opacity'])) $options['top-opacity'] = ".7";
 if (!isset($options['left01-opacity'])) $options['left01-opacity'] = ".6";
 if (!isset($options['content-opacity'])) $options['content-opacity'] = "1";
 if (!isset($options['right01-opacity'])) $options['right01-opacity'] = ".3";
