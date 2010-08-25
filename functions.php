@@ -2269,72 +2269,59 @@ div.menu,
 	border-bottom: 1px none #CCCCCC;
 }
 
-#tertiary h2 {
-	color: ".$options['left01-heading-color'].";
-	padding-left: 0px;
-	border-bottom: 1px none #CCCCCC;
-}
 		
 #primary h2, #primary h3 {
 	color: ".$options['right01-heading-color'].";
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
 
 #secondary h2, #secondary h3 {
 	color: ".$options['right02-heading-color'].";
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
 
 #tertiary h2, #tertiary h3 {
 	color: ".$options['left01-heading-color'].";
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
 
 #footer-widget-area h2, #footer-widget-area h3 {
 	color: ".$options['bottom-heading-color'].";
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px solid ".$options['bottom-heading-color'].";
 }
 /* End widget headings */
 
 /* Begin widget list css */
-#tertiary ul ul li, .sidebarleft01 ul ol li {
+#tertiary ul ul li, .tertiary ul ol li {
 	font-size: 12px;
 	color: ".$options['left01-text-color'].";
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 5px 0px 0px -10px;
 }
 
 #primary ul ul li, #primary ul ol li {
 	font-size: 12px;
 	color: ".$options['right01-text-color'].";
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 5px 0px 0px -10px;
 }
 
-#secondary ul ul li, .sidebarright02 ul ol li {
+#secondary ul ul li, .secondary ul ol li {
 	font-size: 12px;
 	color: ".$options['right02-text-color'].";
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 3px 0 0px -10px;
 }
 
 #footer-widget-area ul ul li, .footer-widget-area ul ol li {
 	font-size: 12px;
 	color: ".$options['bottom-text-color'].";
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 3px 0 0px -10px;
 }
 /* End widget list css */
 

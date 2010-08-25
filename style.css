@@ -115,7 +115,7 @@ a:hover {
 }
 
 #branding #site-title {
-	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	font-size: 30px;
 	font-weight: normal;
 	border-bottom: none;
@@ -140,6 +140,7 @@ a:hover {
 }
  
 .headerblock #site-description {
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	display: block;
 	padding-left: 15px;
 	color: #333333;
@@ -147,7 +148,7 @@ a:hover {
 }
 
 .widget-title {
-	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	color: #036;
 	font-size: 16px;
 	text-transform: uppercase;
@@ -156,7 +157,7 @@ a:hover {
 }
 
 #content .entry-title {
-	font-family: 'Times New Roman', Times, serif;
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	color: #036;
 	font-size: 2em;
 	font-weight: normal;
@@ -973,13 +974,14 @@ h3#reply-title {
 /* Main sidebars */
 #main .widget-area ul {
 	margin-left: 0;
-	padding: 0 20px 0 0;
+	padding: 0 0px 0 0;
 }
 #main .widget-area ul ul {
 	border: none;
-	margin-left: 1.3em;
+	margin-left: 1.7em;
 	padding: 0;
 }
+
 #primary {
 }
 #secondary {
@@ -1206,11 +1208,11 @@ div.menu,
 #main,
 #wrapper {
 	margin: 0 auto;
-	width: 900px;
+	width: 950px;
 }
  
 #wrapper {
-	background-color: rgba(249, 249, 249, 0);
+	background-color: rgba(255, 255, 255, 0);
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px none #CCCCCC;
 	border-left: 1px none #CCCCCC;
@@ -1221,52 +1223,12 @@ div.menu,
 }
  
 .sitewrapper {
-	width: 900px;
+	width: 950px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0px;
 }
  
-/* The main theme layout areas */
- 
-#container {
-	overflow: hidden;
-	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
-	width: 100%;			
-}
- 
-#content {
-	float: left;
-	width: 580px;
-	color: #444444;
-	background-color: rgba(249, 249, 249, 1);
-	padding: 20px;
-	margin-right: 1px;
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-}
- 
-#primary {
-	float: left;
-	background-color: rgba(255, 255, 255, 0.5);
-	margin-right: 1px;
-	margin-bottom: auto;
-}
- 
-#secondary {
-	float: left;
-	margin-right: 0px;
-	background-color: rgba(255, 255, 255, 0);
-}
- 
-#tertiary {
-	float: left;
-	margin-right: 1px;
-	background-color: rgba(255, 255, 255, 0);
-}
  
 /* The theme meta areas */
  
@@ -1313,7 +1275,7 @@ div.menu,
 	
 #branding {
 	margin: 0 auto;
-	width: 900px;		
+	width: 950px;		
 }
  
 .headerblock {
@@ -1324,7 +1286,7 @@ div.menu,
 	border-left: 1px dotted #CCCCCC;
 	border-right: 1px dotted #CCCCCC;				
 	padding-top: 0px;
-	width: 890px;
+	width: 940px;
 	height: 100px;
 }
  
@@ -1345,7 +1307,7 @@ div.menu,
  
  
 #site-title a {
-	color: #003366;
+	color: ##003366;
 	display: block;
 	padding-top: 25px;
 	padding-left: 10px;
@@ -1357,41 +1319,78 @@ div.menu,
 	display: block;
 	padding-top: 25px;
 	padding-left: 10px;
-	color: 003366;
+	color: #003366;
 	border-bottom: none;
 }
  
 .headerblock #site-description {
 	display: block;
 	padding-left: 15px;
-	color: #333333;
-	font-size: 14px;
+	color: ##333333;
+	font-size: px;
 }
  
 /* Misc full width area settings */
  
 #footer {
 	clear: both;
-	width: 900px;
+	width: 950px;
 }
  
 /* Full width content with no sidebar; used for attachment pages */
 .single-attachment #content {
 	margin: 0 auto;
-	width: 900px;
+	width: 950px;
 }
+ 
+/* =Content and Container
+-------------------------------------------------------------- */	
+ 
+#container {
+	overflow: hidden;
+	margin: 0 0px 0 0;
+	padding: 0px 0px 0px 4px;
+	width: 100%;			
+}
+ 
+#content {
+	float: left;
+	margin-top: 0px;
+	margin-right: 1px;
+	
+	width: 630px;
+	color: #444444;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 20px;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+}
+ 
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
  
-/* Begin widget area color, borders and opacity */
 #tertiary {
+	float: left;
+	margin-top: 0px;
+	margin-right: 1px;
+	background-color: rgba(255, 255, 255, 0);
+	
 	color: #444444;
 	background-color: rgba(249, 249, 249, .6);
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px none #CCCCCC;
 	border-left: 1px none #CCCCCC;
 	border-right: 1px none #CCCCCC;
+	
+	width: 0px;
+	visibility: hidden;
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	
 }
  
 #tertiary:hover {
@@ -1403,12 +1402,24 @@ div.menu,
 }
 		
 #primary {
-	color: #444444;
+	float: left;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin-top: 0px;
+	margin-right: 1px;
+	margin-bottom: auto;
+ 
 	background-color: rgba(249, 249, 249, .3);
 	border-top: 1px dotted #CCCCCC;
 	border-bottom: 1px dotted #CCCCCC;
 	border-left: 1px dotted #CCCCCC;
 	border-right: 1px dotted #CCCCCC;
+ 
+	width: 200px;
+	visibility: visible;
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	
 }
  
 #primary:hover {
@@ -1420,12 +1431,22 @@ div.menu,
 }
  
 #secondary {
-	color: #444444;
+	float: left;
+	margin-top: 0px;
+	margin-right: 0px;
+	background-color: rgba(255, 255, 255, 0);
+	
 	background-color: rgba(249, 249, 249, 0);
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px none #CCCCCC;
 	border-left: 1px none #CCCCCC;
 	border-right: 1px none #CCCCCC;
+ 
+	width: 0px;
+	visibility: hidden;
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
 }
  
 #secondary:hover {
@@ -1443,6 +1464,10 @@ div.menu,
 	border-bottom: 1px dotted #CCCCCC;
 	border-left: 1px dotted #CCCCCC;
 	border-right: 1px dotted #CCCCCC;	
+ 
+	overflow: hidden;
+	width: 940px;
+	padding: 20px 0px 0px 4px;
 }
  
 #footer-widget-area:hover {
@@ -1451,53 +1476,19 @@ div.menu,
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;		
-}		
-/* End widget area color, borders and opacity */
- 
-/* Begin widget text, width, padding and visibility  */
-#tertiary {
-	color: #444444;
-	width: 0px;
-	visibility: hidden;
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
- 
-#primary {
-	width: 200px;
-	visibility: visible;
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
- 
-#secondary {
-	width: 0px;
-	visibility: hidden;
-	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
-}
- 
-#footer-widget-area {
-	overflow: hidden;
-	width: 890px;
-	padding: 20px 0px 0px 4px;
-}
+}	
  
 #footer-widget-area .widget-area {
 	float: left;
 	background-color: transparent;
 	margin-right: 1px;
-	width: 215px;
+	width: 307px;
 }
  
 #footer-widget-area #fourth {
 	margin-right: 0;
 }
  
-/* End widget text, width, padding and visibility  */
  
 /* Begin widget links */
 #tertiary a {
@@ -1553,72 +1544,59 @@ div.menu,
 	border-bottom: 1px none #CCCCCC;
 }
  
-#tertiary h2 {
-	color: #222222;
-	padding-left: 0px;
-	border-bottom: 1px none #CCCCCC;
-}
 		
 #primary h2, #primary h3 {
 	color: #222222;
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
  
 #secondary h2, #secondary h3 {
 	color: #222222;
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
  
 #tertiary h2, #tertiary h3 {
 	color: #222222;
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px none #CCCCCC;
 }
  
 #footer-widget-area h2, #footer-widget-area h3 {
 	color: #222222;
-	padding-left: 0px;
+	padding-left: 2px;
 	border-bottom: 1px solid #222222;
 }
 /* End widget headings */
  
 /* Begin widget list css */
-#tertiary ul ul li, .sidebarleft01 ul ol li {
+#tertiary ul ul li, .tertiary ul ol li {
 	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 5px 0px 0px -10px;
 }
  
 #primary ul ul li, #primary ul ol li {
 	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 5px 0px 0px -10px;
 }
  
-#secondary ul ul li, .sidebarright02 ul ol li {
+#secondary ul ul li, .secondary ul ol li {
 	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 3px 0 0px -10px;
 }
  
 #footer-widget-area ul ul li, .footer-widget-area ul ol li {
 	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
-	margin: 3px 0 -4px;
-	padding: 3px;
-	padding-right: 10px;
+	margin: 3px 0 0px -10px;
 }
 /* End widget list css */
  
@@ -1666,7 +1644,7 @@ div.menu,
 			
 .topblock {
 	color:  #444444;
-	background-color: rgba(249, 249, 249, .6);
+	background-color: rgba(249, 249, 249, .7);
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;	
 	border-left: 1px none #CCCCCC;
@@ -1687,14 +1665,14 @@ div.menu,
  
 #access {
 	color: #444444;
-	background-color: rgba(249, 249, 249, .6);
+	background-color: rgba(249, 249, 249, .7);
 	display: block;
 	float: left;
 	border-top: 1px none #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;	
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
-	width: 890px;
+	width: 940px;
 	margin-bottom: 20px; 
 }
  
@@ -1702,14 +1680,14 @@ div.menu,
 div.menu {
 	font-size: 13px;
 	margin-left: 12px;
-	width: 890px;
+	width: 940px;
 }
  
 #access .menu-header,
 div.menu,
 #main {
 	margin: 0 auto;
-	width: 890px;
+	width: 940px;
 }
  
 #access .menu-header ul,
@@ -1755,7 +1733,7 @@ div.menu li {
 }
  
 #access ul ul a {
-	background-color: rgba(249, 249, 249, .6);
+	background-color: rgba(249, 249, 249, .7);
 	line-height: 1em;
 	padding: 10px;
 	width: 160px;
@@ -1765,7 +1743,7 @@ div.menu li {
 #access li:hover > a,
 #access ul ul :hover > a {
 	color:  #003366;
-	background-color: rgba(249, 249, 249, .6);
+	background-color: rgba(249, 249, 249, .7);
 	text-decoration: underline;	
 	border-bottom: none;
 }
@@ -1776,7 +1754,7 @@ div.menu li {
 }
  
 #access .sub-menu {
-	background-color: rgba(249, 249, 249, .6);
+	background-color: rgba(249, 249, 249, .7);
 	box-shadow: 0px 3px 3px #444444;
 	-moz-box-shadow: 0px 3px 3px #444444;
 	-webkit-box-shadow: 0px 3px 3px #444444;
@@ -2109,8 +2087,8 @@ small, .nocomments, .postmetadata, blockquote, strike {
 }	
  
 .headerblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
-.topblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
-.contentblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF9F9F9,endColorstr=#FFF9F9F9);zoom: 1;}
+.topblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2F9F9F9,endColorstr=#B2F9F9F9);zoom: 1;}
+.contentblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF,endColorstr=#FFFFFFFF);zoom: 1;}
 .bottomblock {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00F9F9F9,endColorstr=#00F9F9F9);zoom: 1;}
 .left01block {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}
 .right01block {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4CF9F9F9,endColorstr=#4CF9F9F9);zoom: 1;}
