@@ -1916,7 +1916,6 @@ function variation_options() {
 /* The main theme structure */	
 
 body {
-	font-size: 62.5%;
 	font-family:'Helvetica Neue',Arial,Helvetica,sans-serif;
 	color: ".$options['textcolor'].";
 	background-color: ".$options['background_color'].";
@@ -2297,21 +2296,18 @@ div.menu,
 
 /* Begin widget list css */
 #tertiary ul ul li, .tertiary ul ol li {
-	font-size: 12px;
 	color: ".$options['left01-text-color'].";
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
 }
 
 #primary ul ul li, #primary ul ol li {
-	font-size: 12px;
 	color: ".$options['right01-text-color'].";
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
 }
 
 #secondary ul ul li, .secondary ul ol li {
-	font-size: 12px;
 	color: ".$options['right02-text-color'].";
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
@@ -2522,7 +2518,6 @@ div.menu li {
 /* Entry titles */
 #content .entry-title {
 	color: ".$options['linkcolor'].";
-	font-size: 21px;
 	font-weight: normal;
 	line-height: 1.3em;
 	margin-bottom: 0;				

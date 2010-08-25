@@ -159,7 +159,7 @@ a:hover {
 #content .entry-title {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	color: #036;
-	font-size: 2em;
+	font-size: 21px;
 	font-weight: normal;
 	line-height: 1.3em;
 	margin-bottom: 0;	
@@ -175,14 +175,38 @@ a:hover {
 #content h4,
 #content h5,
 #content h6 {
-	font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
-	font-weight: bold;
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+	font-weight: normal;
 	line-height: 1.5em;
 	margin: 0 0 20px 0;
 }
 
+#content,
+#content input,
+#content textarea {
+	color: #333;
+	font-size: 12px;
+	line-height: 17px;
+	text-align: left;
+}
 
+#tertiary ul ul li, .tertiary ul ol li {
+	font-size: 12px;
+}
 
+#primary ul ul li, .tertiary ul ol li {
+	font-size: 12px;
+}
+
+#secondary ul ul li, .tertiary ul ol li {
+	font-size: 12px;
+}
+
+.navigation {
+	font-size: 12px;
+	line-height: 18px;
+	overflow: hidden;
+}
 
 /* End Fonts and Links
 -------------------------------------------------------------- */
@@ -325,14 +349,7 @@ textarea {
 #content {
 	margin-bottom: 25px;
 }
-#content,
-#content input,
-#content textarea {
-	color: #333;
-	font-size: 12px;
-	line-height: 17px;
-	text-align: left;
-}
+
 #content p,
 #content ul,
 #content ol,
@@ -666,12 +683,7 @@ textarea {
 /* =Navigation
 -------------------------------------------------------------- */
 
-.navigation {
 
-	font-size: 12px;
-	line-height: 18px;
-	overflow: hidden;
-}
 .navigation a:link,
 .navigation a:visited {
 
@@ -993,19 +1005,19 @@ h3#reply-title {
 	width: 100%; 
 	text-align: right;
 	font-size: 11px;
-	padding: 5px 0 0 0;
+	padding: 0px 0 10px 0;
 	white-space:nowrap;
 }
 
 #syndication span {
-	padding: 5px 10px 0 23px;
+	padding: 5px 2px 0 23px;
 	background: url(variations/feed.png) no-repeat 0 1px;
 	border-bottom: none;
 }
 
 
 #syndication a.feed{
-	padding: 5px 10px 0 23px;
+	padding: 5px 2px 0px 23px;
 	background: url(variations/feed.png) no-repeat 0 1px;
 	border-bottom: none;
 }
@@ -1572,21 +1584,18 @@ div.menu,
  
 /* Begin widget list css */
 #tertiary ul ul li, .tertiary ul ol li {
-	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
 }
  
 #primary ul ul li, #primary ul ol li {
-	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
 }
  
 #secondary ul ul li, .secondary ul ol li {
-	font-size: 12px;
 	color: #444444;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
@@ -1995,6 +2004,7 @@ a:hover {
 .post-link a {
 	color: #003366;
 	display: block;
+	width: 100%;
 	border: 1px dotted #003366;
 	text-align: center;
 	padding: 5px;
