@@ -16,7 +16,7 @@ if ($options['background'] == "translucence-green") {
 	// option values
 	$options['background_image_file'] = "green01.png";
 	$options['background_image_directory'] = "translucence-green";
-	$options['background_image'] = "url('".get_bloginfo("stylesheet_directory");
+	$options['background_image'] = "url('".get_bloginfo("template_directory");
 	$options['background_image'] .= "/variations/".$options['background_image_directory'];
 	$options['background_image'] .= "/".$options['background_image_file']."')";
 	$options['background_repeat'] = "repeat";
