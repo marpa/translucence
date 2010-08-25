@@ -45,6 +45,7 @@
 	// IE hack opacity options
 	print $options['header-color-ie']."\n"; 
 	print $options['top-color-ie']."\n"; 
+	print $options['submenu-color-ie']."\n"; 
 	print $options['content-color-ie']."\n"; 
 	print $options['bottom-color-ie']."\n"; 
 	print $options['left01-color-ie']."\n"; 
@@ -85,9 +86,9 @@
 		}
 		
 		if ($options['headermeta'] == "on") {
-			if (is_user_logged_in() == 'true') print " - ";	
+			if (is_user_logged_in() == 'true') print "";	
 
-			print wp_loginout('','')."";
+			//print wp_loginout('','')."";
 
 		}
 		?>	
