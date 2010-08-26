@@ -16,7 +16,7 @@
 	 */
 	global $options;
 	
-	if ( is_active_sidebar( 'primary-widget-area' ) && $options['right01-width'] != '0') : ?>
+	if ( $options['right01-width'] != '0') : ?>
 	
 		<div id="primary" class="widget-area" role="complementary">
 			<ul class="xoxo">
