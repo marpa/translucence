@@ -104,7 +104,7 @@ add_action('admin_menu', 'variation_admin_menu');
 function variation_admin_menu() {
 	global $theme_options, $variation_config;
 	
-    add_theme_page($theme_options, $theme_options, 'edit_themes', 'Variations', 'variation_options');
+    add_theme_page($theme_options, $theme_options, 'edit_theme_options', 'Variations', 'variation_options');
 }
 
 /**
@@ -2039,6 +2039,7 @@ div.menu,
 
 
 #site-title a {
+	font-size: ".$options['site-title-size']."px;
 	color: ".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
@@ -3382,7 +3383,7 @@ function set_derivative_options() {
 	if ($active_widgets > 0)
 		$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-10;
 	
-	printpre("footer:".$options['footer-widget-width']);
+	//printpre($options['footer-widget-width']);
 
 	
 	/******************************************************************************
