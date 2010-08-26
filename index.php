@@ -19,7 +19,7 @@ get_header(); ?>
 	
 <div id="container">
 
-	<?php if (is_active_sidebar("tertiary-widget-area") && $options['left01-width'] != '0') : ?>
+	<?php if ($options['left01-width'] != '0') : ?>
 		<?php get_sidebar('tertiary'); ?>	
 	<?php endif; ?>	
 	
