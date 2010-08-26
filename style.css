@@ -722,6 +722,11 @@ textarea {
 #comments {
 	clear: both;
 }
+
+.comments-link {
+	float: right;
+	clear: both;
+}
 #comments .navigation {
 	padding: 0 0 18px 0;
 }
