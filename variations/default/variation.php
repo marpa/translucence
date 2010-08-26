@@ -184,7 +184,7 @@ if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
 
 if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
 if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
-if (!isset($options['top-opacity'])) $options['top-opacity'] = ".7";
+if (!isset($options['top-opacity'])) $options['top-opacity'] = ".8";
 if (!isset($options['left01-opacity'])) $options['left01-opacity'] = ".6";
 if (!isset($options['content-opacity'])) $options['content-opacity'] = "1";
 if (!isset($options['right01-opacity'])) $options['right01-opacity'] = ".3";
