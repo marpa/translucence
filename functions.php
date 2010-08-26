@@ -750,6 +750,10 @@ function variation_options() {
  		#site-title a {
  			color: ".$options['site-title-color']."
  		}
+
+ 		#site-description {
+ 			color: ".$options['site-description-color']."
+ 		}
 		 		
  		#content {
  			width: ".$model_content_width."px;
@@ -1584,7 +1588,7 @@ function variation_options() {
 						print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
 						print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
 						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
-						print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+						//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
 					}
 					
 					
@@ -2035,7 +2039,7 @@ div.menu,
 
 
 #site-title a {
-	color: #".$options['site-title-color'].";
+	color: ".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
@@ -2054,7 +2058,7 @@ div.menu,
 .headerblock #site-description {
 	display: ".$options['show-header-text'].";
 	padding-left: 15px;
-	color: #".$options['site-description-color'].";
+	color: ".$options['site-description-color'].";
 	font-size: ".$options['site-description-size']."px;
 }
 
@@ -2679,7 +2683,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['tag-link-color'].";
 	background-color:".$options['tag-link-background'].";
-	border: ".$options['category-link-border']." solid #ccc; 
+	border: 1px ".$options['category-link-border']." solid #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;			
@@ -2698,7 +2702,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['category-link-color'].";
 	background-color:".$options['category-link-background'].";
-	border: ".$options['category-link-border']." solid #ccc; 
+	border: 1px ".$options['category-link-border']." solid #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
@@ -3378,7 +3382,7 @@ function set_derivative_options() {
 	if ($active_widgets > 0)
 		$options['footer-widget-width'] = round($options['site-width']/$active_widgets)-10;
 	
-	//printpre($options['footer-widget-width']);
+	printpre("footer:".$options['footer-widget-width']);
 
 	
 	/******************************************************************************
