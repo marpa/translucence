@@ -2684,7 +2684,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['tag-link-color'].";
 	background-color:".$options['tag-link-background'].";
-	border: 1px ".$options['category-link-border']." solid #ccc; 
+	border: 1px ".$options['tag-link-border']." #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;			
@@ -2692,7 +2692,7 @@ a:hover {
 
 .tag-links a:hover {
 	text-decoration: ".$options['tag-link-hover-decoration'].";
-	border: 1px ".$options['category-link-border']." ".$options['linkcolor']."; 
+	border: 1px ".$options['tag-link-border']." ".$options['linkcolor']."; 
 }
 
 /* Begin category links */
@@ -2703,7 +2703,7 @@ a:hover {
 	-moz-border-radius-topright:3px; 
 	color:".$options['category-link-color'].";
 	background-color:".$options['category-link-background'].";
-	border: 1px ".$options['category-link-border']." solid #ccc; 
+	border: 1px ".$options['category-link-border']." #ccc; 
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
@@ -3462,7 +3462,6 @@ function set_derivative_options() {
 			$options[$link_type.'-link-hover-decoration'] = "none";
 			$options[$link_type.'-link-color'] = $options['linkcolor'];
 		} 
-		
 	}	
 
 	/******************************************************************************
