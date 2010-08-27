@@ -759,18 +759,22 @@ function variation_options() {
 		 		
  		#content {
  			width: ".$model_content_width."px;
+ 			background-color: ".$options['content-color-rgb'].";
  		}
  		
  		#primary {
  			width: ".$options['right01-width']."px;
+ 			background-color: ".$options['right01-color-rgb'].";
  		}
 
  		#secondary {
  			width: ".$options['right02-width']."px;
+ 			background-color: ".$options['right02-color-rgb'].";
  		}
  		
  		#tertiary {
  			width: ".$options['left01-width']."px;
+ 			background-color: ".$options['left01-color-rgb'].";
  		}
 
  		.editheaderlink {
