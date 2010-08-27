@@ -748,11 +748,13 @@ function variation_options() {
 		}
 
  		#site-title a {
- 			color: ".$options['site-title-color']."
+ 			font-size: ".$options['site-title-size']."px;
+ 			color: ".$options['site-title-color'].";
  		}
 
  		#site-description {
- 			color: ".$options['site-description-color']."
+ 			font-size: ".$options['site-description-size']."px;
+ 			color: ".$options['site-description-color'].";
  		}
 		 		
  		#content {
