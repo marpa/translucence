@@ -14,7 +14,7 @@ if ($options['background'] == "translucence-gray-white") {
 
 	$options['background_image_file'] = "bg_topdark.jpg";
 	$options['background_image_directory'] = "translucence-gray-white";	
-	$options['background_image'] = "url('".get_bloginfo("stylesheet_directory");
+	$options['background_image'] = "url('".get_bloginfo("template_directory");
 	$options['background_image'] .= "/variations/".$options['background_image_directory'];
 	$options['background_image'] .= "/".$options['background_image_file']."')";
 	$options['background_attachment'] = "fixed";
