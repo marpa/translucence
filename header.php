@@ -76,9 +76,10 @@
 	<div class="headermeta_right">
 		<span class="bgtextcolor">
 		<?php print stripslashes($options['headerright']);
-
-		if (current_user_can( 'publish_pages' )) print "<a href='".get_bloginfo('siteurl')."/wp-admin/'>Dashboard</a>";
-		if (current_user_can( 'edit_themes' )) print " | <a href='".get_bloginfo('siteurl')."/wp-admin/themes.php?page=Variations'>Design</a>";
+		
+		if (current_user_can( 'moderate_comments' )) print "<a href='".get_bloginfo('siteurl')."/wp-admin/edit-comments.php'>Comments</a>";
+		if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('siteurl')."/wp-admin/widgets.php'>Widgets</a>";
+		if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('siteurl')."/wp-admin/themes.php?page=Variations'>Design</a>";
 		
 		if (current_user_can( 'edit_posts' )) {
 			print " | <a href='".get_bloginfo('siteurl')."/wp-admin/profile.php'>";
