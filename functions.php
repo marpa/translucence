@@ -2031,6 +2031,7 @@ div.menu,
 }
 
 #branding #site-title {
+	color: #".$options['site-title-color'].";
 	font-size: ".$options['site-title-size']."px;
 	font-weight: normal;
 	border-bottom: none;
@@ -2040,7 +2041,7 @@ div.menu,
 
 #site-title a {
 	font-size: ".$options['site-title-size']."px;
-	color: ".$options['site-title-color'].";
+	color: #".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
@@ -2052,14 +2053,14 @@ div.menu,
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
-	color: ".$options['site-title-color'].";
+	color: #".$options['site-title-color'].";
 	border-bottom: none;
 }
 
 .headerblock #site-description {
 	display: ".$options['show-header-text'].";
 	padding-left: 15px;
-	color: ".$options['site-description-color'].";
+	color: #".$options['site-description-color'].";
 	font-size: ".$options['site-description-size']."px;
 }
 
