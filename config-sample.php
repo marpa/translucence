@@ -207,6 +207,10 @@ $variation_config['model'][94]  = 'right01-margin-top';
 $variation_config['model'][95]  = 'right02-margin-top';
 $variation_config['model'][96]  = 'content-margin-top';
 
+$variation_config['model'][97]  = 'category-link-border';
+$variation_config['model'][98]  = 'tag-link-border';
+
+
 /******************************************************************************
  * Disabled Variations 
  * Variation names should match name of variation folder
