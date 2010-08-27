@@ -1890,6 +1890,16 @@ function variation_options() {
 		$header_width = $options['site-width']-10;
 		$menu_width =$options['site-width']-10;
 		
+		// add # to theme option for site-title and description
+		if (!preg_match("/\#/", $options['site-title-color'])) {
+			$options['site-title-color'] = "#".$options['site-title-color'];
+		}
+
+		if (!preg_match("/\#/", $options['site-description-color'])) {
+			$options['site-description-color'] = "#".$options['site-description-color'];
+		}
+
+		
 		// calculate the width of the content div based on widths of sidebars
 		// sidebar width = sidebar width + 50
 		// if sidebar width = 0 then width = 0
@@ -2031,7 +2041,7 @@ div.menu,
 }
 
 #branding #site-title {
-	color: #".$options['site-title-color'].";
+	color: ".$options['site-title-color'].";
 	font-size: ".$options['site-title-size']."px;
 	font-weight: normal;
 	border-bottom: none;
@@ -2041,7 +2051,7 @@ div.menu,
 
 #site-title a {
 	font-size: ".$options['site-title-size']."px;
-	color: #".$options['site-title-color'].";
+	color: ".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
@@ -2053,14 +2063,14 @@ div.menu,
 	display: ".$options['show-header-text'].";
 	padding-top: ".$options['header-text-padding-top']."px;
 	padding-left: ".$options['header-text-padding-left']."px;
-	color: #".$options['site-title-color'].";
+	color: ".$options['site-title-color'].";
 	border-bottom: none;
 }
 
 .headerblock #site-description {
 	display: ".$options['show-header-text'].";
 	padding-left: 15px;
-	color: #".$options['site-description-color'].";
+	color: ".$options['site-description-color'].";
 	font-size: ".$options['site-description-size']."px;
 }
 
