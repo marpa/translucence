@@ -23,5 +23,12 @@
 				<?php dynamic_sidebar( 'tertiary-widget-area' ); ?>
 			</ul>
 		</div><!-- #tertiary .widget-area -->
+	<?php else : ?>
+		<div id="tertiary" class="widget-area" role="complementary">
+		<ul>
+		<?php wp_list_pages('title_li=<h3 class="widget-title">Pages</h3>' ); ?>
+		</ul>		
+		</div><!-- #tertiary .widget-area -->
+
 
 <?php endif; ?>
