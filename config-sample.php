@@ -18,15 +18,15 @@ $variation_config['theme-name'] = "2010 Translucence";
  ******************************************************************************/
 
 $variation_config['header_meta_left_options']['blogs'] = array (
-		option_name =>	'blogs',
-		option_label =>	'Blog Sign Up',
-		option_value => ''
+		'option_name' =>	'blogs',
+		'option_label' =>	'Blog Sign Up',
+		'option_value' => ''
 	);
 	
 $variation_config['header_meta_left_options']['custom'] = array (
-		option_name =>	'custom',
-		option_label =>	'Custom',
-		option_value => ''
+		'option_name' =>	'custom',
+		'option_label' =>	'Custom',
+		'option_value' => ''
 	);
 
 /******************************************************************************
@@ -35,9 +35,9 @@ $variation_config['header_meta_left_options']['custom'] = array (
  ******************************************************************************/
 
 $variation_config['header_meta_right_options'] = array (
-		option_name =>	'',
-		option_label =>	'',
-		option_value => ''
+		'option_name' =>	'',
+		'option_label' =>	'',
+		'option_value' => ''
 	);
 	
 /******************************************************************************
@@ -45,16 +45,16 @@ $variation_config['header_meta_right_options'] = array (
  * (put all header images in images directory
  ******************************************************************************/
 $variation_config['header_image_options']['transparent'] = array (
-		option_name =>	'transparent',
-		option_label =>	'None',
-		option_value => 'header-transparent.png'
+		'option_name' =>	'transparent',
+		'option_label' =>	'None',
+		'option_value' => 'header-transparent.png'
 	);
 
 
 $variation_config['header_image_options']['custom'] = array (
-		option_name =>	'custom',
-		option_label =>	'Custom',
-		option_value => 'header-trans-white-1200x100.png'
+		'option_name' =>	'custom',
+		'option_label' =>	'Custom',
+		'option_value' => 'header-trans-white-1200x100.png'
 	);
 
 
@@ -65,9 +65,9 @@ $variation_config['header_image_options']['custom'] = array (
  ******************************************************************************/
 	
 $variation_config['footer_meta_left_options']['custom'] = array (
-		option_name =>	'custom',
-		option_label =>	'Custom',
-		option_value => ''
+		'option_name' =>	'custom',
+		'option_label' =>	'Custom',
+		'option_value' => ''
 	);
 	
 /******************************************************************************
