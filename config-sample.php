@@ -39,6 +39,19 @@ $variation_config['header_meta_right_options'] = array (
 		'option_label' =>	'',
 		'option_value' => ''
 	);
+
+$variation_config['header_meta_right_options'] = array (
+		option_name =>	'show',
+		option_label =>	'Show',
+		option_value => "on"
+	);
+
+$variation_config['header_meta_right_options'] = array (
+		option_name =>	'hide',
+		option_label =>	'Hide',
+		option_value => "off"
+	);
+
 	
 /******************************************************************************
  * Header Image Options
@@ -98,7 +111,7 @@ $preset_widgets = array (
  * Miscellaneous Config
  * When set to "on" always shows log in link in upper right corner
  ******************************************************************************/
-//$variation_config['headermeta'] = "on";
+//$variation_config['headermeta'] = "off";
 
 
 /******************************************************************************
