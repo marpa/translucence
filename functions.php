@@ -189,7 +189,7 @@ function twentyten_setup() {
 	define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory').'/images/headers/trans01-940x198' );
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
-	define( 'HEADER_TEXTCOLOR', $options['header-text-color']);
+	//define( 'HEADER_TEXTCOLOR', $options['site-title-color']);
 	define( 'HEADER_BGCOLOR', $options['header-color-rgb']);
 	//define( 'NO_HEADER_TEXT', true );
 	define( 'NO_HEADER_DESCRIPTION', true );	
@@ -201,7 +201,7 @@ function twentyten_setup() {
 	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
 
 	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', false );
+	define( 'NO_HEADER_TEXT', true );
 
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See twentyten_admin_header_style(), below.
@@ -264,18 +264,18 @@ if ( ! function_exists( 'twentyten_admin_header_style' ) ) :
  * @since Twenty Ten 1.0
  */
 function twentyten_admin_header_style() {
+global $options;
 ?>
-<style type="text/css">
-/* Shows the same border as on front end */
-#headimg {
-	border-bottom: 1px solid #000;
-	border-top: 4px solid #000;
-}
-/* If NO_HEADER_TEXT is false, you would style the text with these selectors:
-	#headimg #name { }
-	#headimg #desc { }
+	<style type='text/css'>
+		#headimg #name a { 
+			color: <?php print $options['site-title-color'] ?>;
+		}
+		#headimg #desc { 
+			color: <?php print $options['site-description-color'] ?>;
+		}
+	
+	</style>
 
-</style>
 <?php
 }
 endif;
