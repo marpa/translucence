@@ -1073,13 +1073,14 @@ function variation_options() {
 			
 			// header right meta options
 			print $options['headerright'];
-			print "Dashboard ";
+			//print "Dashboard ";
 			
 			
 			// Log in link options
 			if ($options['headermeta'] == "on") {
+				print "Menus | Widgets | Design";
 				print " | ".wp_get_current_user()->display_name;
-				print " - Log out";
+				//print " - Log out";
 			}
 			
 			print "
@@ -1933,7 +1934,6 @@ function variation_options() {
 		/******************************************************************************
 		 * add theme options to theme CSS
 		 ******************************************************************************/
-		
 		$variation_css =
 		"	
 /* =css translucence theme options update
@@ -2864,7 +2864,11 @@ function set_primary_options() {
 		}	
 	}
 	
-	if ($variation_config['headermeta'] == "on") $options['headermeta'] = "on";
+// 	if ($variation_config['headermeta'] == "on") {
+// 		$options['headermeta'] = "on";
+// 	} else {
+// 		$options['headermeta'] = "off";
+// 	}
 
 	if (isset($_POST['model-instructions'])) {
 		$options['model-instructions'] = "on";
@@ -3060,9 +3064,13 @@ function set_derivative_options() {
 	 ******************************************************************************/
 
 	if (isset($variation_config['header_meta_right_options'])) {
-		$options['headerright'] = $variation_config['header_meta_right_options']['option_value'];
-	} else {
-		$options['headerright'] = "";
+	
+		if ($headermeta == 'on') {
+			$options['headerright'] = "Menus | Widgets | Design";
+						
+		} else {
+			$options['headerright'] = "";
+		}
 	}
 
 	/******************************************************************************
@@ -3363,7 +3371,11 @@ function set_derivative_options() {
 			$area = "footer-widget-area";
 		} else if ($bar == "content") {
 			$area = "content";
+		} else {
+			$area = "";
 		}
+		
+
 		
 		$options[$bar.'-color-ie'] = "#".$area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 		
@@ -3671,15 +3683,15 @@ function get_option_selector ($option_title, $option_name, $option_values) {
 	global $variation_config, $options, $options_values;
 
 	if (in_array($option_name, $variation_config['model'])) {
-		print "<span style='white-space:nowrap;'>";
+		print "<span style='white-space:nowrap;'>\n";
 		if ($option_title != "") print " <span style='font-size: 10px;'>".$option_title."</span>\n";
 		print "<select name='".$option_name."' style='font-size: 10px;' onchange='this.form.submit();'>\n";							
 			// options
 			foreach ($option_values as $label => $value) {
 				print "\n<option value='".$value."'".($options[$option_name] == $value ? ' selected' : '') . ">".$label."</option>";
 			}					
-		print "</select>";
-		print "</span> &nbsp;";
+		print "</select>\n";
+		print "</span> &nbsp;\n";
 	}
 }
 
