@@ -355,6 +355,7 @@ $options_values['sidebar-opacity'] = array(
 
 
 $options_values['sidebar-color'] = array(
+	'White' => '#FFFFFF',
 	'Silver' => '#F9F9F9',
 	'Gray' => '#F3F3F3',
 	'Yellow' => '#FFF8C6',
