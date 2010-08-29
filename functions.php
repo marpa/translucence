@@ -950,7 +950,7 @@ function variation_options() {
 			<td width='20%' align='right'>";
 	
 			// log in link options	
-			if (in_array("headermeta", $variation_config['model']) && $variation_config['headermeta'] != "on") {	
+			if (in_array("headermeta", $variation_config['model'])) {	
 				print "
 				<span style='font-size: 9px;'>Editing Quick Links:</span>
 				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
@@ -959,7 +959,7 @@ function variation_options() {
 				</select>
 				</span>";
 			} else {
-				$options['headermeta'] = 'on';
+				//$options['headermeta'] = 'on';
 			}
 
 			print "
