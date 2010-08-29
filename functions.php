@@ -996,10 +996,10 @@ function variation_options() {
 			</td>
 			<td width='20%' align='right'>";
 	
-			// log in link options		
+			// log in link options	
 			if (in_array("headermeta", $variation_config['model']) && $variation_config['headermeta'] != "on") {	
 				print "
-				<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>Log in:
+				<span style='font-size: 9px;'>Editing Quick Links:</span>
 				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
 					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
 					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
