@@ -1312,7 +1312,10 @@ function variation_options() {
 					} else {
 						print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
 						print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
-						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or hide sidebar...</div>";
+						print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>will display pages by default...</div>";
+						print "<div class='widgetbox' style='color: ".$options['left01-heading-color']."; border-color: ".$options['left01-heading-color'].";'>";
+						print "Pages";
+						print "</div>";
 					}
 					
 					print "</div>";
