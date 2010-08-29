@@ -41,15 +41,15 @@ $variation_config['header_meta_right_options'] = array (
 	);
 
 $variation_config['header_meta_right_options'] = array (
-		option_name =>	'show',
-		option_label =>	'Show',
-		option_value => "on"
+		'option_name' =>	'show',
+		'option_label' =>	'Show',
+		'option_value' => "on"
 	);
 
 $variation_config['header_meta_right_options'] = array (
-		option_name =>	'hide',
-		option_label =>	'Hide',
-		option_value => "off"
+		'option_name' =>	'hide',
+		'option_label' =>	'Hide',
+		'option_value' => "off"
 	);
 
 	
