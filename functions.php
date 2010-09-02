@@ -182,7 +182,7 @@ function twentyten_setup() {
 	//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
 	
 	//$header_image = "%s/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
-	$header_image_width = $options['header-width'] - $options['custom-header-width-offset'];
+	$header_image_width = $options['site-width'] - $options['custom-header-width-offset'];
 	$header_image_height = $options['header-block-height'];
 	
 	//define('HEADER_IMAGE', $header_image); // %s is theme dir uri
@@ -267,6 +267,16 @@ function twentyten_admin_header_style() {
 global $options;
 ?>
 	<style type='text/css'>
+
+		#headimg {
+			background-color: <?php echo HEADER_BGCOLOR; ?> 
+			background-image: url(<?php header_image(); ?>) 0 0;
+			background-position: right;
+			background-repeat: no-repeat;
+			width: <?php echo HEADER_IMAGE_WIDTH; ?>px;
+			height: <?php echo HEADER_IMAGE_HEIGHT; ?>px;
+		}
+
 		#headimg #name a { 
 			color: <?php print $options['site-title-color'] ?>;
 		}
@@ -1850,8 +1860,8 @@ function variation_options() {
 		set_variation_options();
 		
 		$site_width = $options['site-width'];
-		$header_width = $options['site-width']-10;
-		$menu_width =$options['site-width']-10;
+		$header_width = $options['site-width']-7;
+		$menu_width =$options['site-width']-7;
 		
 		// add # to theme option for site-title and description
 		if (!preg_match("/\#/", $options['site-title-color'])) {
