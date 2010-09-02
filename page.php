@@ -12,12 +12,17 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header(); 
+global $options;
+$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - $options['right02-width'] - 150;
+?>
 
 		<div id="container">
-		<?php get_sidebar('tertiary'); ?>	
+		<?php if ($options['left01-width'] != '0') : ?>
+			<?php get_sidebar('tertiary'); ?>
+		<?php endif;  ?>
 		
-			<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
