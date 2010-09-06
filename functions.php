@@ -2093,7 +2093,6 @@ div.menu,
 	float: left;
 	margin-top: ".$options['left01-margin-top']."px;
 	margin-right: ".$options['left01-margin-right']."px;
-	background-color: rgba(255, 255, 255, 0);
 	
 	color: ".$options['left01-text-color'].";
 	background-color: ".$options['left01-color-rgb'].";
@@ -2120,11 +2119,11 @@ div.menu,
 		
 #primary {
 	float: left;
-	background-color: rgba(255, 255, 255, 0.5);
 	margin-top: ".$options['right01-margin-top']."px;
 	margin-right: ".$options['right01-margin-right']."px;
 	margin-bottom: auto;
-
+	
+	color: ".$options['right01-text-color'].";
 	background-color: ".$options['right01-color-rgb'].";
 	border-top: 1px ".$options['right01-border-style']." ".$options['right01-border-top'].";
 	border-bottom: 1px ".$options['right01-border-style']." ".$options['right01-border-bottom'].";
@@ -2151,8 +2150,8 @@ div.menu,
 	float: left;
 	margin-top: ".$options['right02-margin-top']."px;
 	margin-right: ".$options['right02-margin-right']."px;
-	background-color: rgba(255, 255, 255, 0);
-	
+
+	color: ".$options['right02-text-color'].";
 	background-color: ".$options['right02-color-rgb'].";
 	border-top: 1px ".$options['right02-border-style']." ".$options['right02-border-top'].";
 	border-bottom: 1px ".$options['right02-border-style']." ".$options['right02-border-bottom'].";
@@ -2175,13 +2174,14 @@ div.menu,
 }
 
 #footer-widget-area {
-	color:  ".$options['bottom-text-color'].";
-	background-color: ".$options['bottom-color-rgb'].";
 	border-top: 1px ".$options['bottom-border-style']." ".$options['bottom-border-top'].";
 	border-bottom: 1px ".$options['bottom-border-style']." ".$options['bottom-border-bottom'].";
 	border-left: 1px ".$options['bottom-border-style']." ".$options['bottom-border-left'].";
 	border-right: 1px ".$options['bottom-border-style']." ".$options['bottom-border-right'].";	
-
+	
+	color:  ".$options['bottom-text-color'].";
+	background-color: ".$options['bottom-color-rgb'].";
+	
 	overflow: hidden;
 	width: ".$header_width."px;
 	padding: 20px 0px 0px 4px;
