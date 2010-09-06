@@ -1117,8 +1117,8 @@ function variation_options() {
 		
 		print "<div style='float: left; width: 50%;'>";
 		//site width
-		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Site: ", "site-width", $options_values['site-width']);
+		print "<span style='color:".$options['bgtextcolor']."'>Site: ";
+		get_option_selector ("", "site-width", $options_values['site-width']);
 		print "</span>";
 		// site color
 		print "<span style='color:".$options['bgtextcolor']."'>";
@@ -1136,8 +1136,8 @@ function variation_options() {
 
 		print "<div style='float: right; width: 50%;'>";
 		// header height options
-		print "<span style='color:".$options['bgtextcolor']."'>";
-		get_option_selector ("Header:", "header-block-height", $options_values['header-block-height']);
+		print "<span style='color:".$options['bgtextcolor']."'>Header:";
+		get_option_selector ("", "header-block-height", $options_values['header-block-height']);
 		print "</span>";
 		
 		// header color
