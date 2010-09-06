@@ -1900,7 +1900,8 @@ function variation_options() {
 		$variation_css =
 		"	
 /* =css translucence theme options update
-* add all of this css to the style.css of child theme
+* add all of this css to the style.css of the Translucence child theme
+* NOTE: change background-image url from absolute to relative
 -------------------------------------------------------------- */
 
 /* The main theme structure */	
