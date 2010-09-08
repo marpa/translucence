@@ -1424,11 +1424,11 @@ function variation_options() {
 				<span class='entry'>Categories: </span><span class='category'><a href='#'>Category</a></span>
 				</div>
 				
-				<div class='entry'>
-				<p>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> 
+				<div class='entry-content'>
+				<br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> 
 				adipiscing elit. Donec ac felis non mauris tristique vehicula. 
 				Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. 
-				Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</p>
+				Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.
 				</div>";
 								
 				// tag sidebar options
