@@ -1466,16 +1466,17 @@ function variation_options() {
 						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
 						<td style='border-bottom: 1px dotted; text-align: right;'>";
 						
-						// text color options
+						// text alignment options
 						get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
 						print "		 							
 						</td>								
 						</tr>						<tr>
-						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text color</span></td>							
+						<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
 						<td style='border-bottom: 1px dotted; text-align: right;'>";
 						
-						// text color options
-						get_option_selector ("", "textcolor", $options_values['textcolor']);
+						// text color and sise options
+						get_option_selector ("color", "textcolor", $options_values['textcolor']);
+						get_option_selector ("size", "entry-text-size", $options_values['text-size']);
 						print "		 							
 						</td>								
 						</tr>
@@ -2083,6 +2084,9 @@ div.menu,
 	border-bottom: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-bottom'].";
 	border-left: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-left'].";
 	border-right: ".$options['content-border-width'] ." ".$options['content-border-style'] ." ".$options['content-border-right'].";
+	
+	font-size: ".$options['entry-text-size']."px;
+	line-height: ".$options['entry-line-height']."px;
 }
 
 
@@ -2163,6 +2167,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
+
 }
 
 #secondary:hover {
@@ -2307,7 +2312,6 @@ div.menu,
 }
 
 #footer-widget-area ul ul li, .footer-widget-area ul ol li {
-	font-size: 12px;
 	color: ".$options['bottom-text-color'].";
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
@@ -3381,6 +3385,10 @@ function set_derivative_options() {
 	
 	//printpre($options['footer-widget-width']);
 
+	/******************************************************************************
+	 * Entry text line height
+	 ******************************************************************************/
+	$options['entry-line-height'] = $options['entry-text-size'] + round($options['entry-text-size']/2);
 	
 	/******************************************************************************
 	 * Entry, Tag and Category link style options

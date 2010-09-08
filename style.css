@@ -184,22 +184,11 @@ a:hover {
 #content input,
 #content textarea {
 	color: #333;
-	font-size: 12px;
-	line-height: 17px;
+	font-size: 14px;
+	line-height: 20px;
 	text-align: left;
 }
 
-#tertiary ul ul li, .tertiary ul ol li {
-	font-size: 12px;
-}
-
-#primary ul ul li, .tertiary ul ol li {
-	font-size: 12px;
-}
-
-#secondary ul ul li, .tertiary ul ol li {
-	font-size: 12px;
-}
 
 .navigation {
 	font-size: 12px;
@@ -435,6 +424,7 @@ textarea {
 .page-title a:hover {
 
 }
+
 
 #entry-author-info {
 	border: 1px solid #CCCCCC;
@@ -1339,7 +1329,7 @@ div.menu,
 	display: block;
 	padding-left: 15px;
 	color: #333333;
-	font-size: px;
+	font-size: 14px;
 }
  
 /* Misc full width area settings */
@@ -1378,6 +1368,9 @@ div.menu,
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
+
+	font-size: 14px;
+	line-height: 20px;
 }
  
  
@@ -1602,7 +1595,7 @@ div.menu,
 }
  
 #footer-widget-area ul ul li, .footer-widget-area ul ol li {
-	font-size: 12px;
+
 	color: #444444;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
