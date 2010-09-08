@@ -93,18 +93,6 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 
 // Update the sidebars with those widgets
 
-$preset_widgets = array (
-	 'primary-widget-area' => array(
-			'search-2',		
-			'recent-posts-2',
-			'recent-comments-2',
-		),
-		'secondary-widget-area' => array(
-			'categories-2',
-			'tag_cloud-2',
-		),
-		'wp_inactive_widgets' => array(),
-	);
 
 
 /******************************************************************************
