@@ -101,6 +101,25 @@ $variation_config['footer_meta_left_options']['custom'] = array (
  ******************************************************************************/
 //$variation_config['headermeta'] = "off";
 
+/******************************************************************************
+ * Custom headers
+ ******************************************************************************/
+
+$variation_config['custom_header'] = array(
+		'none' => array(
+			'url' => '%s/images/headers/trans-1200x300.png',
+			'thumbnail_url' => '%s/images/headers/trans-1200x300-thumbnail.png',
+			/* translators: header image description */
+			'description' => __( 'None', 'twentyten' )
+		),
+		'whitegradient' => array(
+			'url' => '%s/images/headers/whitegradient-1200x200.png',
+			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
+			/* translators: header image description */
+			'description' => __( 'White Gradient', 'twentyten' )
+		)
+);
+
 
 /******************************************************************************
  * Model UI Options

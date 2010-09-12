@@ -143,7 +143,7 @@ if ( ! function_exists( 'twentyten_setup' ) ):
  * @since Twenty Ten 1.0
  */
 function twentyten_setup() {
-	global $options;
+	global $options, $variation_config;
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
@@ -210,22 +210,7 @@ function twentyten_setup() {
 	// ... and thus ends the changeable header business.
 
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( array(
-
-		'none' => array(
-			'url' => '%s/images/headers/trans-1200x300.png',
-			'thumbnail_url' => '%s/images/headers/trans-1200x300-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'None', 'twentyten' )
-		),
-		'whitegradient' => array(
-			'url' => '%s/images/headers/whitegradient-1200x200.png',
-			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'White Gradient', 'twentyten' )
-		)
-
-	) );
+	register_default_headers( $variation_config['custom_header'] );
 }
 endif;
 
