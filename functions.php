@@ -2963,11 +2963,11 @@ function set_variation_options() {
 		$custom_background_color = get_background_color();
 		$custom_background_image = get_background_image();
 		
-		if ($custom_background_color !="" || $custom_background_image !="") {
-			if ($options['background_image_file'] != "none") {
-				$options['background'] = "translucence-gray";		
-			}
-		}
+// 		if ($custom_background_color !="" || $custom_background_image !="") {
+// 			if ($options['background_image_file'] != "none") {
+// 				$options['background'] = "translucence-gray";		
+// 			}
+// 		}
 				
 		if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
 		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;
