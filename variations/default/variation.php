@@ -156,6 +156,8 @@ if (!isset($options['site-description-color'])) $options['site-description-color
 if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = "1px 1px";
 if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
 
+if (!isset($options['entry-text-size'])) $options['entry-text-size'] = "14";
+
 if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom";
 if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
 if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = "";
@@ -408,6 +410,15 @@ $options_values['textcolor'] = array(
 	'70% Gray' => '#444444',
 	'80% Gray' => '#333333',
 	'Black' => '#222222'
+);
+
+$options_values['text-size'] = array(
+	'12px' => '12',
+	'13px' => '13',
+	'14px' => '14',
+	'15px' => '15',
+	'16px' => '16',
+	'18px' => '18'
 );
 
 
