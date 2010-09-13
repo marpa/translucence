@@ -1755,7 +1755,8 @@ div.menu li {
 	border-bottom: none;
 }
  
-#access .sub-menu {
+#access .sub-menu,
+#access .children {
 	background-color: rgba(249, 249, 249, .7);
 	box-shadow: 0px 3px 3px #444444;
 	-moz-box-shadow: 0px 3px 3px #444444;
@@ -1766,7 +1767,8 @@ div.menu li {
 	border-right: 1px solid #CCCCCC;
 }
  
-#access .sub-menu ul {
+#access .sub-menu ul,
+#access .children ul {
 	border-bottom: 1px solid #CCCCCC;
 }
  
@@ -2087,7 +2089,6 @@ small, .nocomments, .postmetadata, blockquote, strike {
  
 #secondary {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF);zoom: 1;}
 #access {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2F9F9F9,endColorstr=#B2F9F9F9);zoom: 1;}
-#access .children {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2F9F9F9,endColorstr=#B2F9F9F9);zoom: 1;}
 #content {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF,endColorstr=#FFFFFFFF);zoom: 1;}
 #footer-widget-area {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00F9F9F9,endColorstr=#00F9F9F9);zoom: 1;}
 #tertiary {*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99F9F9F9,endColorstr=#99F9F9F9);zoom: 1;}

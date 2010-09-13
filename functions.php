@@ -2456,7 +2456,8 @@ div.menu li {
 	border-bottom: none;
 }
 
-#access .sub-menu {
+#access .sub-menu,
+#access .children {
 	background-color: ".$options['top-color-rgb'].";
 	box-shadow: 0px 3px 3px ".$options['header-text-shadow-color'].";
 	-moz-box-shadow: 0px 3px 3px ".$options['header-text-shadow-color'].";
@@ -2467,7 +2468,8 @@ div.menu li {
 	border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
 }
 
-#access .sub-menu ul {
+#access .sub-menu ul,
+#access .children ul {
 	border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";
 }
 
@@ -3333,7 +3335,7 @@ function set_derivative_options() {
 		$options[$bar.'-color-ie'] = "#".$area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 		
 		if ($bar == "top") {
-			$options['submenu-color-ie'] = "#access .children {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 		}
 		
 		// visibility
