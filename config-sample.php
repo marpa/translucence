@@ -233,6 +233,7 @@ $variation_config['model'][98]  = 'tag-link-border';
 // more primary options
 $variation_config['model'][99]  = 'entry-text-size';
 $variation_config['model'][100]  = 'entry-line-height';
+$variation_config['model'][101]  = 'cat-links-color';
 
 
 /******************************************************************************

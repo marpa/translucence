@@ -1970,24 +1970,26 @@ a:hover {
 }
  
 /* Begin category links */
-.cat-links a {
-	-moz-border-radius-bottomleft:3px; 
-	-moz-border-radius-bottomright:3px; 
-	-moz-border-radius-topleft:3px; 
-	-moz-border-radius-topright:3px; 
-	color:#003366;
-	background-color:#FFF8C6;
-	border: 1px solid solid #ccc; 
+.cat-links a {	
+	color: #003366;	
+	background-color: #FFF8C6;
+	border-top: 1px dotted #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	border-left: 1px dotted #CCCCCC;
+	border-right: 1px dotted #CCCCCC;
+	
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
  
-.cat-links a:hover {
-	text-decoration: none;
-	border: 1px solid #003366; 
-}			
- 
+.cat-links a:hover { 
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+}
+
 /* Begin editing UI links */
  
 .edit-link {
