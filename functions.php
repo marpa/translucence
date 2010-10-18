@@ -1483,7 +1483,7 @@ function variation_options() {
 						<td style='border-bottom: 1px dotted;'><span class='category' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
 						<td style='border-bottom: 1px dotted; text-align: right;'>";
 						
-						get_option_selector ("", "category-link-style", $options_values['category-link-style']);
+						get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
 						print "
 						</td>								
 						</tr><tr>";
@@ -2671,23 +2671,30 @@ a:hover {
 }
 
 /* Begin category links */
-.cat-links a {
-	-moz-border-radius-bottomleft:3px; 
-	-moz-border-radius-bottomright:3px; 
-	-moz-border-radius-topleft:3px; 
-	-moz-border-radius-topright:3px; 
-	color:".$options['category-link-color'].";
-	background-color:".$options['category-link-background'].";
-	border: 1px ".$options['category-link-border']." #ccc; 
+
+
+.cat-links a {	
+	color: ".$options['cat-links-link-color'].";
+	
+	background-color: ".$options['cat-links-color'].";
+	border-top: 1px ".$options['cat-links-border-style']." ".$options['cat-links-border-top'].";
+	border-bottom: 1px ".$options['cat-links-border-style']." ".$options['cat-links-border-bottom'].";
+	border-left: 1px ".$options['cat-links-border-style']." ".$options['cat-links-border-left'].";
+	border-right: 1px ".$options['cat-links-border-style']." ".$options['cat-links-border-right'].";
+	
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
 
 .cat-links a:hover {
-	text-decoration: ".$options['category-link-hover-decoration'].";
-	border: 1px ".$options['category-link-border']." ".$options['linkcolor']."; 
-}			
+
+	border-top: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-top'].";
+	border-bottom: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-right'].";
+	border-left: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-left'].";
+	border-right: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-right'].";
+}	
+
 
 /* Begin editing UI links */
 
@@ -3174,7 +3181,7 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links');
 	
 	foreach($widget_bars as $bar) {
 		
@@ -3289,6 +3296,8 @@ function set_derivative_options() {
 		/******************************************************************************
 		 * Bar borders 
 		 ******************************************************************************/
+		$options['cat-links-border-style'] = "dotted";
+		
 		if ($options[$bar.'-border-style'] == "none") {
 			$options[$bar.'-hover-border-style'] = "none";
 		} else {
@@ -3300,7 +3309,8 @@ function set_derivative_options() {
 		 * Only variations with dark background colors or images should have 
 		 * different colors for low opacity settings
 		 ******************************************************************************/
-
+		$options['cat-links-opacity'] = 1;
+		
 		if ($options[$bar.'-opacity'] < .7) {
 			$options[$bar.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
 			$options[$bar.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
