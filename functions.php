@@ -1481,8 +1481,7 @@ function variation_options() {
 						// category link style
 						print "
 						<td style='border-bottom: 1px dotted;'><span class='category' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
-						<td style='border-bottom: 1px dotted; text-align: right;'>";
-						
+						<td style='border-bottom: 1px dotted; text-align: right;'>";						
 						get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
 						print "
 						</td>								
@@ -1492,7 +1491,7 @@ function variation_options() {
 						print "
 						<td style='border-bottom: 1px dotted;'><span class='tag' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
 						<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
-						get_option_selector ("", "tag-link-style", $options_values['tag-link-style']);
+						get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
 						print "
 						</td>
 						</tr><tr>";
@@ -2652,26 +2651,30 @@ a:hover {
 }
 
 /* Begin tag links */
-.tag-links a {
-	-moz-border-radius-bottomleft:3px; 
-	-moz-border-radius-bottomright:3px; 
-	-moz-border-radius-topleft:3px; 
-	-moz-border-radius-topright:3px; 
-	color:".$options['tag-link-color'].";
-	background-color:".$options['tag-link-background'].";
-	border: 1px ".$options['tag-link-border']." #ccc; 
+.tag-links a {	
+	color: ".$options['tag-links-link-color'].";
+	
+	background-color: ".$options['tag-links-color'].";
+	border-top: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-top'].";
+	border-bottom: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-bottom'].";
+	border-left: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-left'].";
+	border-right: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-right'].";
+	
 	cursor:pointer; 
 	display:inline-block; 
-	margin:2px 0.2em; padding:0.1em 0.2em;			
+	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
 
 .tag-links a:hover {
-	text-decoration: ".$options['tag-link-hover-decoration'].";
-	border: 1px ".$options['tag-link-border']." ".$options['linkcolor']."; 
+	color: ".$options['tag-links-link-color'].";
+	
+	border-top: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-top'].";
+	border-bottom: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-right'].";
+	border-left: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-left'].";
+	border-right: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-right'].";
 }
 
 /* Begin category links */
-
 
 .cat-links a {	
 	color: ".$options['cat-links-link-color'].";
@@ -2688,7 +2691,6 @@ a:hover {
 }
 
 .cat-links a:hover {
-
 	border-top: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-top'].";
 	border-bottom: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-right'].";
 	border-left: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-left'].";
@@ -3181,7 +3183,7 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links');
 	
 	foreach($widget_bars as $bar) {
 		
@@ -3297,6 +3299,7 @@ function set_derivative_options() {
 		 * Bar borders 
 		 ******************************************************************************/
 		$options['cat-links-border-style'] = "solid";
+		$options['tag-links-border-style'] = "solid";
 		
 		if ($options[$bar.'-border-style'] == "none") {
 			$options[$bar.'-hover-border-style'] = "none";
@@ -3309,6 +3312,7 @@ function set_derivative_options() {
 		 * different colors for low opacity settings
 		 ******************************************************************************/
 		$options['cat-links-opacity'] = 1;
+		$options['tag-links-opacity'] = 1;
 		
 		if ($options[$bar.'-opacity'] < .7) {
 			$options[$bar.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
@@ -3319,13 +3323,18 @@ function set_derivative_options() {
 		}
 		
 		/******************************************************************************
-		 * category links use linkcolor as their hover border color
+		 * category and tag links use linkcolor as their hover border color
 		 ******************************************************************************/
 		
 		$options['cat-links-hover-border-top'] = $options['cat-links-link-color'];
 		$options['cat-links-hover-border-bottom'] = $options['cat-links-link-color'];
 		$options['cat-links-hover-border-left'] = $options['cat-links-link-color'];
 		$options['cat-links-hover-border-right'] = $options['cat-links-link-color'];
+		
+		$options['tag-links-hover-border-top'] = $options['tag-links-link-color'];
+		$options['tag-links-hover-border-bottom'] = $options['tag-links-link-color'];
+		$options['tag-links-hover-border-left'] = $options['tag-links-link-color'];
+		$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
 
 		
 		// opacity			
