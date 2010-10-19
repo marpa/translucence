@@ -1951,22 +1951,25 @@ a:hover {
 }
  
 /* Begin tag links */
-.tag-links a {
-	-moz-border-radius-bottomleft:3px; 
-	-moz-border-radius-bottomright:3px; 
-	-moz-border-radius-topleft:3px; 
-	-moz-border-radius-topright:3px; 
-	color:#003366;
-	background-color:#FFF8C6;
-	border: 1px solid solid #ccc; 
+.tag-links a {	
+	color: #003366;	
+	background-color: #FFF8C6;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	
 	cursor:pointer; 
 	display:inline-block; 
-	margin:2px 0.2em; padding:0.1em 0.2em;			
+	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
  
-.tag-links a:hover {
-	text-decoration: none;
-	border: 1px solid #003366; 
+.tag-links a:hover { 
+	color: #003366;	
+	border-top: 1px solid #003366;
+	border-bottom: 1px solid #003366;
+	border-left: 1px solid #003366;
+	border-right: 1px solid #003366;
 }
  
 /* Begin category links */
