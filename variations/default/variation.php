@@ -168,9 +168,9 @@ if (!isset($options['header-image-options'])) $options['header-image-options'] =
 
 if (!isset($options['header-text-display'])) $options['header-text-display'] = "middle";
 if (!isset($options['entry-link-style'])) $options['entry-link-style'] = "ww";
-if (!isset($options['tag-link-style'])) $options['tag-link-style'] = "yellow-box";
-if (!isset($options['category-link-style'])) $options['category-link-style'] = "yellow-box";
 if (!isset($options['entry-text-align'])) $options['entry-text-align'] = "left";
+if (!isset($options['tag-link-style'])) $options['tag-links-color'] = "#FFF8C6";
+if (!isset($options['category-link-style'])) $options['cat-links-color'] = "#e9e9c9";
 
 if (!isset($options['site-padding-top'])) $options['site-padding-top'] = "20";
 if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = "20";
