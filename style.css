@@ -1973,10 +1973,10 @@ a:hover {
 .cat-links a {	
 	color: #003366;	
 	background-color: #FFF8C6;
-	border-top: 1px dotted #CCCCCC;
-	border-bottom: 1px dotted #CCCCCC;
-	border-left: 1px dotted #CCCCCC;
-	border-right: 1px dotted #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
 	
 	cursor:pointer; 
 	display:inline-block; 
@@ -1984,10 +1984,10 @@ a:hover {
 }
  
 .cat-links a:hover { 
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
+	border-top: 1px solid #003366;
+	border-bottom: 1px solid #003366;
+	border-left: 1px solid #003366;
+	border-right: 1px solid #003366;
 }
 
 /* Begin editing UI links */

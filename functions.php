@@ -2689,10 +2689,10 @@ a:hover {
 
 .cat-links a:hover {
 
-	border-top: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-top'].";
-	border-bottom: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-right'].";
-	border-left: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-left'].";
-	border-right: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-border-right'].";
+	border-top: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-top'].";
+	border-bottom: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-right'].";
+	border-left: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-left'].";
+	border-right: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-right'].";
 }	
 
 
@@ -3296,15 +3296,14 @@ function set_derivative_options() {
 		/******************************************************************************
 		 * Bar borders 
 		 ******************************************************************************/
-		$options['cat-links-border-style'] = "dotted";
+		$options['cat-links-border-style'] = "solid";
 		
 		if ($options[$bar.'-border-style'] == "none") {
 			$options[$bar.'-hover-border-style'] = "none";
 		} else {
 			$options[$bar.'-hover-border-style'] = "solid";
 		}
-		
-
+				
 		/******************************************************************************
 		 * Only variations with dark background colors or images should have 
 		 * different colors for low opacity settings
@@ -3318,6 +3317,16 @@ function set_derivative_options() {
 			$options[$bar.'-link-color'] = $options['transparent-link-color'];
 			$options[$bar.'-text-color'] = $options['transparent-text-color'];						
 		}
+		
+		/******************************************************************************
+		 * category links use linkcolor as their hover border color
+		 ******************************************************************************/
+		
+		$options['cat-links-hover-border-top'] = $options['cat-links-link-color'];
+		$options['cat-links-hover-border-bottom'] = $options['cat-links-link-color'];
+		$options['cat-links-hover-border-left'] = $options['cat-links-link-color'];
+		$options['cat-links-hover-border-right'] = $options['cat-links-link-color'];
+
 		
 		// opacity			
 		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";
