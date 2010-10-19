@@ -1305,27 +1305,36 @@ div.menu,
 	border-bottom: none;
 	text-shadow: #444444 1px 1px 2px;
 }
+
+.titlebox {
+	position: relative;
+	top: 30px;
+	background-color: rgba(249, 249, 249, .5);
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 3px 10px 3px 1px;
+	margin-left: 10px;
+}
  
  
 #site-title a {
 	font-size: 30px;
 	color: #003366;
 	display: block;
-	padding-top: 25px;
-	padding-left: 10px;
-	margin-bottom: 7px;
 	text-shadow: #444444 1px 1px 2px;
 }
  
 #site-title a:hover {
 	display: block;
-	padding-top: 25px;
-	padding-left: 10px;
 	color: #003366;
 	border-bottom: none;
 }
  
 .headerblock #site-description {
+	position: relative;
+	top: 40px;
 	display: block;
 	padding-left: 15px;
 	color: #333333;
