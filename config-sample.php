@@ -148,8 +148,8 @@ $variation_config['model'][18]  = 'headercolor';
 $variation_config['model'][19]  = 'textcolor';
 $variation_config['model'][20]  = 'linkcolor';
 $variation_config['model'][21]  = 'entry-link-style';
-$variation_config['model'][22]  = 'tag-link-style';
-$variation_config['model'][23]  = 'category-link-style';
+$variation_config['model'][22]  = 'cat-links-color';
+$variation_config['model'][23]  = 'tag-links-color';
 $variation_config['model'][24]  = 'left01-width';
 $variation_config['model'][25]  = 'right01-width';
 $variation_config['model'][26]  = 'right02-width';
@@ -227,14 +227,10 @@ $variation_config['model'][94]  = 'right01-margin-top';
 $variation_config['model'][95]  = 'right02-margin-top';
 $variation_config['model'][96]  = 'content-margin-top';
 
-$variation_config['model'][97]  = 'category-link-border';
-$variation_config['model'][98]  = 'tag-link-border';
-
 // more primary options
-$variation_config['model'][99]  = 'entry-text-size';
-$variation_config['model'][100]  = 'entry-line-height';
-$variation_config['model'][101]  = 'cat-links-color';
-$variation_config['model'][102]  = 'tag-links-color';
+$variation_config['model'][97]  = 'entry-text-size';
+$variation_config['model'][98]  = 'entry-line-height';
+
 
 
 /******************************************************************************

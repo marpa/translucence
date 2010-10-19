@@ -3421,7 +3421,7 @@ function set_derivative_options() {
 	 * Entry, Tag and Category link style options
 	 ******************************************************************************/
 
-	$link_types = array('entry', 'tag', 'category');
+	$link_types = array('entry');
 	
 	foreach($link_types as $link_type) {
 		if ($options[$link_type.'-link-style'] == "none") {
