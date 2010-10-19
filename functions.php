@@ -1066,6 +1066,18 @@ function variation_options() {
 			</select>
 			</span>";
 		}
+		// header-text-box options		
+		if (in_array("titlebox-color", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("Title box: ", "titlebox-color", $options_values['sidebar-color']);
+			print "</span>";
+		}
+		if (in_array("titlebox-opacity", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("", "titlebox-opacity", $options_values['header-opacity']);
+			print "</span>";
+		}
+
 		print "</div>";
 		print "<div>";
 		// header-text-offset options		
@@ -1169,8 +1181,10 @@ function variation_options() {
 			<div id='branding'>";
 			// blog title and description model
 			if ($options['header-text-display'] != "hide") {
-				print "<div id='site-title'><a href = '#'>".get_bloginfo('name')."</a></div>";
-				print "<div id='site-description'>".get_bloginfo('description')."</div>";
+				print "";
+				print "<div id='site-title'><span class='titlebox'><a href = '#'>".get_bloginfo('name')."</a></span></div>";
+				print "<span id='site-description'><span class='titlebox'>".get_bloginfo('description')."</span></span>";
+				print "</span>";
 			} else {
 				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
 			}
@@ -2006,26 +2020,35 @@ div.menu,
 	text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 }
 
+.titlebox {
+	position: relative;
+	top: ".$options['header-text-padding-top']."px;
+	background-color: ".$options['titlebox-color-rgb'].";
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 3px 10px 3px 1px;
+	margin-left: 10px;
+}
+
 
 #site-title a {
 	font-size: ".$options['site-title-size']."px;
 	color: ".$options['site-title-color'].";
 	display: ".$options['show-header-text'].";
-	padding-top: ".$options['header-text-padding-top']."px;
-	padding-left: ".$options['header-text-padding-left']."px;
-	margin-bottom: 7px;
 	text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 }
 
 #site-title a:hover {
 	display: ".$options['show-header-text'].";
-	padding-top: ".$options['header-text-padding-top']."px;
-	padding-left: ".$options['header-text-padding-left']."px;
 	color: ".$options['site-title-color'].";
 	border-bottom: none;
 }
 
 .headerblock #site-description {
+	position: relative;
+	top: ".$options['description-text-padding-top']."px;
 	display: ".$options['show-header-text'].";
 	padding-left: 15px;
 	color: ".$options['site-description-color'].";
@@ -3062,8 +3085,10 @@ function set_derivative_options() {
 	 * Blog title and description display option 
 	 * (derived from header-text-display and header-block-height options)
 	 ******************************************************************************/
+	
+	
 	if ($options['header-text-display'] != "hide") {
-		$options['show-header-text'] = "block";
+		$options['show-header-text'] = "inline";
 	} else {
 		$options['show-header-text'] = "none";
 	}
@@ -3100,6 +3125,8 @@ function set_derivative_options() {
 	} else {
 		$options['header-text-padding-top'] = 15;
 	}
+	
+	$options['description-text-padding-top'] = $options['header-text-padding-top'] + 12;
 
 	/******************************************************************************
 	 * visited link color options (derived from link and text colors
@@ -3189,12 +3216,11 @@ function set_derivative_options() {
 	
 	}
 
-
 	/******************************************************************************
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'titlebox');
 	
 	foreach($widget_bars as $bar) {
 		
