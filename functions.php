@@ -2370,11 +2370,12 @@ div.menu,
 	background-color: ".$options['top-color-rgb'].";
 	display: block;
 	float: left;
-	border-top: 1px none ".$options['top-border-top'].";
+	border-top: 1px ".$options['top-border-style']." ".$options['top-border-top'].";
 	border-bottom: 1px ".$options['top-border-style']." ".$options['top-border-bottom'].";	
 	border-left: 1px ".$options['top-border-style']." ".$options['top-border-left'].";
 	border-right: 1px ".$options['top-border-style']." ".$options['top-border-right'].";
 	width: ".$menu_width."px;
+	margin-top: ".$options['top-margin-top']."px;
 	margin-bottom: 20px; 
 }
 
@@ -3036,6 +3037,16 @@ function set_derivative_options() {
 			$options['headerright'] = "";
 		}
 	}
+	
+	/******************************************************************************
+	 * Top Navigation area margins
+	 * if no border on top nav, then no space between header image and nav
+	 ******************************************************************************/
+	if ($options['top-border-style'] == "solid" || $options['top-border-style'] == "dotted") {
+		$options['top-margin-top'] = "1";
+	} else {
+		$options['top-margin-top'] = "0";
+	}
 
 	/******************************************************************************
 	 * Footer left links (derived from meta_right_options
@@ -3337,7 +3348,10 @@ function set_derivative_options() {
 		$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
 
 		
-		// opacity			
+		/******************************************************************************
+		 * opacity		
+		 ******************************************************************************/
+	
 		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";
 		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.1).")";
 		$options[$bar.'-color-hover02-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.2).")";
@@ -3357,9 +3371,7 @@ function set_derivative_options() {
 		} else {
 			$area = "";
 		}
-		
-
-		
+				
 		$options[$bar.'-color-ie'] = "#".$area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 		
 		if ($bar == "top") {

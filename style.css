@@ -1670,11 +1670,12 @@ div.menu,
 	background-color: rgba(249, 249, 249, .7);
 	display: block;
 	float: left;
-	border-top: 1px none #CCCCCC;
+	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;	
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
 	width: 940px;
+	margin-top: 1px;
 	margin-bottom: 20px; 
 }
  
