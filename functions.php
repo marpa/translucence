@@ -3252,7 +3252,7 @@ function set_derivative_options() {
 			$options[$bar.'-border-bottom'] = "#999999";
 			$options[$bar.'-border-right'] = "#999999";
 			$options[$bar.'-heading-color'] = "#AAA448";
-			$options[$bar.'-link-color'] = "#FFFFFF";
+			$options[$bar.'-link-color'] = $options['linkcolor'];
 			$options[$bar.'-text-color'] = $options['textcolor'];
 			if ($bar == "header") {
 				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
