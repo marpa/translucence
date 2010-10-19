@@ -1406,7 +1406,7 @@ function variation_options() {
 				</div>
 				
 				<div>
-				<span class='entry'>Categories: </span><span class='category'><a href='#'>Category</a></span>
+				<span class='entry'>Categories: </span><span class='cat-links'><a href='#'>Category</a></span>
 				</div>
 				
 				<div class='entry-content'>
@@ -1422,7 +1422,7 @@ function variation_options() {
 				print"
 				</div>
 				<div>
-				<span class='entry'>Tags: </span><span class='tag'><a href='#'>tag</a></span>
+				<span class='entry'>Tags: </span><span class='tag-links'><a href='#'>tag</a></span>
 				</div>
 				
 				<div class='entry' style='text-align: right;'>No Comments &#187;</div><br/>";
