@@ -123,12 +123,12 @@
 
 							<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 							<<?php echo $heading_tag; ?> id="site-title">
-								<span class="titlebox">
+								<span class="title-box">
 									<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 								</span>
 							</<?php echo $heading_tag; ?>>
 							
-							<div id="site-description" class="titlebox"><?php bloginfo( 'description' ); ?></div>
+							<div id="site-description" class="description-box"><?php bloginfo( 'description' ); ?></div>
 							
 
 							

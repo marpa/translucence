@@ -1067,14 +1067,14 @@ function variation_options() {
 			</span>";
 		}
 		// header-text-box options		
-		if (in_array("titlebox-color", $variation_config['model'])) {	
+		if (in_array("title-box-color", $variation_config['model'])) {	
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			get_option_selector ("Title box: ", "titlebox-color", $options_values['sidebar-color']);
+			get_option_selector ("Title box: ", "title-box-color", $options_values['sidebar-color']);
 			print "</span>";
 		}
-		if (in_array("titlebox-opacity", $variation_config['model'])) {	
+		if (in_array("title-box-opacity", $variation_config['model'])) {	
 			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
-			get_option_selector ("", "titlebox-opacity", $options_values['header-opacity']);
+			get_option_selector ("", "title-box-opacity", $options_values['header-opacity']);
 			print "</span>";
 		}
 
@@ -1182,8 +1182,8 @@ function variation_options() {
 			// blog title and description model
 			if ($options['header-text-display'] != "hide") {
 				print "";
-				print "<div id='site-title'><span class='titlebox'><a href = '#'>".get_bloginfo('name')."</a></span></div>";
-				print "<span id='site-description'><span class='titlebox'>".get_bloginfo('description')."</span></span>";
+				print "<div id='site-title'><span class='title-box'><a href = '#'>".get_bloginfo('name')."</a></span></div>";
+				print "<span id='site-description'><span class='title-box'>".get_bloginfo('description')."</span></span>";
 				print "</span>";
 			} else {
 				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
@@ -2020,10 +2020,10 @@ div.menu,
 	text-shadow: ".$options['header-text-shadow-color']." ".$options['header-text-shadow-offset']." ".$options['header-text-shadow-blur'].";
 }
 
-.titlebox {
+.title-box {
 	position: relative;
 	top: ".$options['header-text-padding-top']."px;
-	background-color: ".$options['titlebox-color-rgb'].";
+	background-color: ".$options['title-box-color-rgb'].";
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
@@ -3220,7 +3220,7 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'titlebox');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box');
 	
 	foreach($widget_bars as $bar) {
 		
