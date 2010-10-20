@@ -1317,6 +1317,19 @@ div.menu,
 	padding: 3px 10px 3px 1px;
 	margin-left: 10px;
 }
+
+.description-box {
+	position: relative;
+	top: 30px;
+	background-color: rgba(249, 249, 249, .5);
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 3px 10px 3px 1px;
+	margin-left: 10px;
+}
+
  
  
 #site-title a {

@@ -1077,6 +1077,17 @@ function variation_options() {
 			get_option_selector ("", "title-box-opacity", $options_values['header-opacity']);
 			print "</span>";
 		}
+		if (in_array("description-box-color", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("Description box: ", "description-box-color", $options_values['sidebar-color']);
+			print "</span>";
+		}
+
+		if (in_array("description-box-opacity", $variation_config['model'])) {	
+			print "<span style='color:".$options['bgtextcolor']."; font-size: 10px;'>";
+			get_option_selector ("", "description-box-opacity", $options_values['header-opacity']);
+			print "</span>";
+		}
 
 		print "</div>";
 		print "<div>";
@@ -1183,7 +1194,7 @@ function variation_options() {
 			if ($options['header-text-display'] != "hide") {
 				print "";
 				print "<div id='site-title'><span class='title-box'><a href = '#'>".get_bloginfo('name')."</a></span></div>";
-				print "<span id='site-description'><span class='title-box'>".get_bloginfo('description')."</span></span>";
+				print "<span id='site-description'><span class='description-box'>".get_bloginfo('description')."</span></span>";
 				print "</span>";
 			} else {
 				print "<div style='font-size: 10px; color: ".$options['header-text-color'].";'><i>blog title and description hidden</i></div>";
@@ -2024,6 +2035,18 @@ div.menu,
 	position: relative;
 	top: ".$options['header-text-padding-top']."px;
 	background-color: ".$options['title-box-color-rgb'].";
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	padding: 3px 10px 3px 1px;
+	margin-left: 10px;
+}
+
+.description-box {
+	position: relative;
+	top: ".$options['header-text-padding-top']."px;
+	background-color: ".$options['description-box-color-rgb'].";
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
@@ -3220,7 +3243,7 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box');
+	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
 	
 	foreach($widget_bars as $bar) {
 		
