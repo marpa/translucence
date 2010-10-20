@@ -230,8 +230,11 @@ $variation_config['model'][96]  = 'content-margin-top';
 // more primary options
 $variation_config['model'][97]  = 'entry-text-size';
 $variation_config['model'][98]  = 'entry-line-height';
-$variation_config['model'][99]  = 'titlebox-color';
-$variation_config['model'][100]  = 'titlebox-opacity';
+$variation_config['model'][99]  = 'title-box-color';
+$variation_config['model'][100]  = 'title-box-opacity';
+
+$variation_config['model'][101]  = 'description-box-color';
+$variation_config['model'][102]  = 'description-box-opacity';
 
 
 
