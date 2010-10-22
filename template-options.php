@@ -9,6 +9,8 @@
 function theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
+    
+    $current_widgets = get_option ('sidebars_widgets');	
 
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
 	$custom_background_color = get_background_color();
@@ -183,6 +185,7 @@ function theme_model() {
 					<div id='tertiary' class='widget-area'>
 						<!-- left sidebar -->
 						<h3 class='widget-title'>Left Sidebar</h3>
+						".get_left01_options()."
 					</div>
 					<div id='content'>
 						<!-- syndication links -->
@@ -202,10 +205,12 @@ function theme_model() {
 					<div id='primary' class='widget-area'>
 						<!-- 1st right sidebar -->
 						<h3 class='widget-title'>1st Right Sidebar</h3>
+						".get_right01_options()."
 					</div>
 					<div id='secondary' class='widget-area' style=''>
 						<!-- 2nd right sidebar -->
 						<h3 class='widget-title'>2nd Right Sidebar</h3>
+						".get_right02_options()."
 					</div>
 				</div><!-- #container -->
 			</div><!-- #main -->
@@ -695,6 +700,158 @@ function get_post_options() {
 	ob_end_clean();
 
 	return $post_options;
+}
+
+function get_left01_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+   	global $current_widgets;
+    
+    $model_left_sidebar_width = $options['left01-width'];
+    
+    ob_start();
+    print "<div>";
+	if ($options['left01-width'] != 0) {
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr;</div>";
+		// opacity
+		get_option_selector ("", "left01-opacity", $options_values['sidebar-opacity']);
+		// color
+		get_option_selector ("", "left01-color", $options_values['sidebar-color']);
+		// border
+		get_option_selector ("", "left01-border-style", $options_values['border-style']);
+		
+
+			if (is_active_sidebar("tertiary-widget-area")) {
+				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";
+				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+				print "</div><br/>";				
+				if (is_array($current_widgets['tertiary-widget-area'])) {
+					foreach ($current_widgets['tertiary-widget-area'] as $widget) {
+						$widget = str_replace("-", " ", $widget);
+						$widget = str_replace("_", " ", $widget);
+						$widget = rtrim(ucwords($widget), "0..9");
+						print "<div class='widgetbox' style='color: ".$options['left01-heading-color']."; border-color: ".$options['left01-heading-color'].";'>";
+						print $widget;
+						print "</div>";	
+					}
+				}
+				
+			} else {
+				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";			
+				print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
+				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or use defaults...</div>";
+				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+			}					
+	}
+	print "</div>";
+	
+	$left01_options = ob_get_contents();
+	ob_end_clean();
+
+	return $left01_options;
+}
+
+function get_right01_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+   	global $current_widgets;
+    
+    $model_right_sidebar_width = $options['right01-width'];
+    
+    ob_start();
+    print "<div>";
+	if ($options['right01-width'] != 0) {
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>";
+		// opacity
+		get_option_selector ("", "right01-opacity", $options_values['sidebar-opacity']);
+		// color
+		get_option_selector ("", "right01-color", $options_values['sidebar-color']);
+		// border
+		get_option_selector ("", "right01-border-style", $options_values['border-style']);
+		
+
+			if (is_active_sidebar("primary-widget-area")) {
+				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right01-link-color']."'>";
+				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+				print "</div><br/>";
+				if (is_array($current_widgets['primary-widget-area'])) {
+					foreach ($current_widgets['primary-widget-area'] as $widget) {
+						$widget = str_replace("-", " ", $widget);
+						$widget = str_replace("_", " ", $widget);
+						$widget = rtrim(ucwords($widget), "0..9");
+						print "<div class='widgetbox' style='color: ".$options['right01-heading-color']."; border-color: ".$options['right01-heading-color'].";'>";
+						print $widget;
+						print "</div>";	
+					}
+				}
+				
+			} else {
+				print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
+				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
+				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+			}					
+
+
+
+	}
+	print "</div>";
+	
+	$right01_options = ob_get_contents();
+	ob_end_clean();
+
+	return $right01_options;
+}
+
+function get_right02_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+   	global $current_widgets;
+    
+    $model_right_sidebar_width = $options['right02-width'];
+    
+    ob_start();
+    print "<div>";
+	if ($options['right02-width'] != 0) {
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>";
+		// opacity
+		get_option_selector ("", "right02-opacity", $options_values['sidebar-opacity']);
+		// color
+		get_option_selector ("", "right02-color", $options_values['sidebar-color']);
+		// border
+		get_option_selector ("", "right02-border-style", $options_values['border-style']);
+		
+
+			if (is_active_sidebar("secondary-widget-area")) {
+				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
+				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+				print "</div><br/>";
+				if (is_array($current_widgets['secondary-widget-area'])) {
+					foreach ($current_widgets['secondary-widget-area'] as $widget) {
+						$widget = str_replace("-", " ", $widget);
+						$widget = str_replace("_", " ", $widget);
+						$widget = rtrim(ucwords($widget), "0..9");
+						print "<div class='widgetbox' style='color: ".$options['right02-heading-color']."; border-color: ".$options['right02-heading-color'].";'>";
+						print $widget;
+						print "</div>";	
+					}
+				}
+				
+			} else {
+				print "<a style='color:".$options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>no widgets...</div>";
+				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>add widgets or use defaults...</div>";
+				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+			}					
+
+	}
+	print "</div>";
+	
+	$right02_options = ob_get_contents();
+	ob_end_clean();
+
+	return $right02_options;
 }
 
 /******************************************************************************
