@@ -24,7 +24,7 @@ function theme_model() {
 //  	}
  
  	$model2_site_width = $options['site-width']+50;
- 	$model_content_width = 
+
 
 	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	
@@ -520,9 +520,171 @@ function get_global_options() {
 	return $global_options;
 }
 
-function get_entry_options() {
-	$entry_options = "entry options";
+function get_layout_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
+	print "<span style='font-size: 10px;'>Content</span>\n";	
+	get_option_selector ("", "content-color", $options_values['sidebar-color']);
+	get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
+	get_option_selector ("", "content-border-style", $options_values['border-style']);				
+	print "</div>";
+
+	print "<table style='width: 100%;'>";
+	print "<tr>";
+	// left sidebar
+	print "<td>";
+	print "<div>Left Sidebar</div>\n";
+	// hidden widgets warning
+	if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
+		print "<span style='font-size: 10px;'>hidden widgets!</span>";
+	}
+	//width
+	get_option_selector ("", "left01-width", $options_values['sidebar-width']);
+	print "</td>";
+	// Right sidebar
+	print "<td style='text-align: right;'>";
+	print "<div>Right Sidebar</div>\n";
+	// hidden widgets warning
+	if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
+		print "<span style='font-size: 10px;'>hidden widgets!</span>";
+	}
+	// width
+	get_option_selector ("", "right01-width", $options_values['sidebar-width']);
+	print "</td>";
+	print "</tr>";
+	print "<tr>";
+	print "<td></td>";
+	// 2nd Right sidebar
+	print "<td style='text-align: right;'>";
+	print "<div>2nd Right Sidebar</div>\n";	
+	// hidden widgets warning
+	if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
+		print "<span style='font-size: 10px;'>hidden widgets!</span>";
+	}
+	// width
+	get_option_selector ("", "right02-width", $options_values['sidebar-width']);
+	print "</td>";
+	print "</tr>";	
+	print "</table>";
+
+	$entry_options = ob_get_contents();
+	ob_end_clean();
+
 	return $entry_options;
+}
+
+function get_post_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+	// post single sidebar options
+	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
+	get_option_selector ("<span style='font-size: 9px;'>single post pages include</span>", "post-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+	
+	// author sidebar options
+	print "<div style='float: right; clear: both; font-size: 10px;'>\n";
+	get_option_selector ("<span style='font-size: 9px;'>author pages include</span>", "author-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+	print "<div style='font-size: 9px;'>April 16th, 2009 by Author</div>";
+					
+	// category sidebar options				
+	print "<div style='float: right; clear: both; font-size: 10px;'>\n";
+	get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+	print "<div> <span class='entry'>Categories: </span><span class='cat-links'><a href='#'>Category</a></span></div>";
+	print "<br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
+	// tag sidebar options
+	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
+	get_option_selector ("<span style='font-size: 9px;'>tag archive includes</span>", "tag-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+	print "<div><span class='entry'>Tags: </span><span class='tag-links'><a href='#'>tag</a></span></div>";
+	print "<div class='entry' style='text-align: right;'>No Comments &#187;</div><br/>";
+	// search sidebar options
+	print "<div style='float: right; clear: both; font-size: 10px;'>";
+	get_option_selector ("<span style='font-size: 9px;'>search archive includes</span><br/>", "search-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+
+	// archives sidebar options
+	print "<div style=' font-size: 10px;'>";
+	get_option_selector ("<span style='font-size: 9px;'>archives page includes</span><br/>", "archives-single-sidebar", $options_values['sidebar-display']);
+	print "</div>";
+				
+	/*********************************************************
+	 * Text, Link, Category and Tag options
+	 *********************************************************/
+	
+	print "
+	<hr/>
+	<table width = '100%' cellpadding='0'>
+	<tr><td valign='top'>	
+
+		<table width = '100%' cellpadding='0'>
+			<tr>
+			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
+			<td style='border-bottom: 1px dotted; text-align: right;'>";
+			
+			// text alignment options
+			get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
+			print "		 							
+			</td>								
+			</tr>						<tr>
+			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
+			<td style='border-bottom: 1px dotted; text-align: right;'>";
+			
+			// text color and sise options
+			get_option_selector ("color", "textcolor", $options_values['textcolor']);
+			get_option_selector ("size", "entry-text-size", $options_values['text-size']);
+			print "		 							
+			</td>								
+			</tr>
+			<tr>
+			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>Link color</span></td>
+			<td style='border-bottom: 1px dotted; text-align: right;'>";							
+			// link color options
+			get_option_selector ("", "linkcolor", $options_values['linkcolor']);
+			print "
+			</td>								
+			</tr>						
+		</table>
+	</td><td valign='top' width='50%'>
+		<table width = '100%' cellpadding='0'>
+			<tr>";
+			
+			// category link style
+			print "
+			<td style='border-bottom: 1px dotted;'><span class='category' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
+			<td style='border-bottom: 1px dotted; text-align: right;'>";						
+			get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
+			print "
+			</td>								
+			</tr><tr>";
+			
+			// Tag link style
+			print "
+			<td style='border-bottom: 1px dotted;'><span class='tag' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
+			<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+			get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
+			print "
+			</td>
+			</tr><tr>";
+			// Entry link style
+			print "
+			<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>Entry Link</a></span></td>
+			<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+			get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
+			print "
+		</table>						
+	</table>";
+
+	$post_options = ob_get_contents();
+	ob_end_clean();
+
+	return $post_options;
 }
 
 /******************************************************************************
@@ -535,14 +697,20 @@ function get_basic_options() {
 	
 	if (in_array('options-mode', $variation_config['model']) && $options['options-mode'] == "basic") {
 		$basic_options[1]  = 'options-mode';
-		$basic_options[2]  = 'site-width';
-		$basic_options[3]  = 'site-color';
-		$basic_options[4]  = 'site-opacity';
-		$basic_options[5]  = 'site-opacity';
-// 		$basic_options[6]  = 'header-options';
-// 		$basic_options[7]  = 'site-title-options';
-// 		$basic_options[8]  = 'tagline-options';
-// 		$basic_options[9]  = 'headermeta-options';
+		$basic_options[2]  = 'site-options';
+ 		$basic_options[3]  = 'header-options';
+// 		$basic_options[4]  = 'site-title-options';
+// 		$basic_options[5]  = 'tagline-options';
+// 		$basic_options[6]  = 'headermeta-options';
+		$basic_options[7]  = 'site-width';
+		$basic_options[8]  = 'site-color';
+		$basic_options[9]  = 'site-opacity';
+		$basic_options[10]  = 'site-border-style';
+		$basic_options[11]  = 'header-block-height';
+		$basic_options[12]  = 'header-color';
+		$basic_options[13]  = 'header-opacity';
+		$basic_options[13]  = 'header-border-style';
+
 		
 	} else {
 		$basic_options = $options;
