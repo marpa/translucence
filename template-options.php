@@ -30,9 +30,14 @@ function theme_model() {
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 175);
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
+	
+	$model_right_sidebar_width = $options['right01-width']+50;
+    $model_right_sidebar_width02 = $options['right02-width']+50;
+    $model_left_sidebar_width = $options['left01-width']+50;
+
 
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
