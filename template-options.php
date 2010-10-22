@@ -30,10 +30,9 @@ function theme_model() {
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 50);
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 175);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
-
 
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
@@ -183,7 +182,7 @@ function theme_model() {
 					<div id='content'>
 						<!-- syndication links -->
 						<div style = 'width: 100%; float: right;'> 
-						<div id='syndication'> 
+							<div id='syndication'> 
 								<a href='#' class='feed'>Posts RSS</a> 
 								<a href='#' class='feed'>Comments RSS</a> 
 							</div> 
@@ -195,7 +194,7 @@ function theme_model() {
 						".get_post_options()."	
 						</div>							
 					</div>
-					<div id='primary' class='widget-area' style=''>
+					<div id='primary' class='widget-area'>
 						<!-- 1st right sidebar -->
 						<h3 class='widget-title'>1st Right Sidebar</h3>
 					</div>
@@ -525,6 +524,7 @@ function get_layout_options() {
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
+    print "<div>";
 	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
 	print "<span style='font-size: 10px;'>Content</span>\n";	
 	get_option_selector ("", "content-color", $options_values['sidebar-color']);
@@ -569,6 +569,7 @@ function get_layout_options() {
 	print "</td>";
 	print "</tr>";	
 	print "</table>";
+	print "</div>";
 
 	$entry_options = ob_get_contents();
 	ob_end_clean();
@@ -581,6 +582,7 @@ function get_post_options() {
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
+    print "<div>";
 	// post single sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
 	get_option_selector ("<span style='font-size: 9px;'>single post pages include</span>", "post-single-sidebar", $options_values['sidebar-display']);
@@ -596,8 +598,9 @@ function get_post_options() {
 	print "<div style='float: right; clear: both; font-size: 10px;'>\n";
 	get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
-	print "<div> <span class='entry'>Categories: </span><span class='cat-links'><a href='#'>Category</a></span></div>";
-	print "<br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
+	
+	print "<div><span class='entry'>Categories: </span><span class='cat-links'><a href='#'>Category</a></span></div>";
+	print "<div><br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
 	// tag sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
 	get_option_selector ("<span style='font-size: 9px;'>tag archive includes</span>", "tag-single-sidebar", $options_values['sidebar-display']);
@@ -678,8 +681,10 @@ function get_post_options() {
 			<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
 			get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
 			print "
+			</td></tr>
 		</table>						
 	</table>";
+	print "</div>";
 
 	$post_options = ob_get_contents();
 	ob_end_clean();
