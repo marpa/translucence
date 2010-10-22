@@ -189,9 +189,10 @@ function theme_model() {
 							</div> 
 						</div> 
 						<!-- main content -->
+						".get_layout_options()."
 						<h2 class='entry-title'>Entry Title</h2>
 						<div class='entry-content'>
-							".get_entry_options()."
+						".get_post_options()."	
 						</div>							
 					</div>
 					<div id='primary' class='widget-area' style=''>
