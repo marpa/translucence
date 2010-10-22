@@ -368,18 +368,20 @@ function get_global_options() {
 	}
 
 	// site width, color, opacity and border options
-	print "<td class='option-row'>";
-		//site width
-		print "<span class='option-label'>Site</span>";
-		get_option_selector ("width:", "site-width", $options_values['site-width']);
-		// site color
-		get_option_selector ("color:", "site-color", $options_values['sidebar-color']);
-		// site opacity
-		get_option_selector ("opacity:", "site-opacity", $options_values['header-opacity']);
-		// site border
-		get_option_selector ("border:", "site-border-style", $options_values['border-style']);
-	print "</td>";
-	print "</tr>";
+	if (in_array('site-options', $basic_options)) {
+		print "<td class='option-row'>";
+			//site width
+			print "<span class='option-label'>Site</span>";
+			get_option_selector ("width:", "site-width", $options_values['site-width']);
+			// site color
+			get_option_selector ("color:", "site-color", $options_values['sidebar-color']);
+			// site opacity
+			get_option_selector ("opacity:", "site-opacity", $options_values['header-opacity']);
+			// site border
+			get_option_selector ("border:", "site-border-style", $options_values['border-style']);
+		print "</td>";
+		print "</tr>";
+	}
 	
 	// header height, color, opacity, border options
 	if (in_array('header-options', $basic_options)) {
