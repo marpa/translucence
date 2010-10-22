@@ -125,6 +125,11 @@ function theme_model() {
 	";
  	
  	print "</style>";
+
+	print "
+	<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
+	<input type='hidden' id='action' name='action' value='save'/>";
+
  	
 	/******************************************************************************
 	 * html from theme template files
@@ -232,6 +237,21 @@ function theme_model() {
 		</div><!-- #sitewrapper --> 
 	</div><!-- modelwrapper --> 
 ";
+
+print "
+<table width = '".$model_site_width."' align='center' cellpadding='5' cellspacing='5' border='0'>
+<tr><td>
+<span class='submit'><input type='submit' value='Update' name='save'/></span>
+</td><td>
+<div class='instructions'>	
+When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
+text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
+</div>
+</td><td>
+<span class='submit'><input type='submit' value='Revert to Default' name='reset'/></span>
+</td></tr>
+</table>
+</form>";
 
 }
 
