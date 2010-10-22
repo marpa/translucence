@@ -219,6 +219,10 @@ if (!isset($options['archives-single-sidebar'])) $options['archives-single-sideb
  * options value defaults
  * actual px values need to be adjusted for padding
  *********************************************************/	
+$options_values['mode'] = array(
+	'Basic' => 'basic',
+	'Advanced' => 'advanced'
+	);
 
 $options_values['site-width'] = array(
 	'1000px' => '1000',

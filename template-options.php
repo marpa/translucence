@@ -69,19 +69,27 @@ function theme_model() {
 		.option-group {
 			color: #333333;
 		}
-
 		
 		.option-label {
-			color: #CCCCCC;
+			color: #333333;
 		}
 
 		.option-label:hover {
 			color: #333333;
 		}
+
+		.option-label-dimmed {
+			color: #CCCCCC;
+		}
+
+		.option-label-dimmed:hover {
+			color: #333333;
+		}
+
 		
 		.option-row {
 			width: 100%;
-			color: #333333;
+			color: #CCCCCC;
 			background-color: #fff;
 			border-bottom: 1px dotted; 
 			padding: 2px;
@@ -315,10 +323,12 @@ function get_global_options() {
     
     $model2_site_width = $options['site-width']+30;
 	ob_start();
+	
 	print "<table style='width: 100%;'>";
 	print "<tr>";
-	// background options	
-	print "<td style='width: 60%; text-align: center; border-bottom: 1px solid; padding-bottom: 5px; '>";			
+	
+	// Variation options	
+	print "<td style='width: 60%; text-align: left; border-bottom: 1px solid; padding-bottom: 5px; '>";			
 	if (in_array("background", $variation_config['model'])) {				
 		print "
 		<span style='font-size: 10px;'></span>
@@ -338,169 +348,169 @@ function get_global_options() {
 		}
 	}						
 	print "</td>";	
+	
+	// Options mode
+	print "<td style='width: 40%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
+		print "Options Mode:<span class='option-label'>";
+		get_option_selector ("", "options-mode", $options_values['mode'], 'active');
+		print "</span>";
+	
+	print "</td>";	
 	print "</tr>";	
 	print "</table>";
 	print "<table style='width: 100%;'>";
 	print "<tr>";
+	
+	// get basic options
+	if (in_array('options-mode', $variation_config['model'])) {
+		$basic_options = get_basic_options();
+	}
 
 	// site width, color, opacity and border options
 	print "<td class='option-row'>";
 		//site width
-		print "Site<span class='option-label'>";
+		print "<span class='option-label'>Site</span>";
 		get_option_selector ("width:", "site-width", $options_values['site-width']);
-		print "</span>";
 		// site color
-		print "<span class='option-label'>";
 		get_option_selector ("color:", "site-color", $options_values['sidebar-color']);
-		print "</span>";
 		// site opacity
-		print "<span class='option-label'>";
 		get_option_selector ("opacity:", "site-opacity", $options_values['header-opacity']);
-		print "</span>";
 		// site border
-		print "<span class='option-label'>";
 		get_option_selector ("border:", "site-border-style", $options_values['border-style']);
-		print "</span>";
 	print "</td>";
 	print "</tr>";
-	print "<tr>";
-	print "<td class='option-row'>";		
-		// header height options
-		print "Header<span class='option-label'>";
-		get_option_selector ("height:", "header-block-height", $options_values['header-block-height']);
-		print "</span>";
-		
-		// header color
-		print "<span class='option-label'>";
-		get_option_selector ("color:", "header-color", $options_values['sidebar-color']);
-		print "</span>";
-
-		// header opacity
-		print "<span class='option-label'>";
-		get_option_selector ("opacity:", "header-opacity", $options_values['header-opacity']);
-		print "</span>";
-		
-		// header border
-		print "<span class='option-label'>";
-		get_option_selector ("border:", "header-border-style", $options_values['border-style']);
-		print "</span>";
-	print "</td>";	
-	print "</tr>";
-	print "<tr>";
-	print "<td class='option-row'>";		
-		// header-text-size options		
-		if (in_array("site-title-size", $variation_config['model'])) {	
-			print "Site Title<span class='option-label'>";
-			get_option_selector ("size: ", "site-title-size", $options_values['header-text-size']);
-			print "</span>";
-		}
-		// header-text-color options		
-		if (in_array("site-title-color", $variation_config['model'])) {	
-			print "<span class='option-label'>";
-			get_option_field ("Color: #", "site-title-color", 6);
-			print "</span>";
-		}
-		// header-text-offset options		
-		if (in_array("header-text-shadow-offset", $variation_config['model'])) {	
-			print "<span class='option-label'>";
-			get_option_selector ("offset: ", "header-text-shadow-offset", $options_values['text-shadow-offset']);
-			print "</span>";
-		}	
-		// header-text-blur options		
-		if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
-			print "<span class='option-label'>";
-			get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
-			print "</span>";
-		}
-
-		// header-text-box options		
-		if (in_array("title-box-color", $variation_config['model'])) {	
-			print "Site Title box<span class='option-label'>";
-			get_option_selector ("color: ", "title-box-color", $options_values['sidebar-color']);
-			print "</span>";
-		}
-		if (in_array("title-box-opacity", $variation_config['model'])) {	
-			print "<span class='option-label'>";
-			get_option_selector ("opacity:", "title-box-opacity", $options_values['header-opacity']);
-			print "</span>";
-		}
-		// header-text-display options		
-		if (in_array("header-text-display", $variation_config['model'])) {	
-			print "
-			<span class='option-label'>
-			<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
-				<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
-				<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
-				<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
-				<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
-			</select>
-			</span>";
-		}
-
-	print "</td>";	
-	print "</tr>";
-	print "<tr>";
-	print "<td class='option-row'>";		
-		// header-description-size options		
-		if (in_array("site-description-size", $variation_config['model'])) {	
-			print "Tagline<span class='option-label'>";
-			get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
-			print "</span>";
-		}
-		// header-description-color options		
-		if (in_array("site-description-color", $variation_config['model'])) {
-			print "<span class='option-label'>";
-			get_option_field ("color: #", "site-description-color", 6);
-			print "</span>";
-		}
-		if (in_array("description-box-color", $variation_config['model'])) {	
-			print " <span class='option-group'>Tagline box</span><span class='option-label'>";
-			get_option_selector ("color:", "description-box-color", $options_values['sidebar-color']);
-			print "</span>";
-		}
-
-		if (in_array("description-box-opacity", $variation_config['model'])) {	
-			print "<span class='option-label'>";
-			get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
-			print "</span>";
-		}
-
-	print "</td>";	
-	print "</tr>";	
 	
-	print "</table>";
+	// header height, color, opacity, border options
+	if (in_array('header-options', $basic_options)) {
+		print "<tr>";
+		print "<td class='option-row'>";		
+			// header height options
+			print "<span class='option-label'>Header</span>";
+			get_option_selector ("height:", "header-block-height", $options_values['header-block-height']);
+			// header color
+			get_option_selector ("color:", "header-color", $options_values['sidebar-color']);
+			// header opacity
+			get_option_selector ("opacity:", "header-opacity", $options_values['header-opacity']);
+			// header border
+			get_option_selector ("border:", "header-border-style", $options_values['border-style']);
+		print "</td>";	
+		print "</tr>";
+	}
 	
-	print "<table style='width: 100%;'>";
-	print "<tr>";
-		// headermeta right options	
-		print "<td style='width: 50%'>"; 
-		if (in_array("header-meta-left", $variation_config['model'])) {
-			print "<span style='font-size: 9px;'>Header Links:</span>\n";
-			print "<select name='header-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
-			foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
-				print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
-				print ($options['header-meta-left'] == $variation_config['header_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
-				print $variation_config['header_meta_left_options'][$meta_left_option]['option_label']."</option>";						
+	// header text size color shadow, box and position
+	if (in_array('site-title-options', $basic_options)) {
+		print "<tr>";
+		print "<td class='option-row'>";		
+			// header-text-size options		
+			if (in_array("site-title-size", $variation_config['model'])) {	
+				print "<span class='option-label'>Site Title </span>";
+				get_option_selector ("size: ", "site-title-size", $options_values['header-text-size']);
 			}
-			print "</select>";
-		}
-		print "</td>";
-				
-		// headermeta left options	
-		print "<td style='width: 50%; text-align: right;'>";	
-		if (in_array("headermeta", $variation_config['model'])) {	
-			print "
-			<span style='font-size: 9px;'>Editing Quick Links:</span>
-			<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
-				<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
-				<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
-			</select>
-			</span>";
-		}
-		print "</td>";
+			// header-text-color options		
+			if (in_array("site-title-color", $variation_config['model'])) {	
+				get_option_field ("Color: #", "site-title-color", 6);
+			}
+			// header-text-offset options		
+			if (in_array("header-text-shadow-offset", $variation_config['model'])) {	
+				get_option_selector ("offset: ", "header-text-shadow-offset", $options_values['text-shadow-offset']);
+			}	
+			// header-text-blur options		
+			if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
+				get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
+			}
 	
-	print "</tr>";	
+			// header-text-box options		
+			if (in_array("title-box-color", $variation_config['model'])) {	
+				print "<span class='option-label'> | Site Title Box</span>";
+				get_option_selector ("color: ", "title-box-color", $options_values['sidebar-color']);
+			}
+			if (in_array("title-box-opacity", $variation_config['model'])) {	
+				get_option_selector ("opacity:", "title-box-opacity", $options_values['header-opacity']);
+			}
+			// header-text-display options		
+			if (in_array("header-text-display", $variation_config['model'])) {	
+				print "
+				<span class='option-label'>
+				<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
+					<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
+					<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
+					<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
+					<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
+				</select>
+				</span>";
+			}
+	
+		print "</td>";	
+		print "</tr>";
+	}
+	
+	// Tagline text size, color, box
+	if (in_array('tagline-options', $basic_options)) {
+		print "<tr>";
+		print "<td class='option-row'>";		
+			// header-description-size options		
+			if (in_array("site-description-size", $variation_config['model'])) {	
+				print " Tagline<span class='option-label'>";
+				get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
+				print "</span>";
+			}
+			// header-description-color options		
+			if (in_array("site-description-color", $variation_config['model'])) {
+				print "<span class='option-label'>";
+				get_option_field ("color: #", "site-description-color", 6);
+				print "</span>";
+			}
+			if (in_array("description-box-color", $variation_config['model'])) {	
+				print " | Tagline box<span class='option-label'>";
+				get_option_selector ("color:", "description-box-color", $options_values['sidebar-color']);
+				print "</span>";
+			}
+	
+			if (in_array("description-box-opacity", $variation_config['model'])) {	
+				print "<span class='option-label'>";
+				get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
+				print "</span>";
+			}
+	
+		print "</td>";	
+		print "</tr>";	
+	}
 	print "</table>";
+	
+	// headermeta right and left options
+	if (in_array('headermeta-options', $basic_options)) {
+		print "<table style='width: 100%;'>";
+		print "<tr>";
+			// headermeta right options	
+			print "<td style='width: 50%'>"; 
+			if (in_array("header-meta-left", $variation_config['model'])) {
+				print "<span style='font-size: 9px;'>Header Links:</span>\n";
+				print "<select name='header-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
+				foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
+					print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
+					print ($options['header-meta-left'] == $variation_config['header_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
+					print $variation_config['header_meta_left_options'][$meta_left_option]['option_label']."</option>";						
+				}
+				print "</select>";
+			}
+			print "</td>";
+					
+			// headermeta left options	
+			print "<td style='width: 50%; text-align: right;'>";	
+			if (in_array("headermeta", $variation_config['model'])) {	
+				print "
+				<span style='font-size: 9px;'>Editing Quick Links:</span>
+				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
+					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
+					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
+				</select>
+				</span>";
+			}
+			print "</td>";
+		
+		print "</tr>";	
+		print "</table>";
+	}
 
 	$global_options = ob_get_contents();
 	ob_end_clean();
@@ -512,17 +522,58 @@ function get_entry_options() {
 	return $entry_options;
 }
 
+/******************************************************************************
+ * Get options that are included in basic mode
+ ******************************************************************************/
+
+function get_basic_options() {
+	global $variation_config, $options;
+	$basic_options = array();
+	
+	if (in_array('options-mode', $variation_config['model']) && $options['options-mode'] == "basic") {
+		$basic_options[1]  = 'options-mode';
+		$basic_options[2]  = 'site-width';
+		$basic_options[3]  = 'site-color';
+		$basic_options[4]  = 'site-opacity';
+		$basic_options[5]  = 'site-opacity';
+// 		$basic_options[6]  = 'header-options';
+// 		$basic_options[7]  = 'site-title-options';
+// 		$basic_options[8]  = 'tagline-options';
+// 		$basic_options[9]  = 'headermeta-options';
+		
+	} else {
+		$basic_options = $options;
+	}
+	return $basic_options;
+}
+
+
 /*********************************************************
  * Get select field for a given theme option
  *********************************************************/
 
-function get_option_selector ($option_title, $option_name, $option_values) {
+function get_option_selector ($option_title, $option_name, $option_values, $state='dimmed') {
 	global $variation_config, $options, $options_values;
-
-	if (in_array($option_name, $variation_config['model'])) {
+	
+	$basic_options = get_basic_options();
+	$display_option = false;
+	
+	if ($options['options-mode'] == "basic") {		
+		if (in_array($option_name, $basic_options)) $display_option = true;			
+	} else {
+		$display_option = true;
+	}
+	
+	if ($state == "dimmed") {
+		$state_css = "option-label-dimmed";
+	} else if ($state == "active") {
+		$state_css = "option-label";
+	}
+	
+	if (in_array($option_name, $variation_config['model']) && $display_option == true) {
 		print "<span style='white-space:nowrap;'>\n";
 		if ($option_title != "") print " <span style='font-size: 10px;'>".$option_title."</span>\n";
-		print "<select name='".$option_name."' style='font-size: 10px;' class='option-label' onchange='this.form.submit();'>\n";							
+		print "<select name='".$option_name."' style='font-size: 10px;' class='".$state_css."' onchange='this.form.submit();'>\n";							
 			// options
 			foreach ($option_values as $label => $value) {
 				print "\n<option value='".$value."'".($options[$option_name] == $value ? ' selected' : '') . ">".$label."</option>";
@@ -530,6 +581,7 @@ function get_option_selector ($option_title, $option_name, $option_values) {
 		print "</select>\n";
 		print "</span> &nbsp;\n";
 	}
+
 }
 
 /*********************************************************
@@ -539,7 +591,16 @@ function get_option_selector ($option_title, $option_name, $option_values) {
 function get_option_field ($option_title, $option_name, $option_field_width) {
 	global $variation_config, $options, $options_values;
 
-	if (in_array($option_name, $variation_config['model'])) {			
+	$basic_options = get_basic_options();
+	$display_option = false;
+	
+	if ($options['options-mode'] == "basic") {		
+		if (in_array($option_name, $basic_options)) $display_option = true;			
+	} else {
+		$display_option = true;
+	}
+
+	if (in_array($option_name, $variation_config['model']) && $display_option == true) {			
 		print "<span style='white-space:nowrap'>";
 		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title."</span>\n";
 		print "<input name='".$option_name."' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
