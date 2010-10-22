@@ -235,6 +235,7 @@ $variation_config['model'][100]  = 'title-box-opacity';
 
 $variation_config['model'][101]  = 'description-box-color';
 $variation_config['model'][102]  = 'description-box-opacity';
+$variation_config['model'][103]  = 'options-mode';
 
 
 
