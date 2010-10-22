@@ -453,7 +453,7 @@ function get_global_options() {
 		print "<td class='option-row'>";		
 			// header-description-size options		
 			if (in_array("site-description-size", $variation_config['model'])) {	
-				print " Tagline<span class='option-label'>";
+				print "<span class='option-label'>Tagline</span><span class='option-label'>";
 				get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
 				print "</span>";
 			}
