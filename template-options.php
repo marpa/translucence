@@ -386,12 +386,13 @@ function theme_model() {
 				
 			<div class='sitewrapper'>  
 				<div class='footermeta_right'> 
-					<span class='bgtextcolor'>Footer meta right</span> 
+					<span class='bgtextcolor'><?php print footermeta_right(); ?></span> 
 				</div> 	 
 				<div class='footermeta_left'> 
-					<span class='bgtextcolor'>Footer meta left</span> 
+					<span class='bgtextcolor'><?php print footermeta_left(); ?></span> 
 				</div> 	
 			</div><!-- #sitewrapper --> 
+			<?php print get_footermeta_options(); ?>
 		</div><!-- modelwrapper --> 
 		
 	<?php
@@ -1027,6 +1028,10 @@ function get_right02_options() {
 	return $right02_options;
 }
 
+/******************************************************************************
+ * Get Footer Options
+ ******************************************************************************/
+
 function get_footer_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
@@ -1047,6 +1052,100 @@ function get_footer_options() {
 
 	return $footer_options;
 }
+
+/******************************************************************************
+ * Get Footer meta right options
+ ******************************************************************************/
+
+function footermeta_right() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+	print "<div style='font-size: 9px; float: right; clear: left; color: ".$options['bgtextcolor'].";'>";
+	print $options['theme-name']." | WordPress";
+	print "</div>";
+
+	$footermeta_right = ob_get_contents();
+	ob_end_clean();
+
+	return $footermeta_right;
+}
+
+/******************************************************************************
+ * Get Footer meta left otions
+ ******************************************************************************/
+
+function footermeta_left() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+    print "<div style='font-size: 9px;'>";
+
+	if ($options['footerleft'] == "") {
+		print "no links defined...";
+	} else {
+		print $options['footerleft'];
+	}
+	if ($options['footer-meta-left'] == 'custom') {
+		print "
+			<input id='footerleftdo' type='hidden' name='footerleftdo' value='0'/> - 
+	
+			<a href='javascript: document.getElementById(\"footerleftedit\").style.display = \"block\"; document.getElementById(\"footerleftdo\").value = \"1\"; exit;'>edit</a>
+			
+			<div id='footerleftedit' style='display: none;'>
+			
+			<textarea name='footerleftcustom' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+			print stripslashes(stripslashes(trim($options['footerleftcustom'])));
+			print "</textarea>		
+			&nbsp;&nbsp;&nbsp;
+			<a href='javascript: document.getElementById(\"footerleftedit\").style.display = \"none\"; document.getElementById(\"footerlefteditdo\").value = \"0\"; exit;'>Cancel</a> - 
+			<span class='submit'><input type='submit' value='Update' name='save'/></span>	
+			</div>
+		";
+	}
+
+	print "</div>";
+
+	$footermeta_left = ob_get_contents();
+	ob_end_clean();
+
+	return $footermeta_left;
+}
+
+
+/******************************************************************************
+ * Get Footer meta options
+ ******************************************************************************/
+function get_footermeta_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+	ob_start();
+	print "<div class='options'>";
+
+    // footer meta left appgroups options		
+	if (in_array("footer-meta-left", $variation_config['model'])) {
+		print "<span style='font-size: 9px;'>Footer Links:</span>\n";
+		print "<select name='footer-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
+		
+		foreach (array_keys($variation_config['footer_meta_left_options']) as $meta_left_option) {						
+			print "<option value='".$variation_config['footer_meta_left_options'][$meta_left_option]['option_name']."' ";
+			print ($options['footer-meta-left'] == $variation_config['footer_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
+			print $variation_config['footer_meta_left_options'][$meta_left_option]['option_label']."</option>";						
+		}
+		print "</select>";
+		
+	}
+	
+	print "</div>";
+
+	$footermeta_options = ob_get_contents();
+	ob_end_clean();
+	return $footermeta_options;
+}
+
 
 /******************************************************************************
  * Get options that are included in basic mode
