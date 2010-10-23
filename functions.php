@@ -878,6 +878,8 @@ function variation_options() {
 	print "
 	<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
 	<input type='hidden' id='action' name='action' value='save'/>";
+	
+	  theme_model();
 
 	/*********************************************************
 	 *  Header meta options
