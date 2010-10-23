@@ -2138,8 +2138,8 @@ div.menu,
 	width: ".$options['left01-width']."px;
 	visibility: ".$options['left01-visibility'].";
 	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
+	padding-left: ".$options['left01-padding']."px;
+	padding-right: ".$options['left01-padding']."px;
 	
 }
 
@@ -2167,8 +2167,8 @@ div.menu,
 	width: ".$options['right01-width']."px;
 	visibility: ".$options['right01-visibility'].";
 	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
+	padding-left: ".$options['right01-padding']."px;
+	padding-right: ".$options['right01-padding']."px;
 	
 }
 
@@ -3430,9 +3430,11 @@ function set_derivative_options() {
 		// visibility
 		if ($options[$bar.'-width'] == '0') {
 			$options[$bar.'-visibility'] = "hidden";
-			$options[$bar.'-border-style'] = "none";			
+			$options[$bar.'-padding'] = "0";
+			
 		} else {
 			$options[$bar.'-visibility'] = "visible";
+			$options[$bar.'-padding'] = "25";
 		}
 		
 	}
