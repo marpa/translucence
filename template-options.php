@@ -289,10 +289,8 @@ function theme_model() {
 	 ******************************************************************************/
 	?>
 	
-		<div class='modelwrapper'>
-			<div class='options'>
+		<div class='modelwrapper'>			
 			<?php print get_global_options(); ?>
-			</div>
 			<div class='sitewrapper'> 	
 				<div class='headermeta_right'> 
 					<span class='bgtextcolor'><?php print headermeta_right(); ?></span><br/> 
@@ -480,9 +478,8 @@ function get_global_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
-    $model2_site_width = $options['site-width']+30;
 	ob_start();
-	
+	print "<div class='options'>";
 	print "<table style='width: 100%;'>";
 	print "<tr>";
 	
