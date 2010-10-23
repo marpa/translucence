@@ -514,6 +514,8 @@ function get_global_options() {
 	print "</td>";	
 	print "</tr>";	
 	print "</table>";
+	
+	// global options for: site, header, site title, tagline and header meta
 	print "<table style='width: 100%;'>";
 	print "<tr>";
 	
