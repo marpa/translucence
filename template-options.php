@@ -58,7 +58,7 @@ function theme_model() {
 			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
-
+		
 		.options {
 			margin-top: 5px;
 			margin-bottom: 5px;
@@ -258,7 +258,8 @@ function theme_model() {
 			</div> 	
 		</div><!-- #sitewrapper --> 
 	</div><!-- modelwrapper --> 
-";
+	
+<?php
 
 print "
 <table width = '".$model_site_width."' align='center' cellpadding='5' cellspacing='5' border='0'>
@@ -591,6 +592,29 @@ function get_layout_options() {
 	return $entry_options;
 }
 
+function get_topmenu_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+    print "<div>";
+		print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Menu Bar</span>";
+		print "<div style='font-size: 8px; float: left;'>";
+	
+			get_option_selector ("", "top-color", $options_values['sidebar-color']);
+			get_option_selector ("", "top-opacity", $options_values['sidebar-opacity']);
+			get_option_selector ("", "top-border-style", $options_values['border-style']);
+		
+		print"</div>";
+
+	print "</div>";
+
+	$topmenu_options = ob_get_contents();
+	ob_end_clean();
+
+	return $topmenu_options;
+}
+
 function get_post_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
@@ -856,6 +880,27 @@ function get_right02_options() {
 	ob_end_clean();
 
 	return $right02_options;
+}
+
+function get_footer_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    
+    ob_start();
+    print "<div>";
+		print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</span>";
+		print "<span class='horizontalbar' style='font-size: 8px'>";
+			get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
+			get_option_selector ("", "bottom-opacity", $options_values['sidebar-opacity']);
+			get_option_selector ("", "bottom-border-style", $options_values['border-style']);			 				
+		print"</span>";		
+
+	print "</div>";
+
+	$footer_options = ob_get_contents();
+	ob_end_clean();
+
+	return $footer_options;
 }
 
 /******************************************************************************
