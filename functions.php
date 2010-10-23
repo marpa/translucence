@@ -2195,8 +2195,8 @@ div.menu,
 	width: ".$options['right02-width']."px;
 	visibility: ".$options['right02-visibility'].";
 	padding-top: 10px;
-	padding-left: 25px;
-	padding-right: 25px;
+	padding-left: ".$options['right02-padding']."px;
+	padding-right: ".$options['right02-padding']."px;
 
 }
 
