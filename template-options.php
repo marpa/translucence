@@ -11,34 +11,59 @@ function theme_model() {
     global $theme_settings, $theme_css, $_POST;
     
     $current_widgets = get_option ('sidebars_widgets');	
-
- 	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
-	$custom_background_color = get_background_color();
-	$custom_background_image = get_background_image();
-	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
+    
+    $model_header_image = get_header_image();
+	if ($options['header-image-options'] == "custom") {
+   		$match = preg_match('/variations/', $model_header_image);
+   		if ($match == 0) {
+   			$custom_header_set = 1;
+   		} else {
+   			$custom_header_set = 0;
+   		}
+   	} else {
+   		//$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+   		$model_header_image = get_header_image();
+   	}
  	
  	//printpre ($custom_background_image);
-//  	if ($custom_background_image) {
-//  		$options['background_image'] = "url('".$custom_background_image."')";
-//  		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
-//  		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
-//  		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
-//  	}
+ 	if ($custom_background_image) {
+ 		$options['background_image'] = "url('".$custom_background_image."')";
+ 		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
+ 		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
+ 		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
+ 	}
  
- 	$model2_site_width = $options['site-width']+50;
+	/*********************************************************
+	 * Define theme layout model values
+	 *********************************************************/
 
+    $model_right_sidebar_width = $options['right01-width']+50;
+    $model_right_sidebar_width02 = $options['right02-width']+50;
+    $model_left_sidebar_width = $options['left01-width']+50;
+    
+   	
+	$model_site_width = $options['site-width']+10;
+	$model2_site_width = $options['site-width']+50;
 
 	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width2 = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 175);
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 50);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
-	
-	$model_right_sidebar_width = $options['right01-width']+50;
-    $model_right_sidebar_width02 = $options['right02-width']+50;
-    $model_left_sidebar_width = $options['left01-width']+50;
+
+	/*********************************************************
+	 * Define theme model css
+	 * model css uses most of the actual theme's css except
+	 * theme body css 
+	 * model css adds css for theme edit UI components
+	 *********************************************************/
+	 
+ 	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
+	$custom_background_color = get_background_color();
+	$custom_background_image = get_background_image();
+	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
 
 
  	print "
@@ -58,6 +83,13 @@ function theme_model() {
 			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
+
+		.headerblock {
+			background-image: url(".$model_header_image.");
+			background-position: right center;
+			background-repeat: no-repeat;
+		}
+
 		
 		.options {
 			margin-top: 5px;
@@ -91,7 +123,6 @@ function theme_model() {
 		.option-label-dimmed:hover {
 			color: #333333;
 		}
-
 		
 		.option-row {
 			width: 100%;
@@ -135,7 +166,91 @@ function theme_model() {
 			padding: 5px 2px 0px 23px;
 			background: url(".$syndication_image.") no-repeat 0 1px;
 			border-bottom: none;
-		}		
+		}	
+		
+		.widgetbox {
+			font-size: 10px;
+			border-width: 1px;
+			border-style: solid;
+			padding: 5px;
+			margin: 3px;
+		}
+
+		#appgroupedit textarea {
+			width: 300px;
+		}
+
+ 		.metatext {
+ 			font-size: 9px; 
+ 			color: ".$options['bglinkcolor'].";
+
+ 		}
+ 		
+ 		.metatext a {
+ 			color: ".$options['bglinkcolor'].";
+ 		}
+
+		.horizontalbar {
+			padding-top: 4px;
+			padding-bottom: 4px;
+			margin-bottom: 4px;
+			text-align: right;
+		}
+		
+ 		.editwidgetlink {
+			display: block;
+ 			color: ".$options['linkcolor'].";
+ 			
+ 		}
+ 		
+ 		.editwidgetlink a {
+			display: block;
+ 			color: ".$options['linkcolor'].";
+			border: 1px dotted;
+ 			padding: 3px;
+ 			margin-bottom: 3px;
+		} 		
+ 		
+ 		.editwidgetlink a:hover {
+			 border: 1px solid;
+			 text-decoration: none;
+		}
+
+ 		.editheaderlink {
+ 			color: ".$options['bglinkcolor'].";
+ 			font-size: 9px;
+ 			white-space:nowrap; 			
+ 		}
+ 		
+		.editheaderlink a {
+ 			color: ".$options['bglinkcolor'].";
+ 			padding: 3px;
+ 			border: 1px dotted ".$options['bglinkcolor'].";
+		}
+
+ 		.editheaderlink a:hover {
+			 border: 1px solid ".$options['bglinkcolor'].";
+			 text-decoration: none;
+			 color: ".$options['bglinkcolor'].";
+		}
+		
+		.modelheadertextposition {
+			font-size: 20px; 
+			margin-left: 5px;
+			padding-top: ".$options['header-text-padding-top']."px;
+			color: ".$options['headertext'].";
+		}
+
+
+		".$options['header-color-ie']."
+		".$options['top-color-ie']."
+		".$options['content-color-ie']." 
+		".$options['bottom-color-ie']."
+		".$options['left01-color-ie']."
+		".$options['right01-color-ie']."
+		".$options['right02-color-ie']."
+
+		
 		</style>
 	
 	";
