@@ -136,32 +136,32 @@ function theme_model() {
 			background: url(".$syndication_image.") no-repeat 0 1px;
 			border-bottom: none;
 		}		
+		</style>
+	
 	";
- 	
- 	print "</style>";
 
-	print "
+/******************************************************************************
+ * html from theme template files (header.php, index.php, footer.php and sidebars
+ * embedded in this html are functions for printing theme options UI
+ ******************************************************************************/
+		
+?>
+
 	<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
-	<input type='hidden' id='action' name='action' value='save'/>";
+	<input type='hidden' id='action' name='action' value='save'/>
 
- 	
-	/******************************************************************************
-	 * html from theme template files
-	 * should contain most html from header.php, index.php and footer.php
-	 * 
-	 ******************************************************************************/
 
-	print "<br/><br/>
+	<br/><br/>
 	<div class='modelwrapper'>
 		<div class='options'>
-		".get_global_options()."
+		<?php print get_global_options(); ?>
 		</div>
 		<div class='sitewrapper'> 	
 			<div class='headermeta_right'> 
-				<span class='bgtextcolor'>".headermeta_right()."</span><br/> 
+				<span class='bgtextcolor'><?php print headermeta_right(); ?></span><br/> 
 			</div> 
 			<div class='headermeta_left'> 
-				<span class='bgtextcolor'>".headermeta_left()."</span><br/> 
+				<span class='bgtextcolor'><?php print headermeta_left(); ?></span><br/> 
 			</div> 	
 		</div> 
 		<div id='wrapper'>
@@ -169,14 +169,17 @@ function theme_model() {
 				<div id='masthead'>
 					<div id='branding'>
 						<div class='headerblock'>
-						<h1 id='site-title' class='title-box'><a href='index.php'>Translucence Template</a></h1>
-						<div id='site-description' class='description-box'>A set of templates based on the Translucence Theme</div>
+							<h1 id='site-title'>								
+								<span class='title-box'><a href='index.php'>Translucence Template</a></span>
+							</h1>
+							<div id='site-description' class='description-box'>A set of templates based on the Translucence Theme</div>
 						</div>
 					</div>
 				</div>
 				<div id='access' role='navigation'> 
 					<!-- top navigation links -->
 					<div class='menu-header'>
+					<?php print get_topmenu_options(); ?>
 					</div>
 				</div>
 			</div>
@@ -185,7 +188,7 @@ function theme_model() {
 					<div id='tertiary' class='widget-area'>
 						<!-- left sidebar -->
 						<h3 class='widget-title'>Left Sidebar</h3>
-						".get_left01_options()."
+						<?php print get_left01_options(); ?>
 					</div>
 					<div id='content'>
 						<!-- syndication links -->
@@ -196,27 +199,28 @@ function theme_model() {
 							</div> 
 						</div> 
 						<!-- main content -->
-						".get_layout_options()."
+						<?php print get_layout_options(); ?>
 						<h2 class='entry-title'>Entry Title</h2>
 						<div class='entry-content'>
-						".get_post_options()."	
+						<?php print get_post_options(); ?>	
 						</div>							
 					</div>
 					<div id='primary' class='widget-area'>
 						<!-- 1st right sidebar -->
 						<h3 class='widget-title'>1st Right Sidebar</h3>
-						".get_right01_options()."
+						<?php print get_right01_options(); ?>
 					</div>
 					<div id='secondary' class='widget-area' style=''>
 						<!-- 2nd right sidebar -->
 						<h3 class='widget-title'>2nd Right Sidebar</h3>
-						".get_right02_options()."
+						<?php print get_right02_options(); ?>
 					</div>
 				</div><!-- #container -->
 			</div><!-- #main -->
 				<br/>
 				<div id='colophon'></div><!-- #colophon --> 
 				<div id='footer-widget-area'>
+				<?php print get_footer_options(); ?>
 				<!-- footer -->
 					<div id='first' class='widget-area'>
 						<ul class='xoxo'>
