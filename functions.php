@@ -2035,10 +2035,10 @@ div.menu,
 	position: relative;
 	top: ".$options['header-text-padding-top']."px;
 	background-color: ".$options['title-box-color-rgb'].";
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
+	border-top: 1px none #CCCCCC;
+	border-bottom: 1px none #CCCCCC;
+	border-left: 1px none #CCCCCC;
+	border-right: 1px none #CCCCCC;
 	padding: 3px 10px 3px 1px;
 	margin-left: 10px;
 }
@@ -2047,10 +2047,10 @@ div.menu,
 	position: relative;
 	top: ".$options['header-text-padding-top']."px;
 	background-color: ".$options['description-box-color-rgb'].";
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
+	border-top: 1px none #CCCCCC;
+	border-bottom: 1px none #CCCCCC;
+	border-left: 1px none #CCCCCC;
+	border-right: 1px none #CCCCCC;
 	padding: 3px 10px 3px 1px;
 	margin-left: 10px;
 }
