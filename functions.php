@@ -3727,40 +3727,6 @@ function print_option_feedback() {
 
 }
 
-/*********************************************************
- * Get select field for a given theme option
- *********************************************************/
-
-function get_option_selector ($option_title, $option_name, $option_values) {
-	global $variation_config, $options, $options_values;
-
-	if (in_array($option_name, $variation_config['model'])) {
-		print "<span style='white-space:nowrap;'>\n";
-		if ($option_title != "") print " <span style='font-size: 10px;'>".$option_title."</span>\n";
-		print "<select name='".$option_name."' style='font-size: 10px;' onchange='this.form.submit();'>\n";							
-			// options
-			foreach ($option_values as $label => $value) {
-				print "\n<option value='".$value."'".($options[$option_name] == $value ? ' selected' : '') . ">".$label."</option>";
-			}					
-		print "</select>\n";
-		print "</span> &nbsp;\n";
-	}
-}
-
-/*********************************************************
- * Get an input field for a given theme option
- *********************************************************/
-
-function get_option_field ($option_title, $option_name, $option_field_width) {
-	global $variation_config, $options, $options_values;
-
-	if (in_array($option_name, $variation_config['model'])) {			
-		print "<span style='white-space:nowrap'>";
-		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title."</span>\n";
-		print "<input name='".$option_name."' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
-		value='".(isset($options[$option_name]) ? $options[$option_name] : '')."'/></span>";
-	}
-}
 
 function get_content_width ($template) {
 	global $options;
