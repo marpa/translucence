@@ -359,26 +359,26 @@ function theme_model() {
 					<!-- footer -->
 						<div id='first' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Footer Title</h3>
-			
+								<h3 class='widget-title'>First Footer Widget Area</h3>
+								<?php print get_footer_widgets('first'); ?>
 							</ul>
 						</div>
 						<div id='second' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Footer Title</h3>
-			
+								<h3 class='widget-title'>Second Footer Widget Area</h3>
+								<?php print get_footer_widgets('second'); ?>
 							</ul>
 						</div>
 						<div id='third' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Footer Title</h3>
-			
+								<h3 class='widget-title'>Third Footer Widget Area</h3>
+								<?php print get_footer_widgets('third'); ?>
 							</ul>
 						</div>
 						<div id='fourth' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Footer Title</h3>
-			
+								<h3 class='widget-title'>Fourth Footer Widget Area</h3>
+								<?php print get_footer_widgets('fourth'); ?>
 							</ul>
 						</div>
 					</div>
@@ -1052,6 +1052,36 @@ function get_footer_options() {
 
 	return $footer_options;
 }
+
+/******************************************************************************
+ * Get First Footer widget options
+ ******************************************************************************/
+
+function get_footer_widgets($order) {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    global $current_widgets;
+    
+    ob_start();
+	print "<div>";
+		if (is_active_sidebar( $order.'-footer-widget-area' )) {
+			foreach ($current_widgets[$order.'-footer-widget-area'] as $widget) {
+				$widget = str_replace("-", " ", $widget);
+				$widget = str_replace("_", " ", $widget);
+				$widget = rtrim(ucwords($widget), "0..9");
+				print "<div class='widgetbox' style='width: 150px; color: ".$options['bottom-heading-color']."; border-color: ".$options['bottom-heading-color'].";'>";
+				print $widget;
+				print "</div>";					
+			}
+		}
+	print "</div>";
+
+	$footer_widgets = ob_get_contents();
+	ob_end_clean();
+
+	return $footer_widgets;
+}
+
 
 /******************************************************************************
  * Get Footer meta right options
