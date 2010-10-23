@@ -7,7 +7,7 @@
  *********************************************************/
 
 function theme_model() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
     
     $current_widgets = get_option ('sidebars_widgets');	
@@ -32,7 +32,7 @@ function theme_model() {
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
+	$model_content_width2 = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 225);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
 	
@@ -120,7 +120,7 @@ function theme_model() {
 		}
 		
 		#content {
-			width: ".$model_content_width."px;
+			width: ".$model_content_width2."px;
 		}
 		
 		#syndication{
@@ -328,7 +328,7 @@ function headermeta_right() {
 }
 
 function get_global_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     $model2_site_width = $options['site-width']+30;
@@ -530,12 +530,12 @@ function get_global_options() {
 }
 
 function get_layout_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
     print "<div>";
-	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
+	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width2." px &rarr;<br/>";		
 	print "<span style='font-size: 10px;'>Content</span>\n";	
 	get_option_selector ("", "content-color", $options_values['sidebar-color']);
 	get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
@@ -588,7 +588,7 @@ function get_layout_options() {
 }
 
 function get_post_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
@@ -703,7 +703,7 @@ function get_post_options() {
 }
 
 function get_left01_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
@@ -753,7 +753,7 @@ function get_left01_options() {
 }
 
 function get_right01_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
@@ -805,7 +805,7 @@ function get_right01_options() {
 }
 
 function get_right02_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
