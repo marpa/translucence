@@ -671,6 +671,8 @@ function get_global_options() {
 		print "</tr>";	
 		print "</table>";
 	}
+	
+	print "</div>";
 
 	$global_options = ob_get_contents();
 	ob_end_clean();
