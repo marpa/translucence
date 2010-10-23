@@ -597,7 +597,6 @@ endif;
 function variation_options() {	
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
-    
     	
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		delete_options();
@@ -652,7 +651,7 @@ function variation_options() {
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
 	
-			
+	 
 	/*********************************************************
 	 * Define theme model css
 	 * model css uses most of the actual theme's css except
@@ -671,24 +670,13 @@ function variation_options() {
  		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
  		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
  	}
-
+	
+	
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
- 	<style type='text/css'>".$model_css."
-
-		.modelwrapper {
-			background-image: ".$options['background_image'].";
-			background-position: ".$options['background_position'].";
-			background-color: ".$options['background_color'].";
-			background-repeat: ".$options['background_repeat'].";
-			background-attachment: ".$options['background_attachment'].";
- 			width: ".$model_site_width."px;
-			background-color: ".$options['background_color'].";
-			color: #000000;
-			padding: 1px 0px 0px 0px;
-			border: 1px solid #CCCCCC;
-		}
-						
+ 	<style type='text/css'>".$model_css;
+ 	
+ 	print "
 		.headerblock {
 			background-image: url(".$model_header_image.");
 			background-position: right center;
@@ -705,10 +693,7 @@ function variation_options() {
  			color: ".$options['site-description-color'].";
  		}
 		 		
- 		#content {
- 			width: ".$model_content_width."px;
- 			background-color: ".$options['content-color-rgb'].";
- 		}
+
  		
  		#primary {
  			width: ".$options['right01-width']."px;
