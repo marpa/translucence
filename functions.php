@@ -626,85 +626,8 @@ function variation_options() {
 	 *  Header meta options
 	 *  Header meta left set in config
 	 *********************************************************/
-	print 
-	"
-	<table width = '".$model_site_width."' cellpadding='0' style='background-color: transparent;'>
-		<tr>
-			<td width='20%'>
-			<span class='submit'><input type='submit' value='Update' name='save'/></span>
-			</td>
-			<td width='60%' align='left'>
-			<div class='instructions' style='font-size: 9px;'>	
-			<i>Below is a model of your blog's layout and colors. It does not show all the details of your blog's header, borders or sidebar widgets.  
-			As well, the width of sidebars and content areas may not be accurate in this preview.</i>&nbsp;&nbsp;
-			 <strong>Show recommendations: </strong><input type='checkbox' name='model-instructions' id='model-instructions' ".(isset($options['model-instructions']) && $options['model-instructions'] == "on" ? ' checked' : '') . " onchange='this.form.submit();'/>
-			</div>			
-			</td>
-			<td width='20%'>
-			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='reset'/></div>
-			</td>
-		</tr>
-		<tr>
-		<td width='20%'>"; 
-			// header meta right appgroups options	
-			if (in_array("header-meta-left", $variation_config['model'])) {
-				print "<span style='font-size: 9px;'>Header Links:</span>\n";
-				print "<select name='header-meta-left' style='font-size: 10px;'  onchange='this.form.submit();'>";
-				foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
-					print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
-					print ($options['header-meta-left'] == $variation_config['header_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
-					print $variation_config['header_meta_left_options'][$meta_left_option]['option_label']."</option>";						
-				}
-				print "</select>";
-			}
-			print "
-			</td>
-			<td style='text-align: center;'>";	
-			// background options		
-			if (in_array("background", $variation_config['model'])) {				
-				print "
-				<span style='font-size: 10px;'></span>
-				<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
-					
-					// variations defined in variations folder
-					foreach ($variations as $label => $value) {
-						if (!in_array($value, $variation_config['variations_disabled']))
-							print "\n<option value='".$value."'".($options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
-					}	
-				print "</select>";
-				
-				if ($custom_background_color !="" || $custom_background_image !="") {
-					print "<div  style='font-size: 10px; text-align: center; border-color: ".$options['bgtextcolor']."'>";
-					print "(Custom background color or image may change the background of this variation)";	
-					print "</div>";
-				}
-			}	
-	
-			//header width
-			//get_option_selector ("Header Width", "header-width", $options_values['header-width']);
-							
-			print "
-			</td>
-			<td width='20%' align='right'>";
-	
-			// log in link options	
-			if (in_array("headermeta", $variation_config['model'])) {	
-				print "
-				<span style='font-size: 9px;'>Editing Quick Links:</span>
-				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
-					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
-					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
-				</select>
-				</span>";
-			} else {
-				//$options['headermeta'] = 'on';
-			}
 
-			print "
-			</td>
-		</tr>
-		</table>
-	
+	print "
 	<div class='modelwrapper'>";
 	
 
@@ -1585,20 +1508,6 @@ function variation_options() {
 		print "</select>";
 		
 	}
-	print "
-    <table width = '".$model_site_width."' align='center' cellpadding='5' cellspacing='5' border='0'>
-    <tr><td>
-    <span class='submit'><input type='submit' value='Update' name='save'/></span>
-    </td><td>
-    <div class='instructions'>	
-	When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
-	text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
-	</div>
-	</td><td>
-	<span class='submit'><input type='submit' value='Revert to Default' name='reset'/></span>
-	</td></tr>
-	</table>
-	</form>";
 
 }	
  if (!function_exists('save_options')) {
