@@ -7,7 +7,7 @@
  *********************************************************/
 
 function theme_model() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
     
     $current_widgets = get_option ('sidebars_widgets');	
@@ -695,12 +695,12 @@ function get_global_options() {
 }
 
 function get_layout_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
     print "<div>";
-	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width2." px &rarr;<br/>";		
+	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
 	print "<span style='font-size: 10px;'>Content</span>\n";	
 	get_option_selector ("", "content-color", $options_values['sidebar-color']);
 	get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
@@ -753,7 +753,7 @@ function get_layout_options() {
 }
 
 function get_topmenu_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
@@ -776,7 +776,7 @@ function get_topmenu_options() {
 }
 
 function get_post_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
@@ -891,7 +891,7 @@ function get_post_options() {
 }
 
 function get_left01_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
@@ -941,7 +941,7 @@ function get_left01_options() {
 }
 
 function get_right01_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
@@ -993,7 +993,7 @@ function get_right01_options() {
 }
 
 function get_right02_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
@@ -1047,12 +1047,13 @@ function get_right02_options() {
  ******************************************************************************/
 
 function get_footer_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
     print "<div>";
-		print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</span>";
+		if (in_array("footer-bottom-color", $variation_config['model']))    
+			print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</span>";
 		print "<span class='horizontalbar' style='font-size: 8px'>";
 			get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
 			get_option_selector ("", "bottom-opacity", $options_values['sidebar-opacity']);
@@ -1072,7 +1073,7 @@ function get_footer_options() {
  ******************************************************************************/
 
 function get_footer_widgets($order) {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     global $current_widgets;
     
@@ -1102,7 +1103,7 @@ function get_footer_widgets($order) {
  ******************************************************************************/
 
 function footermeta_right() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
@@ -1121,7 +1122,7 @@ function footermeta_right() {
  ******************************************************************************/
 
 function footermeta_left() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
@@ -1163,7 +1164,7 @@ function footermeta_left() {
  * Get Footer meta options
  ******************************************************************************/
 function get_footermeta_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
 	ob_start();
