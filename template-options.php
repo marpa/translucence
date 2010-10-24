@@ -319,20 +319,20 @@ function theme_model() {
 						<div id='branding'>
 							<div class='headerblock'>
 								<h1 id='site-title'>								
-									<span class='title-box'><a href='index.php'>Translucence Template</a></span>
+									<span class='title-box'><a href='index.php'><?php print get_bloginfo('name') ?></a></span>
 								</h1>
-								<div id='site-description' class='description-box'>A set of templates based on the Translucence Theme</div>
+								<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
+							</div>							
+						</div><!-- #branding -->
+						<div id='access' role='navigation'> 
+							<!-- top navigation links -->
+							<div class='menu-header'>
+							<?php print get_topmenu_options(); ?>
 							</div>
-						</div>
-					</div>
-					<div id='access' role='navigation'> 
-						<!-- top navigation links -->
-						<div class='menu-header'>
-						<?php print get_topmenu_options(); ?>
-						</div>
-					</div>
-				</div>
-				<div id='main'>
+						</div><!-- #access -->
+					</div><!-- #masthead -->
+				</div><!-- #header -->
+				<div id='main' style="clear: both;">
 					<div id='container'>
 						<div id='tertiary' class='widget-area'>
 							<!-- left sidebar -->
