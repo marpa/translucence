@@ -890,12 +890,10 @@ function get_left01_options() {
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
-    $model_left_sidebar_width = $options['left01-width'];
-    
     ob_start();
     print "<div>";
 	if ($options['left01-width'] != 0) {
-		print "<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$model_left_sidebar_width." px &rarr;</div>";
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['left01-heading-color'].";'>&larr; ".$options['left01-width']." px &rarr;</div>";
 		// opacity
 		get_option_selector ("", "left01-opacity", $options_values['sidebar-opacity']);
 		// color
@@ -905,7 +903,7 @@ function get_left01_options() {
 		
 
 			if (is_active_sidebar("tertiary-widget-area")) {
-				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";
+				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";
 				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 				print "</div><br/>";				
 				if (is_array($current_widgets['tertiary-widget-area'])) {
@@ -940,12 +938,10 @@ function get_right01_options() {
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
     
-    $model_right_sidebar_width = $options['right01-width'];
-    
     ob_start();
     print "<div>";
 	if ($options['right01-width'] != 0) {
-		print "<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>";
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['right01-heading-color'].";'>&larr; ".$options['right01-width']." px &rarr;</div>";
 		// opacity
 		get_option_selector ("", "right01-opacity", $options_values['sidebar-opacity']);
 		// color
@@ -955,8 +951,8 @@ function get_right01_options() {
 		
 
 			if (is_active_sidebar("primary-widget-area")) {
-				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right01-link-color']."'>";
-				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
+				print "<a style='' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 				print "</div><br/>";
 				if (is_array($current_widgets['primary-widget-area'])) {
 					foreach ($current_widgets['primary-widget-area'] as $widget) {
@@ -991,13 +987,12 @@ function get_right02_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
    	global $current_widgets;
-    
-    $model_right_sidebar_width = $options['right02-width'];
+
     
     ob_start();
     print "<div>";
 	if ($options['right02-width'] != 0) {
-		print "<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$model_right_sidebar_width." px &rarr;</div>";
+		print "<div style='font-size: 10px; text-align: center; color: ".$options['right02-heading-color'].";'>&larr; ".$options['right02-width']." px &rarr;</div>";
 		// opacity
 		get_option_selector ("", "right02-opacity", $options_values['sidebar-opacity']);
 		// color
@@ -1007,7 +1002,7 @@ function get_right02_options() {
 		
 
 			if (is_active_sidebar("secondary-widget-area")) {
-				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
+				print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
 				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 				print "</div><br/>";
 				if (is_array($current_widgets['secondary-widget-area'])) {
