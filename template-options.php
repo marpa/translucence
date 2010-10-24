@@ -678,8 +678,7 @@ function get_global_options() {
 				<select name='headermeta' style='font-size: 10px;' onchange='this.form.submit();'>
 					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
 					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
-				</select>
-				</span>";
+				</select>";
 			}
 			print "</td>";
 		
