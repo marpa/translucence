@@ -93,7 +93,17 @@ function theme_model() {
 			background-repeat: no-repeat;
 		}
 
-		
+		.title-box {
+			position: relative;
+			top: ".$model_titlebox_padding."px;
+		}
+
+		.headerblock #site-description {
+			position: relative;
+			top: ".$model_descriptionbox_padding."px;
+		}
+
+				
 		.options {
 			margin-top: 5px;
 			margin-bottom: 5px;
@@ -153,20 +163,6 @@ function theme_model() {
 			border: 1px solid #CCCCCC;
 		}
 		
-		.title-box {
-			position: relative;
-			top: ".$model_titlebox_padding."px;
-		}
-
-		.headerblock #site-description {
-			position: relative;
-			top: ".$model_descriptionbox_padding."px;
-		}
-
-		
-		#content {
-			width: ".$model_content_width."px;
-		}
 		
 		#syndication{
 			width: 100%; 
