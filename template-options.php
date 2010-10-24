@@ -1207,13 +1207,16 @@ function get_basic_options() {
 // 		$basic_options[5]  = 'tagline-options';
 // 		$basic_options[6]  = 'headermeta-options';
 		$basic_options[7]  = 'site-width';
-		$basic_options[8]  = 'site-color';
-		$basic_options[9]  = 'site-opacity';
-		$basic_options[10]  = 'site-border-style';
+		//$basic_options[8]  = 'site-color';
+		//$basic_options[9]  = 'site-opacity';
+		//$basic_options[10]  = 'site-border-style';
 		$basic_options[11]  = 'header-block-height';
 		$basic_options[12]  = 'header-color';
 		$basic_options[13]  = 'header-opacity';
-		$basic_options[13]  = 'header-border-style';
+		//$basic_options[14]  = 'header-border-style';
+		$basic_options[15]  = 'left01-width';
+		$basic_options[16]  = 'right01-width';
+		$basic_options[17]  = 'right02-width';
 
 		
 	} else {
