@@ -1465,8 +1465,7 @@ a:hover {
 
 /* Begin tag links */
 .tag-links a {	
-	color: ".$options['tag-links-link-color'].";
-	
+	color: ".$options['tag-links-link-color'].";	
 	background-color: ".$options['tag-links-color'].";
 	border-top: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-top'].";
 	border-bottom: 1px ".$options['tag-links-border-style']." ".$options['tag-links-border-bottom'].";
@@ -1480,7 +1479,7 @@ a:hover {
 
 .tag-links a:hover {
 	color: ".$options['tag-links-link-color'].";
-	
+	background-color: ".$options['tag-links-color'].";
 	border-top: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-top'].";
 	border-bottom: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-right'].";
 	border-left: 1px ".$options['tag-links-hover-border-style']." ".$options['tag-links-hover-border-left'].";
@@ -1504,6 +1503,8 @@ a:hover {
 }
 
 .cat-links a:hover {
+	background-color: ".$options['cat-links-color'].";
+	
 	border-top: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-top'].";
 	border-bottom: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-right'].";
 	border-left: 1px ".$options['cat-links-hover-border-style']." ".$options['cat-links-hover-border-left'].";
