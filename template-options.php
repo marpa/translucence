@@ -277,7 +277,7 @@ function theme_model() {
 		<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
 		<input type='hidden' id='action' name='action' value='save'/>
 	
-		<table width = '$model_site_width2; ?>' cellpadding='0' style='background-color: transparent;'>
+		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
 		<tr>
 			<td width='20%'>
 			<span class='submit'><input type='submit' value='Update' name='save'/></span>
@@ -415,7 +415,7 @@ function theme_model() {
 	 ******************************************************************************/
 	?>
 	
-	<table width = '<?php $model_site_width; ?>' align='center' cellpadding='5' cellspacing='5' border='0'>
+	<table width = '<?php print $model_site_width; ?>' align='center' cellpadding='5' cellspacing='5' border='0'>
 		<tr>
 			<td>
 				<span class='submit'><input type='submit' value='Update' name='save'/></span>
