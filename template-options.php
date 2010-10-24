@@ -207,6 +207,17 @@ function theme_model() {
 			text-align: right;
 		}
 		
+		#primary a, 
+		#secondary a,
+		#tertiary a {
+			border: 1px dotted;
+		}
+		
+		#primary post-link {
+			border-color: ".$options['right01-link-color'].";
+		}
+
+		
  		.editwidgetlink {
 			display: block;
  			color: ".$options['linkcolor'].";
@@ -903,7 +914,7 @@ function get_left01_options() {
 		
 
 			if (is_active_sidebar("tertiary-widget-area")) {
-				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";
+				print "<div class='post-link' style='font-size: 10px; border: 1px dotted ".$options['left01-link-color'].";'>";
 				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 				print "</div><br/>";				
 				if (is_array($current_widgets['tertiary-widget-area'])) {
@@ -918,7 +929,7 @@ function get_left01_options() {
 				}
 				
 			} else {
-				print "<div class='editwidgetlink' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";			
+				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";			
 				print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
 				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
 				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or use defaults...</div>";
