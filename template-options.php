@@ -307,10 +307,10 @@ function theme_model() {
 			<?php print get_global_options(); ?>
 			<div class='sitewrapper'> 	
 				<div class='headermeta_right'> 
-					<span class='bgtextcolor'><?php print headermeta_right(); ?></span><br/> 
+					<div class='bgtextcolor'><?php print headermeta_right(); ?></div><br/> 
 				</div> 
 				<div class='headermeta_left'> 
-					<span class='bgtextcolor'><?php print headermeta_left(); ?></span><br/> 
+					<div class='bgtextcolor'><?php print headermeta_left(); ?></div><br/> 
 				</div> 	
 			</div> 
 			<div id='wrapper'>
@@ -351,8 +351,8 @@ function theme_model() {
 							<?php print get_layout_options(); ?>
 							<h2 class='entry-title'>Entry Title</h2>
 							<div class='entry-content'>
-							<?php print get_post_options(); ?>	
-							</div>							
+								<?php print get_post_options(); ?>	
+							</div>
 						</div>
 						<div id='primary' class='widget-area'>
 							<!-- 1st right sidebar -->
@@ -400,10 +400,10 @@ function theme_model() {
 				
 			<div class='sitewrapper'>  
 				<div class='footermeta_right'> 
-					<span class='bgtextcolor'><?php print footermeta_right(); ?></span> 
+					<div class='bgtextcolor'><?php print footermeta_right(); ?></div> 
 				</div> 	 
 				<div class='footermeta_left'> 
-					<span class='bgtextcolor'><?php print footermeta_left(); ?></span> 
+					<div class='bgtextcolor'><?php print footermeta_left(); ?></div> 
 				</div> 	
 			</div><!-- #sitewrapper --> 
 			<?php print get_footermeta_options(); ?>
@@ -473,7 +473,7 @@ function headermeta_right() {
 	global $variation_config, $options;
 	
 	ob_start();
-	print "<div class='metatext'>";
+	print "<span class='metatext'>";
 	print $options['headerright'];
 	
 	// Log in link options
@@ -483,14 +483,14 @@ function headermeta_right() {
 		//print " - Log out";
 	}
 	
-	print "</div>";
+	print "</span>";
 	$headermeta_right = ob_get_contents();
 	ob_end_clean();
 	return $headermeta_right;
 }
 
 function get_global_options() {
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width2, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
 	ob_start();
