@@ -49,9 +49,12 @@ function theme_model() {
 	
 	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
 	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 50);
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
 	$model_site_width = $model_site_width."";
 	$model_site_width_css = $model_site_width."px";
+	
+	$model_titlebox_padding = $options['header-text-padding-top'] - 20;
+	$model_descriptionbox_padding = $options['description-text-padding-top'] -40;
 
 	/*********************************************************
 	 * Define theme model css
@@ -150,8 +153,19 @@ function theme_model() {
 			border: 1px solid #CCCCCC;
 		}
 		
+		.title-box {
+			position: relative;
+			top: ".$model_titlebox_padding."px;
+		}
+
+		.headerblock #site-description {
+			position: relative;
+			top: ".$model_descriptionbox_padding."px;
+		}
+
+		
 		#content {
-			width: ".$model_content_width2."px;
+			width: ".$model_content_width."px;
 		}
 		
 		#syndication{
