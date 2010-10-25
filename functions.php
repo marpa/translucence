@@ -2536,7 +2536,6 @@ function get_content_width ($template) {
 	}
 	
 	$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
-	//printpre($right01_width);
 	return $content_width;
 }
 
