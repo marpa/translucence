@@ -635,40 +635,6 @@ function variation_options() {
 		// options specific to a particular variation
 		set_variation_options();
 		
-		$site_width = $options['site-width'];
-		$header_width = $options['site-width']-7;
-		$menu_width =$options['site-width']-7;
-		
-		// add # to theme option for site-title and description
-		if (!preg_match("/\#/", $options['site-title-color'])) {
-			$options['site-title-color'] = "#".$options['site-title-color'];
-		}
-
-		if (!preg_match("/\#/", $options['site-description-color'])) {
-			$options['site-description-color'] = "#".$options['site-description-color'];
-		}
-
-		// calculate the width of the content div based on widths of sidebars
-		// sidebar width = sidebar width + 50
-		// if sidebar width = 0 then width = 0
-		$left01_width = 0;
-		if ($options['left01-width'] != 0) {
-			$left01_width = $options['left01-width'] + 50;
-		}
-	
-		$right01_width = 0;
-		if ($options['right01-width'] != 0) {
-			$right01_width = $options['right01-width'] + 50;
-		}
-	
-		$right02_width = 0;
-		if ($options['right02-width'] != 0) {
-			$right02_width = $options['right02-width'] + 50;
-		}
-				
-		$content_width = $options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
-		$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
-	
 		/******************************************************************************
 		 * add theme options to theme CSS
 		 ******************************************************************************/
