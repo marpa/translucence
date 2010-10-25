@@ -37,21 +37,23 @@ function theme_model() {
 	 * Define theme layout model values
 	 *********************************************************/
 
-    $model_right_sidebar_width = $options['right01-width']+50;
-    $model_right_sidebar_width02 = $options['right02-width']+50;
-    $model_left_sidebar_width = $options['left01-width']+50;
-    
-   	
-	$model_site_width = $options['site-width']+10;
-	$model2_site_width = $options['site-width']+50;
-
-	$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;
+    	
+	//$model_site_width = $options['site-width']+10;
+	//$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;	
+	//$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
+	//$model_header_text_width = $model_site_width - 200;
+	//$model_site_width_css = $model_site_width."px";
 	
-	$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
-	$model_header_text_width = $model_site_width - 200;
-	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 150);
 	$model_site_width = $model_site_width."";
-	$model_site_width_css = $model_site_width."px";
+	
+	$model_right_sidebar_width = $options['right01-width']+50;
+    $model_right_sidebar_width02 = $options['right02-width']+50;
+    $model_left_sidebar_width = $options['left01-width']+50;	
+	
+	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 220);
+	
+
+
 	
 	$model_titlebox_padding = $options['header-text-padding-top'] - 20;
 	$model_descriptionbox_padding = $options['description-text-padding-top'] -40;
@@ -705,7 +707,7 @@ function get_layout_options() {
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
-    print "<div>";
+    print "<div class='options' style='background-color: transparent; clear: both;'>";
 	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
 	print "<span style='font-size: 10px;'>Content</span>\n";	
 	get_option_selector ("", "content-color", $options_values['sidebar-color']);
