@@ -43,11 +43,16 @@ function options_css() {
 			
 	$content_width = $options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
 	$total = ($options['left01-width'] + $options['right01-width'] + $options['right02-width']+$content_width);
-		
-//$variation_css = "
 
-ob_start();
+	ob_start();
+	
+	/******************************************************************************
+	 * CSS definitions for all classes in this theme that have been modified by theme options
+	 * See: template-options.php for this theme's html
+	 ******************************************************************************/
+
 ?>
+
 /* =css translucence theme options update
 * add all of this css to the style.css of the Translucence child theme
 * NOTE: change background-image url from absolute to relative
@@ -985,6 +990,11 @@ small, .nocomments, .postmetadata, blockquote, strike {
 }	
 
 	<?php
+	
+	/******************************************************************************
+	 * Get above css and return to  save_options() in functions.php
+	 ******************************************************************************/
+
 	$variation_css = ob_get_contents();
 	ob_end_clean();
 	return $variation_css;
