@@ -608,7 +608,6 @@ function variation_options() {
 	}
 	
 	//read_css_file("style.css");
-	//printpre ($options['headerleft']);
 	
 	set_variation_options();	
 			
@@ -618,9 +617,9 @@ function variation_options() {
 	$options = get_option($theme_settings);
 	$variation_css = get_option($theme_css);
 	
-	 $current_widgets = get_option ('sidebars_widgets');	
+	$current_widgets = get_option ('sidebars_widgets');	
 	
-	  theme_model();
+	theme_model();
 
 
 }	
@@ -628,7 +627,7 @@ function variation_options() {
 	function save_options() {
 		global $_POST, $options, $variation_css, $variation_config;
 		global $theme_settings, $theme_css;
-	
+
 		// options are those exposed in the UI
 		set_primary_options();
 	
@@ -648,7 +647,6 @@ function variation_options() {
 			$options['site-description-color'] = "#".$options['site-description-color'];
 		}
 
-		
 		// calculate the width of the content div based on widths of sidebars
 		// sidebar width = sidebar width + 50
 		// if sidebar width = 0 then width = 0
@@ -1628,6 +1626,7 @@ small, .nocomments, .postmetadata, blockquote, strike {
 function set_primary_options() {
 	global $_POST, $options, $allowedposttags, $variation_config;
 	//printpre($_POST);
+
 	foreach ($variation_config['model'] as $option => $value) {
 
 		//sanitize options that contain HTML
@@ -2009,7 +2008,7 @@ function set_derivative_options() {
 	/******************************************************************************
 	 * sidebar color and link options
 	 ******************************************************************************/	
-
+	
 	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
 	
 	foreach($widget_bars as $bar) {
