@@ -44,7 +44,8 @@ function theme_model() {
 	//$model_header_text_width = $model_site_width - 200;
 	//$model_site_width_css = $model_site_width."px";
 	
-	$model_site_width = $model_site_width."";
+	$model_site_width = $options['site-width']+50;
+	//$model_site_width = $model_site_width."";
 	
 	$model_right_sidebar_width = $options['right01-width']+50;
     $model_right_sidebar_width02 = $options['right02-width']+50;
@@ -82,7 +83,7 @@ function theme_model() {
 			background-color: ".$options['background_color'].";
 			background-repeat: ".$options['background_repeat'].";
 			background-attachment: ".$options['background_attachment'].";
- 			width: ".$model2_site_width."px;
+ 			width: ".$model_site_width."px;
 			background-color: ".$options['background_color'].";
 			color: #000000;
 			padding: 1px 0px 0px 0px;
