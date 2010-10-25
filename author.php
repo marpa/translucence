@@ -12,7 +12,7 @@ $content_width = get_content_width ("author");
 ?>
 
 		<div id="container">
-		<?php if ( $options['author-sidebar-right-display'] == "show"  && $options['left01-width'] != '0') : ?>
+		<?php if ( $options['author-sidebar-left-display'] == "show"  && $options['left01-width'] != '0') : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
