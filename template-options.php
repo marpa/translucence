@@ -980,6 +980,7 @@ function get_right01_options() {
 				}
 				
 			} else {
+				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
 				print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
 				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
 				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
