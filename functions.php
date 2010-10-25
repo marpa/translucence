@@ -2495,25 +2495,48 @@ function print_option_feedback() {
 function get_content_width ($template) {
 	global $options;
 	
-	if ($options[$template.'-sidebar-left-display'] != "show" ) {
-		$left01_width = 0;
+	if ($template == "page") {
+		if ($options['left01-width'] == 0) {
+			$left01_width = 0;
+		} else {
+			$left01_width = $options['left01-width']+50;
+		}
+		
+		if ($options['right01-width'] == 0) {
+			$right01_width = 0;
+		} else {
+			$right01_width = $options['right01-width']+50;
+		}
+
+		if ($options['right02-width'] == 0) {
+			$right02_width = 0;
+		} else {
+			$right02_width = $options['right02-width']+50;
+		}
+		
 	} else {
-		$left01_width = $options['left01-width']+50;
-	}
 	
-	if ($options[$template.'-sidebar-right-display'] != "show" ) {
-		$right01_width = 0;
-	} else {
-		$right01_width = $options['right01-width']+50;
-	}
-	
-	if ($options[$template.'-sidebar-right02-display'] != "show" ) {
-		$right02_width = 0;
-	} else {
-		$right02_width = $options['right02-width']+50;
+		if ($options[$template.'-sidebar-left-display'] != "show" ) {
+			$left01_width = 0;
+		} else {
+			$left01_width = $options['left01-width']+50;
+		}
+		
+		if ($options[$template.'-sidebar-right-display'] != "show" ) {
+			$right01_width = 0;
+		} else {
+			$right01_width = $options['right01-width']+50;
+		}
+		
+		if ($options[$template.'-sidebar-right02-display'] != "show" ) {
+			$right02_width = 0;
+		} else {
+			$right02_width = $options['right02-width']+50;
+		}
 	}
 	
 	$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	//printpre($right01_width);
 	return $content_width;
 }
 
