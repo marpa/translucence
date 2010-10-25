@@ -14,7 +14,7 @@
 
 get_header(); 
 global $options;
-$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - $options['right02-width'] - 150;
+$content_width = get_content_width("page");
 ?>
 
 		<div id="container">
