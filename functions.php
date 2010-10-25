@@ -1611,7 +1611,7 @@ small, .nocomments, .postmetadata, blockquote, strike {
 }	
 
 ";
-		$variation_css = options_css();			
+		$variation_css = options_css();	
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);
 		
