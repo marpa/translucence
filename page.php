@@ -17,12 +17,20 @@ global $options;
 $content_width = get_content_width("page");
 ?>
 
-		<div id="container">
-		<?php if ($options['left01-width'] != '0') : ?>
-			<?php get_sidebar('tertiary'); ?>
-		<?php endif;  ?>
-		
-			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+<div id="container">
+<?php if ($options['left01-width'] != '0') : ?>
+	<?php get_sidebar('tertiary'); ?>
+<?php endif;  ?>
+
+	<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+
+<?php /* display link to new post if user is at least an author */?>
+<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
+	<div class='post-link' style="float: right; width: 40%;">
+	<a href="<?php bloginfo('url'); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
+	</div>
+<?php endif; ?>
+
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
