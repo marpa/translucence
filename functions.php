@@ -852,6 +852,13 @@ function set_derivative_options() {
 		$options['site-padding-top'] = "10";
 		$options['site-padding-bottom'] = "10";
 	}
+	
+	if ($options['site-border-style'] == 'solid') {
+		$options['site-border-shadow'] = 5;
+	} else {
+		$options['site-border-shadow'] = 0;
+	}
+
 
 	/******************************************************************************
 	 * Header left links (derived from  header_meta_left_options
