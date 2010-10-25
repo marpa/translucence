@@ -44,7 +44,7 @@ function theme_model() {
 	//$model_header_text_width = $model_site_width - 200;
 	//$model_site_width_css = $model_site_width."px";
 	
-	$model_site_width = $options['site-width']+50;
+	$model_site_width = $options['site-width']+80;
 	//$model_site_width = $model_site_width."";
 	
 	$model_right_sidebar_width = $options['right01-width']+50;
