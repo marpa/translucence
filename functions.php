@@ -41,6 +41,7 @@
  //error_reporting(E_ALL);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 require_once("template-options.php");
+require_once("options-css.php");
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -1610,7 +1611,7 @@ small, .nocomments, .postmetadata, blockquote, strike {
 }	
 
 ";
-			
+		$variation_css = options_css();			
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);
 		
