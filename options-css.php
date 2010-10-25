@@ -82,6 +82,11 @@ div.menu,
 
 #wrapper {
 	background-color: <?php print $options['site-color-rgb']?>;
+	
+	box-shadow: 0px 0px <?php print $options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0px <?php print $options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0px 0px <?php print $options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
+	
 	border-top: 1px <?php print $options['site-border-style'] ?> <?php print $options['site-border-top']?>;
 	border-bottom: 1px <?php print $options['site-border-style'] ?> <?php print $options['site-border-bottom']?>;
 	border-left: 1px <?php print $options['site-border-style'] ?> <?php print $options['site-border-left']?>;
