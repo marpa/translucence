@@ -13,26 +13,29 @@ function theme_model() {
     
     $current_widgets = get_option ('sidebars_widgets');	
     
-    $model_header_image = get_header_image();
-	if ($options['header-image-options'] == "custom") {
-   		$match = preg_match('/variations/', $model_header_image);
-   		if ($match == 0) {
-   			$custom_header_set = 0;
-   		} else {
-   			$custom_header_set = 1;
-   		}
-   	} else {
-   		//$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
-   		$model_header_image = get_header_image();
-   	}
+    $custom_background_color = get_background_color();
+	$custom_background_image = get_background_image();
+    
+    $custom_header_image = get_header_image();
+    
+	if (isset($custom_header_image) && $custom_header_image != "") {
+   		$custom_header_set = 1;
+	} else {
+		$custom_header_set = 0;
+	}
+
  	
- 	//printpre ($custom_background_image);
+ 	printpre ($custom_background_image);
  	if ($custom_background_image) {
  		$options['background_image'] = "url('".$custom_background_image."')";
  		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
  		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
  		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
  		$custom_background_set = 1;
+ 	} else if ($custom_background_color) {
+ 		$custom_background_set = 1;
+ 	} else {
+ 		$custom_background_set = 0;
  	}
  
 	/*********************************************************
@@ -69,8 +72,6 @@ function theme_model() {
 	 *********************************************************/
 	 
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
-	$custom_background_color = get_background_color();
-	$custom_background_image = get_background_image();
 	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
 
 
@@ -93,7 +94,7 @@ function theme_model() {
 		}
 
 		.headerblock {
-			background-image: url(".$model_header_image.");
+			background-image: url(".$custom_header_image.");
 			background-position: right center;
 			background-repeat: no-repeat;
 		}
@@ -512,6 +513,7 @@ function headermeta_right() {
 function get_global_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
+    global $custom_header_set, $custom_background_set;
     
 	ob_start();
 	print "<div class='options'>";
@@ -519,21 +521,20 @@ function get_global_options() {
 	print "<tr>";
 	
 	// Variation options	
-	print "<td style='width: 60%; text-align: left; border-bottom: 1px solid; padding-bottom: 5px; '>";			
+	print "<td style='width: 70%; text-align: left; border-bottom: 1px solid; padding-bottom: 5px; '>";			
 	if (in_array("background", $variation_config['model'])) {				
-		print "
-		<span style='font-size: 10px;'></span>
-		<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";
-			
+		print "<div>";
+		print "<select name='background' style='font-size: 14px;' onchange='this.form.submit();'>";			
 			// variations defined in variations folder
 			foreach ($variations as $label => $value) {
 				if (!in_array($value, $variation_config['variations_disabled']))
 					print "\n<option value='".$value."'".($options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
 			}	
 		print "</select>";
+		print "</div>";
 		
-		if ($custom_background_color !="" || $custom_background_image !="") {
-			print "<div  style='font-size: 10px; text-align: center; border-color: ".$options['bgtextcolor']."'>";
+		if ($custom_background_set == 1) {
+			print "<div style='font-size: 10px; text-align: left; border-color: ".$options['bgtextcolor']."'>";
 			print "(Custom background color or image may change the background of this variation)";	
 			print "</div>";
 		}
@@ -541,7 +542,7 @@ function get_global_options() {
 	print "</td>";	
 	
 	// Options mode
-	print "<td style='width: 40%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
+	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
 		print "Options Mode:<span class='option-label'>";
 		get_option_selector ("", "options-mode", $options_values['mode'], 'active');
 		print "</span>";
@@ -732,7 +733,7 @@ function get_custom_options() {
 	}
 
 	if ($custom_background_set == 1) {
-		print "<div class='post-link' style='float: right; width: 40%; clear: left;'>";
+		print "<div class='post-link' style='float: right; width: 40%;'>";
 		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Custom Background</a>";	
 		print "</div>";
 	} else {
