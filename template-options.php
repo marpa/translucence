@@ -9,6 +9,7 @@
 function theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
+    global $custom_header_set, $custom_background_set;
     
     $current_widgets = get_option ('sidebars_widgets');	
     
@@ -16,9 +17,9 @@ function theme_model() {
 	if ($options['header-image-options'] == "custom") {
    		$match = preg_match('/variations/', $model_header_image);
    		if ($match == 0) {
-   			$custom_header_set = 1;
-   		} else {
    			$custom_header_set = 0;
+   		} else {
+   			$custom_header_set = 1;
    		}
    	} else {
    		//$model_header_image = get_bloginfo('stylesheet_directory')."/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
@@ -31,6 +32,7 @@ function theme_model() {
  		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
  		$options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
  		$options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
+ 		$custom_background_set = 1;
  	}
  
 	/*********************************************************
@@ -218,8 +220,15 @@ function theme_model() {
 		
 		#primary post-link {
 			border-color: ".$options['right01-link-color'].";
+			margin-right: 5px;
+			margin-left: 5px;
 		}
 
+		.post-link {
+			border-color: ".$options['bgtextcolor'].";
+			margin-right: 5px;
+			margin-left: 5px;
+		}
 		
  		.editwidgetlink {
 			display: block;
@@ -317,11 +326,12 @@ function theme_model() {
 			<?php print get_global_options(); ?>
 			<div class='sitewrapper'> 	
 				<div class='headermeta_right'> 
-					<div class='bgtextcolor'><?php print headermeta_right(); ?></div><br/> 
+					<div class='bgtextcolor'><?php print headermeta_right(); ?></div>
 				</div> 
 				<div class='headermeta_left'> 
-					<div class='bgtextcolor'><?php print headermeta_left(); ?></div><br/> 
-				</div> 	
+					<div class='bgtextcolor'><?php print headermeta_left(); ?></div> 
+				</div> 
+				<?php print get_custom_options(); ?>
 			</div> 
 			<div id='wrapper'>
 				<div id='header'>
@@ -701,6 +711,43 @@ function get_global_options() {
 	$global_options = ob_get_contents();
 	ob_end_clean();
 	return $global_options;
+}
+
+function get_custom_options() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;	
+    global $custom_header_set, $custom_background_set;
+    
+    ob_start();
+    print "<div class='options' style='background-color: transparent; clear: both; border: none; margin-bottom: 25px;'>";
+	
+	if ($custom_header_set == 1) {
+		print "<div class='post-link' style='float: left; width: 40%;'>";
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header</a>";	
+		print "</div>";
+	} else {
+		print "<div class='post-link' style='float: left; width: 55%;'>";
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Add Custom Header</a>";	
+		print "</div>";
+	}
+
+	if ($custom_background_set == 1) {
+		print "<div class='post-link' style='float: right; width: 40%; clear: left;'>";
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Custom Background</a>";	
+		print "</div>";
+	} else {
+		print "<div class='post-link' style='float: right; width: 40%; '>";
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Add Custom Background</a>";	
+		print "</div>";
+	}
+
+	
+	print "</div>";
+
+	$custom_options = ob_get_contents();
+	ob_end_clean();
+
+	return $custom_options;
 }
 
 function get_layout_options() {
