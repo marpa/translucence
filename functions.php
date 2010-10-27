@@ -1213,22 +1213,24 @@ function set_derivative_options() {
 		}
 		
 		if ($bar == "left01") {
-			$area = "tertiary";
+			$area = "#tertiary";
 		} else if ($bar == "right01") {
-			$area = "primary";
+			$area = "#primary";
 		} else if ($bar == "right02") {
-			$area = "secondary";
+			$area = "#secondary";
 		} else if ($bar == "top") {
-			$area = "access";
+			$area = "#access";
 		} else if ($bar == "bottom") {
-			$area = "footer-widget-area";
+			$area = "#footer-widget-area";
 		} else if ($bar == "content") {
-			$area = "content";
+			$area = "#content";
 		} else {
-			$area = "";
+			$area = ".".$bar;
 		}
-				
-		$options[$bar.'-color-ie'] = "#".$area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		
+
+	   $options[$bar.'-color-ie'] = $area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+
 		
 		if ($bar == "top") {
 			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";

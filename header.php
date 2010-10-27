@@ -44,6 +44,9 @@
 	
 	// IE hack opacity options
 	print $options['header-color-ie']."\n"; 
+	print $options['title-box-color-ie']."\n"; 
+	print $options['description-box-color-ie']."\n"; 
+	print $options['right02-color-ie']."\n"; 
 	print $options['top-color-ie']."\n"; 
 	print $options['submenu-color-ie']."\n"; 
 	print $options['content-color-ie']."\n"; 
