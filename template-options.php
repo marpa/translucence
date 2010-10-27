@@ -14,8 +14,7 @@ function theme_model() {
     $current_widgets = get_option ('sidebars_widgets');	
     
     $custom_background_color = get_background_color();
-	$custom_background_image = get_background_image();
-    
+	$custom_background_image = get_background_image();    
     $custom_header_image = get_header_image();
     
 	if (isset($custom_header_image) && $custom_header_image != "") {
@@ -24,8 +23,6 @@ function theme_model() {
 		$custom_header_set = 0;
 	}
 
- 	
- 	printpre ($custom_background_image);
  	if ($custom_background_image) {
  		$options['background_image'] = "url('".$custom_background_image."')";
  		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
@@ -57,9 +54,6 @@ function theme_model() {
     $model_left_sidebar_width = $options['left01-width']+50;	
 	
 	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 220);
-	
-
-
 	
 	$model_titlebox_padding = $options['header-text-padding-top'] - 20;
 	$model_descriptionbox_padding = $options['description-text-padding-top'] -40;
@@ -594,9 +588,12 @@ function get_global_options() {
 	}
 	
 	// header text size color shadow, box and position
-	if (in_array('site-title-options', $basic_options)) {
+	if (in_array('site-title-options', $basic_options) || $custom_header_set == 1) {
 		print "<tr>";
-		print "<td class='option-row'>";		
+		print "<td class='option-row'>";	
+		
+		if (in_array('site-title-options', $basic_options)) {
+		
 			// header-text-size options		
 			if (in_array("site-title-size", $variation_config['model'])) {	
 				print "<span class='option-label'>Site Title </span>";
@@ -614,10 +611,12 @@ function get_global_options() {
 			if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
 				get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
-	
+		}
+		if (in_array('site-title-options', $basic_options) || $custom_header_set == 1) {
+		
 			// header-text-box options		
 			if (in_array("title-box-color", $variation_config['model'])) {	
-				print "<span class='option-label'> | Site Title Box</span>";
+				print "<span class='option-label'> Site Title Box</span>";
 				get_option_selector ("color: ", "title-box-color", $options_values['sidebar-color']);
 			}
 			if (in_array("title-box-opacity", $variation_config['model'])) {	
@@ -635,15 +634,20 @@ function get_global_options() {
 				</select>
 				</span>";
 			}
+		}
 	
 		print "</td>";	
 		print "</tr>";
+	
 	}
 	
 	// Tagline text size, color, box
-	if (in_array('tagline-options', $basic_options)) {
+	if (in_array('tagline-options', $basic_options) || $custom_header_set == 1) {
 		print "<tr>";
-		print "<td class='option-row'>";		
+		print "<td class='option-row'>";
+		
+		// text size and color
+		if (in_array('tagline-options', $basic_options)) {
 			// header-description-size options		
 			if (in_array("site-description-size", $variation_config['model'])) {	
 				print "<span class='option-label'>Tagline</span><span class='option-label'>";
@@ -656,8 +660,13 @@ function get_global_options() {
 				get_option_field ("color: #", "site-description-color", 6);
 				print "</span>";
 			}
+		}
+	
+	
+		if (in_array('tagline-options', $basic_options) || $custom_header_set == 1) {
+	
 			if (in_array("description-box-color", $variation_config['model'])) {	
-				print " | Tagline box<span class='option-label'>";
+				print "<span class='option-label'> Tagline box</span><span class='option-label'>";
 				get_option_selector ("color:", "description-box-color", $options_values['sidebar-color']);
 				print "</span>";
 			}
@@ -667,9 +676,9 @@ function get_global_options() {
 				get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
 				print "</span>";
 			}
-	
+		}
 		print "</td>";	
-		print "</tr>";	
+		print "</tr>";
 	}
 	print "</table>";
 	
@@ -814,9 +823,9 @@ function get_topmenu_options() {
     global $theme_settings, $theme_css, $_POST;	
     
     ob_start();
-    print "<div>";
-		print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Menu Bar</span>";
-		print "<div style='font-size: 8px; float: left;'>";
+    print "<div style='padding: 10px;'>";
+		//print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Navigation</span>";
+		print "<div style='font-size: 8px; float: left; margin-bottom: 10px;'>";
 	
 			get_option_selector ("", "top-color", $options_values['sidebar-color']);
 			get_option_selector ("", "top-opacity", $options_values['sidebar-opacity']);
@@ -1286,12 +1295,18 @@ function get_basic_options() {
 
 function get_option_selector ($option_title, $option_name, $option_values, $state='dimmed') {
 	global $variation_config, $options, $options_values;
+	global $custom_header_set, $custom_background_set;
 	
 	$basic_options = get_basic_options();
 	$display_option = false;
 	
 	if ($options['options-mode'] == "basic") {		
-		if (in_array($option_name, $basic_options)) $display_option = true;			
+		if (in_array($option_name, $basic_options)) {	
+			$display_option = true;
+		} else if ($custom_header_set == 1 && (preg_match("/box/", $option_name))) {
+			$display_option = true;
+		}
+	
 	} else {
 		$display_option = true;
 	}
