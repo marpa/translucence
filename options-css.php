@@ -641,7 +641,7 @@ div.menu li {
 #access li:hover > a,
 #access ul ul :hover > a {
 	color:  <?php print $options['top-link-color']?>;
-	background-color: <?php print $options['top-color-rgb']?>;
+	background-color: <?php print $options['top-color-hover03-rgb']?>;
 	text-decoration: underline;	
 	border-bottom: none;
 }
@@ -653,10 +653,10 @@ div.menu li {
 
 #access .sub-menu,
 #access .children {
-	background-color: <?php print $options['top-color-rgb']?>;
-	box-shadow: 0px 3px 3px <?php print $options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 3px 3px <?php print $options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 3px 3px <?php print $options['header-text-shadow-color']?>;
+	background-color: <?php print $options['top-color-hover02-rgb']?>;
+	box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
 	border-top: 1px none <?php print $options['top-border-top']?>;
 	border-bottom: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-bottom']?>;	
 	border-left: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-left']?>;
