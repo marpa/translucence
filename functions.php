@@ -1203,9 +1203,14 @@ function set_derivative_options() {
 		 * opacity		
 		 ******************************************************************************/
 	
-		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";
-		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.1).")";
-		$options[$bar.'-color-hover02-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.2).")";
+		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";		
+		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.3).")";
+		if ($bar == "top") {
+			if ($options['top-opacity'] < .8) {
+				$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
+				$options['top-color-hover03-rgb'] = "rgba(".hex2rgb($options['top-color']).", 1)";
+			}
+		}
 		
 		if ($bar == "left01") {
 			$area = "tertiary";
