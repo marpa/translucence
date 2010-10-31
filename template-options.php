@@ -1,8 +1,7 @@
 <?php 
 
-
 /*********************************************************
- * ShadowBox theme options
+ * Theme options
  * renders UI and theme model for chosing and previewing options
  *********************************************************/
 
@@ -68,12 +67,193 @@ function theme_model() {
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
 	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
 
-
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
  	print $model_css;
- 	//print get_theme_model_css();
+ 	print get_theme_model_css();
+
+	
+	/******************************************************************************
+	 * Theme Options Introduction with Update and Revert buttons
+	 ******************************************************************************/
+			
+	?>
+		<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
+		<input type='hidden' id='action' name='action' value='save'/>
+	
+		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
+		<tr>
+			<td width='20%'>
+			<span class='submit'><input type='submit' value='Update' name='save'/></span>
+			</td>
+			<td width='60%' align='left'>
+			<div class='instructions' style='font-size: 9px;'>	
+			<i>Below is a model of your blog's layout and colors.</i>&nbsp;&nbsp;
+			 <strong>Show recommendations: </strong><input type='checkbox' name='model-instructions' id='model-instructions' <?php (isset($options['model-instructions']) && $options['model-instructions'] == "on" ? ' checked' : ''); ?> onchange='this.form.submit();'/>
+			</div>			
+			</td>
+			<td width='20%'>
+			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='reset'/></div>
+			</td>
+		</tr>
+		</table>
+	
+	<?php
+	
+	/******************************************************************************
+	 * html from theme template files (header.php, index.php, footer.php and sidebars
+	 * embedded in this html are functions for printing theme options UI
+	 ******************************************************************************/
+	?>
+		<div class='modelwrapper' style='margin-bottom: 5px;'>	
+		<?php print get_global_options(); ?>
+		</div>
+		<div class='modelwrapper'>						
+			<div class='sitewrapper'> 	
+				<div class='headermeta_right'> 
+					<div class='bgtextcolor'><?php print headermeta_right(); ?></div>
+				</div> 
+				<div class='headermeta_left'> 
+					<div class='bgtextcolor'><?php print headermeta_left(); ?></div> 
+				</div> 
+				<?php print get_custom_options(); ?>
+			</div> 
+			<div id='wrapper'>
+				<div id='header'>
+					<div id='masthead'>
+						<div id='branding'>
+							<div class='headerblock'>
+								<h1 id='site-title'>								
+									<span class='title-box'><a href='index.php'><?php print get_bloginfo('name') ?></a></span>
+								</h1>
+								<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
+							</div>							
+						</div><!-- #branding -->
+						<div id='access' role='navigation'> 
+							<!-- top navigation links -->
+							<div class='menu-header'>
+							<?php print get_topmenu_options(); ?>
+							</div>
+						</div><!-- #access -->
+					</div><!-- #masthead -->
+				</div><!-- #header -->
+				<div id='main' style="clear: both;">
+					<div id='container'>
+						<div id='tertiary' class='widget-area'>
+							<!-- left sidebar -->
+							<h3 class='widget-title'>Left Sidebar</h3>
+							<?php print get_left01_options(); ?>
+						</div>
+						<div id='content'>
+							<!-- syndication links -->
+							<div style = 'width: 100%; float: right;'> 
+								<div id='syndication'> 
+									<a href='#' class='feed'>Posts RSS</a> 
+									<a href='#' class='feed'>Comments RSS</a> 
+								</div> 
+							</div> 
+							<!-- main content -->
+							<?php print get_layout_options(); ?>
+							<h2 class='entry-title'>Entry Title</h2>
+							<div class='entry-content'>
+								<?php print get_post_options(); ?>	
+							</div>
+						</div>
+						<div id='primary' class='widget-area'>
+							<!-- 1st right sidebar -->
+							<h3 class='widget-title'>1st Right Sidebar</h3>
+							<?php print get_right01_options(); ?>
+						</div>
+						<div id='secondary' class='widget-area' style=''>
+							<!-- 2nd right sidebar -->
+							<h3 class='widget-title'>2nd Right Sidebar</h3>
+							<?php print get_right02_options(); ?>
+						</div>
+					</div><!-- #container -->
+				</div><!-- #main -->
+					<br/>
+					<div id='colophon'></div><!-- #colophon --> 
+					<div id='footer-widget-area'>
+					<?php print get_footer_options(); ?>
+					<!-- footer -->
+						<div id='first' class='widget-area'>
+							<ul class='xoxo'>
+								<h3 class='widget-title'>First Footer Widget Area</h3>
+								<?php print get_footer_widgets('first'); ?>
+							</ul>
+						</div>
+						<div id='second' class='widget-area'>
+							<ul class='xoxo'>
+								<h3 class='widget-title'>Second Footer Widget Area</h3>
+								<?php print get_footer_widgets('second'); ?>
+							</ul>
+						</div>
+						<div id='third' class='widget-area'>
+							<ul class='xoxo'>
+								<h3 class='widget-title'>Third Footer Widget Area</h3>
+								<?php print get_footer_widgets('third'); ?>
+							</ul>
+						</div>
+						<div id='fourth' class='widget-area'>
+							<ul class='xoxo'>
+								<h3 class='widget-title'>Fourth Footer Widget Area</h3>
+								<?php print get_footer_widgets('fourth'); ?>
+							</ul>
+						</div>
+					</div>
+			</div><!-- #wrapper -->
+				
+			<div class='sitewrapper'>  
+				<div class='footermeta_right'> 
+					<div class='bgtextcolor'><?php print footermeta_right(); ?></div> 
+				</div> 	 
+				<div class='footermeta_left'> 
+					<div class='bgtextcolor'><?php print footermeta_left(); ?></div> 
+				</div> 	
+			</div><!-- #sitewrapper --> 
+		</div><!-- modelwrapper -->
+		<div class='modelwrapper' style='margin-top: 5px;'>	
+		<?php print get_footermeta_options(); ?>
+		</div>
+				
+		
+	<?php
+	/******************************************************************************
+	 * Theme Options Notes with Update and Revert button
+	 ******************************************************************************/
+	?>
+	
+	<table width = '<?php print $model_site_width; ?>' align='center' cellpadding='5' cellspacing='5' border='0'>
+		<tr>
+			<td>
+				<span class='submit'><input type='submit' value='Update' name='save'/></span>
+			</td>
+			<td>
+				<div class='instructions'>	
+				When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
+				text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
+				</div>
+			</td>
+			<td>
+				<span class='submit'><input type='submit' value='Revert to Default' name='reset'/></span>
+			</td>
+		</tr>
+	</table>
+	</form>	
+	<?php
+}
+
+
+/******************************************************************************
+ * Theme model css
+ ******************************************************************************/
+function get_theme_model_css() {
+	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+    global $theme_settings, $theme_css, $_POST;
+
+	ob_start();
+
  	print "
  		.modelwrapper {
 			background-image: ".$options['background_image'].";
@@ -277,182 +457,15 @@ function theme_model() {
 		".$options['bottom-color-ie']."
 		".$options['left01-color-ie']."
 		".$options['right01-color-ie']."
-		".$options['right02-color-ie']."
-
-		
-		</style>
-	
+		".$options['right02-color-ie']."		
+		</style>	
 	";
-	
-	/******************************************************************************
-	 * Theme Options Introduction with Update and Revert buttons
-	 ******************************************************************************/
-			
-	?>
-		<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
-		<input type='hidden' id='action' name='action' value='save'/>
-	
-		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
-		<tr>
-			<td width='20%'>
-			<span class='submit'><input type='submit' value='Update' name='save'/></span>
-			</td>
-			<td width='60%' align='left'>
-			<div class='instructions' style='font-size: 9px;'>	
-			<i>Below is a model of your blog's layout and colors. It does not show all the details of your blog's header, borders or sidebar widgets.  
-			As well, the width of sidebars and content areas may not be accurate in this preview.</i>&nbsp;&nbsp;
-			 <strong>Show recommendations: </strong><input type='checkbox' name='model-instructions' id='model-instructions' <?php (isset($options['model-instructions']) && $options['model-instructions'] == "on" ? ' checked' : ''); ?> onchange='this.form.submit();'/>
-			</div>			
-			</td>
-			<td width='20%'>
-			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='reset'/></div>
-			</td>
-		</tr>
-		</table>
-	
-	<?php
-	
-	/******************************************************************************
-	 * html from theme template files (header.php, index.php, footer.php and sidebars
-	 * embedded in this html are functions for printing theme options UI
-	 ******************************************************************************/
-	?>
-		<div class='modelwrapper' style='margin-bottom: 5px;'>	
-		<?php print get_global_options(); ?>
-		</div>
-		<div class='modelwrapper'>						
-			<div class='sitewrapper'> 	
-				<div class='headermeta_right'> 
-					<div class='bgtextcolor'><?php print headermeta_right(); ?></div>
-				</div> 
-				<div class='headermeta_left'> 
-					<div class='bgtextcolor'><?php print headermeta_left(); ?></div> 
-				</div> 
-				<?php print get_custom_options(); ?>
-			</div> 
-			<div id='wrapper'>
-				<div id='header'>
-					<div id='masthead'>
-						<div id='branding'>
-							<div class='headerblock'>
-								<h1 id='site-title'>								
-									<span class='title-box'><a href='index.php'><?php print get_bloginfo('name') ?></a></span>
-								</h1>
-								<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
-							</div>							
-						</div><!-- #branding -->
-						<div id='access' role='navigation'> 
-							<!-- top navigation links -->
-							<div class='menu-header'>
-							<?php print get_topmenu_options(); ?>
-							</div>
-						</div><!-- #access -->
-					</div><!-- #masthead -->
-				</div><!-- #header -->
-				<div id='main' style="clear: both;">
-					<div id='container'>
-						<div id='tertiary' class='widget-area'>
-							<!-- left sidebar -->
-							<h3 class='widget-title'>Left Sidebar</h3>
-							<?php print get_left01_options(); ?>
-						</div>
-						<div id='content'>
-							<!-- syndication links -->
-							<div style = 'width: 100%; float: right;'> 
-								<div id='syndication'> 
-									<a href='#' class='feed'>Posts RSS</a> 
-									<a href='#' class='feed'>Comments RSS</a> 
-								</div> 
-							</div> 
-							<!-- main content -->
-							<?php print get_layout_options(); ?>
-							<h2 class='entry-title'>Entry Title</h2>
-							<div class='entry-content'>
-								<?php print get_post_options(); ?>	
-							</div>
-						</div>
-						<div id='primary' class='widget-area'>
-							<!-- 1st right sidebar -->
-							<h3 class='widget-title'>1st Right Sidebar</h3>
-							<?php print get_right01_options(); ?>
-						</div>
-						<div id='secondary' class='widget-area' style=''>
-							<!-- 2nd right sidebar -->
-							<h3 class='widget-title'>2nd Right Sidebar</h3>
-							<?php print get_right02_options(); ?>
-						</div>
-					</div><!-- #container -->
-				</div><!-- #main -->
-					<br/>
-					<div id='colophon'></div><!-- #colophon --> 
-					<div id='footer-widget-area'>
-					<?php print get_footer_options(); ?>
-					<!-- footer -->
-						<div id='first' class='widget-area'>
-							<ul class='xoxo'>
-								<h3 class='widget-title'>First Footer Widget Area</h3>
-								<?php print get_footer_widgets('first'); ?>
-							</ul>
-						</div>
-						<div id='second' class='widget-area'>
-							<ul class='xoxo'>
-								<h3 class='widget-title'>Second Footer Widget Area</h3>
-								<?php print get_footer_widgets('second'); ?>
-							</ul>
-						</div>
-						<div id='third' class='widget-area'>
-							<ul class='xoxo'>
-								<h3 class='widget-title'>Third Footer Widget Area</h3>
-								<?php print get_footer_widgets('third'); ?>
-							</ul>
-						</div>
-						<div id='fourth' class='widget-area'>
-							<ul class='xoxo'>
-								<h3 class='widget-title'>Fourth Footer Widget Area</h3>
-								<?php print get_footer_widgets('fourth'); ?>
-							</ul>
-						</div>
-					</div>
-			</div><!-- #wrapper -->
-				
-			<div class='sitewrapper'>  
-				<div class='footermeta_right'> 
-					<div class='bgtextcolor'><?php print footermeta_right(); ?></div> 
-				</div> 	 
-				<div class='footermeta_left'> 
-					<div class='bgtextcolor'><?php print footermeta_left(); ?></div> 
-				</div> 	
-			</div><!-- #sitewrapper --> 
-		</div><!-- modelwrapper -->
-		<div class='modelwrapper' style='margin-top: 5px;'>	
-		<?php print get_footermeta_options(); ?>
-		</div>
-				
-		
-	<?php
-	/******************************************************************************
-	 * Theme Options Notes with Update and Revert button
-	 ******************************************************************************/
-	?>
-	
-	<table width = '<?php print $model_site_width; ?>' align='center' cellpadding='5' cellspacing='5' border='0'>
-		<tr>
-			<td>
-				<span class='submit'><input type='submit' value='Update' name='save'/></span>
-			</td>
-			<td>
-				<div class='instructions'>	
-				When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
-				text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
-				</div>
-			</td>
-			<td>
-				<span class='submit'><input type='submit' value='Revert to Default' name='reset'/></span>
-			</td>
-		</tr>
-	</table>
-	</form>	
-	<?php
+
+	$theme_model_css = ob_get_contents();
+	ob_end_clean();
+
+	return $theme_model_css;
+
 }
 
 function headermeta_left() {
