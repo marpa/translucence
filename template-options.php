@@ -73,6 +73,7 @@ function theme_model() {
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
  	print $model_css;
+ 	//print get_theme_model_css();
  	print "
  		.modelwrapper {
 			background-image: ".$options['background_image'].";
@@ -316,9 +317,10 @@ function theme_model() {
 	 * embedded in this html are functions for printing theme options UI
 	 ******************************************************************************/
 	?>
-	
-		<div class='modelwrapper'>			
-			<?php print get_global_options(); ?>
+		<div class='modelwrapper' style='margin-bottom: 5px;'>	
+		<?php print get_global_options(); ?>
+		</div>
+		<div class='modelwrapper'>						
 			<div class='sitewrapper'> 	
 				<div class='headermeta_right'> 
 					<div class='bgtextcolor'><?php print headermeta_right(); ?></div>
@@ -421,8 +423,11 @@ function theme_model() {
 					<div class='bgtextcolor'><?php print footermeta_left(); ?></div> 
 				</div> 	
 			</div><!-- #sitewrapper --> 
-			<?php print get_footermeta_options(); ?>
-		</div><!-- modelwrapper --> 
+		</div><!-- modelwrapper -->
+		<div class='modelwrapper' style='margin-top: 5px;'>	
+		<?php print get_footermeta_options(); ?>
+		</div>
+				
 		
 	<?php
 	/******************************************************************************
