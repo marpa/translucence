@@ -1126,10 +1126,10 @@ function set_derivative_options() {
 			}
 		// green
 		}  else if ($options[$bar.'-color'] == '#4a6339') {
-			$options[$bar.'-border-top'] = "#999999";
-			$options[$bar.'-border-left'] = "#999999";
-			$options[$bar.'-border-bottom'] = "#999999";
-			$options[$bar.'-border-right'] = "#999999";
+			$options[$bar.'-border-top'] = "#585858";
+			$options[$bar.'-border-left'] = "#585858";
+			$options[$bar.'-border-bottom'] = "#585858";
+			$options[$bar.'-border-right'] = "#585858";
 			$options[$bar.'-heading-color'] = "#c7c6a7";
 			$options[$bar.'-link-color'] = "#FFFFFF";
 			$options[$bar.'-link-color'] = "#EEEEEE";
