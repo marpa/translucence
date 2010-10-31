@@ -778,7 +778,7 @@ a:hover {
 /* Entry-content headers */
 
 .entry-content h2, .entry-content h3, .entry-content h1 {
-	color: <?php print $options['textcolor']?>;
+	color: <?php print $options['content-text-color']?>;
 	border-bottom: 1px solid #CCCCCC;
 }
 
@@ -806,7 +806,7 @@ a:hover {
 
 /* Entry-meta  */
 .entry-meta {
-	color: <?php print $options['textcolor']?>;
+	color: <?php print $options['content-text-color']?>;
 	font-size: 12px;
 }
 
@@ -991,7 +991,7 @@ a.comment-edit-link {
 }
 
 small, .nocomments, .postmetadata, blockquote, strike {		
-	color: <?php print $options['textcolor']?>;
+	color: <?php print $options['content-text-color']?>;
 }	
 
 	<?php
