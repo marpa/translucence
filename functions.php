@@ -84,6 +84,14 @@ if (!is_array(get_option($theme_settings))) {
    
 if (!get_option($theme_css)) {
 	add_option($theme_css, "");	
+
+	set_variation_options();
+	
+	update_option($theme_settings, $options);
+	update_option($theme_css, $variation_css);
+	
+	$variation_css = get_option($theme_css);	
+	
 } else {
 	$variation_css = get_option($theme_css);	
 }
