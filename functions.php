@@ -64,17 +64,16 @@ require_once("options-css.php");
 // this theme may have child themes that override this config.
 $variation_config = add_translucence_config();
 
+//create theme id
 $theme_id = strtolower($variation_config['theme-name']);
 $theme_id = str_replace(" ", "_", $theme_id);
 
+//define name of theme options and css
 $theme_settings = $theme_id."_settings";
 $theme_css = $theme_id."_css";
 $theme_options = $variation_config['theme-name']." Options";
 
-/******************************************************************************
- *  Get options
- ******************************************************************************/
-  
+// initialize or get theme options  
 if (!is_array(get_option($theme_settings))) {
     add_option($theme_settings, array('init' => 1));    
 } else {	
@@ -83,8 +82,6 @@ if (!is_array(get_option($theme_settings))) {
 
 $variation_css = get_option($theme_css);
 
-$options['theme-url'] = $variation_config['theme-url'];
-$options['theme-name'] = $variation_config['theme-name'];
 
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
@@ -111,7 +108,6 @@ function variation_admin_menu() {
  */
 if ( ! isset( $content_width ) )
 	$content_width = 373;
-
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'twentyten_setup' );
@@ -142,22 +138,32 @@ function twentyten_setup() {
 	global $options, $variation_config, $variation_css;
 	global $_POST, $options, $options_values, $variations;
 	
+	// this theme may have child themes that override this config.
+	//$variation_config = add_translucence_config();
+
+	//create theme id
 	$theme_id = strtolower($variation_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
 	
+	//define name of theme options and css
 	$theme_settings = $theme_id."_settings";
 	$theme_css = $theme_id."_css";
 	$theme_options = $variation_config['theme-name']." Options";
 	
+	// initialize or get theme options
 	if (!is_array(get_option($theme_settings))) {
 		add_option($theme_settings, array('init' => 1));    
 	} else {	
 		$options = get_option($theme_settings);
 	}
 	
+	// initialize or get theme css
 	if (!get_option($theme_css)) {
 		add_option($theme_css, "");	
-	
+		// define theme url and name
+		$options['theme-url'] = $variation_config['theme-url'];
+		$options['theme-name'] = $variation_config['theme-name'];
+		
 		set_variation_options();
 		save_options();
 		
@@ -166,6 +172,8 @@ function twentyten_setup() {
 		
 		$variation_css = get_option($theme_css);	
 
+	} else {
+		$variation_css = get_option($theme_css);
 	}
 	
 	
