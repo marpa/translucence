@@ -82,6 +82,8 @@ if (!is_array(get_option($theme_settings))) {
 
 $variation_css = get_option($theme_css);
 
+// $options['theme-url'] = $variation_config['theme-url'];
+// $options['theme-name'] = $variation_config['theme-name'];
 
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
