@@ -146,7 +146,7 @@ $options['searchbox-color'] = "#FFFFFF";
  ******************************************************************************/
 //if (!isset($options['headermeta'])) $options['headermeta'] = "off";
 
-if (!isset($options['option-mode'])) $options['option-mode'] = "basic";
+if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
 
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 if (!isset($options['site-width'])) $options['site-width'] = "950";
