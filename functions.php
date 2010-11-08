@@ -686,11 +686,6 @@ function set_primary_options() {
 		}	
 	}
 	
-// 	if ($variation_config['headermeta'] == "on") {
-// 		$options['headermeta'] = "on";
-// 	} else {
-// 		$options['headermeta'] = "off";
-// 	}
 
 	if (isset($_POST['model-instructions'])) {
 		$options['model-instructions'] = "on";
