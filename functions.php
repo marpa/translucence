@@ -876,7 +876,7 @@ function set_derivative_options() {
 	 ******************************************************************************/
 
 	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blog'] == "") {
-		$options['headerleft'] = "<a href='http:".$current_site->domain . $current_site->path."wp-signup.php' title='View your Blogs'>WordPress</a>";
+		$options['headerleft'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
 	} else if ($options['header-meta-left'] == 'custom') {
 		$options['headerleft'] = stripslashes($options['headerleftcustom']);
 	} else {
