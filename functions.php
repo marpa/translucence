@@ -1216,6 +1216,8 @@ function set_derivative_options() {
 	
 		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";		
 		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.3).")";
+		
+		// need to refine top bar opacity settings....
 		if ($bar == "top") {
 			if ($options['top-opacity'] < .8) {
 				$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
@@ -1242,16 +1244,17 @@ function set_derivative_options() {
 
 	   $options[$bar.'-color-ie'] = $area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 
-		
+		// set the IE submenu-color opacity for top bar
 		if ($bar == "top") {
 			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
 		}
 		
-		// visibility
+		// visibility and padding of bars
 		if ($options[$bar.'-width'] == '0') {
 			$options[$bar.'-visibility'] = "hidden";
 			$options[$bar.'-padding'] = "0";
-			
+		
+		// if visible bar padding
 		} else {
 			$options[$bar.'-visibility'] = "visible";
 			$options[$bar.'-padding'] = "25";
@@ -1289,12 +1292,13 @@ function set_derivative_options() {
 	$options['entry-line-height'] = $options['entry-text-size'] + round($options['entry-text-size']/2);
 	
 	/******************************************************************************
-	 * Entry, Tag and Category link style options
+	 * Entry link style options
 	 ******************************************************************************/
 
 	$link_types = array('entry');
 	
 	foreach($link_types as $link_type) {
+	
 		if ($options[$link_type.'-link-style'] == "none") {
 			$options[$link_type.'-link-border'] = "none";
 			$options[$link_type.'-link-decoration'] = "none";
@@ -1325,44 +1329,6 @@ function set_derivative_options() {
 			} else {
 				$options[$link_type.'-link-hover-background_color'] = "#efc";
 			}
-			
-		} else if ($options[$link_type.'-link-style'] == "right-sidebar-box") {
-			$options[$link_type.'-link-border'] = "solid";
-			$options[$link_type.'-link-decoration'] = "none";
-			$options[$link_type.'-link-hover-border'] = "solid";
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-background'] = $options['right01-color'];
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-color'] = $options['right01-link-color'];
-	
-		} else if ($options[$link_type.'-link-style'] == "right02-sidebar-box") {
-			$options[$link_type.'-link-border'] = "solid";
-			$options[$link_type.'-link-decoration'] = "none";
-			$options[$link_type.'-link-hover-border'] = "solid";
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-background'] = $options['right02-color'];
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-color'] = $options['right02-link-color'];
-	
-			
-		} else if ($options[$link_type.'-link-style'] == "left-sidebar-box") {
-			$options[$link_type.'-link-border'] = "solid";
-			$options[$link_type.'-link-decoration'] = "none";
-			$options[$link_type.'-link-hover-border'] = "solid";
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-background'] = $options['left01-color'];
-			$options[$link_type.'-link-hover-decoration'] = "none"; 
-			$options[$link_type.'-link-color'] = $options['left01-link-color'];
-		
-		//ww style links
-		} else if ($options[$link_type.'-link-style'] == "yellow-box") {
-			$options[$link_type.'-link-border'] = "solid";
-			$options[$link_type.'-link-decoration'] = "none";
-			$options[$link_type.'-link-hover-border'] = "solid";
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-background'] = "#FFF8C6";
-			$options[$link_type.'-link-hover-decoration'] = "none";
-			$options[$link_type.'-link-color'] = $options['linkcolor'];
 		} 
 	}	
 
