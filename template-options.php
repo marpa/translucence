@@ -1284,23 +1284,23 @@ function get_basic_options() {
 	$basic_options = array();
 	
 	if (in_array('options-mode', $variation_config['model']) && $options['options-mode'] == "basic") {
-		$basic_options[1]  = 'options-mode';
-		$basic_options[2]  = 'site-options';
- 		$basic_options[3]  = 'header-options';
-// 		$basic_options[4]  = 'site-title-options';
-// 		$basic_options[5]  = 'tagline-options';
-// 		$basic_options[6]  = 'headermeta-options';
-		$basic_options[7]  = 'site-width';
-		//$basic_options[8]  = 'site-color';
-		//$basic_options[9]  = 'site-opacity';
-		//$basic_options[10]  = 'site-border-style';
-		$basic_options[11]  = 'header-block-height';
-		$basic_options[12]  = 'header-color';
-		$basic_options[13]  = 'header-opacity';
-		//$basic_options[14]  = 'header-border-style';
-		$basic_options[15]  = 'left01-width';
-		$basic_options[16]  = 'right01-width';
-		$basic_options[17]  = 'right02-width';
+		$basic_options[]  = 'options-mode';
+		$basic_options[]  = 'site-options';
+ 		$basic_options[]  = 'header-options';
+// 		$basic_options[]  = 'site-title-options';
+// 		$basic_options[]  = 'tagline-options';
+// 		$basic_options[]  = 'headermeta-options';
+		$basic_options[]  = 'site-width';
+		//$basic_options[]  = 'site-color';
+		//$basic_options[]  = 'site-opacity';
+		//$basic_options[]  = 'site-border-style';
+		$basic_options[]  = 'header-block-height';
+		$basic_options[]  = 'header-color';
+		$basic_options[]  = 'header-opacity';
+		//$basic_options[]  = 'header-border-style';
+		$basic_options[]  = 'left01-width';
+		$basic_options[]  = 'right01-width';
+		$basic_options[]  = 'right02-width';
 
 		
 	} else {
