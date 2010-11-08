@@ -292,7 +292,6 @@ function get_theme_model_css() {
 			margin-right: 5px;
 			margin-left: 5px;
 			background-color: #fff;
-			color: #000000;
 			font-size: 10px;
 			line-height: 1.5em;
 			padding: 10px;
