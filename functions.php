@@ -117,6 +117,7 @@ if ( ! function_exists( 'twentyten_setup' ) ):
 function twentyten_setup() {
 	global $options, $variation_config, $variation_css;
 	global $_POST, $options, $options_values, $variations;
+	global $theme_settings, $theme_css;
 	
 	// this theme may have child themes that override this config.
 	//$variation_config = add_translucence_config();
@@ -141,21 +142,24 @@ function twentyten_setup() {
 	if (!get_option($theme_css)) {
 		add_option($theme_css, "");	
 		// define theme url and name
-		$options['theme-url'] = $variation_config['theme-url'];
-		$options['theme-name'] = $variation_config['theme-name'];
 		
 		set_variation_options();
 		save_options();
 		
 		update_option($theme_settings, $options);
-		update_option($theme_css, $variation_css);
-		
-		$variation_css = get_option($theme_css);	
+		update_option($theme_css, $variation_css);	
 
-	} else {
-		$variation_css = get_option($theme_css);
+	} else if ($options['options-version'] != $options['variation-version']) {
+		$options['options-version'] = $options['variation-version'];
+		set_variation_options();
+		save_options();
+		update_option($theme_settings, $options);
+		update_option($theme_css, $variation_css);		
 	}
 	
+	$variation_css = get_option($theme_css);
+	//printpre($options);
+		
 	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();

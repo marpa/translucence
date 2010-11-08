@@ -4,7 +4,7 @@ Theme Name: Translucence
 Variation Name: Default
 Variation ID: default
 Description: Easy to use highly flexible theme with options for defining background images and  setting colors, opacity and visibility of various foreground areas including widget bars
-Version: 1.0.1
+Version: 2.1
 Author: Alex Chapin
 Author URI: 
 
@@ -140,10 +140,14 @@ $options['commentfield'] = "#000000";
 
 $options['searchbox-color'] = "#FFFFFF";
 
+$options['theme-name'] = "2010 Translucence";
+$options['theme-url'] = "http://segueproject.org/wordpress/themes/";
+
 /******************************************************************************
  * Initialization
  * Set these only if not in the initial options array
  ******************************************************************************/
+
 //if (!isset($options['headermeta'])) $options['headermeta'] = "off";
 
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";

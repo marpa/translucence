@@ -1186,8 +1186,10 @@ function get_footer_widgets($order) {
 function footermeta_right() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
-    
+
     ob_start();
+    print"<input name='theme-name' type='hidden' value='".$options['theme-name']."'>";
+    print"<input name='theme-url' type='hidden' value='".$options['theme-url']."'>";
 	print "<div style='font-size: 9px; float: right; clear: left; color: ".$options['bgtextcolor'].";'>";
 	print $options['theme-name']." | WordPress";
 	print "</div>";
