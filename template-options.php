@@ -8,7 +8,7 @@
 function theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
-    global $custom_header_set, $custom_background_set;
+    global $custom_header_set, $custom_background_set, $model_site_width;
     
     $current_widgets = get_option ('sidebars_widgets');	
     
@@ -47,6 +47,7 @@ function theme_model() {
 	
 	$model_site_width = $options['site-width']+80;
 	//$model_site_width = $model_site_width."";
+	
 	
 	$model_right_sidebar_width = $options['right01-width']+50;
     $model_right_sidebar_width02 = $options['right02-width']+50;
@@ -250,7 +251,7 @@ function theme_model() {
  ******************************************************************************/
 function get_theme_model_css() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_settings, $theme_css, $_POST;
+    global $theme_settings, $theme_css, $_POST, $model_site_width;
 
 	ob_start();
 
