@@ -35,7 +35,6 @@ if ($options['background'] != "custom") {
 	$options['background-source-credit'] = "";
 }
 
-//if ($variation_config['headermeta'] = "on") $options['headermeta'] = "on";
 
 $options['site-margin-top'] = "0";	
 $options['page-image-width'] = $options['site-width']-50;
@@ -148,7 +147,7 @@ $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
  * Set these only if not in the initial options array
  ******************************************************************************/
 
-//if (!isset($options['headermeta'])) $options['headermeta'] = "off";
+if (!isset($options['headermeta'])) $options['headermeta'] = "on";
 
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
 
