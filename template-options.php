@@ -9,7 +9,6 @@ function theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
-    global $model_titlebox_padding, $model_titlebox_padding, $model_descriptionbox_padding;
     
     $current_widgets = get_option ('sidebars_widgets');	
     
@@ -56,8 +55,6 @@ function theme_model() {
 	
 	$model_content_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + $options['right02-width'] + 220);
 	
-	$model_titlebox_padding = $options['header-text-padding-top'] - 20;
-	$model_descriptionbox_padding = $options['description-text-padding-top'] -40;
 
 	/*********************************************************
 	 * Define theme model css
@@ -253,7 +250,7 @@ function theme_model() {
 function get_theme_model_css() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST, $model_site_width;
-    global $custom_header_image, $model_titlebox_padding, $model_descriptionbox_padding;
+    global $custom_header_image;
 
 	ob_start();
 
@@ -276,17 +273,22 @@ function get_theme_model_css() {
 			background-position: right center;
 			background-repeat: no-repeat;
 		}
-
-		.title-box {
-			position: relative;
-			top: ".$model_titlebox_padding."px;
-		}
-
+		
 		.headerblock #site-description {
-			position: relative;
-			top: ".$model_descriptionbox_padding."px;
+			font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+			float: left;
+			clear: left;
 		}
-
+		
+		#branding #site-title {
+			font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+			float: left;
+		}
+				
+		.headerblock h1 {
+			display: inline;
+			margin: 0px;
+		}
 				
 		.options {
 			margin-top: 5px;
