@@ -9,6 +9,7 @@ function theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
+    global $model_titlebox_padding, $model_titlebox_padding, $model_descriptionbox_padding;
     
     $current_widgets = get_option ('sidebars_widgets');	
     
@@ -252,7 +253,7 @@ function theme_model() {
 function get_theme_model_css() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST, $model_site_width;
-    global $custom_header_image;
+    global $custom_header_image, $model_titlebox_padding, $model_descriptionbox_padding;
 
 	ob_start();
 
