@@ -240,8 +240,7 @@ $options_values['site-width'] = array(
 	'900px' => '900',
 	'850px' => '850',
 	'800px' => '800',
-	'750px' => '750',
-	'100%' => '100'
+	'750px' => '750'
 	);
 
 $options_values['header-width'] = array(
@@ -253,8 +252,7 @@ $options_values['header-width'] = array(
 	'975px' => '975',
 	'850px' => '850',
 	'800px' => '800',
-	'750px' => '750',
-	'100%' => '100'
+	'750px' => '750'
 	);
 
 $options_values['header-text-size'] = array(
