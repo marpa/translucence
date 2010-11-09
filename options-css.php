@@ -209,6 +209,9 @@ div.menu,
 	font-size: <?php print $options['site-title-size']?>px;
 	color: <?php print $options['site-title-color']?>;
 	display: <?php print $options['show-header-text']?>;
+	padding-top: 25px;
+	padding-left: 10px;
+	margin-bottom: 7px;
 	text-shadow: <?php print $options['header-text-shadow-color']?> <?php print $options['header-text-shadow-offset']?> <?php print $options['header-text-shadow-blur']?>;
 }
 
