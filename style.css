@@ -1330,20 +1330,6 @@ div.menu,
 }
 
  
- 
-#site-title a {
-	font-size: 30px;
-	color: #003366;
-	display: block;
-	text-shadow: #444444 1px 1px 2px;
-}
- 
-#site-title a:hover {
-	display: block;
-	color: #003366;
-	border-bottom: none;
-}
- 
 .headerblock #site-description {
 	position: relative;
 	top: 40px;
