@@ -1423,7 +1423,7 @@ function print_option_feedback() {
 	$error = "false";
 		
 	if ($options['revert'] == 1) {
-		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.<br/><br/>See the Variation menu below for variations of this theme";
+		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
 		$error = "true";
 
 	} else if (isset($_POST['reset'])) {
