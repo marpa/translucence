@@ -751,7 +751,7 @@ function get_custom_options() {
     global $custom_header_set, $custom_background_set;
     
     ob_start();
-    print "<div class='options' style='background-color: transparent; clear: both; border: none; margin-bottom: 25px;'>";
+    print "<div class='options' style='background-color: transparent; clear: both; border: none; margin-bottom: 35px;'>";
 	
 	if ($custom_header_set == 1) {
 		print "<div class='post-link' style='float: left; width: 40%;'>";
@@ -771,6 +771,13 @@ function get_custom_options() {
 		print "<div class='post-link' style='float: right; width: 40%; '>";
 		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Add Custom Background</a>";	
 		print "</div>";
+	}
+	
+	if ($options['header-text-display'] == "hide") {
+		print "<div style='float: left; color:".$options['bglinkcolor']."; padding-bottom: 10px;'>";
+		print "<em>Site Title and description are hidden</em> ";	
+		print "display: <input type='checkbox' name='header-text-display' id='header-text-display'".(isset($options['header-text-display']) && $options['header-text-display'] != 'hide' ? ' checked' : '')." onchange='this.form.submit();'/>";
+		print "</div>";			
 	}
 
 	
