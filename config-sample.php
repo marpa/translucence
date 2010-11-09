@@ -117,7 +117,14 @@ $variation_config['custom_header'] = array(
 			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
 			/* translators: header image description */
 			'description' => __( 'White Gradient', 'twentyten' )
+		),
+		'lines' => array(
+			'url' => '%s/images/headers/header-lines-1500x100',
+			'thumbnail_url' => '%s/images/headers/header-lines-1500x100-thumbnail.png',
+			/* translators: header image description */
+			'description' => __( 'Lines', 'twentyten' )
 		)
+
 );
 
 
