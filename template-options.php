@@ -796,55 +796,57 @@ function get_custom_options() {
 
 function get_layout_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_settings, $theme_css, $_POST;	
+    global $theme_settings, $theme_css, $_POST, $active_options;
     
     ob_start();
-    print "<div class='options' style='background-color: transparent; clear: both;'>";
-	print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
-	print "<span style='font-size: 10px;'>Content</span>\n";	
-	get_option_selector ("", "content-color", $options_values['sidebar-color']);
-	get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
-	get_option_selector ("", "content-border-style", $options_values['border-style']);				
-	print "</div>";
-
-	print "<table style='width: 100%;'>";
-	print "<tr>";
-	// left sidebar
-	print "<td>";
-	print "<div>Left Sidebar</div>\n";
-	// hidden widgets warning
-	if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
-		print "<span style='font-size: 10px;'>hidden widgets!</span>";
+    if (in_array('layout-options', $active_options)) {
+		print "<div class='options' style='background-color: transparent; clear: both;'>";
+		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
+		print "<span style='font-size: 10px;'>Content</span>\n";	
+		get_option_selector ("", "content-color", $options_values['sidebar-color']);
+		get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
+		get_option_selector ("", "content-border-style", $options_values['border-style']);				
+		print "</div>";
+	
+		print "<table style='width: 100%;'>";
+		print "<tr>";
+		// left sidebar
+		print "<td>";
+		print "<div>Left Sidebar</div>\n";
+		// hidden widgets warning
+		if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
+			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+		}
+		//width
+		get_option_selector ("", "left01-width", $options_values['sidebar-width']);
+		print "</td>";
+		// Right sidebar
+		print "<td style='text-align: right;'>";
+		print "<div>Right Sidebar</div>\n";
+		// hidden widgets warning
+		if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
+			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+		}
+		// width
+		get_option_selector ("", "right01-width", $options_values['sidebar-width']);
+		print "</td>";
+		print "</tr>";
+		print "<tr>";
+		print "<td></td>";
+		// 2nd Right sidebar
+		print "<td style='text-align: right;'>";
+		print "<div>2nd Right Sidebar</div>\n";	
+		// hidden widgets warning
+		if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
+			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+		}
+		// width
+		get_option_selector ("", "right02-width", $options_values['sidebar-width']);
+		print "</td>";
+		print "</tr>";	
+		print "</table>";
+		print "</div>";
 	}
-	//width
-	get_option_selector ("", "left01-width", $options_values['sidebar-width']);
-	print "</td>";
-	// Right sidebar
-	print "<td style='text-align: right;'>";
-	print "<div>Right Sidebar</div>\n";
-	// hidden widgets warning
-	if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
-		print "<span style='font-size: 10px;'>hidden widgets!</span>";
-	}
-	// width
-	get_option_selector ("", "right01-width", $options_values['sidebar-width']);
-	print "</td>";
-	print "</tr>";
-	print "<tr>";
-	print "<td></td>";
-	// 2nd Right sidebar
-	print "<td style='text-align: right;'>";
-	print "<div>2nd Right Sidebar</div>\n";	
-	// hidden widgets warning
-	if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
-		print "<span style='font-size: 10px;'>hidden widgets!</span>";
-	}
-	// width
-	get_option_selector ("", "right02-width", $options_values['sidebar-width']);
-	print "</td>";
-	print "</tr>";	
-	print "</table>";
-	print "</div>";
 
 	$entry_options = ob_get_contents();
 	ob_end_clean();
