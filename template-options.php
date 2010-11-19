@@ -284,6 +284,10 @@ function get_theme_model_css() {
 			font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
 			float: left;
 		}
+		
+		#site-heading {
+			border-bottom: none;
+		}
 				
 		.headerblock h1 {
 			display: inline;
