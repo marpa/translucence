@@ -533,7 +533,7 @@ function headermeta_right() {
 function get_global_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
-    global $custom_header_set, $custom_background_set;
+    global $custom_header_set, $custom_background_set, $active_options;
     
 	ob_start();
 	print "<div class='options'>";
@@ -562,6 +562,7 @@ function get_global_options() {
 	print "</td>";	
 	
 	// Options mode
+	$options_values['mode'] = array('Basic' => 'basic', 'Advanced' => 'advanced', 'Hide' => 'hide');
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
 		print "Options Mode:<span class='option-label'>";
 		get_option_selector ("", "options-mode", $options_values['mode'], 'active');
@@ -577,11 +578,11 @@ function get_global_options() {
 	
 	// get basic options
 	if (in_array('options-mode', $variation_config['model'])) {
-		$basic_options = get_basic_options();
+		$active_options = get_active_options($options['options-mode']);
 	}
 
 	// site width, color, opacity and border options
-	if (in_array('site-options', $basic_options)) {
+	if (in_array('site-options', $active_options)) {
 		print "<td class='option-row'>";
 			//site width
 			print "<span class='option-label'>Site</span>";
@@ -597,7 +598,7 @@ function get_global_options() {
 	}
 	
 	// header height, color, opacity, border options
-	if (in_array('header-options', $basic_options)) {
+	if (in_array('header-options', $active_options)) {
 		print "<tr>";
 		print "<td class='option-row'>";		
 			// header height options
@@ -614,11 +615,11 @@ function get_global_options() {
 	}
 	
 	// header text size color shadow, box and position
-	if (in_array('site-title-options', $basic_options) || $custom_header_set == 1) {
+	if (in_array('site-title-options', $active_options) || $custom_header_set == 1) {
 		print "<tr>";
 		print "<td class='option-row'>";	
 		
-		if (in_array('site-title-options', $basic_options)) {
+		if (in_array('site-title-options', $active_options)) {
 		
 			// header-text-size options		
 			if (in_array("site-title-size", $variation_config['model'])) {	
@@ -638,7 +639,7 @@ function get_global_options() {
 				get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
 		}
-		if (in_array('site-title-options', $basic_options) || $custom_header_set == 1) {
+		if (in_array('site-title-box-options', $active_options) || $custom_header_set == 1) {
 		
 			// header-text-box options		
 			if (in_array("title-box-color", $variation_config['model'])) {	
@@ -651,14 +652,14 @@ function get_global_options() {
 			// header-text-display options		
 			if (in_array("header-text-display", $variation_config['model'])) {	
 				print "
-				<span class='option-label'>
-				<select name='header-text-display' style='font-size: 10px;' onchange='this.form.submit();'>
+				<span class='option-label' <span style='font-size: 10px;'>position: 
+				<select name='header-text-display' class='option-label-dimmed' style='font-size: 10px;' onchange='this.form.submit();'>
 					<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
 					<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
 					<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
 					<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
 				</select>
-				</span>";
+				</span></span>";
 			}
 		}
 	
@@ -668,12 +669,12 @@ function get_global_options() {
 	}
 	
 	// Tagline text size, color, box
-	if (in_array('tagline-options', $basic_options) || $custom_header_set == 1) {
+	if (in_array('tagline-options', $active_options) || $custom_header_set == 1) {
 		print "<tr>";
 		print "<td class='option-row'>";
 		
 		// text size and color
-		if (in_array('tagline-options', $basic_options)) {
+		if (in_array('tagline-options', $active_options)) {
 			// header-description-size options		
 			if (in_array("site-description-size", $variation_config['model'])) {	
 				print "<span class='option-label'>Tagline</span><span class='option-label'>";
@@ -689,7 +690,7 @@ function get_global_options() {
 		}
 	
 	
-		if (in_array('tagline-options', $basic_options) || $custom_header_set == 1) {
+		if (in_array('tagline-options', $active_options) || $custom_header_set == 1) {
 	
 			if (in_array("description-box-color", $variation_config['model'])) {	
 				print "<span class='option-label'> Tagline box</span><span class='option-label'>";
@@ -709,7 +710,7 @@ function get_global_options() {
 	print "</table>";
 	
 	// headermeta right and left options
-	if (in_array('headermeta-options', $basic_options)) {
+	if (in_array('headermeta-options', $active_options)) {
 		print "<table style='width: 100%;'>";
 		print "<tr>";
 			// headermeta right options	
@@ -1293,34 +1294,42 @@ function get_footermeta_options() {
  * Get options that are included in basic mode
  ******************************************************************************/
 
-function get_basic_options() {
+function get_active_options($options_mode) {
 	global $variation_config, $options;
-	$basic_options = array();
+	$active_options = array();
 	
-	if (in_array('options-mode', $variation_config['model']) && $options['options-mode'] == "basic") {
-		$basic_options[]  = 'options-mode';
-		$basic_options[]  = 'site-options';
- 		$basic_options[]  = 'header-options';
-// 		$basic_options[]  = 'site-title-options';
-// 		$basic_options[]  = 'tagline-options';
-// 		$basic_options[]  = 'headermeta-options';
-		$basic_options[]  = 'site-width';
-		//$basic_options[]  = 'site-color';
-		//$basic_options[]  = 'site-opacity';
-		//$basic_options[]  = 'site-border-style';
-		$basic_options[]  = 'header-block-height';
-		$basic_options[]  = 'header-color';
-		$basic_options[]  = 'header-opacity';
-		//$basic_options[]  = 'header-border-style';
-		$basic_options[]  = 'left01-width';
-		$basic_options[]  = 'right01-width';
-		$basic_options[]  = 'right02-width';
+	if (in_array('options-mode', $variation_config['model'])) {
 
+		if ($options_mode == "basic") {
+			$active_options[]  = 'options-mode';
+			$active_options[]  = 'site-options';
+	// 		$active_options[]  = 'header-options';
+			$active_options[]  = 'layout-options';
+			$active_options[]  = 'site-title-options';
+			$active_options[]  = 'site-title-color';
+			$active_options[]  = 'site-title-size';
+	// 		$active_options[]  = 'tagline-options';
+	// 		$active_options[]  = 'headermeta-options';
+			$active_options[]  = 'site-width';
+			//$active_options[]  = 'site-color';
+			//$active_options[]  = 'site-opacity';
+			//$active_options[]  = 'site-border-style';
+			$active_options[]  = 'header-block-height';
+			$active_options[]  = 'header-color';
+			$active_options[]  = 'header-opacity';
+			//$active_options[]  = 'header-border-style';
+			$active_options[]  = 'left01-width';
+			$active_options[]  = 'right01-width';
+			$active_options[]  = 'right02-width';
 		
-	} else {
-		$basic_options = $options;
+		} else if ($options_mode == "hide") {
+			$active_options[]  = 'options-mode';
+		} else {
+			$active_options = $options;
+		}
+	
 	}
-	return $basic_options;
+	return $active_options;
 }
 
 
@@ -1332,19 +1341,19 @@ function get_option_selector ($option_title, $option_name, $option_values, $stat
 	global $variation_config, $options, $options_values;
 	global $custom_header_set, $custom_background_set;
 	
-	$basic_options = get_basic_options();
+	$options_mode = get_active_options($options['options-mode']);
 	$display_option = false;
 	
-	if ($options['options-mode'] == "basic") {		
-		if (in_array($option_name, $basic_options)) {	
+	//if ($options['options-mode'] == "basic") {		
+		if (in_array($option_name, $options_mode)) {	
 			$display_option = true;
 		} else if ($custom_header_set == 1 && (preg_match("/box/", $option_name))) {
 			$display_option = true;
 		}
 	
-	} else {
-		$display_option = true;
-	}
+	//} else {
+		//$display_option = true;
+	//}
 	
 	if ($state == "dimmed") {
 		$state_css = "option-label-dimmed";
@@ -1373,14 +1382,14 @@ function get_option_selector ($option_title, $option_name, $option_values, $stat
 function get_option_field ($option_title, $option_name, $option_field_width) {
 	global $variation_config, $options, $options_values;
 
-	$basic_options = get_basic_options();
+	$options_mode = get_active_options($options['options-mode']);
 	$display_option = false;
 	
-	if ($options['options-mode'] == "basic") {		
-		if (in_array($option_name, $basic_options)) $display_option = true;			
-	} else {
-		$display_option = true;
-	}
+	//if ($options['options-mode'] == "basic") {		
+		if (in_array($option_name, $options_mode)) $display_option = true;			
+	//} else {
+	//	$display_option = true;
+	//}
 
 	if (in_array($option_name, $variation_config['model']) && $display_option == true) {			
 		print "<span style='white-space:nowrap'>";
