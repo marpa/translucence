@@ -694,6 +694,24 @@ div.menu li {
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
 
+#primary .widget_pages li.current_page_item {
+	background-color: <?php print $options['right01-color-hover-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $options['right01-border-top']?>;
+}
+
+#secondary .widget_pages li.current_page_item {
+	background-color: <?php print $options['right02-color-hover-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $options['right02-border-top']?>;
+}
+
+#tertiary .widget_pages li.current_page_item {
+	background-color: <?php print $options['left01-color-hover-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $options['left01-border-top']?>;
+}
+
 /* Begin post/page entry css
 -------------------------------------------------------------- */						
 

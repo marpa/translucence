@@ -1802,6 +1802,24 @@ div.menu li {
  
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
+
+#primary .widget_pages li.current_page_item {
+	background-color: rgba(249, 249, 249, 0.4);
+	padding: 3px;
+	border: 1px solid #CCCCCC;
+}
+
+#secondary .widget_pages li.current_page_item {
+	background-color: rgba(249, 249, 249, 0.4);
+	padding: 3px;
+	border: 1px solid #CCCCCC;
+}
+
+#tertiary .widget_pages li.current_page_item {
+	background-color: rgba(249, 249, 249, 0.4);
+	padding: 3px;
+	border: 1px solid #CCCCCC;
+}
  
 /* Begin post/page entry css
 -------------------------------------------------------------- */						
