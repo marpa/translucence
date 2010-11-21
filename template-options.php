@@ -1327,6 +1327,23 @@ function get_active_options($options_mode) {
 		
 		} else if ($options_mode == "hide") {
 			$active_options[]  = 'options-mode';
+			$active_options[]  = 'layout-options';
+			$active_options[]  = 'left01-width';
+			$active_options[]  = 'right01-width';
+			$active_options[]  = 'right02-width';	
+			$active_options[]  = 'post-single-sidebar';
+			$active_options[]  = 'author-single-sidebar';
+			$active_options[]  = 'content-border-style';
+			$active_options[]  = 'category-single-sidebar';
+			$active_options[]  = 'tag-single-sidebar';
+			$active_options[]  = 'search-single-sidebar';
+			$active_options[]  = 'archives-single-sidebar';
+			$active_options[]  = 'entry-text-align';
+			$active_options[]  = 'entry-text-size';
+			$active_options[]  = 'linkcolor';
+			$active_options[]  = 'cat-links-color';
+			$active_options[]  = 'tag-links-color';
+			$active_options[]  = 'entry-link-style';
 		} else {
 			$active_options = $options;
 		}
