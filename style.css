@@ -1803,20 +1803,24 @@ div.menu li {
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
 
-.widget_pages li.page_item ul.children {
+.widget_pages li.page_item ul.children,
+.widget_nav_menu li.menu-item ul.sub-menu {
 	display: none;
 }
 
-.widget_pages li.current_page_item > ul.children {
+.widget_pages li.current_page_item > ul.children, 
+.widget_nav_menu li.current-menu-item > ul.sub-menu {
 	display: block;
 }
 
-.widget_pages li.current_page_ancestor > ul.children {
+.widget_pages li.current_page_ancestor > ul.children,
+.widget_nav_menu li.current-menu-ancestor > ul.sub-menu {
 	display: block;
 }
 
 #primary .widget_pages li.current_page_item,
-#primary .widget_categories li.current-cat {
+#primary .widget_categories li.current-cat,
+#primary .widget_nav_menu li.current-menu-item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding-left: 3px;
 	padding-right: 3px;
@@ -1824,14 +1828,16 @@ div.menu li {
 }
 
 #secondary .widget_pages li.current_page_item,
-#secondary .widget_pages li.current-cat {
+#secondary .widget_pages li.current-cat,
+#secondary .widget_nav_menu li.current-menu-item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding: 3px;
 	border: 1px solid #CCCCCC;
 }
 
 #tertiary .widget_pages li.current_page_item,
-#tertiary .widget_pages li.current-cat {
+#tertiary .widget_pages li.current-cat,
+#tertiary .widget_nav_menu li.current-menu-item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding: 3px;
 	border: 1px solid #CCCCCC;
