@@ -1803,6 +1803,18 @@ div.menu li {
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
 
+.widget_pages li.page_item ul.children {
+	display: none;
+}
+
+.widget_pages li.current_page_item > ul.children {
+	display: block;
+}
+
+.widget_pages li.current_page_ancestor > ul.children {
+	display: block;
+}
+
 #primary .widget_pages li.current_page_item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding-left: 3px;
@@ -1810,16 +1822,11 @@ div.menu li {
 	border: 1px solid #CCCCCC;
 }
 
-.widget_pages li.page_item ul.children {
-	display: none;
-}
-
-.widget_pages li.current_page_item ul.children {
-	display: block;
-}
-
-.widget_pages li.current_page_parent ul.children {
-	display: block;
+#primary .widget_pages li.current_page_item {
+	background-color: rgba(249, 249, 249, 0.4);
+	padding-left: 3px;
+	padding-right: 3px;
+	border: 1px solid #CCCCCC;
 }
 
 
