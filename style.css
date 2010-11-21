@@ -1834,6 +1834,10 @@ div.menu li {
 	padding: 3px;
 	border: 1px solid #CCCCCC;
 }
+
+.breadcrumbs {
+	font-size: 10px;
+}
  
 /* Begin post/page entry css
 -------------------------------------------------------------- */						
