@@ -561,8 +561,9 @@ function get_global_options() {
 	}						
 	print "</td>";	
 	
-	// Options mode
-	$options_values['mode'] = array('Basic' => 'basic', 'Advanced' => 'advanced', 'Hide' => 'hide');
+	// options mode values (used in get_active_options)
+	$options_values['mode'] = array('Basic' => 'basic', 'Advanced' => 'advanced', 'Hide Global' => 'hide');
+	
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
 		print "Options Mode:<span class='option-label'>";
 		get_option_selector ("", "options-mode", $options_values['mode'], 'active');
