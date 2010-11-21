@@ -606,6 +606,23 @@ function twentyten_posted_in() {
 }
 endif;
 
+function get_breadcrumbs($post) {
+
+	$parent_title = get_the_title($post->post_parent);
+	$parent_url = get_permalink($post->post_parent);
+	$post_title = get_the_title($post);
+
+	if ($parent_title != $post_title) { 
+		$breadcrumbs = "<div class='breadcrumbs'>";
+		$breadcrumbs .= "<a href='".$parent_url."'";
+		$breadcrumbs .= " title='".$parent_title ."'>".$parent_title."</a> &raquo; ";
+		$breadcrumbs .= get_the_title($post);
+		$breadcrumbs .= "</div>";
+	}
+
+	return $breadcrumbs;
+}
+
 /*********************************************************
  * ShadowBox theme options
  * renders UI and theme model for chosing and previewing options
