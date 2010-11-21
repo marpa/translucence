@@ -1815,20 +1815,13 @@ div.menu li {
 	display: block;
 }
 
-#primary .widget_pages li.current_page_item {
+#primary .widget_pages li.current_page_item
+{
 	background-color: rgba(249, 249, 249, 0.4);
 	padding-left: 3px;
 	padding-right: 3px;
 	border: 1px solid #CCCCCC;
 }
-
-#primary .widget_pages li.current_page_item {
-	background-color: rgba(249, 249, 249, 0.4);
-	padding-left: 3px;
-	padding-right: 3px;
-	border: 1px solid #CCCCCC;
-}
-
 
 #secondary .widget_pages li.current_page_item {
 	background-color: rgba(249, 249, 249, 0.4);
