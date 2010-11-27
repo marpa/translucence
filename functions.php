@@ -1198,18 +1198,37 @@ function set_derivative_options() {
 		}
 				
 		/******************************************************************************
-		 * Only variations with dark background colors or images should have 
-		 * different colors for low opacity settings
+		 * Opacity Settings
+		 * Only variations with dark background colors or images have 
+		 * different colors for low opacity settings see: 
+		 * variations/<<variation-name>>/variation.php
 		 ******************************************************************************/
 		$options['cat-links-opacity'] = 1;
 		$options['tag-links-opacity'] = 1;
 		
+		// top bar child/sub-menu opacity never below transparent text and link color 
+		if ($bar == "top") {
+			$options['top-child-link-color'] = $options['top-link-color'];
+			$options['top-child-text-color'] = $options['top-text-color'];		
+		}
+		
+		// text and link color adjustment for low opacity settings
 		if ($options[$bar.'-opacity'] < .7) {
 			$options[$bar.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
 			$options[$bar.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
 			$options[$bar.'-heading-color'] = $options['transparent-heading-color'];
 			$options[$bar.'-link-color'] = $options['transparent-link-color'];
-			$options[$bar.'-text-color'] = $options['transparent-text-color'];						
+			$options[$bar.'-text-color'] = $options['transparent-text-color'];				
+		}
+		
+		// convert hex color and opacity settings to rgba values
+		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";		
+		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.3).")";
+		
+		// need to refine top bar opacity settings....
+		if ($bar == "top") {
+			$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
+			$options['top-color-hover03-rgb'] = "rgba(".hex2rgb($options['top-color']).", 1)";
 		}
 		
 		/******************************************************************************
@@ -1226,21 +1245,6 @@ function set_derivative_options() {
 		$options['tag-links-hover-border-left'] = $options['tag-links-link-color'];
 		$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
 
-		
-		/******************************************************************************
-		 * opacity		
-		 ******************************************************************************/
-	
-		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";		
-		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.3).")";
-		
-		// need to refine top bar opacity settings....
-		if ($bar == "top") {
-			if ($options['top-opacity'] < .8) {
-				$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
-				$options['top-color-hover03-rgb'] = "rgba(".hex2rgb($options['top-color']).", 1)";
-			}
-		}
 		
 		if ($bar == "left01") {
 			$area = "#tertiary";

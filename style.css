@@ -1751,7 +1751,7 @@ div.menu li {
 }	
  
 #access li:hover > a,
-#access ul ul :hover > a {
+#access ul ul:hover > a {
 	color:  #003366;
 	background-color: rgba(249, 249, 249, .7);
 	text-decoration: underline;	
@@ -1777,7 +1777,7 @@ div.menu li {
  
 #access .sub-menu ul,
 #access .children ul {
-	border-bottom: 1px solid #CCCCCC;
+
 }
  
 #access .sub-menu ul li {
