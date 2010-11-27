@@ -301,16 +301,27 @@ endif;
  */
 
 function header_style() {
+	global $post;
+	
+	if ( is_singular() &&
+	has_post_thumbnail( $post->ID ) &&
+	( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
+	$image[1] >= HEADER_IMAGE_WIDTH ) {
+		$custom_header = $image[0];
+	} else {
+		$custom_header = get_header_image();
+	}
+		
 	?>	
 	<style type="text/css">
 	.headerblock {
 		background-color: <?php echo HEADER_BGCOLOR; ?>;
-		background-image: url(<?php header_image(); ?>);
+		background-image: url(<?php print $custom_header; ?>);
 		background-position: right;
 		background-repeat: no-repeat;
 	}
 	</style>	
-	<?php
+	<?php	
 }
 
 
