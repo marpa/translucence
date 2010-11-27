@@ -634,6 +634,7 @@ div.menu li {
 }
 
 #access ul ul a {
+	color:  <?php print $options['top-child-link-color']?>;
 	background-color: <?php print $options['top-color-rgb']?>;
 	line-height: 1em;
 	padding: 10px;
@@ -642,8 +643,8 @@ div.menu li {
 }	
 
 #access li:hover > a,
-#access ul ul :hover > a {
-	color:  <?php print $options['top-link-color']?>;
+#access ul ul:hover > a {
+	color:  <?php print $options['top-child-link-color']?>;
 	background-color: <?php print $options['top-color-hover03-rgb']?>;
 	text-decoration: underline;	
 	border-bottom: none;
@@ -668,7 +669,7 @@ div.menu li {
 
 #access .sub-menu ul,
 #access .children ul {
-	border-bottom: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-bottom']?>;
+	color:  <?php print $options['top-child-link-color']?>;
 }
 
 #access .sub-menu ul li {
@@ -679,7 +680,7 @@ div.menu li {
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-	color:  <?php print $options['top-text-color']?>;		
+	color:  <?php print $options['top-child-text-color']?>;		
 }
 
 * html #access ul li.current_page_item a,
@@ -687,7 +688,7 @@ div.menu li {
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-	color:  <?php print $options['top-text-color']?>;
+	color:  <?php print $options['top-child-link-color']?>;
 	border-bottom: none;
 }
 
