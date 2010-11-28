@@ -1060,115 +1060,115 @@ function set_derivative_options() {
 	 * sidebar color and link options
 	 ******************************************************************************/	
 	
-	$widget_bars = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
+	$layout_boxes = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
 	
-	foreach($widget_bars as $bar) {
+	foreach($layout_boxes as $box) {
 		
 		// white
-		if ($options[$bar.'-color'] == '#FFFFFF') {
-			$options[$bar.'-border-top'] = "#CCCCCC";
-			$options[$bar.'-border-left'] = "#CCCCCC";
-			$options[$bar.'-border-bottom'] = "#CCCCCC";
-			$options[$bar.'-border-right'] = "#CCCCCC";
-			$options[$bar.'-heading-color'] = "#666666";
-			$options[$bar.'-link-color'] = $options['linkcolor'];
-			$options[$bar.'-text-color'] = $options['textcolor'];
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = "#666666";
-				$options[$bar.'-border02-top'] = "#CCCCCC";
-				$options[$bar.'-border02-bottom'] = "#CCCCCC";
+		if ($options[$box.'-color'] == '#FFFFFF') {
+			$options[$box.'-border-top'] = "#CCCCCC";
+			$options[$box.'-border-left'] = "#CCCCCC";
+			$options[$box.'-border-bottom'] = "#CCCCCC";
+			$options[$box.'-border-right'] = "#CCCCCC";
+			$options[$box.'-heading-color'] = "#666666";
+			$options[$box.'-link-color'] = $options['linkcolor'];
+			$options[$box.'-text-color'] = $options['textcolor'];
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = "#666666";
+				$options[$box.'-border02-top'] = "#CCCCCC";
+				$options[$box.'-border02-bottom'] = "#CCCCCC";
 			}
 		// gray blue
-		} else if ($options[$bar.'-color'] == '#364559') {
-			$options[$bar.'-border-top'] = "#666666";
-			$options[$bar.'-border-left'] = "#666666";
-			$options[$bar.'-border-bottom'] = "#666666";
-			$options[$bar.'-border-right'] = "#666666";
-			$options[$bar.'-heading-color'] = "#CCCC99";
-			$options[$bar.'-link-color'] = "#EEEEEE";
-			$options[$bar.'-text-color'] = "#CCCCCC";
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = "#FFFFFF";
-				$options[$bar.'-border02-top'] = "#333333";
-				$options[$bar.'-border02-bottom'] = "#333333";
+		} else if ($options[$box.'-color'] == '#364559') {
+			$options[$box.'-border-top'] = "#666666";
+			$options[$box.'-border-left'] = "#666666";
+			$options[$box.'-border-bottom'] = "#666666";
+			$options[$box.'-border-right'] = "#666666";
+			$options[$box.'-heading-color'] = "#CCCC99";
+			$options[$box.'-link-color'] = "#EEEEEE";
+			$options[$box.'-text-color'] = "#CCCCCC";
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = "#FFFFFF";
+				$options[$box.'-border02-top'] = "#333333";
+				$options[$box.'-border02-bottom'] = "#333333";
 			}
 		// black
-		} else if ($options[$bar.'-color'] == '#000000' || $options[$bar.'-color'] == '#262626') {
-			$options[$bar.'-border-top'] = "#666666";
-			$options[$bar.'-border-left'] = "#666666";
-			$options[$bar.'-border-bottom'] = "#666666";
-			$options[$bar.'-border-right'] = "#666666";
-			$options[$bar.'-heading-color'] = "#FFFFFF";
-			$options[$bar.'-link-color'] = $options['linkcolor'];
-			$options[$bar.'-text-color'] = $options['textcolor'];
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
-				$options[$bar.'-border02-top'] = "#FFFFCC";
-				$options[$bar.'-border02-bottom'] = "#FFFFCC";
+		} else if ($options[$box.'-color'] == '#000000' || $options[$box.'-color'] == '#262626') {
+			$options[$box.'-border-top'] = "#666666";
+			$options[$box.'-border-left'] = "#666666";
+			$options[$box.'-border-bottom'] = "#666666";
+			$options[$box.'-border-right'] = "#666666";
+			$options[$box.'-heading-color'] = "#FFFFFF";
+			$options[$box.'-link-color'] = $options['linkcolor'];
+			$options[$box.'-text-color'] = $options['textcolor'];
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = $options['textcolor'];
+				$options[$box.'-border02-top'] = "#FFFFCC";
+				$options[$box.'-border02-bottom'] = "#FFFFCC";
 			}
 		// green	
-		} else if ($options[$bar.'-color'] == '#83A776') {
-			$options[$bar.'-border-top'] = "#666666";
-			$options[$bar.'-border-left'] = "#666666";
-			$options[$bar.'-border-bottom'] = "#666666";
-			$options[$bar.'-border-right'] = "#666666";
-			$options[$bar.'-heading-color'] = "#FFFFFF";
-			$options[$bar.'-link-color'] = $options['linkcolor'];
-			$options[$bar.'-text-color'] = $options['textcolor'];
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
-				$options[$bar.'-border02-top'] = "#333333";
-				$options[$bar.'-border02-bottom'] = "#333333";
+		} else if ($options[$box.'-color'] == '#83A776') {
+			$options[$box.'-border-top'] = "#666666";
+			$options[$box.'-border-left'] = "#666666";
+			$options[$box.'-border-bottom'] = "#666666";
+			$options[$box.'-border-right'] = "#666666";
+			$options[$box.'-heading-color'] = "#FFFFFF";
+			$options[$box.'-link-color'] = $options['linkcolor'];
+			$options[$box.'-text-color'] = $options['textcolor'];
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = $options['textcolor'];
+				$options[$box.'-border02-top'] = "#333333";
+				$options[$box.'-border02-bottom'] = "#333333";
 			}
 		// muted yellow
-		}  else if ($options[$bar.'-color'] == '#e9e9c9') {
-			$options[$bar.'-border-top'] = "#999999";
-			$options[$bar.'-border-left'] = "#999999";
-			$options[$bar.'-border-bottom'] = "#999999";
-			$options[$bar.'-border-right'] = "#999999";
-			$options[$bar.'-heading-color'] = "#AAA448";
-			$options[$bar.'-link-color'] = $options['linkcolor'];
-			$options[$bar.'-text-color'] = $options['textcolor'];
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
-				$options[$bar.'-border02-top'] = "#333333";
-				$options[$bar.'-border02-bottom'] = "#333333";
+		}  else if ($options[$box.'-color'] == '#e9e9c9') {
+			$options[$box.'-border-top'] = "#999999";
+			$options[$box.'-border-left'] = "#999999";
+			$options[$box.'-border-bottom'] = "#999999";
+			$options[$box.'-border-right'] = "#999999";
+			$options[$box.'-heading-color'] = "#AAA448";
+			$options[$box.'-link-color'] = $options['linkcolor'];
+			$options[$box.'-text-color'] = $options['textcolor'];
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = $options['textcolor'];
+				$options[$box.'-border02-top'] = "#333333";
+				$options[$box.'-border02-bottom'] = "#333333";
 			}
 		// green
-		}  else if ($options[$bar.'-color'] == '#4a6339') {
-			$options[$bar.'-border-top'] = "#585858";
-			$options[$bar.'-border-left'] = "#585858";
-			$options[$bar.'-border-bottom'] = "#585858";
-			$options[$bar.'-border-right'] = "#585858";
-			$options[$bar.'-heading-color'] = "#c7c6a7";
-			$options[$bar.'-link-color'] = "#FFFFFF";
-			$options[$bar.'-link-color'] = "#EEEEEE";
-			$options[$bar.'-text-color'] = "#CCCCCC";
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = $options['textcolor'];
-				$options[$bar.'-border02-top'] = "#333333";
-				$options[$bar.'-border02-bottom'] = "#333333";
+		}  else if ($options[$box.'-color'] == '#4a6339') {
+			$options[$box.'-border-top'] = "#585858";
+			$options[$box.'-border-left'] = "#585858";
+			$options[$box.'-border-bottom'] = "#585858";
+			$options[$box.'-border-right'] = "#585858";
+			$options[$box.'-heading-color'] = "#c7c6a7";
+			$options[$box.'-link-color'] = "#FFFFFF";
+			$options[$box.'-link-color'] = "#EEEEEE";
+			$options[$box.'-text-color'] = "#CCCCCC";
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = $options['textcolor'];
+				$options[$box.'-border02-top'] = "#333333";
+				$options[$box.'-border02-bottom'] = "#333333";
 			}
 		// all other colors
 		}  else {
-			$options[$bar.'-border-top'] = "#CCCCCC";
-			$options[$bar.'-border-left'] = "#CCCCCC";
-			$options[$bar.'-border-bottom'] = "#CCCCCC";
-			$options[$bar.'-border-right'] = "#CCCCCC";
-			$options[$bar.'-heading-color'] = "#333333";
-			$options[$bar.'-link-color'] = $options['linkcolor'];
-			$options[$bar.'-text-color'] = $options['textcolor'];
-			if ($bar == "header") {
-				$options[$bar.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$bar.'-blogdescription-color'] = "#666666";
-				$options[$bar.'-border02-top'] = "#999999";
-				$options[$bar.'-border02-bottom'] = "#999999";
+			$options[$box.'-border-top'] = "#CCCCCC";
+			$options[$box.'-border-left'] = "#CCCCCC";
+			$options[$box.'-border-bottom'] = "#CCCCCC";
+			$options[$box.'-border-right'] = "#CCCCCC";
+			$options[$box.'-heading-color'] = "#333333";
+			$options[$box.'-link-color'] = $options['linkcolor'];
+			$options[$box.'-text-color'] = $options['textcolor'];
+			if ($box == "header") {
+				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
+				$options[$box.'-blogdescription-color'] = "#666666";
+				$options[$box.'-border02-top'] = "#999999";
+				$options[$box.'-border02-bottom'] = "#999999";
 			}			
 		} 
 		
@@ -1178,10 +1178,10 @@ function set_derivative_options() {
 		$options['cat-links-border-style'] = "solid";
 		$options['tag-links-border-style'] = "solid";
 		
-		if ($options[$bar.'-border-style'] == "none") {
-			$options[$bar.'-hover-border-style'] = "none";
+		if ($options[$box.'-border-style'] == "none") {
+			$options[$box.'-hover-border-style'] = "none";
 		} else {
-			$options[$bar.'-hover-border-style'] = "solid";
+			$options[$box.'-hover-border-style'] = "solid";
 		}
 				
 		/******************************************************************************
@@ -1194,26 +1194,26 @@ function set_derivative_options() {
 		$options['tag-links-opacity'] = 1;
 		
 		// top bar child/sub-menu opacity never below transparent text and link color 
-		if ($bar == "top") {
+		if ($box == "top") {
 			$options['top-child-link-color'] = $options['top-link-color'];
 			$options['top-child-text-color'] = $options['top-text-color'];		
 		}
 		
 		// text and link color adjustment for low opacity settings
-		if ($options[$bar.'-opacity'] < .7) {
-			$options[$bar.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
-			$options[$bar.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
-			$options[$bar.'-heading-color'] = $options['transparent-heading-color'];
-			$options[$bar.'-link-color'] = $options['transparent-link-color'];
-			$options[$bar.'-text-color'] = $options['transparent-text-color'];				
+		if ($options[$box.'-opacity'] < .7) {
+			$options[$box.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
+			$options[$box.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
+			$options[$box.'-heading-color'] = $options['transparent-heading-color'];
+			$options[$box.'-link-color'] = $options['transparent-link-color'];
+			$options[$box.'-text-color'] = $options['transparent-text-color'];				
 		}
 		
 		// convert hex color and opacity settings to rgba values
-		$options[$bar.'-color-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".$options[$bar.'-opacity'].")";		
-		$options[$bar.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$bar.'-color']).", ".($options[$bar.'-opacity']+.3).")";
+		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";		
+		$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.3).")";
 		
 		// need to refine top bar opacity settings....
-		if ($bar == "top") {
+		if ($box == "top") {
 			$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
 			$options['top-color-hover03-rgb'] = "rgba(".hex2rgb($options['top-color']).", 1)";
 		}
@@ -1233,39 +1233,39 @@ function set_derivative_options() {
 		$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
 
 		
-		if ($bar == "left01") {
+		if ($box == "left01") {
 			$area = "#tertiary";
-		} else if ($bar == "right01") {
+		} else if ($box == "right01") {
 			$area = "#primary";
-		} else if ($bar == "right02") {
+		} else if ($box == "right02") {
 			$area = "#secondary";
-		} else if ($bar == "top") {
+		} else if ($box == "top") {
 			$area = "#access";
-		} else if ($bar == "bottom") {
+		} else if ($box == "bottom") {
 			$area = "#footer-widget-area";
-		} else if ($bar == "content") {
+		} else if ($box == "content") {
 			$area = "#content";
 		} else {
-			$area = ".".$bar;
+			$area = ".".$box;
 		}
 		
 
-	   $options[$bar.'-color-ie'] = $area." {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+	   $options[$box.'-color-ie'] = $area." {".ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
 
 		// set the IE submenu-color opacity for top bar
-		if ($bar == "top") {
-			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$bar.'-color'], $options[$bar.'-opacity'])."}";
+		if ($box == "top") {
+			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
 		}
 		
 		// visibility and padding of bars
-		if ($options[$bar.'-width'] == '0') {
-			$options[$bar.'-visibility'] = "hidden";
-			$options[$bar.'-padding'] = "0";
+		if ($options[$box.'-width'] == '0') {
+			$options[$box.'-visibility'] = "hidden";
+			$options[$box.'-padding'] = "0";
 		
 		// if visible bar padding
 		} else {
-			$options[$bar.'-visibility'] = "visible";
-			$options[$bar.'-padding'] = "25";
+			$options[$box.'-visibility'] = "visible";
+			$options[$box.'-padding'] = "25";
 		}
 		
 	}
