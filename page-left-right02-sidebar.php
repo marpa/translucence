@@ -22,6 +22,8 @@ $content_width = $options['site-width'] - $options['left01-width'] - $options['r
 
 	<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 	
+	<?php print get_breadcrumbs($post); ?>
+	
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
 	<div class='post-link' style="float: right; width: 40%;">
