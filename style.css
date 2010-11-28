@@ -344,7 +344,7 @@ textarea {
 #content dd,
 #content pre,
 #content hr {
-	margin-bottom: 24px;
+	margin-bottom: 12px;
 }
 #content ul ul,
 #content ol ol,
@@ -1803,6 +1803,9 @@ div.menu li {
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
 
+/* =widget navigation
+-------------------------------------------------------------- */	
+
 .widget_pages li.page_item ul.children,
 .widget_nav_menu li.menu-item ul.sub-menu {
 	display: none;
@@ -1843,6 +1846,11 @@ div.menu li {
 	border: 1px solid #CCCCCC;
 }
 
+/* End widget navigation
+-------------------------------------------------------------- */	
+
+/* =page navigation
+-------------------------------------------------------------- */	
 .breadcrumbs {
 	font-size: 10px;
 }
@@ -1850,6 +1858,29 @@ div.menu li {
 .breadcrumbs a {
 	color: #003366;
 }
+
+.pagenav {
+	font-size: 12px;
+	list-style: none;
+	background-color: #F9F9F9;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+#content .pagenav h3 {
+	margin-bottom: 5px;
+}
+
+.pagenav ul {
+	list-style: none;
+	margin: 0px 0px 5px 1.5em;
+}
+
+.pagenav .current_page_item {
+	display: none;
+}
+
 
  
 /* Begin post/page entry css
