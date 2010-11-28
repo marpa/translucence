@@ -10,11 +10,29 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
-	<version number="2.0" date="the future">
+	<version number="2.1" date="the future">
 		<releaseNotes>
 			This release adds refactors functions developed in ShadowBox as applied to Twentyten theme template files
 		</releaseNotes>
-		<new author='alex' date='the future'>
+		<change author='alex' date='2010-11-28'>
+			Updated options for box css such that low-opacity boxes get less opaque on hover.
+		</change>
+		<new author='alex' date='2010-11-21'>
+			added list of sub-pages or related pages to all page templates
+		</new>
+		<new author='alex' date='2010-11-21'>
+			added support for custom page images (i.e. featured image)
+		</new>		<new author='alex' date='2010-11-21'>
+			added breadcrumb links to all page templates
+		</new>
+		<new author='alex' date='2010-11-21'>
+			updated css for page, menu and category widgets so that current page, menu-item and category are highlighted
+			and child-pages and sub-menus are hidden for all except current pages and menu-items
+		</new>
+		<new author='alex' date='2010-11-09'>
+			added theme model UI options mode with basic and advanced option sets to simplify theme model
+		</new>
+		<new author='alex' date='2010-10-26'>
 			add links to custom header and custom background in theme model
 		</new>
 		<new author='alex' date='2010-10-25'>
