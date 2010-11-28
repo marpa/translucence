@@ -1184,8 +1184,8 @@ function set_derivative_options() {
 		
 		// text and link color adjustment for low opacity settings
 		if ($options[$box.'-opacity'] < .7) {
-			$options[$box.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
-			$options[$box.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
+			//$options[$box.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
+			//$options[$box.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
 			$options[$box.'-heading-color'] = $options['transparent-heading-color'];
 			$options[$box.'-link-color'] = $options['transparent-link-color'];
 			$options[$box.'-text-color'] = $options['transparent-text-color'];				
