@@ -1186,22 +1186,30 @@ function set_derivative_options() {
 			$options['top-child-link-color'] = $options['top-link-color'];
 			$options['top-child-text-color'] = $options['top-text-color'];		
 		}
+
+		// convert hex color and opacity settings to rgba values
+		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
+		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".$options[$box.'-opacity'].")";	
 		
-		// text and link color adjustment for low opacity settings
+		
+		// text, link and highlight color adjustment for low opacity settings
 		if ($options[$box.'-opacity'] < .7) {
 			//$options[$box.'-blogtitle-color'] = $options['transparent-blogtitle-color'];
 			//$options[$box.'-blogdescription-color'] = $options['transparent-blogdescription-color'];
 			$options[$box.'-heading-color'] = $options['transparent-heading-color'];
 			$options[$box.'-link-color'] = $options['transparent-link-color'];
-			$options[$box.'-text-color'] = $options['transparent-text-color'];				
+			$options[$box.'-text-color'] = $options['transparent-text-color'];		
+
+			$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']-.2).")";
+			$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']).")";
+			
+		} else {
+			$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
+			$options[$box.'-highlight-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";					
 		}
 		
-		// convert hex color and opacity settings to rgba values
-		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
-		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".$options[$box.'-opacity'].")";	
 		
-		$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.3).")";
-		$options[$box.'-highlight-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";
+
 		
 		// need to refine top bar opacity settings....
 		if ($box == "top") {
