@@ -1057,12 +1057,24 @@ function set_derivative_options() {
 	}
 
 	/******************************************************************************
-	 * sidebar color and link options
+	 * Translucent box options
+	 * translucent boxes have primary options for:
+	 * background-color
+	 * opacity
+	 * border-style
+	 *
+	 * translucent boxes have derivative options for
+	 * color
+	 * border color
+	 * heading-color
+	 * link color
+	 * text color
+	 * 
 	 ******************************************************************************/	
 	
-	$layout_boxes = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
+	$translucent_boxes = array('site', 'top', 'bottom', 'left01', 'right01', 'right02', 'header', 'content', 'cat-links', 'tag-links', 'title-box', 'description-box');
 	
-	foreach($layout_boxes as $box) {
+	foreach($translucent_boxes as $box) {
 		
 		// white
 		if ($options[$box.'-color'] == '#FFFFFF') {
@@ -1073,12 +1085,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#666666";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = "#666666";
-				$options[$box.'-border02-top'] = "#CCCCCC";
-				$options[$box.'-border02-bottom'] = "#CCCCCC";
-			}
+
 		// gray blue
 		} else if ($options[$box.'-color'] == '#364559') {
 			$options[$box.'-border-top'] = "#666666";
@@ -1088,12 +1095,8 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#CCCC99";
 			$options[$box.'-link-color'] = "#EEEEEE";
 			$options[$box.'-text-color'] = "#CCCCCC";
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = "#FFFFFF";
-				$options[$box.'-border02-top'] = "#333333";
-				$options[$box.'-border02-bottom'] = "#333333";
-			}
+			
+			
 		// black
 		} else if ($options[$box.'-color'] == '#000000' || $options[$box.'-color'] == '#262626') {
 			$options[$box.'-border-top'] = "#666666";
@@ -1103,12 +1106,8 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = $options['textcolor'];
-				$options[$box.'-border02-top'] = "#FFFFCC";
-				$options[$box.'-border02-bottom'] = "#FFFFCC";
-			}
+
+			
 		// green	
 		} else if ($options[$box.'-color'] == '#83A776') {
 			$options[$box.'-border-top'] = "#666666";
@@ -1118,12 +1117,8 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = $options['textcolor'];
-				$options[$box.'-border02-top'] = "#333333";
-				$options[$box.'-border02-bottom'] = "#333333";
-			}
+
+			
 		// muted yellow
 		}  else if ($options[$box.'-color'] == '#e9e9c9') {
 			$options[$box.'-border-top'] = "#999999";
@@ -1133,12 +1128,8 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#AAA448";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = $options['textcolor'];
-				$options[$box.'-border02-top'] = "#333333";
-				$options[$box.'-border02-bottom'] = "#333333";
-			}
+
+			
 		// green
 		}  else if ($options[$box.'-color'] == '#4a6339') {
 			$options[$box.'-border-top'] = "#585858";
@@ -1149,12 +1140,8 @@ function set_derivative_options() {
 			$options[$box.'-link-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = "#EEEEEE";
 			$options[$box.'-text-color'] = "#CCCCCC";
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = $options['textcolor'];
-				$options[$box.'-border02-top'] = "#333333";
-				$options[$box.'-border02-bottom'] = "#333333";
-			}
+
+			
 		// all other colors
 		}  else {
 			$options[$box.'-border-top'] = "#CCCCCC";
@@ -1164,12 +1151,8 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#333333";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			if ($box == "header") {
-				$options[$box.'-blogtitle-color'] = $options['linkcolor'];
-				$options[$box.'-blogdescription-color'] = "#666666";
-				$options[$box.'-border02-top'] = "#999999";
-				$options[$box.'-border02-bottom'] = "#999999";
-			}			
+			
+			
 		} 
 		
 		/******************************************************************************
