@@ -21,8 +21,6 @@ if ($options['background'] == "translucence-black") {
 	$options['background_repeat'] = "no-repeat";
 	$options['background_position'] = "center top";	
 
-	$options['transparent-blogtitle-color'] = "#CCCC99";
-	$options['transparent-blogdescription-color'] = "#FFFFFF"; 
 	$options['transparent-heading-color'] = "#CCCC99";
 	$options['transparent-link-color']  = "#FFFFFF";
 	$options['transparent-text-color']  = "#F2F2F2";
@@ -38,9 +36,9 @@ if ($options['background'] == "translucence-black") {
 	$options['background_color'] = "#0F0F0F";
 	$options['foreground_color'] = "#000000";	
 	
-// 	$options['header-text-shadow-color'] = "#000000";
-	$options['header-text-shadow-offset'] = "2px 2px";
-	$options['header-text-shadow-blur'] = "5px";
+ 	$options['header-text-shadow-color'] = "#000000";
+//	$options['header-text-shadow-offset'] = "1px 1px";
+//	$options['header-text-shadow-blur'] = "2px";
 // 	$options['post-text-shadow-color'] = "#333333";
 	$options['post-text-shadow-offset'] = "1px 0px";
 	$options['post-text-shadow-blur'] = "1px";

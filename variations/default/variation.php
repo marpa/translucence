@@ -27,9 +27,7 @@ if ($options['background'] != "custom") {
 	$options['bgbordercolor'] = "#999999";
 	$options['bgtextcolor']	= "#CCCCCC";
 	$options['bglinkcolor']	= "#CCCCCC";
-	
-	$options['transparent-blogtitle-color'] = "#999999"; 
-	$options['transparent-blogdescription-color'] = "#555555"; 
+	 
 	$options['transparent-heading-color'] = "#999999";
 	$options['transparent-link-color']  = "#999999";
 	$options['transparent-text-color']  = "#999999";
