@@ -26,8 +26,6 @@ if ($options['background'] == "translucence-green") {
 	$options['bglinkcolor'] = "#333333";
 	$options['bgbordercolor'] = "#666666";	
 	
-	$options['transparent-blogtitle-color'] = "#333333"; 
-	$options['transparent-blogdescription-color'] = "#FFFFFF"; 
 	$options['transparent-heading-color'] = "#333333";
 	$options['transparent-link-color']  = "#FFFFFF";
 	$options['transparent-text-color']  = "#555555";

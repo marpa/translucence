@@ -18,8 +18,6 @@ if ($options['background'] == "translucence-gray") {
 	$options['bglinkcolor'] = "#666666";
 	$options['bgbordercolor'] = "#999999";
 
-	$options['transparent-blogtitle-color'] = $options['linkcolor']; 
-	$options['transparent-blogdescription-color'] = $options['textcolor'];
 	$options['transparent-heading-color'] = "#222222";
 	$options['transparent-link-color']  = $options['linkcolor'];
 	$options['transparent-text-color']  = $options['textcolor'];

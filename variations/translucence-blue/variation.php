@@ -20,17 +20,15 @@ if ($options['background'] == "translucence-blue") {
 	$options['background_repeat'] = "no-repeat";
 	$options['background_position'] = "center top";
 	$options['background_attachment'] = "fixed";
-	// 	$options['background-source-url'] = "";
- 	$options['background-source-credit'] = "Blue";
 	
+	$options['background-source-url'] = "";
+ 	$options['background-source-credit'] = "Blue";	
 	
 	$options['background_color'] = "#051E3C";
 	$options['bgtextcolor'] = "#CCCCCC";
 	$options['bglinkcolor'] = "#FFFFFF";
 	$options['bgbordercolor'] = "#000000";
 	
-	$options['transparent-blogtitle-color'] = "#CCCC99"; 
-	$options['transparent-blogdescription-color'] = "#FFFFFF"; 
 	$options['transparent-heading-color'] = "#CCCC99";
 	$options['transparent-link-color']  = "#FFFFFF";
 	$options['transparent-text-color']  = "#FFFFFF";
@@ -38,7 +36,6 @@ if ($options['background'] == "translucence-blue") {
 	$options['left01-heading-color'] = "#354253";
 	$options['right01-heading-color'] = "#354253";
 	$options['right02-heading-color'] = "#354253";
-	
 
 }	
 	
