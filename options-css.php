@@ -695,6 +695,9 @@ div.menu li {
 /* End Access (top navigation bar)
 -------------------------------------------------------------- */	
 
+/* =widget navigation
+-------------------------------------------------------------- */	
+
 #primary .widget_pages li.current_page_item,  
 #primary .widget_categories li.current-cat,
 #primary .widget_nav_menu li.current-menu-item {
@@ -733,11 +736,17 @@ div.menu li {
 	margin-top: 15px;
 }
 
+/* End widget navigation
+-------------------------------------------------------------- */	
+
+/* =page navigation
+-------------------------------------------------------------- */
+
 .pagenav a, .pagenav a:visited {
 	color: <?php print $options['entry-link-color']?>;
 
 }
-
+	
 
 
 /* Begin post/page entry css
