@@ -1085,6 +1085,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#666666";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
+			$options[$box.'-highlight-color'] = "#F9F9F9";
 
 		// gray blue
 		} else if ($options[$box.'-color'] == '#364559') {
@@ -1095,6 +1096,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#CCCC99";
 			$options[$box.'-link-color'] = "#EEEEEE";
 			$options[$box.'-text-color'] = "#CCCCCC";
+			$options[$box.'-highlight-color'] = "#364559";
 			
 			
 		// black
@@ -1106,7 +1108,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-
+			$options[$box.'-highlight-color'] = "#262626";
 			
 		// green	
 		} else if ($options[$box.'-color'] == '#83A776') {
@@ -1117,6 +1119,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
+			$options[$box.'-highlight-color'] = "#83A776";
 
 			
 		// muted yellow
@@ -1128,6 +1131,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#AAA448";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
+			$options[$box.'-highlight-color'] = "#e9e9c9";
 
 			
 		// green
@@ -1140,6 +1144,7 @@ function set_derivative_options() {
 			$options[$box.'-link-color'] = "#FFFFFF";
 			$options[$box.'-link-color'] = "#EEEEEE";
 			$options[$box.'-text-color'] = "#CCCCCC";
+			$options[$box.'-highlight-color'] = "#4a6339";
 
 			
 		// all other colors
@@ -1151,7 +1156,7 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = "#333333";
 			$options[$box.'-link-color'] = $options['linkcolor'];
 			$options[$box.'-text-color'] = $options['textcolor'];
-			
+			$options[$box.'-highlight-color'] = "#F9F9F9";
 			
 		} 
 		
@@ -1192,8 +1197,11 @@ function set_derivative_options() {
 		}
 		
 		// convert hex color and opacity settings to rgba values
-		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";		
+		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
+		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".$options[$box.'-opacity'].")";	
+		
 		$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.3).")";
+		$options[$box.'-highlight-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";
 		
 		// need to refine top bar opacity settings....
 		if ($box == "top") {

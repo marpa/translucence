@@ -727,13 +727,17 @@ div.menu li {
 }
 
 .pagenav {
-	background-color: <?php print $options['content-color-hover-rgb']?>;
+	background-color: <?php print $options['content-highlight-color-rgb']?>;
 	color: <?php print $options['content-text-color']?>;
 	font-size: 12px;
 	list-style: none;
 	border: 1px solid #CCCCCC;
 	padding: 10px;
 	margin-top: 15px;
+}
+
+.pagenav:hover {
+	background-color: <?php print $options['content-highlight-color-hover-rgb']?>;
 }
 
 /* End widget navigation
