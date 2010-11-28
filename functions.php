@@ -1330,6 +1330,7 @@ function set_derivative_options() {
 			$options[$link_type.'-link-hover-border'] = "solid";
 			$options[$link_type.'-link-decoration'] = "none";
 			$options[$link_type.'-link-hover-decoration'] = "none";
+			$options[$link_type.'-link-color'] = $options['linkcolor'];
 			if ($options['content-color'] == '#000000') {
 				$options[$link_type.'-link-hover-background_color'] = "#262626";
 			} else if ($options['content-color'] == '#262626') {
