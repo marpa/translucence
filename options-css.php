@@ -701,7 +701,7 @@ div.menu li {
 #primary .widget_pages li.current_page_item,  
 #primary .widget_categories li.current-cat,
 #primary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $options['right01-color-hover-rgb']?>;
+	background-color: <?php print $options['right01-highlight-color-rgb']?>;
 	padding: 3px;
 	border: 1px solid <?php print $options['right01-border-top']?>;
 }
@@ -709,7 +709,7 @@ div.menu li {
 #secondary .widget_pages li.current_page_item,
 #secondary .widget_pages li.current-cat,
 #secondary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $options['right02-color-hover-rgb']?>;
+	background-color: <?php print $options['right02-highlight-color-rgb']?>;
 	padding: 3px;
 	border: 1px solid <?php print $options['right02-border-top']?>;
 }
@@ -717,7 +717,7 @@ div.menu li {
 #tertiary .widget_pages li.current_page_item,
 #tertiary .widget_pages li.current-cat,
 #tertiary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $options['left01-color-hover-rgb']?>;
+	background-color: <?php print $options['left01-highlight-color-rgb']?>;
 	padding: 3px;
 	border: 1px solid <?php print $options['left01-border-top']?>;
 }
