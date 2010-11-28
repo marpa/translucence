@@ -10,8 +10,11 @@ Author URI:
 
 */
 
-// defaults for all but custom background images 
+// Theme name and url (Variations can override with their own name and url)
+$options['theme-name'] = "2010 Translucence";
+$options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
+// defaults for all but custom background images 
 if ($options['background'] != "custom") {	
 
 	$options['background_color'] = "#FFFFFF";
@@ -40,13 +43,16 @@ $options['site-margin-top'] = "0";
 $options['page-image-width'] = $options['site-width']-50;
 $options['custom-header-width-offset'] = 7;
 
-//$options['foreground_color'] = "#FFFFFF";
-//$options['content-background'] = "transparent";
 $options['header-text-padding-left'] = "10";
 //$options['site-title-size'] = "30";
 
+// define border widths
+$options['content-border-width'] = "1px";
 
-// text shadow for site-title and poat-title
+$options['header-outer-border-style'] = "none";
+$options['header-border02-height'] = 0;
+
+// define text shadow options for site-title and post-title
 $options['header-text-shadow-color'] = "#444444";
 //$options['header-text-shadow-offset'] = "1px 1px";
 //$options['header-text-shadow-blur'] = "2px";
@@ -54,7 +60,7 @@ $options['post-text-shadow-color'] = "#CCCCCC";
 $options['post-text-shadow-offset'] = "1px 1px";
 $options['post-text-shadow-blur'] = "0.05em";
 
-
+// define default link colors
 if (isset($options['linkcolor'])) {
 	$options['header-blogtitle-color'] = $options['linkcolor']; 
 	$options['content-link-color'] = $options['linkcolor'];
@@ -73,14 +79,22 @@ if (isset($options['linkcolor'])) {
 	$options['right02-link-color'] = "#003366";
 }
 
+// define default widget heading colors
+$options['left01-heading-color'] = "#999999";
+$options['right01-heading-color'] = "#999999";
+$options['right02-heading-color'] = "#999999";
+
+// define default tagline text color
 if (isset($options['textcolor'])) {
 	$options['header-blogdescription-color'] = $options['textcolor']; 
 } else {
 	$options['header-blogdescription-color'] = "#333333";
 }
 
+/******************************************************************************
+ * Define margins
+ ******************************************************************************/
 
-// margins
 $options['header-meta-left-margin'] = "0px";
 $options['header-meta-right-margin'] = "0px";
 $options['footer-meta-left-margin'] = "10px";
@@ -96,18 +110,14 @@ $options['content-margin-top'] = "0";
 $options['right01-margin-top'] = "0";
 $options['right02-margin-top'] = "0";
 
-// content border width
-$options['content-border-width'] = "1px";
 
+/******************************************************************************
+ * Page Info options (not used in translucence
+ * Following options are useful for themes that create a background using
+ * 3 images (950-top.png, 950-main.png and 950-bottom.png)
+ ******************************************************************************/
 
-// widget heading colors
-$options['left01-heading-color'] = "#999999";
-$options['right01-heading-color'] = "#999999";
-$options['right02-heading-color'] = "#999999";
-
-$options['header-outer-border-style'] = "none";
-$options['header-border02-height'] = 0;
-
+// page image directory should be named "images" and located within variation folder
 $options['page_image_directory'] = "none";	
 $options['page_image_path'] = "url('".get_bloginfo("stylesheet_directory")."/images/".$options['page_image_directory'];
 
@@ -132,15 +142,15 @@ $options['page_main_top_padding'] = "0";
 $options['page_bottom_padding'] = "10";
 $options['page_bottom_margin'] = "10";
 
+/******************************************************************************
+ * Miscellaneous options
+ ******************************************************************************/
 
 $options['thread-even-bgcolor'] = "#FFFFFF";
 $options['thread-alt-bgcolor'] = "#f8f8f8";
 $options['commentfield'] = "#000000";
-
 $options['searchbox-color'] = "#FFFFFF";
 
-$options['theme-name'] = "2010 Translucence";
-$options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
 /******************************************************************************
  * Initialization
@@ -148,7 +158,6 @@ $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
  ******************************************************************************/
 
 if (!isset($options['headermeta'])) $options['headermeta'] = "on";
-
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
 
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
@@ -181,8 +190,8 @@ if (!isset($options['site-padding-top'])) $options['site-padding-top'] = "20";
 if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = "20";
 
 if (!isset($options['site-color'])) $options['site-color'] = "#FFFFFF";
-if (!isset($options['site-color'])) $options['title-box-color'] = "#FFFFFF";
-if (!isset($options['site-color'])) $options['description-box-color'] = "#FFFFFF";
+if (!isset($options['title-box-color'])) $options['title-box-color'] = "#FFFFFF";
+if (!isset($options['description-box-color'])) $options['description-box-color'] = "#FFFFFF";
 if (!isset($options['header-color'])) $options['header-color'] = "#FFFFFF";
 if (!isset($options['top-color'])) $options['top-color'] = "#F9F9F9";
 if (!isset($options['left01-color'])) $options['left01-color'] = "#F9F9F9";
@@ -192,8 +201,8 @@ if (!isset($options['right02-color'])) $options['right02-color'] = "#F9F9F9";
 if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
 
 if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
-if (!isset($options['site-opacity'])) $options['title-box-opacity'] = ".3";
-if (!isset($options['site-opacity'])) $options['description-box-opacity'] = ".2";
+if (!isset($options['title-box-opacity'])) $options['title-box-opacity'] = ".3";
+if (!isset($options['description-box-opacity'])) $options['description-box-opacity'] = ".2";
 
 if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
 if (!isset($options['top-opacity'])) $options['top-opacity'] = ".8";
