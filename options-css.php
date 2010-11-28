@@ -723,6 +723,22 @@ div.menu li {
 	color: <?php print $options['linkcolor']?>;
 }
 
+.pagenav {
+	background-color: <?php print $options['content-color-hover-rgb']?>;
+	color: <?php print $options['content-text-color']?>;
+	font-size: 12px;
+	list-style: none;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+.pagenav a, .pagenav a:visited {
+	color: <?php print $options['entry-link-color']?>;
+
+}
+
+
 
 /* Begin post/page entry css
 -------------------------------------------------------------- */						
