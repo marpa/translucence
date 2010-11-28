@@ -725,7 +725,7 @@ function set_primary_options() {
 }
 
 /******************************************************************************
- * set options for variations (set with options['background'])
+ * get default variation (note: child themes may override this)
  * 
  ******************************************************************************/
 if (!function_exists('get_variation_default')) {
@@ -737,6 +737,11 @@ if (!function_exists('get_variation_default')) {
 	}
 }
 
+/******************************************************************************
+ * get path to variations source files (note: child themes may override this)
+ * 
+ ******************************************************************************/
+
 if (!function_exists('get_variations_source')) {
 	function get_variations_source() {
 	
@@ -747,7 +752,10 @@ if (!function_exists('get_variations_source')) {
 	}
 }
 
-
+/******************************************************************************
+ * set options for variations (set with options['background'])
+ * 
+ ******************************************************************************/
 
 function set_variation_options() {
 	global $_POST, $options, $options_values, $variations;
@@ -760,32 +768,7 @@ function set_variation_options() {
 		$variation_default = get_variation_default();
 		include($variation_default);
 	} 
-
-	/*********************************************************
-	 * Custom backgrounds
-	 * Following options are set in the model UI
-	 * background_image_url, background_color
-	 * background_repeat, background_position
-	 * bgtextcolor, bglinkcolor
-	 *********************************************************/
-	if ($options['background'] == "custom") {			
-		$options['background_image'] = "url('".$options['background_image_url']."')";	
-		$options['background_color'] = $options['custom_background_color'];
-		$options['background_repeat'] = $options['custom_background_repeat'];
-		$options['background_position'] = $options['custom_background_position'];
-		$options['bgtextcolor'] = $options['custom_bgtextcolor'];
-		$options['bglinkcolor'] = $options['custom_bglinkcolor'];
-		$options['transparent-blogtitle-color'] = $options['custom_header_color'];
-		$options['transparent-blogdescription-color'] = $options['custom_bgtextcolor'];
-		$options['transparent-heading-color'] = $options['custom_header_color'];
-		$options['transparent-link-color']  = $options['custom_bglinkcolor'];
-		$options['transparent-text-color']  = $options['custom_bgtextcolor'];
-		$options['background-source-url'] = $options['custom_background-source-url'];
-		$options['background-source-credit'] = $options['custom_background-source-credit'];
-	} 
 	
-	
-
 	/******************************************************************************
 	 * Defaults for variations
 	 * variations use defaults unless otherwise specified
@@ -833,22 +816,15 @@ function set_variation_options() {
 		closedir($handle);
 		
 		/******************************************************************************
-		 * Override veriation background color and image if customs background color
+		 * Override variation background color and image if customs background color
 		 * and image have been set
 		 ******************************************************************************/
 	
 		$custom_background_color = get_background_color();
 		$custom_background_image = get_background_image();
-		
-// 		if ($custom_background_color !="" || $custom_background_image !="") {
-// 			if ($options['background_image_file'] != "none") {
-// 				$options['background'] = "translucence-gray";		
-// 			}
-// 		}
 				
 		if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
-		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;
-		
+		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;		
 
 		ksort($variations);
 		
@@ -873,7 +849,7 @@ function set_variation_options() {
 }
 
 /*********************************************************
- * Set directive options uses primary options (i.e. those exposed in UI)
+ * Set derivative options uses primary options (i.e. those exposed in UI)
  * to set derivative options
  *********************************************************/
 
