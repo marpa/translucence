@@ -8,6 +8,7 @@ Author URI: http://www.alexchapin.com
 Tags: custom-colors, custom-header, theme-options, one-column, two-columns, three-columns
 
 
+
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
 -------------------------------------------------------------- */
 
@@ -124,7 +125,6 @@ a:hover {
 #site-title a {
 	color: #003366;
 	display: block;
-	padding-top: 25px;
 	padding-left: 10px;
 	margin-bottom: 7px;
 	text-shadow: #444444 1px 1px 2px;
@@ -132,7 +132,6 @@ a:hover {
  
 #site-title a:hover {
 	display: block;
-	padding-top: 25px;
 	padding-left: 10px;
 	color: 003366;
 	border-bottom: none;
@@ -1308,13 +1307,20 @@ div.menu,
 .title-box {
 	position: relative;
 	top: 30px;
+	display: inline;
 	background-color: rgba(249, 249, 249, .5);
 	border-top: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
-	padding: 3px 10px 3px 1px;
+	padding: 3px 0px 3px 1px;
 	margin-left: 10px;
+}
+
+#ie-title-box .title-box {
+	padding: 15px 0px 15px 1px;
+	margin-top: -15px;
+	margin-bottom: -15px;
 }
 
 .description-box {

@@ -192,6 +192,13 @@ div.menu,
 	margin-left: 10px;
 }
 
+#ie-title-box .title-box {
+	padding-top: <?php print $options['ie-site-title-padding']?>px;
+	padding-bottom: <?php print $options['ie-site-title-padding']?>px;
+	margin-top: -<?php print $options['ie-site-title-padding']?>px;
+	margin-bottom: -<?php print $options['ie-site-title-padding']?>px;
+}
+
 .description-box {
 	position: relative;
 	top: <?php print $options['header-text-padding-top']?>px;
