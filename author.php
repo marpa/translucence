@@ -50,6 +50,15 @@ $content_width = get_content_width ("author");
 <?php //endif; ?>
 <div>
 
+<?php
+	$authorpages = wp_list_pages("title_li=<h3>Pages by ".get_the_author_meta( 'display_name' )."</h3>&author=".get_the_author_meta( 'ID' )."&echo=0");
+	if ($authorpages) {
+		print "<ul>";
+		print $authorpages;
+		print "</ul>";
+	}	
+?>
+
 <h3>Posts by <?php print get_the_author_meta( 'display_name' ) ?></h3>
 
 <?php
