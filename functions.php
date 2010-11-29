@@ -934,7 +934,7 @@ function set_derivative_options() {
 	}
 	
 	if ($options['header-text-display'] == "top") {
-		$options['header-text-padding-top'] = 3;
+		$options['header-text-padding-top'] = 10;
 		
 	} else if ($options['header-text-display'] == "middle") {
 		if ($options['header-block-height'] == 50) {
@@ -967,6 +967,18 @@ function set_derivative_options() {
 	}
 	
 	$options['description-text-padding-top'] = $options['header-text-padding-top'] + 12;
+	
+	// IE hack for title-box padding
+	if ($options['site-title-size'] < 20) {
+		$options['ie-site-title-padding'] = 8;
+	} else if ($options['site-title-size'] < 30) {
+		$options['ie-site-title-padding'] = 10;
+	} else if ($options['site-title-size'] < 40) {
+		$options['ie-site-title-padding'] = 15;
+	} else if ($options['site-title-size'] < 61) {
+		$options['ie-site-title-padding'] = 22;
+	}
+	
 
 	/******************************************************************************
 	 * visited link color options (derived from link and text colors

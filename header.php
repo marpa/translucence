@@ -124,9 +124,11 @@
 				
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'h1'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
-					<span class="title-box">
+					<!--[if IE]> <div id="ie-title-box"> <![endif]-->
+					<div class="title-box">
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-					</span>
+					</div>
+					<!--[if IE]> </div> <![endif]-->
 				</<?php echo $heading_tag; ?>>
 				<div id="site-description" class="description-box"><?php bloginfo( 'description' ); ?></div>				
 				
