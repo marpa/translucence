@@ -612,9 +612,10 @@ div.menu li {
 }
 			
 #access ul ul {
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+	background-color: <?php print $options['top-color-hover02-rgb']?>;
+	box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;	
 	display: none;
 	position: absolute;
 	top: 38px;
@@ -622,6 +623,10 @@ div.menu li {
 	float: left;
 	width: 180px;
 	z-index: 99999;
+	border-top: 1px none <?php print $options['top-border-top']?>;
+	border-bottom: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-bottom']?>;	
+	border-left: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-left']?>;
+	border-right: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-right']?>;
 }
 
 #access ul ul li {
@@ -634,7 +639,6 @@ div.menu li {
 }
 
 #access ul ul a {
-	color:  <?php print $options['top-child-link-color']?>;
 	background-color: <?php print $options['top-color-rgb']?>;
 	line-height: 1em;
 	padding: 10px;
@@ -657,14 +661,7 @@ div.menu li {
 
 #access .sub-menu,
 #access .children {
-	background-color: <?php print $options['top-color-hover02-rgb']?>;
-	box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
-	border-top: 1px none <?php print $options['top-border-top']?>;
-	border-bottom: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-bottom']?>;	
-	border-left: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-left']?>;
-	border-right: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-right']?>;
+
 }
 
 #access .sub-menu ul,
@@ -680,7 +677,7 @@ div.menu li {
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-	color:  <?php print $options['top-child-text-color']?>;		
+	color:  <?php print $options['top-child-text-color']?>;
 }
 
 * html #access ul li.current_page_item a,

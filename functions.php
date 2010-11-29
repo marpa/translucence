@@ -1255,7 +1255,8 @@ function set_derivative_options() {
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
-			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a {".ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
+			$options['submenu-color-ie'] = "#access ul ul a, #access li:hover > a, #access ul ul :hover > a ";
+			$options['submenu-color-ie'] .= "{*background:".$options[$box.'-color']."; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100)}";
 		}
 		
 		// visibility and padding of bars
