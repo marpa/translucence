@@ -1721,16 +1721,21 @@ div.menu li {
 }
 			
 #access ul ul {
-	box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+	background-color: rgba(249, 249, 249, .7);
+	box-shadow: 0px 3px 3px #444444;
+	-moz-box-shadow: 0px 3px 3px #444444;
+	-webkit-box-shadow: 0px 3px 3px #444444;
 	display: none;
 	position: absolute;
 	top: 38px;
 	left: 0;
 	float: left;
 	width: 180px;
-	z-index: 99999;
+	z-index: 99999;	
+	border-top: 1px none #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;	
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
 }
  
 #access ul ul li {
@@ -1765,14 +1770,6 @@ div.menu li {
  
 #access .sub-menu,
 #access .children {
-	background-color: rgba(249, 249, 249, .7);
-	box-shadow: 0px 3px 3px #444444;
-	-moz-box-shadow: 0px 3px 3px #444444;
-	-webkit-box-shadow: 0px 3px 3px #444444;
-	border-top: 1px none #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;	
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
 }
  
 #access .sub-menu ul,
