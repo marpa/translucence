@@ -1244,6 +1244,8 @@ function set_derivative_options() {
 			$area = "#footer-widget-area";
 		} else if ($box == "content") {
 			$area = "#content";
+		} else if ($box == "header") {
+			$area = ".headerblock";
 		} else {
 			$area = ".".$box;
 		}
