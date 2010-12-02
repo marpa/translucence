@@ -1318,9 +1318,11 @@ div.menu,
 }
 
 #ie-title-box .title-box {
+	display: block;
 	padding: 15px 0px 15px 1px;
 	margin-top: -15px;
 	margin-bottom: -15px;
+	width: 50%;
 }
 
 .description-box {
@@ -1334,7 +1336,6 @@ div.menu,
 	padding: 3px 10px 3px 1px;
 	margin-left: 10px;
 }
-
  
 .headerblock #site-description {
 	position: relative;
@@ -1344,7 +1345,13 @@ div.menu,
 	color: #333333;
 	font-size: 14px;
 }
- 
+
+#ie-description-box .description-box {
+	display: block;
+	padding: 3px 3px 3px 3px;
+}
+
+
 /* Misc full width area settings */
  
 #footer {
