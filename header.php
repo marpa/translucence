@@ -41,7 +41,7 @@
 <?php 
 	global $variation_css, $options; 
 	print $variation_css;
-	
+
 	// IE hack opacity options
 	print $options['header-color-ie']."\n"; 
 	print $options['title-box-color-ie']."\n"; 
@@ -122,7 +122,7 @@
 				endif; ?>					
 
 				
-				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'h1'; ?>
+				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'div' : 'div'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
 					<!--[if IE]> <div id="ie-title-box"> <![endif]-->
 					<div class="title-box">
@@ -130,8 +130,9 @@
 					</div>
 					<!--[if IE]> </div> <![endif]-->
 				</<?php echo $heading_tag; ?>>
+				<!--[if IE]> <div id="ie-description-box"> <![endif]-->
 				<div id="site-description" class="description-box"><?php bloginfo( 'description' ); ?></div>				
-				
+				<!--[if IE]> </div> <![endif]-->
 				</div>
 			</div><!-- #branding -->
 
