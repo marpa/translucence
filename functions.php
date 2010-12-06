@@ -1277,12 +1277,12 @@ function set_derivative_options() {
 		
 		// visibility and padding of bars
 		if ($options[$box.'-width'] == '0') {
-			$options[$box.'-visibility'] = "hidden";
-			$options[$box.'-padding'] = "0";
+			$options[$box.'-visibility'] = "none";
+			$options[$box.'-padding'] = "25";
 		
 		// if visible bar padding
 		} else {
-			$options[$box.'-visibility'] = "visible";
+			$options[$box.'-visibility'] = "block";
 			$options[$box.'-padding'] = "25";
 		}
 		

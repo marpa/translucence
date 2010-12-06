@@ -295,7 +295,7 @@ div.menu,
 	border-right: 1px <?php print $options['left01-border-style']?> <?php print $options['left01-border-right']?>;
 	
 	width: <?php print $options['left01-width']?>px;
-	visibility: <?php print $options['left01-visibility']?>;
+	display: <?php print $options['left01-visibility']?>;
 	padding-top: 10px;
 	padding-left: <?php print $options['left01-padding']?>px;
 	padding-right: <?php print $options['left01-padding']?>px;
@@ -324,7 +324,7 @@ div.menu,
 	border-right: 1px <?php print $options['right01-border-style']?> <?php print $options['right01-border-right']?>;
 
 	width: <?php print $options['right01-width']?>px;
-	visibility: <?php print $options['right01-visibility']?>;
+	display: <?php print $options['right01-visibility']?>;
 	padding-top: 10px;
 	padding-left: <?php print $options['right01-padding']?>px;
 	padding-right: <?php print $options['right01-padding']?>px;
@@ -352,7 +352,7 @@ div.menu,
 	border-right: 1px <?php print $options['right02-border-style']?> <?php print $options['right02-border-right']?>;
 
 	width: <?php print $options['right02-width']?>px;
-	visibility: <?php print $options['right02-visibility']?>;
+	display: <?php print $options['right02-visibility']?>;
 	padding-top: 10px;
 	padding-left: <?php print $options['right02-padding']?>px;
 	padding-right: <?php print $options['right02-padding']?>px;
