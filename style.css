@@ -1396,6 +1396,19 @@ div.menu,
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
+
+.toggle {
+	float: right;
+	border: 1px solid #CCCCCC;
+	padding-left: 2px;
+	padding-right: 2px;
+	line-height: 12px;
+	font-size: 9px;
+}
+
+.toggle:hover {
+	border: 1px solid #003366;
+}
  
 #tertiary {
 	display: none;

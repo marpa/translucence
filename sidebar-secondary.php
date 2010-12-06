@@ -20,6 +20,9 @@
 	if ( is_active_sidebar( 'secondary-widget-area' ) && $options['right02-width'] != '0') : ?>
 
 		<div id="secondary" class="widget-area" role="complementary">
+			<div class="toggle">
+			<a id="togglesecondary" href="javascript:toggle('secondary', '100', '100', '100', '430')">-</a></div>
+			</div>
 			<ul class="xoxo">
 				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
 			</ul>
