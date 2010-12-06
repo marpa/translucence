@@ -1398,6 +1398,7 @@ div.menu,
 -------------------------------------------------------------- */	
  
 #tertiary {
+	display: none;
 	float: left;
 	margin-top: 0px;
 	margin-right: 1px;
@@ -1411,7 +1412,7 @@ div.menu,
 	border-right: 1px none #CCCCCC;
 	
 	width: 0px;
-	visibility: hidden;
+	display: none;
 	padding-top: 10px;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -1440,7 +1441,7 @@ div.menu,
 	border-right: 1px dotted #CCCCCC;
  
 	width: 200px;
-	visibility: visible;
+	display: block;
 	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
@@ -1456,6 +1457,7 @@ div.menu,
 }
  
 #secondary {
+	display: none;
 	float: left;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -1468,7 +1470,7 @@ div.menu,
 	border-right: 1px none #CCCCCC;
  
 	width: 0px;
-	visibility: hidden;
+	display: none;
 	padding-top: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
