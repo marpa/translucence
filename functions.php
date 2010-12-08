@@ -1551,6 +1551,11 @@ function print_option_feedback() {
 
 }
 
+/******************************************************************************
+ * Get Content Width
+ * gets the width of the content column depending on what template is being used
+ * template values: page, archives, search, author, category, tag, post
+ ******************************************************************************/
 
 function get_content_width ($template) {
 	global $options;
@@ -1602,7 +1607,35 @@ function get_content_width ($template) {
 function get_box_widths () {
 	global $options;
 	
-	$content_width = get_content_width ("page");
+	if (is_single()) {
+		$content_width = get_content_width ("post");
+	} else if (is_category()){
+		$content_width = get_content_width ("category");
+	} else if (is_tag()){
+		$content_width = get_content_width ("tag");
+	} else if (is_author()){
+		$content_width = get_content_width ("author");
+	} else if (is_search()){
+		$content_width = get_content_width ("search");
+	} else if (is_archive()){
+		$content_width = get_content_width ("archives");
+	} else {
+		if (is_page_template('page-right01-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right01-width'] - 125;
+		} else if (is_page_template('page-right02-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right02-width'] - 125;
+		} else if (is_page_template('page-right-both-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right01-width']  - $options['right02-width'] - 175;
+		} else if (is_page_template('page-left-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - 125;
+		} else if (is_page_template('page-left-right01-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - 175;
+		} else if (is_page_template('page-left-right02-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
+		} else {
+			$content_width = get_content_width ("page");
+		}
+	}
 	
 	$box_widths = $options['right01-width'].",";
 	$box_widths .= $options['right02-width'].",";
