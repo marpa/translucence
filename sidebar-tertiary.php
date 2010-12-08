@@ -18,10 +18,11 @@
 	global $options;
 	if ( is_active_sidebar( 'tertiary-widget-area' )) : ?>
 
-		<div id="tertiary" class="widget-area" role="complementary">
-			<div class="toggle">
-			<a id="toggletertiary" href="javascript:toggle('tertiary', '100', '100', '100', '430')">-</a></div>
+		<div id="tertiary" class="widget-area" role="complementary"  style="width: <?php print $options['left01-width'] ?>px">
+			<div class="toggle" style="float: left;">
+			<a id="toggletertiary" href="javascript:toggle('tertiary',<?php print get_box_widths(); ?>)">-</a>
 			</div>
+
 			<ul class="xoxo">
 				<?php dynamic_sidebar( 'tertiary-widget-area' ); ?>
 			</ul>

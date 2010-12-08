@@ -19,9 +19,9 @@
 	global $options;
 	if ( is_active_sidebar( 'secondary-widget-area' ) && $options['right02-width'] != '0') : ?>
 
-		<div id="secondary" class="widget-area" role="complementary">
+		<div id="secondary" class="widget-area" role="complementary"  style="width: <?php print $options['right02-width'] ?>px">
 			<div class="toggle">
-			<a id="togglesecondary" href="javascript:toggle('secondary', '100', '100', '100', '430')">-</a></div>
+			<a id="togglesecondary" href="javascript:toggle('secondary',<?php print get_box_widths(); ?>)">-</a>
 			</div>
 			<ul class="xoxo">
 				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
