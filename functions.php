@@ -80,6 +80,19 @@ function variation_admin_menu() {
     add_theme_page($theme_options, $theme_options, 'edit_theme_options', 'Variations', 'variation_options');
 }
 
+/*********************************************************
+ * Register theme javascript
+ *********************************************************/ 
+ 
+// instruction to only load if it is not the admin area
+if ( !is_admin() ) { 
+   // register your script location, dependencies and version
+   wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
+   // enqueue the script
+   wp_enqueue_script('display.control');
+}
+
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
@@ -1584,6 +1597,20 @@ function get_content_width ($template) {
 	
 	$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
 	return $content_width;
+}
+
+function get_box_widths () {
+	global $options;
+	
+	$content_width = get_content_width ("page");
+	
+	$box_widths = $options['right01-width'].",";
+	$box_widths .= $options['right02-width'].",";
+	$box_widths .= $options['left01-width'].",";
+	$box_widths .= $content_width;
+	
+	return $box_widths;
+
 }
 
 /*********************************************************

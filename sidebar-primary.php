@@ -18,9 +18,9 @@
 	
 	if ( $options['right01-width'] != '0') : ?>
 	
-		<div id="primary" class="widget-area" role="complementary">
+		<div id="primary" class="widget-area" role="complementary" style="width: <?php print $options['right01-width'] ?>px">
 			<div class="toggle">
-			<a id="toggleprimary" href="javascript:toggle('primary',<?php print $options['right01-width'].",".$options['right02-width'].",".$options['left01-width'].",".$options['content-width'] ?>)">-</a>
+			<a id="toggleprimary" href="javascript:toggle('primary',<?php print get_box_widths(); ?>)">-</a>
 			</div>
 			<ul class="xoxo">
 				<?php dynamic_sidebar( 'primary-widget-area' ); ?>
