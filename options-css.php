@@ -412,6 +412,11 @@ div.menu,
 	border-bottom:1px solid <?php print $options['left01-link-color']?>;
 }
 
+#tertiary .toggle a:hover {
+	text-decoration: none;	
+	border: 1px dotted <?php print $options['left01-link-color']?>;
+}
+
 #primary a {
 	color: <?php print $options['right01-link-color']?>;
 	border-bottom:1px none <?php print $options['right01-link-color']?>;
@@ -422,6 +427,12 @@ div.menu,
 	border-bottom:1px solid <?php print $options['right01-link-color']?>;
 }
 
+#primary .toggle a:hover {
+	text-decoration: none;	
+	border: 1px dotted <?php print $options['right01-link-color']?>;
+}
+
+
 #secondary a {
 	color: <?php print $options['right02-link-color']?>;
 	border-bottom:1px none <?php print $options['right02-link-color']?>;
@@ -431,6 +442,12 @@ div.menu,
 	color: <?php print $options['right02-link-color']?>;
 	border-bottom:1px solid <?php print $options['right02-link-color']?>;
 }
+
+#secondary .toggle a:hover {
+	text-decoration: none;	
+	border: 1px dotted <?php print $options['right02-link-color']?>;
+}
+
 
 #footer-widget-area a {
 	color: <?php print $options['bottom-link-color']?>;		
