@@ -1399,16 +1399,31 @@ div.menu,
 
 .toggle {
 	float: right;
-	border: 1px solid #CCCCCC;
+	width: 20px;
 	padding-left: 2px;
 	padding-right: 2px;
+	margin-bottom: 5px;
 	line-height: 12px;
-	font-size: 9px;
+	font-size: 12px;
+	text-align: center;
+	border: 1px dotted transparent;
 }
 
-.toggle:hover {
-	border: 1px solid #003366;
+#primary .toggle a, 
+#secondary .toggle a, 
+#tertiary .toggle a {
+	display: block;	
+	text-decoration: none;
+	border: 1px dotted transparent;
 }
+
+#primary .toggle a:hover,
+#secondary .toggle a:hover,
+#tertiary .toggle a:hover {
+	text-decoration: none;	
+	border: 1px dotted #003366;
+}
+
  
 #tertiary {
 	display: none;
