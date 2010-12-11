@@ -1411,7 +1411,8 @@ div.menu,
 
 #primary .toggle a, 
 #secondary .toggle a, 
-#tertiary .toggle a {
+#tertiary .toggle a,
+#content .toggle a {
 	display: block;	
 	text-decoration: none;
 	border: 1px dotted transparent;
@@ -1419,7 +1420,8 @@ div.menu,
 
 #primary .toggle a:hover,
 #secondary .toggle a:hover,
-#tertiary .toggle a:hover {
+#tertiary .toggle a:hover, 
+#content .toggle a:hover {
 	text-decoration: none;	
 	border: 1px dotted #003366;
 }
