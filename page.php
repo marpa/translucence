@@ -44,7 +44,10 @@ $content_width = get_content_width("page");
 					<?php } else { ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php } ?>
-
+					<div id="toc" class="toc">
+					<div class="toggle">
+						<a id="togglelink" href="javascript:toggleToc()">-</a>
+					</div>
 					<?php
 					  if($post->post_parent)
 					  $children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
@@ -55,7 +58,7 @@ $content_width = get_content_width("page");
 					  <?php echo $children; ?>
 					  </ul>
 					  <?php } ?>	
-					  
+					 </div> 
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>

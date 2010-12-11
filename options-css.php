@@ -771,6 +771,15 @@ div.menu li {
 	color: <?php print $options['entry-link-color']?>;
 
 }
+
+.pagenav .current_page_item a {
+	color: <?php print $options['content-text-color']?>;
+}
+
+.pagenav .current_page_item > ul.children a {
+	font-style: normal;
+	color: <?php print $options['entry-link-color']?>;
+}
 	
 
 
