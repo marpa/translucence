@@ -1847,12 +1847,14 @@ div.menu li {
 -------------------------------------------------------------- */	
 
 .widget_pages li.page_item ul.children,
-.widget_nav_menu li.menu-item ul.sub-menu {
+.widget_nav_menu li.menu-item ul.sub-menu,
+.pagenav li.page_item ul.children {
 	display: none;
 }
 
 .widget_pages li.current_page_item > ul.children, 
-.widget_nav_menu li.current-menu-item > ul.sub-menu {
+.widget_nav_menu li.current-menu-item > ul.sub-menu,
+.pagenav li.current_page_item > ul.children {
 	display: block;
 }
 
@@ -1919,12 +1921,24 @@ div.menu li {
 }
 
 .pagenav .current_page_item {
-	display: none;
+	display: block;
+	font-style: italic;
 }
 
-.pagenav a, .pagenav a:visited {
+.pagenav a {
 	color: #003366;
 }
+
+.pagenav .current_page_item a {
+	color: #444444;
+}
+
+.pagenav .current_page_item > ul.children a {
+	font-style: normal;
+	color: #003366;
+}
+
+
 
  
 /* Begin post/page entry css

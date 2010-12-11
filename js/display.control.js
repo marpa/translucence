@@ -13,10 +13,12 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	var cookieprimary = document.cookie.indexOf("hideprimary=");
 	var cookiesecondary = document.cookie.indexOf("hidesecondary=");
 	var cookietertiary = document.cookie.indexOf("hidetertiary=");
+	var cookietoc = document.cookie.indexOf("hidetoc=");
 	
 	cookieprimary = getCookie("hideprimary");
 	cookiesecondary = getCookie("hidesecondary");
 	cookietertiary = getCookie("hidetertiary");
+	cookietoc = getCookie("hidetoc");
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
 		toggle('primary', primary_width, secondary_width, tertiary_width, content_width);
@@ -27,6 +29,11 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	if (cookietertiary > -1 && cookietertiary == 1) {
 		toggle('tertiary', primary_width, secondary_width, tertiary_width, content_width);
 	}
+
+	if (cookietoc > -1 && cookietoc == 1) {
+		toggleToc();
+	}
+
 	
 }
 
@@ -101,3 +108,19 @@ if (document.cookie.length>0)
   }
 return "";
 }
+
+function toggleToc() {
+	var toc = document.getElementById('toc').getElementsByTagName('ul')[0];
+	var toggleLink = document.getElementById('togglelink');
+
+	if (toc && toggleLink && toc.style.display == 'none') {
+		changeText(toggleLink, "-");
+		toc.style.display = 'block';
+		document.cookie = "hidetoc=0";
+	} else {
+		changeText(toggleLink, "+");
+		toc.style.display = 'none';
+		document.cookie = "hidetoc=1";
+	}
+}
+
