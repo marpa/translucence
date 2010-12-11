@@ -448,6 +448,12 @@ div.menu,
 	border: 1px dotted <?php print $options['right02-link-color']?>;
 }
 
+#content .toggle a:hover {
+	text-decoration: none;	
+	border: 1px dotted <?php print $options['entry-link-color']?>;
+}
+
+
 
 #footer-widget-area a {
 	color: <?php print $options['bottom-link-color']?>;		
