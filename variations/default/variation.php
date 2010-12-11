@@ -382,7 +382,8 @@ $options_values['sidebar-color'] = array(
 	'Yellow' => '#FFF8C6',
 	'Muted Yellow' => '#e9e9c9',
 	'Gray Blue'	=> '#364559',
-	'Green' 	=> '#4a6339'
+	'Green' 	=> '#4a6339',
+	'Black' 	=> '#000000'
 	);
 
 
