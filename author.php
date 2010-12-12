@@ -48,16 +48,28 @@ $content_width = get_content_width ("author");
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
 <?php //endif; ?>
-<div>
+<div id="entry-author-pages">
+<div id="toc" class="toc">
+<h3>Pages by <?php print get_the_author_meta( 'display_name' ); ?></h3>
+<div class="toggle">
+	<a id="togglelink" href="javascript:toggleToc()">-</a>
+</div>
 
 <?php
-	$authorpages = wp_list_pages("title_li=<h3>Pages by ".get_the_author_meta( 'display_name' )."</h3>&author=".get_the_author_meta( 'ID' )."&echo=0");
-	if ($authorpages) {
-		print "<ul>";
+	$authorpages = wp_list_pages("title_li=&author=".get_the_author_meta( 'ID' )."&echo=0");
+	$num_authorpages = get_pages("author=".get_the_author_meta( 'ID' ));
+
+	print "<div class='pagenav' style='margin-bottom: 15px;'>";
+	print "<ul>";	
+	if ($authorpages && count($num_authorpages) > 0) {
 		print $authorpages;
-		print "</ul>";
-	}	
+	} else {
+		print get_the_author_meta( 'display_name' )." has not created any pages on this site...";
+	}
+	print "</ul>";
+	print "</div>";
 ?>
+</div>
 
 <h3>Posts by <?php print get_the_author_meta( 'display_name' ) ?></h3>
 

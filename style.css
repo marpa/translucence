@@ -446,7 +446,6 @@ textarea {
 	margin: 0 0 0 104px;
 }
 #entry-author-info h2 {
-	color: #000;
 	font-size: 100%;
 	font-weight: bold;
 	margin-bottom: 0;
@@ -1852,6 +1851,10 @@ div.menu li {
 .widget_nav_menu li.menu-item ul.sub-menu,
 .pagenav li.page_item ul.children {
 	display: none;
+}
+
+#entry-author-pages .pagenav li.page_item ul.children {
+	display: block;
 }
 
 .widget_pages li.current_page_item > ul.children, 
