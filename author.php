@@ -77,10 +77,10 @@ $content_width = get_content_width ("author");
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php if ( $options['author-sidebar-right-display'] == "show" ) : ?>
+<?php if ( $options['author-sidebar-right-display'] == "show" && $options['right01-width'] != '0') : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['author-sidebar-right02-display'] == "show" ) : ?>
+<?php if ( $options['author-sidebar-right02-display'] == "show" && $options['right02-width'] != '0') : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

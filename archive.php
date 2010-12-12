@@ -17,7 +17,7 @@ $content_width = get_content_width ("archives");
 ?>
 
 		<div id="container">
-		<?php if ( $options['archives-sidebar-left-display'] == "show" ) : ?>
+		<?php if ( $options['archives-sidebar-left-display'] == "show" && $options['left01-width'] != '0') : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
@@ -61,10 +61,10 @@ $content_width = get_content_width ("archives");
 
 			</div><!-- #content -->
 
-<?php if ( $options['archives-sidebar-right-display'] == "show" ) : ?>
+<?php if ( $options['archives-sidebar-right-display'] == "show" && $options['right01-width'] != '0') : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['archives-sidebar-right02-display'] == "show" ) : ?>
+<?php if ( $options['archives-sidebar-right02-display'] == "show" && $options['right02-width'] != '0') : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 
