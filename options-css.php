@@ -448,6 +448,10 @@ div.menu,
 	border: 1px dotted <?php print $options['right02-link-color']?>;
 }
 
+#content .toggle a {
+	color: <?php print $options['entry-link-color']?>;
+}
+
 #content .toggle a:hover {
 	text-decoration: none;	
 	border: 1px dotted <?php print $options['entry-link-color']?>;
@@ -822,6 +826,15 @@ div.menu li {
 h1, h2, h3 {
 	color: <?php print $options['content-text-color']?>;
 	border-bottom: 1px solid #CCCCCC;
+}
+
+#entry-author-info #author-description { 
+	color: <?php print $options['content-text-color']?>;
+}
+
+#entry-author-info a,
+#author-description a { 
+	color: <?php print $options['linkcolor']?>;
 }
 
 a, h2 a:hover, h3 a:hover {
