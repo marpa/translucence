@@ -44,6 +44,7 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 	var tertiarybox = document.getElementById('tertiary');
 	//alert(box);
 	
+	if (box) {
 	var widgetlist = box.getElementsByTagName('ul')[0];
 	var toggle_link_element = "toggle"+obj;
 	var toggleLink = document.getElementById(toggle_link_element);
@@ -91,6 +92,7 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 		document.cookie = "hide"+obj+"=1";
 		changeText(toggleLink, "+");
 	}	
+	}
 }
 
 function getCookie(c_name)
@@ -110,17 +112,20 @@ return "";
 }
 
 function toggleToc() {
-	var toc = document.getElementById('toc').getElementsByTagName('ul')[0];
-	var toggleLink = document.getElementById('togglelink');
-
-	if (toc && toggleLink && toc.style.display == 'none') {
-		changeText(toggleLink, "-");
-		toc.style.display = 'block';
-		document.cookie = "hidetoc=0";
-	} else {
-		changeText(toggleLink, "+");
-		toc.style.display = 'none';
-		document.cookie = "hidetoc=1";
+	var toc = document.getElementById('toc');
+	if (toc) {
+		toc = toc.getElementsByTagName('ul')[0];
+		var toggleLink = document.getElementById('togglelink');
+	
+		if (toc && toggleLink && toc.style.display == 'none') {
+			changeText(toggleLink, "-");
+			toc.style.display = 'block';
+			document.cookie = "hidetoc=0";
+		} else {
+			changeText(toggleLink, "+");
+			toc.style.display = 'none';
+			document.cookie = "hidetoc=1";
+		}
 	}
 }
 
