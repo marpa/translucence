@@ -324,12 +324,12 @@ function header_style() {
 	} else {
 		$custom_header = get_header_image();
 	}
-		
+
 	?>	
 	<style type="text/css">
 	.headerblock {
 		background-color: <?php echo HEADER_BGCOLOR; ?>;
-		background-image: url(<?php print $custom_header; ?>);
+		<?php if ($custom_header != "") print "background-image: url('".$custom_header."');\n"; ?>
 		background-position: right;
 		background-repeat: no-repeat;
 	}
