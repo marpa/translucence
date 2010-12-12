@@ -318,8 +318,7 @@ function header_style() {
 	
 	if ( is_singular() &&
 	has_post_thumbnail( $post->ID ) &&
-	( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-	$image[1] >= HEADER_IMAGE_WIDTH ) {
+	( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) )  ) {
 		$custom_header = $image[0];
 	} else {
 		$custom_header = get_header_image();
