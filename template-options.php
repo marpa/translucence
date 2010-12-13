@@ -562,7 +562,7 @@ function get_global_options() {
 	print "</td>";	
 	
 	// options mode values (used in get_active_options)
-	$options_values['mode'] = array('Basic' => 'basic', 'Advanced' => 'advanced', 'Hide Global' => 'hide');
+	$options_values['mode'] = array('Basic Options' => 'basic', 'Post Options' => 'post', 'Layout Options' => 'layout','All Options' => 'advanced', 'Hide Global' => 'hide');
 	
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
 		print "Options Mode:<span class='option-label'>";
@@ -880,8 +880,8 @@ function get_topmenu_options() {
 
 function get_post_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_settings, $theme_css, $_POST;	
-    
+    global $theme_settings, $theme_css, $_POST;
+        
     ob_start();
     print "<div>";
 	// post single sidebar options
@@ -921,70 +921,74 @@ function get_post_options() {
 	/*********************************************************
 	 * Text, Link, Category and Tag options
 	 *********************************************************/
-	
-	print "
-	<hr/>
-	<table width = '100%' cellpadding='0'>
-	<tr><td valign='top'>	
 
+	if ($options['options-mode'] != "basic" && $options['options-mode'] != "layout") {
+		print "
+		<hr/>
 		<table width = '100%' cellpadding='0'>
-			<tr>
-			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
-			<td style='border-bottom: 1px dotted; text-align: right;'>";
-			
-			// text alignment options
-			get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
-			print "		 							
-			</td>								
-			</tr>						<tr>
-			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
-			<td style='border-bottom: 1px dotted; text-align: right;'>";
-			
-			// text color and sise options
-			get_option_selector ("color", "textcolor", $options_values['textcolor']);
-			get_option_selector ("size", "entry-text-size", $options_values['text-size']);
-			print "		 							
-			</td>								
-			</tr>
-			<tr>
-			<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>Link color</span></td>
-			<td style='border-bottom: 1px dotted; text-align: right;'>";							
-			// link color options
-			get_option_selector ("", "linkcolor", $options_values['linkcolor']);
-			print "
-			</td>								
-			</tr>						
-		</table>
-	</td><td valign='top' width='50%'>
-		<table width = '100%' cellpadding='0'>
-			<tr>";
-			
-			// category link style
-			print "
-			<td style='border-bottom: 1px dotted;'><span class='category' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
-			<td style='border-bottom: 1px dotted; text-align: right;'>";						
-			get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
-			print "
-			</td>								
-			</tr><tr>";
-			
-			// Tag link style
-			print "
-			<td style='border-bottom: 1px dotted;'><span class='tag' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
-			<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
-			get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
-			print "
-			</td>
-			</tr><tr>";
-			// Entry link style
-			print "
-			<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>Entry Link</a></span></td>
-			<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
-			get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
-			print "
-			</td></tr>
-		</table>						
-	</table>";
+		<tr><td valign='top'>	
+	
+			<table width = '100%' cellpadding='0'>
+				<tr>
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
+				<td style='border-bottom: 1px dotted; text-align: right;'>";
+				
+				// text alignment options
+				get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
+				print "		 							
+				</td>								
+				</tr>						<tr>
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
+				<td style='border-bottom: 1px dotted; text-align: right;'>";
+				
+				// text color and sise options
+				get_option_selector ("color", "textcolor", $options_values['textcolor']);
+				get_option_selector ("size", "entry-text-size", $options_values['text-size']);
+				print "		 							
+				</td>								
+				</tr>
+				<tr>
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>Link color</span></td>
+				<td style='border-bottom: 1px dotted; text-align: right;'>";							
+				// link color options
+				get_option_selector ("", "linkcolor", $options_values['linkcolor']);
+				print "
+				</td>								
+				</tr>						
+			</table>
+		</td><td valign='top' width='50%'>
+			<table width = '100%' cellpadding='0'>
+				<tr>";
+				
+				// category link style
+				print "
+				<td style='border-bottom: 1px dotted;'><span class='cat-links' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
+				<td style='border-bottom: 1px dotted; text-align: right;'>";						
+				get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
+				print "
+				</td>								
+				</tr><tr>";
+				
+				// Tag link style
+				print "
+				<td style='border-bottom: 1px dotted;'><span class='tag-links' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
+				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+				get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
+				print "
+				</td>
+				</tr><tr>";
+				// Entry link style
+				print "
+				<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>Entry Link</a></span></td>
+				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
+				get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
+				print "
+				</td></tr>
+			</table>						
+		</table>";
+	} else {
+		print "<span style='font-size: 10px;'>Chose Options Mode = Post Options for options related to posts...</span>";
+	}
 	print "</div>";
 
 	$post_options = ob_get_contents();
@@ -1294,7 +1298,7 @@ function get_footermeta_options() {
 
 
 /******************************************************************************
- * Get options that are included in basic mode
+ * Get options that are included in given option mode
  ******************************************************************************/
 
 function get_active_options($options_mode) {
@@ -1324,6 +1328,43 @@ function get_active_options($options_mode) {
 			$active_options[]  = 'left01-width';
 			$active_options[]  = 'right01-width';
 			$active_options[]  = 'right02-width';
+		
+		} else if ($options_mode == "post") {
+			$active_options[]  = 'options-mode';
+			$active_options[]  = 'entry-text-align';
+			$active_options[]  = 'entry-text-size';
+			$active_options[]  = 'linkcolor';
+			$active_options[]  = 'cat-links-color';
+			$active_options[]  = 'tag-links-color';
+			$active_options[]  = 'entry-link-style';		
+
+		} else if ($options_mode == "layout") {
+			$active_options[]  = 'options-mode';
+			$active_options[]  = 'post-single-sidebar';
+			$active_options[]  = 'author-single-sidebar';
+			$active_options[]  = 'content-border-style';
+			$active_options[]  = 'category-single-sidebar';
+			$active_options[]  = 'tag-single-sidebar';
+			$active_options[]  = 'search-single-sidebar';
+			$active_options[]  = 'archives-single-sidebar';
+			$active_options[]  = 'top-border-style';
+			$active_options[]  = 'content-border-style';
+			$active_options[]  = 'left01-border-style';
+			$active_options[]  = 'right01-border-style';
+			$active_options[]  = 'right02-border-style';
+			$active_options[]  = 'bottom-border-style';
+			$active_options[]  = 'top-opacity';
+			$active_options[]  = 'left01-opacity';
+			$active_options[]  = 'content-opacity';
+			$active_options[]  = 'right01-opacity';
+			$active_options[]  = 'right02-opacity';
+			$active_options[]  = 'bottom-opacity';	
+			$active_options[]  = 'top-color';
+			$active_options[]  = 'left01-color';
+			$active_options[]  = 'content-color';
+			$active_options[]  = 'right01-color';
+			$active_options[]  = 'right02-color';
+			$active_options[]  = 'bottom-color';
 		
 		} else if ($options_mode == "hide") {
 			$active_options[]  = 'options-mode';
