@@ -534,7 +534,7 @@ function get_global_options() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     global $custom_header_set, $custom_background_set, $active_options;
-    
+       
 	ob_start();
 	print "<div class='options'>";
 	print "<table style='width: 100%;'>";
@@ -577,7 +577,7 @@ function get_global_options() {
 	print "<table style='width: 100%;'>";
 	print "<tr>";
 	
-	// get basic options
+	// get active options
 	if (in_array('options-mode', $variation_config['model'])) {
 		$active_options = get_active_options($options['options-mode']);
 	}
@@ -640,6 +640,7 @@ function get_global_options() {
 				get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
 		}
+		
 		if (in_array('site-title-box-options', $active_options) || $custom_header_set == 1) {
 		
 			// header-text-box options		
@@ -665,8 +666,7 @@ function get_global_options() {
 		}
 	
 		print "</td>";	
-		print "</tr>";
-	
+		print "</tr>";	
 	}
 	
 	// Tagline text size, color, box
@@ -738,12 +738,19 @@ function get_global_options() {
 					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
 				</select>";
 			}
-			print "</td>";
-		
+			print "</td>";		
 		print "</tr>";	
 		print "</table>";
 	}
-	
+	print "<div style='font-size: 10px;'>";
+	if ($options['options-mode'] != "global" && $options['options-mode'] != "advanced") {
+		print "For more site and header options, see: ";
+		print "<a href='javascript:setThemeOptionsMode(\"global\")'>Global Options</a>";	
+	} else {
+		print "For basic site and header options, see: ";
+		print "<a href='javascript:setThemeOptionsMode(\"basic\")'>Basic Options</a>";	
+	}
+	print "</div>";		
 	print "</div>";
 
 	$global_options = ob_get_contents();
@@ -847,6 +854,11 @@ function get_layout_options() {
 		print "</tr>";	
 		print "</table>";
 		print "</div>";
+	} else {
+		print "<div style='font-size: 10px;'>";
+		print "For more sidebar options, see: ";
+		print "<a href='javascript:setThemeOptionsMode(\"layout\")'>Layout Options</a>";
+		print "</div>";	
 	}
 
 	$entry_options = ob_get_contents();
@@ -922,7 +934,7 @@ function get_post_options() {
 	 * Text, Link, Category and Tag options
 	 *********************************************************/
 
-	if ($options['options-mode'] != "basic" && $options['options-mode'] != "layout") {
+	if ($options['options-mode'] == "post"  || $options['options-mode'] == "advanced") {
 		print "
 		<hr/>
 		<table width = '100%' cellpadding='0'>
@@ -941,7 +953,7 @@ function get_post_options() {
 				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
 				<td style='border-bottom: 1px dotted; text-align: right;'>";
 				
-				// text color and sise options
+				// text color and size options
 				get_option_selector ("color", "textcolor", $options_values['textcolor']);
 				get_option_selector ("size", "entry-text-size", $options_values['text-size']);
 				print "		 							
@@ -987,7 +999,10 @@ function get_post_options() {
 			</table>						
 		</table>";
 	} else {
-		print "<span style='font-size: 10px;'>Chose Options Mode = Post Options for options related to posts...</span>";
+		print "<div style='font-size: 10px;'>";
+		print "For text and link options, see: ";
+		print "<a href='javascript:setThemeOptionsMode(\"post\")'>Post Options</a>";
+		print "</div>";
 	}
 	print "</div>";
 
@@ -1296,20 +1311,25 @@ function get_footermeta_options() {
 	return $footermeta_options;
 }
 
+/******************************************************************************
+ * Get option-modes 
+ ******************************************************************************/
+
 function get_option_modes() {
 	$option_modes = array(
 		'Basic Options' => 'basic', 
-		'Post Options' => 'post', 
+		'Post Options' => 'post',
 		'Layout Options' => 'layout',
-		'All Options' => 'advanced', 
-		'Hide Global' => 'hide'
+		'Sidebar Options' => 'sidebar',
+		'Global Options' => 'global',
+		'All Options' => 'advanced' 
 	);
 	return $option_modes;	
 }
 
 
 /******************************************************************************
- * Get options that are included in given option mode
+ * Get active options that are included in given option mode
  ******************************************************************************/
 
 function get_active_options($options_mode) {
@@ -1339,17 +1359,59 @@ function get_active_options($options_mode) {
 			$active_options[]  = 'left01-width';
 			$active_options[]  = 'right01-width';
 			$active_options[]  = 'right02-width';
+			$active_options[]  = 'top-opacity';
+			$active_options[]  = 'left01-opacity';
+			$active_options[]  = 'right01-opacity';
+			$active_options[]  = 'right02-opacity';	
+			$active_options[]  = 'top-color';
+			$active_options[]  = 'left01-color';
+			$active_options[]  = 'right01-color';
+			$active_options[]  = 'right02-color';
+			$active_options[]  = 'bottom-color';
+			$active_options[]  = 'top-border-style';
+			$active_options[]  = 'left01-border-style';
+			$active_options[]  = 'right01-border-style';
+			$active_options[]  = 'right02-border-style';
+			$active_options[]  = 'bottom-border-style';
+
+
 		
 		} else if ($options_mode == "post") {
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'entry-text-align';
 			$active_options[]  = 'entry-text-size';
+			$active_options[]  = 'textcolor';
 			$active_options[]  = 'linkcolor';
 			$active_options[]  = 'cat-links-color';
 			$active_options[]  = 'tag-links-color';
 			$active_options[]  = 'entry-link-style';		
 
 		} else if ($options_mode == "layout") {
+			$active_options[]  = 'options-mode';
+			$active_options[]  = 'layout-options';
+			$active_options[]  = 'left01-width';
+			$active_options[]  = 'right01-width';
+			$active_options[]  = 'right02-width';
+			$active_options[]  = 'top-border-style';
+			$active_options[]  = 'content-border-style';
+			$active_options[]  = 'left01-border-style';
+			$active_options[]  = 'right01-border-style';
+			$active_options[]  = 'right02-border-style';
+			$active_options[]  = 'bottom-border-style';
+			$active_options[]  = 'top-opacity';
+			$active_options[]  = 'left01-opacity';
+			$active_options[]  = 'content-opacity';
+			$active_options[]  = 'right01-opacity';
+			$active_options[]  = 'right02-opacity';
+			$active_options[]  = 'bottom-opacity';	
+			$active_options[]  = 'top-color';
+			$active_options[]  = 'left01-color';
+			$active_options[]  = 'content-color';
+			$active_options[]  = 'right01-color';
+			$active_options[]  = 'right02-color';
+			$active_options[]  = 'bottom-color';
+			
+		} else if ($options_mode == "sidebar") {
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'post-single-sidebar';
 			$active_options[]  = 'author-single-sidebar';
@@ -1377,25 +1439,38 @@ function get_active_options($options_mode) {
 			$active_options[]  = 'right02-color';
 			$active_options[]  = 'bottom-color';
 		
-		} else if ($options_mode == "hide") {
+		} else if ($options_mode == "global") {
 			$active_options[]  = 'options-mode';
-			$active_options[]  = 'layout-options';
-			$active_options[]  = 'left01-width';
-			$active_options[]  = 'right01-width';
-			$active_options[]  = 'right02-width';	
-			$active_options[]  = 'post-single-sidebar';
-			$active_options[]  = 'author-single-sidebar';
-			$active_options[]  = 'content-border-style';
-			$active_options[]  = 'category-single-sidebar';
-			$active_options[]  = 'tag-single-sidebar';
-			$active_options[]  = 'search-single-sidebar';
-			$active_options[]  = 'archives-single-sidebar';
-			$active_options[]  = 'entry-text-align';
-			$active_options[]  = 'entry-text-size';
-			$active_options[]  = 'linkcolor';
-			$active_options[]  = 'cat-links-color';
-			$active_options[]  = 'tag-links-color';
-			$active_options[]  = 'entry-link-style';
+			$active_options[]  = 'site-options';
+			$active_options[]  = 'header-options';
+			$active_options[]  = 'site-title-options';
+			$active_options[]  = 'site-title-box-options';
+			$active_options[]  = 'tagline-options';
+			$active_options[]  = 'headermeta-options';
+			$active_options[]  = 'site-width';
+			$active_options[]  = 'site-color';
+			$active_options[]  = 'site-opacity';
+			$active_options[]  = 'site-border-style';
+			$active_options[]  = 'header-block-height';
+			$active_options[]  = 'header-color';
+			$active_options[]  = 'header-opacity';
+			$active_options[]  = 'header-border-style';
+			$active_options[]  = 'site-title-size';
+			$active_options[]  = 'site-title-color';
+			$active_options[]  = 'header-text-shadow-offset';
+			$active_options[]  = 'header-text-shadow-blur';
+			$active_options[]  = 'title-box-color';
+			$active_options[]  = 'title-box-opacity';
+			$active_options[]  = 'header-text-display';
+			$active_options[]  = 'site-description-size';
+			$active_options[]  = 'site-description-color';
+			$active_options[]  = 'description-box-color';
+			$active_options[]  = 'description-box-opacity';
+			$active_options[]  = 'header_meta_left_options';
+			$active_options[]  = 'headermeta';
+			//$active_options[]  = '';
+			
+
 		} else {
 			$active_options = $options;
 		}
