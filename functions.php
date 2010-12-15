@@ -89,8 +89,10 @@ if ( !is_admin() ) {
    // register your script location, dependencies and version
    wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
    // enqueue the script
-   wp_enqueue_script('display.control');
+ //  wp_enqueue_script('jquery');
+   wp_enqueue_script('display.control');      
 }
+
 
 
 /**
