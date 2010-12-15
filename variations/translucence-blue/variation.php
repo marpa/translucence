@@ -51,6 +51,8 @@ if ($options['background'] == "translucence-blue") {
 	if (!in_array($options['left01-color'], array_values($options_values['sidebar-color']))) $options['left01-color'] = "#364559";
 	if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#364559";
 	if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#364559";
+	if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#e9e9c9";
+	if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
 
 }	
 	
