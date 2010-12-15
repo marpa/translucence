@@ -45,7 +45,7 @@ $content_width = $options['site-width'] - 75;
 					  $children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
 					  else
 					  $children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
-					  if ($children) { ?>
+					  if ($children || !$post->post_parent) { ?>
 					  <ul>
 					  <?php echo $children; ?>
 					  </ul>
