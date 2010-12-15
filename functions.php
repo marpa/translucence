@@ -84,16 +84,13 @@ function variation_admin_menu() {
  * Register theme javascript
  *********************************************************/ 
  
-// instruction to only load if it is not the admin area
+// front end javascript
 if ( !is_admin() ) { 
-   // register your script location, dependencies and version
-   wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
-   // enqueue the script
- //  wp_enqueue_script('jquery');
-   wp_enqueue_script('display.control');      
+ //  wp_enqueue_script('jquery');      
 }
 
-
+wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
+wp_enqueue_script('display.control');
 
 /**
  * Set the content width based on the theme's design and stylesheet.
