@@ -962,7 +962,7 @@ function get_post_options() {
 				
 				// category link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='cat-links' style='font-size: 10px;'><a href='#'>Category Link</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='cat-links' style='font-size: 10px;'><a href='#'>Categories</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>";						
 				get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
 				print "
@@ -971,7 +971,7 @@ function get_post_options() {
 				
 				// Tag link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='tag-links' style='font-size: 10px;'><a href='#'>Tag Link</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='tag-links' style='font-size: 10px;'><a href='#'>Tags</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
 				get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
 				print "
