@@ -606,7 +606,7 @@ function get_global_options() {
 			print "<span class='option-label'>Header</span>";
 			get_option_selector ("height:", "header-block-height", $options_values['header-block-height']);
 			// header color
-			get_option_selector ("color:", "header-color", $options_values['sidebar-color']);
+			get_option_selector ("color:", "header-color", $options_values['header-color']);
 			// header opacity
 			get_option_selector ("opacity:", "header-opacity", $options_values['header-opacity']);
 			// header border
@@ -646,7 +646,7 @@ function get_global_options() {
 			// header-text-box options		
 			if (in_array("title-box-color", $variation_config['model'])) {	
 				print "<span class='option-label'> Site Title Box</span>";
-				get_option_selector ("color: ", "title-box-color", $options_values['sidebar-color']);
+				get_option_selector ("color: ", "title-box-color", $options_values['header-color']);
 			}
 			if (in_array("title-box-opacity", $variation_config['model'])) {	
 				get_option_selector ("opacity:", "title-box-opacity", $options_values['header-opacity']);
@@ -695,7 +695,7 @@ function get_global_options() {
 	
 			if (in_array("description-box-color", $variation_config['model'])) {	
 				print "<span class='option-label'> Tagline box</span><span class='option-label'>";
-				get_option_selector ("color:", "description-box-color", $options_values['sidebar-color']);
+				get_option_selector ("color:", "description-box-color", $options_values['header-color']);
 				print "</span>";
 			}
 	
@@ -742,13 +742,14 @@ function get_global_options() {
 		print "</tr>";	
 		print "</table>";
 	}
+
 	print "<div style='font-size: 10px;'>";
 	if ($options['options-mode'] != "global" && $options['options-mode'] != "advanced") {
 		print "For more site and header options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"global\")'>Global Options</a>";	
+		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"global\")'>Global Options</a>";	
 	} else {
 		print "For basic site and header options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"basic\")'>Basic Options</a>";	
+		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"basic\")'>Basic Options</a>";	
 	}
 	print "</div>";		
 	print "</div>";

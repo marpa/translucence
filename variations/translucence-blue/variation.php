@@ -36,6 +36,21 @@ if ($options['background'] == "translucence-blue") {
 	$options['left01-heading-color'] = "#354253";
 	$options['right01-heading-color'] = "#354253";
 	$options['right02-heading-color'] = "#354253";
+	
+	$options_values['sidebar-color'] = array(
+		'White' => '#FFFFFF',
+		'Yellow' => '#FFF8C6',
+		'Muted Yellow' => '#e9e9c9',
+		'Gray Blue'	=> '#364559',	
+	);
+	
+	if (!in_array($options['top-color'], array_values($options_values['sidebar-color']))) $options['top-color'] = "#364559";
+	if (!in_array($options['header-color'], array_values($options_values['sidebar-color']))) $options['header-color'] = "#364559";
+	if (!in_array($options['content-color'], array_values($options_values['sidebar-color']))) $options['content-color'] = "#FFFFFF";
+	if (!in_array($options['bottom-color'], array_values($options_values['sidebar-color']))) $options['bottom-color'] = "#364559";
+	if (!in_array($options['left01-color'], array_values($options_values['sidebar-color']))) $options['left01-color'] = "#364559";
+	if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#364559";
+	if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#364559";
 
 }	
 	
