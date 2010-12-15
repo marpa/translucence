@@ -215,7 +215,7 @@ function twentyten_setup() {
 	$header_image_height = $options['header-block-height'];
 	
 	//define('HEADER_IMAGE', $header_image); // %s is theme dir uri
-	define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory').'/images/headers/trans01-940x198' );
+	define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory').'/images/headers/trans-1200x300.png' );
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
 	//define( 'HEADER_TEXTCOLOR', $options['site-title-color']);
