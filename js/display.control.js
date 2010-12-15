@@ -1,8 +1,8 @@
 // functions for toggling the display of sidebars in Translucence
 
-jQuery(document).ready(function(){
+//jQuery(document).ready(function(){
 	//alert("hello");
-});
+//});
 
 function changeText(el, newText) {
 	// Safari work around
