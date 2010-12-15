@@ -131,3 +131,9 @@ function toggleToc() {
 	}
 }
 
+function setThemeOptionsMode(value) {
+	var oform = document.getElementById('settings');
+	oform.elements['options-mode'].value = value;
+	oform.submit();
+}
+
