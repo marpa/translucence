@@ -190,7 +190,7 @@ if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = "
 if (!isset($options['site-color'])) $options['site-color'] = "#FFFFFF";
 if (!isset($options['title-box-color'])) $options['title-box-color'] = "#FFFFFF";
 if (!isset($options['description-box-color'])) $options['description-box-color'] = "#FFFFFF";
-if (!isset($options['header-color'])) $options['header-color'] = "#FFFFFF";
+if (!isset($options['header-color'])) $options['header-color'] = "#F9F9F9";
 if (!isset($options['top-color'])) $options['top-color'] = "#F9F9F9";
 if (!isset($options['left01-color'])) $options['left01-color'] = "#F9F9F9";
 if (!isset($options['content-color'])) $options['content-color'] = "#FFFFFF";
@@ -374,6 +374,16 @@ $options_values['sidebar-opacity'] = array(
 	'0%'=> '0'
 	);
 
+$options_values['header-color'] = array(
+	'White' => '#FFFFFF',
+	'Silver' => '#F9F9F9',
+	'Gray' => '#F3F3F3',
+	'Yellow' => '#FFF8C6',
+	'Muted Yellow' => '#e9e9c9',
+	'Green' 	=> '#4a6339',
+	'Black' 	=> '#000000'
+	);
+
 
 $options_values['sidebar-color'] = array(
 	'White' => '#FFFFFF',
@@ -381,9 +391,7 @@ $options_values['sidebar-color'] = array(
 	'Gray' => '#F3F3F3',
 	'Yellow' => '#FFF8C6',
 	'Muted Yellow' => '#e9e9c9',
-	'Gray Blue'	=> '#364559',
 	'Green' 	=> '#4a6339',
-	'Black' 	=> '#000000'
 	);
 
 
@@ -421,7 +429,6 @@ $options_values['entry-link-style'] = array(
 );
 
 $options_values['textcolor'] = array(
-	'10% Gray' => '#EEEEEE',
 	'20% Gray' => '#CCCCCC',
 	'30% Gray' => '#888888',
 	'40% Gray' => '#777777',

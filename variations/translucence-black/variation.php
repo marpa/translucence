@@ -84,9 +84,8 @@ if ($options['background'] == "translucence-black") {
 	$options_values['textcolor'] = array(
 		'White' => '#FFFFFF',
 		'10% Gray' => '#EEEEEE',
-		'20% Gray' => '#CCCCCC',
-		'30% Gray' => '#888888',
-		'40% Gray' => '#777777'
+		'20% Gray' => '#DDDDDD',
+		'30% Gray' => '#CCCCCC',
 	);
 
 	$options_values['category-link-style'] = array(
@@ -103,7 +102,7 @@ if ($options['background'] == "translucence-black") {
 	// if current value is one of this variation's option values, then use it 
 	// otherwise use default for this variation
 	if (!in_array($options['linkcolor'], array_values($options_values['linkcolor']))) $options['linkcolor'] = "#FFFFCC";
-	if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#210";
+	if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#EEEEEE";
 	if (!in_array($options['header-color'], array_values($options_values['headercolor']))) $options['header-color'] = "#262626";
 	
 	if (!in_array($options['header-heading-color'], array_values($options_values['linkcolor']))) $options['header-heading-color'] = "#262626";		
@@ -119,8 +118,8 @@ if ($options['background'] == "translucence-black") {
 	if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#262626";
 	if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#262626";
 	
-	if (!in_array($options['category-link-style'], array_values($options_values['category-link-style']))) $options['category-link-style'] = "left-sidebar-box";
-	if (!in_array($options['tag-link-style'], array_values($options_values['tag-link-style']))) $options['tag-link-style'] = "right-sidebar-box";		
+	if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#262626";
+	if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#262626";		
 
 }
 	
