@@ -562,7 +562,7 @@ function get_global_options() {
 	print "</td>";	
 	
 	// options mode values (used in get_active_options)
-	$options_values['mode'] = array('Basic Options' => 'basic', 'Post Options' => 'post', 'Layout Options' => 'layout','All Options' => 'advanced', 'Hide Global' => 'hide');
+	$options_values['mode'] = get_option_modes();
 	
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
 		print "Options Mode:<span class='option-label'>";
@@ -1294,6 +1294,17 @@ function get_footermeta_options() {
 	$footermeta_options = ob_get_contents();
 	ob_end_clean();
 	return $footermeta_options;
+}
+
+function get_option_modes() {
+	$option_modes = array(
+		'Basic Options' => 'basic', 
+		'Post Options' => 'post', 
+		'Layout Options' => 'layout',
+		'All Options' => 'advanced', 
+		'Hide Global' => 'hide'
+	);
+	return $option_modes;	
 }
 
 
