@@ -1317,12 +1317,20 @@ div.menu,
 }
 
 #ie-title-box .title-box {
+	display: inline;
+	padding: 15px 0px 15px 1px;
+	margin-top: -15px;
+	margin-bottom: -15px;
+}
+
+#ie8-title-box .title-box {
 	display: block;
 	padding: 15px 0px 15px 1px;
 	margin-top: -15px;
 	margin-bottom: -15px;
-	width: 50%;
+	width: 100%;
 }
+
 
 .description-box {
 	position: relative;

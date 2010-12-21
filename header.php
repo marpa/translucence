@@ -123,7 +123,8 @@
 				
 				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'div' : 'div'; ?>
 				<<?php echo $heading_tag; ?> id="site-title">
-					<!--[if IE]> <div id="ie-title-box"> <![endif]-->
+					<!--[if lt IE 8]> <div id="ie-title-box"> <![endif]-->
+					<!--[if IE 8]> <div id="ie8-title-box"> <![endif]-->
 					<div class="title-box">
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</div>
