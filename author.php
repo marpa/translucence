@@ -57,11 +57,11 @@ $content_width = get_content_width ("author");
 
 <?php
 	$authorpages = wp_list_pages("title_li=&author=".get_the_author_meta( 'ID' )."&echo=0");
-	$num_authorpages = get_pages("author=".get_the_author_meta( 'ID' ));
+	$num_authorpages = get_pages("authors=".get_the_author_meta( 'ID' ));
 
 	print "<div class='pagenav' style='margin-bottom: 15px;'>";
 	print "<ul>";	
-	if ($authorpages && count($num_authorpages) > 0) {
+	if ($authorpages && count($num_authorpages) > 0 && get_the_author_meta( 'ID' ) != 0) {
 		print $authorpages;
 	} else {
 		print get_the_author_meta( 'display_name' )." has not created any pages on this site...";
