@@ -53,23 +53,6 @@ $variation_config['header_meta_right_options'] = array (
 	);
 
 	
-/******************************************************************************
- * Header Image Options
- * (put all header images in images directory
- ******************************************************************************/
-$variation_config['header_image_options']['transparent'] = array (
-		'option_name' =>	'transparent',
-		'option_label' =>	'None',
-		'option_value' => 'header-transparent.png'
-	);
-
-
-$variation_config['header_image_options']['custom'] = array (
-		'option_name' =>	'custom',
-		'option_label' =>	'Custom',
-		'option_value' => 'header-trans-white-1200x100.png'
-	);
-
 
 /******************************************************************************
  * Footer meta left options
@@ -107,8 +90,8 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 
 $variation_config['custom_header'] = array(
 		'none' => array(
-			'url' => '%s/images/headers/trans-1200x300.png',
-			'thumbnail_url' => '%s/images/headers/trans-1200x300-thumbnail.png',
+			'url' => '',
+			'thumbnail_url' => '',
 			/* translators: header image description */
 			'description' => __( 'None', 'twentyten' )
 		),
@@ -117,14 +100,7 @@ $variation_config['custom_header'] = array(
 			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
 			/* translators: header image description */
 			'description' => __( 'White Gradient', 'twentyten' )
-		),
-		'lines' => array(
-			'url' => '%s/images/headers/header-lines-1500x100',
-			'thumbnail_url' => '%s/images/headers/header-lines-1500x100-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'Lines', 'twentyten' )
 		)
-
 );
 
 

@@ -175,7 +175,7 @@ if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom
 if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = "";
 if (!isset($options['footerleftcustom'])) $options['footerleftcustom'] = "";
 if (!isset($options['revert'])) $options['revert'] = 1;
-if (!isset($options['header-image-options'])) $options['header-image-options'] = "transparent";
+if (!isset($options['header-image-options'])) $options['header-image-options'] = "none";
 
 
 if (!isset($options['header-text-display'])) $options['header-text-display'] = "middle";

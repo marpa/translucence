@@ -21,6 +21,14 @@ function theme_model() {
 	} else {
 		$custom_header_set = 0;
 	}
+	
+	if ($custom_header_set == 0 && $options['header-image-options'] != "none") {
+		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
+		$custom_header = str_replace('%s', '', $header_image);
+		$custom_header_image = get_bloginfo('template_directory').$custom_header;
+		$custom_header_set = 1;
+	}
+
 
  	if ($custom_background_image) {
  		$options['background_image'] = "url('".$custom_background_image."')";

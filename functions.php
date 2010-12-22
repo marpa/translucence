@@ -211,11 +211,11 @@ function twentyten_setup() {
 	//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
 	
 	//$header_image = "%s/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+	
 	$header_image_width = $options['site-width'] - $options['custom-header-width-offset'];
 	$header_image_height = $options['header-block-height'];
+	//$header_image = $options['header-block-height'];	
 	
-	//define('HEADER_IMAGE', $header_image); // %s is theme dir uri
-	define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory').'/images/headers/trans-1200x300.png' );
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
 	//define( 'HEADER_TEXTCOLOR', $options['site-title-color']);
@@ -313,7 +313,7 @@ endif;
  */
 
 function header_style() {
-	global $post;
+	global $post, $options, $variation_config;
 	
 	if ( is_singular() &&
 	has_post_thumbnail( $post->ID ) &&
@@ -321,6 +321,12 @@ function header_style() {
 		$custom_header = $image[0];
 	} else {
 		$custom_header = get_header_image();
+	}
+	
+	if ($custom_header == "" && $options['header-image-options'] != "none") {
+		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
+		$custom_header = str_replace('%s', '', $header_image);
+		$custom_header = get_bloginfo('template_directory').$custom_header;
 	}
 
 	?>	
