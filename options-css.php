@@ -278,6 +278,10 @@ div.menu,
 	line-height: <?php print $options['entry-line-height']?>px;
 }
 
+#content img {
+	max-width: <?php print $content_width?>px;
+}
+
 
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
