@@ -275,6 +275,11 @@ function get_theme_model_css() {
 			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
+		
+		#wphead h1 a {
+			text-decoration: none;
+			border-bottom: none;
+		}
 
 		.headerblock {
 			background-image: url(".$custom_header_image.");
