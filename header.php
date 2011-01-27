@@ -109,7 +109,7 @@
 		<div id="masthead">
 			<div id="branding" role="banner">
 
-				<div class="headerblock" onclick="location.href='<?php echo get_option('home'); ?>';" style="cursor: pointer;">
+				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';" style="cursor: pointer;">
 				
 				<?php
 					if ( is_singular() &&
