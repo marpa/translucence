@@ -266,7 +266,7 @@ div.menu,
 	margin-right: <?php print $options['content-margin-right']?>px;
 	
 	width: <?php print $content_width?>px;
-	color: <?php print $options['content-text-color']?>;
+	color: <?php print $options['textcolor']?>;
 	background-color: <?php print $options['content-color-rgb']?>;
 	padding: 20px;
 	border-top: <?php print $options['content-border-width'] ?> <?php print $options['content-border-style'] ?> <?php print $options['content-border-top']?>;
