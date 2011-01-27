@@ -179,7 +179,7 @@
 						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
 					</div>
 				<?php endif; ?>
-				<div class="comments-link"><?php comments_popup_link( __( 'No comments »', 'twentyten' ), __( '1 Comment »', 'twentyten' ), __( '% Comments »', 'twentyten' ) ); ?></div>
+				<div class="comments-link"><?php comments_popup_link( __( 'No comments &raquo;', 'twentyten' ), __( '1 Comment &raquo;', 'twentyten' ), __( '% Comments &raquo;', 'twentyten' ) ); ?></div>
 				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->

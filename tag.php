@@ -27,7 +27,7 @@ $content_width = get_content_width ("tag");
 			</div>
 
 				<h1 class="page-title"><?php
-					printf( __( 'Tags » %s', 'twentyten' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					printf( __( 'Tags &raquo; %s', 'twentyten' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?></h1>
 
 <?php
