@@ -10,7 +10,7 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
-	<version number="2.1" date="the future">
+	<version number="2.1.1" date="2011-01-27">
 		<releaseNotes>
 			This release refactors functions developed in ShadowBox as applied to Twentyten theme template files. New features
 			include navigation elements in page templates, toggle display of sidebars, css for hiding all but current page sub-pages in pages widget. Css has been standardized for most 'boxes' in templates including sidebars, content, header, top navigation, category and tag links.
@@ -27,7 +27,8 @@
 		</new>
 		<new author='alex' date='2010-11-21'>
 			added support for custom page images (i.e. featured image)
-		</new>		<new author='alex' date='2010-11-21'>
+		</new>		
+		<new author='alex' date='2010-11-21'>
 			added breadcrumb links to all page templates
 		</new>
 		<new author='alex' date='2010-11-21'>
