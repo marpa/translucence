@@ -1,5 +1,5 @@
 
-Translucence v. 2.1 (the future)
+Translucence v. 2.1.1 (2011-01-27)
 =================================
 
 What is Translucence?
@@ -56,7 +56,7 @@ Bug Tracker
 ===================================================================
 
 
-v. 2.1 (the future)
+v. 2.1.1 (2011-01-27)
 ----------------------------------------------------
 This release refactors functions developed in ShadowBox as applied to Twentyten
 theme template files. New features include navigation elements in page templates,

@@ -2,7 +2,7 @@
 Translucence Change Log
 
 
-v. 2.1 (the future)
+v. 2.1.1 (2011-01-27)
 ----------------------------------------------------
 This release refactors functions developed in ShadowBox as applied to Twentyten
 theme template files. New features include navigation elements in page templates,
@@ -29,6 +29,7 @@ improve WYSIWIG.
 	* New feature: 
 		added support for custom page images (i.e. featured image)
 		(2010-11-21 - Alex Chapin)		
+		
 	* New feature: 
 		added breadcrumb links to all page templates
 		(2010-11-21 - Alex Chapin)
