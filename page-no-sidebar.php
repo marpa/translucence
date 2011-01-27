@@ -26,7 +26,7 @@ $content_width = $options['site-width'] - 75;
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
 	<div class='post-link' style="float: right; width: 40%;">
-	<a href="<?php bloginfo('url'); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
+	<a href="<?php  echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
 	</div>
 <?php endif; ?>
 
