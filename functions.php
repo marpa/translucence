@@ -872,7 +872,7 @@ function set_variation_options() {
  *********************************************************/
 
 function set_derivative_options() {
-	global $variation_config, $_POST, $options, $options_values;
+	global $variation_config, $_POST, $options, $options_values, $custom_background_image;
 
 	/******************************************************************************
 	 * Site top padding (derived from  site-border-style)
@@ -1219,7 +1219,7 @@ function set_derivative_options() {
 
 		// convert hex color and opacity settings to rgba values
 		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
-		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".$options[$box.'-opacity'].")";	
+		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";	
 		
 		
 		// text, link and highlight color adjustment for low opacity settings
@@ -1229,9 +1229,14 @@ function set_derivative_options() {
 			$options[$box.'-heading-color'] = $options['transparent-heading-color'];
 			$options[$box.'-link-color'] = $options['transparent-link-color'];
 			$options[$box.'-text-color'] = $options['transparent-text-color'];		
-
-			$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']-.2).")";
-			$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']).")";
+			
+			if ($custom_background_image != "") {
+				$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']-.2).")";
+				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']).")";
+			} else {
+				$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
+				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.1).")";			
+			}
 			
 		} else {
 			$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
