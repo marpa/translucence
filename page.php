@@ -78,8 +78,11 @@ $content_width = get_content_width("page");
 
 			</div><!-- #content -->
 
-
-<?php get_sidebar('primary'); ?>
-<?php get_sidebar('secondary'); ?>
+<?php if ($options['right01-width'] != '0') : ?>
+	<?php get_sidebar('primary'); ?>
+<?php endif;  ?>
+<?php if ($options['right02-width'] != '0') : ?>
+	<?php get_sidebar('secondary'); ?>
+<?php endif;  ?>
 		</div><!-- #container -->
 <?php get_footer(); ?>
