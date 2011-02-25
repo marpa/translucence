@@ -10,6 +10,23 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
+	<version number="2.2.1" date="the future">
+		<releaseNotes>
+			This release refines how display of site page links, adds options for default sidebar display and include general bug fixes.
+		</releaseNotes>
+		<change author='alex' date=''>
+			moved listing of related and sub pages from before page content to after page content
+		</change>
+		<change author='alex' date=''>
+			increased size of top margin on sidebars to they displaying lower than content area.
+		</change>
+		<new author='alex' date=''>
+			added option for setting default display to be collapsed
+		</new>
+		<fix author='alex' date='2011-02-25'>
+			Fixed default page template so that hidden sidebars are not displayed.
+		</fix>
+</version>
 	<version number="2.1.1" date="2011-01-27">
 		<releaseNotes>
 			This release refactors functions developed in ShadowBox as applied to Twentyten theme template files. New features
