@@ -1411,26 +1411,30 @@ div.menu,
 	width: 20px;
 	padding-left: 2px;
 	padding-right: 2px;
-	margin-bottom: 5px;
+
 	line-height: 12px;
 	font-size: 12px;
 	text-align: center;
 	border: 1px dotted transparent;
 }
 
+#content .toggle {
+	margin-top: -15px;
+}
+
 #primary .toggle a, 
 #secondary .toggle a, 
 #tertiary .toggle a {
-	padding-top: 10px;
+	padding-top: 0px;
 	display: block;
-	font-size: 14px;
+	font-size: 16px;
 	text-decoration: none;
 	border: 1px dotted transparent;
 }
 
 #content .toggle a {
-	display: block;
-	font-size: 14px;
+	display: inline;
+	font-size: 16px;
 	text-decoration: none;
 	border: 1px dotted transparent;	
 }
