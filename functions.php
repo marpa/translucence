@@ -1571,22 +1571,23 @@ function get_content_width ($template) {
 	global $options;
 	
 	if ($template == "page") {
+		$width_adjust = 50;
 		if ($options['left01-width'] == 0) {
 			$left01_width = 0;
 		} else {
-			$left01_width = $options['left01-width']+50;
+			$left01_width = $options['left01-width']+$width_adjust;
 		}
 		
 		if ($options['right01-width'] == 0) {
 			$right01_width = 0;
 		} else {
-			$right01_width = $options['right01-width']+50;
+			$right01_width = $options['right01-width']+$width_adjust;
 		}
 
 		if ($options['right02-width'] == 0) {
 			$right02_width = 0;
 		} else {
-			$right02_width = $options['right02-width']+50;
+			$right02_width = $options['right02-width']+$width_adjust;
 		}
 		
 	} else {
