@@ -461,6 +461,11 @@ div.menu,
 	border: 1px dotted <?php print $options['entry-link-color']?>;
 }
 
+#toc .toggle a:hover {
+	text-decoration: underline;	
+	border: 1px dotted transparent;
+}
+
 
 
 #footer-widget-area a {
@@ -768,7 +773,6 @@ div.menu li {
 	list-style: none;
 	border: 1px solid #CCCCCC;
 	padding: 10px;
-	margin-top: 15px;
 }
 
 .pagenav:hover {
