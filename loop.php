@@ -19,13 +19,13 @@
  */
 ?>
 <div class="toggle" style="float: left;">
-	<a id="toggletertiary" href="javascript:toggle('tertiary',<?php print get_box_widths(); ?>)">-</a>
+	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
 <div class="toggle" style="float: right;">
-	<a id="togglesecondary" href="javascript:toggle('secondary',<?php print get_box_widths(); ?>)">-</a>
+	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
 <div class="toggle">
-	<a id="toggleprimary" href="javascript:toggle('primary',<?php print get_box_widths(); ?>)">-</a>
+	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
 
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>
