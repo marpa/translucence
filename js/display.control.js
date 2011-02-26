@@ -41,7 +41,7 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	
 }
 
-function toggle(obj, primary_width, secondary_width, tertiary_width, content_width) {
+function toggle(obj, context, primary_width, secondary_width, tertiary_width, content_width) {
 	var box = document.getElementById(obj);	
 	var primarybox = document.getElementById('primary');
 	var secondarybox = document.getElementById('secondary');
@@ -51,12 +51,15 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 	if (box) {
 	var widgetlist = box.getElementsByTagName('ul')[0];
 	var toggle_link_element = "toggle"+obj;
+	var toggle_context_element = "togglecontent"+obj;
 	var toggleLink = document.getElementById(toggle_link_element);
+	var togglecontextlink = document.getElementById(toggle_context_element);
 	var default_box_width;
 	var new_content_width;
 	var current_primary_width;
 	var current_secondary_width;
 	var current_tertiary_width;	
+	
 
 	switch (obj) {
 	case "primary": 
@@ -88,7 +91,14 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 		document.getElementById('content').style.width = new_content_width;
 		widgetlist.style.display = 'block';
 		document.cookie = "hide"+obj+"=0";
-		changeText(toggleLink, "-");
+		if (context == "content") {
+			changeText(togglecontextlink, " ");
+		}
+		if (obj == "tertiary") {
+			changeText(toggleLink, "»");
+		} else {
+			changeText(toggleLink, "«");
+		}
 	} else {
 		box.style.width = '0px';
 		box.style.display = "none";
@@ -96,7 +106,11 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 		document.getElementById('content').style.width = new_content_width;
 		widgetlist.style.display = 'none';
 		document.cookie = "hide"+obj+"=1";
-		changeText(toggleLink, "+");
+		if (obj == "tertiary") {
+			changeText(togglecontextlink, "«");
+		} else {
+			changeText(togglecontextlink, "»");
+		}
 	}	
 	}
 }
