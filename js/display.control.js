@@ -21,10 +21,15 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	var cookiesecondary = getCookie("hidesecondary");
 	var cookietertiary = getCookie("hidetertiary");
 	var cookietoc = getCookie("hidetoc");
+	var toc = document.getElementById('toc');
 
 	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
-	
-	toggleToc();
+	if (cookietoc != 0) {
+		toggleToc();		
+	} else {
+		var toggleLink = document.getElementById('togglelink');
+		changeText(toggleLink, "[hide page links]");
+	}
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
 		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
@@ -160,11 +165,11 @@ function toggleToc() {
 		var toggleLink = document.getElementById('togglelink');
 	
 		if (toc && toggleLink && toc.style.display == 'none') {
-			changeText(toggleLink, "[hide]");
+			changeText(toggleLink, "[hide page links]");
 			toc.style.display = 'block';
 			document.cookie = "hidetoc=0";
 		} else {
-			changeText(toggleLink, "[show]");
+			changeText(toggleLink, "[show page links]");
 			toc.style.display = 'none';
 			document.cookie = "hidetoc=1";
 		}
