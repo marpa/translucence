@@ -83,6 +83,7 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 	
 	if (box.style.width != box_width) {
 		box.style.width = box_width;
+		box.style.display = "block";
 		new_content_width = (Number(content_width) + Number(width_adjust) - Number(default_box_width))+"px";
 		document.getElementById('content').style.width = new_content_width;
 		widgetlist.style.display = 'block';
@@ -90,6 +91,7 @@ function toggle(obj, primary_width, secondary_width, tertiary_width, content_wid
 		changeText(toggleLink, "-");
 	} else {
 		box.style.width = '0px';
+		box.style.display = "none";
 		new_content_width = (Number(content_width) + Number(width_adjust) + Number(default_box_width))+"px";
 		document.getElementById('content').style.width = new_content_width;
 		widgetlist.style.display = 'none';
