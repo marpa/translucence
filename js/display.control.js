@@ -14,23 +14,17 @@ function changeText(el, newText) {
 }
 
 function setToggleFromCookie (primary_width, secondary_width, tertiary_width, content_width) {
-	
-	//alert(primary_width+"-"+secondary_width+"-"+tertiary_width+"-"+content_width);
-	// get all box cookies
-	var cookieprimary = document.cookie.indexOf("hideprimary=");
-	var cookiesecondary = document.cookie.indexOf("hidesecondary=");
-	var cookietertiary = document.cookie.indexOf("hidetertiary=");
-	var cookietoc = document.cookie.indexOf("hidetoc=");
-	
+		
 	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
 	// get all box cookies
-	cookieprimary = getCookie("hideprimary");
-	cookiesecondary = getCookie("hidesecondary");
-	cookietertiary = getCookie("hidetertiary");
-	cookietoc = getCookie("hidetoc");
+	var cookieprimary = getCookie("hideprimary");
+	var cookiesecondary = getCookie("hidesecondary");
+	var cookietertiary = getCookie("hidetertiary");
+	var cookietoc = getCookie("hidetoc");
 
-	
 	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
+	
+	toggleToc();
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
 		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
@@ -41,11 +35,8 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	if (cookietertiary > -1 && cookietertiary == 1) {
 		toggle('tertiary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	}
-
-	if (cookietoc > -1 && cookietoc == 1) {
-		toggleToc();
-	}
-
+	
+	
 	
 }
 
@@ -162,17 +153,18 @@ function getCookie(c_name) {
 }
 
 function toggleToc() {
+	//alert("update");
 	var toc = document.getElementById('toc');
 	if (toc) {
 		toc = toc.getElementsByTagName('ul')[0];
 		var toggleLink = document.getElementById('togglelink');
 	
 		if (toc && toggleLink && toc.style.display == 'none') {
-			changeText(toggleLink, "-");
+			changeText(toggleLink, "[hide]");
 			toc.style.display = 'block';
 			document.cookie = "hidetoc=0";
 		} else {
-			changeText(toggleLink, "+");
+			changeText(toggleLink, "[show]");
 			toc.style.display = 'none';
 			document.cookie = "hidetoc=1";
 		}
