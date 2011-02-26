@@ -14,24 +14,32 @@ function changeText(el, newText) {
 }
 
 function setToggleFromCookie (primary_width, secondary_width, tertiary_width, content_width) {
+	
+	//alert(primary_width+"-"+secondary_width+"-"+tertiary_width+"-"+content_width);
+	// get all box cookies
 	var cookieprimary = document.cookie.indexOf("hideprimary=");
 	var cookiesecondary = document.cookie.indexOf("hidesecondary=");
 	var cookietertiary = document.cookie.indexOf("hidetertiary=");
 	var cookietoc = document.cookie.indexOf("hidetoc=");
 	
+	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
+	// get all box cookies
 	cookieprimary = getCookie("hideprimary");
 	cookiesecondary = getCookie("hidesecondary");
 	cookietertiary = getCookie("hidetertiary");
 	cookietoc = getCookie("hidetoc");
+
+	
+	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
-		toggle('primary', primary_width, secondary_width, tertiary_width, content_width);
+		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	}
 	if (cookiesecondary > -1 && cookiesecondary == 1) {
-		toggle('secondary', primary_width, secondary_width, tertiary_width, content_width);
+		toggle('secondary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	}
 	if (cookietertiary > -1 && cookietertiary == 1) {
-		toggle('tertiary', primary_width, secondary_width, tertiary_width, content_width);
+		toggle('tertiary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	}
 
 	if (cookietoc > -1 && cookietoc == 1) {
