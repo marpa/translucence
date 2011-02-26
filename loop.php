@@ -18,6 +18,16 @@
  * @since Twenty Ten 1.0
  */
 ?>
+<div class="toggle" style="float: left;">
+	<a id="toggletertiary" href="javascript:toggle('tertiary',<?php print get_box_widths(); ?>)">-</a>
+</div>
+<div class="toggle" style="float: right;">
+	<a id="togglesecondary" href="javascript:toggle('secondary',<?php print get_box_widths(); ?>)">-</a>
+</div>
+<div class="toggle">
+	<a id="toggleprimary" href="javascript:toggle('primary',<?php print get_box_widths(); ?>)">-</a>
+</div>
+
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>
 <div style = "width: 100%; float: right;">
 	<div id="syndication">
