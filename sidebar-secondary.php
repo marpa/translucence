@@ -20,7 +20,7 @@
 	if ( is_active_sidebar( 'secondary-widget-area' ) && $options['right02-width'] != '0') : ?>
 
 		<div id="secondary" class="widget-area" role="complementary"  style="width: <?php print $options['right02-width'] ?>px">
-			<div class="toggle">
+			<div class="toggle" style="margin-right: -15px;">
 			<a id="togglesecondary" href="javascript:toggle('secondary','sidebar',<?php print get_box_widths(); ?>)">&laquo;</a>
 			</div>
 			<ul class="xoxo">
