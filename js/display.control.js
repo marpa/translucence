@@ -91,10 +91,13 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		document.getElementById('content').style.width = new_content_width;
 		widgetlist.style.display = 'block';
 		document.cookie = "hide"+obj+"=0";
-		if (context == "content") {
-			changeText(togglecontextlink, " ");
-		}
-		if (obj == "tertiary") {
+		if (context == "content") {	
+			if (obj == "tertiary") {
+				changeText(togglecontextlink, "»");
+			} else {
+				changeText(togglecontextlink, "«");
+			}
+		} else if (obj == "tertiary") {
 			changeText(toggleLink, "»");
 		} else {
 			changeText(toggleLink, "«");
