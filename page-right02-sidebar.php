@@ -62,6 +62,10 @@ $content_width = $options['site-width'] - $options['right02-width'] - 125;
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
+					  <ul>
+					  <?php echo $children; ?>
+					  </ul>	<br/><br/>
+					  
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-## -->
