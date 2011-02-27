@@ -87,11 +87,23 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		if (primarybox != null) current_primary_width = primarybox.style.width.replace("px", "");
 		if (secondarybox != null) current_secondary_width = secondarybox.style.width.replace("px", "");
 		if (tertiarybox != null) current_tertiary_width = tertiarybox.style.width.replace("px", "");
+		var adjust = 50;
 		var width_adjust = 0;
+		var primary_adjust = 0;
+		var secondary_adjust = 0;
+		var tertiary_adjust = 0;
+		var num_hidden_boxes = 1;
 		
-		if (current_primary_width == 0) width_adjust = Number(primary_width);
-		if (current_secondary_width == 0) width_adjust = width_adjust + Number(secondary_width);
-		if (current_tertiary_width == 0) width_adjust = width_adjust + Number(tertiary_width);
+		if (current_primary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
+		if (current_secondary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
+		if (current_tertiary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
+	
+
+		if (current_primary_width == 0) primary_adjust = Number(primary_width) - Number(adjust);
+		if (current_secondary_width == 0) secondary_adjust = Number(secondary_width) - Number(adjust);
+		if (current_tertiary_width == 0) tertiary_adjust = Number(tertiary_width) - Number(adjust);
+		//alert(primary_adjust+"-"+secondary_adjust+"-"+tertiary_adjust);
+		width_adjust = Number(adjust) + Number(primary_adjust) + Number(secondary_adjust) + Number(tertiary_adjust);
 		
 		// width of box to be toggled
 		box_width = default_box_width+"px";
@@ -102,9 +114,12 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		// change toggle link text to expand text
 		// set document cookie to hide = 0	
 		if (box.style.width != box_width) {
+			//width_adjust = 50*num_hidden_boxes;
 			box.style.width = box_width;
 			box.style.display = "block";
-			new_content_width = (Number(content_width) + Number(width_adjust) - Number(default_box_width))+"px";
+			new_content_width = (Number(content_width) + Number(width_adjust)) - Number(default_box_width);
+			new_content_width = new_content_width + "px";
+			//alert("not default: "+new_content_width);
 			document.getElementById('content').style.width = new_content_width;
 			widgetlist.style.display = 'block';
 			document.cookie = "hide"+obj+"=0";
@@ -128,9 +143,12 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		// change toggle link text to collapse text
 		// set document cookie to hide = 1
 		} else {
-			box.style.width = "0px";
+			//width_adjust = Number(default_box_width) + Number(adjust);
+			box.style.width = "0px"; 
 			box.style.display = "none";
-			new_content_width = (Number(content_width) + Number(width_adjust) + Number(default_box_width))+"px";
+			new_content_width = (Number(content_width) + Number(width_adjust)) + Number(default_box_width);
+			new_content_width = new_content_width + "px";
+			//alert("default: "+new_content_width);
 			document.getElementById('content').style.width = new_content_width;
 			widgetlist.style.display = 'none';
 			document.cookie = "hide"+obj+"=1";
