@@ -381,6 +381,7 @@ $options_values['header-color'] = array(
 	'Yellow' => '#FFF8C6',
 	'Muted Yellow' => '#e9e9c9',
 	'Green' 	=> '#4a6339',
+	'Gray Blue'	=> '#364559',
 	'Black' 	=> '#000000'
 	);
 
