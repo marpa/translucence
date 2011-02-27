@@ -80,6 +80,17 @@ function variation_admin_menu() {
     add_theme_page($theme_options, $theme_options, 'edit_theme_options', 'Variations', 'variation_options');
 }
 
+function add_menu_admin_bar() {
+    global $wp_admin_bar;
+    
+    if ( !is_super_admin() || !is_admin_bar_showing() )
+        exit; 
+        
+    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url('admin.php')."/themes.php?page=Variations" ) );
+}
+add_action( 'admin_bar_menu', 'add_menu_admin_bar' ,  70);
+
+
 /*********************************************************
  * Register theme javascript
  *********************************************************/ 
