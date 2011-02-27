@@ -9,6 +9,9 @@
 
 get_header(); 
 $content_width = get_content_width ("author");
+
+$author = get_userdata($wp_the_query->query_vars['author']);
+
 ?>
 
 		<div id="container">
@@ -26,60 +29,49 @@ $content_width = get_content_width ("author");
 	 * properly with a call to rewind_posts().
 	 */
 	if ( have_posts() )
-		the_post();
 ?>
 
 <div id="syndication" style="float: right;">
-<a href="<?php print get_author_feed_link( get_the_author_meta( 'ID' ), 'rss2' ); ?>" class="feed"> &#8216;<?php print get_the_author_meta( 'display_name' ) ?>&#8217; Author RSS</a>
+<a href="<?php print get_author_feed_link( $author->ID, 'rss2' ); ?>" class="feed"> &#8216;<?php print $author->display_name ?>&#8217; Author RSS</a>
 </div>
 <br/>
 
-<?php
-// If a user has filled out their description, show a bio on their entries.
-//if ( get_the_author_meta( 'description' ) ) : ?>
 					<div id="entry-author-info">
 						<div id="author-avatar">
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyten_author_bio_avatar_size', 60 ) ); ?>
+							<?php echo get_avatar( $author->user_email, apply_filters( 'twentyten_author_bio_avatar_size', 60 ) ); ?>
 						</div><!-- #author-avatar -->
 						<div id="author-description">							
-							<h2><?php print get_the_author(); ?></h2>
-							<div><a href="<?php the_author_meta( 'user_url' ); ?>"><?php the_author_meta( 'user_url' ); ?></a></div>
-							<div><?php the_author_meta( 'description' ); ?></div>
+							<h2><?php print $author->display_name; ?></h2>
+							<div><a href="<?php print $author->user_url; ?>"><?php print $author->user_url; ?></a></div>
+							<div><?php print $author->description; ?></div>
 						</div><!-- #author-description	-->
 					</div><!-- #entry-author-info -->
-<?php //endif; ?>
 <div id="entry-author-pages">
 <div id="toc" class="toc">
-<h3>Pages by <?php print get_the_author_meta( 'display_name' ); ?></h3>
+<h3>Pages by <?php print $author->display_name; ?></h3>
 <div class="toggle">
 	<a id="togglelink" href="javascript:toggleToc()">-</a>
 </div>
 
 <?php
-	$authorpages = wp_list_pages("title_li=&author=".get_the_author_meta( 'ID' )."&echo=0");
-	$num_authorpages = get_pages("authors=".get_the_author_meta( 'ID' ));
+	$authorpages = wp_list_pages("title_li=&author=".$author->ID."&echo=0");
+	$num_authorpages = get_pages("authors=".$author->ID);
 
 	print "<div class='pagenav' style='margin-bottom: 15px;'>";
 	print "<ul>";	
-	if ($authorpages && count($num_authorpages) > 0 && get_the_author_meta( 'ID' ) != 0) {
+	if ($authorpages && count($num_authorpages) > 0 && $author->ID != 0) {
 		print $authorpages;
 	} else {
-		print get_the_author_meta( 'display_name' )." has not created any pages on this site...";
+		print $author->display_name." has not created any pages on this site...";
 	}
 	print "</ul>";
 	print "</div>";
 ?>
 </div>
 
-<h3>Posts by <?php print get_the_author_meta( 'display_name' ) ?></h3>
+<h3>Posts by <?php print $author->display_name ?></h3>
 
 <?php
-	/* Since we called the_post() above, we need to
-	 * rewind the loop back to the beginning that way
-	 * we can run the loop properly, in full.
-	 */
-	rewind_posts();
-
 	/* Run the loop for the author archive page to output the authors posts
 	 * If you want to overload this in a child theme then include a file
 	 * called loop-author.php and that will be used instead.
