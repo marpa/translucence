@@ -1380,7 +1380,7 @@ div.menu,
 #container {
 	overflow: hidden;
 	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
+	padding: 0px 0px 0px 0px;
 	width: 100%;			
 }
  
