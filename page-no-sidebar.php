@@ -39,7 +39,9 @@ $content_width = $options['site-width'] - 75;
 					<?php } else { ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php } ?>
-
+					<div class="toggle">
+						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
+					</div>
 					<?php
 					  if($post->post_parent)
 					  $children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
