@@ -14,16 +14,13 @@
 		<releaseNotes>
 			This release refines how display of site page links, adds options for default sidebar display and include general bug fixes.
 		</releaseNotes>
-		<new author='alex' date=''>
-			added option for setting default display to be collapsed
-		</new>
-		<new author='alex' date=''>
-			redesigned and repositioned sidebar toggle links for better use of viewport
-		</new>
-		<fix author='alex' date=''>
+		<fix author='alex' date='the future'>
 			Fixed header color theme option default values.
 		</fix>		
-		<change author='alex' date=''>
+		<new author='alex' date='2011-02-27'>
+			redesigned and repositioned sidebar toggle links for better use of viewport
+		</new>
+		<change author='alex' date='2011-02-27'>
 			moved listing of related and sub pages from before page content to after page content
 		</change>
 		<change author='alex' date='2011-02-24'>

@@ -1,5 +1,5 @@
 
-Translucence v. 2.1.1 (2011-01-27)
+Translucence v. 2.2.1 (the future)
 =================================
 
 What is Translucence?
@@ -10,13 +10,8 @@ the WordPress twentyten default theme
 
 Current Version Notes
 ---------------------
-This release refactors functions developed in ShadowBox as applied to Twentyten
-theme template files. New features include navigation elements in page templates,
-toggle display of sidebars, css for hiding all but current page sub-pages in pages
-widget. Css has been standardized for most 'boxes' in templates including sidebars,
-content, header, top navigation, category and tag links. Finally theme options UI
-have been redesigned with various options modes to simply the display of options and
-improve WYSIWIG.
+This release refines how display of site page links, adds options for default
+sidebar display and include general bug fixes.
 
 
 Downloads
@@ -54,6 +49,13 @@ Bug Tracker
 | Prior Translucence Release Notes
 | (See the Translucence change log for more details)
 ===================================================================
+
+
+v. 2.2.1 (the future)
+----------------------------------------------------
+This release refines how display of site page links, adds options for default
+sidebar display and include general bug fixes.
+
 
 
 v. 2.1.1 (2011-01-27)
