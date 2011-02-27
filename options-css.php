@@ -144,7 +144,7 @@ div.menu,
 /* The theme header area */
 
 #header {
-	padding: 0 0 0 4px;
+	padding: 0 0 0 0px;
 }
 	
 #branding {
@@ -256,7 +256,7 @@ div.menu,
 #container {
 	overflow: hidden;
 	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
+	padding: 0px 0px 0px 0px;
 	width: 100%;			
 }
 
