@@ -26,7 +26,7 @@ $content_width = $options['site-width'] - 75;
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
 	<div class='post-link' style="float: right; width: 40%;">
-	<a href="<?php  echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
+	<!-- <a href="<?php  echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a> -->
 	</div>
 <?php endif; ?>
 
@@ -35,11 +35,14 @@ $content_width = $options['site-width'] - 75;
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php if ( is_front_page() ) { ?>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
+						<!-- <h2 class="entry-title"><?php the_title(); ?></h2> -->
 					<?php } else { ?>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<!-- <h1 class="entry-title"><?php the_title(); ?></h1> -->
 					<?php } ?>
-
+					<div id="toc" class="toc">
+					<div class="toggle">
+						<!-- <a id="togglelink" href="javascript:toggleToc()">[show page links]</a> -->
+					</div>
 					<?php
 					  if($post->post_parent)
 					  $children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
@@ -47,14 +50,17 @@ $content_width = $options['site-width'] - 75;
 					  $children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
 					  if ($children || !$post->post_parent) { ?>
 					  <ul>
-					  <?php echo $children; ?>
+					  <?php //echo $children; ?>
 					  </ul>
 					  <?php } ?>	
 					  
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
+					  <ul>
+					  <?php //echo $children; ?>
+					  </ul>	<br/><br/>
+					  <?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-## -->
 
