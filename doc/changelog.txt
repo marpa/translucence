@@ -2,6 +2,41 @@
 Translucence Change Log
 
 
+v. 2.2.1 (the future)
+----------------------------------------------------
+This release refines how display of site page links, adds options for default
+sidebar display and include general bug fixes.
+		
+		
+	* Bug Fix: 
+		Fixed header color theme option default values.
+		(the future - Alex Chapin)		
+		
+	* New feature: 
+		redesigned and repositioned sidebar toggle links for better use of viewport
+		(2011-02-27 - Alex Chapin)
+		
+	* Change: 
+		moved listing of related and sub pages from before page content to after
+		page content
+		(2011-02-27 - Alex Chapin)
+		
+	* Change: 
+		added gray blue and black to header color theme options.
+		(2011-02-24 - Alex Chapin)		
+		
+	* Change: 
+		increased size of top margin on sidebars to they displaying lower than
+		content area.
+		(2011-02-26 - Alex Chapin)
+		
+	* Bug Fix: 
+		Fixed default page template so that hidden sidebars are not displayed.
+		(2011-02-25 - Alex Chapin)
+
+
+
+
 v. 2.1.1 (2011-01-27)
 ----------------------------------------------------
 This release refactors functions developed in ShadowBox as applied to Twentyten
