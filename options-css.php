@@ -144,7 +144,7 @@ div.menu,
 /* The theme header area */
 
 #header {
-	padding: 0 0 0 4px;
+	padding: 0 0 0 0px;
 }
 	
 #branding {
@@ -256,7 +256,7 @@ div.menu,
 #container {
 	overflow: hidden;
 	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
+	padding: 0px 0px 0px 0px;
 	width: 100%;			
 }
 
@@ -459,6 +459,11 @@ div.menu,
 #content .toggle a:hover {
 	text-decoration: none;	
 	border: 1px dotted <?php print $options['entry-link-color']?>;
+}
+
+#toc .toggle a:hover {
+	text-decoration: underline;	
+	border: 1px dotted transparent;
 }
 
 
@@ -768,7 +773,6 @@ div.menu li {
 	list-style: none;
 	border: 1px solid #CCCCCC;
 	padding: 10px;
-	margin-top: 15px;
 }
 
 .pagenav:hover {
