@@ -41,7 +41,7 @@ $content_width = $options['site-width'] - $options['right01-width']  - $options[
 					<?php } ?>
 					<div id="toc" class="toc">
 					<div class="toggle">
-						<a id="togglelink" href="javascript:toggleToc()">-</a>
+						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
 					</div>
 					<?php
 					  if($post->post_parent) {
@@ -61,6 +61,9 @@ $content_width = $options['site-width'] - $options['right01-width']  - $options[
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
+					  <ul>
+					  <?php echo $children; ?>
+					  </ul>	<br/><br/>
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-## -->

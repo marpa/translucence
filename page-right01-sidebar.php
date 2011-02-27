@@ -41,7 +41,7 @@ $content_width = $options['site-width'] - $options['right01-width'] - 125;
 					<?php } ?>
 					<div id="toc" class="toc">
 					<div class="toggle">
-						<a id="togglelink" href="javascript:toggleToc()">-</a>
+						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
 					</div>
 					<?php
 					  if($post->post_parent) {
