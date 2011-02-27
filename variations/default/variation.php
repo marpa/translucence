@@ -106,7 +106,7 @@ $options['right02-margin-right'] = "0";
 $options['left01-margin-top'] = "5";
 $options['content-margin-top'] = "0";
 $options['right01-margin-top'] = "5";
-$options['right02-margin-top'] = "5";
+$options['right02-margin-top'] = "10";
 
 
 /******************************************************************************

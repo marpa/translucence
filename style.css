@@ -1380,7 +1380,7 @@ div.menu,
 #container {
 	overflow: hidden;
 	margin: 0 0px 0 0;
-	padding: 0px 0px 0px 4px;
+	padding: 0px 0px 0px 0px;
 	width: 100%;			
 }
  
@@ -1411,30 +1411,61 @@ div.menu,
 	width: 20px;
 	padding-left: 2px;
 	padding-right: 2px;
-	margin-bottom: 5px;
+	display: block;
 	line-height: 12px;
 	font-size: 12px;
 	text-align: center;
 	border: 1px dotted transparent;
 }
 
+#content .toggle {
+	margin-top: -15px;
+}
+
+#toc .toggle {
+	float: right;
+	text-align: right;
+	width: 200px;
+	margin-top: 0px;
+	margin-right: 0px;
+}
+
+
 #primary .toggle a, 
 #secondary .toggle a, 
-#tertiary .toggle a,
-#content .toggle a {
-	display: block;	
+#tertiary .toggle a {
+	padding-top: 0px;
+	display: block;
+	font-size: 16px;
 	text-decoration: none;
 	border: 1px dotted transparent;
 }
+
+#content .toggle a {
+	display: block;
+	font-size: 16px;
+	text-decoration: none;
+	border: 1px dotted transparent;	
+}
+
+#toc .toggle a {
+	display: block;
+	font-size: 10px;
+	text-decoration: none;
+	border: 1px dotted transparent;	
+}
+
 
 #primary .toggle a:hover,
 #secondary .toggle a:hover,
 #tertiary .toggle a:hover, 
 #content .toggle a:hover {
 	text-decoration: none;	
-	border: 1px dotted #003366;
 }
 
+#toc .toggle a:hover {
+	text-decoration: underline;
+}
  
 #tertiary {
 	display: none;
@@ -1919,11 +1950,15 @@ div.menu li {
 .pagenav {
 	background-color: #F9F9F9;
 	color: #444444;
+	width: 100%;
+	float: right;
+	
 	font-size: 12px;
 	list-style: none;
 	border: 1px solid #CCCCCC;
 	padding: 10px;
-	margin-top: 15px;
+
+	margin-bottom: 15px
 }
 
 #content .pagenav h3 {
