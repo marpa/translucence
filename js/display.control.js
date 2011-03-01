@@ -24,7 +24,7 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	var toc = document.getElementById('toc');
 
 	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
-	if (cookietoc != 0) {
+	if (cookietoc != 0 || cookietoc == "") {
 		toggleToc();		
 	} else {
 		var toggleLink = document.getElementById('togglelink');
@@ -33,6 +33,7 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
 		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
+		//alert('toggle toc');
 	}
 	if (cookiesecondary > -1 && cookiesecondary == 1) {
 		toggle('secondary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
@@ -40,8 +41,6 @@ function setToggleFromCookie (primary_width, secondary_width, tertiary_width, co
 	if (cookietertiary > -1 && cookietertiary == 1) {
 		toggle('tertiary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	}
-	
-	
 	
 }
 
