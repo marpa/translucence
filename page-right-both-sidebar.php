@@ -19,9 +19,19 @@ $content_width = $options['site-width'] - $options['right01-width']  - $options[
 
 <div id="container">
 
-	<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
-	
-	<?php print get_breadcrumbs($post); ?>
+<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+
+<div class="toggle" style="float: left;">
+	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
+</div>
+<div class="toggle" style="float: right;">
+	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
+</div>
+<div class="toggle">
+	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
+</div>
+
+<?php print get_breadcrumbs($post); ?>
 			
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
