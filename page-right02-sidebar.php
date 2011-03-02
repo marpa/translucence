@@ -20,7 +20,7 @@ $content_width = $options['site-width'] - $options['right02-width'] - 125;
 <div id="container">
 
 <div id="content" role="main" style="width: <?php print $content_width; ?>px;">
-<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+
 <div class="toggle" style="float: left;">
 	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
