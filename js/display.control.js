@@ -50,6 +50,7 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 	var primarybox = document.getElementById('primary');
 	var secondarybox = document.getElementById('secondary');
 	var tertiarybox = document.getElementById('tertiary');
+	var contentbox = document.getElementById('content');
 	//alert(box);
 	
 	// initialize variable for:
@@ -86,23 +87,13 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		if (primarybox != null) current_primary_width = primarybox.style.width.replace("px", "");
 		if (secondarybox != null) current_secondary_width = secondarybox.style.width.replace("px", "");
 		if (tertiarybox != null) current_tertiary_width = tertiarybox.style.width.replace("px", "");
-		var adjust = 50;
 		var width_adjust = 0;
-		var primary_adjust = 0;
-		var secondary_adjust = 0;
-		var tertiary_adjust = 0;
-		var num_hidden_boxes = 1;
 		
-		if (current_primary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
-		if (current_secondary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
-		if (current_tertiary_width == 0) num_hidden_boxes = Number(num_hidden_boxes) + 1;
 	
-
-		if (current_primary_width == 0) primary_adjust = Number(primary_width) - Number(adjust);
-		if (current_secondary_width == 0) secondary_adjust = Number(secondary_width) - Number(adjust);
-		if (current_tertiary_width == 0) tertiary_adjust = Number(tertiary_width) - Number(adjust);
-		//alert(primary_adjust+"-"+secondary_adjust+"-"+tertiary_adjust);
-		width_adjust = Number(adjust) + Number(primary_adjust) + Number(secondary_adjust) + Number(tertiary_adjust);
+		if (current_primary_width == 0) width_adjust = Number(primary_width);
+		if (current_secondary_width == 0) width_adjust = width_adjust + Number(secondary_width);
+		if (current_tertiary_width == 0) width_adjust = width_adjust + Number(tertiary_width);
+	
 		
 		// width of box to be toggled
 		box_width = default_box_width+"px";
