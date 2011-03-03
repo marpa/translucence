@@ -10,8 +10,8 @@ the WordPress twentyten default theme
 
 Current Version Notes
 ---------------------
-This release refines how display of site page links, adds options for default
-sidebar display and include general bug fixes.
+This release refines the toggle and display of site page links and sidebar and
+include general bug fixes.
 
 
 Downloads
@@ -53,8 +53,8 @@ Bug Tracker
 
 v. 2.2.1 (the future)
 ----------------------------------------------------
-This release refines how display of site page links, adds options for default
-sidebar display and include general bug fixes.
+This release refines the toggle and display of site page links and sidebar and
+include general bug fixes.
 
 
 
