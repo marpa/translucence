@@ -247,7 +247,7 @@ div.menu,
 /* Full width content with no sidebar; used for attachment pages */
 .single-attachment #content {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;
+	width: 95%;
 }
 
 /* =Content and Container
