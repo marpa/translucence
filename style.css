@@ -345,7 +345,7 @@ textarea {
 #content dd,
 #content pre,
 #content hr {
-	margin-bottom: 12px;
+	margin-bottom: 24px;
 }
 #content ul ul,
 #content ol ol,
@@ -706,6 +706,16 @@ img.alignleft {
 	margin: 0 auto;
 }
 
+#content .wp-caption a,
+#content .gallery a {
+	border-bottom: none;
+}
+#content .wp-caption a:hover,
+#content .gallery a:hover {
+	background: transparent;
+}
+
+
 
 /* =Navigation
 -------------------------------------------------------------- */
@@ -713,12 +723,12 @@ img.alignleft {
 
 .navigation a:link,
 .navigation a:visited {
-
+	border-bottom: none;
 	text-decoration: none;
 }
 .navigation a:active,
 .navigation a:hover {
-
+	background-color: transparent;
 }
 .nav-previous {
 	float: left;
