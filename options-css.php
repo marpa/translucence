@@ -935,6 +935,24 @@ a:hover {
 	color: <?php print $options['linkcolor']?>;
 }
 
+.page-link a:link,
+.page-link a:visited {
+	background: <?php print $options['content-highlight-color-rgb']?>;
+	color: <?php print $options['content-text-color']?>;
+	font-weight: normal;
+	padding: 0.2em 0.4em;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+}
+.home .sticky .page-link a {
+	background: <?php print $options['content-highlight-color-rgb']?>;
+}
+.page-link a:active,
+.page-link a:hover {
+	border: 1px solid <?php print $options['entry-link-color']?>;
+}
+
+
 /* Post metadata */
 .postmetadata.alt {
 	clear: both;

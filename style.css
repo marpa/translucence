@@ -530,6 +530,30 @@ textarea {
 	text-align: left;
 	width: 33%;
 }
+.page-link {
+	clear: both;
+	color: #000;
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	word-spacing: 0.2em;
+}
+.page-link a:link,
+.page-link a:visited {
+	background: #f1f1f1;
+	color: #333;
+	font-weight: normal;
+	padding: 0.2em 0.4em;
+	text-decoration: none;
+	border: 1px solid #999;
+}
+.home .sticky .page-link a {
+	background: #f1f1f1;
+}
+.page-link a:active,
+.page-link a:hover {
+	border: 1px solid #003366;
+}
+
 
 /* =Asides
 -------------------------------------------------------------- */
