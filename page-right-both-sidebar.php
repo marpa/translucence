@@ -49,10 +49,6 @@ $content_width = $options['site-width'] - $options['right01-width']  - $options[
 					<?php } else { ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php } ?>
-					<div id="toc" class="toc">
-					<div class="toggle">
-						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
-					</div>
 					<?php
 					  if($post->post_parent) {
 					  	$children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
@@ -61,13 +57,17 @@ $content_width = $options['site-width'] - $options['right01-width']  - $options[
 					  	$children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
 					  	$num_children = get_pages("child_of=".$post->ID);
 					  }
-					  if (count($num_children) > 1 || !$post->post_parent) { ?>
+					?>										
+					<?php if (count($num_children) > 1) { ?>					
+					<div id="toc" class="toc">
+					<div class="toggle">
+						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
+					</div>
 					  <ul>
 					  <?php echo $children; ?>
-					  </ul>
-					  <?php } ?>	
+					  </ul>					  	
 					 </div> 
-					  
+					<?php } ?>  
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
