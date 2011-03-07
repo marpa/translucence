@@ -672,6 +672,7 @@ img.alignleft {
 	font-size: 12px;
 	margin: 5px;
 }
+
 #content .wp-smiley {
 	margin: 0;
 }
@@ -1135,6 +1136,9 @@ code {
 .navigation,
 .widget-area {
 	-webkit-text-size-adjust: 120%;
+}
+.toggle {
+	-webkit-text-size-adjust: 130%;
 }
 #site-description {
 	-webkit-text-size-adjust: none;
