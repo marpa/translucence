@@ -532,6 +532,7 @@ textarea {
 }
 .page-link {
 	clear: both;
+	float: right;
 	color: #000;
 	font-weight: bold;
 	margin: 0 0 5px 0;
