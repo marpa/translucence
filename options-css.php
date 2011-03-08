@@ -600,7 +600,7 @@ div.menu,
 
 .topblock a:hover {
 	color: <?php print $options['top-link-color']?>;	
-	border-bottom: 1px solid <?php print $options['topbar-link-color']?>;	
+	border-bottom: 1px solid <?php print $options['top-link-color']?>;	
 }
 
 #access {
