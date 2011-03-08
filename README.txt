@@ -1,5 +1,5 @@
 
-Translucence v. 2.2.1 (the future)
+Translucence v. 2.2.1 (2011-30-08)
 =================================
 
 What is Translucence?
@@ -51,7 +51,7 @@ Bug Tracker
 ===================================================================
 
 
-v. 2.2.1 (the future)
+v. 2.2.1 (2011-30-08)
 ----------------------------------------------------
 This release refines the toggle and display of site page links and sidebar and
 include general bug fixes.
