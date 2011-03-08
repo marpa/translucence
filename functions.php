@@ -676,7 +676,7 @@ function variation_options() {
 		save_options(); 
 		$options['revert'] = 0;
 		
-    } else if ($_POST['action'] == 'save') {
+    } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
 		save_options();        
 	}
 	
@@ -922,7 +922,7 @@ function set_derivative_options() {
 
 	if (isset($variation_config['header_meta_right_options'])) {
 	
-		if ($headermeta == 'on') {
+		if (isset($headermeta) && $headermeta == 'on') {
 			$options['headerright'] = "Menus | Widgets | Design";
 						
 		} else {
@@ -1207,7 +1207,7 @@ function set_derivative_options() {
 		$options['cat-links-border-style'] = "solid";
 		$options['tag-links-border-style'] = "solid";
 		
-		if ($options[$box.'-border-style'] == "none") {
+		if (isset($options[$box.'-border-style']) && $options[$box.'-border-style'] == "none") {
 			$options[$box.'-hover-border-style'] = "none";
 		} else {
 			$options[$box.'-hover-border-style'] = "solid";
@@ -1310,7 +1310,7 @@ function set_derivative_options() {
 		}		
 		
 		// visibility and padding of bars
-		if ($options[$box.'-width'] == '0') {
+		if (isset($options[$box.'-width']) && $options[$box.'-width'] == '0') {
 			$options[$box.'-visibility'] = "none";
 			$options[$box.'-padding'] = "25";
 		

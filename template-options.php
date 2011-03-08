@@ -73,7 +73,6 @@ function theme_model() {
 	 
  	$model_css = preg_replace("/body/", ".body_na", $variation_css); 
 	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
-
  	print "
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
@@ -258,7 +257,7 @@ function theme_model() {
 function get_theme_model_css() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST, $model_site_width;
-    global $custom_header_image;
+    global $custom_header_image, $syndication_image;
 
 	ob_start();
 
@@ -468,7 +467,7 @@ function get_theme_model_css() {
 			font-size: 20px; 
 			margin-left: 5px;
 			padding-top: ".$options['header-text-padding-top']."px;
-			color: ".$options['headertext'].";
+			color: ".$options['site-title-color'].";
 		}
 
 
