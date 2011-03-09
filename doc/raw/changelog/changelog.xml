@@ -10,11 +10,11 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
-	<version number="2.2.1" date="2011-30-08">
+	<version number="2.2.1" date="2011-03-08">
 		<releaseNotes>
 			This release refines the toggle and display of site page links and sidebar and include general bug fixes.
 		</releaseNotes>
-		<fix author='alex' date='the future'>
+		<fix author='alex' date='2011-02-27'>
 			Fixed header color theme option default values.
 		</fix>		
 		<new author='alex' date='2011-02-27'>
