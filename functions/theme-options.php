@@ -805,10 +805,10 @@ function print_option_feedback() {
 	$message = "<strong>Your changes have been saved.</strong>";
 	$error = "false";
 	
-	// fix - revert default message not workin
+	
 	if ($options['revert'] == 1) {
-		//$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
-		//$error = "true";
+		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
+		$error = "true";
 
 	} else if (isset($_POST['reset'])) {
 		$message .= " <br/><br/>The ".$options['theme-name']." theme options have been reverted to their default settings.";
