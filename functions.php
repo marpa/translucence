@@ -40,8 +40,6 @@
  
  //error_reporting(E_ALL);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
-require_once("template-options.php");
-require_once("options-css.php");
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -127,14 +125,10 @@ function translucence_setup() {
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
 
-	//create theme id
-	$theme_id = strtolower($variation_config['theme-name']);
-	$theme_id = str_replace(" ", "_", $theme_id);
 	
 	//define name of theme options and css
-	$theme_settings = $theme_id."_settings";
-	$theme_css = $theme_id."_css";
-	$theme_options = $variation_config['theme-name']." Options";
+	// fix - should move to theme_options.php...
+ 	$theme_css = $theme_id."_css";
 	
 	// initialize or get theme options
 	if (!is_array(get_option($theme_settings))) {
