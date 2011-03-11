@@ -1,8 +1,29 @@
 <?php // 2010 Translucence theme options
 
-//add_action( 'admin_init', 'translucence_theme_options_init' );
+add_action( 'admin_init', 'translucence_theme_options_init' );
 add_action('admin_menu', 'translucence_variation_add_page');
 add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
+
+/******************************************************************************
+ * Initialize plugin to white list theme options
+ ******************************************************************************/
+function translucence_theme_options_init() {
+	global $theme_options, $variation_config, $theme_settings, $theme_css, $theme_id;
+
+	require_once( get_template_directory() . '/template-options.php');
+	require_once(get_template_directory() . '/options-css.php');
+	
+	//create theme id
+	$theme_id = strtolower($variation_config['theme-name']);
+	$theme_id = str_replace(" ", "_", $theme_id);
+	
+	//define name of theme options and css
+	$theme_settings = $theme_id."_settings";
+//	$theme_css = $theme_id."_css";
+	$theme_options = $variation_config['theme-name']." Options";
+
+}
+
 
 function translucence_variation_add_page() {
 	global $theme_options, $variation_config;
