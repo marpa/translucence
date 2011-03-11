@@ -639,33 +639,7 @@ function get_breadcrumbs($post) {
 }
  
 
-/******************************************************************************
- * get default variation (note: child themes may override this)
- * 
- ******************************************************************************/
-if (!function_exists('get_variation_default')) {
-	function get_variation_default() {
-		if (file_exists(dirname(__FILE__).'/variations/default/variation.php')) {
-			$variation_default = dirname(__FILE__).'/variations/default/variation.php';
-		}
-		return $variation_default;		
-	}
-}
 
-/******************************************************************************
- * get path to variations source files (note: child themes may override this)
- * 
- ******************************************************************************/
-
-if (!function_exists('get_variations_source')) {
-	function get_variations_source() {
-	
-		if (file_exists(dirname(__FILE__).'/variations/')) {
-			$variations_path = dirname(__FILE__).'/variations';
-		}
-		return $variations_path;
-	}
-}
 
 /******************************************************************************
  * set options for variations (set with options['background'])
