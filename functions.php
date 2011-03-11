@@ -113,9 +113,9 @@ if ( ! isset( $content_width ) )
 	$content_width = 373;
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
-add_action( 'after_setup_theme', 'twentyten_setup' );
+add_action( 'after_setup_theme', 'translucence_setup' );
 
-if ( ! function_exists( 'twentyten_setup' ) ):
+if ( ! function_exists( 'translucence_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -123,7 +123,7 @@ if ( ! function_exists( 'twentyten_setup' ) ):
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  *
- * To override twentyten_setup() in a child theme, add your own twentyten_setup to your child theme's
+ * To override translucence_setup() in a child theme, add your own translucence_setup to your child theme's
  * functions.php file.
  *
  * @uses add_theme_support() To add support for post thumbnails and automatic feed links.
@@ -135,15 +135,18 @@ if ( ! function_exists( 'twentyten_setup' ) ):
  * @uses register_default_headers() To register the default custom header images provided with the theme.
  * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
  *
- * @since Twenty Ten 1.0
+ * @since 2010 Translucence 1.0
  */
-function twentyten_setup() {
+function translucence_setup() {
 	global $options, $variation_config, $variation_css;
 	global $_POST, $options, $options_values, $variations;
 	global $theme_settings, $theme_css;
 	
 	// this theme may have child themes that override this config.
 	//$variation_config = add_translucence_config();
+	
+	// include theme options
+	require_once ( get_template_directory() . '/functions/theme-options.php' );
 
 	//create theme id
 	$theme_id = strtolower($variation_config['theme-name']);
