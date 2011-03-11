@@ -739,56 +739,6 @@ function get_box_widths () {
 
 }
 
-/*********************************************************
- * Hext to RGB converter for setting transparency using RGBa
- * $c can be either hex or rgb
- *********************************************************/
- 
- function hex2rgb($color) {
-	if (!$color) return false;
-	$color = trim($color);
-	$rgb_color = false;
-   
-	if (eregi("^[0-9ABCDEFabcdef\#]+$", $color)) {
-		$color = str_replace('#','', $color);
-		$l = strlen($color) == 3 ? 1 : (strlen($color) == 6 ? 2 : false);
-	}
-
-	if ($l) {
-		unset($rgb_color);
-		//$out = "rgba(";
-		$rgb_color = hexdec(substr($color, 0,1*$l)).", ";
-		$rgb_color .= hexdec(substr($color, 1*$l,1*$l)).", ";
-		$rgb_color .= hexdec(substr($color, 2*$l,1*$l));
-	} else $rgb_color = false;
-	return $rgb_color;
-}
-
-/******************************************************************************
- * Generates IE proprietary CSS for opacity 
- ******************************************************************************/
-
-function ie_opacity_css ($color, $opacity) {
-	if (!$color) return false;
-	$color = trim($color);
-	$out = false;
-	
-	if (eregi("^[0-9]+(,| |.)+[0-9]+(,| |.)+[0-9]+$", $color)) {
-		$color = hex2rgb($color);
-	}
-	
-	$color = ereg_replace("#", "", $color);
-	$hex_opacity = strtoupper(dechex($opacity*255));
-	if ($opacity == "0") $hex_opacity = "00";
-	$hex_rgba = "#".$hex_opacity.$color;
-	
-	$out = "*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=";
-	$out .= $hex_rgba;
-	$out .= ",endColorstr=";
-	$out .= $hex_rgba;
-	$out .= ");zoom: 1;";
-	return $out;
-}
 
 /*********************************************************
  * Compile CSS for current variation with defaults
