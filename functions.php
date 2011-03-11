@@ -638,63 +638,7 @@ function get_breadcrumbs($post) {
 	return $breadcrumbs;
 }
 
-/*********************************************************
- * ShadowBox theme options
- * renders UI and theme model for chosing and previewing options
- *********************************************************/
 
-// function variation_options() {	
-// 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-//     global $theme_settings, $theme_css, $_POST;
-//     	
-// 	if (isset($_POST['reset']) || $options['revert'] == 1) {
-// 		delete_options();
-// 		save_options(); 
-// 		$options['revert'] = 0;
-// 		
-//     } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
-// 		save_options();        
-// 	}
-// 	
-// 	//read_css_file("style.css");
-// 	
-// 	set_variation_options();	
-// 			
-// 	update_option($theme_settings, $options);
-// 	update_option($theme_css, $variation_css);
-// 
-// 	$options = get_option($theme_settings);
-// 	$variation_css = get_option($theme_css);
-// 	
-// 	$current_widgets = get_option ('sidebars_widgets');	
-// 	
-// 	theme_model();
-// 
-// 
-// }	
- if (!function_exists('save_options')) {
-	function save_options() {
-		global $_POST, $options, $variation_css, $variation_config;
-		global $theme_settings, $theme_css;
-
-		// options are those exposed in the UI
-		set_primary_options();
-	
-		// options specific to a particular variation
-		set_variation_options();
-		
-		/******************************************************************************
-		 * add theme options to theme CSS
-		 ******************************************************************************/
-
-		$variation_css = options_css();	
-		update_option($theme_settings, $options);
-		update_option($theme_css, $variation_css);
-		
-		print_option_feedback();
-		
-	}
-}
 
 /*********************************************************
  * set primary options (options exposed to user in model)
