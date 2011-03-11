@@ -129,6 +129,7 @@ function translucence_setup() {
 	//define name of theme options and css
 	// fix - should move to theme_options.php...
  	$theme_css = $theme_id."_css";
+ 	$theme_settings = $theme_id."_settings";
 	
 	// initialize or get theme options
 	if (!is_array(get_option($theme_settings))) {
