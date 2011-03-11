@@ -11,7 +11,7 @@ function translucence_theme_options_init() {
 	global $theme_options, $variation_config, $theme_settings, $theme_css, $theme_id;
 
 	require_once( get_template_directory() . '/template-options.php');
-	require_once(get_template_directory() . '/options-css.php');
+	require_once( get_template_directory() . '/options-css.php');
 	
 	//create theme id
 	$theme_id = strtolower($variation_config['theme-name']);
@@ -101,6 +101,34 @@ function set_primary_options() {
 		$options['model-instructions'] = "off";
 	} else {
 		$options['model-instructions'] = "on";
+	}
+}
+
+/******************************************************************************
+ * get default variation (note: child themes may override this)
+ * 
+ ******************************************************************************/
+if (!function_exists('get_variation_default')) {
+	function get_variation_default() {
+		if (file_exists(get_template_directory() .'/variations/default/variation.php')) {
+			$variation_default = get_template_directory() .'/variations/default/variation.php';
+		}
+		return $variation_default;		
+	}
+}
+
+/******************************************************************************
+ * get path to variations source files (note: child themes may override this)
+ * 
+ ******************************************************************************/
+
+if (!function_exists('get_variations_source')) {
+	function get_variations_source() {
+	
+		if (file_exists(get_template_directory() .'/variations/')) {
+			$variations_path = get_template_directory() .'/variations';
+		}
+		return $variations_path;
 	}
 }
 
