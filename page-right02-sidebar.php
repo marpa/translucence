@@ -31,7 +31,7 @@ $content_width = $options['site-width'] - $options['right02-width'] - 125;
 	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
 	
-	<?php print get_breadcrumbs($post); ?>
+	<?php print translucence_get_breadcrumbs($post); ?>
 
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
