@@ -72,14 +72,6 @@ $current_widgets = get_option ('sidebars_widgets');
  * Setup admin menu
  *********************************************************/ 
 
-add_action('admin_menu', 'variation_admin_menu');
-
-function variation_admin_menu() {
-	global $theme_options, $variation_config;
-	
-    add_theme_page($theme_options, $theme_options, 'edit_theme_options', 'Variations', 'variation_options');
-}
-
 function add_menu_admin_bar() {
     global $wp_admin_bar;
     
@@ -670,35 +662,35 @@ function get_breadcrumbs($post) {
  * renders UI and theme model for chosing and previewing options
  *********************************************************/
 
-function variation_options() {	
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_settings, $theme_css, $_POST;
-    	
-	if (isset($_POST['reset']) || $options['revert'] == 1) {
-		delete_options();
-		save_options(); 
-		$options['revert'] = 0;
-		
-    } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
-		save_options();        
-	}
-	
-	//read_css_file("style.css");
-	
-	set_variation_options();	
-			
-	update_option($theme_settings, $options);
-	update_option($theme_css, $variation_css);
-
-	$options = get_option($theme_settings);
-	$variation_css = get_option($theme_css);
-	
-	$current_widgets = get_option ('sidebars_widgets');	
-	
-	theme_model();
-
-
-}	
+// function variation_options() {	
+// 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
+//     global $theme_settings, $theme_css, $_POST;
+//     	
+// 	if (isset($_POST['reset']) || $options['revert'] == 1) {
+// 		delete_options();
+// 		save_options(); 
+// 		$options['revert'] = 0;
+// 		
+//     } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
+// 		save_options();        
+// 	}
+// 	
+// 	//read_css_file("style.css");
+// 	
+// 	set_variation_options();	
+// 			
+// 	update_option($theme_settings, $options);
+// 	update_option($theme_css, $variation_css);
+// 
+// 	$options = get_option($theme_settings);
+// 	$variation_css = get_option($theme_css);
+// 	
+// 	$current_widgets = get_option ('sidebars_widgets');	
+// 	
+// 	theme_model();
+// 
+// 
+// }	
  if (!function_exists('save_options')) {
 	function save_options() {
 		global $_POST, $options, $variation_css, $variation_config;
