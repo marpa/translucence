@@ -41,6 +41,7 @@ function translucence_add_menu_admin_bar() {
     $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url('admin.php')."/themes.php?page=Variations" ) );
 }
 
+
 function translucence_variation_options() {	
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
@@ -69,4 +70,28 @@ function translucence_variation_options() {
 	theme_model();
 
 
+}
+
+ if (!function_exists('save_options')) {
+	function save_options() {
+		global $_POST, $options, $variation_css, $variation_config;
+		global $theme_settings, $theme_css;
+
+		// options are those exposed in the UI
+		set_primary_options();
+	
+		// options specific to a particular variation
+		set_variation_options();
+		
+		/******************************************************************************
+		 * add theme options to theme CSS
+		 ******************************************************************************/
+
+		$variation_css = options_css();	
+		update_option($theme_settings, $options);
+		update_option($theme_css, $variation_css);
+		
+		print_option_feedback();
+		
+	}
 }
