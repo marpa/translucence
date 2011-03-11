@@ -72,6 +72,38 @@ function translucence_variation_options() {
 
 }
 
+/*********************************************************
+ * set primary options (options exposed to user in model)
+ *********************************************************/
+ 
+function set_primary_options() {
+	global $_POST, $options, $allowedposttags, $variation_config;
+	//printpre($_POST);
+
+	foreach ($variation_config['model'] as $option => $value) {
+
+		//sanitize options that contain HTML
+		if ($value == "headerleftcustom") {
+			$options['headerleftcustom'] = wp_kses($_POST['headerleftcustom'], $allowedposttags);
+		} else if ($value == "footerleftcustom") {
+			$options['footerleftcustom'] = wp_kses($_POST['footerleftcustom'], $allowedposttags);
+		
+		// replaces any characters that are not allowed with null
+		} else if (isset($_POST[$value]))  {
+			$options[$value] = preg_replace('/[^0-9a-z%#,\.\s-+_\/:~]/i','', stripslashes($_POST[$value]));
+		}	
+	}
+	
+
+	if (isset($_POST['model-instructions'])) {
+		$options['model-instructions'] = "on";
+	} else if (!isset($_POST['model-instructions']) || $options['model-instructions'] == "off") {
+		$options['model-instructions'] = "off";
+	} else {
+		$options['model-instructions'] = "on";
+	}
+}
+
  if (!function_exists('save_options')) {
 	function save_options() {
 		global $_POST, $options, $variation_css, $variation_config;
