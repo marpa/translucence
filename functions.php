@@ -68,19 +68,6 @@ $theme_options = $variation_config['theme-name']." Options";
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
 
-/*********************************************************
- * Setup admin menu
- *********************************************************/ 
-
-function add_menu_admin_bar() {
-    global $wp_admin_bar;
-    
-    if ( !current_user_can( 'switch_themes' ) || !is_admin_bar_showing() )
-        return; 
-        
-    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url('admin.php')."/themes.php?page=Variations" ) );
-}
-add_action( 'admin_bar_menu', 'add_menu_admin_bar' ,  70);
 
 
 /*********************************************************
