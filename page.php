@@ -34,7 +34,7 @@ $content_width = get_content_width("page");
 	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print get_box_widths(); ?>)">&nbsp;</a>
 </div>
 	
-<?php print get_breadcrumbs($post); ?>
+<?php print translucence_get_breadcrumbs($post); ?>
 
 
 

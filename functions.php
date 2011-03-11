@@ -621,7 +621,7 @@ function twentyten_posted_in() {
 }
 endif;
 
-function get_breadcrumbs($post) {
+function translucence_get_breadcrumbs($post) {
 
 	$parent_title = get_the_title($post->post_parent);
 	$parent_url = get_permalink($post->post_parent);
