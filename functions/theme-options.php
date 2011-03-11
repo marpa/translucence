@@ -804,10 +804,11 @@ function print_option_feedback() {
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
 	$message = "<strong>Your changes have been saved.</strong>";
 	$error = "false";
-		
+	
+	// fix - revert default message not workin
 	if ($options['revert'] == 1) {
-		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
-		$error = "true";
+		//$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
+		//$error = "true";
 
 	} else if (isset($_POST['reset'])) {
 		$message .= " <br/><br/>The ".$options['theme-name']." theme options have been reverted to their default settings.";
