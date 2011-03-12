@@ -107,8 +107,8 @@ function translucence_set_primary_options() {
  * get default variation (note: child themes may override this)
  * 
  ******************************************************************************/
-if (!function_exists('get_variation_default')) {
-	function get_variation_default() {
+if (!function_exists('translucence_get_variation_default')) {
+	function translucence_get_variation_default() {
 		if (file_exists(get_template_directory() .'/variations/default/variation.php')) {
 			$variation_default = get_template_directory() .'/variations/default/variation.php';
 		}
@@ -143,8 +143,8 @@ function set_variation_options() {
 	 * Default options and option value lists
 	 ******************************************************************************/
 
-	if (file_exists(get_variation_default())) {
-		$variation_default = get_variation_default();
+	if (file_exists(translucence_get_variation_default())) {
+		$variation_default = translucence_get_variation_default();
 		include($variation_default);
 	} 
 	
