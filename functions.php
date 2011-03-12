@@ -48,8 +48,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 /*********************************************************
  * Define theme id, settings, css and options
  *********************************************************/
- if (!function_exists('add_translucence_config')) {
-	function add_translucence_config() {
+ if (!function_exists('translucence_add_config')) {
+	function translucence_add_config() {
 	   if (file_exists(dirname(__FILE__).'/config.php')) {
 			require_once('config.php');
 		} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
@@ -60,7 +60,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 }
  
 // this theme may have child themes that override this config.
-$variation_config = add_translucence_config();
+$variation_config = translucence_add_config();
 $theme_options = $variation_config['theme-name']." Options";
 
 $current_widgets = get_option ('sidebars_widgets');
@@ -120,7 +120,7 @@ function translucence_setup() {
 	global $theme_settings, $theme_css;
 	
 	// this theme may have child themes that override this config.
-	//$variation_config = add_translucence_config();
+	//$variation_config = translucence_add_config();
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
