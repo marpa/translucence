@@ -10,7 +10,7 @@
 get_header(); 
 $this_category = get_category($cat);
 $cat_id = $this_category->term_id;
-$content_width = get_content_width ("category");
+$content_width = translucence_get_content_width ("category");
 ?>
 
 		<div id="container">

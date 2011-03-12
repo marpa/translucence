@@ -13,7 +13,7 @@
  */
 
 get_header(); 
-$content_width = get_content_width ("archives");
+$content_width = translucence_get_content_width ("archives");
 ?>
 
 		<div id="container">

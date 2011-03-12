@@ -8,7 +8,7 @@
  */
 
 get_header(); 
-$content_width = get_content_width ("post");
+$content_width = translucence_get_content_width ("post");
 ?>
 
 		<div id="container">

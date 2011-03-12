@@ -14,7 +14,7 @@
 
 get_header(); 
 global $options;
-$content_width = get_content_width("page");
+$content_width = translucence_get_content_width("page");
 ?>
 
 <div id="container">
