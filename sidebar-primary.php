@@ -20,7 +20,7 @@
 	
 		<div id="primary" class="widget-area" role="complementary" style="width: <?php print $options['right01-width'] ?>px">
 			<div class="toggle" style="margin-right: -20px;">
-			<a id="toggleprimary" href="javascript:toggle('primary','sidebar',<?php print get_box_widths(); ?>)">&laquo;</a>
+			<a id="toggleprimary" href="javascript:toggle('primary','sidebar',<?php print translucence_get_box_widths(); ?>)">&laquo;</a>
 			</div>
 			<ul class="xoxo">
 				<?php dynamic_sidebar( 'primary-widget-area' ); ?>
