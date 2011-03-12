@@ -797,7 +797,7 @@ function translucence_set_derivative_options() {
  * Provides feedback to user about theme option choses
  ******************************************************************************/
 
-function print_option_feedback() {
+function translucence_option_feedback() {
 	global $_POST, $options, $variation_config;
 	
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
@@ -944,7 +944,7 @@ function delete_options() {
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);
 		
-		print_option_feedback();
+		translucence_option_feedback();
 		
 	}
 }
