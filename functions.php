@@ -152,7 +152,7 @@ function translucence_setup() {
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);	
 
-	} else if ($options['options-version'] != $options['variation-version']) {
+	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
 		$options['options-version'] = $options['variation-version'];
 		set_variation_options();
 		save_options();
