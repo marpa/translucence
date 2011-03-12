@@ -139,7 +139,7 @@ function translucence_setup() {
 		add_option($theme_css, "");	
 		
 		translucence_set_variation_options();
-		save_options();
+		translucence_save_options();
 
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);	
@@ -147,7 +147,7 @@ function translucence_setup() {
 	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
 		$options['options-version'] = $options['variation-version'];
 		translucence_set_variation_options();
-		save_options();
+		translucence_save_options();
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);		
 	}

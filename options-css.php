@@ -1131,7 +1131,7 @@ small, .nocomments, .postmetadata, blockquote, strike {
 	<?php
 	
 	/******************************************************************************
-	 * Get above css and return to  save_options() in functions.php
+	 * Get above css and return to  translucence_save_options() in functions.php
 	 ******************************************************************************/
 
 	$variation_css = ob_get_contents();
