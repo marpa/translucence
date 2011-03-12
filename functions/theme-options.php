@@ -66,7 +66,7 @@ function translucence_variation_options() {
 	
 	$current_widgets = get_option ('sidebars_widgets');	
 	
-	theme_model();
+	translucence_theme_model();
 
 
 }

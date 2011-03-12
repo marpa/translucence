@@ -5,7 +5,7 @@
  * renders UI and theme model for chosing and previewing options
  *********************************************************/
 
-function theme_model() {
+function translucence_theme_model() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
@@ -77,7 +77,7 @@ function theme_model() {
  	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
  	print $model_css;
- 	print get_theme_model_css();
+ 	print translucence_get_theme_model_css();
 
 	
 	/******************************************************************************
@@ -254,7 +254,7 @@ function theme_model() {
 /******************************************************************************
  * Theme model css
  ******************************************************************************/
-function get_theme_model_css() {
+function translucence_get_theme_model_css() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST, $model_site_width;
     global $custom_header_image, $syndication_image;
@@ -481,10 +481,10 @@ function get_theme_model_css() {
 		</style>	
 	";
 
-	$theme_model_css = ob_get_contents();
+	$translucence_theme_model_css = ob_get_contents();
 	ob_end_clean();
 
-	return $theme_model_css;
+	return $translucence_theme_model_css;
 
 }
 
