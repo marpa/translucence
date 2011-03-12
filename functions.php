@@ -743,26 +743,6 @@ function translucence_get_box_widths () {
 
 }
 
-
-/*********************************************************
- * Compile CSS for current variation with defaults
- * for theme style.css
- *********************************************************/
-
-function read_css_file($css_file) {
-
-	if (file_exists(TEMPLATEPATH.'/'.$css_file)) {
-		$default_css_filepath = TEMPLATEPATH.'/'.$css_file;
-		printpre($default_css_filepath);
-	}
-	
-	
-    if( ! ($default_css = @file("$default_css_filepath", FILE_IGNORE_NEW_LINES)) ) {
-        print("Unable to read css file: $css_file");
-        return(false);
-    }
-}
-
 /*********************************************************
  * debugging
  *********************************************************/
