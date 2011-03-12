@@ -47,7 +47,7 @@ function translucence_variation_options() {
     global $theme_settings, $theme_css, $_POST;
     	
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
-		delete_options();
+		translucence_delete_options();
 		save_options(); 
 		$options['revert'] = 0;
 		
@@ -903,7 +903,7 @@ function translucence_option_feedback() {
  * old options...)
  ******************************************************************************/
 
-function delete_options() {
+function translucence_delete_options() {
     global $variation_config, $options, $variation_css, $theme_settings, $theme_css;
 	
 	$options = array();
