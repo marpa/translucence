@@ -225,7 +225,7 @@ function translucence_set_variation_options() {
 		if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
 	}
 	
-	set_derivative_options();	
+	translucence_set_derivative_options();	
 }
 
 /*********************************************************
@@ -233,7 +233,7 @@ function translucence_set_variation_options() {
  * to set derivative options
  *********************************************************/
 
-function set_derivative_options() {
+function translucence_set_derivative_options() {
 	global $variation_config, $_POST, $options, $options_values, $custom_background_image;
 
 	/******************************************************************************
