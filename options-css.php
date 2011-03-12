@@ -2,11 +2,11 @@
 
 
 /*********************************************************
- * ShadowBox options css
+ * Translucence options css
  * embeds theme options in css
  *********************************************************/
 
-function options_css() {
+function translucence_options_css() {
 	global $_POST, $options, $variation_css, $variation_config;
 	global $theme_settings, $theme_css;
 

@@ -940,7 +940,7 @@ function translucence_delete_options() {
 		 * add theme options to theme CSS
 		 ******************************************************************************/
 
-		$variation_css = options_css();	
+		$variation_css = translucence_options_css();	
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);
 		
