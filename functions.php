@@ -225,7 +225,7 @@ function translucence_setup() {
 
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( 'header_style', 'twentyten_admin_header_style' );
+	add_custom_image_header( 'translucence_header_style', 'twentyten_admin_header_style' );
 
 	// ... and thus ends the changeable header business.
 
@@ -303,7 +303,7 @@ endif;
  * @since 2010 Translucence 1.0
  */
 
-function header_style() {
+function translucence_header_style() {
 	global $post, $options, $variation_config;
 	
 	if ( is_singular() &&
