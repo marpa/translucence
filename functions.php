@@ -234,6 +234,161 @@ function translucence_setup() {
 }
 endif;
 
+ /**
+ * Styles the header image displayed in blog
+ *
+ * Referenced via wp_head() function in header.php
+ *
+ * @since 2010 Translucence 1.0
+ */
+
+function translucence_header_style() {
+	global $post, $options, $variation_config;
+	
+	if ( is_singular() &&
+	has_post_thumbnail( $post->ID ) &&
+	( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) )  ) {
+		$custom_header = $image[0];
+	} else {
+		$custom_header = get_header_image();
+	}
+	
+	if ($custom_header == "" && $options['header-image-options'] != "none") {
+		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
+		$custom_header = str_replace('%s', '', $header_image);
+		$custom_header = get_bloginfo('template_directory').$custom_header;
+	}
+
+	?>	
+	<style type="text/css">
+	.headerblock {
+		background-color: <?php echo HEADER_BGCOLOR; ?>;
+		<?php if ($custom_header != "") print "background-image: url('".$custom_header."');\n"; ?>
+		background-position: right;
+		background-repeat: no-repeat;
+	}
+	</style>	
+	<?php	
+}
+
+function translucence_get_breadcrumbs($post) {
+
+	$parent_title = get_the_title($post->post_parent);
+	$parent_url = get_permalink($post->post_parent);
+	$post_title = get_the_title($post);
+
+	if ($parent_title != $post_title) { 
+		$breadcrumbs = "<div class='breadcrumbs'>";
+		$breadcrumbs .= "<a href='".$parent_url."'";
+		$breadcrumbs .= " title='".$parent_title ."'>".$parent_title."</a> &raquo; ";
+		$breadcrumbs .= get_the_title($post);
+		$breadcrumbs .= "</div>";
+	}
+
+	return $breadcrumbs;
+}
+
+
+/******************************************************************************
+ * Get Content Width
+ * gets the width of the content column depending on what template is being used
+ * template values: page, archives, search, author, category, tag, post
+ ******************************************************************************/
+
+function translucence_get_content_width ($template) {
+	global $options;
+
+	if ($template == "page") {
+		$width_adjust = 50;
+		if ($options['left01-width'] == 0) {
+			$left01_width = 0;
+		} else {
+			$left01_width = $options['left01-width']+$width_adjust;
+		}
+		
+		if ($options['right01-width'] == 0) {
+			$right01_width = 0;
+		} else {
+			$right01_width = $options['right01-width']+$width_adjust;
+		}
+
+		if ($options['right02-width'] == 0) {
+			$right02_width = 0;
+		} else {
+			$right02_width = $options['right02-width']+$width_adjust;
+		}
+		
+		$content_width = $options['site-width'] -  ($left01_width + $right01_width + $right02_width + 70);
+		
+	} else {
+	
+		if ($options[$template.'-sidebar-left-display'] != "show" ) {
+			$left01_width = 0;
+		} else {
+			$left01_width = $options['left01-width']+50;
+		}
+		
+		if ($options[$template.'-sidebar-right-display'] != "show" ) {
+			$right01_width = 0;
+		} else {
+			$right01_width = $options['right01-width']+50;
+		}
+		
+		if ($options[$template.'-sidebar-right02-display'] != "show" ) {
+			$right02_width = 0;
+		} else {
+			$right02_width = $options['right02-width']+50;
+		}
+		
+		$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	}
+	
+	//$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	return $content_width;
+}
+
+function translucence_get_box_widths () {
+	global $options;
+	
+	if (is_single()) {
+		$content_width = translucence_get_content_width ("post");
+	} else if (is_category()){
+		$content_width = translucence_get_content_width ("category");
+	} else if (is_tag()){
+		$content_width = translucence_get_content_width ("tag");
+	} else if (is_author()){
+		$content_width = translucence_get_content_width ("author");
+	} else if (is_search()){
+		$content_width = translucence_get_content_width ("search");
+	} else if (is_archive()){
+		$content_width = translucence_get_content_width ("archives");
+	} else {
+		if (is_page_template('page-right01-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right01-width'] - 125;
+		} else if (is_page_template('page-right02-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right02-width'] - 125;
+		} else if (is_page_template('page-right-both-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['right01-width']  - $options['right02-width'] - 175;
+		} else if (is_page_template('page-left-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - 125;
+		} else if (is_page_template('page-left-right01-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - 175;
+		} else if (is_page_template('page-left-right02-sidebar.php')) {
+			$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
+		} else {
+			$content_width = translucence_get_content_width ("page");
+		}
+	}
+	
+	$box_widths = $options['right01-width'].",";
+	$box_widths .= $options['right02-width'].",";
+	$box_widths .= $options['left01-width'].",";
+	$box_widths .= $content_width;
+	
+	return $box_widths;
+
+}
+
 /**
  * Preset widgets, including three sidebars and four widget-ready columns in the footer.
  *
@@ -294,44 +449,6 @@ global $options;
 <?php
 }
 endif;
-
- /**
- * Styles the header image displayed in blog
- *
- * Referenced via wp_head() function in header.php
- *
- * @since 2010 Translucence 1.0
- */
-
-function translucence_header_style() {
-	global $post, $options, $variation_config;
-	
-	if ( is_singular() &&
-	has_post_thumbnail( $post->ID ) &&
-	( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) )  ) {
-		$custom_header = $image[0];
-	} else {
-		$custom_header = get_header_image();
-	}
-	
-	if ($custom_header == "" && $options['header-image-options'] != "none") {
-		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
-		$custom_header = str_replace('%s', '', $header_image);
-		$custom_header = get_bloginfo('template_directory').$custom_header;
-	}
-
-	?>	
-	<style type="text/css">
-	.headerblock {
-		background-color: <?php echo HEADER_BGCOLOR; ?>;
-		<?php if ($custom_header != "") print "background-image: url('".$custom_header."');\n"; ?>
-		background-position: right;
-		background-repeat: no-repeat;
-	}
-	</style>	
-	<?php	
-}
-
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -625,123 +742,6 @@ function twentyten_posted_in() {
 }
 endif;
 
-function translucence_get_breadcrumbs($post) {
-
-	$parent_title = get_the_title($post->post_parent);
-	$parent_url = get_permalink($post->post_parent);
-	$post_title = get_the_title($post);
-
-	if ($parent_title != $post_title) { 
-		$breadcrumbs = "<div class='breadcrumbs'>";
-		$breadcrumbs .= "<a href='".$parent_url."'";
-		$breadcrumbs .= " title='".$parent_title ."'>".$parent_title."</a> &raquo; ";
-		$breadcrumbs .= get_the_title($post);
-		$breadcrumbs .= "</div>";
-	}
-
-	return $breadcrumbs;
-}
-
-
-/******************************************************************************
- * Get Content Width
- * gets the width of the content column depending on what template is being used
- * template values: page, archives, search, author, category, tag, post
- ******************************************************************************/
-
-function translucence_get_content_width ($template) {
-	global $options;
-
-	if ($template == "page") {
-		$width_adjust = 50;
-		if ($options['left01-width'] == 0) {
-			$left01_width = 0;
-		} else {
-			$left01_width = $options['left01-width']+$width_adjust;
-		}
-		
-		if ($options['right01-width'] == 0) {
-			$right01_width = 0;
-		} else {
-			$right01_width = $options['right01-width']+$width_adjust;
-		}
-
-		if ($options['right02-width'] == 0) {
-			$right02_width = 0;
-		} else {
-			$right02_width = $options['right02-width']+$width_adjust;
-		}
-		
-		$content_width = $options['site-width'] -  ($left01_width + $right01_width + $right02_width + 70);
-		
-	} else {
-	
-		if ($options[$template.'-sidebar-left-display'] != "show" ) {
-			$left01_width = 0;
-		} else {
-			$left01_width = $options['left01-width']+50;
-		}
-		
-		if ($options[$template.'-sidebar-right-display'] != "show" ) {
-			$right01_width = 0;
-		} else {
-			$right01_width = $options['right01-width']+50;
-		}
-		
-		if ($options[$template.'-sidebar-right02-display'] != "show" ) {
-			$right02_width = 0;
-		} else {
-			$right02_width = $options['right02-width']+50;
-		}
-		
-		$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
-	}
-	
-	//$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
-	return $content_width;
-}
-
-function translucence_get_box_widths () {
-	global $options;
-	
-	if (is_single()) {
-		$content_width = translucence_get_content_width ("post");
-	} else if (is_category()){
-		$content_width = translucence_get_content_width ("category");
-	} else if (is_tag()){
-		$content_width = translucence_get_content_width ("tag");
-	} else if (is_author()){
-		$content_width = translucence_get_content_width ("author");
-	} else if (is_search()){
-		$content_width = translucence_get_content_width ("search");
-	} else if (is_archive()){
-		$content_width = translucence_get_content_width ("archives");
-	} else {
-		if (is_page_template('page-right01-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right01-width'] - 125;
-		} else if (is_page_template('page-right02-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right02-width'] - 125;
-		} else if (is_page_template('page-right-both-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right01-width']  - $options['right02-width'] - 175;
-		} else if (is_page_template('page-left-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - 125;
-		} else if (is_page_template('page-left-right01-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - 175;
-		} else if (is_page_template('page-left-right02-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
-		} else {
-			$content_width = translucence_get_content_width ("page");
-		}
-	}
-	
-	$box_widths = $options['right01-width'].",";
-	$box_widths .= $options['right02-width'].",";
-	$box_widths .= $options['left01-width'].",";
-	$box_widths .= $content_width;
-	
-	return $box_widths;
-
-}
 
 /*********************************************************
  * debugging
