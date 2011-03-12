@@ -58,7 +58,6 @@ function translucence_variation_options() {
 	//read_css_file("style.css");
 	
 	set_variation_options();	
-			
 	update_option($theme_settings, $options);
 	update_option($theme_css, $variation_css);
 
@@ -662,7 +661,7 @@ function set_derivative_options() {
 		}		
 		
 		// visibility and padding of bars
-		if (isset($options[$box.'-width']) && $options[$box.'-width'] == '0') {
+		if (isset($options[$box.'-width']) && $options[$box.'-width'] == '0') {	
 			$options[$box.'-visibility'] = "none";
 			$options[$box.'-padding'] = "25";
 		
@@ -920,7 +919,6 @@ function delete_options() {
 	set_variation_options();
 
 	//$options['revert'] = 0; 
-	
 	update_option($theme_settings, $options);
 
  	$options = get_option($theme_settings);

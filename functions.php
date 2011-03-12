@@ -128,6 +128,8 @@ function translucence_setup() {
 	
 	//define name of theme options and css
 	// fix - should move to theme_options.php...
+	$theme_id = strtolower($variation_config['theme-name']);
+	$theme_id = str_replace(" ", "_", $theme_id);
  	$theme_css = $theme_id."_css";
  	$theme_settings = $theme_id."_settings";
 	
@@ -138,14 +140,15 @@ function translucence_setup() {
 		$options = get_option($theme_settings);
 	}
 	
-	// initialize or get theme css
+	// initialize or get theme css	
 	if (!get_option($theme_css)) {
 		add_option($theme_css, "");	
 		// define theme url and name
 		
 		set_variation_options();
 		save_options();
-		
+
+
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);	
 
@@ -156,11 +159,11 @@ function translucence_setup() {
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);		
 	}
-	
+
 	$variation_css = get_option($theme_css);
 	//printpre($options);
-		
-	
+
+
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
