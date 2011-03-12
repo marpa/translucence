@@ -48,11 +48,11 @@ function translucence_variation_options() {
     	
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
-		save_options(); 
+		translucence_save_options(); 
 		$options['revert'] = 0;
 		
     } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
-		save_options();        
+		translucence_save_options();        
 	}
 	
 	//read_css_file("style.css");
@@ -925,8 +925,8 @@ function translucence_delete_options() {
 
 }
 
- if (!function_exists('save_options')) {
-	function save_options() {
+ if (!function_exists('translucence_save_options')) {
+	function translucence_save_options() {
 		global $_POST, $options, $variation_css, $variation_config;
 		global $theme_settings, $theme_css;
 
