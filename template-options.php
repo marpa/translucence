@@ -118,10 +118,10 @@ function translucence_theme_model() {
 		<div class='modelwrapper'>						
 			<div class='sitewrapper'> 	
 				<div class='headermeta_right'> 
-					<div class='bgtextcolor'><?php print headermeta_right(); ?></div>
+					<div class='bgtextcolor'><?php print translucence_headermeta_right(); ?></div>
 				</div> 
 				<div class='headermeta_left'> 
-					<div class='bgtextcolor'><?php print headermeta_left(); ?></div> 
+					<div class='bgtextcolor'><?php print translucence_headermeta_left(); ?></div> 
 				</div> 
 				<?php print get_custom_options(); ?>
 			</div> 
@@ -212,10 +212,10 @@ function translucence_theme_model() {
 				
 			<div class='sitewrapper'>  
 				<div class='footermeta_right'> 
-					<div class='bgtextcolor'><?php print footermeta_right(); ?></div> 
+					<div class='bgtextcolor'><?php print translucence_footermeta_right(); ?></div> 
 				</div> 	 
 				<div class='footermeta_left'> 
-					<div class='bgtextcolor'><?php print footermeta_left(); ?></div> 
+					<div class='bgtextcolor'><?php print translucence_footermeta_left(); ?></div> 
 				</div> 	
 			</div><!-- #sitewrapper --> 
 		</div><!-- modelwrapper -->
@@ -488,7 +488,7 @@ function translucence_get_theme_model_css() {
 
 }
 
-function headermeta_left() {
+function translucence_headermeta_left() {
 	global $variation_config, $options;
 	
 	ob_start();
@@ -522,7 +522,7 @@ function headermeta_left() {
 }
 
 
-function headermeta_right() {
+function translucence_headermeta_right() {
 	global $variation_config, $options;
 	
 	ob_start();
@@ -1233,7 +1233,7 @@ function get_footer_widgets($order) {
  * Get Footer meta right options
  ******************************************************************************/
 
-function footermeta_right() {
+function translucence_footermeta_right() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
 
@@ -1254,7 +1254,7 @@ function footermeta_right() {
  * Get Footer meta left otions
  ******************************************************************************/
 
-function footermeta_left() {
+function translucence_footermeta_left() {
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
     global $theme_settings, $theme_css, $_POST;	
     
