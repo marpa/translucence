@@ -123,8 +123,6 @@ function translucence_setup() {
 	global $_POST, $options, $options_values, $variations;
 	global $theme_settings, $theme_css;
 	
-	// this theme may have child themes that override this config.
-	//$variation_config = translucence_add_config();
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
