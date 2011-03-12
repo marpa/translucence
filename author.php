@@ -8,7 +8,7 @@
  */
 
 get_header(); 
-$content_width = get_content_width ("author");
+$content_width = translucence_get_content_width ("author");
 
 $author = get_userdata($wp_the_query->query_vars['author']);
 

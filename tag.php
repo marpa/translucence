@@ -10,7 +10,7 @@
 get_header(); 
 $this_tag = get_tags($tag);
 $tag_id = get_query_var('tag_id');
-$content_width = get_content_width ("tag");
+$content_width = translucence_get_content_width ("tag");
 ?>
 
 	<div id="container">

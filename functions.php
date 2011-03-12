@@ -649,7 +649,7 @@ function translucence_get_breadcrumbs($post) {
  * template values: page, archives, search, author, category, tag, post
  ******************************************************************************/
 
-function get_content_width ($template) {
+function translucence_get_content_width ($template) {
 	global $options;
 
 	if ($template == "page") {
@@ -705,17 +705,17 @@ function get_box_widths () {
 	global $options;
 	
 	if (is_single()) {
-		$content_width = get_content_width ("post");
+		$content_width = translucence_get_content_width ("post");
 	} else if (is_category()){
-		$content_width = get_content_width ("category");
+		$content_width = translucence_get_content_width ("category");
 	} else if (is_tag()){
-		$content_width = get_content_width ("tag");
+		$content_width = translucence_get_content_width ("tag");
 	} else if (is_author()){
-		$content_width = get_content_width ("author");
+		$content_width = translucence_get_content_width ("author");
 	} else if (is_search()){
-		$content_width = get_content_width ("search");
+		$content_width = translucence_get_content_width ("search");
 	} else if (is_archive()){
-		$content_width = get_content_width ("archives");
+		$content_width = translucence_get_content_width ("archives");
 	} else {
 		if (is_page_template('page-right01-sidebar.php')) {
 			$content_width = $options['site-width'] - $options['right01-width'] - 125;
@@ -730,7 +730,7 @@ function get_box_widths () {
 		} else if (is_page_template('page-left-right02-sidebar.php')) {
 			$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
 		} else {
-			$content_width = get_content_width ("page");
+			$content_width = translucence_get_content_width ("page");
 		}
 	}
 	
