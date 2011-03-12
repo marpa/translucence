@@ -648,7 +648,7 @@ function translucence_set_derivative_options() {
 		}
 		
 
-	   $options[$box.'-color-ie'] = $area." {".ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
+	   $options[$box.'-color-ie'] = $area." {".translucence_ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
@@ -657,7 +657,7 @@ function translucence_set_derivative_options() {
 		}
 		
 		if ($box == "description-box") {
-			$options[$box.'-color-ie'] = "#ie-description-box .description-box {".ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
+			$options[$box.'-color-ie'] = "#ie-description-box .description-box {".translucence_ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
 		}		
 		
 		// visibility and padding of bars
@@ -978,7 +978,7 @@ function translucence_delete_options() {
  * Generates IE proprietary CSS for opacity 
  ******************************************************************************/
 
-function ie_opacity_css ($color, $opacity) {
+function translucence_ie_opacity_css ($color, $opacity) {
 	if (!$color) return false;
 	$color = trim($color);
 	$out = false;
