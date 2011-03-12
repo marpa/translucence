@@ -224,8 +224,8 @@ function translucence_setup() {
 	define( 'NO_HEADER_TEXT', true );
 
 	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( 'translucence_header_style', 'twentyten_admin_header_style' );
+	// custom headers. See translucence_admin_header_style(), below.
+	add_custom_image_header( 'translucence_header_style', 'translucence_admin_header_style' );
 
 	// ... and thus ends the changeable header business.
 
@@ -415,15 +415,15 @@ if (isset($_POST['default_widgets']) || (isset( $_GET['activated'] ) && $current
 	update_option( 'sidebars_widgets', $preset_widgets);		
 }
 
-if ( ! function_exists( 'twentyten_admin_header_style' ) ) :
+if ( ! function_exists( 'translucence_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
  * Referenced via add_custom_image_header() in twentyten_setup().
  *
- * @since Twenty Ten 1.0
+ * @since Translucence 1.0
  */
-function twentyten_admin_header_style() {
+function translucence_admin_header_style() {
 global $options;
 ?>
 	<style type='text/css'>
