@@ -121,8 +121,8 @@ if (!function_exists('translucence_get_variation_default')) {
  * 
  ******************************************************************************/
 
-if (!function_exists('get_variations_source')) {
-	function get_variations_source() {
+if (!function_exists('translucence_get_variations_source')) {
+	function translucence_get_variations_source() {
 	
 		if (file_exists(get_template_directory() .'/variations/')) {
 			$variations_path = get_template_directory() .'/variations';
@@ -160,10 +160,10 @@ function set_variation_options() {
 	$variations = array();
 	$themes_allowed_tags = "";
 	
-	//$variation_path = get_variations_source();
+	//$variation_path = translucence_get_variations_source();
 	
-	if (file_exists(get_variations_source())) {
-		$variation_path = get_variations_source();
+	if (file_exists(translucence_get_variations_source())) {
+		$variation_path = translucence_get_variations_source();
 		
 		if ($handle = opendir($variation_path)) {
 			while (false !== ($file = readdir($handle))) {
