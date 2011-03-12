@@ -38,14 +38,20 @@
  * @since Twenty Ten 1.0
  */
  
+/**
+* Set the content width based on the theme's design and stylesheet.
+*
+* Used to set the width of images and content. Should be equal to the width the theme
+* is designed for, generally via the style.css stylesheet.
+*/
+if ( ! isset( $content_width ) )
+	$content_width = 373;
+
 
 /**
- * Sets up theme defaults and registers support for various WordPress features.
+ * Get the translucence config.
 */
 
-/*********************************************************
- * Define theme id, settings, css and options
- *********************************************************/
  if (!function_exists('translucence_add_config')) {
 	function translucence_add_config() {
 	   if (file_exists(dirname(__FILE__).'/config.php')) {
