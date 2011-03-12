@@ -580,8 +580,8 @@ function translucence_set_derivative_options() {
 		}
 
 		// convert hex color and opacity settings to rgba values
-		$options[$box.'-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
-		$options[$box.'-highlight-color-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";	
+		$options[$box.'-color-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".$options[$box.'-opacity'].")";	
+		$options[$box.'-highlight-color-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";	
 		
 		
 		// text, link and highlight color adjustment for low opacity settings
@@ -593,16 +593,16 @@ function translucence_set_derivative_options() {
 			$options[$box.'-text-color'] = $options['transparent-text-color'];		
 			
 			if ($custom_background_image != "") {
-				$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']-.2).")";
-				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']).")";
+				$options[$box.'-color-hover-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']-.2).")";
+				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']).")";
 			} else {
-				$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
-				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.1).")";			
+				$options[$box.'-color-hover-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
+				$options[$box.'-highlight-hover-color-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.1).")";			
 			}
 			
 		} else {
-			$options[$box.'-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
-			$options[$box.'-highlight-color-hover-rgb'] = "rgba(".hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";					
+			$options[$box.'-color-hover-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-color']).", ".($options[$box.'-opacity']+.2).")";
+			$options[$box.'-highlight-color-hover-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";					
 		}
 		
 		
@@ -610,8 +610,8 @@ function translucence_set_derivative_options() {
 		
 		// need to refine top bar opacity settings....
 		if ($box == "top") {
-			$options['top-color-hover02-rgb'] = "rgba(".hex2rgb($options['top-color']).", .9)";
-			$options['top-color-hover03-rgb'] = "rgba(".hex2rgb($options['top-color']).", 1)";
+			$options['top-color-hover02-rgb'] = "rgba(".translucence_hex2rgb($options['top-color']).", .9)";
+			$options['top-color-hover03-rgb'] = "rgba(".translucence_hex2rgb($options['top-color']).", 1)";
 		}
 		
 		/******************************************************************************
@@ -954,7 +954,7 @@ function translucence_delete_options() {
  * $c can be either hex or rgb
  *********************************************************/
  
- function hex2rgb($color) {
+ function translucence_hex2rgb($color) {
 	if (!$color) return false;
 	$color = trim($color);
 	$rgb_color = false;
@@ -984,7 +984,7 @@ function ie_opacity_css ($color, $opacity) {
 	$out = false;
 	
 	if (eregi("^[0-9]+(,| |.)+[0-9]+(,| |.)+[0-9]+$", $color)) {
-		$color = hex2rgb($color);
+		$color = translucence_hex2rgb($color);
 	}
 	
 	$color = ereg_replace("#", "", $color);
