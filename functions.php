@@ -701,7 +701,7 @@ function translucence_get_content_width ($template) {
 	return $content_width;
 }
 
-function get_box_widths () {
+function translucence_get_box_widths () {
 	global $options;
 	
 	if (is_single()) {

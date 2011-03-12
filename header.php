@@ -72,7 +72,7 @@
 ?>
 </head>
 
-<body <?php body_class(); ?> onload="setToggleFromCookie(<?php print get_box_widths(); ?>);">
+<body <?php body_class(); ?> onload="setToggleFromCookie(<?php print translucence_get_box_widths(); ?>);">
 <div class="sitewrapper">
 	
 	<div class="headermeta_right">
