@@ -1,12 +1,15 @@
 <?php
 /**
- * TwentyTen functions and definitions
+ * 2010 Translucence functions and definitions
+ *
+ * 2010 Translucence loosely extends the TwentyTen theme.  Most of the original TwentyTen
+ * functions are used and then augmented with Translucence functions
  *
  * Sets up the theme and provides some helper functions. Some helper functions
  * are used in the theme as custom template tags. Others are attached to action and
  * filter hooks in WordPress to change core functionality.
  *
- * The first function, twentyten_setup(), sets up the theme by registering support
+ * The first function, translucene_setup(), sets up the theme by registering support
  * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
  *
  * When using a child theme (see http://codex.wordpress.org/Theme_Development and
@@ -34,8 +37,8 @@
  * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
+ * @subpackage 2010 Translucence
+ * @since 2010 Translucence 1.0
  */
  
 /**
@@ -134,11 +137,9 @@ function translucence_setup() {
 	// initialize or get theme css	
 	if (!get_option($theme_css)) {
 		add_option($theme_css, "");	
-		// define theme url and name
 		
 		set_variation_options();
 		save_options();
-
 
 		update_option($theme_settings, $options);
 		update_option($theme_css, $variation_css);	
@@ -154,10 +155,8 @@ function translucence_setup() {
 	$variation_css = get_option($theme_css);
 	//printpre($options);
 
-
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
-
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
