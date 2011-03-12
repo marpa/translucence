@@ -71,28 +71,6 @@ $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
 
 
-
-/*********************************************************
- * Register theme javascript
- *********************************************************/ 
- 
-// front end javascript
-if ( !is_admin() ) { 
- //  wp_enqueue_script('jquery');      
-}
-
-wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
-wp_enqueue_script('display.control');
-
-/**
- * Set the content width based on the theme's design and stylesheet.
- *
- * Used to set the width of images and content. Should be equal to the width the theme
- * is designed for, generally via the style.css stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 373;
-
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'translucence_setup' );
 
@@ -123,6 +101,17 @@ function translucence_setup() {
 	global $_POST, $options, $options_values, $variations;
 	global $theme_settings, $theme_css;
 	
+	/*********************************************************
+	 * Register theme javascript
+	 *********************************************************/ 
+	 
+	// front end javascript
+	if ( !is_admin() ) { 
+	 //  wp_enqueue_script('jquery');      
+	}
+	
+	wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
+	wp_enqueue_script('display.control');
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
