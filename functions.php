@@ -38,8 +38,6 @@
  * @since Twenty Ten 1.0
  */
  
- //error_reporting(E_ALL);
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
