@@ -75,7 +75,7 @@ function translucence_variation_options() {
  * set primary options (options exposed to user in model)
  *********************************************************/
  
-function set_primary_options() {
+function translucence_set_primary_options() {
 	global $_POST, $options, $allowedposttags, $variation_config;
 	//printpre($_POST);
 
@@ -931,7 +931,7 @@ function delete_options() {
 		global $theme_settings, $theme_css;
 
 		// options are those exposed in the UI
-		set_primary_options();
+		translucence_set_primary_options();
 	
 		// options specific to a particular variation
 		set_variation_options();
