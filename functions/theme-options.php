@@ -10,14 +10,6 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 function translucence_theme_options_init() {
 	global $variation_config, $theme_settings, $theme_css, $theme_id;
 	
-	//create theme id
-// 	$theme_id = strtolower($variation_config['theme-name']);
-// 	$theme_id = str_replace(" ", "_", $theme_id);
-	
-	//define name of theme options and css
-// 	$theme_settings = $theme_id."_settings";
-// 	$theme_css = $theme_id."_css";
-
 }
 
 
