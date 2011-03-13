@@ -155,7 +155,7 @@ $options['searchbox-color'] = "#FFFFFF";
  * Set these only if not in the initial options array
  ******************************************************************************/
 
-if (!isset($options['headermeta'])) $options['headermeta'] = "on";
+if (!isset($options['headermeta'])) $options['headermeta'] = "off";
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
 
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
