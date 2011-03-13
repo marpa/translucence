@@ -68,7 +68,7 @@ if ( ! isset( $content_width ) )
  
 // this theme may have child themes that override this config.
 $variation_config = translucence_add_config();
-$theme_options = $variation_config['theme-name']." Options";
+//$theme_options = $variation_config['theme-name']." Options";
 
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
