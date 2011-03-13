@@ -75,6 +75,7 @@ if (isset($options['linkcolor'])) {
 	$options['left01-link-color'] = "#003366";
 	$options['right01-link-color'] = "#003366";
 	$options['right02-link-color'] = "#003366";
+	$options['linkcolor'] = "#003366";
 }
 
 // define default widget heading colors
@@ -87,6 +88,7 @@ if (isset($options['textcolor'])) {
 	$options['header-blogdescription-color'] = $options['textcolor']; 
 } else {
 	$options['header-blogdescription-color'] = "#333333";
+	$options['textcolor'] = "#333333";
 }
 
 /******************************************************************************
@@ -165,6 +167,7 @@ if (!isset($options['header-block-height'])) $options['header-block-height'] = "
 if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
 if (!isset($options['site-title-color'])) $options['site-title-color'] = "#003366";
 if (!isset($options['site-description-color'])) $options['site-description-color'] = "#333333";
+if (!isset($options['site-description-size'])) $options['site-description-size'] = "14";
 if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = "1px 1px";
 if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
 

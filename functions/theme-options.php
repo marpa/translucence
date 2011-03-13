@@ -599,16 +599,19 @@ function translucence_set_derivative_options() {
 		/******************************************************************************
 		 * category and tag links use linkcolor as their hover border color
 		 ******************************************************************************/
+		if (isset($options['cat-links-link-color'])) {
+			$options['cat-links-hover-border-top'] = $options['cat-links-link-color'];
+			$options['cat-links-hover-border-bottom'] = $options['cat-links-link-color'];
+			$options['cat-links-hover-border-left'] = $options['cat-links-link-color'];
+			$options['cat-links-hover-border-right'] = $options['cat-links-link-color'];
+		}
 		
-		$options['cat-links-hover-border-top'] = $options['cat-links-link-color'];
-		$options['cat-links-hover-border-bottom'] = $options['cat-links-link-color'];
-		$options['cat-links-hover-border-left'] = $options['cat-links-link-color'];
-		$options['cat-links-hover-border-right'] = $options['cat-links-link-color'];
-		
-		$options['tag-links-hover-border-top'] = $options['tag-links-link-color'];
-		$options['tag-links-hover-border-bottom'] = $options['tag-links-link-color'];
-		$options['tag-links-hover-border-left'] = $options['tag-links-link-color'];
-		$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
+		if (isset($options['tag-links-link-color'])) {
+			$options['tag-links-hover-border-top'] = $options['tag-links-link-color'];
+			$options['tag-links-hover-border-bottom'] = $options['tag-links-link-color'];
+			$options['tag-links-hover-border-left'] = $options['tag-links-link-color'];
+			$options['tag-links-hover-border-right'] = $options['tag-links-link-color'];
+		}
 
 		
 		if ($box == "left01") {
