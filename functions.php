@@ -137,8 +137,7 @@ function translucence_setup() {
 	}
 	
 	// initialize or get theme css	
-	if (!get_option($theme_css)) {
-		add_option($theme_css, "");	
+	if (!$options['css']) {
 		
 		translucence_set_variation_options();
 		translucence_save_options();
