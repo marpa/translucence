@@ -50,7 +50,6 @@
 if ( ! isset( $content_width ) )
 	$content_width = 373;
 
-
 /**
  * Get the translucence config.
 */
@@ -102,9 +101,9 @@ if ( ! function_exists( 'translucence_setup' ) ):
  * @since 2010 Translucence 1.0
  */
 function translucence_setup() {
-	global $options, $variation_config, $variation_css;
+	global $variation_config;
 	global $_POST, $options, $options_values, $variations;
-	global $theme_options, $theme_css;
+	global $theme_options;
 
 	
 	/*********************************************************
@@ -121,39 +120,33 @@ function translucence_setup() {
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
-
 	
 	//define name of theme options and css
 	$theme_id = strtolower($variation_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
- 	$theme_css = $theme_id."_css";
  	$theme_options = $theme_id."_options";
-	
+
 	// initialize or get theme options
 	if (!is_array(get_option($theme_options))) {
 		add_option($theme_options, array('init' => 1));    
 	} else {	
 		$options = get_option($theme_options);
 	}
-	
+
 	// initialize or get theme css	
 	if (!$options['css']) {
-		
 		translucence_set_variation_options();
 		translucence_save_options();
 
 		update_option($theme_options, $options);
-		update_option($theme_css, $variation_css);	
 
 	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
 		$options['options-version'] = $options['variation-version'];
 		translucence_set_variation_options();
 		translucence_save_options();
-		update_option($theme_options, $options);
-		update_option($theme_css, $variation_css);		
+		update_option($theme_options, $options);		
 	}
 
-	$variation_css = get_option($theme_css);
 	//printpre($options);
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
@@ -394,7 +387,7 @@ function translucence_get_box_widths () {
  $target_theme = $variation_config['theme-name']; // variable stores the theme we want to target
 
 // add preset widgets only if theme is 1st activated and has not been activated previously
-if (isset($_POST['default_widgets']) || (isset( $_GET['activated'] ) && $current_theme == $target_theme && !get_option($theme_css))) {
+if (isset($_POST['default_widgets']) || (isset( $_GET['activated'] ) && $current_theme == $target_theme && !get_option($options['css']))) {
 	update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
 	update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
 	update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
