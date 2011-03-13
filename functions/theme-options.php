@@ -8,7 +8,7 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  * Initialize plugin to white list theme options
  ******************************************************************************/
 function translucence_theme_options_init() {
-	global $variation_config, $theme_options, $theme_css, $theme_id;
+	global $variation_config, $theme_options, $theme_id;
 	
 }
 
@@ -31,8 +31,8 @@ function translucence_add_menu_admin_bar() {
 
 
 function translucence_variation_options() {	
-	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_options, $theme_css, $_POST;
+	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+    global $theme_options, $_POST;
     	
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
@@ -47,10 +47,8 @@ function translucence_variation_options() {
 	
 	translucence_set_variation_options();	
 	update_option($theme_options, $options);
-	update_option($theme_css, $variation_css);
 
 	$options = get_option($theme_options);
-	$variation_css = get_option($theme_css);
 	
 	$current_widgets = get_option ('sidebars_widgets');	
 	
@@ -65,7 +63,6 @@ function translucence_variation_options() {
  
 function translucence_set_primary_options() {
 	global $_POST, $options, $allowedposttags, $variation_config;
-	//printpre($_POST);
 
 	foreach ($variation_config['model'] as $option => $value) {
 
@@ -80,7 +77,6 @@ function translucence_set_primary_options() {
 			$options[$value] = preg_replace('/[^0-9a-z%#,\.\s-+_\/:~]/i','', stripslashes($_POST[$value]));
 		}	
 	}
-	
 
 	if (isset($_POST['model-instructions'])) {
 		$options['model-instructions'] = "on";
@@ -212,7 +208,6 @@ function translucence_set_variation_options() {
 		if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#e9e9c9";
 		if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
 	}
-	
 	translucence_set_derivative_options();	
 }
 
@@ -246,7 +241,7 @@ function translucence_set_derivative_options() {
 	/******************************************************************************
 	 * Header left links (derived from  header_meta_left_options
 	 ******************************************************************************/
-
+	
 	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blog'] == "") {
 		$options['headerleft'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
 	} else if ($options['header-meta-left'] == 'custom') {
@@ -282,7 +277,6 @@ function translucence_set_derivative_options() {
 	/******************************************************************************
 	 * Footer left links (derived from meta_right_options
 	 ******************************************************************************/
-
 	if ($options['footer-meta-left'] == 'custom') {
 		$options['footerleft'] = stripslashes($options['footerleftcustom']);
 	} else {
@@ -869,7 +863,7 @@ function translucence_option_feedback() {
 
 	}
 	
-    print
+   // print
     "
         <div class='updated fade' id='message'
             style='background-color: #fff3cc;
@@ -892,17 +886,14 @@ function translucence_option_feedback() {
  ******************************************************************************/
 
 function translucence_delete_options() {
-    global $variation_config, $options, $variation_css, $theme_options, $theme_css;
+    global $variation_config, $options, $theme_options;
 	
 	$options = array();
-	$variation_css = "";
 	$_POST = array();
 	
 	delete_option($theme_options); 	
-	delete_option($theme_css);
 	
 	add_option($theme_options, array('init' => 1));  	
- 	add_option($theme_css, "");
 	
 	translucence_set_variation_options();
 
@@ -915,8 +906,8 @@ function translucence_delete_options() {
 
  if (!function_exists('translucence_save_options')) {
 	function translucence_save_options() {
-		global $_POST, $options, $variation_css, $variation_config;
-		global $theme_options, $theme_css;
+		global $_POST, $options, $variation_config;
+		global $theme_options;
 
 		// options are those exposed in the UI
 		translucence_set_primary_options();
@@ -927,13 +918,11 @@ function translucence_delete_options() {
 		/******************************************************************************
 		 * add theme options to theme CSS
 		 ******************************************************************************/
-
-		$variation_css = translucence_options_css();	
+		
+		$options['css'] = translucence_options_css();
 		update_option($theme_options, $options);
-		update_option($theme_css, $variation_css);
-		
 		translucence_option_feedback();
-		
+
 	}
 }
 

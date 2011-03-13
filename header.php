@@ -39,8 +39,8 @@
 
 <style type="text/css" >
 <?php 
-	global $variation_css, $options; 
-	print $variation_css;
+	global $options; 
+	print $options['css'];
 
 	// IE hack opacity options
 	print $options['header-color-ie']."\n"; 
