@@ -8,7 +8,7 @@
 
 function translucence_options_css() {
 	global $_POST, $options, $variation_css, $variation_config;
-	global $theme_settings, $theme_css;
+	global $theme_options, $theme_css;
 
 	$site_width = $options['site-width'];
 	$header_width = $options['site-width']-7;
