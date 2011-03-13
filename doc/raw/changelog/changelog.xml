@@ -10,7 +10,21 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
-	<version number="2.2.1" date="2011-03-08">
+	<version number="2.3.1" date="the future">
+		<releaseNotes>
+			This release refactors theme functions to better conform to WordPress theme development standards.
+		</releaseNotes>
+		<change author='alex' date='2011-03-11'>
+			reimplemented how theme options are saved so that all options now save in single array.
+		</change>
+		<change author='alex' date='2011-03-10'>
+			updated all theme functions so they are prefixed with theme name.
+		</change>
+		<change author='alex' date='2011-03-10'>
+			separated functions for managing theme options from those used in template files.
+		</change>
+</version>
+<version number="2.2.1" date="2011-03-08">
 		<releaseNotes>
 			This release refines the toggle and display of site page links and sidebar and include general bug fixes.
 		</releaseNotes>
