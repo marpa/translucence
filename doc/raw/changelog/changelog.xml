@@ -15,6 +15,9 @@
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
 		<change author='alex' date='2011-03-11'>
+			changed name of theme options pages to "Theme Options".
+		</change>
+		<change author='alex' date='2011-03-11'>
 			reimplemented how theme options are saved so that all options now save in single array.
 		</change>
 		<change author='alex' date='2011-03-10'>
