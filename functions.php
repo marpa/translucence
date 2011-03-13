@@ -125,7 +125,6 @@ function translucence_setup() {
 
 	
 	//define name of theme options and css
-	// fix - should move to theme_options.php...
 	$theme_id = strtolower($variation_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
  	$theme_css = $theme_id."_css";

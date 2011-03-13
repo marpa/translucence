@@ -8,22 +8,21 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  * Initialize plugin to white list theme options
  ******************************************************************************/
 function translucence_theme_options_init() {
-	global $theme_options, $variation_config, $theme_settings, $theme_css, $theme_id;
+	global $variation_config, $theme_settings, $theme_css, $theme_id;
 	
 	//create theme id
-	$theme_id = strtolower($variation_config['theme-name']);
-	$theme_id = str_replace(" ", "_", $theme_id);
+// 	$theme_id = strtolower($variation_config['theme-name']);
+// 	$theme_id = str_replace(" ", "_", $theme_id);
 	
 	//define name of theme options and css
-	$theme_settings = $theme_id."_settings";
-	$theme_css = $theme_id."_css";
-	//$theme_options = $variation_config['theme-name']." Options";
+// 	$theme_settings = $theme_id."_settings";
+// 	$theme_css = $theme_id."_css";
 
 }
 
 
 function translucence_variation_add_page() {
-	global $theme_options, $variation_config;
+
 	//add_theme_page( __( 'Theme Options' ), __( 'Theme Options' ), 'edit_theme_options', 'theme_options', 'coraline_theme_options_do_page' );
 	
     add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'Variations', 'translucence_variation_options');
