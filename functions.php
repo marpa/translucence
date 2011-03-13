@@ -73,6 +73,9 @@ $theme_options = $variation_config['theme-name']." Options";
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
 
+require_once( get_template_directory() . '/template-options.php');
+require_once( get_template_directory() . '/options-css.php');
+
 
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'translucence_setup' );
@@ -103,6 +106,7 @@ function translucence_setup() {
 	global $options, $variation_config, $variation_css;
 	global $_POST, $options, $options_values, $variations;
 	global $theme_settings, $theme_css;
+
 	
 	/*********************************************************
 	 * Register theme javascript
