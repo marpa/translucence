@@ -8,7 +8,7 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  * Initialize plugin to white list theme options
  ******************************************************************************/
 function translucence_theme_options_init() {
-	global $variation_config, $theme_settings, $theme_css, $theme_id;
+	global $variation_config, $theme_options, $theme_css, $theme_id;
 	
 }
 
@@ -32,7 +32,7 @@ function translucence_add_menu_admin_bar() {
 
 function translucence_variation_options() {	
 	global $variation_config, $options, $options_values, $variation_css, $model_content_width, $variations, $header_image;
-    global $theme_settings, $theme_css, $_POST;
+    global $theme_options, $theme_css, $_POST;
     	
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
@@ -46,10 +46,10 @@ function translucence_variation_options() {
 	//read_css_file("style.css");
 	
 	translucence_set_variation_options();	
-	update_option($theme_settings, $options);
+	update_option($theme_options, $options);
 	update_option($theme_css, $variation_css);
 
-	$options = get_option($theme_settings);
+	$options = get_option($theme_options);
 	$variation_css = get_option($theme_css);
 	
 	$current_widgets = get_option ('sidebars_widgets');	
@@ -892,31 +892,31 @@ function translucence_option_feedback() {
  ******************************************************************************/
 
 function translucence_delete_options() {
-    global $variation_config, $options, $variation_css, $theme_settings, $theme_css;
+    global $variation_config, $options, $variation_css, $theme_options, $theme_css;
 	
 	$options = array();
 	$variation_css = "";
 	$_POST = array();
 	
-	delete_option($theme_settings); 	
+	delete_option($theme_options); 	
 	delete_option($theme_css);
 	
-	add_option($theme_settings, array('init' => 1));  	
+	add_option($theme_options, array('init' => 1));  	
  	add_option($theme_css, "");
 	
 	translucence_set_variation_options();
 
 	//$options['revert'] = 0; 
-	update_option($theme_settings, $options);
+	update_option($theme_options, $options);
 
- 	$options = get_option($theme_settings);
+ 	$options = get_option($theme_options);
 
 }
 
  if (!function_exists('translucence_save_options')) {
 	function translucence_save_options() {
 		global $_POST, $options, $variation_css, $variation_config;
-		global $theme_settings, $theme_css;
+		global $theme_options, $theme_css;
 
 		// options are those exposed in the UI
 		translucence_set_primary_options();
@@ -929,7 +929,7 @@ function translucence_delete_options() {
 		 ******************************************************************************/
 
 		$variation_css = translucence_options_css();	
-		update_option($theme_settings, $options);
+		update_option($theme_options, $options);
 		update_option($theme_css, $variation_css);
 		
 		translucence_option_feedback();
