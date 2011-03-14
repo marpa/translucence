@@ -8,8 +8,16 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  * Initialize plugin to white list theme options
  ******************************************************************************/
 function translucence_theme_options_init() {
-	global $variation_config, $theme_options, $theme_id;
+	global $variation_config, $theme_options, $theme_id, $options;
+
+	register_setting( $theme_options, $theme_options, 'translucence_set_primary_options' );
+
+	translucence_set_variation_options();
+	$options['css'] = translucence_options_css();
+	$options = get_option($theme_options, $options);
 	
+	translucence_save_options();
+		
 }
 
 
@@ -33,7 +41,7 @@ function translucence_add_menu_admin_bar() {
 function translucence_variation_options() {	
 	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
     global $theme_options, $_POST;
-    	
+
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
 		translucence_save_options(); 
@@ -62,10 +70,12 @@ function translucence_variation_options() {
  *********************************************************/
  
 function translucence_set_primary_options() {
-	global $_POST, $options, $allowedposttags, $variation_config;
+	global $_POST, $allowedposttags, $variation_config, $options;
 
 	foreach ($variation_config['model'] as $option => $value) {
 
+		if (isset($_POST['reset'])) $options['revert'] = 1;
+		
 		//sanitize options that contain HTML
 		if ($value == "headerleftcustom") {
 			$options['headerleftcustom'] = wp_kses($_POST['headerleftcustom'], $allowedposttags);
@@ -85,6 +95,8 @@ function translucence_set_primary_options() {
 	} else {
 		$options['model-instructions'] = "on";
 	}
+
+	return $options;
 }
 
 /******************************************************************************
@@ -913,7 +925,7 @@ function translucence_delete_options() {
 		global $theme_options;
 
 		// options are those exposed in the UI
-		translucence_set_primary_options();
+		//translucence_set_primary_options();
 	
 		// options specific to a particular variation
 		translucence_set_variation_options();
