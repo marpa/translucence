@@ -10,7 +10,7 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 function translucence_theme_options_init() {
 	global $variation_config, $theme_options, $theme_id, $options;
 
-	register_setting( $theme_options, $theme_options, 'translucence_set_primary_options' );
+	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
 
 	translucence_set_variation_options();
 	$options['css'] = translucence_options_css();
@@ -69,7 +69,7 @@ function translucence_variation_options() {
  * set primary options (options exposed to user in model)
  *********************************************************/
  
-function translucence_set_primary_options() {
+function translucence_validate_options() {
 	global $_POST, $allowedposttags, $variation_config, $options;
 
 	foreach ($variation_config['model'] as $option => $value) {
