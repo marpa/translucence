@@ -85,8 +85,9 @@ function translucence_theme_model() {
 	 ******************************************************************************/
 			
 	?>
-		<form id='settings' action='' method='post' class='themeform' style='margin: 20px;'>
-		<input type='hidden' id='action' name='action' value='save'/>
+	    
+		<form id='settings' action='options.php' method='post' class='themeform' style='margin: 20px;'>
+		<?php settings_fields( 'options' ); ?>
 	
 		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
 		<tr>
