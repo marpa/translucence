@@ -14,6 +14,12 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
+		<change author='alex' date='the future'>
+			added more theme options input validation.
+		</change>
+		<change author='alex' date='2011-03-11'>
+			updated theme options form to use WordPress Settings API.
+		</change>
 		<change author='alex' date='2011-03-11'>
 			changed name of theme options pages to "Theme Options".
 		</change>
