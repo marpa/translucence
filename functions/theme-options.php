@@ -34,7 +34,7 @@ function translucence_add_menu_admin_bar() {
     if ( !current_user_can( 'switch_themes' ) || !is_admin_bar_showing() )
         return; 
         
-    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url('admin.php')."/themes.php?page=Variations" ) );
+    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url()."themes.php?page=Variations" ) );
 }
 
 
