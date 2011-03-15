@@ -45,11 +45,8 @@ function translucence_variation_options() {
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
 		translucence_save_options(); 
-		$options['revert'] = 0;
-		
-    } else if (isset($_POST['action']) && $_POST['action'] == 'save') {
-		translucence_save_options();        
-	}
+		$options['revert'] = 0;		
+    } 
 	
 	//read_css_file("style.css");
 	
