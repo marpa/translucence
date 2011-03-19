@@ -25,7 +25,7 @@ function translucence_variation_add_page() {
 
 	//add_theme_page( __( 'Theme Options' ), __( 'Theme Options' ), 'edit_theme_options', 'theme_options', 'coraline_theme_options_do_page' );
 	
-    add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'Variations', 'translucence_variation_options');
+    add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'variations', 'translucence_theme_model');
 }
 
 function translucence_add_menu_admin_bar() {
