@@ -13,14 +13,14 @@ function translucence_theme_model() {
 
 	if (isset($_POST['reset']) || $options['revert'] == 1) {
 		translucence_delete_options();
-		translucence_save_options(); 
+		translucence_theme_options_init(); 
 		$options['revert'] = 0;		
     } 
 	
 	translucence_get_variation_options();	
 	update_option($theme_options, $options);
 	$options = get_option($theme_options);
-	
+	translucence_option_feedback();
     
     $current_widgets = get_option ('sidebars_widgets');	
     
