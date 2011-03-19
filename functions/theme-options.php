@@ -12,7 +12,7 @@ function translucence_theme_options_init() {
 
 	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
 
-	translucence_set_variation_options();
+	translucence_get_variation_options();
 	$options['css'] = translucence_options_css();
 	$options = get_option($theme_options, $options);
 	
@@ -50,7 +50,7 @@ function translucence_variation_options() {
 	
 	//read_css_file("style.css");
 	
-	translucence_set_variation_options();	
+	translucence_get_variation_options();	
 	update_option($theme_options, $options);
 
 	$options = get_option($theme_options);
@@ -129,7 +129,7 @@ if (!function_exists('translucence_get_variations_source')) {
  * 
  ******************************************************************************/
 
-function translucence_set_variation_options() {
+function translucence_get_variation_options() {
 	global $_POST, $options, $options_values, $variations;
 
 	/******************************************************************************
@@ -907,7 +907,7 @@ function translucence_delete_options() {
 	
 	add_option($theme_options, array('init' => 1));  	
 	
-	translucence_set_variation_options();
+	translucence_get_variation_options();
 
 	//$options['revert'] = 0; 
 	update_option($theme_options, $options);
@@ -925,7 +925,7 @@ function translucence_delete_options() {
 		//translucence_set_primary_options();
 	
 		// options specific to a particular variation
-		translucence_set_variation_options();
+		translucence_get_variation_options();
 		
 		/******************************************************************************
 		 * add theme options to theme CSS
