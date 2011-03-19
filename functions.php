@@ -136,17 +136,17 @@ function translucence_setup() {
 	// initialize or get theme css	
 	if (!isset($options['css'])) {
 		translucence_get_variation_options();
-		translucence_save_options();
+		translucence_theme_options_init();
 
 		update_option($theme_options, $options);
 
 	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
 		$options['options-version'] = $options['variation-version'];
 		translucence_get_variation_options();
-		translucence_save_options();
+		translucence_theme_options_init();
 		update_option($theme_options, $options);		
 	}
-
+	
 	//printpre($options);
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.

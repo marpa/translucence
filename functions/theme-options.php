@@ -7,17 +7,20 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 /******************************************************************************
  * Initialize plugin to white list theme options
  ******************************************************************************/
-function translucence_theme_options_init() {
-	global $variation_config, $theme_options, $theme_id, $options;
-
-	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
-
-	translucence_get_variation_options();
-	$options['css'] = translucence_options_css();
-	$options = get_option($theme_options, $options);
+if (!function_exists('translucence_theme_options_init')) {
+	function translucence_theme_options_init() {
+		global $variation_config, $theme_options, $theme_id, $options, $_POST;
 	
-	translucence_save_options();
+		register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
+	
+		translucence_get_variation_options();
+		$options['css'] = translucence_options_css();
+		update_option($theme_options, $options);
+		$options = get_option($theme_options, $options);
 		
+
+			
+	}
 }
 
 
@@ -768,7 +771,7 @@ function translucence_set_derivative_options() {
 
 function translucence_option_feedback() {
 	global $_POST, $options, $variation_config;
-	
+
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
 	$message = "<strong>Your changes have been saved.</strong>";
 	$error = "false";
@@ -850,7 +853,7 @@ function translucence_option_feedback() {
 
 	}
 	
-   // print
+    print
     "
         <div class='updated fade' id='message'
             style='background-color: #fff3cc;
@@ -888,29 +891,8 @@ function translucence_delete_options() {
 	update_option($theme_options, $options);
 
  	$options = get_option($theme_options);
+ 	translucence_option_feedback();
 
-}
-
- if (!function_exists('translucence_save_options')) {
-	function translucence_save_options() {
-		global $_POST, $options, $variation_config;
-		global $theme_options;
-
-		// options are those exposed in the UI
-		//translucence_set_primary_options();
-	
-		// options specific to a particular variation
-		translucence_get_variation_options();
-		
-		/******************************************************************************
-		 * add theme options to theme CSS
-		 ******************************************************************************/
-		
-		$options['css'] = translucence_options_css();
-		update_option($theme_options, $options);
-		translucence_option_feedback();
-
-	}
 }
 
 /*********************************************************
