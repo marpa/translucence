@@ -9,6 +9,18 @@ function translucence_theme_model() {
 	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
     global $theme_options, $_POST;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
+   
+
+	if (isset($_POST['reset']) || $options['revert'] == 1) {
+		translucence_delete_options();
+		translucence_save_options(); 
+		$options['revert'] = 0;		
+    } 
+	
+	translucence_get_variation_options();	
+	update_option($theme_options, $options);
+	$options = get_option($theme_options);
+	
     
     $current_widgets = get_option ('sidebars_widgets');	
     
