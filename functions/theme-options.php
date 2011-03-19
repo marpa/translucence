@@ -10,16 +10,22 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 if (!function_exists('translucence_theme_options_init')) {
 	function translucence_theme_options_init() {
 		global $variation_config, $theme_options, $theme_id, $options, $_POST;
-	
-		register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
-	
-		translucence_get_variation_options();
-		$options['css'] = translucence_options_css();
-		update_option($theme_options, $options);
-		$options = get_option($theme_options, $options);
 		
-
-			
+		// validate primary theme options
+		register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
+		
+		// get theme option value lists for selected variation theme option
+		translucence_get_variation_options();
+		
+		// set derivative theme options based on selected primary theme options
+		translucence_set_derivative_options();
+		
+		// get css generated from primary and derivative theme options
+		$options['css'] = translucence_options_css();
+		
+		// update theme options 
+		update_option($theme_options, $options);
+					
 	}
 }
 
@@ -195,7 +201,7 @@ function translucence_get_variation_options() {
 		if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#e9e9c9";
 		if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
 	}
-	translucence_set_derivative_options();	
+	//translucence_set_derivative_options();	
 }
 
 /*********************************************************
