@@ -37,31 +37,6 @@ function translucence_add_menu_admin_bar() {
     $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url()."themes.php?page=Variations" ) );
 }
 
-
-function translucence_variation_options() {	
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
-    global $theme_options, $_POST;
-
-	if (isset($_POST['reset']) || $options['revert'] == 1) {
-		translucence_delete_options();
-		translucence_save_options(); 
-		$options['revert'] = 0;		
-    } 
-	
-	//read_css_file("style.css");
-	
-	translucence_get_variation_options();	
-	update_option($theme_options, $options);
-
-	$options = get_option($theme_options);
-	
-	$current_widgets = get_option ('sidebars_widgets');	
-	
-	translucence_theme_model();
-
-
-}
-
 /*********************************************************
  * set primary options (options exposed to user in model)
  *********************************************************/
