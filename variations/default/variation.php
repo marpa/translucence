@@ -38,7 +38,7 @@ if ($options['background'] != "custom") {
 
 
 $options['site-margin-top'] = "0";	
-$options['page-image-width'] = $options['site-width']-50;
+//$options['page-image-width'] = $options['site-width']-50;
 $options['custom-header-width-offset'] = 7;
 
 $options['header-text-padding-left'] = "10";
@@ -172,6 +172,7 @@ if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-
 if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
 
 if (!isset($options['entry-text-size'])) $options['entry-text-size'] = "14";
+if (!isset($options['entry-text-size'])) $options['entry-line-height'] = "20";
 
 if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom";
 if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
