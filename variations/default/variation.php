@@ -22,7 +22,6 @@ $options['background-source-url'] = "";
 $options['background-source-credit'] = "";
 
 
-
 $options['site-margin-top'] = "0";	
 //$options['page-image-width'] = $options['site-width']-50;
 $options['custom-header-width-offset'] = 7;
@@ -53,6 +52,9 @@ if (isset($options['linkcolor'])) {
 	$options['left01-link-color'] = $options['linkcolor'];
 	$options['right01-link-color'] = $options['linkcolor'];
 	$options['right02-link-color'] = $options['linkcolor'];
+	$options['transparent-heading-color'] = $options['linkcolor'];
+	$options['transparent-link-color'] = $options['linkcolor'];
+	$options['transparent-text-color'] = $options['linkcolor'];
 } else {
 	$options['header-blogtitle-color'] = "#003366";
 	$options['content-link-color'] = "#003366";
@@ -62,6 +64,9 @@ if (isset($options['linkcolor'])) {
 	$options['right01-link-color'] = "#003366";
 	$options['right02-link-color'] = "#003366";
 	$options['linkcolor'] = "#003366";
+	$options['transparent-heading-color'] = "#003366";
+	$options['transparent-link-color'] = "#003366";
+	$options['transparent-text-color'] = "#003366";
 }
 
 // define default widget heading colors
