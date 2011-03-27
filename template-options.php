@@ -6,8 +6,7 @@
  *********************************************************/
 
 function translucence_theme_model() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
-    global $theme_options, $_POST;
+	global $variation_config, $theme_options, $options, $options_values, $variations, $header_image;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
 
 	if ($options['revert'] == 1) {
@@ -56,13 +55,6 @@ function translucence_theme_model() {
 	/*********************************************************
 	 * Define theme layout model values
 	 *********************************************************/
-
-    	
-	//$model_site_width = $options['site-width']+10;
-	//$model_header_width = $options['site-width']-$options['custom-header-width-offset']-7;	
-	//$model_page_width = $options['site-width']-$options['custom-header-width-offset']-7;
-	//$model_header_text_width = $model_site_width - 200;
-	//$model_site_width_css = $model_site_width."px";
 	
 	$model_site_width = $options['site-width']+80;
 	//$model_site_width = $model_site_width."";
@@ -268,8 +260,8 @@ function translucence_theme_model() {
  * Theme model css
  ******************************************************************************/
 function translucence_get_theme_model_css() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
-    global $theme_options, $_POST, $model_site_width;
+	global $variation_config, $options, $options_values, $variations;
+    global $theme_options, $model_site_width;
     global $custom_header_image, $syndication_image;
 
 	ob_start();
@@ -556,7 +548,7 @@ function translucence_headermeta_right() {
 }
 
 function translucence_get_global_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     global $custom_header_set, $custom_background_set, $active_options;
        
@@ -785,7 +777,7 @@ function translucence_get_global_options() {
 }
 
 function translucence_get_custom_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     global $custom_header_set, $custom_background_set;
     
@@ -829,7 +821,7 @@ function translucence_get_custom_options() {
 }
 
 function translucence_get_layout_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $model_content_width, $variations;
     global $theme_options, $_POST, $active_options;
     
     ob_start();
@@ -894,7 +886,7 @@ function translucence_get_layout_options() {
 }
 
 function translucence_get_topmenu_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     
     ob_start();
@@ -917,7 +909,7 @@ function translucence_get_topmenu_options() {
 }
 
 function translucence_get_post_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;
         
     ob_start();
@@ -1039,7 +1031,7 @@ function translucence_get_post_options() {
 }
 
 function translucence_get_left01_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
    	global $current_widgets;
     
@@ -1087,7 +1079,7 @@ function translucence_get_left01_options() {
 }
 
 function translucence_get_right01_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
    	global $current_widgets;
     
@@ -1138,7 +1130,7 @@ function translucence_get_right01_options() {
 }
 
 function translucence_get_right02_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
    	global $current_widgets;
 
@@ -1191,7 +1183,7 @@ function translucence_get_right02_options() {
  ******************************************************************************/
 
 function translucence_get_footer_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     
     ob_start();
@@ -1217,7 +1209,7 @@ function translucence_get_footer_options() {
  ******************************************************************************/
 
 function translucence_get_footer_widgets($order) {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     global $current_widgets;
     
@@ -1247,7 +1239,7 @@ function translucence_get_footer_widgets($order) {
  ******************************************************************************/
 
 function translucence_footermeta_right() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
 
     ob_start();
@@ -1268,7 +1260,7 @@ function translucence_footermeta_right() {
  ******************************************************************************/
 
 function translucence_footermeta_left() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     
     ob_start();
@@ -1310,7 +1302,7 @@ function translucence_footermeta_left() {
  * Get Footer meta options
  ******************************************************************************/
 function translucence_get_footermeta_options() {
-	global $variation_config, $options, $options_values, $model_content_width, $variations, $header_image;
+	global $variation_config, $options, $options_values, $variations;
     global $theme_options, $_POST;	
     
 	ob_start();
