@@ -104,9 +104,7 @@ if ($options['background'] == "translucence-black") {
 	if (!in_array($options['linkcolor'], array_values($options_values['linkcolor']))) $options['linkcolor'] = "#FFFFCC";
 	if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#EEEEEE";
 	if (!in_array($options['header-color'], array_values($options_values['headercolor']))) $options['header-color'] = "#262626";
-	
-	if (!in_array($options['header-heading-color'], array_values($options_values['linkcolor']))) $options['header-heading-color'] = "#262626";		
-	if (!in_array($options['header-link-color'], array_values($options_values['linkcolor']))) $options['header-link-color'] = "#FFFFCC";	
+		
 	if (!in_array($options['left01-link-color'], array_values($options_values['linkcolor']))) $options['left01-link-color'] = "#FFFFCC";
 	if (!in_array($options['right01-link-color'], array_values($options_values['linkcolor']))) $options['right01-link-color'] = "#FFFFCC";
 	if (!in_array($options['right02-link-color'], array_values($options_values['linkcolor']))) $options['right02-link-color'] = "#FFFFCC";
