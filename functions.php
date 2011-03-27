@@ -128,7 +128,7 @@ function translucence_setup() {
 
 	// initialize or get theme options
 	if (!is_array(get_option($theme_options))) {
-		add_option($theme_options, array('init' => 1));    
+		add_option($theme_options, array('init' => 1));
 	} else {	
 		$options = get_option($theme_options);
 	}
@@ -136,16 +136,11 @@ function translucence_setup() {
 	// initialize or get theme css	
 	if (!isset($options['css'])) {
 		translucence_get_variation_options();
-		translucence_theme_options_init();
-
-		update_option($theme_options, $options);
-
 	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
 		$options['options-version'] = $options['variation-version'];
-		translucence_get_variation_options();
-		translucence_theme_options_init();
-		update_option($theme_options, $options);		
 	}
+	
+	translucence_theme_options_save();
 	
 	//printpre($options);
 
