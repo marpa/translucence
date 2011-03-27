@@ -14,27 +14,13 @@ Author URI:
 $options['theme-name'] = "2010 Translucence";
 $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
-// defaults for all but custom background images 
-if ($options['background'] != "custom") {	
+$options['background_position'] = "top center";
+$options['background_repeat'] = "repeat-x";
+$options['background_attachment'] = "scroll";
 
-	$options['background_color'] = "#FFFFFF";
-	$options['background_image_file'] = "none";
-	$options['background_image'] = "none";
-	$options['background_position'] = "top center";
-	$options['background_repeat'] = "repeat-x";
-	$options['background_attachment'] = "scroll";
-	
-	$options['bgbordercolor'] = "#999999";
-	$options['bgtextcolor']	= "#CCCCCC";
-	$options['bglinkcolor']	= "#CCCCCC";
-	 
-	$options['transparent-heading-color'] = "#999999";
-	$options['transparent-link-color']  = "#999999";
-	$options['transparent-text-color']  = "#999999";
-	
-	$options['background-source-url'] = "";
-	$options['background-source-credit'] = "";
-}
+$options['background-source-url'] = "";
+$options['background-source-credit'] = "";
+
 
 
 $options['site-margin-top'] = "0";	
