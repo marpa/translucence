@@ -7,27 +7,33 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 /******************************************************************************
  * Initialize plugin to white list theme options
  ******************************************************************************/
-if (!function_exists('translucence_theme_options_init')) {
-	function translucence_theme_options_init() {
-		global $variation_config, $theme_options, $theme_id, $options, $_POST;
-		
-		// validate primary theme options
-		register_setting( $theme_options, $theme_options, 'translucence_validate_options' );
-		
-		// get theme option value lists for selected variation theme option
-		translucence_get_variation_options();
-		
-		// set derivative theme options based on selected primary theme options
-		translucence_set_derivative_options();
-		
-		// get css generated from primary and derivative theme options
-		$options['css'] = translucence_options_css();
-		
-		// update theme options 
-		update_option($theme_options, $options);
-					
-	}
+
+function translucence_theme_options_init() {
+	global $variation_config, $theme_options;
+	
+	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );	
 }
+
+
+function translucence_theme_options_save() {
+	global $variation_config, $theme_options, $theme_id, $options, $_POST;
+	
+
+	// get theme option value lists for selected variation theme option
+	translucence_get_variation_options();
+	
+	// set derivative theme options based on selected primary theme options
+	translucence_set_derivative_options();
+	
+	// get css generated from primary and derivative theme options
+	$options['css'] = translucence_options_css();
+	
+	// update theme options 
+	update_option($theme_options, $options);
+	
+				
+}
+
 
 
 function translucence_variation_add_page() {
@@ -50,34 +56,40 @@ function translucence_add_menu_admin_bar() {
  * set primary options (options exposed to user in model)
  *********************************************************/
  
-function translucence_validate_options() {
-	global $_POST, $allowedposttags, $variation_config, $options;
+function translucence_validate_options($input) {
+	global $allowedposttags, $variation_config, $theme_options;
 
+	$translucence_options = get_option($theme_options);
+	$valid_input = $translucence_options;
+	
+	if (isset($input['reset']) && $input['reset'] == "Revert to Default") {
+		$input['revert'] = 1;
+	} else {
+		$input['revert'] = 0;
+	}
+	
 	foreach ($variation_config['model'] as $option => $value) {
-
-		if (isset($_POST['reset'])) $options['revert'] = 1;
-		
+				
 		//sanitize options that contain HTML
 		if ($value == "headerleftcustom") {
-			$options['headerleftcustom'] = wp_kses($_POST['headerleftcustom'], $allowedposttags);
+			//print "headerleftcustom<br/>";
+			//$options['headerleftcustom'] = wp_kses($input['headerleftcustom'], $allowedposttags);
 		} else if ($value == "footerleftcustom") {
-			$options['footerleftcustom'] = wp_kses($_POST['footerleftcustom'], $allowedposttags);
+			//print "footerleftcustom<br/>";
+			///$options['footerleftcustom'] = wp_kses($input['footerleftcustom'], $allowedposttags);
 		
-		// replaces any characters that are not allowed with null
-		} else if (isset($_POST[$value]))  {
-			$options[$value] = preg_replace('/[^0-9a-z%#,\.\s-+_\/:~]/i','', stripslashes($_POST[$value]));
-		}	
+		} else if ($value == "background")  {
+			//print "background<br/>";
+			//$options[$value] = $input[$value];
+		} else {
+			//print "else<br/>";
+			//$options[$value] = $input[$value];
+		}
+
 	}
 
-	if (isset($_POST['model-instructions'])) {
-		$options['model-instructions'] = "on";
-	} else if (!isset($_POST['model-instructions']) || $options['model-instructions'] == "off") {
-		$options['model-instructions'] = "off";
-	} else {
-		$options['model-instructions'] = "on";
-	}
 
-	return $options;
+	return $input;
 }
 
 /******************************************************************************
@@ -211,7 +223,7 @@ function translucence_get_variation_options() {
 
 function translucence_set_derivative_options() {
 	global $variation_config, $_POST, $options, $options_values, $custom_background_image;
-
+	
 	/******************************************************************************
 	 * Site top padding (derived from  site-border-style)
 	 ******************************************************************************/
@@ -777,7 +789,7 @@ function translucence_set_derivative_options() {
 
 function translucence_option_feedback() {
 	global $_POST, $options, $variation_config;
-
+	
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
 	$message = "<strong>Your changes have been saved.</strong>";
 	$error = "false";
@@ -885,19 +897,10 @@ function translucence_delete_options() {
     global $variation_config, $options, $theme_options;
 	
 	$options = array();
-	$_POST = array();
 	
 	delete_option($theme_options); 	
 	
 	add_option($theme_options, array('init' => 1));  	
-	
-	translucence_get_variation_options();
-
-	//$options['revert'] = 0; 
-	update_option($theme_options, $options);
-
- 	$options = get_option($theme_options);
- 	translucence_option_feedback();
 
 }
 
