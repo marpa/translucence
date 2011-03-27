@@ -9,14 +9,14 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  ******************************************************************************/
 
 function translucence_theme_options_init() {
-	global $variation_config, $theme_options;
+	global $theme_options;
 	
 	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );	
 }
 
 
 function translucence_theme_options_save() {
-	global $variation_config, $theme_options, $theme_id, $options, $_POST;
+	global $theme_options, $options;
 	
 
 	// get theme option value lists for selected variation theme option
@@ -126,7 +126,7 @@ if (!function_exists('translucence_get_variations_source')) {
  ******************************************************************************/
 
 function translucence_get_variation_options() {
-	global $_POST, $options, $options_values, $variations;
+	global $options, $options_values, $variations;
 
 	/******************************************************************************
 	 * Default options and option value lists
@@ -222,7 +222,7 @@ function translucence_get_variation_options() {
  *********************************************************/
 
 function translucence_set_derivative_options() {
-	global $variation_config, $_POST, $options, $options_values, $custom_background_image;
+	global $variation_config, $options, $options_values, $custom_background_image;
 	
 	/******************************************************************************
 	 * Site top padding (derived from  site-border-style)
@@ -592,9 +592,6 @@ function translucence_set_derivative_options() {
 			$options[$box.'-highlight-color-hover-rgb'] = "rgba(".translucence_hex2rgb($options[$box.'-highlight-color']).", ".($options[$box.'-opacity']+.1).")";					
 		}
 		
-		
-
-		
 		// need to refine top bar opacity settings....
 		if ($box == "top") {
 			$options['top-color-hover02-rgb'] = "rgba(".translucence_hex2rgb($options['top-color']).", .9)";
@@ -788,7 +785,7 @@ function translucence_set_derivative_options() {
  ******************************************************************************/
 
 function translucence_option_feedback() {
-	global $_POST, $options, $variation_config;
+	global $options, $variation_config;
 	
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
 	$message = "<strong>Your changes have been saved.</strong>";
@@ -894,7 +891,7 @@ function translucence_option_feedback() {
  ******************************************************************************/
 
 function translucence_delete_options() {
-    global $variation_config, $options, $theme_options;
+    global $options, $theme_options;
 	
 	$options = array();
 	
