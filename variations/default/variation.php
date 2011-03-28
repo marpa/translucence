@@ -297,6 +297,13 @@ $options_values['header-opacity'] = array(
 	'20%'=> '.2',
 	'0%'=> '0'
 	);
+	
+$options_values['header-text-display'] = array(
+	'Hide' => 'hide',
+	'Top' => 'top',
+	'Middle' => 'middle',
+	'Bottom' => 'bottom'
+	);
 
 $options_values['text-shadow-offset'] = array(
 	'0px' => '0px 0px',
