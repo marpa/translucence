@@ -78,6 +78,10 @@ require_once( get_template_directory() . '/options-css.php');
 /** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'translucence_setup' );
 
+/** Tell WordPress to add theme options css when the 'wp-head' hook is run in header.php */
+add_action('wp_head', 'translucence_add_options_css');
+
+
 if ( ! function_exists( 'translucence_setup' ) ):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -212,6 +216,35 @@ function translucence_setup() {
 	register_default_headers( $variation_config['custom_header'] );
 }
 endif;
+
+ /**
+ * Adds custom CSS generated in options-css.php
+ *
+ * Referenced via wp_head() function in header.php
+ *
+ * @since 2010 Translucence 1.0
+ */
+
+function translucence_add_options_css() {
+	global $options, $theme_options; 
+	
+	print "<style type='text/css'>";
+	print $options['css'];
+
+	// IE hack opacity options
+	print $options['header-color-ie']."\n"; 
+	print $options['title-box-color-ie']."\n"; 
+	print $options['description-box-color-ie']."\n"; 
+	print $options['right02-color-ie']."\n"; 
+	print $options['top-color-ie']."\n"; 
+	print $options['submenu-color-ie']."\n"; 
+	print $options['content-color-ie']."\n"; 
+	print $options['bottom-color-ie']."\n"; 
+	print $options['left01-color-ie']."\n"; 
+	print $options['right01-color-ie']."\n"; 
+	print $options['right02-color-ie']."\n"; 
+	print "</style>";
+}
 
  /**
  * Styles the header image displayed in blog
