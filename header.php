@@ -16,7 +16,7 @@
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged;
+	global $page, $paged, $options;
 
 	wp_title( '|', true, 'right' );
 
@@ -37,25 +37,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-<style type="text/css" >
-<?php 
-	global $options; 
-	print $options['css'];
-
-	// IE hack opacity options
-	print $options['header-color-ie']."\n"; 
-	print $options['title-box-color-ie']."\n"; 
-	print $options['description-box-color-ie']."\n"; 
-	print $options['right02-color-ie']."\n"; 
-	print $options['top-color-ie']."\n"; 
-	print $options['submenu-color-ie']."\n"; 
-	print $options['content-color-ie']."\n"; 
-	print $options['bottom-color-ie']."\n"; 
-	print $options['left01-color-ie']."\n"; 
-	print $options['right01-color-ie']."\n"; 
-	print $options['right02-color-ie']."\n"; 
-?>
-</style>
 <?php
 	/* We add some JavaScript to pages with the comment form
 	 * to support sites with threaded comments (when in use).
