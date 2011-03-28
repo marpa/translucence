@@ -12,13 +12,13 @@ function translucence_theme_options_init() {
 	global $theme_options;
 	
 	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );	
+	
 }
 
 
 function translucence_theme_options_save() {
 	global $theme_options, $options;
 	
-
 	// get theme option value lists for selected variation theme option
 	translucence_get_variation_options();
 	
@@ -57,37 +57,228 @@ function translucence_add_menu_admin_bar() {
  *********************************************************/
  
 function translucence_validate_options($input) {
-	global $allowedposttags, $variation_config, $theme_options;
+	global $allowedposttags, $variation_config, $theme_options; 
+	global $options_values, $variations;
 
-	$translucence_options = get_option($theme_options);
-	$valid_input = $translucence_options;
+	$options_mode = translucence_get_option_modes();
+	$valid_input = array();
+	$validated = array();
+	$not_validated = array();
+	
+	$validation_debug = 0;
 	
 	if (isset($input['reset']) && $input['reset'] == "Revert to Default") {
 		$input['revert'] = 1;
+		$validated[] = $option;
 	} else {
 		$input['revert'] = 0;
+		$validated[] = "revert";
 	}
 	
-	foreach ($variation_config['model'] as $option => $value) {
-				
+//  	$input['site-width'] = "60000";
+//  	print $input['site-width']."<br/>";
+	
+	
+	foreach ($input as $option => $value) {	
 		//sanitize options that contain HTML
-		if ($value == "headerleftcustom") {
-			//print "headerleftcustom<br/>";
-			//$options['headerleftcustom'] = wp_kses($input['headerleftcustom'], $allowedposttags);
-		} else if ($value == "footerleftcustom") {
-			//print "footerleftcustom<br/>";
-			///$options['footerleftcustom'] = wp_kses($input['footerleftcustom'], $allowedposttags);
+		if ($option == "headerleftcustom") {
+			$input['headerleftcustom'] = wp_kses($input['headerleftcustom'], $allowedposttags);
+			$validated[] = $option;
+		} else if ($option == "footerleftcustom") {
+			$input['footerleftcustom'] = wp_kses($input['footerleftcustom'], $allowedposttags);
+			$validated[] = $option;
 		
-		} else if ($value == "background")  {
-			//print "background<br/>";
-			//$options[$value] = $input[$value];
-		} else {
-			//print "else<br/>";
-			//$options[$value] = $input[$value];
+		// validate all options that specify a width
+		} else if (preg_match("/width/", $option)) {
+			if ($value >= 0 && $value <= 1000) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate all options that specify a size
+		} else if (preg_match("/size/", $option)) {
+			if ($value >= 14 && $value <= 100) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+							
+		// validate all options that specify an opacity
+		} else if (preg_match("/opacity/", $option)) {
+			if ($value >= 0 && $value <= 1) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate all options that specify a color
+		} else if (preg_match("/color/", $option)) {
+			if (preg_match('/^#??([0-9a-f]{1,2}){3}$/i', $value)) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+		
+		// validate all options the specify a border-style
+		} else if (preg_match("/border-style/", $option)) {
+			if (in_array($value, $options_values['border-style'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate all options the specify a shadow offset
+		} else if (preg_match("/shadow-offset/", $option)) {
+			if (in_array($value, $options_values['text-shadow-offset'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate all options the specify a shadow blur
+		} else if (preg_match("/shadow-blur/", $option)) {
+			if (in_array($value, $options_values['text-shadow-blur'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate all options the specify a which sidebars to display
+		// on post, author, category, tag, search and archives pages 
+		} else if (preg_match("/single-sidebar/", $option)) {
+			if (in_array($value, $options_values['sidebar-display'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate text-align option
+		} else if (preg_match("/text-align/", $option)) {
+			if (in_array($value, $options_values['entry-text-align'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate entry-link-style option
+		} else if (preg_match("/entry-link-style/", $option)) {
+			if (in_array($value, $options_values['entry-link-style'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate header-text-display option
+		} else if (preg_match("/header-text-display/", $option)) {
+			if (in_array($value, $options_values['header-text-display'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate header-block-height option
+		} else if (preg_match("/header-block-height/", $option)) {
+			if (in_array($value, $options_values['header-block-height'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate header-meta-left options
+		} else if (preg_match("/header-meta-left/", $option)) {
+			if (array_key_exists($value, $variation_config['header_meta_left_options'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate footer-meta-left options
+		} else if (preg_match("/footer-meta-left/", $option)) {
+			if (array_key_exists($value, $variation_config['footer_meta_left_options'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate headermeta option
+		} else if (preg_match("/headermeta/", $option)) {
+			if ($value == "on" || $value == "off" ) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validate headermeta option
+		} else if (preg_match("/background/", $option)) {
+			if (in_array($value, $variations)) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
+		// validates options-mode option
+		} else if (preg_match("/options-mode/", $option)) {
+			if (in_array($value, $options_mode)) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
 		}
-
 	}
-
+	
+	// debugging
+	
+	if ($validation_debug == 1) {
+		// compile list of not_validated options
+		foreach ($input as $option => $value) {
+			if (!in_array($option, $validated)) $not_validated[] = $option;	
+		}
+		
+		// print out lists of inital input, validated options, invalid options
+		// and valid_input
+		print "<hr/>Initial Input: ".count($input)." options";
+		printpre ($input);
+		print "<hr/>validated: ".count($validated)." options";
+		printpre ($validated);
+		print "<hr/>invalid options: ".count($not_validated)."";
+		printpre ($not_validated);
+		exit;
+	}
 
 	return $input;
 }
