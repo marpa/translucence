@@ -14,7 +14,10 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
-		<change author='alex' date='the future'>
+		<change author='alex' date='2011-03-24'>
+			updated how theme options css is added to template such that wp_head function is now used.
+		</change>
+		<change author='alex' date='2011-03-26'>
 			added more theme options input validation.
 		</change>
 		<change author='alex' date='2011-03-11'>
