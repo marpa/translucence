@@ -8,8 +8,8 @@
  * different template.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
+ * @subpackage 2010 Translucence
+ * @since Translucence 2.3.1
  */
 
 get_header(); 
@@ -24,18 +24,8 @@ $content_width = translucence_get_content_width("page");
 
 <div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
-<div class="toggle" style="float: left;">
-	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle" style="float: right;">
-	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle">
-	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-	
+<?php print translucence_toggle_links(); ?>	
 <?php print translucence_get_breadcrumbs($post); ?>
-
 
 
 <?php /* display link to new post if user is at least an author */?>
