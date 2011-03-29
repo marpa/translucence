@@ -6,8 +6,8 @@
  * after.  Calls sidebar-footer.php for bottom widgets.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
+ * @subpackage 2010_Translucence
+ * @since 2010 Translucence 1.0
  */
 ?>
 <?php global $options; ?>

@@ -8,7 +8,7 @@
  * from a dropdown menu on the edit page screen.
  *
  * @package WordPress
- * @subpackage 2010 Translucence
+ * @subpackage 2010_Translucence
  * @since Translucence 1.0
  */
 

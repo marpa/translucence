@@ -37,7 +37,7 @@
  * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
  *
  * @package WordPress
- * @subpackage 2010 Translucence
+ * @subpackage 2010_Translucence
  * @since 2010 Translucence 1.0
  */
  
