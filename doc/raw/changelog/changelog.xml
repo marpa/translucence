@@ -17,6 +17,9 @@
 		<change author='alex' date='the future'>
 			updated all page templates to use translucence_page_links function.
 		</change>
+		<change author='alex' date='the future'>
+			updated all page templates to use translucence_toggle_links function.
+		</change>
 		<change author='alex' date='2011-03-28'>
 			added more theme options input validation.
 		</change>
