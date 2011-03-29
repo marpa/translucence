@@ -295,6 +295,8 @@ function translucence_get_breadcrumbs($post) {
 		$breadcrumbs .= " title='".$parent_title ."'>".$parent_title."</a> &raquo; ";
 		$breadcrumbs .= get_the_title($post);
 		$breadcrumbs .= "</div>";
+	} else {
+		$breadcrumbs = null;
 	}
 
 	return $breadcrumbs;
