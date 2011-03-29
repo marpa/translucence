@@ -9,7 +9,7 @@
  *
  * @package WordPress
  * @subpackage 2010 Translucence
- * @since Translucence 2.3.1
+ * @since Translucence 1.0
  */
 
 get_header(); 
