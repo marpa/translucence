@@ -308,7 +308,7 @@ if (!function_exists('translucence_get_variations_source')) {
 }
 
 /******************************************************************************
- * set options for variations (set with options['background'])
+ * get options for variations (based on options['background'])
  * 
  ******************************************************************************/
 
@@ -329,8 +329,8 @@ function translucence_get_variation_options() {
 	 * variations use defaults unless otherwise specified
 	 * variations can have default option values and default option value lists
 	 * option value lists are the option values users can select in the theme model UI
-	 * (variation info in extracted from variation.php file using same functions
-	 * used to extract theme info rom theme style.php
+	 * (variation info is extracted from variation.php file using same functions
+	 * used to extract theme info from theme style.php
 	 ******************************************************************************/
 	
 	$variations = array();
@@ -431,7 +431,7 @@ function translucence_set_derivative_options() {
 
 
 	/******************************************************************************
-	 * Header left links (derived from  header_meta_left_options
+	 * Header left links (derived from  header_meta_left_options)
 	 ******************************************************************************/
 	
 	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blog'] == "") {
@@ -457,7 +457,7 @@ function translucence_set_derivative_options() {
 	}
 	
 	/******************************************************************************
-	 * Top Navigation area margins
+	 * Top Navigation area margins (derived from top-border-style)
 	 * if no border on top nav, then no space between header image and nav
 	 ******************************************************************************/
 	if ($options['top-border-style'] == "solid" || $options['top-border-style'] == "dotted") {
@@ -467,7 +467,7 @@ function translucence_set_derivative_options() {
 	}
 
 	/******************************************************************************
-	 * Footer left links (derived from meta_right_options
+	 * Footer left links (derived from meta_right_options)
 	 ******************************************************************************/
 	if ($options['footer-meta-left'] == 'custom') {
 		$options['footerleft'] = stripslashes($options['footerleftcustom']);
@@ -535,7 +535,7 @@ function translucence_set_derivative_options() {
 	
 
 	/******************************************************************************
-	 * visited link color options (derived from link and text colors
+	 * visited link color options (derived from link and text colors)
 	 ******************************************************************************/
 	
 	// dark blue or gold
@@ -727,7 +727,7 @@ function translucence_set_derivative_options() {
 		} 
 		
 		/******************************************************************************
-		 * Bar borders 
+		 * Box borders (derived from $box-border-style)
 		 ******************************************************************************/
 		$options['cat-links-border-style'] = "solid";
 		$options['tag-links-border-style'] = "solid";
@@ -821,7 +821,10 @@ function translucence_set_derivative_options() {
 			$area = ".".$box;
 		}
 		
-
+		/******************************************************************************
+		 * Generate IE only CSS for opacity settings
+		 ******************************************************************************/
+		
 	   $options[$box.'-color-ie'] = $area." {".translucence_ie_opacity_css($options[$box.'-color'], $options[$box.'-opacity'])."}";
 
 		// set the IE submenu-color opacity for top bar
@@ -1071,10 +1074,7 @@ function translucence_option_feedback() {
 
 
 /******************************************************************************
- * Delete options deletes the theme options and resets to defaults for the
- * currently selected variation
- * (This is needed only when updating Variations themes and cleaning out
- * old options...)
+ * Delete options deletes the theme options and initializes theme options array
  ******************************************************************************/
 
 function translucence_delete_options() {
