@@ -51,9 +51,13 @@
 	 */
 	wp_head();
 ?>
+<meta name="primary_width" content="<?php echo $options['right01-width'] ?>" />
+<meta name="secondary_width" content="<?php echo $options['right02-width'] ?>" />
+<meta name="tertiary_width" content="<?php echo $options['left01-width'] ?>" />
+<meta name="content_width" content="<?php echo translucence_get_box_widths('content'); ?>" />
 </head>
 
-<body <?php body_class(); ?> onload="setToggleFromCookie(<?php print translucence_get_box_widths(); ?>);">
+<body <?php body_class(); ?> >
 <div class="sitewrapper">
 	
 	<div class="headermeta_right">

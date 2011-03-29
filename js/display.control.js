@@ -1,8 +1,9 @@
 // functions for toggling the display of sidebars in Translucence
 
-//jQuery(document).ready(function(){
-	//alert("hello");
-//});
+jQuery(document).ready(function(){
+	//alert("ready");
+	setToggleFromCookie();
+});
 
 function changeText(el, newText) {
 	// Safari work around
@@ -13,7 +14,23 @@ function changeText(el, newText) {
 	}
 }
 
-function setToggleFromCookie (primary_width, secondary_width, tertiary_width, content_width) {
+function getMetaValue (meta_name) {
+	//alert (meta_name);
+	var meta_elements = document.getElementsByTagName("META");
+	for (var counter=0; counter<meta_elements.length; counter++) {
+		if (meta_elements[counter].name.toLowerCase() == meta_name.toLowerCase()) {
+			return meta_elements[counter].content;
+		}
+	}
+}
+
+
+function setToggleFromCookie () {
+
+	var primary_width = getMetaValue ("primary_width");
+	var secondary_width = getMetaValue ("secondary_width");
+	var tertiary_width = getMetaValue ("tertiary_width");
+	var content_width = getMetaValue ("content_width");
 		
 	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
 	// get all box cookies
