@@ -15,7 +15,6 @@ function translucence_theme_options_init() {
 	
 }
 
-
 function translucence_theme_options_save() {
 	global $theme_options, $options;
 	
@@ -35,7 +34,6 @@ function translucence_theme_options_save() {
 }
 
 
-
 function translucence_variation_add_page() {
 	
     add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'variations', 'translucence_theme_options_do_page');
@@ -47,7 +45,7 @@ function translucence_add_menu_admin_bar() {
     if ( !current_user_can( 'switch_themes' ) || !is_admin_bar_showing() )
         return; 
         
-    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Design', 'design' ), 'href' => admin_url()."themes.php?page=variations" ) );
+    $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Theme Options', 'options' ), 'href' => admin_url()."themes.php?page=variations" ) );
 }
 
 /*********************************************************
