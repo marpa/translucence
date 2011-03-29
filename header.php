@@ -5,7 +5,7 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage Twenty_Ten
+ * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
 ?><!DOCTYPE html>

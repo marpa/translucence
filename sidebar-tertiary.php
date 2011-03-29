@@ -3,7 +3,7 @@
  * The Sidebar containing the primary and secondary widget areas.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
+ * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
 ?>

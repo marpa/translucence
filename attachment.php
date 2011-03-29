@@ -3,7 +3,7 @@
  * The template for displaying attachments.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
+ * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
 

@@ -8,7 +8,7 @@
  * located in the functions.php file.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
+ * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
 ?>

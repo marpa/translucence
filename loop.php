@@ -14,7 +14,7 @@
  * <code>get_template_part( 'loop', 'index' );</code>
  *
  * @package WordPress
- * @subpackage Twenty_Ten
+ * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
 ?>
