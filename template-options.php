@@ -5,7 +5,7 @@
  * renders UI and theme model for chosing and previewing options
  *********************************************************/
 
-function translucence_theme_model() {
+function translucence_theme_options_do_page() {
 	global $variation_config, $theme_options, $options, $options_values, $variations, $header_image;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
 
