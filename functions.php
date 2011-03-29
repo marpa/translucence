@@ -463,6 +463,38 @@ global $options;
 endif;
 
 /**
+ * Get links to sub or related pages
+ *
+ * To override this in a child theme, remove the filter and optionally add
+ * your own function tied to the wp_page_menu_args filter hook.
+ *
+ * @since Tranlucence 2.3.1
+ */
+function translucence_page_links($post, $order) {
+
+	if ($post->post_parent) {
+		$children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
+		$num_children = get_pages("child_of=".$post->post_parent);
+	} else {
+		$children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
+		$num_children = get_pages("child_of=".$post->ID);
+	}
+							
+	if (count($num_children) > 1) { 
+		print "<div id='toc' class='toc'>";
+		print "<div class='toggle'>";
+		if ($order == "before") print "<a id='togglelink' href='javascript:toggleToc()'>[show page links]</a>";
+		print "</div>";
+		 print "<ul>";
+		 print $children;
+	  print "</ul>";						
+	 print "</div>"; 
+	}
+}
+
+
+
+/**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *
  * To override this in a child theme, remove the filter and optionally add
