@@ -9,7 +9,7 @@
  * are used in the theme as custom template tags. Others are attached to action and
  * filter hooks in WordPress to change core functionality.
  *
- * The first function, translucene_setup(), sets up the theme by registering support
+ * The first function, translucence_setup(), sets up the theme by registering support
  * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
  *
  * When using a child theme (see http://codex.wordpress.org/Theme_Development and
@@ -283,6 +283,14 @@ function translucence_header_style() {
 	<?php	
 }
 
+ /**
+ * Adds breadcrumbs to child pages
+ *
+ * Referenced on all page templates
+ *
+ * @since 2010 Translucence 1.0
+ */
+
 function translucence_get_breadcrumbs($post) {
 
 	$parent_title = get_the_title($post->post_parent);
@@ -360,6 +368,14 @@ function translucence_get_content_width ($template) {
 	//$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
 	return $content_width;
 }
+
+ /**
+ * Gets the width of various areas of layout
+ * depending on which sidebars are displayed
+ * and what type of template is loaded
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_get_box_widths () {
 	global $options;
@@ -495,6 +511,13 @@ function translucence_page_links($post, $order) {
 		print $children;
 	}
 }
+
+ /**
+ * Adds links to toggle display of sidebars
+ *
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_toggle_links() {	
 	?>
