@@ -8,8 +8,8 @@
  * from a dropdown menu on the edit page screen.
  *
  * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
+ * @subpackage 2010 Translucence
+ * @since Translucence 1.0
  */
 
 get_header(); 
@@ -21,17 +21,8 @@ $content_width = $options['site-width'] - $options['right02-width'] - 125;
 
 <div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
-<div class="toggle" style="float: left;">
-	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle" style="float: right;">
-	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle">
-	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-	
-	<?php print translucence_get_breadcrumbs($post); ?>
+<?php print translucence_toggle_links(); ?>	
+<?php print translucence_get_breadcrumbs($post); ?>
 
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
@@ -49,30 +40,13 @@ $content_width = $options['site-width'] - $options['right02-width'] - 125;
 					<?php } else { ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php } ?>
-					<?php
-					  if($post->post_parent) {
-					  	$children = wp_list_pages("title_li=<h3>Related Pages </h3>&child_of=".$post->post_parent."&echo=0");
-					  	$num_children = get_pages("child_of=".$post->post_parent);
-					  } else {
-					  	$children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
-					  	$num_children = get_pages("child_of=".$post->ID);
-					  }
-					?>										
-					<?php if (count($num_children) > 1) { ?>					
-					<div id="toc" class="toc">
-					<div class="toggle">
-						<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
-					</div>
-					  <ul>
-					  <?php echo $children; ?>
-					  </ul>	
-					 </div> 					  
-					  <?php } ?>
+					<?php translucence_page_links($post, 'before'); ?>
+					
 					  <div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
 					  <ul>
-					  <?php echo $children; ?>
+					  <?php translucence_page_links($post, 'after'); ?>
 					  </ul>	<br/><br/>
 					  
 						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
