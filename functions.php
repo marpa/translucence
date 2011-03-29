@@ -480,15 +480,17 @@ function translucence_page_links($post, $order) {
 		$num_children = get_pages("child_of=".$post->ID);
 	}
 							
-	if (count($num_children) > 1) { 
+	if (count($num_children) > 1 && $order == "before") { 
 		print "<div id='toc' class='toc'>";
 		print "<div class='toggle'>";
-		if ($order == "before") print "<a id='togglelink' href='javascript:toggleToc()'>[show page links]</a>";
+		print "<a id='togglelink' href='javascript:toggleToc()'>[show page links]</a>";
 		print "</div>";
-		 print "<ul>";
-		 print $children;
-	  print "</ul>";						
-	 print "</div>"; 
+		print "<ul>";
+		print $children;
+		print "</ul>";						
+		print "</div>"; 
+	} else if (count($num_children) > 1 && $order == "after") {
+		print $children;
 	}
 }
 
