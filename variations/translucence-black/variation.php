@@ -40,8 +40,8 @@ if ($options['background'] == "translucence-black") {
 //	$options['header-text-shadow-offset'] = "1px 1px";
 //	$options['header-text-shadow-blur'] = "2px";
 // 	$options['post-text-shadow-color'] = "#333333";
-	$options['post-text-shadow-offset'] = "1px 0px";
-	$options['post-text-shadow-blur'] = "1px";
+	$options['post-text-shadow-offset'] = "0px 0px";
+	$options['post-text-shadow-blur'] = "0px";
 
 								
 	$options['thread-even-bgcolor'] = "#333333";
