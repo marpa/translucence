@@ -14,6 +14,8 @@ Author URI:
 $options['theme-name'] = "2010 Translucence";
 $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
+$options['background_color'] = "#FFFFFF";
+$options['background_image'] = "";
 $options['background_position'] = "top center";
 $options['background_repeat'] = "repeat-x";
 $options['background_attachment'] = "scroll";
@@ -68,6 +70,10 @@ if (isset($options['linkcolor'])) {
 	$options['transparent-link-color'] = "#003366";
 	$options['transparent-text-color'] = "#003366";
 }
+
+// define default background link and text colors
+$options['bgtextcolor'] = "#999999";
+$options['bglinkcolor'] = "#666666";
 
 // define default widget heading colors
 $options['left01-heading-color'] = "#999999";
