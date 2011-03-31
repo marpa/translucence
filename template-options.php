@@ -90,7 +90,7 @@ function translucence_theme_options_do_page() {
 	?>
 	    
 		<form id='settings' action='options.php' method='post' class='themeform' style='margin: 20px;'>
-		<?php settings_fields( '2010_translucence_options' ); ?>
+		<?php settings_fields( $theme_options ); ?>
 		<?php $options = get_option($theme_options); ?>
 	
 		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
@@ -105,7 +105,7 @@ function translucence_theme_options_do_page() {
 			</div>			
 			</td>
 			<td width='20%'>
-			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='2010_translucence_options[reset]'/></div>
+			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></div>
 			</td>
 		</tr>
 		</table>
@@ -247,7 +247,7 @@ function translucence_theme_options_do_page() {
 				</div>
 			</td>
 			<td>
-				<span class='submit'><input type='submit' value='Revert to Default' name='2010_translucence_options[reset]'/></span>
+				<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
 			</td>
 		</tr>
 	</table>
@@ -494,7 +494,7 @@ function translucence_get_theme_model_css() {
 }
 
 function translucence_headermeta_left() {
-	global $variation_config, $options;
+	global $variation_config, $options, $theme_options;
 	
 	ob_start();
 	print "<div class='metatext'>";
@@ -511,7 +511,7 @@ function translucence_headermeta_left() {
 			<input id='appgroupdo' type='hidden' name='appgroupdo' value='0'/> - 			
 			<a href='javascript: document.getElementById(\"appgroupedit\").style.display = \"block\"; document.getElementById(\"appgroupdo\").value = \"1\"; exit; '>edit</a>					
 			<div id='appgroupedit' style='display: none;'>					
-			<textarea name='2010_translucence_options[headerleftcustom]' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+			<textarea name='".$theme_options."[headerleftcustom].' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
 			print stripslashes(stripslashes(trim($options['headerleftcustom'])));
 			print "</textarea>		
 			&nbsp;&nbsp;&nbsp;
@@ -561,7 +561,7 @@ function translucence_get_global_options() {
 	print "<td style='width: 70%; text-align: left; border-bottom: 1px solid; padding-bottom: 5px; '>";			
 	if (in_array("background", $variation_config['model'])) {				
 		print "<div>";
-		print "<select name='2010_translucence_options[background]' style='font-size: 14px;' onchange='this.form.submit();'>";			
+		print "<select name='".$theme_options."[background]' style='font-size: 14px;' onchange='this.form.submit();'>";			
 			// variations defined in variations folder
 			foreach ($variations as $label => $value) {
 				if (!in_array($value, $variation_config['variations_disabled']))
@@ -672,7 +672,7 @@ function translucence_get_global_options() {
 			if (in_array("header-text-display", $variation_config['model'])) {	
 				print "
 				<span class='option-label' <span style='font-size: 10px;'>position: 
-				<select name='2010_translucence_options[header-text-display]' class='option-label-dimmed' style='font-size: 10px;' onchange='this.form.submit();'>
+				<select name='".$theme_options."[header-text-display]' class='option-label-dimmed' style='font-size: 10px;' onchange='this.form.submit();'>
 					<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
 					<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
 					<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
@@ -735,7 +735,7 @@ function translucence_get_global_options() {
 			print "<td style='width: 50%'>"; 
 			if (in_array("header-meta-left", $variation_config['model'])) {
 				print "<span style='font-size: 9px;'>Header Links:</span>\n";
-				print "<select name='2010_translucence_options[header-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
+				print "<select name='".$theme_options."[header-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
 				foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
 					print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
 					print ($options['header-meta-left'] == $variation_config['header_meta_left_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
@@ -750,7 +750,7 @@ function translucence_get_global_options() {
 			if (in_array("headermeta", $variation_config['model'])) {	
 				print "
 				<span style='font-size: 9px;'>Editing Quick Links:</span>
-				<select name='2010_translucence_options[headermeta]' style='font-size: 10px;' onchange='this.form.submit();'>
+				<select name='".$theme_options."[headermeta]' style='font-size: 10px;' onchange='this.form.submit();'>
 					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
 					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
 				</select>";
@@ -763,10 +763,10 @@ function translucence_get_global_options() {
 	print "<div style='font-size: 10px;'>";
 	if ($options['options-mode'] != "global" && $options['options-mode'] != "advanced") {
 		print "For more site and header options, see: ";
-		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"global\")'>Global Options</a>";	
+		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"global\", \"".$theme_options."\")'>Global Options</a>";	
 	} else {
 		print "For basic site and header options, see: ";
-		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"basic\")'>Basic Options</a>";	
+		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"basic\", \"".$theme_options."\")'>Basic Options</a>";	
 	}
 	print "</div>";		
 	print "</div>";
@@ -875,7 +875,7 @@ function translucence_get_layout_options() {
 	} else {
 		print "<div style='font-size: 10px;'>";
 		print "For more sidebar options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"layout\")'>Layout Options</a>";
+		print "<a href='javascript:setThemeOptionsMode(\"layout\", \"".$theme_options."\")'>Layout Options</a>";
 		print "</div>";	
 	}
 
@@ -1019,7 +1019,7 @@ function translucence_get_post_options() {
 	} else {
 		print "<div style='font-size: 10px;'>";
 		print "For text and link options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"post\")'>Post Options</a>";
+		print "<a href='javascript:setThemeOptionsMode(\"post\", \"".$theme_options."\")'>Post Options</a>";
 		print "</div>";
 	}
 	print "</div>";
@@ -1279,7 +1279,7 @@ function translucence_footermeta_left() {
 			
 			<div id='footerleftedit' style='display: none;'>
 			
-			<textarea name='2010_translucence_options[footerleftcustom]' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+			<textarea name='".$theme_options."[footerleftcustom]' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
 			print stripslashes(stripslashes(trim($options['footerleftcustom'])));
 			print "</textarea>		
 			&nbsp;&nbsp;&nbsp;
@@ -1311,7 +1311,7 @@ function translucence_get_footermeta_options() {
     // footer meta left appgroups options		
 	if (in_array("footer-meta-left", $variation_config['model'])) {
 		print "<span style='font-size: 9px;'>Footer Links:</span>\n";
-		print "<select name='2010_translucence_options[footer-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
+		print "<select name='".$theme_options."[footer-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
 		
 		foreach (array_keys($variation_config['footer_meta_left_options']) as $meta_left_option) {						
 			print "<option value='".$variation_config['footer_meta_left_options'][$meta_left_option]['option_name']."' ";
@@ -1504,7 +1504,7 @@ function translucence_get_active_options($options_mode) {
 
 function translucence_get_option_selector ($option_title, $option_name, $option_values, $state='dimmed') {
 	global $variation_config, $options, $options_values;
-	global $custom_header_set, $custom_background_set;
+	global $custom_header_set, $custom_background_set, $theme_options;
 	
 	$options_mode = translucence_get_active_options($options['options-mode']);
 	$display_option = false;
@@ -1529,7 +1529,7 @@ function translucence_get_option_selector ($option_title, $option_name, $option_
 	if (in_array($option_name, $variation_config['model']) && $display_option == true) {
 		print "<span style='white-space:nowrap;'>\n";
 		if ($option_title != "") print " <span style='font-size: 10px;'>".$option_title."</span>\n";
-		print "<select name='2010_translucence_options[".$option_name."]' style='font-size: 10px;' class='".$state_css."' onchange='this.form.submit();'>\n";							
+		print "<select name='".$theme_options."[".$option_name."]' style='font-size: 10px;' class='".$state_css."' onchange='this.form.submit();'>\n";							
 			// options
 			foreach ($option_values as $label => $value) {
 				print "\n<option value='".$value."'".($options[$option_name] == $value ? ' selected' : '') . ">".$label."</option>";
@@ -1545,7 +1545,7 @@ function translucence_get_option_selector ($option_title, $option_name, $option_
  *********************************************************/
 
 function translucence_get_option_field ($option_title, $option_name, $option_field_width) {
-	global $variation_config, $options, $options_values;
+	global $variation_config, $options, $options_values, $theme_options;
 
 	$options_mode = translucence_get_active_options($options['options-mode']);
 	$display_option = false;
@@ -1559,7 +1559,7 @@ function translucence_get_option_field ($option_title, $option_name, $option_fie
 	if (in_array($option_name, $variation_config['model']) && $display_option == true) {			
 		print "<span style='white-space:nowrap'>";
 		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title."</span>\n";
-		print "<input name='2010_translucence_options[".$option_name."]' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
+		print "<input name='".$theme_options."[".$option_name."]' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
 		value='".(isset($options[$option_name]) ? $options[$option_name] : '')."'/></span>";
 	}
 }
