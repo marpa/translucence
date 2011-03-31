@@ -42,21 +42,21 @@ if ($options['background'] == "translucence-black") {
 // 	$options['post-text-shadow-color'] = "#333333";
 	$options['post-text-shadow-offset'] = "0px 0px";
 	$options['post-text-shadow-blur'] = "0px";
-
 								
 	$options['thread-even-bgcolor'] = "#333333";
 	$options['thread-alt-bgcolor'] = "#000000";
 	$options['commentfield'] = "#FFFFFF";
-
 	
 	$options['searchbox-color'] = "#262626";
 
+	/******************************************************************************
+	 * theme option value lists
+	 ******************************************************************************/
 
 	$options_values['header-color'] = array(
 		'Dark Gray' => '#262626',
 		'Black' 	=> '#000000'
 		);
-
 
 	$options_values['sidebar-color'] = array(
 		'Dark Gray' => '#262626',
