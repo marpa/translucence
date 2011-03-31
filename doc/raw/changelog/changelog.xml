@@ -14,10 +14,10 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
-		<change author='alex' date='the future'>
+		<change author='alex' date='2011-03-30'>
 			updated all page templates to use translucence_page_links function.
 		</change>
-		<change author='alex' date='the future'>
+		<change author='alex' date='2011-03-30'>
 			updated all page templates to use translucence_toggle_links function.
 		</change>
 		<change author='alex' date='2011-03-28'>
