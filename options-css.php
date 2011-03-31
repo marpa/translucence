@@ -947,9 +947,19 @@ a:hover {
 .home .sticky .page-link a {
 	background: <?php print $options['content-highlight-color-rgb']?>;
 }
+
+.page-link {
+	color: <?php print $options['content-text-color']?>;
+}
+
 .page-link a:active,
 .page-link a:hover {
 	border: 1px solid <?php print $options['entry-link-color']?>;
+}
+
+
+ins {
+	background-color: <?php print $options['content-highlight-color-rgb']?>;	
 }
 
 
@@ -1070,6 +1080,10 @@ a:hover {
 		
 /* Begin comments */
 
+.comment-author a {
+	color: <?php print $options['linkcolor']?>;
+}
+
 .reply a,
 a.comment-edit-link {
 	color: <?php print $options['linkcolor']?>;
@@ -1084,6 +1098,18 @@ a.comment-edit-link {
 #commentform textarea {
 	background-color: <?php print $options['thread-even-bgcolor']?>;
 	color: <?php print $options['commentfield']?>;
+}
+
+.logged-in-as a {
+	color: <?php print $options['linkcolor']?>;
+}
+
+#comments .pingback a {
+	color: <?php print $options['linkcolor']?>;
+}
+
+.comment-body a {
+	color: <?php print $options['linkcolor']?>;
 }
 
 .thread-alt {
