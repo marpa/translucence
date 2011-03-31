@@ -14,6 +14,9 @@ Author URI:
 $options['theme-name'] = "2010 Translucence";
 $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
+// set the default background variation
+if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
+
 $options['background_color'] = "#FFFFFF";
 $options['background_image'] = "";
 $options['background_position'] = "top center";
@@ -127,7 +130,6 @@ if (!isset($options['headermeta'])) $options['headermeta'] = "off";
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
 if (!isset($options['revert'])) $options['revert'] = 1;
 
-if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 if (!isset($options['site-width'])) $options['site-width'] = "950";
 
 if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
