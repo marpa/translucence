@@ -66,16 +66,6 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 		'option_value' => ''
 	);
 	
-/******************************************************************************
- * Preset Widgets:
- * specify widgets to include when theme is 1st activated
- * sidebar-1 = left sidebar
- * sidebar-2 = right sidebar
- * sidebar-3 = 2nd right sidebar 
- ******************************************************************************/
-
-// Update the sidebars with those widgets
-
 
 
 /******************************************************************************
@@ -90,8 +80,8 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 
 $variation_config['custom_header'] = array(
 		'none' => array(
-			'url' => '',
-			'thumbnail_url' => '',
+			'url' => '%s/images/headers/transparent.png',
+			'thumbnail_url' => '%s/images/headers/transparent-thumbnail.png',
 			/* translators: header image description */
 			'description' => __( 'None', 'twentyten' )
 		),
