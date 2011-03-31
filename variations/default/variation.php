@@ -109,37 +109,6 @@ $options['right02-margin-top'] = "10";
 
 
 /******************************************************************************
- * Page Info options (not used in translucence
- * Following options are useful for themes that create a background using
- * 3 images (950-top.png, 950-main.png and 950-bottom.png)
- ******************************************************************************/
-
-// page image directory should be named "images" and located within variation folder
-$options['page_image_directory'] = "none";	
-$options['page_image_path'] = "url('".get_bloginfo("stylesheet_directory")."/images/".$options['page_image_directory'];
-
-if ($options['page_image_directory'] != "none") {
-	$options['page_top_background_image'] = $options['page_image_path']."/".$options['page-image-width']."-top.png')";
-	$options['page_main_background_image'] = $options['page_image_path']."/".$options['page-image-width']."-main.png')";
-	$options['page_bottom_background_image'] = $options['page_image_path']."/".$options['page-image-width']."-bottom.png')";
-} else {
-	$options['page_top_background_image'] = "none";
-	$options['page_main_background_image'] = "none";
-	$options['page_bottom_background_image'] = "none";
-}
-
-// page_top_padding should = height of your page top image
-$options['page_top_padding'] = "0";	
-$options['page_top_margin'] = "10";
-
-$options['page_main_padding'] = "0";
-$options['page_main_top_padding'] = "0";
-
-// page_bottom_padding should = height of your page bottom image
-$options['page_bottom_padding'] = "10";
-$options['page_bottom_margin'] = "10";
-
-/******************************************************************************
  * Miscellaneous options
  ******************************************************************************/
 
@@ -156,6 +125,7 @@ $options['searchbox-color'] = "#FFFFFF";
 
 if (!isset($options['headermeta'])) $options['headermeta'] = "off";
 if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
+if (!isset($options['revert'])) $options['revert'] = 1;
 
 if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 if (!isset($options['site-width'])) $options['site-width'] = "950";
@@ -175,9 +145,8 @@ if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom
 if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
 if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = "";
 if (!isset($options['footerleftcustom'])) $options['footerleftcustom'] = "";
-if (!isset($options['revert'])) $options['revert'] = 1;
-if (!isset($options['header-image-options'])) $options['header-image-options'] = "none";
 
+if (!isset($options['header-image-options'])) $options['header-image-options'] = "none";
 
 if (!isset($options['header-text-display'])) $options['header-text-display'] = "middle";
 if (!isset($options['entry-link-style'])) $options['entry-link-style'] = "ww";
