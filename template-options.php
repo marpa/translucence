@@ -1048,7 +1048,7 @@ function translucence_get_left01_options() {
 		
 
 			if (is_active_sidebar("tertiary-widget-area")) {
-				print "<div class='post-link' style='font-size: 10px; border: 1px dotted ".$options['left01-link-color'].";'>";
+				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color'].";'>";
 				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 				print "</div><br/>";				
 				if (is_array($current_widgets['tertiary-widget-area'])) {
