@@ -48,26 +48,15 @@ if ($options['background'] == "translucence-black") {
 	$options['thread-alt-bgcolor'] = "#000000";
 	$options['commentfield'] = "#FFFFFF";
 
-// 	$options['left01-border-left'] = "#FFFFCC";
-// 	$options['left01-border-bottom'] = "#FFFFCC";
-// 	$options['left01-border-right'] = "#FFFFCC";
-// 
-// 	$options['right01-border-left'] = "#FFFFCC";
-// 	$options['right01-border-bottom'] = "#FFFFCC";
-// 	$options['right01-border-right'] = "#FFFFCC";
-// 
-// 	$options['right02-border-left'] = "#FFFFCC";
-// 	$options['right02-border-bottom'] = "#FFFFCC";
-// 	$options['right02-border-right'] = "#FFFFCC";
 	
 	$options['searchbox-color'] = "#262626";
 
-	// option values
-	$options_values['headercolor'] = array(
+
+	$options_values['header-color'] = array(
 		'Dark Gray' => '#262626',
-		'Black' => '#000000',
-		'Transparent' => 'transparent'
-	);
+		'Black' 	=> '#000000'
+		);
+
 
 	$options_values['sidebar-color'] = array(
 		'Dark Gray' => '#262626',
@@ -103,7 +92,7 @@ if ($options['background'] == "translucence-black") {
 	// otherwise use default for this variation
 	if (!in_array($options['linkcolor'], array_values($options_values['linkcolor']))) $options['linkcolor'] = "#FFFFCC";
 	if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#EEEEEE";
-	if (!in_array($options['header-color'], array_values($options_values['headercolor']))) $options['header-color'] = "#262626";
+	if (!in_array($options['header-color'], array_values($options_values['header-color']))) $options['header-color'] = "#262626";
 		
 	if (!in_array($options['left01-link-color'], array_values($options_values['linkcolor']))) $options['left01-link-color'] = "#FFFFCC";
 	if (!in_array($options['right01-link-color'], array_values($options_values['linkcolor']))) $options['right01-link-color'] = "#FFFFCC";
