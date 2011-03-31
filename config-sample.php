@@ -51,7 +51,6 @@ $variation_config['header_meta_right_options'] = array (
 		'option_label' =>	'Hide',
 		'option_value' => "off"
 	);
-
 	
 
 /******************************************************************************
@@ -66,13 +65,6 @@ $variation_config['footer_meta_left_options']['custom'] = array (
 		'option_value' => ''
 	);
 	
-
-
-/******************************************************************************
- * Miscellaneous Config
- * When set to "on" always shows log in link in upper right corner
- ******************************************************************************/
-//$variation_config['headermeta'] = "off";
 
 /******************************************************************************
  * Custom headers
@@ -144,14 +136,6 @@ $variation_config['model'][]  = 'post-single-sidebar';
 $variation_config['model'][]  = 'footer-meta-left';
 $variation_config['model'][]  = 'footerleftcustom';
 $variation_config['model'][]  = 'model-instructions';
-$variation_config['model'][]  = 'custom_background_color';
-$variation_config['model'][]  = 'custom_background_repeat';
-$variation_config['model'][]  = 'custom_background_position';
-$variation_config['model'][]  = 'custom_bgtextcolor';
-$variation_config['model'][]  = 'custom_bglinkcolor';
-$variation_config['model'][]  = 'custom_header_color';
-$variation_config['model'][]  = 'custom_background-source-url';
-$variation_config['model'][]  = 'custom_background-source-credit';
 $variation_config['model'][]  = 'revert';
 $variation_config['model'][]  = 'header-blogtitle-size';
 $variation_config['model'][]  = 'header-border-style';
@@ -222,10 +206,8 @@ $variation_config['model'][]  = 'theme-url';
 
 $variation_config['variations_disabled'] = array();
 
-// $variation_config['variations_disabled'][] = 'custom';
 // $variation_config['variations_disabled'][] = 'translucence-white';
 // $variation_config['variations_disabled'][] = 'translucence-black';
-// $variation_config['variations_disabled'][] = 'translucence-blue';
 // $variation_config['variations_disabled'][] = 'translucence-green';	
 // $variation_config['variations_disabled'][] = 'translucence-yellow';
 // $variation_config['variations_disabled'][] = 'translucence-yellow-white';
@@ -233,6 +215,4 @@ $variation_config['variations_disabled'] = array();
 // $variation_config['variations_disabled'][] = 'translucence-gray';
 // $variation_config['variations_disabled'][] = 'translucence-gray-white';
 // $variation_config['variations_disabled'][] = 'translucence-white-gray';
-// $variation_config['variations_disabled'][] = 'translucence-classics';
-// $variation_config['variations_disabled'][] = 'translucence-middscape';
-// $variation_config['variations_disabled'][] = 'translucence-middscape-blue';
+
