@@ -796,7 +796,14 @@ div.menu li {
 	color: <?php print $options['entry-link-color']?>;
 }
 	
+/* =calendar and table css
+-------------------------------------------------------------- */	
 
+#wp-calendar tbody td {
+	background-color: <?php print $options['content-highlight-color-rgb']?>;
+	border: 1px solid #fff;
+
+}
 
 /* Begin post/page entry css
 -------------------------------------------------------------- */						
