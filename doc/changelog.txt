@@ -2,7 +2,55 @@
 Translucence Change Log
 
 
-v. 2.2.1 (2011-30-08)
+v. 2.3.1 (the future)
+----------------------------------------------------
+This release refactors theme functions to better conform to WordPress theme
+development standards.
+		
+		
+	* Change: 
+		updated all page templates to use translucence_page_links function.
+		(2011-03-30 - Alex Chapin)
+		
+	* Change: 
+		updated all page templates to use translucence_toggle_links function.
+		(2011-03-30 - Alex Chapin)
+		
+	* Change: 
+		added more theme options input validation.
+		(2011-03-28 - Alex Chapin)
+		
+	* Change: 
+		updated how theme options css is added to template such that wp_head
+		function is now used.
+		(2011-03-24 - Alex Chapin)
+		
+	* Change: 
+		updated theme options form to use WordPress Settings API.
+		(2011-03-11 - Alex Chapin)
+		
+	* Change: 
+		changed name of theme options pages to "Theme Options".
+		(2011-03-11 - Alex Chapin)
+		
+	* Change: 
+		reimplemented how theme options are saved so that all options now save in
+		single array.
+		(2011-03-11 - Alex Chapin)
+		
+	* Change: 
+		updated all theme functions so they are prefixed with theme name.
+		(2011-03-10 - Alex Chapin)
+		
+	* Change: 
+		separated functions for managing theme options from those used in template
+		files. 
+		(2011-03-10 - Alex Chapin)
+
+
+
+
+v. 2.2.1 (2011-03-08)
 ----------------------------------------------------
 This release refines the toggle and display of site page links and sidebar and
 include general bug fixes.
@@ -10,7 +58,7 @@ include general bug fixes.
 		
 	* Bug Fix: 
 		Fixed header color theme option default values.
-		(the future - Alex Chapin)		
+		(2011-02-27 - Alex Chapin)		
 		
 	* New feature: 
 		redesigned and repositioned sidebar toggle links for better use of viewport
