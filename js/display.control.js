@@ -207,9 +207,10 @@ function toggleToc() {
 	}
 }
 
-function setThemeOptionsMode(value) {
+function setThemeOptionsMode(value, options) {
 	var oform = document.getElementById('settings');
-	oform.elements['2010_translucence_options[options-mode]'].value = value;
+	var options_mode = options+"[options-mode]";
+	oform.elements[options_mode].value = value;
 	oform.submit();
 }
 
