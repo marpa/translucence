@@ -18,8 +18,7 @@ function translucence_theme_options_do_page() {
 
 	translucence_option_feedback();
 	$options = get_option($theme_options);
-	
-    
+	    
     $current_widgets = get_option ('sidebars_widgets');	
     
     $custom_background_color = get_background_color();
@@ -39,7 +38,6 @@ function translucence_theme_options_do_page() {
 		$custom_header_set = 1;
 	}
 
-
  	if ($custom_background_image) {
  		$options['background_image'] = "url('".$custom_background_image."')";
  		$options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
@@ -57,8 +55,7 @@ function translucence_theme_options_do_page() {
 	 *********************************************************/
 	
 	$model_site_width = $options['site-width']+80;
-	//$model_site_width = $model_site_width."";
-	
+	//$model_site_width = $model_site_width."";	
 	
 	$model_right_sidebar_width = $options['right01-width']+50;
     $model_right_sidebar_width02 = $options['right02-width']+50;
@@ -87,8 +84,7 @@ function translucence_theme_options_do_page() {
 	 * Theme Options Introduction with Update and Revert buttons
 	 ******************************************************************************/
 			
-	?>
-	    
+	?>	    
 		<form id='settings' action='options.php' method='post' class='themeform' style='margin: 20px;'>
 		<?php settings_fields( $theme_options ); ?>
 		<?php $options = get_option($theme_options); ?>
@@ -582,9 +578,9 @@ function translucence_get_global_options() {
 	$options_values['mode'] = translucence_get_option_modes();
 	
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
-		print "Options Mode:<span class='option-label'>";
-		translucence_get_option_selector ("", "options-mode", $options_values['mode'], 'active');
-		print "</span>";
+	print "Options Mode:<span class='option-label'>";
+	translucence_get_option_selector ("", "options-mode", $options_values['mode'], 'active');
+	print "</span>";
 	
 	print "</td>";	
 	print "</tr>";	
@@ -668,9 +664,7 @@ function translucence_get_global_options() {
 			if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
 				translucence_get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
-		// if not in active_options print out as hidden fields
-		}
-		
+		}		
 		
 		if (in_array('site-title-box-options', $active_options) || $custom_header_set == 1) {
 		
@@ -698,6 +692,7 @@ function translucence_get_global_options() {
 	
 		print "</td>";	
 		print "</tr>";
+		
 	// if not in active_options print out as hidden fields
 	} else {
 		translucence_get_option_selector ("size: ", "site-title-size", $options_values['header-text-size']);
@@ -733,8 +728,7 @@ function translucence_get_global_options() {
 			translucence_get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
 			translucence_get_option_field ("color: #", "site-description-color", 6);
 		}
-	
-	
+		
 		if (in_array('tagline-options', $active_options) || $custom_header_set == 1) {
 	
 			if (in_array("description-box-color", $variation_config['model'])) {	
@@ -913,6 +907,7 @@ function translucence_get_layout_options() {
 		print "</tr>";	
 		print "</table>";
 		print "</div>";
+		
 	// if not in active_options print out as hidden fields	
 	} else {
 		translucence_get_option_selector ("", "content-color", $options_values['sidebar-color']);
@@ -1064,6 +1059,7 @@ function translucence_get_post_options() {
 				</td></tr>
 			</table>						
 		</table>";
+		
 	// if not in active_options print out as hidden fields
 	} else {
 		translucence_get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
@@ -1103,29 +1099,28 @@ function translucence_get_left01_options() {
 		// border
 		translucence_get_option_selector ("", "left01-border-style", $options_values['border-style']);
 		
-
-			if (is_active_sidebar("tertiary-widget-area")) {
-				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color'].";'>";
-				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
-				print "</div><br/>";				
-				if (is_array($current_widgets['tertiary-widget-area'])) {
-					foreach ($current_widgets['tertiary-widget-area'] as $widget) {
-						$widget = str_replace("-", " ", $widget);
-						$widget = str_replace("_", " ", $widget);
-						$widget = rtrim(ucwords($widget), "0..9");
-						print "<div class='widgetbox' style='color: ".$options['left01-heading-color']."; border-color: ".$options['left01-heading-color'].";'>";
-						print $widget;
-						print "</div>";	
-					}
+		if (is_active_sidebar("tertiary-widget-area")) {
+			print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color'].";'>";
+			print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+			print "</div><br/>";				
+			if (is_array($current_widgets['tertiary-widget-area'])) {
+				foreach ($current_widgets['tertiary-widget-area'] as $widget) {
+					$widget = str_replace("-", " ", $widget);
+					$widget = str_replace("_", " ", $widget);
+					$widget = rtrim(ucwords($widget), "0..9");
+					print "<div class='widgetbox' style='color: ".$options['left01-heading-color']."; border-color: ".$options['left01-heading-color'].";'>";
+					print $widget;
+					print "</div>";	
 				}
-				
-			} else {
-				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";			
-				print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
-				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
-				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or use defaults...</div>";
-				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
-			}					
+			}
+			
+		} else {
+			print "<div class='post-link' style='font-size: 10px; border-color: ".$options['left01-link-color']."'>";			
+			print "<a style='color:".$options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>no widgets...</div>";
+			print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['left01-heading-color'].";'>add widgets or use defaults...</div>";
+			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+		}					
 	}
 	print "</div>";
 	
@@ -1150,33 +1145,29 @@ function translucence_get_right01_options() {
 		translucence_get_option_selector ("", "right01-color", $options_values['sidebar-color']);
 		// border
 		translucence_get_option_selector ("", "right01-border-style", $options_values['border-style']);
-		
-
-			if (is_active_sidebar("primary-widget-area")) {
-				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
-				print "<a style='' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
-				print "</div><br/>";
-				if (is_array($current_widgets['primary-widget-area'])) {
-					foreach ($current_widgets['primary-widget-area'] as $widget) {
-						$widget = str_replace("-", " ", $widget);
-						$widget = str_replace("_", " ", $widget);
-						$widget = rtrim(ucwords($widget), "0..9");
-						print "<div class='widgetbox' style='color: ".$options['right01-heading-color']."; border-color: ".$options['right01-heading-color'].";'>";
-						print $widget;
-						print "</div>";	
-					}
+	
+		if (is_active_sidebar("primary-widget-area")) {
+			print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
+			print "<a style='' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+			print "</div><br/>";
+			if (is_array($current_widgets['primary-widget-area'])) {
+				foreach ($current_widgets['primary-widget-area'] as $widget) {
+					$widget = str_replace("-", " ", $widget);
+					$widget = str_replace("_", " ", $widget);
+					$widget = rtrim(ucwords($widget), "0..9");
+					print "<div class='widgetbox' style='color: ".$options['right01-heading-color']."; border-color: ".$options['right01-heading-color'].";'>";
+					print $widget;
+					print "</div>";	
 				}
-				
-			} else {
-				print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
-				print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
-				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
-				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
-				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
-			}					
-
-
-
+			}
+			
+		} else {
+			print "<div class='post-link' style='font-size: 10px; border-color: ".$options['right01-link-color'].";'>";
+			print "<a style='color:".$options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>no widgets...</div>";
+			print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right01-heading-color'].";'>add widgets or use defaults...</div>";
+			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+		}					
 	}
 	print "</div>";
 	
@@ -1188,9 +1179,8 @@ function translucence_get_right01_options() {
 
 function translucence_get_right02_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $theme_options, $_POST;	
+    global $theme_options;	
    	global $current_widgets;
-
     
     ob_start();
     print "<div>";
@@ -1204,27 +1194,27 @@ function translucence_get_right02_options() {
 		translucence_get_option_selector ("", "right02-border-style", $options_values['border-style']);
 		
 
-			if (is_active_sidebar("secondary-widget-area")) {
-				print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
-				print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
-				print "</div><br/>";
-				if (is_array($current_widgets['secondary-widget-area'])) {
-					foreach ($current_widgets['secondary-widget-area'] as $widget) {
-						$widget = str_replace("-", " ", $widget);
-						$widget = str_replace("_", " ", $widget);
-						$widget = rtrim(ucwords($widget), "0..9");
-						print "<div class='widgetbox' style='color: ".$options['right02-heading-color']."; border-color: ".$options['right02-heading-color'].";'>";
-						print $widget;
-						print "</div>";	
-					}
+		if (is_active_sidebar("secondary-widget-area")) {
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$options['right02-link-color']."'>";
+			print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
+			print "</div><br/>";
+			if (is_array($current_widgets['secondary-widget-area'])) {
+				foreach ($current_widgets['secondary-widget-area'] as $widget) {
+					$widget = str_replace("-", " ", $widget);
+					$widget = str_replace("_", " ", $widget);
+					$widget = rtrim(ucwords($widget), "0..9");
+					print "<div class='widgetbox' style='color: ".$options['right02-heading-color']."; border-color: ".$options['right02-heading-color'].";'>";
+					print $widget;
+					print "</div>";	
 				}
-				
-			} else {
-				print "<a style='color:".$options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
-				print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>no widgets...</div>";
-				print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>add widgets or use defaults...</div>";
-				//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
-			}					
+			}
+			
+		} else {
+			print "<a style='color:".$options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<div style='font-size: 10px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>no widgets...</div>";
+			print "<div style='font-size: 9px; padding-left: 10px; color: ".$options['right02-heading-color'].";'>add widgets or use defaults...</div>";
+			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
+		}					
 
 	}
 	print "</div>";
@@ -1247,7 +1237,7 @@ function translucence_get_footer_options() {
     print "<div>";
 		if (in_array("footer-bottom-color", $variation_config['model']))    
 			print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</span>";
-		print "<span class='horizontalbar' style='font-size: 8px'>";
+			print "<span class='horizontalbar' style='font-size: 8px'>";
 			translucence_get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
 			translucence_get_option_selector ("", "bottom-opacity", $options_values['sidebar-opacity']);
 			translucence_get_option_selector ("", "bottom-border-style", $options_values['border-style']);			 				
@@ -1421,7 +1411,9 @@ function translucence_get_active_options($options_mode) {
 			$active_options[]  = 'site-title-options';
 			$active_options[]  = 'site-title-color';
 			$active_options[]  = 'site-title-size';
-	// 		$active_options[]  = 'tagline-options';
+// 	 		$active_options[]  = 'tagline-options';
+// 			$active_options[]  = 'site-description-size';
+// 			$active_options[]  = 'site-description-color';
 	// 		$active_options[]  = 'headermeta-options';
 			$active_options[]  = 'site-width';
 			//$active_options[]  = 'site-color';
