@@ -93,15 +93,12 @@ function translucence_theme_options_do_page() {
 		<tr>
 			<td width='20%'>
 			<span class='submit'><input type='submit' value='Update' name='save'/></span>
+			<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
+
 			</td>
 			<td width='60%' align='left'>
-			<div class='instructions' style='font-size: 9px;'>	
-			<i>Below is a model of your blog's layout and colors.</i>&nbsp;&nbsp;
-			 <strong>Show recommendations: </strong><input type='checkbox' name='model-instructions' id='model-instructions' <?php (isset($options['model-instructions']) && $options['model-instructions'] == "on" ? ' checked' : ''); ?> onchange='this.form.submit();'/>
-			</div>			
 			</td>
 			<td width='20%'>
-			<div class='submit' style='float: right;'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></div>
 			</td>
 		</tr>
 		</table>
@@ -227,26 +224,12 @@ function translucence_theme_options_do_page() {
 		
 	<?php
 	/******************************************************************************
-	 * Theme Options Notes with Update and Revert button
+	 * Update and Revert button
 	 ******************************************************************************/
 	?>
+	<span class='submit'><input type='submit' value='Update' name='save'/></span>
+	<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
 	
-	<table width = '<?php print $model_site_width; ?>' align='center' cellpadding='5' cellspacing='5' border='0'>
-		<tr>
-			<td>
-				<span class='submit'><input type='submit' value='Update' name='save'/></span>
-			</td>
-			<td>
-				<div class='instructions'>	
-				When chosing options think about colors and contrasts that complement your content.  For example, if your site focuses on links, be sure your link color contrasts with your 
-				text color so links will stand out.  Chose the black theme for blogs that highlight images.  <br/>
-				</div>
-			</td>
-			<td>
-				<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
-			</td>
-		</tr>
-	</table>
 	</form>	
 	<?php
 }
