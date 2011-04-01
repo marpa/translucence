@@ -575,7 +575,7 @@ function translucence_get_global_options() {
 			print "(Custom background color or image may change the background of this variation)";	
 			print "</div>";
 		}
-	}						
+	}					
 	print "</td>";	
 	
 	// options mode values (used in translucence_get_active_options)
@@ -613,6 +613,12 @@ function translucence_get_global_options() {
 			translucence_get_option_selector ("border:", "site-border-style", $options_values['border-style']);
 		print "</td>";
 		print "</tr>";
+	// if not in active_options print out as hidden fields
+	} else {
+		translucence_get_option_selector ("", "site-width", $options_values['site-width'])."<br/>";
+		translucence_get_option_selector ("", "site-color", $options_values['sidebar-color'])."<br/>";
+		translucence_get_option_selector ("", "site-opacity", $options_values['header-opacity'])."<br/>";
+		translucence_get_option_selector ("", "site-border-style", $options_values['border-style'])."<br/>";
 	}
 	
 	// header height, color, opacity, border options
@@ -630,6 +636,12 @@ function translucence_get_global_options() {
 			translucence_get_option_selector ("border:", "header-border-style", $options_values['border-style']);
 		print "</td>";	
 		print "</tr>";
+	// if not in active_options print out as hidden fields
+	} else {
+			translucence_get_option_selector ("", "header-block-height", $options_values['header-block-height']);
+			translucence_get_option_selector ("", "header-color", $options_values['header-color']);
+			translucence_get_option_selector ("", "header-opacity", $options_values['header-opacity']);
+			translucence_get_option_selector ("", "header-border-style", $options_values['border-style']);	
 	}
 	
 	// header text size color shadow, box and position
@@ -656,7 +668,9 @@ function translucence_get_global_options() {
 			if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
 				translucence_get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
+		// if not in active_options print out as hidden fields
 		}
+		
 		
 		if (in_array('site-title-box-options', $active_options) || $custom_header_set == 1) {
 		
@@ -683,7 +697,16 @@ function translucence_get_global_options() {
 		}
 	
 		print "</td>";	
-		print "</tr>";	
+		print "</tr>";
+	// if not in active_options print out as hidden fields
+	} else {
+		translucence_get_option_selector ("size: ", "site-title-size", $options_values['header-text-size']);
+		translucence_get_option_field ("Color: #", "site-title-color", 6);
+		translucence_get_option_selector ("offset: ", "header-text-shadow-offset", $options_values['text-shadow-offset']);
+		translucence_get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);			
+		translucence_get_option_selector ("color: ", "title-box-color", $options_values['header-color']);
+		translucence_get_option_selector ("opacity:", "title-box-opacity", $options_values['header-opacity']);
+		print "<input type='hidden' name='".$theme_options."[header-text-display]' value = '".$options['header-text-display']."'/>";
 	}
 	
 	// Tagline text size, color, box
@@ -705,6 +728,10 @@ function translucence_get_global_options() {
 				translucence_get_option_field ("color: #", "site-description-color", 6);
 				print "</span>";
 			}
+		// if not in active_options print out as hidden fields
+		} else {
+			translucence_get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
+			translucence_get_option_field ("color: #", "site-description-color", 6);
 		}
 	
 	
@@ -721,9 +748,20 @@ function translucence_get_global_options() {
 				translucence_get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
 				print "</span>";
 			}
+		// if not in active_options print out as hidden fields
+		} else {
+			translucence_get_option_selector ("color:", "description-box-color", $options_values['header-color']);
+			translucence_get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
 		}
+		
 		print "</td>";	
 		print "</tr>";
+	// if not in active_options print out as hidden fields
+	} else {
+		translucence_get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
+		translucence_get_option_field ("color: #", "site-description-color", 6);
+		translucence_get_option_selector ("color:", "description-box-color", $options_values['header-color']);
+		translucence_get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);	
 	}
 	print "</table>";
 	
@@ -758,6 +796,10 @@ function translucence_get_global_options() {
 			print "</td>";		
 		print "</tr>";	
 		print "</table>";
+	// if not in active_options print out as hidden fields
+	} else {
+		print "<input type='hidden' name='".$theme_options."[header-meta-left]' value='".$options['header-meta-left']."'/>";
+		print "<input type='hidden' name='".$theme_options."[headermeta]' value='".$options['headermeta']."'/>";
 	}
 
 	print "<div style='font-size: 10px;'>";
@@ -810,7 +852,6 @@ function translucence_get_custom_options() {
 	//	print "display: <input type='checkbox' name='header-text-display' id='header-text-display'".(isset($options['header-text-display']) && $options['header-text-display'] != 'hide' ? ' checked' : '')." onchange='this.form.submit();'/>";
 		print "</div>";			
 	}
-
 	
 	print "</div>";
 
@@ -872,7 +913,14 @@ function translucence_get_layout_options() {
 		print "</tr>";	
 		print "</table>";
 		print "</div>";
+	// if not in active_options print out as hidden fields	
 	} else {
+		translucence_get_option_selector ("", "content-color", $options_values['sidebar-color']);
+		translucence_get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
+		translucence_get_option_selector ("", "content-border-style", $options_values['border-style']);	
+		translucence_get_option_selector ("", "left01-width", $options_values['sidebar-width']);
+		translucence_get_option_selector ("", "right01-width", $options_values['sidebar-width']);
+		translucence_get_option_selector ("", "right02-width", $options_values['sidebar-width']);
 		print "<div style='font-size: 10px;'>";
 		print "For more sidebar options, see: ";
 		print "<a href='javascript:setThemeOptionsMode(\"layout\", \"".$theme_options."\")'>Layout Options</a>";
@@ -1016,7 +1064,16 @@ function translucence_get_post_options() {
 				</td></tr>
 			</table>						
 		</table>";
+	// if not in active_options print out as hidden fields
 	} else {
+		translucence_get_option_selector ("", "entry-text-align", $options_values['entry-text-align']);
+		translucence_get_option_selector ("color", "textcolor", $options_values['textcolor']);
+		translucence_get_option_selector ("size", "entry-text-size", $options_values['text-size']);
+		translucence_get_option_selector ("", "linkcolor", $options_values['linkcolor']);
+		translucence_get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
+		translucence_get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
+		translucence_get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
+				
 		print "<div style='font-size: 10px;'>";
 		print "For text and link options, see: ";
 		print "<a href='javascript:setThemeOptionsMode(\"post\", \"".$theme_options."\")'>Post Options</a>";
@@ -1370,9 +1427,9 @@ function translucence_get_active_options($options_mode) {
 			//$active_options[]  = 'site-color';
 			//$active_options[]  = 'site-opacity';
 			//$active_options[]  = 'site-border-style';
-			$active_options[]  = 'header-block-height';
-			$active_options[]  = 'header-color';
-			$active_options[]  = 'header-opacity';
+			//$active_options[]  = 'header-block-height';
+			//$active_options[]  = 'header-color';
+			//$active_options[]  = 'header-opacity';
 			//$active_options[]  = 'header-border-style';
 			$active_options[]  = 'left01-width';
 			$active_options[]  = 'right01-width';
@@ -1536,6 +1593,8 @@ function translucence_get_option_selector ($option_title, $option_name, $option_
 			}					
 		print "</select>\n";
 		print "</span> &nbsp;\n";
+	} else {
+		print "<input type='hidden' name='".$theme_options."[".$option_name."]' value = '".$options[$option_name]."'/>";
 	}
 
 }
@@ -1561,6 +1620,8 @@ function translucence_get_option_field ($option_title, $option_name, $option_fie
 		if ($option_title != "") print "<span style='font-size: 10px;'>".$option_title."</span>\n";
 		print "<input name='".$theme_options."[".$option_name."]' class='color'  type='text' size='".$option_field_width."' style='font-size: 10px;' 
 		value='".(isset($options[$option_name]) ? $options[$option_name] : '')."'/></span>";
+	} else {
+		print "<input type='hidden' name='".$theme_options."[".$option_name."]' value = '".$options[$option_name]."'/>";
 	}
 }
 
