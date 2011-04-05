@@ -40,13 +40,6 @@ function setToggleFromCookie () {
 	var cookietoc = getCookie("hidetoc");
 	var toc = document.getElementById('toc');
 	
-	//alert(cookieprimary+"-"+cookiesecondary+"-"+cookietertiary+"-"+cookietoc);
-	if (cookietoc != 0 || cookietoc == "") {
-		toggleToc();		
-	} else {
-		var toggleLink = document.getElementById('togglelink');
-		changeText(toggleLink, "[hide page links]");
-	}
 	
 	if (cookieprimary > -1 && cookieprimary == 1) {
 		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
