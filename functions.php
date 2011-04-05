@@ -565,7 +565,34 @@ function translucence_toggle_links() {
 	<?php
 }
 
+ /**
+ * Sets display of specified box
+ * based on document cookie
+ *
+ * @since 2010 Translucence 1.0
+ */
 
+function translucence_box_display($box) {
+	global $options;
+	
+	$cookie_name = "hide".$box;
+	//printpre($cookie_name."=".$_COOKIE[$cookie_name]);
+	
+	if ($box == "primary") {
+		$box_width = $options['right01-width'];
+	} else if ($box == "secondary") {
+		$box_width = $options['right02-width'];
+	} else if ($box == "tertiary") {
+		$box_width = $options['left01-width'];
+	}
+	
+	if ($_COOKIE[$cookie_name] == 1 && !is_admin()) {
+		print "display: none; width: 0px;";
+	} else {
+		print "display: block; width: ".$box_width."px; ";
+	}
+
+}
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.

@@ -41,18 +41,21 @@ function setToggleFromCookie () {
 	var toc = document.getElementById('toc');
 	
 	
-	if (cookieprimary > -1 && cookieprimary == 1) {
+	if (cookieprimary > -1 && (cookieprimary == 1 || cookieprimary == 2)) {
+		document.cookie = "hideprimary=2";
 		toggle('primary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
-		//alert('toggle toc');
 	} else {
 		//primarybox.style.display = "block";
 	}
-	if (cookiesecondary > -1 && cookiesecondary == 1) {
+	if (cookiesecondary > -1 && (cookiesecondary || cookiesecondary == 2)) {
+		//alert('toggle');
+		document.cookie = "hidesecondary=2";
 		toggle('secondary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	} else {
 		//secondarybox.style.display = "block";
 	}
-	if (cookietertiary > -1 && cookietertiary == 1) {
+	if (cookietertiary > -1 && (cookietertiary == 1 || cookietertiary == 2)) {
+		document.cookie = "hidetertiary=2";
 		toggle('tertiary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
 	} else {
 		//tertiarybox.style.display = "block";
@@ -62,12 +65,17 @@ function setToggleFromCookie () {
 
 // Toggle the visibility of the object, update content width to new context and update toggle links
 function toggle(obj, context, primary_width, secondary_width, tertiary_width, content_width) {
-	var box = document.getElementById(obj);	
+	var box = document.getElementById(obj);
+	var box_display = getCookie("hide"+obj);
+	var cookieprimary = getCookie("hideprimary");
+	var cookiesecondary = getCookie("hidesecondary");
+	var cookietertiary = getCookie("hidetertiary");
+	var cookietoc = getCookie("hidetoc");
+
 	var primarybox = document.getElementById('primary');
 	var secondarybox = document.getElementById('secondary');
 	var tertiarybox = document.getElementById('tertiary');
 	var contentbox = document.getElementById('content');
-	//alert(box);
 	
 	// initialize variable for:
 	// all toggle links
@@ -106,9 +114,9 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		var width_adjust = 0;
 		
 	
-		if (current_primary_width == 0) width_adjust = Number(primary_width);
-		if (current_secondary_width == 0) width_adjust = width_adjust + Number(secondary_width);
-		if (current_tertiary_width == 0) width_adjust = width_adjust + Number(tertiary_width);
+		if (current_primary_width == 0 && cookieprimary != 2) width_adjust = Number(primary_width);
+		if (current_secondary_width == 0 && cookiesecondary != 2) width_adjust = width_adjust + Number(secondary_width);
+		if (current_tertiary_width == 0 && cookietertiary != 2) width_adjust = width_adjust + Number(tertiary_width);
 	
 		
 		// width of box to be toggled
@@ -119,7 +127,8 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		// calculate new content width
 		// change toggle link text to expand text
 		// set document cookie to hide = 0	
-		if (box.style.width != box_width) {
+		if (box_display != 2 && box.style.width != box_width) {
+		//if (box.style.width != box_width) {
 			//width_adjust = 50*num_hidden_boxes;
 			box.style.width = box_width;
 			box.style.display = "block";
@@ -167,6 +176,7 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 	}
 }
 
+
 function getCookie(c_name) {
 	if (document.cookie.length>0) {
 	  c_start=document.cookie.indexOf(c_name + "=");
@@ -184,15 +194,16 @@ function getCookie(c_name) {
 function toggleToc() {
 	//alert("update");
 	var toc = document.getElementById('toc');
+	
 	if (toc) {
-		toc = toc.getElementsByTagName('ul')[0];
+		var toc = toc.getElementsByTagName('ul')[0];
 		var toggleLink = document.getElementById('togglelink');
 	
 		if (toc && toggleLink && toc.style.display == 'none') {
 			changeText(toggleLink, "[hide page links]");
 			toc.style.display = 'block';
 			document.cookie = "hidetoc=0";
-		} else {
+		} else if (toc.style.display == 'block') {
 			changeText(toggleLink, "[show page links]");
 			toc.style.display = 'none';
 			document.cookie = "hidetoc=1";
