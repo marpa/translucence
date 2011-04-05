@@ -14,8 +14,9 @@ Author URI:
 $options['theme-name'] = "2010 Translucence";
 $options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
-// set the default background variation
-if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
+// set the default background variation 
+// now done by translucence_get_variation_default_background() 
+//if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
 
 $options['background_color'] = "#FFFFFF";
 $options['background_image'] = "";
@@ -134,8 +135,8 @@ if (!isset($options['site-width'])) $options['site-width'] = "950";
 
 if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
 if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
-if (!isset($options['site-title-color'])) $options['site-title-color'] = "#003366";
-if (!isset($options['site-description-color'])) $options['site-description-color'] = "#333333";
+//if (!isset($options['site-title-color'])) $options['site-title-color'] = "#003366";
+//if (!isset($options['site-description-color'])) $options['site-description-color'] = "#333333";
 if (!isset($options['site-description-size'])) $options['site-description-size'] = "14";
 if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = "1px 1px";
 if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
@@ -171,8 +172,8 @@ if (!isset($options['right02-color'])) $options['right02-color'] = "#F9F9F9";
 if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
 
 if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
-if (!isset($options['title-box-opacity'])) $options['title-box-opacity'] = ".3";
-if (!isset($options['description-box-opacity'])) $options['description-box-opacity'] = ".2";
+if (!isset($options['title-box-opacity'])) $options['title-box-opacity'] = ".0";
+if (!isset($options['description-box-opacity'])) $options['description-box-opacity'] = ".0";
 
 if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
 if (!isset($options['top-opacity'])) $options['top-opacity'] = ".8";

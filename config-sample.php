@@ -12,6 +12,24 @@ $variation_config['theme-url'] = "http://segueproject.org/wordpress/themes/";
 $variation_config['theme-name'] = "2010 Translucence";
 
 /******************************************************************************
+ * Child Themes
+ * specify the name of the parent theme
+ ******************************************************************************/
+
+//$variation_config['theme-parent'] = "2010-translucence";
+
+/******************************************************************************
+ * Default Variation Configuration
+ * specify which variation to use as the default
+ * (see variations folder names for possible variations to include here)
+ ******************************************************************************/
+
+$variation_config['background'] = "translucence-gray-white";
+$variation_config['site-title-color'] = "#003366";
+$variation_config['site-desription-color'] = "#999999";
+
+
+/******************************************************************************
  * Header meta left options
  * (this is the html content options for the upper left corner of the blog
  * Include "custom" if you want blog admins to be able to put whatever html they want
