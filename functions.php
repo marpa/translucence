@@ -70,6 +70,7 @@ $variation_config = translucence_add_config();
 
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
+//printpre($_COOKIE);
 
 require_once( get_template_directory() . '/template-options.php');
 require_once( get_template_directory() . '/options-css.php');
@@ -502,19 +503,45 @@ function translucence_page_links($post, $order) {
 		$children = wp_list_pages("title_li=<h3>Sub Pages</h2>&child_of=".$post->ID."&echo=0");
 		$num_children = get_pages("child_of=".$post->ID);
 	}
+	
+	if ($_COOKIE['hidetoc'] == 1) {
+		$page_links_label = "[show page links]";
+	} else {
+		$page_links_label = "[hide page links]";
+	}
 							
 	if (count($num_children) > 1 && $order == "before") { 
 		print "<div id='toc' class='toc'>";
 		print "<div class='toggle'>";
-		print "<a id='togglelink' href='javascript:toggleToc()'>[show page links]</a>";
+		print "<a id='togglelink' href='javascript:toggleToc()'>".$page_links_label."</a>";
 		print "</div>";
-		print "<ul>";
+		print "<ul style='".translucence_page_links_display()."'>";
 		print $children;
 		print "</ul>";						
 		print "</div>"; 
 	} else if (count($num_children) > 1 && $order == "after") {
 		print $children;
 	}
+	
+
+}
+
+ /**
+ * Sets display of page links
+ * based on document cookie
+ *
+ * @since 2010 Translucence 1.0
+ */
+
+function translucence_page_links_display() {	
+
+	if ($_COOKIE['hidetoc'] == 1 && !is_admin()) {
+		$display = "display: none;";
+	} else {
+		$display = "display: block;";
+	}
+	
+	return $display;
 }
 
  /**
