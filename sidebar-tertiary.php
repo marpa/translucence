@@ -18,7 +18,7 @@
 	global $options;
 	if ( is_active_sidebar( 'tertiary-widget-area' )) : ?>
 
-		<div id="tertiary" class="widget-area" role="complementary"  style="width: <?php print $options['left01-width'] ?>px">
+		<div id="tertiary" class="widget-area" role="complementary"  style="<?php translucence_box_display('tertiary') ?>">
 			<div class="toggle" style="float: left; margin-left: -15px;"">
 			<a id="toggletertiary" href="javascript:toggle('tertiary','sidebar',<?php print translucence_get_box_widths(); ?>)">&raquo;</a>
 			</div>

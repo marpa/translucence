@@ -18,7 +18,7 @@
 	
 	if ( $options['right01-width'] != '0') : ?>
 	
-		<div id="primary" class="widget-area" role="complementary" style="width: <?php print $options['right01-width'] ?>px">
+		<div id="primary" class="widget-area" role="complementary" style="<?php translucence_box_display('primary') ?>">
 			<div class="toggle" style="margin-right: -20px;">
 			<a id="toggleprimary" href="javascript:toggle('primary','sidebar',<?php print translucence_get_box_widths(); ?>)">&laquo;</a>
 			</div>
