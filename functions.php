@@ -120,8 +120,10 @@ function translucence_setup() {
 	   wp_enqueue_script('jquery');      
 	}
 	
+	if ( !is_admin() ) { 
 	wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
 	wp_enqueue_script('display.control');
+	}
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
@@ -586,7 +588,7 @@ function translucence_box_display($box) {
 		$box_width = $options['left01-width'];
 	}
 	
-	if ($_COOKIE[$cookie_name] == 1 && !is_admin()) {
+	if ($_COOKIE[$cookie_name] == 1 && !is_admin()) {		
 		print "display: none; width: 0px;";
 	} else {
 		print "display: block; width: ".$box_width."px; ";
