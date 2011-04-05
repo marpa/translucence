@@ -293,6 +293,30 @@ if (!function_exists('translucence_get_variation_default')) {
 }
 
 /******************************************************************************
+ * get default variation background from variation config
+ * 
+ ******************************************************************************/
+function translucence_get_variation_default_config() {
+	global $variation_config, $options;
+	
+	//$variation_default_background = $variation_config['background'];
+	
+	if (!isset($options['background']) && isset($variation_config['background'])) {
+		$options['background'] = $variation_config['background'];
+	}
+	
+	if (!isset($options['site-title-color']) && isset($variation_config['site-title-color'])) {
+		$options['site-title-color'] = $variation_config['site-title-color'];
+	}
+	
+	if (!isset($options['site-description-color']) && isset($variation_config['site-description-color'])) {
+		$options['site-description-color'] = $variation_config['site-description-color'];
+	}
+	
+}
+
+
+/******************************************************************************
  * get path to variations source files (note: child themes may override this)
  * 
  ******************************************************************************/
@@ -335,6 +359,8 @@ function translucence_get_variation_options() {
 	
 	$variations = array();
 	$themes_allowed_tags = "";
+	
+	translucence_get_variation_default_config();
 	
 	//$variation_path = translucence_get_variations_source();
 	
