@@ -19,15 +19,7 @@ $author = get_userdata($wp_the_query->query_vars['author']);
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
-		<div class="toggle" style="float: left;">
-			<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-		</div>
-		<div class="toggle" style="float: right;">
-			<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-		</div>
-		<div class="toggle">
-			<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-		</div>
+<?php print translucence_toggle_links(); ?>
 
 <?php
 	/* Queue the first post, that way we know who

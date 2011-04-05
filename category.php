@@ -18,7 +18,7 @@ $content_width = translucence_get_content_width ("category");
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
-
+		<?php print translucence_toggle_links(); ?>
 			<div style = "width: 50%; float: right;">
 				<div id="syndication">
 				<a href="<?php print get_category_feed_link( $cat_id, 'rss2' ); ?>" class="feed">
