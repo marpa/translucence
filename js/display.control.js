@@ -1,4 +1,4 @@
-// functions for toggling the display of sidebars in Translucence
+// functions for toggling the display of sidebars and page links in Translucence
 
 jQuery(document).ready(function(){
 	//alert("ready");
@@ -211,10 +211,4 @@ function toggleToc() {
 	}
 }
 
-function setThemeOptionsMode(value, options) {
-	var oform = document.getElementById('settings');
-	var options_mode = options+"[options-mode]";
-	oform.elements[options_mode].value = value;
-	oform.submit();
-}
 

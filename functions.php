@@ -121,8 +121,11 @@ function translucence_setup() {
 	}
 	
 	if ( !is_admin() ) { 
-	wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
-	wp_enqueue_script('display.control');
+		wp_register_script('display.control', get_bloginfo('template_directory') . '/js/display.control.js');
+		wp_enqueue_script('display.control');
+	} else {
+		wp_register_script('admin.control', get_bloginfo('template_directory') . '/js/admin.control.js');
+		wp_enqueue_script('admin.control');	
 	}
 	
 	// include theme options
