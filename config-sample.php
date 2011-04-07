@@ -26,7 +26,7 @@ $variation_config['theme-name'] = "2010 Translucence";
 
 $variation_config['background'] = "translucence-gray-white";
 $variation_config['site-title-color'] = "#003366";
-$variation_config['site-desription-color'] = "#999999";
+$variation_config['site-description-color'] = "#999999";
 
 
 /******************************************************************************
