@@ -95,15 +95,15 @@ if ($options['background'] == "translucence-dark-gray") {
 	if (!in_array($options['right01-link-color'], array_values($options_values['linkcolor']))) $options['right01-link-color'] = "#FFFFCC";
 	if (!in_array($options['right02-link-color'], array_values($options_values['linkcolor']))) $options['right02-link-color'] = "#FFFFCC";
 	
-	if (!in_array($options['top-color'], array_values($options_values['sidebar-color']))) $options['top-color'] = "#000000";
-	if (!in_array($options['content-color'], array_values($options_values['sidebar-color']))) $options['content-color'] = "#000000";
-	if (!in_array($options['bottom-color'], array_values($options_values['sidebar-color']))) $options['bottom-color'] = "#000000";
+	if (!in_array($options['top-color'], array_values($options_values['sidebar-color']))) $options['top-color'] = "#262626";
+	if (!in_array($options['content-color'], array_values($options_values['sidebar-color']))) $options['content-color'] = "#262626";
+	if (!in_array($options['bottom-color'], array_values($options_values['sidebar-color']))) $options['bottom-color'] = "#262626";
 	if (!in_array($options['left01-color'], array_values($options_values['sidebar-color']))) $options['left01-color'] = "#262626";
 	if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#262626";
 	if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#262626";
 	
 	if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#262626";
-	if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#262626";		
+	if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#262626";
 
 }	
 	
