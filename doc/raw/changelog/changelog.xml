@@ -14,6 +14,12 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
+		<change author='alex' date='2011-04-08'>
+			moved theme options initiation to theme config file for greater child theme default variation options.
+		</change>
+		<new author='alex' date='2011-04-06'>
+			added a new variation, Dark Gray Translucence
+		</new>		
 		<change author='alex' date='2011-03-30'>
 			updated all page templates to use translucence_page_links function.
 		</change>
