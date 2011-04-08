@@ -19,15 +19,94 @@ $variation_config['theme-name'] = "2010 Translucence";
 //$variation_config['theme-parent'] = "2010-translucence";
 
 /******************************************************************************
- * Default Variation Configuration
- * specify which variation to use as the default
+ * Default Variation
+ * Specify which variation to use as the default
  * (see variations folder names for possible variations to include here)
  ******************************************************************************/
 
 $variation_config['background'] = "translucence-gray-white";
+
+/******************************************************************************
+ * Default Variation Configuration
+ * Specify what theme options to use as the default
+ ******************************************************************************/
+
 $variation_config['site-title-color'] = "#003366";
 $variation_config['site-description-color'] = "#999999";
+$variation_config['headermeta'] = "off";
+$variation_config['options-mode'] = "basic";
+$variation_config['revert'] = 1;
 
+$variation_config['site-width'] = "950";
+
+$variation_config['header-block-height'] = "100";
+$variation_config['site-title-size'] = "30";
+$variation_config['site-description-size'] = "14";
+$variation_config['header-text-shadow-offset'] = "1px 1px";
+$variation_config['header-text-shadow-blur'] = "2px";
+
+$variation_config['entry-text-size'] = "14";
+$variation_config['entry-text-size'] = "20";
+
+$variation_config['footer-meta-left'] = "custom";
+$variation_config['header-meta-left'] = "custom";
+$variation_config['headerleftcustom'] = "";
+$variation_config['footerleftcustom'] = "";
+
+$variation_config['header-image-options'] = "none";
+
+$variation_config['header-text-display'] = "middle";
+$variation_config['entry-link-style'] = "ww";
+$variation_config['entry-text-align'] = "left";
+$variation_config['tag-links-color'] = "#FFF8C6";
+$variation_config['cat-links-color'] = "#e9e9c9";
+
+$variation_config['site-padding-top'] = "20";
+$variation_config['site-padding-bottom'] = "20";
+
+$variation_config['site-color'] = "#FFFFFF";
+$variation_config['title-box-color'] = "#FFFFFF";
+$variation_config['description-box-color'] = "#FFFFFF";
+$variation_config['header-color'] = "#F9F9F9";
+$variation_config['top-color'] = "#F9F9F9";
+$variation_config['left01-color'] = "#F9F9F9";
+$variation_config['content-color'] = "#FFFFFF";
+$variation_config['right01-color'] = "#F9F9F9";
+$variation_config['right02-color'] = "#F9F9F9";
+$variation_config['bottom-color'] = "#F9F9F9";
+
+$variation_config['site-opacity'] = "0";
+$variation_config['title-box-opacity'] = ".0";
+$variation_config['description-box-opacity'] = ".0";
+
+$variation_config['header-opacity'] = ".6";
+$variation_config['top-opacity'] = ".8";
+$variation_config['left01-opacity'] = ".6";
+$variation_config['content-opacity'] = "1";
+$variation_config['right01-opacity'] = ".3";
+$variation_config['right02-opacity'] = "0";
+$variation_config['bottom-opacity'] = "0";
+
+$variation_config['site-border-style'] = "none";
+$variation_config['header-border-style'] = "dotted";
+$variation_config['top-border-style'] = "solid";
+$variation_config['content-border-style'] = "solid";
+$variation_config['left01-border-style'] = "dotted";
+$variation_config['right01-border-style'] = "dotted";
+$variation_config['right02-border-style'] = "dotted";
+$variation_config['bottom-border-style'] = "dotted";
+
+$variation_config['header-width'] = $options['site-width'];
+$variation_config['left01-width'] = "0";
+$variation_config['right01-width'] = "200";
+$variation_config['right02-width'] = "0";
+
+$variation_config['post-single-sidebar'] = "right01";
+$variation_config['category-single-sidebar'] = "right01";
+$variation_config['tag-single-sidebar'] = "right01";
+$variation_config['author-single-sidebar'] = "right01";
+$variation_config['search-single-sidebar'] = "right01";
+$variation_config['archives-single-sidebar'] = "right01";
 
 /******************************************************************************
  * Header meta left options

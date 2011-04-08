@@ -293,25 +293,89 @@ if (!function_exists('translucence_get_variation_default')) {
 }
 
 /******************************************************************************
- * get default variation background from variation config
- * 
+ * get default theme options from variation_config
+ * (see config-sample.php or config.php)
  ******************************************************************************/
 function translucence_get_variation_default_config() {
 	global $variation_config, $options;
+		
+	if (!isset($options['background'])) $options['background'] = $variation_config['background'];
+	if (!isset($options['site-title-color'])) $options['site-title-color'] = $variation_config['site-title-color'];
+	if (!isset($options['site-description-color'])) $options['site-description-color'] = $variation_config['site-description-color'];
 	
-	//$variation_default_background = $variation_config['background'];
+	if (!isset($options['options-mode'])) $options['options-mode'] = $variation_config['options-mode'];
+	if (!isset($options['revert'])) $options['revert'] = $variation_config['revert'];
 	
-	if (!isset($options['background']) && isset($variation_config['background'])) {
-		$options['background'] = $variation_config['background'];
-	}
+	if (!isset($options['site-width'])) $options['site-width'] = $variation_config['site-width'];
+	if (!isset($options['header-block-height'])) $options['header-block-height'] = $variation_config['header-block-height'];
 	
-	if (!isset($options['site-title-color']) && isset($variation_config['site-title-color'])) {
-		$options['site-title-color'] = $variation_config['site-title-color'];
-	}
+	if (!isset($options['site-title-size'])) $options['site-title-size'] = $variation_config['site-title-size'];
+	if (!isset($options['site-description-size'])) $options['site-description-size'] = $variation_config['site-description-size'];
+	if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = $variation_config['header-text-shadow-offset'];
+	if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = $variation_config['header-text-shadow-blur'];
 	
-	if (!isset($options['site-description-color']) && isset($variation_config['site-description-color'])) {
-		$options['site-description-color'] = $variation_config['site-description-color'];
-	}
+	if (!isset($options['entry-text-size'])) $options['entry-text-size'] = $variation_config['entry-text-size'];
+	if (!isset($options['entry-line-height'])) $options['entry-line-height'] = $variation_config['entry-line-height'];
+	
+	if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = $variation_config['footer-meta-left'];
+	if (!isset($options['header-meta-left'])) $options['header-meta-left'] = $variation_config['header-meta-left'];
+	if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = $variation_config['headerleftcustom'];
+	if (!isset($options['footerleftcustom'])) $options['footerleftcustom'] = $variation_config['footerleftcustom'];
+	
+	if (!isset($options['header-image-options'])) $options['header-image-options'] = $variation_config['header-image-options'];
+	
+	if (!isset($options['header-text-display'])) $options['header-text-display'] = $variation_config['header-text-display'];
+	if (!isset($options['entry-link-style'])) $options['entry-link-style'] = $variation_config['entry-link-style'];
+	if (!isset($options['entry-text-align'])) $options['entry-text-align'] = $variation_config['entry-text-align'];
+	if (!isset($options['tag-links-color'])) $options['tag-links-color'] = $variation_config['tag-links-color'];
+	if (!isset($options['cat-links-color'])) $options['cat-links-color'] = $variation_config['cat-links-color'];
+	
+	if (!isset($options['site-padding-top'])) $options['site-padding-top'] = $variation_config['site-padding-top'];
+	if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = $variation_config['site-padding-bottom'];
+	
+	if (!isset($options['site-color'])) $options['site-color'] = $variation_config['site-color'];
+	if (!isset($options['title-box-color'])) $options['title-box-color'] = $variation_config['title-box-color'];
+	if (!isset($options['description-box-color'])) $options['description-box-color'] = $variation_config['description-box-color'];
+	if (!isset($options['header-color'])) $options['header-color'] = $variation_config['header-color'];
+	if (!isset($options['top-color'])) $options['top-color'] = $variation_config['top-color'];
+	if (!isset($options['left01-color'])) $options['left01-color'] = $variation_config['left01-color'];
+	if (!isset($options['content-color'])) $options['content-color'] = $variation_config['content-color'];
+	if (!isset($options['right01-color'])) $options['right01-color'] = $variation_config['right01-color'];
+	if (!isset($options['right02-color'])) $options['right02-color'] = $variation_config['right02-color'];
+	if (!isset($options['bottom-color'])) $options['bottom-color'] = $variation_config['bottom-color'];
+	
+	if (!isset($options['site-opacity'])) $options['site-opacity'] = $variation_config['site-opacity'];
+	if (!isset($options['title-box-opacity'])) $options['title-box-opacity'] = $variation_config['title-box-opacity'];
+	if (!isset($options['description-box-opacity'])) $options['description-box-opacity'] = $variation_config['description-box-opacity'];
+	
+	if (!isset($options['header-opacity'])) $options['header-opacity'] = $variation_config['header-opacity'];
+	if (!isset($options['top-opacity'])) $options['top-opacity'] = $variation_config['top-opacity'];
+	if (!isset($options['left01-opacity'])) $options['left01-opacity'] = $variation_config['left01-opacity'];
+	if (!isset($options['content-opacity'])) $options['content-opacity'] = $variation_config['content-opacity'];
+	if (!isset($options['right01-opacity'])) $options['right01-opacity'] = $variation_config['right01-opacity'];
+	if (!isset($options['right02-opacity'])) $options['right02-opacity'] = $variation_config['right02-opacity'];
+	if (!isset($options['bottom-opacity'])) $options['bottom-opacity'] = $variation_config['bottom-opacity'];
+	
+	if (!isset($options['site-border-style'])) $options['site-border-style'] = $variation_config['site-border-style'];
+	if (!isset($options['header-border-style'])) $options['header-border-style'] = $variation_config['header-border-style'];
+	if (!isset($options['top-border-style'])) $options['top-border-style'] = $variation_config['top-border-style'];
+	if (!isset($options['content-border-style'])) $options['content-border-style'] = $variation_config['content-border-style'];
+	if (!isset($options['left01-border-style'])) $options['left01-border-style'] = $variation_config['left01-border-style'];
+	if (!isset($options['right01-border-style'])) $options['right01-border-style'] = $variation_config['right01-border-style'];
+	if (!isset($options['right02-border-style'])) $options['right02-border-style'] = $variation_config['right02-border-style'];
+	if (!isset($options['bottom-border-style'])) $options['bottom-border-style'] = $variation_config['bottom-border-style'];
+	
+	if (!isset($options['header-width'])) $options['header-width'] = $variation_config['header-width'];
+	if (!isset($options['left01-width'])) $options['left01-width'] = $variation_config['left01-width'];
+	if (!isset($options['right01-width'])) $options['right01-width'] = $variation_config['right01-width'];
+	if (!isset($options['right02-width'])) $options['right02-width'] = $variation_config['right02-width'];
+	
+	if (!isset($options['post-single-sidebar'])) $options['post-single-sidebar'] = $variation_config['post-single-sidebar'];
+	if (!isset($options['category-single-sidebar'])) $options['category-single-sidebar'] = $variation_config['category-single-sidebar'];
+	if (!isset($options['tag-single-sidebar'])) $options['tag-single-sidebar'] = $variation_config['tag-single-sidebar'];
+	if (!isset($options['author-single-sidebar'])) $options['author-single-sidebar'] = $variation_config['author-single-sidebar'];
+	if (!isset($options['search-single-sidebar'])) $options['search-single-sidebar'] = $variation_config['search-single-sidebar'];
+	if (!isset($options['archives-single-sidebar'])) $options['archives-single-sidebar'] = $variation_config['archives-single-sidebar'];
 	
 }
 
