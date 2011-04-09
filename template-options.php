@@ -74,7 +74,7 @@ function translucence_theme_options_do_page() {
  	$model_css = preg_replace("/body/", ".body_na", $options['css']); 
 	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
  	print "
- 	<script type='text/javascript' src='".get_bloginfo('stylesheet_directory')."/jscolor/jscolor.js'></script>
+ 	<script type='text/javascript' src='".get_bloginfo('template_directory')."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
  	print $model_css;
  	print translucence_get_theme_model_css();
