@@ -46,7 +46,7 @@ $variation_config['header-text-shadow-offset'] = "1px 1px";
 $variation_config['header-text-shadow-blur'] = "2px";
 
 $variation_config['entry-text-size'] = "14";
-$variation_config['entry-text-size'] = "20";
+$variation_config['entry-line-height'] = "20";
 
 $variation_config['footer-meta-left'] = "custom";
 $variation_config['header-meta-left'] = "custom";
@@ -96,7 +96,7 @@ $variation_config['right01-border-style'] = "dotted";
 $variation_config['right02-border-style'] = "dotted";
 $variation_config['bottom-border-style'] = "dotted";
 
-$variation_config['header-width'] = $options['site-width'];
+$variation_config['header-width'] = $variation_config['site-width'];
 $variation_config['left01-width'] = "0";
 $variation_config['right01-width'] = "200";
 $variation_config['right02-width'] = "0";
