@@ -1,6 +1,8 @@
 <?php 
 
 
+if ( ! function_exists( 'translucence_options_css' ) ) :
+
 /*********************************************************
  * Translucence options css
  * embeds theme options in css
@@ -1172,3 +1174,4 @@ small, .nocomments, .postmetadata, blockquote, strike {
 	return $variation_css;
 
 }
+endif;
