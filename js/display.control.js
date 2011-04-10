@@ -47,7 +47,7 @@ function setToggleFromCookie () {
 	} else {
 		//primarybox.style.display = "block";
 	}
-	if (cookiesecondary > -1 && (cookiesecondary || cookiesecondary == 2)) {
+	if (cookiesecondary > -1 && (cookiesecondary == 1 || cookiesecondary == 2)) {
 		//alert('toggle');
 		document.cookie = "hidesecondary=2";
 		toggle('secondary', 'sidebar', primary_width, secondary_width, tertiary_width, content_width);
