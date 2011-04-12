@@ -3,7 +3,7 @@
  * 
  * Configuration otions for Translucence theme
  * To create your own configuration options save this file
- * as config.php
+ * as config.php in this parent theme or in a child theme
  *
  *********************************************************/
 $variation_config = array();
@@ -107,6 +107,17 @@ $variation_config['tag-single-sidebar'] = "right01";
 $variation_config['author-single-sidebar'] = "right01";
 $variation_config['search-single-sidebar'] = "right01";
 $variation_config['archives-single-sidebar'] = "right01";
+
+/******************************************************************************
+ * Preset Widgets
+ * Specify what widgets to include when Translucence is initially activated
+ ******************************************************************************/
+
+$variation_config['preset_widgets'] = array (
+	'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
+	'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
+	);
+
 
 /******************************************************************************
  * Header meta left options
