@@ -289,6 +289,141 @@ function translucence_header_style() {
 	<?php	
 }
 
+/**
+ * Register widgetized areas, including three sidebars and four widget-ready columns in the footer.
+ *
+ * To override translucence_widgets_init() in a child theme, remove the action hook and add your own
+ * function tied to the init hook.
+ *
+ * @since 2010 Translucence
+ * @uses register_sidebar
+ */
+
+function translucence_widgets_init() {
+	global $variation_config, $current_widgets;
+	
+	// Area 1, located at the 1st right sidebar.
+	register_sidebar( array(
+		'name' => __( 'Primary Widget Area', 'twentyten' ),
+		'id' => 'primary-widget-area',
+		'description' => __( '1st Right Sidebar', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 2, located in the 2nd right sidebar. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Secondary Widget Area', 'twentyten' ),
+		'id' => 'secondary-widget-area',
+		'description' => __( '2nd Right Sidebar', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 3, located in the left sidebar. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Tertiary Widget Area', 'twentyten' ),
+		'id' => 'tertiary-widget-area',
+		'description' => __( 'Left Sidebar', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+
+	// Area 4, located in the footer. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'First Footer Widget Area', 'twentyten' ),
+		'id' => 'first-footer-widget-area',
+		'description' => __( 'The first footer widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 5, located in the footer. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
+		'id' => 'second-footer-widget-area',
+		'description' => __( 'The second footer widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 6, located in the footer. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
+		'id' => 'third-footer-widget-area',
+		'description' => __( 'The third footer widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	// Area 7, located in the footer. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
+		'id' => 'fourth-footer-widget-area',
+		'description' => __( 'The fourth footer widget area', 'twentyten' ),
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	
+	
+	// Pre-set Widgets
+	if (isset($variation_config['preset_widgets']) && is_array($variation_config['preset_widgets'])) {
+		$preset_widgets = $variation_config['preset_widgets'];
+	} else {	
+		$preset_widgets = array (
+			'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
+			'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
+			);
+	}
+	
+
+	// set default widgets only if no widgets have been set for the site
+    if ( isset( $_GET['activated'] )) {
+		$widgets_state = 1;
+		$primary_widgets = 1;
+		$secondary_widgets = 1;
+		$tertiary_widgets = 1;
+		
+		if (!isset($current_widgets['primary-widget-area']) || count($current_widgets['primary-widget-area']) == 0) $primary_widgets = 0;
+		if (!isset($current_widgets['secondary-widget-area']) || count($current_widgets['secondary-widget-area']) == 0) $secondary_widgets = 0;
+		if (!isset($current_widgets['tertiary-widget-area']) || count($current_widgets['tertiary-widget-area']) == 0) $tertiary_widgets = 0;
+		
+		if ($primary_widgets == 0 && $secondary_widgets == 0 && $tertiary_widgets == 0) $widgets_state = 0;
+    
+    	if ($widgets_state == 0) {    
+			update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
+			update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+			update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+			update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+			update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+			update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+			update_option( 'widget_links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+			update_option( 'widget_rss-links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+	
+			update_option( 'sidebars_widgets', apply_filters('translucence_preset_widgets',$preset_widgets ));
+  		}
+  	}
+  	
+}
+
+// Runs our code at the end to check that everything needed has loaded
+add_action( 'widgets_init', 'translucence_widgets_init' );
+
  /**
  * Adds breadcrumbs to child pages
  *
@@ -428,32 +563,6 @@ function translucence_get_box_widths ($box = 'all') {
 	}
 	//return $content_width;
 
-}
-
-/**
- * Preset widgets, including three sidebars and four widget-ready columns in the footer.
- *
- * preset widgets defined in the theme config.php
- *
- * @since 2010 Translucence
- * @uses register_sidebar
- */
-
-
- $current_theme = get_option( 'template' ); // variable stores the current theme
- $target_theme = $variation_config['theme-name']; // variable stores the theme we want to target
-
-// add preset widgets only if theme is 1st activated and has not been activated previously
-if (isset($_POST['default_widgets']) || (isset( $_GET['activated'] ) && $current_theme == $target_theme && !get_option($options['css']))) {
-	update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
-	update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-	update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-	update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-	update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-	update_option( 'widget_tag_cloud', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-	update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-
-	update_option( 'sidebars_widgets', $preset_widgets);		
 }
 
 if ( ! function_exists( 'translucence_admin_header_style' ) ) :
@@ -823,7 +932,7 @@ function twentyten_widgets_init() {
 	) );
 }
 /** Register sidebars by running twentyten_widgets_init() on the widgets_init hook. */
-add_action( 'widgets_init', 'twentyten_widgets_init' );
+//add_action( 'widgets_init', 'twentyten_widgets_init' );
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
