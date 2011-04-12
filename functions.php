@@ -76,7 +76,7 @@ require_once( get_template_directory() . '/template-options.php');
 require_once( get_template_directory() . '/options-css.php');
 
 
-/** Tell WordPress to run twentyten_setup() when the 'after_setup_theme' hook is run. */
+/** Tell WordPress to run translucence_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'translucence_setup' );
 
 /** Tell WordPress to add theme options css when the 'wp-head' hook is run in header.php */
