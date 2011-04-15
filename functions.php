@@ -110,6 +110,10 @@ function translucence_setup() {
 	global $_POST, $options, $options_values, $variations;
 	global $theme_options;
 
+	/*********************************************************
+	 * set options version
+	 *********************************************************/ 
+	$translucence_options_version = "2.3.1";
 	
 	/*********************************************************
 	 * Register theme javascript
@@ -146,8 +150,9 @@ function translucence_setup() {
 	// initialize or get theme css	
 	if (!isset($options['css'])) {
 		translucence_get_variation_options();
-	} else if (isset($options['options-version']) && ($options['options-version'] != $options['variation-version'])) {
-		$options['options-version'] = $options['variation-version'];
+	} else if (!isset($options['options-version']) || ($options['options-version'] != $translucence_options_version)) {
+		$options['options-version'] = $translucence_options_version;
+		translucence_get_variation_options();
 	}
 	
 	translucence_theme_options_save();
