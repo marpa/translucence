@@ -114,7 +114,7 @@ function toggle(obj, context, primary_width, secondary_width, tertiary_width, co
 		var width_adjust = 0;
 		
 	
-		if (current_primary_width == 0 && cookieprimary != 2) width_adjust = Number(primary_width);
+		if (current_primary_width == 0 && cookieprimary != 2) width_adjust = width_adjust + Number(primary_width);
 		if (current_secondary_width == 0 && cookiesecondary != 2) width_adjust = width_adjust + Number(secondary_width);
 		if (current_tertiary_width == 0 && cookietertiary != 2) width_adjust = width_adjust + Number(tertiary_width);
 	
