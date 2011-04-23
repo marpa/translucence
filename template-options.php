@@ -13,7 +13,7 @@ function translucence_theme_options_do_page() {
 		translucence_option_feedback();
 		translucence_delete_options();		
 		$options['revert'] = 0;
-		translucence_theme_options_save(); 
+		translucence_theme_options_update(); 
 	}
 
 	translucence_option_feedback();
