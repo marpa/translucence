@@ -36,13 +36,13 @@ $content_width = translucence_get_content_width ("archives");
 
 			<h1 class="page-title">
 <?php if ( is_day() ) : ?>
-				<?php printf( __( 'Daily Archives: <span>%s</span>', 'twentyten' ), get_the_date() ); ?>
+				<?php printf( __( 'Daily Archives: <span>%s</span>', '2010-translucence' ), get_the_date() ); ?>
 <?php elseif ( is_month() ) : ?>
-				<?php printf( __( 'Monthly Archives: <span>%s</span>', 'twentyten' ), get_the_date('F Y') ); ?>
+				<?php printf( __( 'Monthly Archives: <span>%s</span>', '2010-translucence' ), get_the_date('F Y') ); ?>
 <?php elseif ( is_year() ) : ?>
-				<?php printf( __( 'Yearly Archives: <span>%s</span>', 'twentyten' ), get_the_date('Y') ); ?>
+				<?php printf( __( 'Yearly Archives: <span>%s</span>', '2010-translucence' ), get_the_date('Y') ); ?>
 <?php else : ?>
-				<?php _e( 'Blog Archives', 'twentyten' ); ?>
+				<?php _e( 'Blog Archives', '2010-translucence' ); ?>
 <?php endif; ?>
 			</h1>
 

@@ -166,7 +166,7 @@ function translucence_setup() {
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
-	load_theme_textdomain( 'twentyten', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( '2010-translucence', TEMPLATEPATH . '/languages' );
 
 	$locale = get_locale();
 	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -175,7 +175,7 @@ function translucence_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'twentyten' ),
+		'primary' => __( 'Primary Navigation', '2010-translucence' ),
 	) );
 
 	// This theme allows users to set a custom background
@@ -305,9 +305,9 @@ function translucence_widgets_init() {
 	
 	// Area 1, located at the 1st right sidebar.
 	register_sidebar( array(
-		'name' => __( 'Primary Widget Area', 'twentyten' ),
+		'name' => __( 'Primary Widget Area', '2010-translucence' ),
 		'id' => 'primary-widget-area',
-		'description' => __( '1st Right Sidebar', 'twentyten' ),
+		'description' => __( '1st Right Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -316,9 +316,9 @@ function translucence_widgets_init() {
 
 	// Area 2, located in the 2nd right sidebar. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Secondary Widget Area', 'twentyten' ),
+		'name' => __( 'Secondary Widget Area', '2010-translucence' ),
 		'id' => 'secondary-widget-area',
-		'description' => __( '2nd Right Sidebar', 'twentyten' ),
+		'description' => __( '2nd Right Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -327,9 +327,9 @@ function translucence_widgets_init() {
 
 	// Area 3, located in the left sidebar. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Tertiary Widget Area', 'twentyten' ),
+		'name' => __( 'Tertiary Widget Area', '2010-translucence' ),
 		'id' => 'tertiary-widget-area',
-		'description' => __( 'Left Sidebar', 'twentyten' ),
+		'description' => __( 'Left Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -339,9 +339,9 @@ function translucence_widgets_init() {
 
 	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'First Footer Widget Area', 'twentyten' ),
+		'name' => __( 'First Footer Widget Area', '2010-translucence' ),
 		'id' => 'first-footer-widget-area',
-		'description' => __( 'The first footer widget area', 'twentyten' ),
+		'description' => __( 'The first footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -350,9 +350,9 @@ function translucence_widgets_init() {
 
 	// Area 5, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Second Footer Widget Area', '2010-translucence' ),
 		'id' => 'second-footer-widget-area',
-		'description' => __( 'The second footer widget area', 'twentyten' ),
+		'description' => __( 'The second footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -361,9 +361,9 @@ function translucence_widgets_init() {
 
 	// Area 6, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Third Footer Widget Area', '2010-translucence' ),
 		'id' => 'third-footer-widget-area',
-		'description' => __( 'The third footer widget area', 'twentyten' ),
+		'description' => __( 'The third footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -372,9 +372,9 @@ function translucence_widgets_init() {
 
 	// Area 7, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Fourth Footer Widget Area', '2010-translucence' ),
 		'id' => 'fourth-footer-widget-area',
-		'description' => __( 'The fourth footer widget area', 'twentyten' ),
+		'description' => __( 'The fourth footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -570,7 +570,7 @@ if ( ! function_exists( 'translucence_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * Referenced via add_custom_image_header() in twentyten_setup().
+ * Referenced via add_custom_image_header() in translucence_setup().
  *
  * @since Translucence 1.0
  */
@@ -742,7 +742,7 @@ add_filter( 'excerpt_length', 'twentyten_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function twentyten_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) . '</a>';
+	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', '2010-translucence' ) . '</a>';
 }
 
 /**
@@ -809,17 +809,17 @@ function twentyten_comment( $comment, $args, $depth ) {
 		<div id="comment-<?php comment_ID(); ?>">
 		<div class="comment-author vcard">
 			<?php echo get_avatar( $comment, 40 ); ?>
-			<?php printf( __( '%s <span class="says">says:</span>', 'twentyten' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+			<?php printf( __( '%s <span class="says">says:</span>', '2010-translucence' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 		</div><!-- .comment-author .vcard -->
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em><?php _e( 'Your comment is awaiting moderation.', 'twentyten' ); ?></em>
+			<em><?php _e( 'Your comment is awaiting moderation.', '2010-translucence' ); ?></em>
 			<br />
 		<?php endif; ?>
 
 		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 			<?php
 				/* translators: 1: date, 2: time */
-				printf( __( '%1$s at %2$s', 'twentyten' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'twentyten' ), ' ' );
+				printf( __( '%1$s at %2$s', '2010-translucence' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', '2010-translucence' ), ' ' );
 			?>
 		</div><!-- .comment-meta .commentmetadata -->
 
@@ -836,7 +836,7 @@ function twentyten_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'twentyten' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', 'twentyten'), ' ' ); ?></p>
+		<p><?php _e( 'Pingback:', '2010-translucence' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __('(Edit)', '2010-translucence'), ' ' ); ?></p>
 	<?php
 			break;
 	endswitch;
@@ -856,9 +856,9 @@ endif;
 function twentyten_widgets_init() {
 	// Area 1, located at the 1st right sidebar.
 	register_sidebar( array(
-		'name' => __( 'Primary Widget Area', 'twentyten' ),
+		'name' => __( 'Primary Widget Area', '2010-translucence' ),
 		'id' => 'primary-widget-area',
-		'description' => __( '1st Right Sidebar', 'twentyten' ),
+		'description' => __( '1st Right Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -867,9 +867,9 @@ function twentyten_widgets_init() {
 
 	// Area 2, located in the 2nd right sidebar. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Secondary Widget Area', 'twentyten' ),
+		'name' => __( 'Secondary Widget Area', '2010-translucence' ),
 		'id' => 'secondary-widget-area',
-		'description' => __( '2nd Right Sidebar', 'twentyten' ),
+		'description' => __( '2nd Right Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -878,9 +878,9 @@ function twentyten_widgets_init() {
 
 	// Area 3, located in the left sidebar. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Tertiary Widget Area', 'twentyten' ),
+		'name' => __( 'Tertiary Widget Area', '2010-translucence' ),
 		'id' => 'tertiary-widget-area',
-		'description' => __( 'Left Sidebar', 'twentyten' ),
+		'description' => __( 'Left Sidebar', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -890,9 +890,9 @@ function twentyten_widgets_init() {
 
 	// Area 4, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'First Footer Widget Area', 'twentyten' ),
+		'name' => __( 'First Footer Widget Area', '2010-translucence' ),
 		'id' => 'first-footer-widget-area',
-		'description' => __( 'The first footer widget area', 'twentyten' ),
+		'description' => __( 'The first footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -901,9 +901,9 @@ function twentyten_widgets_init() {
 
 	// Area 5, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Second Footer Widget Area', '2010-translucence' ),
 		'id' => 'second-footer-widget-area',
-		'description' => __( 'The second footer widget area', 'twentyten' ),
+		'description' => __( 'The second footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -912,9 +912,9 @@ function twentyten_widgets_init() {
 
 	// Area 6, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Third Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Third Footer Widget Area', '2010-translucence' ),
 		'id' => 'third-footer-widget-area',
-		'description' => __( 'The third footer widget area', 'twentyten' ),
+		'description' => __( 'The third footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -923,9 +923,9 @@ function twentyten_widgets_init() {
 
 	// Area 7, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Fourth Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Fourth Footer Widget Area', '2010-translucence' ),
 		'id' => 'fourth-footer-widget-area',
-		'description' => __( 'The fourth footer widget area', 'twentyten' ),
+		'description' => __( 'The fourth footer widget area', '2010-translucence' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -956,7 +956,7 @@ if ( ! function_exists( 'twentyten_posted_on' ) ) :
  * @since Twenty Ten 1.0
  */
 function twentyten_posted_on() {
-	printf( __( '<span class="%1$s"></span> %2$s <span class="meta-sep">by</span> %3$s', 'twentyten' ),
+	printf( __( '<span class="%1$s"></span> %2$s <span class="meta-sep">by</span> %3$s', '2010-translucence' ),
 		'meta-prep meta-prep-author',
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="entry-date">%3$s</span></a>',
 			get_permalink(),
@@ -965,7 +965,7 @@ function twentyten_posted_on() {
 		),
 		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
 			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'twentyten' ), get_the_author() ),
+			sprintf( esc_attr__( 'View all posts by %s', '2010-translucence' ), get_the_author() ),
 			get_the_author()
 		)
 	);
@@ -982,11 +982,11 @@ function twentyten_posted_in() {
 	// Retrieves tag list of current post, separated by commas.
 	$tag_list = get_the_tag_list( '', ', ' );
 	if ( $tag_list ) {
-		$posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
+		$posted_in = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', '2010-translucence' );
 	} elseif ( is_object_in_taxonomy( get_post_type(), 'category' ) ) {
-		$posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
+		$posted_in = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', '2010-translucence' );
 	} else {
-		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyten' );
+		$posted_in = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', '2010-translucence' );
 	}
 	// Prints the string, replacing the placeholders.
 	printf(
