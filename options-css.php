@@ -1000,7 +1000,7 @@ ins {
 }
 
 /* Begin tag links */
-.tag-links a {	
+.taglinks a {	
 	color: <?php print $options['tag-links-link-color']?>;	
 	background-color: <?php print $options['tag-links-color']?>;
 	border-top: 1px <?php print $options['tag-links-border-style']?> <?php print $options['tag-links-border-top']?>;
@@ -1013,7 +1013,7 @@ ins {
 	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
 
-.tag-links a:hover {
+.taglinks a:hover {
 	color: <?php print $options['tag-links-link-color']?>;
 	background-color: <?php print $options['tag-links-color']?>;
 	border-top: 1px <?php print $options['tag-links-hover-border-style']?> <?php print $options['tag-links-hover-border-top']?>;
@@ -1024,7 +1024,7 @@ ins {
 
 /* Begin category links */
 
-.cat-links a {	
+.catlinks a {	
 	color: <?php print $options['cat-links-link-color']?>;
 	
 	background-color: <?php print $options['cat-links-color']?>;
@@ -1038,7 +1038,7 @@ ins {
 	margin:2px 0.2em; padding:0.1em 0.2em;	
 }
 
-.cat-links a:hover {
+.catlinks a:hover {
 	background-color: <?php print $options['cat-links-color']?>;
 	
 	border-top: 1px <?php print $options['cat-links-hover-border-style']?> <?php print $options['cat-links-hover-border-top']?>;

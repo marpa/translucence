@@ -164,7 +164,7 @@
 				<?php twentyten_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php if ( count( get_the_category() ) ) : ?>
-				<span class="cat-links">
+				<span class="catlinks">
 					<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
 				</span>
 			<?php endif; ?>
@@ -185,7 +185,7 @@
 					$tags_list = get_the_tag_list( '', ', ' );
 					if ( $tags_list ):
 				?>
-					<div class="tag-links">
+					<div class="taglinks">
 						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
 					</div>
 				<?php endif; ?>
