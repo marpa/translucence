@@ -140,27 +140,20 @@ function translucence_setup() {
 	$theme_id = str_replace(" ", "_", $theme_id);
  	$theme_options = $theme_id."_options";
 
-	// initialize or get theme options
-	if (!is_array(get_option($theme_options))) {
+	// initialize or get theme options	
+	if (is_array(get_option($theme_id."_settings"))) {
+		$options = get_option($theme_id."_settings");
+		delete_option($theme_id."_settings"); 
+		
+	} else if (!is_array(get_option($theme_options))) {
 		add_option($theme_options, array('init' => 1));
 	} else {	
 		$options = get_option($theme_options);
-	}
-
-	// initialize or get theme css	
-	if (!isset($options['css'])) {
-		translucence_get_variation_options();
-	} else if (!isset($options['options-version']) || ($options['options-version'] != $translucence_options_version)) {
-		$options['options-version'] = $translucence_options_version;
-		translucence_get_variation_options();
 	}
 	
 	if ( is_admin() ) {
 		translucence_theme_options_update();
 	}
-	translucence_theme_options_save();
-	
-	//printpre($options);
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
