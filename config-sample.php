@@ -113,10 +113,12 @@ $variation_config['archives-single-sidebar'] = "right01";
  * Specify what widgets to include when Translucence is initially activated
  ******************************************************************************/
 
-$variation_config['preset_widgets'] = array (
-	'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
-	'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
-	);
+$variation_config['preset_widgets']['primary-widget-area'][] = "pages-2";
+$variation_config['preset_widgets']['primary-widget-area'][] = "recent-posts-2";
+$variation_config['preset_widgets']['primary-widget-area'][] = "categories-2";
+
+$variation_config['preset_widgets']['secondary-widget-area'][] = "links-2";
+$variation_config['preset_widgets']['secondary-widget-area'][] = "rss-links-2";
 
 
 /******************************************************************************
@@ -125,40 +127,31 @@ $variation_config['preset_widgets'] = array (
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
 
-$variation_config['header_meta_left_options']['blogs'] = array (
-		'option_name' =>	'blogs',
-		'option_label' =>	'Blog Sign Up',
-		'option_value' => ''
-	);
-	
-$variation_config['header_meta_left_options']['custom'] = array (
-		'option_name' =>	'custom',
-		'option_label' =>	'Custom',
-		'option_value' => ''
-	);
+$variation_config['header_meta_left_options']['blogs']['option_name'] = "blogs";
+$variation_config['header_meta_left_options']['blogs']['option_label'] = "Blog Sign Up";
+$variation_config['header_meta_left_options']['blogs']['option_value'] = "";
+
+$variation_config['header_meta_left_options']['custom']['option_name'] = "custom";
+$variation_config['header_meta_left_options']['custom']['option_label'] = "Custom";
+$variation_config['header_meta_left_options']['custom']['option_value'] = "";
+
 
 /******************************************************************************
  * Header meta right options
  * (this is the html content options for the upper right corner of the blog)
  ******************************************************************************/
 
-$variation_config['header_meta_right_options'] = array (
-		'option_name' =>	'',
-		'option_label' =>	'',
-		'option_value' => ''
-	);
+$variation_config['header_meta_right_options']['option_name'] = "";
+$variation_config['header_meta_right_options']['option_label'] = "";
+$variation_config['header_meta_right_options']['option_value'] = "";
 
-$variation_config['header_meta_right_options'] = array (
-		'option_name' =>	'show',
-		'option_label' =>	'Show',
-		'option_value' => "on"
-	);
+$variation_config['header_meta_right_options']['option_name'] = "show";
+$variation_config['header_meta_right_options']['option_label'] = "Show";
+$variation_config['header_meta_right_options']['option_value'] = "on";
 
-$variation_config['header_meta_right_options'] = array (
-		'option_name' =>	'hide',
-		'option_label' =>	'Hide',
-		'option_value' => "off"
-	);
+$variation_config['header_meta_right_options']['option_name'] = "hide";
+$variation_config['header_meta_right_options']['option_label'] = "Hide";
+$variation_config['header_meta_right_options']['option_value'] = "off";
 	
 
 /******************************************************************************
@@ -166,33 +159,23 @@ $variation_config['header_meta_right_options'] = array (
  * (this is the html content options for the lower left corner of the blog
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
-	
-$variation_config['footer_meta_left_options']['custom'] = array (
-		'option_name' =>	'custom',
-		'option_label' =>	'Custom',
-		'option_value' => ''
-	);
+
+$variation_config['footer_meta_left_options']['custom']['option_name'] = "custom";
+$variation_config['footer_meta_left_options']['custom']['option_label'] = "Custom";
+$variation_config['footer_meta_left_options']['custom']['option_value'] = "";
 	
 
 /******************************************************************************
  * Custom headers
  ******************************************************************************/
 
-$variation_config['custom_header'] = array(
-		'none' => array(
-			'url' => '%s/images/headers/transparent.png',
-			'thumbnail_url' => '%s/images/headers/transparent-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'None', 'twentyten' )
-		),
-		'whitegradient' => array(
-			'url' => '%s/images/headers/whitegradient-1200x200.png',
-			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'White Gradient', 'twentyten' )
-		)
-);
+$variation_config['custom_header']['none']['url'] = "%s/images/headers/transparent.png";
+$variation_config['custom_header']['none']['thumbnail_url'] = "%s/images/headers/transparent-thumbnail.png";
+$variation_config['custom_header']['none']['description'] = __( 'None', 'translucence' );
 
+$variation_config['custom_header']['whitegradient']['url'] = "%s/images/headers/whitegradient-1200x200.png";
+$variation_config['custom_header']['whitegradient']['thumbnail_url'] = "%s/images/headers/whitegradient-1200x200-thumbnail.png";
+$variation_config['custom_header']['whitegradient']['description'] = __( 'White Gradient', 'translucence' );
 
 /******************************************************************************
  * Model UI Options
