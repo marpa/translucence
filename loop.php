@@ -45,7 +45,7 @@
 <?php endif; ?>
 
 <?php /* display link to new post if user is at least an author */?>
-<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
+<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?> 
 	<div class='post-link' style="float: right; width: 40%;">
 	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
 	</div>
@@ -56,8 +56,8 @@
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 	<div id="nav-above" class="navigation" style="clear: right;">
-		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older posts', 'twentyten' ) ); ?></div>
-		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&raquo;</span>', 'twentyten' ) ); ?></div>
+		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older posts', '2010-translucence' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&raquo;</span>', '2010-translucence' ) ); ?></div>
 	</div><!-- #nav-above -->
 <?php endif; ?>
 </div>
@@ -65,9 +65,9 @@
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if ( ! have_posts() ) : ?>
 	<div id="post-0" class="post error404 not-found">
-		<h1 class="entry-title"><?php _e( 'Not Found', 'twentyten' ); ?></h1>
+		<h1 class="entry-title"><?php _e( 'Not Found', '2010-translucence' ); ?></h1>
 		<div class="entry-content">
-			<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'twentyten' ); ?></p>
+			<p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', '2010-translucence' ); ?></p>
 			<?php get_search_form(); ?>
 		</div><!-- .entry-content -->
 	</div><!-- #post-0 -->
@@ -94,7 +94,7 @@
 
 	<?php if ( in_category( _x('gallery', 'gallery category slug', 'twentyten') ) ) : ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '2010-translucence' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 			<div class="entry-meta">
 				<?php twentyten_posted_on(); ?>
@@ -114,8 +114,8 @@
 						<div class="gallery-thumb">
 							<a class="size-thumbnail" href="<?php the_permalink(); ?>"><?php echo $image_img_tag; ?></a>
 						</div><!-- .gallery-thumb -->
-						<p><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', 'twentyten' ),
-								'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
+						<p><em><?php printf( __( 'This gallery contains <a %1$s>%2$s photos</a>.', '2010-translucence' ),
+								'href="' . get_permalink() . '" title="' . sprintf( esc_attr__( 'Permalink to %s', '2010-translucence' ), the_title_attribute( 'echo=0' ) ) . '" rel="bookmark"',
 								$total_images
 							); ?></em></p>
 				<?php endif; ?>
@@ -124,10 +124,10 @@
 			</div><!-- .entry-content -->
 
 			<div class="entry-utility">
-				<a href="<?php echo get_term_link( _x('gallery', 'gallery category slug', 'twentyten'), 'category' ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', 'twentyten' ); ?>"><?php _e( 'More Galleries', 'twentyten' ); ?></a>
+				<a href="<?php echo get_term_link( _x('gallery', 'gallery category slug', 'twentyten'), 'category' ); ?>" title="<?php esc_attr_e( 'View posts in the Gallery category', '2010-translucence' ); ?>"><?php _e( 'More Galleries', '2010-translucence' ); ?></a>
 				<span class="meta-sep">|</span>
-				<div class="comments-link"><?php comments_popup_link( __( 'No comments', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></div>
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+				<div class="comments-link"><?php comments_popup_link( __( 'No comments', '2010-translucence' ), __( '1 Comment', '2010-translucence' ), __( '% Comments', '2010-translucence' ) ); ?></div>
+				<?php edit_post_link( __( 'Edit', '2010-translucence' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
 
@@ -142,15 +142,15 @@
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'More  <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
+				<?php the_content( __( 'More  <span class="meta-nav">&rarr;</span>', '2010-translucence' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
 			<div class="entry-utility">
 				<?php twentyten_posted_on(); ?>
 				<span class="meta-sep">|</span>
-				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></span>
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+				<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', '2010-translucence' ), __( '1 Comment', '2010-translucence' ), __( '% Comments', '2010-translucence' ) ); ?></span>
+				<?php edit_post_link( __( 'Edit', '2010-translucence' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
 
@@ -158,14 +158,14 @@
 
 	<?php else : ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '2010-translucence' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 			<div class="entry-meta">
 				<?php twentyten_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php if ( count( get_the_category() ) ) : ?>
 				<span class="cat-links">
-					<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
+					<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
 				</span>
 			<?php endif; ?>
 
@@ -175,8 +175,8 @@
 			</div><!-- .entry-summary -->
 	<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'More <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
-				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
+				<?php the_content( __( 'More <span class="meta-nav">&rarr;</span>', '2010-translucence' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', '2010-translucence' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 	<?php endif; ?>
 
@@ -186,11 +186,11 @@
 					if ( $tags_list ):
 				?>
 					<div class="tag-links">
-						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', 'twentyten' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
+						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
 					</div>
 				<?php endif; ?>
-				<div class="comments-link"><?php comments_popup_link( __( 'No comments &raquo;', 'twentyten' ), __( '1 Comment &raquo;', 'twentyten' ), __( '% Comments &raquo;', 'twentyten' ) ); ?></div>
-				<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
+				<div class="comments-link"><?php comments_popup_link( __( 'No comments &raquo;', '2010-translucence' ), __( '1 Comment &raquo;', '2010-translucence' ), __( '% Comments &raquo;', '2010-translucence' ) ); ?></div>
+				<?php edit_post_link( __( 'Edit', '2010-translucence' ), '<span class="edit-link">', '</span>' ); ?>
 			</div><!-- .entry-utility -->
 		</div><!-- #post-## -->
 
@@ -203,7 +203,7 @@
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if (  $wp_query->max_num_pages > 1 ) : ?>
 				<div id="nav-below" class="navigation">
-					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older posts', 'twentyten' ) ); ?></div>
-					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&raquo;</span>', 'twentyten' ) ); ?></div>
+					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older posts', '2010-translucence' ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&raquo;</span>', '2010-translucence' ) ); ?></div>
 				</div><!-- #nav-below -->
 <?php endif; ?>

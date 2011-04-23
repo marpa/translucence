@@ -13,9 +13,9 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<div id="post-0" class="post error404 not-found">
-				<h1 class="entry-title"><?php _e( 'Not Found', 'twentyten' ); ?></h1>
+				<h1 class="entry-title"><?php _e( 'Not Found', '2010-translucence' ); ?></h1>
 				<div class="entry-content">
-					<p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', 'twentyten' ); ?></p>
+					<p><?php _e( 'Apologies, but the page you requested could not be found. Perhaps searching will help.', '2010-translucence' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .entry-content -->
 			</div><!-- #post-0 -->

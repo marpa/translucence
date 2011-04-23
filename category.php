@@ -27,7 +27,7 @@ $content_width = translucence_get_content_width ("category");
 			</div>
 
 				<h1 class="page-title"><?php
-					printf( __( 'Categories &raquo; %s', 'twentyten' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+					printf( __( 'Categories &raquo; %s', '2010-translucence' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 				?></h1>
 				<?php
 					$category_description = category_description();

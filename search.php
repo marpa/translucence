@@ -18,7 +18,7 @@ $content_width = translucence_get_content_width ("search");
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php if ( have_posts() ) : ?>
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '2010-translucence' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				<?php
 				/* Run the loop for the search to output the results.
 				 * If you want to overload this in a child theme then include a file
@@ -28,9 +28,9 @@ $content_width = translucence_get_content_width ("search");
 				?>
 <?php else : ?>
 				<div id="post-0" class="post no-results not-found">
-					<h2 class="entry-title"><?php _e( 'Nothing Found', 'twentyten' ); ?></h2>
+					<h2 class="entry-title"><?php _e( 'Nothing Found', '2010-translucence' ); ?></h2>
 					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyten' ); ?></p>
+						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', '2010-translucence' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</div><!-- #post-0 -->
