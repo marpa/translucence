@@ -524,7 +524,7 @@ function translucence_set_derivative_options() {
 	 * Header left links (derived from  header_meta_left_options)
 	 ******************************************************************************/
 	
-	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blog'] == "") {
+	if ($options['header-meta-left'] == 'blogs' && $variation_config['header_meta_left_options']['blogs'] == "") {
 		$options['headerleft'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
 	} else if ($options['header-meta-left'] == 'custom') {
 		$options['headerleft'] = stripslashes($options['headerleftcustom']);
