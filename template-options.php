@@ -8,6 +8,7 @@
 function translucence_theme_options_do_page() {
 	global $variation_config, $theme_options, $options, $options_values, $variations, $header_image;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
+    global $syndication_image;
 
 	if ($options['revert'] == 1) {
 		translucence_option_feedback();
@@ -34,7 +35,7 @@ function translucence_theme_options_do_page() {
 	if ($custom_header_set == 0 && $options['header-image-options'] != "none") {
 		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
 		$custom_header = str_replace('%s', '', $header_image);
-		$custom_header_image = get_bloginfo('template_directory').$custom_header;
+		$custom_header_image = get_template_directory_uri().$custom_header;
 		$custom_header_set = 1;
 	}
 
@@ -72,9 +73,9 @@ function translucence_theme_options_do_page() {
 	 *********************************************************/
 	 
  	$model_css = preg_replace("/body/", ".body_na", $options['css']); 
-	$syndication_image = get_bloginfo('stylesheet_directory')."/variations/feed.png";
+	$syndication_image = get_template_directory_uri()."/variations/feed.png";
  	print "
- 	<script type='text/javascript' src='".get_bloginfo('template_directory')."/jscolor/jscolor.js'></script>
+ 	<script type='text/javascript' src='".get_template_directory_uri()."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
  	print $model_css;
  	print translucence_get_theme_model_css();
