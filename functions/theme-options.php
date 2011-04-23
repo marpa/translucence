@@ -15,13 +15,13 @@ function translucence_theme_options_init() {
 	
 }
 
-function translucence_theme_options_save() {
+function translucence_theme_options_update() {
 	global $theme_options, $options;
 	
 	// get theme option value lists for selected variation theme option
 	translucence_get_variation_options();
 	
-	// set derivative theme options based on selected primary theme options
+	// set derivative theme options based on default or selected primary theme options
 	translucence_set_derivative_options();
 	
 	// get css generated from primary and derivative theme options

@@ -155,6 +155,9 @@ function translucence_setup() {
 		translucence_get_variation_options();
 	}
 	
+	if ( is_admin() ) {
+		translucence_theme_options_update();
+	}
 	translucence_theme_options_save();
 	
 	//printpre($options);
