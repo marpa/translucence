@@ -957,13 +957,13 @@ function translucence_get_post_options() {
 	translucence_get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 	
-	print "<div><span class='entry'>Categories: </span><span class='cat-links'><a href='#'>Category</a></span></div>";
+	print "<div><span class='entry'>Categories: </span><span class='catlinks'><a href='#'>Category</a></span></div>";
 	print "<div><br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
 	// tag sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>tag archive includes</span>", "tag-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
-	print "<div><span class='entry'>Tags: </span><span class='tag-links'><a href='#'>tag</a></span></div>";
+	print "<div><span class='entry'>Tags: </span><span class='taglinks'><a href='#'>tag</a></span></div>";
 	print "<div class='entry' style='text-align: right;'>No Comments &#187;</div><br/>";
 	// search sidebar options
 	print "<div style='float: right; clear: both; font-size: 10px;'>";
@@ -1019,7 +1019,7 @@ function translucence_get_post_options() {
 				
 				// category link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='cat-links' style='font-size: 10px;'><a href='#'>Categories</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='catlinks' style='font-size: 10px;'><a href='#'>Categories</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>";						
 				translucence_get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
 				print "
@@ -1028,7 +1028,7 @@ function translucence_get_post_options() {
 				
 				// Tag link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='tag-links' style='font-size: 10px;'><a href='#'>Tags</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='taglinks' style='font-size: 10px;'><a href='#'>Tags</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
 				translucence_get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
 				print "
