@@ -197,8 +197,8 @@ function translucence_setup() {
 	$header_image_height = $options['header-block-height'];
 	//$header_image = $options['header-block-height'];	
 	
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', $header_image_width ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', $header_image_height ) );
+	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'translucence_header_image_width', $header_image_width ) );
+	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'translucence_header_image_height', $header_image_height ) );
 	//define( 'HEADER_TEXTCOLOR', $options['site-title-color']);
 	define( 'HEADER_BGCOLOR', $options['header-color-rgb']);
 	//define( 'NO_HEADER_TEXT', true );
