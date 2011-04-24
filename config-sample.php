@@ -89,7 +89,7 @@ $variation_config['bottom-opacity'] = "0";
 
 $variation_config['site-border-style'] = "none";
 $variation_config['header-border-style'] = "dotted";
-$variation_config['top-border-style'] = "solid";
+$variation_config['top-border-style'] = "none";
 $variation_config['content-border-style'] = "solid";
 $variation_config['left01-border-style'] = "dotted";
 $variation_config['right01-border-style'] = "dotted";
