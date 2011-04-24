@@ -646,18 +646,20 @@ div.menu li {
 }
 
 #access a {
-	color: <?php print $options['top-link-color']?>;	
+	color:  <?php print $options['textcolor']?>;	
 	display: block;
 	line-height: 38px;
 	padding: 0 10px;
 	text-decoration: none;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
 }
 			
 #access ul ul {
 	background-color: <?php print $options['top-color-hover02-rgb']?>;
-	box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 3px <?php print $options['header-text-shadow-color']?>;	
+	box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;	
 	display: none;
 	position: absolute;
 	top: 38px;
@@ -665,8 +667,8 @@ div.menu li {
 	float: left;
 	width: 180px;
 	z-index: 99999;
-	border-top: 1px none <?php print $options['top-border-top']?>;
-	border-bottom: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-bottom']?>;	
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
 	border-left: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-left']?>;
 	border-right: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-right']?>;
 }
@@ -683,6 +685,8 @@ div.menu li {
 #access ul ul a {
 	background-color: <?php print $options['top-color-rgb']?>;
 	line-height: 1em;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
 	padding: 10px;
 	width: 160px;
 	height: auto;
@@ -692,13 +696,22 @@ div.menu li {
 #access ul ul:hover > a {
 	color:  <?php print $options['top-child-link-color']?>;
 	background-color: <?php print $options['top-color-hover03-rgb']?>;
-	text-decoration: underline;	
-	border-bottom: none;
+	
+	box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 2px <?php print $options['header-text-shadow-color']?>;		
+	
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;		
+	border-left: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-left']?>;
+	border-right: 1px <?php print $options['top-border-style']?> <?php print $options['top-border-right']?>;
+	text-decoration: none;	
+
 }
 
 #access ul li:hover > ul {
 	display: block;
-	border-bottom: none;
+	border-bottom: 1px solid transparent;	
 }
 
 #access .sub-menu,
@@ -712,7 +725,7 @@ div.menu li {
 }
 
 #access .sub-menu ul li {
-	border-bottom: none;
+	border-bottom: 1px solid transparent;	
 }	
 
 #access ul li.current_page_item > a,
@@ -728,7 +741,7 @@ div.menu li {
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
 	color:  <?php print $options['top-child-link-color']?>;
-	border-bottom: none;
+	border-bottom: 1px transparent;	
 }
 
 /* End Access (top navigation bar)
