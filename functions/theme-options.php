@@ -834,8 +834,8 @@ function translucence_set_derivative_options() {
 		 * different colors for low opacity settings see: 
 		 * variations/<<variation-name>>/variation.php
 		 ******************************************************************************/
-		$options['cat-links-opacity'] = 1;
-		$options['tag-links-opacity'] = 1;
+		$options['cat-links-opacity'] = .7;
+		$options['tag-links-opacity'] = .7;
 		
 		// top bar child/sub-menu opacity never below transparent text and link color 
 		if ($box == "top") {
