@@ -1013,9 +1013,20 @@ ins {
 }
 
 /* Begin tag links */
+
+.tagcloud a {
+	padding: 2px;
+	border: 1px <?php print $options['tag-links-border-style']?> transparent;
+}
+
+.tagcloud a:hover {
+	border: 1px <?php print $options['tag-links-border-style']?> <?php print $options['tag-links-link-color']?>;
+}
+
+
 .taglinks a {	
 	color: <?php print $options['tag-links-link-color']?>;	
-	background-color: <?php print $options['tag-links-color']?>;
+	background-color: <?php print $options['tag-links-color-rgb']?>;
 	border-top: 1px <?php print $options['tag-links-border-style']?> <?php print $options['tag-links-border-top']?>;
 	border-bottom: 1px <?php print $options['tag-links-border-style']?> <?php print $options['tag-links-border-bottom']?>;
 	border-left: 1px <?php print $options['tag-links-border-style']?> <?php print $options['tag-links-border-left']?>;
@@ -1035,12 +1046,13 @@ ins {
 	border-right: 1px <?php print $options['tag-links-hover-border-style']?> <?php print $options['tag-links-hover-border-right']?>;
 }
 
+
 /* Begin category links */
 
 .catlinks a {	
 	color: <?php print $options['cat-links-link-color']?>;
 	
-	background-color: <?php print $options['cat-links-color']?>;
+	background-color: <?php print $options['cat-links-color-rgb']?>;
 	border-top: 1px <?php print $options['cat-links-border-style']?> <?php print $options['cat-links-border-top']?>;
 	border-bottom: 1px <?php print $options['cat-links-border-style']?> <?php print $options['cat-links-border-bottom']?>;
 	border-left: 1px <?php print $options['cat-links-border-style']?> <?php print $options['cat-links-border-left']?>;
