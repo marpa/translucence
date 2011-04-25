@@ -8,7 +8,7 @@ html .mceContentBody {
 	max-width:640px;
 }
 * {
-	font-family: Georgia, "Bitstream Charter", serif;
+	font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
 	color: #444;
 	line-height: 1.5;
 }
@@ -142,14 +142,22 @@ sub {
 	top: .5ex;
 }
 a:link {
-	color:#0066cc;
+	color:#003366;
+	text-decoration:none;
+	border-bottom: 1px dotted;
+	padding:0.07em;
 }
 a:visited {
-	color:#743399;
+	color:#003366;
+	text-decoration:none;
+	border-bottom: 1px dotted;
+	padding:0.07em;
 }
 a:active,
 a:hover {
-	color: #ff4b33;
+	color:#003366;
+	border-bottom: 1px solid; 
+	background-color: #efc;
 }
 p,
 ul,
@@ -191,6 +199,7 @@ h6 {
 	margin: 0 0 20px 0;
 	line-height: 1.5em;
 	font-weight: normal;
+	border-bottom: 1px solid #CCCCCC;
 }
 h1 {
 	font-size: 2.4em;
@@ -209,6 +218,17 @@ h5 {
 }
 h6 {
 	font-size: 0.9em;
+}
+
+h3 a:link {
+	display: block;
+	text-decoration: none;
+	border-bottom: none;
+}
+h3 a:hover {
+	display: block;
+	border-bottom: none;
+	text-decoration: none;
 }
 table {
 	border: 1px solid #e7e7e7 !important;
