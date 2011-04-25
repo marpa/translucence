@@ -31,8 +31,8 @@
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>
 <div style = "width: 100%; float: right;">
 	<div id="syndication">
-		<a href="<?php bloginfo('rss2_url'); ?>" class="feed">Posts RSS</a> 
-		<a href="<?php bloginfo('comments_rss2_url'); ?>" class="feed">Comments RSS</a>
+		<a href="<?php bloginfo('rss2_url'); ?>" class="feed"><?php _e( 'Posts RSS', '2010-translucence' ); ?></a> 
+		<a href="<?php bloginfo('comments_rss2_url'); ?>" class="feed"><?php _e( 'Comments RSS', '2010-translucence' ); ?></a>
 	</div>
 </div>
 <?php endif; ?>
@@ -40,14 +40,14 @@
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
 	<div class='post-link' style="float: left; width: 58%;">
-	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php">New Post</a>
+	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php"><?php _e( 'New Post', '2010-translucence' ); ?></a>
 	</div>
 <?php endif; ?>
 
 <?php /* display link to new post if user is at least an author */?>
 <?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?> 
 	<div class='post-link' style="float: right; width: 40%;">
-	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
+	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=page"><?php _e( 'New Page', '2010-translucence' ); ?></a>
 	</div>
 <?php endif; ?>
 

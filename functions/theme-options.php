@@ -63,7 +63,7 @@ function translucence_validate_options($input) {
 	
 	$validation_debug = 0;
 	
-	if (isset($input['reset']) && $input['reset'] == "Revert to Default") {
+	if (isset($input['reset']) && $input['reset'] == __( 'Revert to Default', '2010-translucence' )) {
 		$input['revert'] = 1;
 		$validated[] = $option;
 	} else {
@@ -1068,57 +1068,56 @@ function translucence_option_feedback() {
 	global $options, $variation_config;
 	
 	$main_column_width = $options['site-width'] - ($options['left01-width'] + $options['right01-width'] + 174);
-	$message = "<strong>Your changes have been saved.</strong>";
+	$message = "<strong>".__( 'Your changes have been saved', '2010-translucence' )."</strong>";
 	$error = "false";
 	
 	
 	if ($options['revert'] == 1) {
-		$message = "These are the default settings for the ".$variation_config['theme-name']." theme.";
+		$message = __( 'These are the default settings for the ', '2010-translucence' ).$variation_config['theme-name']." ".__( 'theme', '2010-translucence' );
 		$error = "true";
 
 	} else if (isset($_POST['reset'])) {
-		$message .= " <br/><br/>The ".$options['theme-name']." theme options have been reverted to their default settings.";
+		$message .= " <br/><br/>".$options['theme-name'].__( 'theme options have been reverted to their default settings', '2010-translucence' );
 		$error = "true";
 
 	} else {
 
 		if ($options['background_color'] == '#0F0F0F') {
-			$message .= " Black is a good choice for blogs that focus on images, particularly photos.";
 						
 			if ($options['header-image-options'] == "whitegradient") {
-				$message .= " <br/><br/>The white gradient image really doesn't look good here.  Best to upload your own custom image or use none.";
+				$message .= " <br/>The white gradient image really doesn't look good here.  Best to upload your own custom image or use none.";
 				$error = "true";
 			} 
 
 		} 		
 		
 		if (is_active_sidebar("tertiary-widget-area") && $options['left01-width'] == 0) {
-			$message .= " <br/><br/>Your left sidebar is hidden but contains widgets.";
+			$message .= " <br/>".__( 'Your left sidebar is hidden but contains widgets.', '2010-translucence' );
 			$error = "true";
 		}
 
 		if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
-			$message .= " <br/><br/>Your right sidebar is hidden but contains widgets.";
+			$message .= " <br/>".__( 'Your right sidebar is hidden but contains widgets.', '2010-translucence' );
 			$error = "true";
 		}
 
 		if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
-			$message .= " <br/><br/>Your 2nd right sidebar is hidden but contains widgets.";
+			$message .= " <br/>".__( 'Your 2nd right sidebar is hidden but contains widgets.', '2010-translucence' );
 			$error = "true";
 		}
 				
 		if ($options['left01-width'] == "125") {
-			$message .= "<br/>Your left sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$message .= " <br/>".__( 'Your left sidebar is only 125px.  This may be too narrow for some widgets (e.g. calendar widget)', '2010-translucence' );
 			$error = "true";
 		} 
 
 		if ($options['right01-width'] == "125") {
-			$message .= "<br/>Your right sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$message .= " <br/>".__( 'Your right sidebar is only 125px.  This may be too narrow for some widgets (e.g. calendar widget)', '2010-translucence' );
 			$error = "true";
 		} 
 
 		if ($options['right02-width'] == "125") {
-			$message .= "<br/>Your 2nd right sidebar is only 175px.  This may be too narrow for some widgets (e.g. calendar widget)";
+			$message .= " <br/>".__( 'Your 2nd right sidebar is only 125px.  This may be too narrow for some widgets (e.g. calendar widget)', '2010-translucence' );
 			$error = "true";
 		} 		
 			
@@ -1127,23 +1126,24 @@ function translucence_option_feedback() {
 		foreach($pages as $page) {
 		
 			if ($options[$page.'-sidebar-right-display'] == "show" && $options['right01-width'] == 0) {
+				$message .= " <br/>".__( 'You wanted to show your right sidebar on ', '2010-translucence' ).$page.__( ' pages but you have hidden it...', '2010-translucence' );
 				$message .= " <br/>You wanted to show your right sidebar on ".$page." pages but you have hidden it...";
 				$error = "true";
 			} 
 	
 			if ($options[$page.'-sidebar-right02-display'] == "show" && $options['right02-width'] == 0) {
-				$message .= " <br/>You wanted to show your 2nd right sidebar on ".$page." pages but you have hidden it...";
+				$message .= " <br/>".__( 'You wanted to show your 2ND right sidebar on ', '2010-translucence' ).$page.__( ' pages but you have hidden it...', '2010-translucence' );
 				$error = "true";
 			} 
 		
 			if ($options[$page.'-sidebar-left-display'] == "show" && $options['left01-visibility'] == "hidden") {
-				$message .= " <br/>You wanted to show your left sidebar on ".$page." pages but you have hidden it...";
+				$message .= " <br/>".__( 'You wanted to show your left sidebar on ', '2010-translucence' ).$page.__( ' pages but you have hidden it...', '2010-translucence' );
 				$error = "true";
 			} 			
 		}
 		
 		if ($error == "false") {
-			$message .= " Visit the site";
+			$message .= " <br/>".__( 'Visit ', '2010-translucence' );
 		}
 
 	}

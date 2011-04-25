@@ -93,8 +93,8 @@ function translucence_theme_options_do_page() {
 		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
 		<tr>
 			<td width='20%'>
-			<span class='submit'><input type='submit' value='Update' name='save'/></span>
-			<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
+			<span class='submit'><input type='submit' value='<?php _e( 'Update', '2010-translucence' ); ?>' name='save'/></span>
+			<span class='submit'><input type='submit' value='<?php _e( 'Revert to Default', '2010-translucence' ); ?>' name='<?php echo $theme_options ?>[reset]'/></span>
 
 			</td>
 			<td width='60%' align='left'>
@@ -147,32 +147,32 @@ function translucence_theme_options_do_page() {
 					<div id='container'>
 						<div id='tertiary' class='widget-area'>
 							<!-- left sidebar -->
-							<h3 class='widget-title'>Left Sidebar</h3>
+							<h3 class='widget-title'><?php _e( 'Left Sidebar', '2010-translucence' ); ?></h3>
 							<?php print translucence_get_left01_options(); ?>
 						</div>
 						<div id='content'>
 							<!-- syndication links -->
 							<div style = 'width: 100%; float: right;'> 
 								<div id='syndication'> 
-									<a href='#' class='feed'>Posts RSS</a> 
-									<a href='#' class='feed'>Comments RSS</a> 
+									<a href='#' class='feed'><?php _e( 'Posts RSS', '2010-translucence' ); ?></a> 
+									<a href='#' class='feed'><?php _e( 'Comments RSS', '2010-translucence' ); ?></a> 
 								</div> 
 							</div> 
 							<!-- main content -->
 							<?php print translucence_get_layout_options(); ?>
-							<h2 class='entry-title'>Entry Title</h2>
+							<h2 class='entry-title'><?php _e( 'Entry Title', '2010-translucence' ); ?></h2>
 							<div class='entry-content'>
 								<?php print translucence_get_post_options(); ?>	
 							</div>
 						</div>
 						<div id='primary' class='widget-area'>
 							<!-- 1st right sidebar -->
-							<h3 class='widget-title'>1st Right Sidebar</h3>
+							<h3 class='widget-title'><?php _e( '1st Right Sidebar', '2010-translucence' ); ?></h3>
 							<?php print translucence_get_right01_options(); ?>
 						</div>
 						<div id='secondary' class='widget-area' style=''>
 							<!-- 2nd right sidebar -->
-							<h3 class='widget-title'>2nd Right Sidebar</h3>
+							<h3 class='widget-title'><?php _e( '2nd Right Sidebar', '2010-translucence' ); ?></h3>
 							<?php print translucence_get_right02_options(); ?>
 						</div>
 					</div><!-- #container -->
@@ -184,25 +184,25 @@ function translucence_theme_options_do_page() {
 					<!-- footer -->
 						<div id='first' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>First Footer Widget Area</h3>
+								<h3 class='widget-title'><?php _e( 'First Footer Widget Area', '2010-translucence' ); ?></h3>
 								<?php print translucence_get_footer_widgets('first'); ?>
 							</ul>
 						</div>
 						<div id='second' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Second Footer Widget Area</h3>
+								<h3 class='widget-title'><?php _e( 'Second Footer Widget Area', '2010-translucence' ); ?></h3>
 								<?php print translucence_get_footer_widgets('second'); ?>
 							</ul>
 						</div>
 						<div id='third' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Third Footer Widget Area</h3>
+								<h3 class='widget-title'><?php _e( 'Third Footer Widget Area', '2010-translucence' ); ?></h3>
 								<?php print translucence_get_footer_widgets('third'); ?>
 							</ul>
 						</div>
 						<div id='fourth' class='widget-area'>
 							<ul class='xoxo'>
-								<h3 class='widget-title'>Fourth Footer Widget Area</h3>
+								<h3 class='widget-title'><?php _e( 'Fourth Footer Widget Area', '2010-translucence' ); ?></h3>
 								<?php print translucence_get_footer_widgets('fourth'); ?>
 							</ul>
 						</div>
@@ -228,8 +228,8 @@ function translucence_theme_options_do_page() {
 	 * Update and Revert button
 	 ******************************************************************************/
 	?>
-	<span class='submit'><input type='submit' value='Update' name='save'/></span>
-	<span class='submit'><input type='submit' value='Revert to Default' name='<?php echo $theme_options ?>[reset]'/></span>
+	<span class='submit'><input type='submit' value='<?php _e( 'Update', '2010-translucence' ); ?>' name='save'/></span>
+	<span class='submit'><input type='submit' value='<?php _e( 'Revert to Default', '2010-translucence' ); ?>' name='<?php echo $theme_options ?>[reset]'/></span>
 	
 	</form>	
 	<?php
@@ -516,7 +516,7 @@ function translucence_headermeta_right() {
 	
 	// Log in link options
 	if ($options['headermeta'] == "on") {
-		print "Menus | Widgets | Design";
+		print __( 'Menus | Widgets | Options', '2010-translucence' );
 		print " | ".wp_get_current_user()->display_name;
 		//print " - Log out";
 	}
@@ -562,7 +562,8 @@ function translucence_get_global_options() {
 	$options_values['mode'] = translucence_get_option_modes();
 	
 	print "<td style='width: 30%; text-align: right; border-bottom: 1px solid; padding-bottom: 5px;'>"; 
-	print "Options Mode:<span class='option-label'>";
+	print __( 'Options Mode', '2010-translucence' ).":<span class='option-label'>";
+
 	translucence_get_option_selector ("", "options-mode", $options_values['mode'], 'active');
 	print "</span>";
 	
@@ -583,14 +584,18 @@ function translucence_get_global_options() {
 	if (in_array('site-options', $active_options)) {
 		print "<td class='option-row'>";
 			//site width
-			print "<span class='option-label'>Site</span>";
-			translucence_get_option_selector ("width:", "site-width", $options_values['site-width']);
+			print "<span class='option-label'>".__( 'Site', '2010-translucence' )."</span>";
+			$translucence_title = __( 'width', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "site-width", $options_values['site-width']);
 			// site color
-			translucence_get_option_selector ("color:", "site-color", $options_values['sidebar-color']);
+			$translucence_title = __( 'color', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "site-color", $options_values['sidebar-color']);
 			// site opacity
-			translucence_get_option_selector ("opacity:", "site-opacity", $options_values['header-opacity']);
+			$translucence_title = __( 'opacity', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "site-opacity", $options_values['header-opacity']);
 			// site border
-			translucence_get_option_selector ("border:", "site-border-style", $options_values['border-style']);
+			$translucence_title = __( 'border', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "site-border-style", $options_values['border-style']);
 		print "</td>";
 		print "</tr>";
 	// if not in active_options print out as hidden fields
@@ -606,14 +611,18 @@ function translucence_get_global_options() {
 		print "<tr>";
 		print "<td class='option-row'>";		
 			// header height options
-			print "<span class='option-label'>Header</span>";
-			translucence_get_option_selector ("height:", "header-block-height", $options_values['header-block-height']);
+			print "<span class='option-label'>".__( 'Header', '2010-translucence' )."</span>";
+			$translucence_title = __( 'height', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "header-block-height", $options_values['header-block-height']);
 			// header color
-			translucence_get_option_selector ("color:", "header-color", $options_values['header-color']);
+			$translucence_title = __( 'color', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "header-color", $options_values['header-color']);
 			// header opacity
-			translucence_get_option_selector ("opacity:", "header-opacity", $options_values['header-opacity']);
+			$translucence_title = __( 'opacity', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "header-opacity", $options_values['header-opacity']);
 			// header border
-			translucence_get_option_selector ("border:", "header-border-style", $options_values['border-style']);
+			$translucence_title = __( 'border', '2010-translucence' );
+			translucence_get_option_selector ($translucence_title, "header-border-style", $options_values['border-style']);
 		print "</td>";	
 		print "</tr>";
 	// if not in active_options print out as hidden fields
@@ -633,20 +642,24 @@ function translucence_get_global_options() {
 		
 			// header-text-size options		
 			if (in_array("site-title-size", $variation_config['model'])) {	
-				print "<span class='option-label'>Site Title </span>";
-				translucence_get_option_selector ("size: ", "site-title-size", $options_values['header-text-size']);
+				print "<span class='option-label'>".__( 'Site Title', '2010-translucence' )." </span>";
+				$translucence_title = __( 'size', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "site-title-size", $options_values['header-text-size']);
 			}
-			// header-text-color options		
+			// header-text-color options
 			if (in_array("site-title-color", $variation_config['model'])) {	
-				translucence_get_option_field ("Color: #", "site-title-color", 6);
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_field ($translucence_title, "site-title-color", 6);
 			}
 			// header-text-offset options		
-			if (in_array("header-text-shadow-offset", $variation_config['model'])) {	
-				translucence_get_option_selector ("offset: ", "header-text-shadow-offset", $options_values['text-shadow-offset']);
+			if (in_array("header-text-shadow-offset", $variation_config['model'])) {
+				$translucence_title = __( 'offset', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "header-text-shadow-offset", $options_values['text-shadow-offset']);
 			}	
 			// header-text-blur options		
 			if (in_array("header-text-shadow-blur", $variation_config['model'])) {	
-				translucence_get_option_selector ("blur: ", "header-text-shadow-blur", $options_values['text-shadow-blur']);
+				$translucence_title = __( 'blur', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "header-text-shadow-blur", $options_values['text-shadow-blur']);
 			}
 		}		
 		
@@ -654,21 +667,23 @@ function translucence_get_global_options() {
 		
 			// header-text-box options		
 			if (in_array("title-box-color", $variation_config['model'])) {	
-				print "<span class='option-label'> Site Title Box</span>";
-				translucence_get_option_selector ("color: ", "title-box-color", $options_values['header-color']);
+				print "<span class='option-label'> ".__( 'Site Title Box', '2010-translucence' )."</span>";
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "title-box-color", $options_values['header-color']);
 			}
-			if (in_array("title-box-opacity", $variation_config['model'])) {	
-				translucence_get_option_selector ("opacity:", "title-box-opacity", $options_values['header-opacity']);
+			if (in_array("title-box-opacity", $variation_config['model'])) {
+				$translucence_title = __( 'opacity', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "title-box-opacity", $options_values['header-opacity']);
 			}
 			// header-text-display options		
 			if (in_array("header-text-display", $variation_config['model'])) {	
 				print "
-				<span class='option-label' <span style='font-size: 10px;'>position: 
+				<span class='option-label' <span style='font-size: 10px;'>".__( 'position', '2010-translucence' )." 
 				<select name='".$theme_options."[header-text-display]' class='option-label-dimmed' style='font-size: 10px;' onchange='this.form.submit();'>
-					<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">Middle</option>
-					<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">Top</option>
-					<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">Bottom</option>
-					<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">Hide</option>
+					<option value='middle' ".($options['header-text-display'] == 'middle' ? ' selected' : '') . ">".__( 'Middle', '2010-translucence' )."</option>
+					<option value='top' ".($options['header-text-display'] == 'top' ? ' selected' : '') . ">".__( 'Top', '2010-translucence' )."</option>
+					<option value='bottom' ".($options['header-text-display'] == 'bottom' ? ' selected' : '') . ">".__( 'Bottom', '2010-translucence' )."</option>
+					<option value='hide' ".($options['header-text-display'] == 'hide' ? ' selected' : '') . ">".__( 'hide', '2010-translucence' )."</option>
 				</select>
 				</span></span>";
 			}
@@ -697,14 +712,16 @@ function translucence_get_global_options() {
 		if (in_array('tagline-options', $active_options)) {
 			// header-description-size options		
 			if (in_array("site-description-size", $variation_config['model'])) {	
-				print "<span class='option-label'>Tagline</span><span class='option-label'>";
+				print "<span class='option-label'>".__( 'Tagline', '2010-translucence' )."</span><span class='option-label'>";
+				$translucence_title = __( 'size', '2010-translucence' );
 				translucence_get_option_selector ("size: ", "site-description-size", $options_values['header-text-size']);
 				print "</span>";
 			}
 			// header-description-color options		
 			if (in_array("site-description-color", $variation_config['model'])) {
 				print "<span class='option-label'>";
-				translucence_get_option_field ("color: #", "site-description-color", 6);
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_field ($translucence_title, "site-description-color", 6);
 				print "</span>";
 			}
 		// if not in active_options print out as hidden fields
@@ -716,14 +733,16 @@ function translucence_get_global_options() {
 		if (in_array('tagline-options', $active_options) || $custom_header_set == 1) {
 	
 			if (in_array("description-box-color", $variation_config['model'])) {	
-				print "<span class='option-label'> Tagline box</span><span class='option-label'>";
-				translucence_get_option_selector ("color:", "description-box-color", $options_values['header-color']);
+				print "<span class='option-label'> ".__( 'Tagline box', '2010-translucence' )."</span><span class='option-label'>";
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "description-box-color", $options_values['header-color']);
 				print "</span>";
 			}
 	
 			if (in_array("description-box-opacity", $variation_config['model'])) {	
 				print "<span class='option-label'>";
-				translucence_get_option_selector ("opacity:", "description-box-opacity", $options_values['header-opacity']);
+				$translucence_title = __( 'opacity', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "description-box-opacity", $options_values['header-opacity']);
 				print "</span>";
 			}
 		// if not in active_options print out as hidden fields
@@ -750,7 +769,7 @@ function translucence_get_global_options() {
 			// headermeta left options	
 			print "<td style='width: 50%'>"; 
 			if (in_array("header-meta-left", $variation_config['model'])) {
-				print "<span style='font-size: 9px;'>Header Links:</span>\n";
+				print "<span style='font-size: 9px;'>".__( 'Header Links', '2010-translucence' )."</span>\n";
 				print "<select name='".$theme_options."[header-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
 				foreach (array_keys($variation_config['header_meta_left_options']) as $meta_left_option) {						
 					print "<option value='".$variation_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
@@ -765,10 +784,10 @@ function translucence_get_global_options() {
 			print "<td style='width: 50%; text-align: right;'>";	
 			if (in_array("headermeta", $variation_config['model'])) {	
 				print "
-				<span style='font-size: 9px;'>Editing Quick Links:</span>
+				<span style='font-size: 9px;'>".__( 'Editing Quick Links', '2010-translucence' ).":</span>
 				<select name='".$theme_options."[headermeta]' style='font-size: 10px;' onchange='this.form.submit();'>
-					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">Show</option>
-					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">Hide</option>
+					<option value='on' ".($options['headermeta'] == 'on' ? ' selected' : '') . ">".__( 'Show', '2010-translucence' )."</option>
+					<option value='off' ".($options['headermeta'] == 'off' ? ' selected' : '') . ">".__( 'Hide', '2010-translucence' )."</option>
 				</select>";
 			}
 			print "</td>";		
@@ -782,10 +801,10 @@ function translucence_get_global_options() {
 
 	print "<div style='font-size: 10px;'>";
 	if ($options['options-mode'] != "global" && $options['options-mode'] != "advanced") {
-		print "For more site and header options, see: ";
+		print __( 'For more site and header options see', '2010-translucence' ).": ";
 		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"global\", \"".$theme_options."\")'>Global Options</a>";	
 	} else {
-		print "For basic site and header options, see: ";
+		print __( 'For basic options see', '2010-translucence' ).": ";
 		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"basic\", \"".$theme_options."\")'>Basic Options</a>";	
 	}
 	print "</div>";		
@@ -806,27 +825,27 @@ function translucence_get_custom_options() {
 	
 	if ($custom_header_set == 1) {
 		print "<div class='post-link' style='float: left; width: 40%;'>";
-		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Edit Custom Header</a>";	
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>".__( 'Edit Custom Header', '2010-translucence')."</a>";	
 		print "</div>";
 	} else {
 		print "<div class='post-link' style='float: left; width: 55%;'>";
-		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>Add Custom Header</a>";	
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-header'>".__( 'Add Custom Header', '2010-translucence')."</a>";	
 		print "</div>";
 	}
 
 	if ($custom_background_set == 1) {
 		print "<div class='post-link' style='float: right; width: 40%;'>";
-		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Edit Custom Background</a>";	
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>".__( 'Edit Custom Background', '2010-translucence')."</a>";	
 		print "</div>";
 	} else {
 		print "<div class='post-link' style='float: right; width: 40%; '>";
-		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>Add Custom Background</a>";	
+		print "<a style='color:".$options['bglinkcolor']."; border-color:".$options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>".__( 'Add Custom Background', '2010-translucence')."</a>";	
 		print "</div>";
 	}
 	
 	if ($options['header-text-display'] == "hide") {
 		print "<div style='float: left; color:".$options['bglinkcolor']."; padding-bottom: 10px;'>";
-		print "<em>Site Title and description are hidden</em> ";	
+		print "<em>".__( 'Site Title and description are hidden', '2010-translucence')."</em> ";	
 	//	print "display: <input type='checkbox' name='header-text-display' id='header-text-display'".(isset($options['header-text-display']) && $options['header-text-display'] != 'hide' ? ' checked' : '')." onchange='this.form.submit();'/>";
 		print "</div>";			
 	}
@@ -847,7 +866,7 @@ function translucence_get_layout_options() {
     if (in_array('layout-options', $active_options)) {
 		print "<div class='options' style='background-color: transparent; clear: both;'>";
 		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
-		print "<span style='font-size: 10px;'>Content</span>\n";	
+		print "<span style='font-size: 10px;'>".__( 'Content', '2010-translucence')."</span>\n";	
 		translucence_get_option_selector ("", "content-color", $options_values['sidebar-color']);
 		translucence_get_option_selector ("", "content-opacity", $options_values['sidebar-opacity']);
 		translucence_get_option_selector ("", "content-border-style", $options_values['border-style']);				
@@ -857,20 +876,20 @@ function translucence_get_layout_options() {
 		print "<tr>";
 		// left sidebar
 		print "<td>";
-		print "<div>Left Sidebar</div>\n";
+		print "<div>".__( 'Left Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("sidebar-1") && $options['left01-width'] == 0) {
-			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+			print "<span style='font-size: 10px; color: #990000;'></span>";
 		}
 		//width
 		translucence_get_option_selector ("", "left01-width", $options_values['sidebar-width']);
 		print "</td>";
 		// Right sidebar
 		print "<td style='text-align: right;'>";
-		print "<div>Right Sidebar</div>\n";
+		print "<div>".__( '1st Right Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("primary-widget-area") && $options['right01-width'] == 0) {
-			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+			print "<span style='font-size: 10px; color: #990000;'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right01-width", $options_values['sidebar-width']);
@@ -880,10 +899,10 @@ function translucence_get_layout_options() {
 		print "<td></td>";
 		// 2nd Right sidebar
 		print "<td style='text-align: right;'>";
-		print "<div>2nd Right Sidebar</div>\n";	
+		print "<div>".__( '2nd Right Sidebar', '2010-translucence')."</div>\n";	
 		// hidden widgets warning
 		if (is_active_sidebar("secondary-widget-area") && $options['right02-width'] == 0) {
-			print "<span style='font-size: 10px;'>hidden widgets!</span>";
+			print "<span style='font-size: 10px; color: #990000;'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right02-width", $options_values['sidebar-width']);
@@ -901,8 +920,8 @@ function translucence_get_layout_options() {
 		translucence_get_option_selector ("", "right01-width", $options_values['sidebar-width']);
 		translucence_get_option_selector ("", "right02-width", $options_values['sidebar-width']);
 		print "<div style='font-size: 10px;'>";
-		print "For more sidebar options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"layout\", \"".$theme_options."\")'>Layout Options</a>";
+		print __( 'For more sidebar options, see', '2010-translucence').": ";
+		print "<a href='javascript:setThemeOptionsMode(\"layout\", \"".$theme_options."\")'>".__( 'Layout Options', '2010-translucence')."</a>";
 		print "</div>";	
 	}
 
@@ -943,35 +962,41 @@ function translucence_get_post_options() {
     print "<div>";
 	// post single sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
-	translucence_get_option_selector ("<span style='font-size: 9px;'>single post pages include</span>", "post-single-sidebar", $options_values['sidebar-display']);
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'single post pages', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
+	translucence_get_option_selector ($translucence_title, "post-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 	
 	// author sidebar options
 	print "<div style='float: right; clear: both; font-size: 10px;'>\n";
-	translucence_get_option_selector ("<span style='font-size: 9px;'>author pages include</span>", "author-single-sidebar", $options_values['sidebar-display']);
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'author pages', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
+	translucence_get_option_selector ($translucence_title, "author-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 	print "<div style='font-size: 9px;'>April 16th, 2009 by Author</div>";
 					
 	// category sidebar options				
 	print "<div style='float: right; clear: both; font-size: 10px;'>\n";
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'category archive', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 	
-	print "<div><span class='entry'>Categories: </span><span class='catlinks'><a href='#'>Category</a></span></div>";
+	print "<div><span class='entry'>".__( 'Categories', '2010-translucence' ).": </span><span class='catlinks'><a href='#'>".__( 'Category', '2010-translucence' )."</a></span></div>";
 	print "<div><br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
 	// tag sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'tag archive', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>tag archive includes</span>", "tag-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
-	print "<div><span class='entry'>Tags: </span><span class='taglinks'><a href='#'>tag</a></span></div>";
-	print "<div class='entry' style='text-align: right;'>No Comments &#187;</div><br/>";
+	print "<div><span class='entry'>".__( 'Tags', '2010-translucence' ).": </span><span class='taglinks'><a href='#'>".__( 'tag', '2010-translucence' )."</a></span></div>";
+	print "<div class='entry' style='text-align: right;'>".__( 'No Comments', '2010-translucence' )." &#187;</div><br/>";
 	// search sidebar options
 	print "<div style='float: right; clear: both; font-size: 10px;'>";
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'search archive', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>search archive includes</span><br/>", "search-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 
 	// archives sidebar options
 	print "<div style=' font-size: 10px;'>";
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'archives page', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>archives page includes</span><br/>", "archives-single-sidebar", $options_values['sidebar-display']);
 	print "</div>";
 				
@@ -987,7 +1012,7 @@ function translucence_get_post_options() {
 	
 			<table width = '100%' cellpadding='0'>
 				<tr>
-				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text Alignment</span></td>							
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>".__( 'Text', '2010-translucence' )." ".__( 'alignment', '2010-translucence' )."</span></td>							
 				<td style='border-bottom: 1px dotted; text-align: right;'>";
 				
 				// text alignment options
@@ -995,7 +1020,7 @@ function translucence_get_post_options() {
 				print "		 							
 				</td>								
 				</tr>						<tr>
-				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>Text</span></td>							
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['textcolor'].";'>".__( 'Text', '2010-translucence' )."</span></td>							
 				<td style='border-bottom: 1px dotted; text-align: right;'>";
 				
 				// text color and size options
@@ -1005,7 +1030,7 @@ function translucence_get_post_options() {
 				</td>								
 				</tr>
 				<tr>
-				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>Link color</span></td>
+				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$options['linkcolor'].";'>".__( 'Link', '2010-translucence' )." ".__( 'color', '2010-translucence' )."</span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>";							
 				// link color options
 				translucence_get_option_selector ("", "linkcolor", $options_values['linkcolor']);
@@ -1019,7 +1044,7 @@ function translucence_get_post_options() {
 				
 				// category link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='catlinks' style='font-size: 10px;'><a href='#'>Categories</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='catlinks' style='font-size: 10px;'><a href='#'>".__( 'Categories', '2010-translucence' )."</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>";						
 				translucence_get_option_selector ("", "cat-links-color", $options_values['sidebar-color']);
 				print "
@@ -1028,7 +1053,7 @@ function translucence_get_post_options() {
 				
 				// Tag link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='taglinks' style='font-size: 10px;'><a href='#'>Tags</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='taglinks' style='font-size: 10px;'><a href='#'>".__( 'Tags', '2010-translucence' )."</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
 				translucence_get_option_selector ("", "tag-links-color", $options_values['sidebar-color']);
 				print "
@@ -1036,7 +1061,7 @@ function translucence_get_post_options() {
 				</tr><tr>";
 				// Entry link style
 				print "
-				<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>Entry Link</a></span></td>
+				<td style='border-bottom: 1px dotted;'><span class='entry' style='font-size: 10px;'><a href='#'>".__( 'Entry', '2010-translucence' )." ".__( 'link', '2010-translucence' )."</a></span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
 				translucence_get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
 				print "
@@ -1055,8 +1080,8 @@ function translucence_get_post_options() {
 		translucence_get_option_selector ("", "entry-link-style", $options_values['entry-link-style']);
 				
 		print "<div style='font-size: 10px;'>";
-		print "For text and link options, see: ";
-		print "<a href='javascript:setThemeOptionsMode(\"post\", \"".$theme_options."\")'>Post Options</a>";
+		print __( 'For text and link options, see', '2010-translucence' ).": ";
+		print "<a href='javascript:setThemeOptionsMode(\"post\", \"".$theme_options."\")'>".__( 'Post Options', '2010-translucence' )."</a>";
 		print "</div>";
 	}
 	print "</div>";
@@ -1220,7 +1245,7 @@ function translucence_get_footer_options() {
     ob_start();
     print "<div>";
 		if (in_array("footer-bottom-color", $variation_config['model']))    
-			print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Footer Widgets</span>";
+			print "<span style='padding-top: 0px; font-size: 10px; float: left;'>".__( 'Footer Widgets', '2010-translucence' )."</span>";
 			print "<span class='horizontalbar' style='font-size: 8px'>";
 			translucence_get_option_selector ("", "bottom-color", $options_values['sidebar-color']);
 			translucence_get_option_selector ("", "bottom-opacity", $options_values['sidebar-opacity']);
