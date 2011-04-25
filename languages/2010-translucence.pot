@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2010 Translucence 2.3.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/2010-translucence\n"
-"POT-Creation-Date: 2011-04-25 01:12:59+00:00\n"
+"POT-Creation-Date: 2011-04-25 02:34:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -213,7 +213,7 @@ msgid "Primary Widget Area"
 msgstr ""
 
 #: functions.php:310 functions.php:861 template-options.php:170
-#: template-options.php:889
+#: template-options.php:893
 msgid "1st Right Sidebar"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgid "Secondary Widget Area"
 msgstr ""
 
 #: functions.php:321 functions.php:872 template-options.php:175
-#: template-options.php:902
+#: template-options.php:906
 msgid "2nd Right Sidebar"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgid "Tertiary Widget Area"
 msgstr ""
 
 #: functions.php:332 functions.php:883 template-options.php:150
-#: template-options.php:879
+#: template-options.php:883
 msgid "Left Sidebar"
 msgstr ""
 
@@ -476,13 +476,13 @@ msgid "width"
 msgstr ""
 
 #: template-options.php:591 template-options.php:618 template-options.php:651
-#: template-options.php:671 template-options.php:723 template-options.php:737
-#: template-options.php:1033
+#: template-options.php:671 template-options.php:728 template-options.php:741
+#: template-options.php:1040
 msgid "color"
 msgstr ""
 
 #: template-options.php:594 template-options.php:621 template-options.php:675
-#: template-options.php:744
+#: template-options.php:748
 msgid "opacity"
 msgstr ""
 
@@ -542,148 +542,156 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: template-options.php:736
+#: template-options.php:740
 msgid "Tagline box"
 msgstr ""
 
-#: template-options.php:772
+#: template-options.php:776
 msgid "Header Links"
 msgstr ""
 
-#: template-options.php:787
+#: template-options.php:791
 msgid "Editing Quick Links"
 msgstr ""
 
-#: template-options.php:789
+#: template-options.php:793
 msgid "Show"
 msgstr ""
 
-#: template-options.php:790
+#: template-options.php:794
 msgid "Hide"
 msgstr ""
 
-#: template-options.php:804
+#: template-options.php:808
 msgid "For more site and header options see"
 msgstr ""
 
-#: template-options.php:807
+#: template-options.php:811
 msgid "For basic options see"
 msgstr ""
 
-#: template-options.php:828
+#: template-options.php:832
 msgid "Edit Custom Header"
 msgstr ""
 
-#: template-options.php:832
+#: template-options.php:836
 msgid "Add Custom Header"
 msgstr ""
 
-#: template-options.php:838
+#: template-options.php:842
 msgid "Edit Custom Background"
 msgstr ""
 
-#: template-options.php:842
+#: template-options.php:846
 msgid "Add Custom Background"
 msgstr ""
 
-#: template-options.php:848
+#: template-options.php:852
 msgid "Site Title and description are hidden"
 msgstr ""
 
-#: template-options.php:869
+#: template-options.php:873
 msgid "Content"
 msgstr ""
 
-#: template-options.php:892 template-options.php:905
+#: template-options.php:896 template-options.php:909
 msgid "hidden widgets!"
 msgstr ""
 
-#: template-options.php:923
+#: template-options.php:916
 msgid "For more sidebar options, see"
 msgstr ""
 
-#: template-options.php:924
+#: template-options.php:917 template-options.php:931
 msgid "Layout Options"
 msgstr ""
 
-#: template-options.php:965
+#: template-options.php:918
+msgid "Sidebar Options"
+msgstr ""
+
+#: template-options.php:930
+msgid "For more sidebar layout options, see"
+msgstr ""
+
+#: template-options.php:972
 msgid "single post pages"
 msgstr ""
 
-#: template-options.php:965 template-options.php:971 template-options.php:978
-#: template-options.php:986 template-options.php:993 template-options.php:999
+#: template-options.php:972 template-options.php:978 template-options.php:985
+#: template-options.php:993 template-options.php:1000 template-options.php:1006
 msgid "include"
 msgstr ""
 
-#: template-options.php:971
+#: template-options.php:978
 msgid "author pages"
 msgstr ""
 
-#: template-options.php:978
+#: template-options.php:985
 msgid "category archive"
 msgstr ""
 
-#: template-options.php:982 template-options.php:1047
+#: template-options.php:989 template-options.php:1054
 msgid "Categories"
 msgstr ""
 
-#: template-options.php:982
+#: template-options.php:989
 msgid "Category"
 msgstr ""
 
-#: template-options.php:986
+#: template-options.php:993
 msgid "tag archive"
 msgstr ""
 
-#: template-options.php:989 template-options.php:1056
+#: template-options.php:996 template-options.php:1063
 msgid "Tags"
 msgstr ""
 
-#: template-options.php:989
+#: template-options.php:996
 msgid "tag"
 msgstr ""
 
-#: template-options.php:990
+#: template-options.php:997
 msgid "No Comments"
 msgstr ""
 
-#: template-options.php:993
+#: template-options.php:1000
 msgid "search archive"
 msgstr ""
 
-#: template-options.php:999
+#: template-options.php:1006
 msgid "archives page"
 msgstr ""
 
-#: template-options.php:1015 template-options.php:1023
+#: template-options.php:1022 template-options.php:1030
 msgid "Text"
 msgstr ""
 
-#: template-options.php:1015
+#: template-options.php:1022
 msgid "alignment"
 msgstr ""
 
-#: template-options.php:1033
+#: template-options.php:1040
 msgid "Link"
 msgstr ""
 
-#: template-options.php:1064
+#: template-options.php:1071
 msgid "Entry"
 msgstr ""
 
-#: template-options.php:1064
+#: template-options.php:1071
 msgid "link"
 msgstr ""
 
-#: template-options.php:1083
+#: template-options.php:1090
 msgid "For text and link options, see"
 msgstr ""
 
-#: template-options.php:1084
+#: template-options.php:1091
 msgid "Post Options"
 msgstr ""
 
-#: template-options.php:1248
+#: template-options.php:1255
 msgid "Footer Widgets"
 msgstr ""
 #. Theme Name of the plugin/theme
