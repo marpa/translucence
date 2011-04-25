@@ -620,9 +620,9 @@ function translucence_page_links($post, $order) {
 	}
 	
 	if ($_COOKIE['hidetoc'] == 1) {
-		$page_links_label = "[show page links]";
+		$page_links_label = "[".__( 'show page links', '2010-translucence' )."]";
 	} else {
-		$page_links_label = "[hide page links]";
+		$page_links_label = "[".__( 'hide page links', '2010-translucence' )."]";
 	}
 							
 	if (count($num_children) > 1 && $order == "before") { 
