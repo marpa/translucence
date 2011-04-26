@@ -1308,13 +1308,14 @@ DESCRIPTION: 1-3 column fixed layout
 .toggle {
 	float: right;
 	width: 20px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
 	display: block;
 	line-height: 12px;
 	font-size: 12px;
 	text-align: center;
-	border: 1px dotted transparent;
+	margin: 1px;
+	border: 1px dotted transparent;	
 }
 
 #content .toggle {
@@ -1337,14 +1338,20 @@ DESCRIPTION: 1-3 column fixed layout
 	display: block;
 	font-size: 16px;
 	text-decoration: none;
-	border: 1px dotted transparent;
+	border-right: 1px dotted #CCCCCC;
+	border-left: 1px dotted #CCCCCC;
+	border-top: 1px dotted transparent;
+	border-bottom: 1px dotted transparent;
 }
 
 #content .toggle a {
 	display: block;
 	font-size: 16px;
 	text-decoration: none;
-	border: 1px dotted transparent;	
+	border-right: 1px dotted #CCCCCC;
+	border-left: 1px dotted #CCCCCC;
+	border-top: 1px dotted transparent;
+	border-bottom: 1px dotted transparent;
 }
 
 #toc .toggle a {
