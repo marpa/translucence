@@ -8,7 +8,7 @@
 function translucence_theme_options_do_page() {
 	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
     global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image, $translucence_model_site_width;
-    global $syndication_image;
+    global $translucence_syndication_image;
 
 	if ($translucence_options['revert'] == 1) {
 		translucence_option_feedback();
@@ -72,7 +72,7 @@ function translucence_theme_options_do_page() {
 	 *********************************************************/
 	 
  	$model_css = preg_replace("/body/", ".body_na", $translucence_options['css']); 
-	$syndication_image = get_template_directory_uri()."/variations/feed.png";
+	$translucence_syndication_image = get_template_directory_uri()."/variations/feed.png";
  	print "
  	<script type='text/javascript' src='".get_template_directory_uri()."/jscolor/jscolor.js'></script>
  	<style type='text/css'>";
@@ -239,9 +239,9 @@ function translucence_theme_options_do_page() {
  * Theme model css
  ******************************************************************************/
 function translucence_get_theme_model_css() {
-	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
-    global $translucence_options_id, $translucence_model_site_width;
-    global $translucence_custom_header_image, $syndication_image;
+	global $translucence_config, $translucence_variations;
+    global $translucence_options_id, $translucence_options, $translucence_options_values;
+    global $translucence_custom_header_image, $translucence_model_site_width, $translucence_syndication_image;
 
 	ob_start();
 
@@ -359,7 +359,7 @@ function translucence_get_theme_model_css() {
 		
 		#syndication a.feed {
 			padding: 5px 2px 0px 23px;
-			background: url(".$syndication_image.") no-repeat 0 1px;
+			background: url(".$translucence_syndication_image.") no-repeat 0 1px;
 			border-bottom: none;
 		}	
 		
