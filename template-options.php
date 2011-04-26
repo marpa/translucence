@@ -3,6 +3,8 @@
 /*********************************************************
  * Theme options
  * renders UI and theme model for chosing and previewing options
+ *
+ * @since 2010 Translucence 1.0
  *********************************************************/
 
 function translucence_theme_options_do_page() {
@@ -235,10 +237,13 @@ function translucence_theme_options_do_page() {
 	<?php
 }
 
+ /**
+ * Generates CSS for theme options UI (based on theme CSS)
+ *
+ * @since 2010 Translucence 1.0
+ * @return string CSS for theme options UI
+ */
 
-/******************************************************************************
- * Theme model css
- ******************************************************************************/
 function translucence_get_theme_model_css() {
 	global $translucence_config;
     global $translucence_options_id, $translucence_options, $translucence_options_values;
@@ -473,6 +478,13 @@ function translucence_get_theme_model_css() {
 
 }
 
+ /**
+ * Gets theme options UI for header left meta options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html for theme options UI
+ */
+
 function translucence_headermeta_left() {
 	global $translucence_config, $translucence_options, $translucence_options_id;
 	
@@ -506,6 +518,12 @@ function translucence_headermeta_left() {
 	return $headermeta_left;
 }
 
+ /**
+ * Gets theme options UI for header right meta options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html for theme options UI
+ */
 
 function translucence_headermeta_right() {
 	global $translucence_config, $translucence_options;
@@ -526,6 +544,18 @@ function translucence_headermeta_right() {
 	ob_end_clean();
 	return $headermeta_right;
 }
+
+ /**
+ * Gets theme options UI for global options
+ *
+ * @uses translucence_get_option_modes() to get option modes
+ * @uses translucence_get_active_options() to get options that are active for a given option mode
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses translucence_get_option_field() to display a field for a given option
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of global options for theme options UI
+ */
 
 function translucence_get_global_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
@@ -819,6 +849,13 @@ function translucence_get_global_options() {
 	return $global_options;
 }
 
+ /**
+ * Gets theme options UI for custom options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of custom options for theme options UI
+ */
+
 function translucence_get_custom_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
@@ -861,6 +898,16 @@ function translucence_get_custom_options() {
 
 	return $custom_options;
 }
+
+ /**
+ * Gets theme options UI for layout options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses is_active_sidebar() to determine if sidebar has widgets
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of layout options for theme options UI
+ */
 
 function translucence_get_layout_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $model_content_width;
@@ -938,6 +985,15 @@ function translucence_get_layout_options() {
 	return $entry_options;
 }
 
+ /**
+ * Gets theme options UI for layout options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of top navigation options for theme options UI
+ */
+
 function translucence_get_topmenu_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
@@ -960,6 +1016,15 @@ function translucence_get_topmenu_options() {
 
 	return $topmenu_options;
 }
+
+ /**
+ * Gets theme options UI for post options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of post options for theme options UI
+ */
 
 function translucence_get_post_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1099,6 +1164,16 @@ function translucence_get_post_options() {
 	return $post_options;
 }
 
+ /**
+ * Gets theme options UI for left sidebar options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses is_active_sidebar() to determine whether to show add or edit widgets link
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of left sidebar options for theme options UI
+ */
+
 function translucence_get_left01_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
@@ -1146,6 +1221,16 @@ function translucence_get_left01_options() {
 	return $left01_options;
 }
 
+/**
+ * Gets theme options UI for 1st right sidebar options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses is_active_sidebar() to determine whether to show add or edit widgets link
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of 1st right sidebar options for theme options UI
+ */
+ 
 function translucence_get_right01_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
@@ -1192,6 +1277,16 @@ function translucence_get_right01_options() {
 
 	return $right01_options;
 }
+
+/**
+ * Gets theme options UI for 2nd right sidebar options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses is_active_sidebar() to determine whether to show add or edit widgets link
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of 2nd right sidebar options for theme options UI
+ */
 
 function translucence_get_right02_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1241,9 +1336,14 @@ function translucence_get_right02_options() {
 	return $right02_options;
 }
 
-/******************************************************************************
- * Get Footer Options
- ******************************************************************************/
+/**
+ * Gets theme options UI for footer area options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of footer area options for theme options UI
+ */
 
 function translucence_get_footer_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1267,9 +1367,15 @@ function translucence_get_footer_options() {
 	return $footer_options;
 }
 
-/******************************************************************************
- * Get First Footer widget options
- ******************************************************************************/
+/**
+ * Gets theme options UI for footer widget area options
+ *
+ * @uses translucence_get_option_selector() to generate select field for a given option
+ * @uses is_active_sidebar() to determine whether there are widgets
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of footer widget area options for theme options UI
+ */
 
 function translucence_get_footer_widgets($order) {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1297,9 +1403,12 @@ function translucence_get_footer_widgets($order) {
 }
 
 
-/******************************************************************************
- * Get Footer meta right options
- ******************************************************************************/
+/**
+ * Gets theme options UI for footer right meta options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of footer right meta options for theme options UI
+ */
 
 function translucence_footermeta_right() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1318,9 +1427,12 @@ function translucence_footermeta_right() {
 	return $footermeta_right;
 }
 
-/******************************************************************************
- * Get Footer meta left otions
- ******************************************************************************/
+/**
+ * Gets theme options UI for footer left meta options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of footer left meta options for theme options UI
+ */
 
 function translucence_footermeta_left() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1360,10 +1472,13 @@ function translucence_footermeta_left() {
 	return $footermeta_left;
 }
 
-
-/******************************************************************************
- * Get Footer meta options
- ******************************************************************************/
+/**
+ * Gets theme options UI for footer right meta options
+ *
+ * @since 2010 Translucence 1.0
+ * @return string html of footer right meta options for theme options UI
+ */
+ 
 function translucence_get_footermeta_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
@@ -1392,9 +1507,12 @@ function translucence_get_footermeta_options() {
 	return $footermeta_options;
 }
 
-/******************************************************************************
- * Get option-modes 
- ******************************************************************************/
+/**
+ * Gets theme option modes 
+ *
+ * @since 2010 Translucence 1.0
+ * @return array theme option modes for theme options UI
+ */
 
 function translucence_get_option_modes() {
 	$option_modes = array(
@@ -1408,10 +1526,12 @@ function translucence_get_option_modes() {
 	return $option_modes;	
 }
 
-
-/******************************************************************************
- * Get active options that are included in given option mode
- ******************************************************************************/
+/**
+ * Gets active options that are included in given option mode 
+ *
+ * @since 2010 Translucence 1.0
+ * @return array theme option that are active for a given theme mode
+ */
 
 function translucence_get_active_options($translucence_options_mode) {
 	global $translucence_config, $translucence_options;
@@ -1562,10 +1682,14 @@ function translucence_get_active_options($translucence_options_mode) {
 	return $active_options;
 }
 
-
-/*********************************************************
- * Get select field for a given theme option
- *********************************************************/
+/**
+ * Gets select field for a given theme option 
+ *
+ * @uses translucence_get_active_options() to determine active options for a given option mode
+ *
+ * @since 2010 Translucence 1.0
+ * @return string theme option form elements for use in theme options UI
+ */
 
 function translucence_get_option_selector ($option_title, $option_name, $option_values, $state='dimmed') {
 	global $translucence_config, $translucence_options, $translucence_options_values;
@@ -1607,9 +1731,14 @@ function translucence_get_option_selector ($option_title, $option_name, $option_
 
 }
 
-/*********************************************************
- * Get an input field for a given theme option
- *********************************************************/
+/**
+ * Gets input field for a given theme option 
+ *
+ * @uses translucence_get_active_options() to determine active options for a given option mode
+ *
+ * @since 2010 Translucence 1.0
+ * @return string theme option form elements for use in theme options UI
+ */
 
 function translucence_get_option_field ($option_title, $option_name, $option_field_width) {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_options_id;

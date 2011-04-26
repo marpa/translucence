@@ -4,9 +4,13 @@ add_action( 'admin_init', 'translucence_theme_options_init' );
 add_action('admin_menu', 'translucence_variation_add_page');
 add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 
-/******************************************************************************
+ /**
  * Initialize plugin to white list theme options
- ******************************************************************************/
+ *
+ * @uses register_setting()
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_theme_options_init() {
 	global $translucence_options_id;
@@ -14,6 +18,17 @@ function translucence_theme_options_init() {
 	register_setting( $translucence_options_id, $translucence_options_id, 'translucence_validate_options' );	
 	
 }
+
+ /**
+ * Updates theme options
+ *
+ * @uses translucence_get_variation_options()
+ * @uses translucence_set_derivative_options()
+ * @uses translucence_options_css()
+ * @uses update_option()
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_theme_options_update() {
 	global $translucence_options_id, $translucence_options;
@@ -33,11 +48,27 @@ function translucence_theme_options_update() {
 				
 }
 
+ /**
+ * Add Theme Options page to edit_theme_options
+ *
+ * @uses add_theme_page()
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_variation_add_page() {
 	
     add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'variations', 'translucence_theme_options_do_page');
 }
+
+ /**
+ * Adds link to Theme Options in the Admin Bar
+ *
+ * @uses current_user_can()
+ * @uses is_admin_bar_showing()
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_add_menu_admin_bar() {
     global $wp_admin_bar;
@@ -48,9 +79,15 @@ function translucence_add_menu_admin_bar() {
     $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Theme Options', 'options' ), 'href' => admin_url()."themes.php?page=variations" ) );
 }
 
-/*********************************************************
- * set primary options (options exposed to user in model)
- *********************************************************/
+ /**
+ * Validate primary options (options exposed to user in theme options UI)
+ *
+ * @uses translucence_get_option_modes() to get array of option modes
+ * @uses wp_kses() to sanitize theme options that contain html
+ *
+ * @since 2010 Translucence 1.0
+ * @return array sanitized input
+ */
  
 function translucence_validate_options($input) {
 	global $allowedposttags, $translucence_config, $translucence_options_id; 
@@ -279,10 +316,15 @@ function translucence_validate_options($input) {
 	return $input;
 }
 
-/******************************************************************************
- * get default variation (note: child themes may override this)
- * 
- ******************************************************************************/
+ /**
+ * Get default variation (note: child themes may override this)
+ *
+ * @uses get_template_directory() to get default variation
+ *
+ * @since 2010 Translucence 1.0
+ * @return string path to default variation file
+ */
+ 
 if (!function_exists('translucence_get_variation_default')) {
 	function translucence_get_variation_default() {
 		if (file_exists(get_template_directory() .'/variations/default/variation.php')) {
@@ -292,10 +334,12 @@ if (!function_exists('translucence_get_variation_default')) {
 	}
 }
 
-/******************************************************************************
- * get default theme options from translucence_config
- * (see config-sample.php or config.php)
- ******************************************************************************/
+ /**
+ * Get default theme options from translucence_config
+ *
+ * @since 2010 Translucence 1.0
+ */
+
 function translucence_get_variation_default_config() {
 	global $translucence_config, $translucence_options;
 		
@@ -380,11 +424,14 @@ function translucence_get_variation_default_config() {
 	
 }
 
-
-/******************************************************************************
- * get path to variations source files (note: child themes may override this)
- * 
- ******************************************************************************/
+ /**
+ * Get path to variations source files (note: child themes may override this)
+ *
+ * @uses get_template_directory() to get variations directory
+ *
+ * @since 2010 Translucence 1.0
+ * @return string path to variations directory
+ */
 
 if (!function_exists('translucence_get_variations_source')) {
 	function translucence_get_variations_source() {
@@ -396,10 +443,18 @@ if (!function_exists('translucence_get_variations_source')) {
 	}
 }
 
-/******************************************************************************
- * get options for variations (based on translucence_options['background'])
- * 
- ******************************************************************************/
+ /**
+ * Get options for variations (based on translucence_options['background'])
+ *
+ * @uses translucence_get_variation_default() to get default variation file
+ * @uses translucence_get_variation_default_config() to get default configuration
+ * @uses translucence_get_variations_source() to get path to variations directory
+ * @uses wp_kses() to sanitize variation name from variation file
+ * @uses get_background_color() to get custom background color
+ * @uses get_background_image() to get custom background image
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_get_variation_options() {
 	global $translucence_options, $translucence_options_values, $translucence_variations;
@@ -494,10 +549,15 @@ function translucence_get_variation_options() {
 	//translucence_set_derivative_options();	
 }
 
-/*********************************************************
- * Set derivative options uses primary options (i.e. those exposed in UI)
- * to set derivative options
- *********************************************************/
+ /**
+ * Set derivative options uses primary options (i.e. those exposed in theme options UI)
+ *
+ * @uses translucence_hex2rgb() to convert hexidecimal colors and opacity to rgba()
+ * @uses translucence_ie_opacity_css() to hexidecimal colors and opacity to IE image filter transforms
+ * @uses is_active_sidebar() to determine how many footer widget areas are active in order to set their widths
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_set_derivative_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $custom_background_image;
@@ -1059,9 +1119,11 @@ function translucence_set_derivative_options() {
 
 }
 
-/******************************************************************************
- * Provides feedback to user about theme option choses
- ******************************************************************************/
+ /**
+ * Provide feedback to user about theme option choses
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_option_feedback() {
 	global $translucence_options, $translucence_config;
@@ -1142,7 +1204,7 @@ function translucence_option_feedback() {
 		}
 		
 		if ($error == "false") {
-			$message .= " <br/>".__( 'Visit ', '2010-translucence' );
+			$message .= " <br/>".__( 'Visit Site', '2010-translucence' );
 		}
 
 	}
@@ -1160,11 +1222,11 @@ function translucence_option_feedback() {
 
 }
 
-
-
-/******************************************************************************
- * Delete options deletes the theme options and initializes theme options array
- ******************************************************************************/
+ /**
+ * Delete theme options and initializes theme options array
+ *
+ * @since 2010 Translucence 1.0
+ */
 
 function translucence_delete_options() {
     global $translucence_options, $translucence_options_id;
@@ -1177,10 +1239,12 @@ function translucence_delete_options() {
 
 }
 
-/*********************************************************
- * Hext to RGB converter for setting transparency using RGBa
- * $c can be either hex or rgb
- *********************************************************/
+ /**
+ * Converts Hex to RGB for setting transparency using RGBa
+ *
+ * @since 2010 Translucence 1.0
+ * @return string rgba color
+ */
  
  function translucence_hex2rgb($color) {
 	if (!$color) return false;
@@ -1202,9 +1266,14 @@ function translucence_delete_options() {
 	return $rgb_color;
 }
 
-/******************************************************************************
- * Generates IE proprietary CSS for opacity 
- ******************************************************************************/
+ /**
+ * Generates IE proprietary CSS for opacity
+ *
+ * @uses translucence_hex2rgb() to translate hex colors to rgb
+ *
+ * @since 2010 Translucence 1.0
+ * @return string IE proprietary CSS for opacity
+ */
 
 function translucence_ie_opacity_css ($color, $opacity) {
 	if (!$color) return false;
