@@ -291,6 +291,23 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+		} else if (preg_match("/widgets/", $option)) {
+			if (in_array($value, array_keys($translucence_config['preset_widgets']))) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+		} else if (preg_match("/activated-widgets/", $option)) {
+			if (in_array($value, array_keys($translucence_config['preset_widgets']))) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
 		}
 	}
 	
@@ -342,7 +359,9 @@ if (!function_exists('translucence_get_variation_default')) {
 
 function translucence_get_variation_default_config() {
 	global $translucence_config, $translucence_options;
-		
+	
+	if (!isset($translucence_options['activated-widgets'])) $translucence_options['activated-widgets'] = $translucence_config['activated-widgets'];
+	if (!isset($translucence_options['widgets'])) $translucence_options['widgets'] = $translucence_config['widgets'];
 	if (!isset($translucence_options['headermeta'])) $translucence_options['headermeta'] = $translucence_config['headermeta'];
 	if (!isset($translucence_options['background'])) $translucence_options['background'] = $translucence_config['background'];
 	if (!isset($translucence_options['site-title-color'])) $translucence_options['site-title-color'] = $translucence_config['site-title-color'];
