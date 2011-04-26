@@ -115,10 +115,12 @@ $translucence_config['archives-single-sidebar'] = "right01";
  * Specify what widgets to include when Translucence is initially activated
  ******************************************************************************/
 
-$translucence_config['preset_widgets'] = array (
-	'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
-	'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
-	);
+$translucence_config['preset_widgets']['primary-widget-area'][] = "pages-2";
+$translucence_config['preset_widgets']['primary-widget-area'][] = "recent-posts-2";
+$translucence_config['preset_widgets']['primary-widget-area'][] = "categories-2";
+
+$translucence_config['preset_widgets']['secondary-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['secondary-widget-area'][] = "rss-links-2";
 
 
 /******************************************************************************
@@ -127,40 +129,30 @@ $translucence_config['preset_widgets'] = array (
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
 
-$translucence_config['header_meta_left_options']['blogs'] = array (
-		'option_name' =>	'blogs',
-		'option_label' =>	'Blog Sign Up',
-		'option_value' => ''
-	);
-	
-$translucence_config['header_meta_left_options']['custom'] = array (
-		'option_name' =>	'custom',
-		'option_label' =>	'Custom',
-		'option_value' => ''
-	);
+$translucence_config['header_meta_left_options']['blogs']['option_name'] = "blogs";
+$translucence_config['header_meta_left_options']['blogs']['option_label'] = "Blog Sign Up";
+$translucence_config['header_meta_left_options']['blogs']['option_value'] = "";
+
+$translucence_config['header_meta_left_options']['custom']['option_name'] = "custom";
+$translucence_config['header_meta_left_options']['custom']['option_label'] = "Custom";
+$translucence_config['header_meta_left_options']['custom']['option_value'] = "";
 
 /******************************************************************************
  * Header meta right options
  * (this is the html content options for the upper right corner of the blog)
  ******************************************************************************/
 
-$translucence_config['header_meta_right_options'] = array (
-		'option_name' =>	'',
-		'option_label' =>	'',
-		'option_value' => ''
-	);
+$translucence_config['header_meta_right_options']['option_name'] = "";
+$translucence_config['header_meta_right_options']['option_label'] = "";
+$translucence_config['header_meta_right_options']['option_value'] = "";
 
-$translucence_config['header_meta_right_options'] = array (
-		'option_name' =>	'show',
-		'option_label' =>	'Show',
-		'option_value' => "on"
-	);
+$translucence_config['header_meta_right_options']['option_name'] = "show";
+$translucence_config['header_meta_right_options']['option_label'] = "Show";
+$translucence_config['header_meta_right_options']['option_value'] = "on";
 
-$translucence_config['header_meta_right_options'] = array (
-		'option_name' =>	'hide',
-		'option_label' =>	'Hide',
-		'option_value' => "off"
-	);
+$translucence_config['header_meta_right_options']['option_name'] = "hide";
+$translucence_config['header_meta_right_options']['option_label'] = "Hide";
+$translucence_config['header_meta_right_options']['option_value'] = "off";
 	
 
 /******************************************************************************
@@ -168,32 +160,23 @@ $translucence_config['header_meta_right_options'] = array (
  * (this is the html content options for the lower left corner of the blog
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
-	
-$translucence_config['footer_meta_left_options']['custom'] = array (
-		'option_name' =>	'custom',
-		'option_label' =>	'Custom',
-		'option_value' => ''
-	);
+
+$translucence_config['footer_meta_left_options']['custom']['option_name'] = "custom";
+$translucence_config['footer_meta_left_options']['custom']['option_label'] = "Custom";
+$translucence_config['footer_meta_left_options']['custom']['option_value'] = "";
 	
 
 /******************************************************************************
  * Custom headers
  ******************************************************************************/
 
-$translucence_config['custom_header'] = array(
-		'none' => array(
-			'url' => '%s/images/headers/transparent.png',
-			'thumbnail_url' => '%s/images/headers/transparent-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'None', 'twentyten' )
-		),
-		'whitegradient' => array(
-			'url' => '%s/images/headers/whitegradient-1200x200.png',
-			'thumbnail_url' => '%s/images/headers/whitegradient-1200x200-thumbnail.png',
-			/* translators: header image description */
-			'description' => __( 'White Gradient', 'twentyten' )
-		)
-);
+$translucence_config['custom_header']['none']['url'] = "%s/images/headers/transparent.png";
+$translucence_config['custom_header']['none']['thumbnail_url'] = "%s/images/headers/transparent-thumbnail.png";
+$translucence_config['custom_header']['none']['description'] = __( 'None', '2010-translucence' );
+
+$translucence_config['custom_header']['whitegradient']['url'] = "%s/images/headers/whitegradient-1200x200.png";
+$translucence_config['custom_header']['whitegradient']['thumbnail_url'] = "%s/images/headers/whitegradient-1200x200-thumbnail.png";
+$translucence_config['custom_header']['whitegradient']['description'] = __( 'White Gradient', '2010-translucence' );
 
 
 /******************************************************************************
