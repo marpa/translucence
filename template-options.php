@@ -82,7 +82,8 @@ function translucence_theme_options_do_page() {
  	print $model_css;
  	print translucence_get_theme_model_css();
 
-	
+// 	printpre($translucence_options['activated-widgets']);
+// 	printpre($translucence_options['widgets']);
 	/******************************************************************************
 	 * Theme Options Introduction with Update and Revert buttons
 	 ******************************************************************************/
@@ -99,7 +100,28 @@ function translucence_theme_options_do_page() {
 			<span class='submit'><input type='submit' value='<?php _e( 'Revert to Default', '2010-translucence' ); ?>' name='<?php echo $translucence_options_id ?>[reset]'/></span>
 
 			</td>
-			<td width='60%' align='left'>
+			<td width='80%' align='left'>
+			<?php
+			// Widget set options
+			if (in_array("activated-widgets", $translucence_config['model'])) {				
+				print "<div>Widgets: ";
+				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 12px;' onchange='this.form.submit();'>";			
+					$widget_sets = array_keys($translucence_config['preset_widgets']);
+					foreach ($widget_sets as $widget_set) {
+						print "\n<option value='".$widget_set."'".($translucence_options['activated-widgets'] == $widget_set ? ' selected' : '') . ">".$widget_set."</option>";
+					}	
+				print "</select>";
+
+				if ($translucence_options['activated-widgets'] != "default" ) {
+					print "<span style='font-size: 10px;'> Choosing these widgets will replace all existing widgets</span>";
+					print "<span class='submit'><input type='submit' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/></span>";
+				} else {
+					print "<input type='hidden' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/>";
+				}
+
+				print "</div>";
+			}
+			?>
 			</td>
 			<td width='20%'>
 			</td>
@@ -585,7 +607,7 @@ function translucence_get_global_options() {
 			print "(Custom background color or image may change the background of this variation)";	
 			print "</div>";
 		}
-	}					
+	}
 	print "</td>";	
 	
 	// options mode values (used in translucence_get_active_options)
