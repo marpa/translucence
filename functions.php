@@ -108,7 +108,7 @@ if ( ! function_exists( 'translucence_setup' ) ):
 function translucence_setup() {
 	global $variation_config;
 	global $_POST, $options, $options_values, $variations;
-	global $theme_options;
+	global $translucence_options_id;
 
 	/*********************************************************
 	 * set options version
@@ -138,17 +138,17 @@ function translucence_setup() {
 	//define name of theme options and css
 	$theme_id = strtolower($variation_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
- 	$theme_options = $theme_id."_options";
+ 	$translucence_options_id = $theme_id."_options";
 
 	// initialize or get theme options	
 	if (is_array(get_option($theme_id."_settings"))) {
 		$options = get_option($theme_id."_settings");
 		delete_option($theme_id."_settings"); 
 		
-	} else if (!is_array(get_option($theme_options))) {
-		add_option($theme_options, array('init' => 1));
+	} else if (!is_array(get_option($translucence_options_id))) {
+		add_option($translucence_options_id, array('init' => 1));
 	} else {	
-		$options = get_option($theme_options);
+		$options = get_option($translucence_options_id);
 	}
 	
 	if ( is_admin() ) {
@@ -233,7 +233,7 @@ endif;
  */
 
 function translucence_add_options_css() {
-	global $options, $theme_options; 
+	global $options, $translucence_options_id; 
 	
 	print "<style type='text/css'>";
 	print $options['css'];
