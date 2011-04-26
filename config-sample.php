@@ -30,6 +30,8 @@ $translucence_config['background'] = "translucence-gray-white";
  * Default Variation Configuration
  * Specify what theme options to use as the default
  ******************************************************************************/
+$translucence_config['activated-widgets'] = "default";
+$translucence_config['widgets'] = "default";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
@@ -113,13 +115,19 @@ $translucence_config['archives-single-sidebar'] = "right01";
  * Specify what widgets to include when Translucence is initially activated
  ******************************************************************************/
 
-$translucence_config['preset_widgets']['primary-widget-area'][] = "pages-2";
-$translucence_config['preset_widgets']['primary-widget-area'][] = "recent-posts-2";
-$translucence_config['preset_widgets']['primary-widget-area'][] = "categories-2";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "pages-2";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "recent-posts-2";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "categories-2";
+$translucence_config['preset_widgets']['default']['secondary-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['default']['secondary-widget-area'][] = "rss-links-2";
 
-$translucence_config['preset_widgets']['secondary-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['secondary-widget-area'][] = "rss-links-2";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "pages-2";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "archives-2";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "categories-2";
 
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-posts-2";
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-comments-2";
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "categories-2";
 
 /******************************************************************************
  * Header meta left options
@@ -182,6 +190,9 @@ $translucence_config['custom_header']['whitegradient']['description'] = __( 'Whi
  * This is a list of all the theme options that will be displayed in the 
  * theme options UI
  ******************************************************************************/
+
+$translucence_config['model'][]  = 'widgets';
+$translucence_config['model'][]  = 'activated-widgets';
 
 $translucence_config['model'][]  = 'site-width';
 $translucence_config['model'][]  = 'background_image_url';
