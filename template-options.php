@@ -7,7 +7,7 @@
 
 function translucence_theme_options_do_page() {
 	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
-    global $translucence_custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
+    global $translucence_custom_header_set, $translucence_custom_background_set, $custom_header_image, $model_site_width;
     global $syndication_image;
 
 	if ($translucence_options['revert'] == 1) {
@@ -44,11 +44,11 @@ function translucence_theme_options_do_page() {
  		$translucence_options['background_repeat'] = get_theme_mod( 'background_repeat', 'repeat' );
  		$translucence_options['background_attachment'] = get_theme_mod( 'background_attachment', 'scroll' );
  		$translucence_options['background_position'] = get_theme_mod( 'background_position_x', 'left' );
- 		$custom_background_set = 1;
+ 		$translucence_custom_background_set = 1;
  	} else if ($custom_background_color) {
- 		$custom_background_set = 1;
+ 		$translucence_custom_background_set = 1;
  	} else {
- 		$custom_background_set = 0;
+ 		$translucence_custom_background_set = 0;
  	}
  
 	/*********************************************************
@@ -530,7 +530,7 @@ function translucence_headermeta_right() {
 function translucence_get_global_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
     global $translucence_options_id;	
-    global $translucence_custom_header_set, $custom_background_set, $active_options;
+    global $translucence_custom_header_set, $translucence_custom_background_set, $active_options;
        
 	ob_start();
 	print "<div class='options'>";
@@ -550,7 +550,7 @@ function translucence_get_global_options() {
 		print "</select>";
 		print "</div>";
 		
-		if ($custom_background_set == 1) {
+		if ($translucence_custom_background_set == 1) {
 			print "<div style='font-size: 10px; text-align: left; border-color: ".$translucence_options['bgtextcolor']."'>";
 			print "(Custom background color or image may change the background of this variation)";	
 			print "</div>";
@@ -822,7 +822,7 @@ function translucence_get_global_options() {
 function translucence_get_custom_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
     global $translucence_options_id;	
-    global $translucence_custom_header_set, $custom_background_set;
+    global $translucence_custom_header_set, $translucence_custom_background_set;
     
     ob_start();
     print "<div class='options' style='background-color: transparent; clear: both; border: none; margin-bottom: 35px;'>";
@@ -837,7 +837,7 @@ function translucence_get_custom_options() {
 		print "</div>";
 	}
 
-	if ($custom_background_set == 1) {
+	if ($translucence_custom_background_set == 1) {
 		print "<div class='post-link' style='float: right; width: 40%;'>";
 		print "<a style='color:".$translucence_options['bglinkcolor']."; border-color:".$translucence_options['bgtextcolor']." ' href='".get_bloginfo('url')."/wp-admin/themes.php?page=custom-background'>".__( 'Edit Custom Background', '2010-translucence')."</a>";	
 		print "</div>";
@@ -1569,7 +1569,7 @@ function translucence_get_active_options($translucence_options_mode) {
 
 function translucence_get_option_selector ($option_title, $option_name, $option_values, $state='dimmed') {
 	global $translucence_config, $translucence_options, $translucence_options_values;
-	global $translucence_custom_header_set, $custom_background_set, $translucence_options_id;
+	global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_options_id;
 	
 	$translucence_options_mode = translucence_get_active_options($translucence_options['options-mode']);
 	$display_option = false;
