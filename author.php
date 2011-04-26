@@ -15,7 +15,7 @@ $author = get_userdata($wp_the_query->query_vars['author']);
 ?>
 
 		<div id="container">
-		<?php if ( $options['author-sidebar-left-display'] == "show"  && $options['left01-width'] != '0') : ?>
+		<?php if ( $translucence_options['author-sidebar-left-display'] == "show"  && $translucence_options['left01-width'] != '0') : ?>
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
@@ -81,10 +81,10 @@ if ($authorpages && count($num_authorpages) > 0) { ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 
-<?php if ( $options['author-sidebar-right-display'] == "show" && $options['right01-width'] != '0') : ?>
+<?php if ( $translucence_options['author-sidebar-right-display'] == "show" && $translucence_options['right01-width'] != '0') : ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['author-sidebar-right02-display'] == "show" && $options['right02-width'] != '0') : ?>
+<?php if ( $translucence_options['author-sidebar-right02-display'] == "show" && $translucence_options['right02-width'] != '0') : ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

@@ -107,7 +107,7 @@ if ( ! function_exists( 'translucence_setup' ) ):
  */
 function translucence_setup() {
 	global $translucence_config;
-	global $options, $translucence_options_values, $translucence_variations;
+	global $translucence_options, $translucence_options_values, $translucence_variations;
 	global $translucence_options_id;
 
 	/*********************************************************
@@ -142,13 +142,13 @@ function translucence_setup() {
 
 	// initialize or get theme options	
 	if (is_array(get_option($theme_id."_settings"))) {
-		$options = get_option($theme_id."_settings");
+		$translucence_options = get_option($theme_id."_settings");
 		delete_option($theme_id."_settings"); 
 		
 	} else if (!is_array(get_option($translucence_options_id))) {
 		add_option($translucence_options_id, array('init' => 1));
 	} else {	
-		$options = get_option($translucence_options_id);
+		$translucence_options = get_option($translucence_options_id);
 	}
 	
 	if ( is_admin() ) {
@@ -191,16 +191,16 @@ function translucence_setup() {
 	//define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 940 ) );
 	//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
 	
-	//$header_image = "%s/variations/".$translucence_config['header_image_options'][$options['header-image-options']]['option_value'];
+	//$header_image = "%s/variations/".$translucence_config['header_image_options'][$translucence_options['header-image-options']]['option_value'];
 	
-	$header_image_width = $options['site-width'] - $options['custom-header-width-offset'];
-	$header_image_height = $options['header-block-height'];
-	//$header_image = $options['header-block-height'];	
+	$header_image_width = $translucence_options['site-width'] - $translucence_options['custom-header-width-offset'];
+	$header_image_height = $translucence_options['header-block-height'];
+	//$header_image = $translucence_options['header-block-height'];	
 	
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'translucence_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'translucence_header_image_height', $header_image_height ) );
-	//define( 'HEADER_TEXTCOLOR', $options['site-title-color']);
-	define( 'HEADER_BGCOLOR', $options['header-color-rgb']);
+	//define( 'HEADER_TEXTCOLOR', $translucence_options['site-title-color']);
+	define( 'HEADER_BGCOLOR', $translucence_options['header-color-rgb']);
 	//define( 'NO_HEADER_TEXT', true );
 	define( 'NO_HEADER_DESCRIPTION', true );	
 	
@@ -233,23 +233,23 @@ endif;
  */
 
 function translucence_add_options_css() {
-	global $options, $translucence_options_id; 
+	global $translucence_options, $translucence_options_id; 
 	
 	print "<style type='text/css'>";
-	print $options['css'];
+	print $translucence_options['css'];
 
 	// IE hack opacity options
-	print $options['header-color-ie']."\n"; 
-	print $options['title-box-color-ie']."\n"; 
-	print $options['description-box-color-ie']."\n"; 
-	print $options['right02-color-ie']."\n"; 
-	print $options['top-color-ie']."\n"; 
-	print $options['submenu-color-ie']."\n"; 
-	print $options['content-color-ie']."\n"; 
-	print $options['bottom-color-ie']."\n"; 
-	print $options['left01-color-ie']."\n"; 
-	print $options['right01-color-ie']."\n"; 
-	print $options['right02-color-ie']."\n"; 
+	print $translucence_options['header-color-ie']."\n"; 
+	print $translucence_options['title-box-color-ie']."\n"; 
+	print $translucence_options['description-box-color-ie']."\n"; 
+	print $translucence_options['right02-color-ie']."\n"; 
+	print $translucence_options['top-color-ie']."\n"; 
+	print $translucence_options['submenu-color-ie']."\n"; 
+	print $translucence_options['content-color-ie']."\n"; 
+	print $translucence_options['bottom-color-ie']."\n"; 
+	print $translucence_options['left01-color-ie']."\n"; 
+	print $translucence_options['right01-color-ie']."\n"; 
+	print $translucence_options['right02-color-ie']."\n"; 
 	print "</style>";
 }
 
@@ -262,7 +262,7 @@ function translucence_add_options_css() {
  */
 
 function translucence_header_style() {
-	global $post, $options, $translucence_config;
+	global $post, $translucence_options, $translucence_config;
 	
 	if ( is_singular() &&
 	has_post_thumbnail( $post->ID ) &&
@@ -272,8 +272,8 @@ function translucence_header_style() {
 		$custom_header = get_header_image();
 	}
 	
-	if ($custom_header == "" && $options['header-image-options'] != "none") {
-		$header_image = $translucence_config['custom_header'][$options['header-image-options']]['url'];
+	if ($custom_header == "" && $translucence_options['header-image-options'] != "none") {
+		$header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
 		$custom_header = str_replace('%s', '', $header_image);
 		$custom_header = get_template_directory_uri().$custom_header;
 	}
@@ -460,54 +460,54 @@ function translucence_get_breadcrumbs($post) {
  ******************************************************************************/
 
 function translucence_get_content_width ($template) {
-	global $options;
+	global $translucence_options;
 
 	if ($template == "page") {
 		$width_adjust = 50;
-		if ($options['left01-width'] == 0) {
+		if ($translucence_options['left01-width'] == 0) {
 			$left01_width = 0;
 		} else {
-			$left01_width = $options['left01-width']+$width_adjust;
+			$left01_width = $translucence_options['left01-width']+$width_adjust;
 		}
 		
-		if ($options['right01-width'] == 0) {
+		if ($translucence_options['right01-width'] == 0) {
 			$right01_width = 0;
 		} else {
-			$right01_width = $options['right01-width']+$width_adjust;
+			$right01_width = $translucence_options['right01-width']+$width_adjust;
 		}
 
-		if ($options['right02-width'] == 0) {
+		if ($translucence_options['right02-width'] == 0) {
 			$right02_width = 0;
 		} else {
-			$right02_width = $options['right02-width']+$width_adjust;
+			$right02_width = $translucence_options['right02-width']+$width_adjust;
 		}
 		
-		$content_width = $options['site-width'] -  ($left01_width + $right01_width + $right02_width + 70);
+		$content_width = $translucence_options['site-width'] -  ($left01_width + $right01_width + $right02_width + 70);
 		
 	} else {
 	
-		if ($options[$template.'-sidebar-left-display'] != "show" ) {
+		if ($translucence_options[$template.'-sidebar-left-display'] != "show" ) {
 			$left01_width = 0;
 		} else {
-			$left01_width = $options['left01-width']+50;
+			$left01_width = $translucence_options['left01-width']+50;
 		}
 		
-		if ($options[$template.'-sidebar-right-display'] != "show" ) {
+		if ($translucence_options[$template.'-sidebar-right-display'] != "show" ) {
 			$right01_width = 0;
 		} else {
-			$right01_width = $options['right01-width']+50;
+			$right01_width = $translucence_options['right01-width']+50;
 		}
 		
-		if ($options[$template.'-sidebar-right02-display'] != "show" ) {
+		if ($translucence_options[$template.'-sidebar-right02-display'] != "show" ) {
 			$right02_width = 0;
 		} else {
-			$right02_width = $options['right02-width']+50;
+			$right02_width = $translucence_options['right02-width']+50;
 		}
 		
-		$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+		$content_width = $translucence_options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
 	}
 	
-	//$content_width = $options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	//$content_width = $translucence_options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
 	return $content_width;
 }
 
@@ -520,7 +520,7 @@ function translucence_get_content_width ($template) {
  */
 
 function translucence_get_box_widths ($box = 'all') {
-	global $options;
+	global $translucence_options;
 	
 	if (is_single()) {
 		$content_width = translucence_get_content_width ("post");
@@ -536,25 +536,25 @@ function translucence_get_box_widths ($box = 'all') {
 		$content_width = translucence_get_content_width ("archives");
 	} else {
 		if (is_page_template('page-right01-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right01-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['right01-width'] - 125;
 		} else if (is_page_template('page-right02-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right02-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['right02-width'] - 125;
 		} else if (is_page_template('page-right-both-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['right01-width']  - $options['right02-width'] - 175;
+			$content_width = $translucence_options['site-width'] - $translucence_options['right01-width']  - $translucence_options['right02-width'] - 175;
 		} else if (is_page_template('page-left-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - 125;
 		} else if (is_page_template('page-left-right01-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - $options['right01-width'] - 175;
+			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - $translucence_options['right01-width'] - 175;
 		} else if (is_page_template('page-left-right02-sidebar.php')) {
-			$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
+			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - $translucence_options['right02-width'] - 175;
 		} else {
 			$content_width = translucence_get_content_width ("page");
 		}
 	}
 	
-	$box_widths = $options['right01-width'].",";
-	$box_widths .= $options['right02-width'].",";
-	$box_widths .= $options['left01-width'].",";
+	$box_widths = $translucence_options['right01-width'].",";
+	$box_widths .= $translucence_options['right02-width'].",";
+	$box_widths .= $translucence_options['left01-width'].",";
 	$box_widths .= $content_width;
 	
 	if ($box == "content") {
@@ -575,7 +575,7 @@ if ( ! function_exists( 'translucence_admin_header_style' ) ) :
  * @since Translucence 1.0
  */
 function translucence_admin_header_style() {
-global $options;
+global $translucence_options;
 ?>
 	<style type='text/css'>
 
@@ -589,10 +589,10 @@ global $options;
 		}
 
 		#headimg #name a { 
-			color: <?php print $options['site-title-color'] ?>;
+			color: <?php print $translucence_options['site-title-color'] ?>;
 		}
 		#headimg #desc { 
-			color: <?php print $options['site-description-color'] ?>;
+			color: <?php print $translucence_options['site-description-color'] ?>;
 		}
 	
 	</style>
@@ -688,7 +688,7 @@ function translucence_toggle_links() {
  */
 
 function translucence_box_display ($box) {
-	global $options;
+	global $translucence_options;
 	
 	$cookie_name = "hide".$box;
 				
@@ -696,11 +696,11 @@ function translucence_box_display ($box) {
 		print "display: none; width: 0px;";
 	} else {
 		if ($box == "primary") {			
-			$box_width = $options['right01-width'];
+			$box_width = $translucence_options['right01-width'];
 		} else if ($box == "secondary") {
-			$box_width = $options['right02-width'];
+			$box_width = $translucence_options['right02-width'];
 		} else if ($box == "tertiary") {
-			$box_width = $options['left01-width'];
+			$box_width = $translucence_options['left01-width'];
 		}
 		print "display: block; width: ".$box_width."px;";
 	}		

@@ -15,7 +15,7 @@
 	 * some default sidebar stuff just in case.
 	 */
 	// A tertiary sidebar for widgets, just because.
-	global $options;
+	global $translucence_options;
 	if ( is_active_sidebar( 'tertiary-widget-area' )) : ?>
 
 		<div id="tertiary" class="widget-area" role="complementary"  style="<?php translucence_box_display('tertiary') ?>">

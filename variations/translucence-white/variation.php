@@ -10,7 +10,7 @@ Author URI:
 Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, theme-options, fixed-width, flexible-width, custom-colors, custom-header, sticky-post, light, dark, white, black, yellow, blue, green, red, silver
 */
 
-if ($options['background'] == "translucence-white") {
+if ($translucence_options['background'] == "translucence-white") {
 
 	
 

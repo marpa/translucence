@@ -13,12 +13,12 @@
  */
 
 get_header(); 
-global $options;
+global $translucence_options;
 $content_width = translucence_get_content_width("page");
 ?>
 
 <div id="container">
-<?php if ($options['left01-width'] != '0') : ?>
+<?php if ($translucence_options['left01-width'] != '0') : ?>
 	<?php get_sidebar('tertiary'); ?>
 <?php endif;  ?>
 
@@ -64,10 +64,10 @@ $content_width = translucence_get_content_width("page");
 
 			</div><!-- #content -->
 
-<?php if ($options['right01-width'] != '0') : ?>
+<?php if ($translucence_options['right01-width'] != '0') : ?>
 	<?php get_sidebar('primary'); ?>
 <?php endif;  ?>
-<?php if ($options['right02-width'] != '0') : ?>
+<?php if ($translucence_options['right02-width'] != '0') : ?>
 	<?php get_sidebar('secondary'); ?>
 <?php endif;  ?>
 		</div><!-- #container -->
