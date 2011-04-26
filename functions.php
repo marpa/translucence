@@ -68,8 +68,6 @@ if ( ! isset( $content_width ) )
 // this theme may have child themes that override this config.
 $translucence_config = translucence_add_config();
 
-$current_widgets = get_option ('sidebars_widgets');
-//printpre($current_widgets);
 //printpre($_COOKIE);
 
 require_once( get_template_directory() . '/template-options.php');
@@ -307,7 +305,7 @@ function translucence_header_style() {
  */
 
 function translucence_widgets_init() {
-	global $translucence_config, $current_widgets;
+	global $translucence_config, $translucence_options, $current_widgets;
 	
 	// Area 1, located at the 1st right sidebar.
 	register_sidebar( array(
@@ -389,41 +387,39 @@ function translucence_widgets_init() {
 	
 	
 	// Pre-set Widgets
-	if (isset($translucence_config['preset_widgets']) && is_array($translucence_config['preset_widgets'])) {
-		$preset_widgets = $translucence_config['preset_widgets'];
+	if (isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
+		$preset_widgets = $translucence_config['preset_widgets'][$translucence_options['widgets']];
+		
+	} else if (isset($translucence_config['preset_widgets']) && is_array($translucence_config['preset_widgets'])) {
+		$preset_widgets = $translucence_config['preset_widgets'][$translucence_config['activated-widgets']];
+		
 	} else {	
 		$preset_widgets = array (
 			'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
 			'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
 			);
 	}
-	
+
+	$current_widgets = get_option ('sidebars_widgets');
 
 	// set default widgets only if no widgets have been set for the site
-    if ( isset( $_GET['activated'] )) {
-		$widgets_state = 1;
-		$primary_widgets = 1;
-		$secondary_widgets = 1;
-		$tertiary_widgets = 1;
+    if ( isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
 		
-		if (!isset($current_widgets['primary-widget-area']) || count($current_widgets['primary-widget-area']) == 0) $primary_widgets = 0;
-		if (!isset($current_widgets['secondary-widget-area']) || count($current_widgets['secondary-widget-area']) == 0) $secondary_widgets = 0;
-		if (!isset($current_widgets['tertiary-widget-area']) || count($current_widgets['tertiary-widget-area']) == 0) $tertiary_widgets = 0;
-		
-		if ($primary_widgets == 0 && $secondary_widgets == 0 && $tertiary_widgets == 0) $widgets_state = 0;
-    
-    	if ($widgets_state == 0) {    
-			update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
-			update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-			update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-			update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-			update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-			update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-			update_option( 'widget_links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-			update_option( 'widget_rss-links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-	
-			update_option( 'sidebars_widgets', apply_filters('translucence_preset_widgets',$preset_widgets ));
-  		}
+		// set activated widgets back to "default"
+		$translucence_options['activated-widgets'] = "default";
+    	translucence_theme_options_update();
+   
+		update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
+		update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+		update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+		update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
+		update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+		update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
+		update_option( 'widget_links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+		update_option( 'widget_rss-links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
+
+		update_option( 'sidebars_widgets', apply_filters('translucence_preset_widgets',$preset_widgets ));
+
   	}
   	
 }
