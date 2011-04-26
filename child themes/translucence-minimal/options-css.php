@@ -17,7 +17,7 @@ if ( ! function_exists( 'translucence_options_css' ) ) :
  *********************************************************/
 
 function translucence_options_css() {
-	global $options, $variation_config;
+	global $options, $translucence_config;
 	global $translucence_options_id;
 
 	$site_width = $options['site-width'];

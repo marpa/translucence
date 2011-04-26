@@ -61,12 +61,12 @@ if ( ! isset( $content_width ) )
 		} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
 			require_once('config-sample.php');
 		}
-	return $variation_config;
+	return $translucence_config;
 	}
 }
  
 // this theme may have child themes that override this config.
-$variation_config = translucence_add_config();
+$translucence_config = translucence_add_config();
 
 $current_widgets = get_option ('sidebars_widgets');
 //printpre($current_widgets);
@@ -106,7 +106,7 @@ if ( ! function_exists( 'translucence_setup' ) ):
  * @since 2010 Translucence 1.0
  */
 function translucence_setup() {
-	global $variation_config;
+	global $translucence_config;
 	global $options, $translucence_options_values, $variations;
 	global $translucence_options_id;
 
@@ -136,7 +136,7 @@ function translucence_setup() {
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
 	
 	//define name of theme options and css
-	$theme_id = strtolower($variation_config['theme-name']);
+	$theme_id = strtolower($translucence_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
  	$translucence_options_id = $theme_id."_options";
 
@@ -191,7 +191,7 @@ function translucence_setup() {
 	//define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyten_header_image_width', 940 ) );
 	//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyten_header_image_height', 198 ) );
 	
-	//$header_image = "%s/variations/".$variation_config['header_image_options'][$options['header-image-options']]['option_value'];
+	//$header_image = "%s/variations/".$translucence_config['header_image_options'][$options['header-image-options']]['option_value'];
 	
 	$header_image_width = $options['site-width'] - $options['custom-header-width-offset'];
 	$header_image_height = $options['header-block-height'];
@@ -220,7 +220,7 @@ function translucence_setup() {
 	// ... and thus ends the changeable header business.
 
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( $variation_config['custom_header'] );
+	register_default_headers( $translucence_config['custom_header'] );
 }
 endif;
 
@@ -262,7 +262,7 @@ function translucence_add_options_css() {
  */
 
 function translucence_header_style() {
-	global $post, $options, $variation_config;
+	global $post, $options, $translucence_config;
 	
 	if ( is_singular() &&
 	has_post_thumbnail( $post->ID ) &&
@@ -273,7 +273,7 @@ function translucence_header_style() {
 	}
 	
 	if ($custom_header == "" && $options['header-image-options'] != "none") {
-		$header_image = $variation_config['custom_header'][$options['header-image-options']]['url'];
+		$header_image = $translucence_config['custom_header'][$options['header-image-options']]['url'];
 		$custom_header = str_replace('%s', '', $header_image);
 		$custom_header = get_template_directory_uri().$custom_header;
 	}
@@ -301,7 +301,7 @@ function translucence_header_style() {
  */
 
 function translucence_widgets_init() {
-	global $variation_config, $current_widgets;
+	global $translucence_config, $current_widgets;
 	
 	// Area 1, located at the 1st right sidebar.
 	register_sidebar( array(
@@ -383,8 +383,8 @@ function translucence_widgets_init() {
 	
 	
 	// Pre-set Widgets
-	if (isset($variation_config['preset_widgets']) && is_array($variation_config['preset_widgets'])) {
-		$preset_widgets = $variation_config['preset_widgets'];
+	if (isset($translucence_config['preset_widgets']) && is_array($translucence_config['preset_widgets'])) {
+		$preset_widgets = $translucence_config['preset_widgets'];
 	} else {	
 		$preset_widgets = array (
 			'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),

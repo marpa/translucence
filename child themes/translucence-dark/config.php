@@ -7,17 +7,17 @@
  *
  *********************************************************/
 
-$variation_config = array();
+$translucence_config = array();
 
-$variation_config['theme-url'] = "http://segueproject.org/wordpress/themes/";
-$variation_config['theme-name'] = "2010 Translucence Dark";
+$translucence_config['theme-url'] = "http://segueproject.org/wordpress/themes/";
+$translucence_config['theme-name'] = "2010 Translucence Dark";
 
 /******************************************************************************
  * Child Themes Only
  * specify the name of the parent theme
  ******************************************************************************/
 
-$variation_config['theme-parent'] = "2010-translucence";
+$translucence_config['theme-parent'] = "2010-translucence";
 
 
 /******************************************************************************
@@ -26,96 +26,96 @@ $variation_config['theme-parent'] = "2010-translucence";
  * (see variations folder names for possible variations to include here)
  ******************************************************************************/
 
-$variation_config['background'] = "translucence-dark-gray";
+$translucence_config['background'] = "translucence-dark-gray";
 
 /******************************************************************************
  * Default Variation Configuration
  * Specify what theme options to use as the default
  ******************************************************************************/
-$variation_config['site-title-color'] = "#D9D323";
-$variation_config['site-description-color'] = "#FFFFFF";
+$translucence_config['site-title-color'] = "#D9D323";
+$translucence_config['site-description-color'] = "#FFFFFF";
 
-$variation_config['headermeta'] = "off";
-$variation_config['options-mode'] = "basic";
-$variation_config['revert'] = 1;
+$translucence_config['headermeta'] = "off";
+$translucence_config['options-mode'] = "basic";
+$translucence_config['revert'] = 1;
 
-$variation_config['site-width'] = "950";
+$translucence_config['site-width'] = "950";
 
-$variation_config['header-block-height'] = "100";
-$variation_config['site-title-size'] = "30";
-$variation_config['site-description-size'] = "14";
-$variation_config['header-text-shadow-offset'] = "1px 1px";
-$variation_config['header-text-shadow-blur'] = "2px";
+$translucence_config['header-block-height'] = "100";
+$translucence_config['site-title-size'] = "30";
+$translucence_config['site-description-size'] = "14";
+$translucence_config['header-text-shadow-offset'] = "1px 1px";
+$translucence_config['header-text-shadow-blur'] = "2px";
 
-$variation_config['entry-text-size'] = "14";
-$variation_config['entry-line-height'] = "20";
+$translucence_config['entry-text-size'] = "14";
+$translucence_config['entry-line-height'] = "20";
 
-$variation_config['footer-meta-left'] = "custom";
-$variation_config['header-meta-left'] = "custom";
-$variation_config['headerleftcustom'] = "";
-$variation_config['footerleftcustom'] = "";
+$translucence_config['footer-meta-left'] = "custom";
+$translucence_config['header-meta-left'] = "custom";
+$translucence_config['headerleftcustom'] = "";
+$translucence_config['footerleftcustom'] = "";
 
-$variation_config['header-image-options'] = "none";
+$translucence_config['header-image-options'] = "none";
 
-$variation_config['header-text-display'] = "middle";
-$variation_config['entry-link-style'] = "ww";
-$variation_config['entry-text-align'] = "left";
-$variation_config['tag-links-color'] = "#FFF8C6";
-$variation_config['cat-links-color'] = "#e9e9c9";
+$translucence_config['header-text-display'] = "middle";
+$translucence_config['entry-link-style'] = "ww";
+$translucence_config['entry-text-align'] = "left";
+$translucence_config['tag-links-color'] = "#FFF8C6";
+$translucence_config['cat-links-color'] = "#e9e9c9";
 
-$variation_config['site-padding-top'] = "20";
-$variation_config['site-padding-bottom'] = "20";
+$translucence_config['site-padding-top'] = "20";
+$translucence_config['site-padding-bottom'] = "20";
 
-$variation_config['site-color'] = "#FFFFFF";
-$variation_config['title-box-color'] = "#FFFFFF";
-$variation_config['description-box-color'] = "#FFFFFF";
-$variation_config['header-color'] = "#F9F9F9";
-$variation_config['top-color'] = "#F9F9F9";
-$variation_config['left01-color'] = "#F9F9F9";
-$variation_config['content-color'] = "#FFFFFF";
-$variation_config['right01-color'] = "#F9F9F9";
-$variation_config['right02-color'] = "#F9F9F9";
-$variation_config['bottom-color'] = "#F9F9F9";
+$translucence_config['site-color'] = "#FFFFFF";
+$translucence_config['title-box-color'] = "#FFFFFF";
+$translucence_config['description-box-color'] = "#FFFFFF";
+$translucence_config['header-color'] = "#F9F9F9";
+$translucence_config['top-color'] = "#F9F9F9";
+$translucence_config['left01-color'] = "#F9F9F9";
+$translucence_config['content-color'] = "#FFFFFF";
+$translucence_config['right01-color'] = "#F9F9F9";
+$translucence_config['right02-color'] = "#F9F9F9";
+$translucence_config['bottom-color'] = "#F9F9F9";
 
-$variation_config['site-opacity'] = "0";
-$variation_config['title-box-opacity'] = ".0";
-$variation_config['description-box-opacity'] = ".0";
+$translucence_config['site-opacity'] = "0";
+$translucence_config['title-box-opacity'] = ".0";
+$translucence_config['description-box-opacity'] = ".0";
 
-$variation_config['header-opacity'] = ".6";
-$variation_config['top-opacity'] = ".0";
-$variation_config['left01-opacity'] = ".6";
-$variation_config['content-opacity'] = "1";
-$variation_config['right01-opacity'] = ".3";
-$variation_config['right02-opacity'] = "0";
-$variation_config['bottom-opacity'] = "0";
+$translucence_config['header-opacity'] = ".6";
+$translucence_config['top-opacity'] = ".0";
+$translucence_config['left01-opacity'] = ".6";
+$translucence_config['content-opacity'] = "1";
+$translucence_config['right01-opacity'] = ".3";
+$translucence_config['right02-opacity'] = "0";
+$translucence_config['bottom-opacity'] = "0";
 
-$variation_config['site-border-style'] = "none";
-$variation_config['header-border-style'] = "dotted";
-$variation_config['top-border-style'] = "none";
-$variation_config['content-border-style'] = "solid";
-$variation_config['left01-border-style'] = "dotted";
-$variation_config['right01-border-style'] = "dotted";
-$variation_config['right02-border-style'] = "dotted";
-$variation_config['bottom-border-style'] = "dotted";
+$translucence_config['site-border-style'] = "none";
+$translucence_config['header-border-style'] = "dotted";
+$translucence_config['top-border-style'] = "none";
+$translucence_config['content-border-style'] = "solid";
+$translucence_config['left01-border-style'] = "dotted";
+$translucence_config['right01-border-style'] = "dotted";
+$translucence_config['right02-border-style'] = "dotted";
+$translucence_config['bottom-border-style'] = "dotted";
 
-$variation_config['header-width'] = $variation_config['site-width'];
-$variation_config['left01-width'] = "0";
-$variation_config['right01-width'] = "200";
-$variation_config['right02-width'] = "0";
+$translucence_config['header-width'] = $translucence_config['site-width'];
+$translucence_config['left01-width'] = "0";
+$translucence_config['right01-width'] = "200";
+$translucence_config['right02-width'] = "0";
 
-$variation_config['post-single-sidebar'] = "right01";
-$variation_config['category-single-sidebar'] = "right01";
-$variation_config['tag-single-sidebar'] = "right01";
-$variation_config['author-single-sidebar'] = "right01";
-$variation_config['search-single-sidebar'] = "right01";
-$variation_config['archives-single-sidebar'] = "right01";
+$translucence_config['post-single-sidebar'] = "right01";
+$translucence_config['category-single-sidebar'] = "right01";
+$translucence_config['tag-single-sidebar'] = "right01";
+$translucence_config['author-single-sidebar'] = "right01";
+$translucence_config['search-single-sidebar'] = "right01";
+$translucence_config['archives-single-sidebar'] = "right01";
 
 /******************************************************************************
  * Preset Widgets
  * Specify what widgets to include when Translucence is initially activated
  ******************************************************************************/
 
-$variation_config['preset_widgets'] = array (
+$translucence_config['preset_widgets'] = array (
 	'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
 	'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
 	);
@@ -127,13 +127,13 @@ $variation_config['preset_widgets'] = array (
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
 
-$variation_config['header_meta_left_options']['blogs'] = array (
+$translucence_config['header_meta_left_options']['blogs'] = array (
 		'option_name' =>	'blogs',
 		'option_label' =>	'Blog Sign Up',
 		'option_value' => ''
 	);
 	
-$variation_config['header_meta_left_options']['custom'] = array (
+$translucence_config['header_meta_left_options']['custom'] = array (
 		'option_name' =>	'custom',
 		'option_label' =>	'Custom',
 		'option_value' => ''
@@ -144,19 +144,19 @@ $variation_config['header_meta_left_options']['custom'] = array (
  * (this is the html content options for the upper right corner of the blog)
  ******************************************************************************/
 
-$variation_config['header_meta_right_options'] = array (
+$translucence_config['header_meta_right_options'] = array (
 		'option_name' =>	'',
 		'option_label' =>	'',
 		'option_value' => ''
 	);
 
-$variation_config['header_meta_right_options'] = array (
+$translucence_config['header_meta_right_options'] = array (
 		'option_name' =>	'show',
 		'option_label' =>	'Show',
 		'option_value' => "on"
 	);
 
-$variation_config['header_meta_right_options'] = array (
+$translucence_config['header_meta_right_options'] = array (
 		'option_name' =>	'hide',
 		'option_label' =>	'Hide',
 		'option_value' => "off"
@@ -169,7 +169,7 @@ $variation_config['header_meta_right_options'] = array (
  * Include "custom" if you want blog admins to be able to put whatever html they want
  ******************************************************************************/
 	
-$variation_config['footer_meta_left_options']['custom'] = array (
+$translucence_config['footer_meta_left_options']['custom'] = array (
 		'option_name' =>	'custom',
 		'option_label' =>	'Custom',
 		'option_value' => ''
@@ -180,7 +180,7 @@ $variation_config['footer_meta_left_options']['custom'] = array (
  * Custom headers
  ******************************************************************************/
 
-$variation_config['custom_header'] = array(
+$translucence_config['custom_header'] = array(
 		'none' => array(
 			'url' => '%s/images/headers/transparent.png',
 			'thumbnail_url' => '%s/images/headers/transparent-thumbnail.png',
@@ -202,109 +202,109 @@ $variation_config['custom_header'] = array(
  * theme options UI
  ******************************************************************************/
 
-$variation_config['model'][]  = 'site-width';
-$variation_config['model'][]  = 'background_image_url';
-$variation_config['model'][]  = 'background_color';
-$variation_config['model'][]  = 'background_repeat';
-$variation_config['model'][]  = 'background_position';
-$variation_config['model'][]  = 'bglinkcolor';
-$variation_config['model'][]  = 'bgtextcolor';
-$variation_config['model'][]  = 'header-width';
-$variation_config['model'][]  = 'headerleftcustom';
-$variation_config['model'][]  = 'header-meta-left';
-$variation_config['model'][]  = 'header-image-options';
-$variation_config['model'][]  = 'headermeta';
-$variation_config['model'][]  = 'header-text-display';
-$variation_config['model'][]  = 'header-block-height';
-$variation_config['model'][]  = 'topbar-bg-color';
-$variation_config['model'][]  = 'bottombar-bg-color';
-$variation_config['model'][]  = 'background';
-$variation_config['model'][]  = 'headercolor';
-$variation_config['model'][]  = 'textcolor';
-$variation_config['model'][]  = 'linkcolor';
-$variation_config['model'][]  = 'entry-link-style';
-$variation_config['model'][]  = 'cat-links-color';
-$variation_config['model'][]  = 'tag-links-color';
-$variation_config['model'][]  = 'left01-width';
-$variation_config['model'][]  = 'right01-width';
-$variation_config['model'][]  = 'right02-width';
-$variation_config['model'][]  = 'top-color';
-$variation_config['model'][]  = 'bottom-color';
-$variation_config['model'][]  = 'content-color';
-$variation_config['model'][]  = 'content-opacity';
-$variation_config['model'][]  = 'header-color';
-$variation_config['model'][]  = 'header-opacity';
-$variation_config['model'][]  = 'left01-color';
-$variation_config['model'][]  = 'right01-color';
-$variation_config['model'][]  = 'right02-color';
-$variation_config['model'][]  = 'top-opacity';
-$variation_config['model'][]  = 'bottom-opacity';
-$variation_config['model'][]  = 'left01-opacity';
-$variation_config['model'][]  = 'right01-opacity';
-$variation_config['model'][]  = 'right02-opacity';
-$variation_config['model'][]  = 'post-single-sidebar';
-$variation_config['model'][]  = 'footer-meta-left';
-$variation_config['model'][]  = 'footerleftcustom';
-$variation_config['model'][]  = 'model-instructions';
-$variation_config['model'][]  = 'revert';
-$variation_config['model'][]  = 'header-blogtitle-size';
-$variation_config['model'][]  = 'header-border-style';
-$variation_config['model'][]  = 'top-border-style';
-$variation_config['model'][]  = 'content-border-style';
-$variation_config['model'][]  = 'left01-border-style';
-$variation_config['model'][]  = 'right01-border-style';
-$variation_config['model'][]  = 'right02-border-style';
-$variation_config['model'][]  = 'bottom-border-style';
-$variation_config['model'][]  = 'category-single-sidebar';
-$variation_config['model'][]  = 'tag-single-sidebar';
-$variation_config['model'][]  = 'author-single-sidebar';
-$variation_config['model'][]  = 'search-single-sidebar';
-$variation_config['model'][]  = 'archives-single-sidebar';
-$variation_config['model'][]  = 'entry-text-align';
-$variation_config['model'][]  = 'header-text-shadow-offset';
-$variation_config['model'][]  = 'header-text-shadow-blur';
-$variation_config['model'][]  = 'header-text-shadow-color';
-$variation_config['model'][]  = 'colophon-border-type';
-$variation_config['model'][]  = 'background_attachment';
-$variation_config['model'][]  = 'footer-widget-width';
-$variation_config['model'][]  = 'site-title-size';
-$variation_config['model'][]  = 'site-title-color';
-$variation_config['model'][]  = 'site-color';
-$variation_config['model'][]  = 'site-opacity';
-$variation_config['model'][]  = 'site-border-style';
-$variation_config['model'][]  = 'site-border-top';
-$variation_config['model'][]  = 'site-border-bottom';
-$variation_config['model'][]  = 'site-border-left';
-$variation_config['model'][]  = 'site-border-right';
-$variation_config['model'][]  = 'site-padding-top';
-$variation_config['model'][]  = 'site-padding-bottom';
-$variation_config['model'][]  = 'header-text-shadow-offset';
-$variation_config['model'][]  = 'header-text-shadow-blur';
-$variation_config['model'][]  = 'site-description-color';
-$variation_config['model'][]  = 'site-description-size';
+$translucence_config['model'][]  = 'site-width';
+$translucence_config['model'][]  = 'background_image_url';
+$translucence_config['model'][]  = 'background_color';
+$translucence_config['model'][]  = 'background_repeat';
+$translucence_config['model'][]  = 'background_position';
+$translucence_config['model'][]  = 'bglinkcolor';
+$translucence_config['model'][]  = 'bgtextcolor';
+$translucence_config['model'][]  = 'header-width';
+$translucence_config['model'][]  = 'headerleftcustom';
+$translucence_config['model'][]  = 'header-meta-left';
+$translucence_config['model'][]  = 'header-image-options';
+$translucence_config['model'][]  = 'headermeta';
+$translucence_config['model'][]  = 'header-text-display';
+$translucence_config['model'][]  = 'header-block-height';
+$translucence_config['model'][]  = 'topbar-bg-color';
+$translucence_config['model'][]  = 'bottombar-bg-color';
+$translucence_config['model'][]  = 'background';
+$translucence_config['model'][]  = 'headercolor';
+$translucence_config['model'][]  = 'textcolor';
+$translucence_config['model'][]  = 'linkcolor';
+$translucence_config['model'][]  = 'entry-link-style';
+$translucence_config['model'][]  = 'cat-links-color';
+$translucence_config['model'][]  = 'tag-links-color';
+$translucence_config['model'][]  = 'left01-width';
+$translucence_config['model'][]  = 'right01-width';
+$translucence_config['model'][]  = 'right02-width';
+$translucence_config['model'][]  = 'top-color';
+$translucence_config['model'][]  = 'bottom-color';
+$translucence_config['model'][]  = 'content-color';
+$translucence_config['model'][]  = 'content-opacity';
+$translucence_config['model'][]  = 'header-color';
+$translucence_config['model'][]  = 'header-opacity';
+$translucence_config['model'][]  = 'left01-color';
+$translucence_config['model'][]  = 'right01-color';
+$translucence_config['model'][]  = 'right02-color';
+$translucence_config['model'][]  = 'top-opacity';
+$translucence_config['model'][]  = 'bottom-opacity';
+$translucence_config['model'][]  = 'left01-opacity';
+$translucence_config['model'][]  = 'right01-opacity';
+$translucence_config['model'][]  = 'right02-opacity';
+$translucence_config['model'][]  = 'post-single-sidebar';
+$translucence_config['model'][]  = 'footer-meta-left';
+$translucence_config['model'][]  = 'footerleftcustom';
+$translucence_config['model'][]  = 'model-instructions';
+$translucence_config['model'][]  = 'revert';
+$translucence_config['model'][]  = 'header-blogtitle-size';
+$translucence_config['model'][]  = 'header-border-style';
+$translucence_config['model'][]  = 'top-border-style';
+$translucence_config['model'][]  = 'content-border-style';
+$translucence_config['model'][]  = 'left01-border-style';
+$translucence_config['model'][]  = 'right01-border-style';
+$translucence_config['model'][]  = 'right02-border-style';
+$translucence_config['model'][]  = 'bottom-border-style';
+$translucence_config['model'][]  = 'category-single-sidebar';
+$translucence_config['model'][]  = 'tag-single-sidebar';
+$translucence_config['model'][]  = 'author-single-sidebar';
+$translucence_config['model'][]  = 'search-single-sidebar';
+$translucence_config['model'][]  = 'archives-single-sidebar';
+$translucence_config['model'][]  = 'entry-text-align';
+$translucence_config['model'][]  = 'header-text-shadow-offset';
+$translucence_config['model'][]  = 'header-text-shadow-blur';
+$translucence_config['model'][]  = 'header-text-shadow-color';
+$translucence_config['model'][]  = 'colophon-border-type';
+$translucence_config['model'][]  = 'background_attachment';
+$translucence_config['model'][]  = 'footer-widget-width';
+$translucence_config['model'][]  = 'site-title-size';
+$translucence_config['model'][]  = 'site-title-color';
+$translucence_config['model'][]  = 'site-color';
+$translucence_config['model'][]  = 'site-opacity';
+$translucence_config['model'][]  = 'site-border-style';
+$translucence_config['model'][]  = 'site-border-top';
+$translucence_config['model'][]  = 'site-border-bottom';
+$translucence_config['model'][]  = 'site-border-left';
+$translucence_config['model'][]  = 'site-border-right';
+$translucence_config['model'][]  = 'site-padding-top';
+$translucence_config['model'][]  = 'site-padding-bottom';
+$translucence_config['model'][]  = 'header-text-shadow-offset';
+$translucence_config['model'][]  = 'header-text-shadow-blur';
+$translucence_config['model'][]  = 'site-description-color';
+$translucence_config['model'][]  = 'site-description-size';
 
 //  primary options not exposed in theme model
-$variation_config['model'][]  = 'left01-margin-right';
-$variation_config['model'][]  = 'right01-margin-right';
-$variation_config['model'][]  = 'right02-margin-right';
-$variation_config['model'][]  = 'content-margin-right';
+$translucence_config['model'][]  = 'left01-margin-right';
+$translucence_config['model'][]  = 'right01-margin-right';
+$translucence_config['model'][]  = 'right02-margin-right';
+$translucence_config['model'][]  = 'content-margin-right';
 
-$variation_config['model'][]  = 'left01-margin-top';
-$variation_config['model'][]  = 'right01-margin-top';
-$variation_config['model'][]  = 'right02-margin-top';
-$variation_config['model'][]  = 'content-margin-top';
+$translucence_config['model'][]  = 'left01-margin-top';
+$translucence_config['model'][]  = 'right01-margin-top';
+$translucence_config['model'][]  = 'right02-margin-top';
+$translucence_config['model'][]  = 'content-margin-top';
 
 // more primary options
-$variation_config['model'][]  = 'entry-text-size';
-$variation_config['model'][]  = 'entry-line-height';
-$variation_config['model'][]  = 'title-box-color';
-$variation_config['model'][]  = 'title-box-opacity';
+$translucence_config['model'][]  = 'entry-text-size';
+$translucence_config['model'][]  = 'entry-line-height';
+$translucence_config['model'][]  = 'title-box-color';
+$translucence_config['model'][]  = 'title-box-opacity';
 
-$variation_config['model'][]  = 'description-box-color';
-$variation_config['model'][]  = 'description-box-opacity';
-$variation_config['model'][]  = 'options-mode';
-$variation_config['model'][]  = 'theme-name';
-$variation_config['model'][]  = 'theme-url';
+$translucence_config['model'][]  = 'description-box-color';
+$translucence_config['model'][]  = 'description-box-opacity';
+$translucence_config['model'][]  = 'options-mode';
+$translucence_config['model'][]  = 'theme-name';
+$translucence_config['model'][]  = 'theme-url';
 
 
 
@@ -314,17 +314,17 @@ $variation_config['model'][]  = 'theme-url';
  * Comment out all variations that are NOT disabled
  ******************************************************************************/
 
-$variation_config['variations_disabled'] = array();
+$translucence_config['variations_disabled'] = array();
 
-$variation_config['variations_disabled'][] = 'translucence-draft';
-$variation_config['variations_disabled'][] = 'translucence-white';
-//$variation_config['variations_disabled'][] = 'translucence-black';
-$variation_config['variations_disabled'][] = 'translucence-green';	
-$variation_config['variations_disabled'][] = 'translucence-yellow';
-$variation_config['variations_disabled'][] = 'translucence-yellow-white';
-$variation_config['variations_disabled'][] = 'translucence-white-yellow';
-$variation_config['variations_disabled'][] = 'translucence-gray';
-$variation_config['variations_disabled'][] = 'translucence-gray-white';
-$variation_config['variations_disabled'][] = 'translucence-white-gray';
+$translucence_config['variations_disabled'][] = 'translucence-draft';
+$translucence_config['variations_disabled'][] = 'translucence-white';
+//$translucence_config['variations_disabled'][] = 'translucence-black';
+$translucence_config['variations_disabled'][] = 'translucence-green';	
+$translucence_config['variations_disabled'][] = 'translucence-yellow';
+$translucence_config['variations_disabled'][] = 'translucence-yellow-white';
+$translucence_config['variations_disabled'][] = 'translucence-white-yellow';
+$translucence_config['variations_disabled'][] = 'translucence-gray';
+$translucence_config['variations_disabled'][] = 'translucence-gray-white';
+$translucence_config['variations_disabled'][] = 'translucence-white-gray';
 
 
