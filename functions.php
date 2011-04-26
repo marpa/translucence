@@ -431,6 +431,7 @@ add_action( 'widgets_init', 'translucence_widgets_init' );
  * Referenced on all page templates
  *
  * @since 2010 Translucence 1.0
+ * @return string link to parent page
  */
 
 function translucence_get_breadcrumbs($post) {
@@ -457,6 +458,9 @@ function translucence_get_breadcrumbs($post) {
  * Get Content Width
  * gets the width of the content column depending on what template is being used
  * template values: page, archives, search, author, category, tag, post
+ *
+ * @since 2010 Translucence 1.0
+ * @return int width of content box in pixels
  ******************************************************************************/
 
 function translucence_get_content_width ($template) {
@@ -517,6 +521,7 @@ function translucence_get_content_width ($template) {
  * and what type of template is loaded
  *
  * @since 2010 Translucence 1.0
+ * @return int comma-separated list of box widths
  */
 
 function translucence_get_box_widths ($box = 'all') {
@@ -646,6 +651,7 @@ function translucence_page_links($post, $order) {
  * based on document cookie
  *
  * @since 2010 Translucence 1.0
+ * @return css display: none; or display: block;
  */
 
 function translucence_page_links_display() {	
