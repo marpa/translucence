@@ -83,9 +83,9 @@ return $translucence_config;
 // function translucence_get_variations_source() {
 // 
 // 	if (file_exists(dirname(__FILE__) .'/variations/')) {
-// 		$variations_path = dirname(__FILE__) .'/variations';
+// 		$translucence_variations_path = dirname(__FILE__) .'/variations';
 // 	}
-// 	return $variations_path;
+// 	return $translucence_variations_path;
 // }
 
 

@@ -54,7 +54,7 @@ function translucence_add_menu_admin_bar() {
  
 function translucence_validate_options($input) {
 	global $allowedposttags, $translucence_config, $translucence_options_id; 
-	global $translucence_options_values, $variations;
+	global $translucence_options_values, $translucence_variations;
 
 	$options_mode = translucence_get_option_modes();
 	$valid_input = array();
@@ -237,7 +237,7 @@ function translucence_validate_options($input) {
 
 		// validate headermeta option
 		} else if (preg_match("/background/", $option)) {
-			if (in_array($value, $variations)) {
+			if (in_array($value, $translucence_variations)) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -390,9 +390,9 @@ if (!function_exists('translucence_get_variations_source')) {
 	function translucence_get_variations_source() {
 	
 		if (file_exists(get_template_directory() .'/variations/')) {
-			$variations_path = get_template_directory() .'/variations';
+			$translucence_variations_path = get_template_directory() .'/variations';
 		}
-		return $variations_path;
+		return $translucence_variations_path;
 	}
 }
 
@@ -402,7 +402,7 @@ if (!function_exists('translucence_get_variations_source')) {
  ******************************************************************************/
 
 function translucence_get_variation_options() {
-	global $options, $translucence_options_values, $variations;
+	global $options, $translucence_options_values, $translucence_variations;
 
 	/******************************************************************************
 	 * Default options and option value lists
@@ -422,7 +422,7 @@ function translucence_get_variation_options() {
 	 * used to extract theme info from theme style.php
 	 ******************************************************************************/
 	
-	$variations = array();
+	$translucence_variations = array();
 	$themes_allowed_tags = "";
 	
 	translucence_get_variation_default_config();
@@ -454,7 +454,7 @@ function translucence_get_variation_options() {
 							$id = $variation = wp_kses( _cleanup_header_comment($variation_id[1]), $themes_allowed_tags );
 						else
 							$id = $variation = '';						
-						$variations[$name] = $id;
+						$translucence_variations[$name] = $id;
 					}
 				}
 			}			
@@ -472,7 +472,7 @@ function translucence_get_variation_options() {
 		if ($custom_background_color !="") $options['background_color'] = "#".$custom_background_color;
 		if ($custom_background_image !="") $options['background_image'] = $custom_background_image;		
 
-		ksort($variations);
+		ksort($translucence_variations);
 		
 	}
 		
