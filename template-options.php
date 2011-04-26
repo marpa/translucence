@@ -1198,8 +1198,7 @@ function translucence_get_post_options() {
 
 function translucence_get_left01_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
-    global $translucence_options_id;	
-   	global $current_widgets;
+    global $translucence_options_id;
     
     ob_start();
     print "<div>";
@@ -1211,6 +1210,8 @@ function translucence_get_left01_options() {
 		translucence_get_option_selector ("", "left01-color", $translucence_options_values['sidebar-color']);
 		// border
 		translucence_get_option_selector ("", "left01-border-style", $translucence_options_values['border-style']);
+		
+		$current_widgets = get_option ('sidebars_widgets');
 		
 		if (is_active_sidebar("tertiary-widget-area")) {
 			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['left01-link-color'].";'>";
@@ -1256,7 +1257,6 @@ function translucence_get_left01_options() {
 function translucence_get_right01_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
-   	global $current_widgets;
     
     ob_start();
     print "<div>";
@@ -1268,6 +1268,8 @@ function translucence_get_right01_options() {
 		translucence_get_option_selector ("", "right01-color", $translucence_options_values['sidebar-color']);
 		// border
 		translucence_get_option_selector ("", "right01-border-style", $translucence_options_values['border-style']);
+		
+		$current_widgets = get_option ('sidebars_widgets');
 	
 		if (is_active_sidebar("primary-widget-area")) {
 			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
@@ -1313,7 +1315,6 @@ function translucence_get_right01_options() {
 function translucence_get_right02_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
-   	global $current_widgets;
     
     ob_start();
     print "<div>";
@@ -1326,7 +1327,8 @@ function translucence_get_right02_options() {
 		// border
 		translucence_get_option_selector ("", "right02-border-style", $translucence_options_values['border-style']);
 		
-
+		$current_widgets = get_option ('sidebars_widgets');
+		
 		if (is_active_sidebar("secondary-widget-area")) {
 			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right02-link-color']."'>";
 			print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
@@ -1402,7 +1404,8 @@ function translucence_get_footer_options() {
 function translucence_get_footer_widgets($order) {
 	global $translucence_config, $translucence_options, $translucence_options_values;
     global $translucence_options_id;	
-    global $current_widgets;
+
+	$current_widgets = get_option ('sidebars_widgets');
     
     ob_start();
 	print "<div>";
