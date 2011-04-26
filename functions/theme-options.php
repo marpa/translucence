@@ -299,6 +299,7 @@ if (!function_exists('translucence_get_variation_default')) {
 function translucence_get_variation_default_config() {
 	global $variation_config, $options;
 		
+	if (!isset($options['headermeta'])) $options['headermeta'] = $variation_config['headermeta'];
 	if (!isset($options['background'])) $options['background'] = $variation_config['background'];
 	if (!isset($options['site-title-color'])) $options['site-title-color'] = $variation_config['site-title-color'];
 	if (!isset($options['site-description-color'])) $options['site-description-color'] = $variation_config['site-description-color'];
