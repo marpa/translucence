@@ -151,7 +151,8 @@ function translucence_setup() {
 		$translucence_options = get_option($translucence_options_id);
 	}
 	
-	if ( is_admin() ) {
+	if ( is_admin() || !isset($translucence_options['activated-theme'])) {
+		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
 
