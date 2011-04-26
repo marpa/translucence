@@ -6,9 +6,10 @@
  *********************************************************/
 
 function translucence_theme_options_do_page() {
-	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
-    global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image, $translucence_model_site_width;
-    global $translucence_syndication_image;
+	global $translucence_config, $translucence_variations;
+	global $translucence_options_id, $translucence_options, $translucence_options_values;
+	global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image; 
+    global $translucence_syndication_image, $translucence_model_site_width;
 
 	if ($translucence_options['revert'] == 1) {
 		translucence_option_feedback();
@@ -33,8 +34,8 @@ function translucence_theme_options_do_page() {
 	}
 	
 	if ($translucence_custom_header_set == 0 && $translucence_options['header-image-options'] != "none") {
-		$translucence_header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
-		$custom_header = str_replace('%s', '', $translucence_header_image);
+		$custom_header = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
+		$custom_header = str_replace('%s', '', $custom_header);
 		$translucence_custom_header_image = get_template_directory_uri().$custom_header;
 		$translucence_custom_header_set = 1;
 	}
