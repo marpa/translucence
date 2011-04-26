@@ -6,7 +6,7 @@
  *********************************************************/
 
 function translucence_theme_options_do_page() {
-	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $header_image;
+	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
     global $custom_header_set, $custom_background_set, $custom_header_image, $model_site_width;
     global $syndication_image;
 
@@ -33,8 +33,8 @@ function translucence_theme_options_do_page() {
 	}
 	
 	if ($custom_header_set == 0 && $translucence_options['header-image-options'] != "none") {
-		$header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
-		$custom_header = str_replace('%s', '', $header_image);
+		$translucence_header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
+		$custom_header = str_replace('%s', '', $translucence_header_image);
 		$custom_header_image = get_template_directory_uri().$custom_header;
 		$custom_header_set = 1;
 	}
