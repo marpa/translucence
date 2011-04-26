@@ -199,7 +199,7 @@ function translucence_setup() {
 	
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'translucence_header_image_width', $header_image_width ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'translucence_header_image_height', $header_image_height ) );
-	//define( 'HEADER_TEXTCOLOR', $translucence_options['site-title-color']);
+	define( 'HEADER_TEXTCOLOR', $translucence_options['site-title-color']);
 	define( 'HEADER_BGCOLOR', $translucence_options['header-color-rgb']);
 	//define( 'NO_HEADER_TEXT', true );
 	define( 'NO_HEADER_DESCRIPTION', true );	
