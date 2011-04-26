@@ -54,7 +54,7 @@ function translucence_add_menu_admin_bar() {
  
 function translucence_validate_options($input) {
 	global $allowedposttags, $variation_config, $translucence_options_id; 
-	global $options_values, $variations;
+	global $translucence_options_values, $variations;
 
 	$options_mode = translucence_get_option_modes();
 	$valid_input = array();
@@ -126,7 +126,7 @@ function translucence_validate_options($input) {
 		
 		// validate all options the specify a border-style
 		} else if (preg_match("/border-style/", $option)) {
-			if (in_array($value, $options_values['border-style'])) {
+			if (in_array($value, $translucence_options_values['border-style'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -136,7 +136,7 @@ function translucence_validate_options($input) {
 
 		// validate all options the specify a shadow offset
 		} else if (preg_match("/shadow-offset/", $option)) {
-			if (in_array($value, $options_values['text-shadow-offset'])) {
+			if (in_array($value, $translucence_options_values['text-shadow-offset'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -146,7 +146,7 @@ function translucence_validate_options($input) {
 
 		// validate all options the specify a shadow blur
 		} else if (preg_match("/shadow-blur/", $option)) {
-			if (in_array($value, $options_values['text-shadow-blur'])) {
+			if (in_array($value, $translucence_options_values['text-shadow-blur'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -157,7 +157,7 @@ function translucence_validate_options($input) {
 		// validate all options the specify a which sidebars to display
 		// on post, author, category, tag, search and archives pages 
 		} else if (preg_match("/single-sidebar/", $option)) {
-			if (in_array($value, $options_values['sidebar-display'])) {
+			if (in_array($value, $translucence_options_values['sidebar-display'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -167,7 +167,7 @@ function translucence_validate_options($input) {
 
 		// validate text-align option
 		} else if (preg_match("/text-align/", $option)) {
-			if (in_array($value, $options_values['entry-text-align'])) {
+			if (in_array($value, $translucence_options_values['entry-text-align'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -177,7 +177,7 @@ function translucence_validate_options($input) {
 
 		// validate entry-link-style option
 		} else if (preg_match("/entry-link-style/", $option)) {
-			if (in_array($value, $options_values['entry-link-style'])) {
+			if (in_array($value, $translucence_options_values['entry-link-style'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -187,7 +187,7 @@ function translucence_validate_options($input) {
 
 		// validate header-text-display option
 		} else if (preg_match("/header-text-display/", $option)) {
-			if (in_array($value, $options_values['header-text-display'])) {
+			if (in_array($value, $translucence_options_values['header-text-display'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -197,7 +197,7 @@ function translucence_validate_options($input) {
 
 		// validate header-block-height option
 		} else if (preg_match("/header-block-height/", $option)) {
-			if (in_array($value, $options_values['header-block-height'])) {
+			if (in_array($value, $translucence_options_values['header-block-height'])) {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -402,7 +402,7 @@ if (!function_exists('translucence_get_variations_source')) {
  ******************************************************************************/
 
 function translucence_get_variation_options() {
-	global $options, $options_values, $variations;
+	global $options, $translucence_options_values, $variations;
 
 	/******************************************************************************
 	 * Default options and option value lists
@@ -478,18 +478,18 @@ function translucence_get_variation_options() {
 		
 	// if no variation has been selected then use theme defaults
 	if (isset($_POST)) {
-		if (!in_array($options['header-color'], array_values($options_values['sidebar-color']))) $options['header-color'] = "#F9F9F9";
-		if (!in_array($options['top-color'], array_values($options_values['sidebar-color']))) $options['top-color'] = "#FFFFFF";
-		if (!in_array($options['left01-color'], array_values($options_values['sidebar-color']))) $options['left01-color'] = "#F3F3F3";
-		if (!in_array($options['content-color'], array_values($options_values['sidebar-color']))) $options['content-color'] = "#FFFFFF";
-		if (!in_array($options['right01-color'], array_values($options_values['sidebar-color']))) $options['right01-color'] = "#F3F3F3";
-		if (!in_array($options['right02-color'], array_values($options_values['sidebar-color']))) $options['right02-color'] = "#F3F3F3";
-		if (!in_array($options['bottom-color'], array_values($options_values['sidebar-color']))) $options['bottom-color'] = "#FFFFFF";
-		if (!in_array($options['linkcolor'], array_values($options_values['linkcolor']))) $options['linkcolor'] = "#003366";
-		if (!in_array($options['textcolor'], array_values($options_values['textcolor']))) $options['textcolor'] = "#444444";
-		if (!in_array($options['entry-link-style'], array_values($options_values['entry-link-style']))) $options['entry-link-style'] = "underline";
-		if (!in_array($options['cat-links-color'], array_values($options_values['sidebar-color']))) $options['cat-links-color'] = "#e9e9c9";
-		if (!in_array($options['tag-links-color'], array_values($options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
+		if (!in_array($options['header-color'], array_values($translucence_options_values['sidebar-color']))) $options['header-color'] = "#F9F9F9";
+		if (!in_array($options['top-color'], array_values($translucence_options_values['sidebar-color']))) $options['top-color'] = "#FFFFFF";
+		if (!in_array($options['left01-color'], array_values($translucence_options_values['sidebar-color']))) $options['left01-color'] = "#F3F3F3";
+		if (!in_array($options['content-color'], array_values($translucence_options_values['sidebar-color']))) $options['content-color'] = "#FFFFFF";
+		if (!in_array($options['right01-color'], array_values($translucence_options_values['sidebar-color']))) $options['right01-color'] = "#F3F3F3";
+		if (!in_array($options['right02-color'], array_values($translucence_options_values['sidebar-color']))) $options['right02-color'] = "#F3F3F3";
+		if (!in_array($options['bottom-color'], array_values($translucence_options_values['sidebar-color']))) $options['bottom-color'] = "#FFFFFF";
+		if (!in_array($options['linkcolor'], array_values($translucence_options_values['linkcolor']))) $options['linkcolor'] = "#003366";
+		if (!in_array($options['textcolor'], array_values($translucence_options_values['textcolor']))) $options['textcolor'] = "#444444";
+		if (!in_array($options['entry-link-style'], array_values($translucence_options_values['entry-link-style']))) $options['entry-link-style'] = "underline";
+		if (!in_array($options['cat-links-color'], array_values($translucence_options_values['sidebar-color']))) $options['cat-links-color'] = "#e9e9c9";
+		if (!in_array($options['tag-links-color'], array_values($translucence_options_values['sidebar-color']))) $options['tag-links-color'] = "#FFF8C6";
 	}
 	//translucence_set_derivative_options();	
 }
@@ -500,7 +500,7 @@ function translucence_get_variation_options() {
  *********************************************************/
 
 function translucence_set_derivative_options() {
-	global $variation_config, $options, $options_values, $custom_background_image;
+	global $variation_config, $options, $translucence_options_values, $custom_background_image;
 	
 	/******************************************************************************
 	 * Site top padding (derived from  site-border-style)
