@@ -6,6 +6,9 @@ if ( ! function_exists( 'translucence_options_css' ) ) :
 /*********************************************************
  * Translucence options css
  * embeds theme options in css
+ *
+ * @since 2010 Translucence 1.0
+ * @return string css
  *********************************************************/
 
 function translucence_options_css() {
