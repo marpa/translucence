@@ -7,7 +7,7 @@
 
 function translucence_theme_options_do_page() {
 	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
-    global $translucence_custom_header_set, $translucence_custom_background_set, $custom_header_image, $model_site_width;
+    global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image, $model_site_width;
     global $syndication_image;
 
 	if ($translucence_options['revert'] == 1) {
@@ -24,9 +24,9 @@ function translucence_theme_options_do_page() {
     
     $custom_background_color = get_background_color();
 	$custom_background_image = get_background_image();    
-    $custom_header_image = get_header_image();
+    $translucence_custom_header_image = get_header_image();
     
-	if (isset($custom_header_image) && $custom_header_image != "") {
+	if (isset($translucence_custom_header_image) && $translucence_custom_header_image != "") {
    		$translucence_custom_header_set = 1;
 	} else {
 		$translucence_custom_header_set = 0;
@@ -35,7 +35,7 @@ function translucence_theme_options_do_page() {
 	if ($translucence_custom_header_set == 0 && $translucence_options['header-image-options'] != "none") {
 		$translucence_header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
 		$custom_header = str_replace('%s', '', $translucence_header_image);
-		$custom_header_image = get_template_directory_uri().$custom_header;
+		$translucence_custom_header_image = get_template_directory_uri().$custom_header;
 		$translucence_custom_header_set = 1;
 	}
 
@@ -242,7 +242,7 @@ function translucence_theme_options_do_page() {
 function translucence_get_theme_model_css() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
     global $translucence_options_id, $model_site_width;
-    global $custom_header_image, $syndication_image;
+    global $translucence_custom_header_image, $syndication_image;
 
 	ob_start();
 
@@ -266,7 +266,7 @@ function translucence_get_theme_model_css() {
 		}
 
 		.headerblock {
-			background-image: url(".$custom_header_image.");
+			background-image: url(".$translucence_custom_header_image.");
 			background-position: right center;
 			background-repeat: no-repeat;
 		}
