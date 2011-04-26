@@ -258,6 +258,9 @@ function translucence_add_options_css() {
  *
  * Referenced via wp_head() function in header.php
  *
+ * @uses get_header_image() to get custom header image
+ * @uses get_template_directory_uri() to build url to custom_header
+ * 
  * @since 2010 Translucence 1.0
  */
 
@@ -296,8 +299,10 @@ function translucence_header_style() {
  * To override translucence_widgets_init() in a child theme, remove the action hook and add your own
  * function tied to the init hook.
  *
- * @since 2010 Translucence
  * @uses register_sidebar
+ * @uses update_option to update with preset widgets
+ *
+ * @since 2010 Translucence
  */
 
 function translucence_widgets_init() {
@@ -521,7 +526,7 @@ function translucence_get_content_width ($template) {
  * and what type of template is loaded
  *
  * @since 2010 Translucence 1.0
- * @return int comma-separated list of box widths
+ * @return string comma-separated list of box widths
  */
 
 function translucence_get_box_widths ($box = 'all') {
@@ -577,6 +582,8 @@ if ( ! function_exists( 'translucence_admin_header_style' ) ) :
  *
  * Referenced via add_custom_image_header() in translucence_setup().
  *
+ * @uses header_image() to get custom header image url
+ *
  * @since Translucence 1.0
  */
 function translucence_admin_header_style() {
@@ -611,6 +618,10 @@ endif;
  *
  * To override this in a child theme, remove the filter and optionally add
  * your own function tied to the wp_page_menu_args filter hook.
+ *
+ * @uses wp_list_pages() to get a list of related or sub pages
+ * @uses get_pages() to get child pages of $post
+ * @uses translucence_page_links_display() to show or hide page links based on document cookie
  *
  * @since Tranlucence 2.3.1
  */
@@ -651,7 +662,7 @@ function translucence_page_links($post, $order) {
  * based on document cookie
  *
  * @since 2010 Translucence 1.0
- * @return css display: none; or display: block;
+ * @return string "display: none;" or "display: block;"
  */
 
 function translucence_page_links_display() {	
@@ -668,8 +679,10 @@ function translucence_page_links_display() {
  /**
  * Adds links to toggle display of sidebars
  *
+ * @uses translucence_get_box_widths() to get widths of sidebar boxes
  *
  * @since 2010 Translucence 1.0
+ * @return string html markup with reference to javascript function
  */
 
 function translucence_toggle_links() {	
@@ -689,6 +702,7 @@ function translucence_toggle_links() {
  /**
  * Sets display of specified box
  * based on document cookie
+ *
  *
  * @since 2010 Translucence 1.0
  */
