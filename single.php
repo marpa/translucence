@@ -12,7 +12,7 @@ $content_width = translucence_get_content_width ("post");
 ?>
 
 		<div id="container">
-<?php if ( $options['post-sidebar-left-display'] == "show" && $options['left01-width'] != '0') : ?>
+<?php if ( $translucence_options['post-sidebar-left-display'] == "show" && $translucence_options['left01-width'] != '0') : ?>
 	<?php get_sidebar('tertiary'); ?>	
 <?php endif; ?>	
 
@@ -90,10 +90,10 @@ $content_width = translucence_get_content_width ("post");
 
 
 
-<?php if ( $options['post-sidebar-right-display'] == "show" && $options['right01-width'] != '0') : // Only display sidebar if single. ?>
+<?php if ( $translucence_options['post-sidebar-right-display'] == "show" && $translucence_options['right01-width'] != '0') : // Only display sidebar if single. ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $options['post-sidebar-right02-display'] == "show" && $options['right02-width'] != '0') : // Only display sidebar if single. ?>
+<?php if ( $translucence_options['post-sidebar-right02-display'] == "show" && $translucence_options['right02-width'] != '0') : // Only display sidebar if single. ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

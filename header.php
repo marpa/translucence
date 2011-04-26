@@ -16,7 +16,7 @@
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged, $options;
+	global $page, $paged, $translucence_options;
 
 	wp_title( '|', true, 'right' );
 
@@ -51,9 +51,9 @@
 	 */
 	wp_head();
 ?>
-<meta name="primary_width" content="<?php echo $options['right01-width'] ?>" />
-<meta name="secondary_width" content="<?php echo $options['right02-width'] ?>" />
-<meta name="tertiary_width" content="<?php echo $options['left01-width'] ?>" />
+<meta name="primary_width" content="<?php echo $translucence_options['right01-width'] ?>" />
+<meta name="secondary_width" content="<?php echo $translucence_options['right02-width'] ?>" />
+<meta name="tertiary_width" content="<?php echo $translucence_options['left01-width'] ?>" />
 <meta name="content_width" content="<?php echo translucence_get_box_widths('content'); ?>" />
 </head>
 
@@ -62,9 +62,9 @@
 	
 	<div class="headermeta_right">
 		<span class="bgtextcolor">
-		<?php print stripslashes($options['headerright']);
+		<?php print stripslashes($translucence_options['headerright']);
 		
-		if ($options['headermeta'] == "on") {
+		if ($translucence_options['headermeta'] == "on") {
 			if (current_user_can( 'moderate_comments' )) print "<a href='".get_bloginfo('url')."/wp-admin/nav-menus.php'>Menus</a>";
 			if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Widgets</a>";
 			if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('url')."/wp-admin/themes.php?page=Variations'>Design</a>";
@@ -82,7 +82,7 @@
 	</div>
 	<div class="headermeta_left">
 		<span class="bgtextcolor">
-		<?php print stripslashes($options['headerleft']); ?>
+		<?php print stripslashes($translucence_options['headerleft']); ?>
 		</span><br/>
 	</div>
 	

@@ -14,9 +14,9 @@
 	 * then the sidebar simply doesn't exist, so we'll hard-code in
 	 * some default sidebar stuff just in case.
 	 */
-	global $options;
+	global $translucence_options;
 	
-	if ( $options['right01-width'] != '0') : ?>
+	if ( $translucence_options['right01-width'] != '0') : ?>
 	
 		<div id="primary" class="widget-area" role="complementary" style="<?php translucence_box_display('primary') ?>">
 			<div class="toggle" style="margin-right: -20px;">

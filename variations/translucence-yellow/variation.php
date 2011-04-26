@@ -10,17 +10,17 @@ Author URI:
 Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, theme-options, fixed-width, flexible-width, custom-colors, custom-header, sticky-post, light, dark, white, black, yellow, blue, green, red, silver
 */
 
-if ($options['background'] == "translucence-yellow") {
+if ($translucence_options['background'] == "translucence-yellow") {
 
-	$options['background_image'] = "none";
-	$options['background_color'] = "#FFF8C6";
-	$options['bgtextcolor'] = "#555555";
-	$options['bglinkcolor'] = "#333333";
-	$options['bgbordercolor'] = "#999999";
+	$translucence_options['background_image'] = "none";
+	$translucence_options['background_color'] = "#FFF8C6";
+	$translucence_options['bgtextcolor'] = "#555555";
+	$translucence_options['bglinkcolor'] = "#333333";
+	$translucence_options['bgbordercolor'] = "#999999";
 
-	$options['transparent-heading-color'] = "#222222";
-	$options['transparent-link-color']  = $options['linkcolor'];
-	$options['transparent-text-color']  = $options['textcolor'];
+	$translucence_options['transparent-heading-color'] = "#222222";
+	$translucence_options['transparent-link-color']  = $translucence_options['linkcolor'];
+	$translucence_options['transparent-text-color']  = $translucence_options['textcolor'];
 
 
 }	

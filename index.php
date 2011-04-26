@@ -15,11 +15,11 @@
 
 get_header(); ?>
 
-<?php $options; ?>
+<?php $translucence_options; ?>
 	
 <div id="container">
 
-	<?php if ($options['left01-width'] != '0') : ?>
+	<?php if ($translucence_options['left01-width'] != '0') : ?>
 		<?php get_sidebar('tertiary'); ?>	
 	<?php endif; ?>	
 	
@@ -34,10 +34,10 @@ get_header(); ?>
 		?>
 		</div><!-- #content -->
 	
-	<?php if (is_active_sidebar("primary-widget-area")  && $options['right01-width'] != '0') : // Only display sidebar if single. ?>
+	<?php if (is_active_sidebar("primary-widget-area")  && $translucence_options['right01-width'] != '0') : // Only display sidebar if single. ?>
 		<?php get_sidebar('primary'); ?>	
 	<?php endif; ?>	
-	<?php if (is_active_sidebar("secondary-widget-area")  && $options['right02-width'] != '0' ) : // Only display sidebar if single. ?>
+	<?php if (is_active_sidebar("secondary-widget-area")  && $translucence_options['right02-width'] != '0' ) : // Only display sidebar if single. ?>
 		<?php get_sidebar('secondary'); ?>	
 	<?php endif; ?>		
 

@@ -11,112 +11,112 @@ Author URI:
 */
 
 // Theme name and url (Variations can override with their own name and url)
-$options['theme-name'] = "2010 Translucence Dark";
-$options['theme-url'] = "http://segueproject.org/wordpress/themes-dark";
+$translucence_options['theme-name'] = "2010 Translucence Dark";
+$translucence_options['theme-url'] = "http://segueproject.org/wordpress/themes-dark";
 
 
-$options['background_color'] = "#000000";
-$options['background_image'] = "";
-$options['background_position'] = "top center";
-$options['background_repeat'] = "repeat-x";
-$options['background_attachment'] = "scroll";
+$translucence_options['background_color'] = "#000000";
+$translucence_options['background_image'] = "";
+$translucence_options['background_position'] = "top center";
+$translucence_options['background_repeat'] = "repeat-x";
+$translucence_options['background_attachment'] = "scroll";
 
-$options['background-source-url'] = "";
-$options['background-source-credit'] = "";
+$translucence_options['background-source-url'] = "";
+$translucence_options['background-source-credit'] = "";
 
 
-$options['site-margin-top'] = "0";	
-//$options['page-image-width'] = $options['site-width']-50;
-$options['custom-header-width-offset'] = 7;
+$translucence_options['site-margin-top'] = "0";	
+//$translucence_options['page-image-width'] = $translucence_options['site-width']-50;
+$translucence_options['custom-header-width-offset'] = 7;
 
-$options['header-text-padding-left'] = "10";
-//$options['site-title-size'] = "30";
+$translucence_options['header-text-padding-left'] = "10";
+//$translucence_options['site-title-size'] = "30";
 
 // define border widths
-$options['content-border-width'] = "1px";
+$translucence_options['content-border-width'] = "1px";
 
-$options['header-outer-border-style'] = "none";
-$options['header-border02-height'] = 0;
+$translucence_options['header-outer-border-style'] = "none";
+$translucence_options['header-border02-height'] = 0;
 
 // define text shadow options for site-title and post-title
-$options['header-text-shadow-color'] = "#444444";
-//$options['header-text-shadow-offset'] = "1px 1px";
-//$options['header-text-shadow-blur'] = "2px";
-$options['post-text-shadow-color'] = "#CCCCCC";
-$options['post-text-shadow-offset'] = "1px 1px";
-$options['post-text-shadow-blur'] = "0.05em";
+$translucence_options['header-text-shadow-color'] = "#444444";
+//$translucence_options['header-text-shadow-offset'] = "1px 1px";
+//$translucence_options['header-text-shadow-blur'] = "2px";
+$translucence_options['post-text-shadow-color'] = "#CCCCCC";
+$translucence_options['post-text-shadow-offset'] = "1px 1px";
+$translucence_options['post-text-shadow-blur'] = "0.05em";
 
 // define default link colors
-if (isset($options['linkcolor'])) {
-	$options['header-blogtitle-color'] = $options['linkcolor']; 
-	$options['content-link-color'] = $options['linkcolor'];
-	$options['top-link-color'] = $options['linkcolor'];
-	$options['bottom-link-color'] = $options['linkcolor'];
-	$options['left01-link-color'] = $options['linkcolor'];
-	$options['right01-link-color'] = $options['linkcolor'];
-	$options['right02-link-color'] = $options['linkcolor'];
-	$options['transparent-heading-color'] = $options['linkcolor'];
-	$options['transparent-link-color'] = $options['linkcolor'];
-	$options['transparent-text-color'] = $options['linkcolor'];
+if (isset($translucence_options['linkcolor'])) {
+	$translucence_options['header-blogtitle-color'] = $translucence_options['linkcolor']; 
+	$translucence_options['content-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['top-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['bottom-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['left01-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['right01-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['right02-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-heading-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-text-color'] = $translucence_options['linkcolor'];
 } else {
-	$options['header-blogtitle-color'] = "#003366";
-	$options['content-link-color'] = "#003366";
-	$options['top-link-color'] = "#003366";
-	$options['bottom-link-color'] = "#003366";
-	$options['left01-link-color'] = "#003366";
-	$options['right01-link-color'] = "#003366";
-	$options['right02-link-color'] = "#003366";
-	$options['linkcolor'] = "#003366";
-	$options['transparent-heading-color'] = "#003366";
-	$options['transparent-link-color'] = "#003366";
-	$options['transparent-text-color'] = "#003366";
+	$translucence_options['header-blogtitle-color'] = "#003366";
+	$translucence_options['content-link-color'] = "#003366";
+	$translucence_options['top-link-color'] = "#003366";
+	$translucence_options['bottom-link-color'] = "#003366";
+	$translucence_options['left01-link-color'] = "#003366";
+	$translucence_options['right01-link-color'] = "#003366";
+	$translucence_options['right02-link-color'] = "#003366";
+	$translucence_options['linkcolor'] = "#003366";
+	$translucence_options['transparent-heading-color'] = "#003366";
+	$translucence_options['transparent-link-color'] = "#003366";
+	$translucence_options['transparent-text-color'] = "#003366";
 }
 
 // define default background link and text colors
-$options['bgtextcolor'] = "#999999";
-$options['bglinkcolor'] = "#666666";
+$translucence_options['bgtextcolor'] = "#999999";
+$translucence_options['bglinkcolor'] = "#666666";
 
 // define default widget heading colors
-$options['left01-heading-color'] = "#999999";
-$options['right01-heading-color'] = "#999999";
-$options['right02-heading-color'] = "#999999";
+$translucence_options['left01-heading-color'] = "#999999";
+$translucence_options['right01-heading-color'] = "#999999";
+$translucence_options['right02-heading-color'] = "#999999";
 
 // define default tagline text color
-if (isset($options['textcolor'])) {
-	$options['header-blogdescription-color'] = $options['textcolor']; 
+if (isset($translucence_options['textcolor'])) {
+	$translucence_options['header-blogdescription-color'] = $translucence_options['textcolor']; 
 } else {
-	$options['header-blogdescription-color'] = "#333333";
-	$options['textcolor'] = "#333333";
+	$translucence_options['header-blogdescription-color'] = "#333333";
+	$translucence_options['textcolor'] = "#333333";
 }
 
 /******************************************************************************
  * Define margins
  ******************************************************************************/
 
-$options['header-meta-left-margin'] = "0px";
-$options['header-meta-right-margin'] = "0px";
-$options['footer-meta-left-margin'] = "10px";
-$options['footer-meta-right-margin'] = "10px";
+$translucence_options['header-meta-left-margin'] = "0px";
+$translucence_options['header-meta-right-margin'] = "0px";
+$translucence_options['footer-meta-left-margin'] = "10px";
+$translucence_options['footer-meta-right-margin'] = "10px";
 
-$options['left01-margin-right'] = "1";
-$options['content-margin-right'] = "1";
-$options['right01-margin-right'] = "1";
-$options['right02-margin-right'] = "0";
+$translucence_options['left01-margin-right'] = "1";
+$translucence_options['content-margin-right'] = "1";
+$translucence_options['right01-margin-right'] = "1";
+$translucence_options['right02-margin-right'] = "0";
 
-$options['left01-margin-top'] = "5";
-$options['content-margin-top'] = "0";
-$options['right01-margin-top'] = "5";
-$options['right02-margin-top'] = "10";
+$translucence_options['left01-margin-top'] = "5";
+$translucence_options['content-margin-top'] = "0";
+$translucence_options['right01-margin-top'] = "5";
+$translucence_options['right02-margin-top'] = "10";
 
 
 /******************************************************************************
  * Miscellaneous options
  ******************************************************************************/
 
-$options['thread-even-bgcolor'] = "#FFFFFF";
-$options['thread-alt-bgcolor'] = "#f8f8f8";
-$options['commentfield'] = "#000000";
-$options['searchbox-color'] = "#FFFFFF";
+$translucence_options['thread-even-bgcolor'] = "#FFFFFF";
+$translucence_options['thread-alt-bgcolor'] = "#f8f8f8";
+$translucence_options['commentfield'] = "#000000";
+$translucence_options['searchbox-color'] = "#FFFFFF";
 
 
 /******************************************************************************
@@ -124,82 +124,82 @@ $options['searchbox-color'] = "#FFFFFF";
  * Set these only if not in the initial options array
  ******************************************************************************/
 
-if (!isset($options['headermeta'])) $options['headermeta'] = "off";
-if (!isset($options['options-mode'])) $options['options-mode'] = "basic";
-if (!isset($options['revert'])) $options['revert'] = 1;
+if (!isset($translucence_options['headermeta'])) $translucence_options['headermeta'] = "off";
+if (!isset($translucence_options['options-mode'])) $translucence_options['options-mode'] = "basic";
+if (!isset($translucence_options['revert'])) $translucence_options['revert'] = 1;
 
-if (!isset($options['site-width'])) $options['site-width'] = "950";
+if (!isset($translucence_options['site-width'])) $translucence_options['site-width'] = "950";
 
-if (!isset($options['header-block-height'])) $options['header-block-height'] = "100";
-if (!isset($options['site-title-size'])) $options['site-title-size'] = "30";
-if (!isset($options['site-title-color'])) $options['site-title-color'] = "#D9D323";
-if (!isset($options['site-description-color'])) $options['site-description-color'] = "#F7F7F7";
-if (!isset($options['site-description-size'])) $options['site-description-size'] = "14";
-if (!isset($options['header-text-shadow-offset'])) $options['header-text-shadow-offset'] = "1px 1px";
-if (!isset($options['header-text-shadow-blur'])) $options['header-text-shadow-blur'] = "2px";
+if (!isset($translucence_options['header-block-height'])) $translucence_options['header-block-height'] = "100";
+if (!isset($translucence_options['site-title-size'])) $translucence_options['site-title-size'] = "30";
+if (!isset($translucence_options['site-title-color'])) $translucence_options['site-title-color'] = "#D9D323";
+if (!isset($translucence_options['site-description-color'])) $translucence_options['site-description-color'] = "#F7F7F7";
+if (!isset($translucence_options['site-description-size'])) $translucence_options['site-description-size'] = "14";
+if (!isset($translucence_options['header-text-shadow-offset'])) $translucence_options['header-text-shadow-offset'] = "1px 1px";
+if (!isset($translucence_options['header-text-shadow-blur'])) $translucence_options['header-text-shadow-blur'] = "2px";
 
-if (!isset($options['entry-text-size'])) $options['entry-text-size'] = "14";
-if (!isset($options['entry-text-size'])) $options['entry-line-height'] = "20";
+if (!isset($translucence_options['entry-text-size'])) $translucence_options['entry-text-size'] = "14";
+if (!isset($translucence_options['entry-text-size'])) $translucence_options['entry-line-height'] = "20";
 
-if (!isset($options['footer-meta-left'])) $options['footer-meta-left'] = "custom";
-if (!isset($options['header-meta-left'])) $options['header-meta-left'] = "custom";
-if (!isset($options['headerleftcustom'])) $options['headerleftcustom'] = "";
-if (!isset($options['footerleftcustom'])) $options['footerleftcustom'] = "";
+if (!isset($translucence_options['footer-meta-left'])) $translucence_options['footer-meta-left'] = "custom";
+if (!isset($translucence_options['header-meta-left'])) $translucence_options['header-meta-left'] = "custom";
+if (!isset($translucence_options['headerleftcustom'])) $translucence_options['headerleftcustom'] = "";
+if (!isset($translucence_options['footerleftcustom'])) $translucence_options['footerleftcustom'] = "";
 
-if (!isset($options['header-image-options'])) $options['header-image-options'] = "none";
+if (!isset($translucence_options['header-image-options'])) $translucence_options['header-image-options'] = "none";
 
-if (!isset($options['header-text-display'])) $options['header-text-display'] = "middle";
-if (!isset($options['entry-link-style'])) $options['entry-link-style'] = "ww";
-if (!isset($options['entry-text-align'])) $options['entry-text-align'] = "left";
-if (!isset($options['tag-links-color'])) $options['tag-links-color'] = "#FFF8C6";
-if (!isset($options['cat-links-color'])) $options['cat-links-color'] = "#e9e9c9";
+if (!isset($translucence_options['header-text-display'])) $translucence_options['header-text-display'] = "middle";
+if (!isset($translucence_options['entry-link-style'])) $translucence_options['entry-link-style'] = "ww";
+if (!isset($translucence_options['entry-text-align'])) $translucence_options['entry-text-align'] = "left";
+if (!isset($translucence_options['tag-links-color'])) $translucence_options['tag-links-color'] = "#FFF8C6";
+if (!isset($translucence_options['cat-links-color'])) $translucence_options['cat-links-color'] = "#e9e9c9";
 
-if (!isset($options['site-padding-top'])) $options['site-padding-top'] = "20";
-if (!isset($options['site-padding-bottom'])) $options['site-padding-bottom'] = "20";
+if (!isset($translucence_options['site-padding-top'])) $translucence_options['site-padding-top'] = "20";
+if (!isset($translucence_options['site-padding-bottom'])) $translucence_options['site-padding-bottom'] = "20";
 
-if (!isset($options['site-color'])) $options['site-color'] = "#FFFFFF";
-if (!isset($options['title-box-color'])) $options['title-box-color'] = "#FFFFFF";
-if (!isset($options['description-box-color'])) $options['description-box-color'] = "#FFFFFF";
-if (!isset($options['header-color'])) $options['header-color'] = "#F9F9F9";
-if (!isset($options['top-color'])) $options['top-color'] = "#F9F9F9";
-if (!isset($options['left01-color'])) $options['left01-color'] = "#F9F9F9";
-if (!isset($options['content-color'])) $options['content-color'] = "#FFFFFF";
-if (!isset($options['right01-color'])) $options['right01-color'] = "#F9F9F9";
-if (!isset($options['right02-color'])) $options['right02-color'] = "#F9F9F9";
-if (!isset($options['bottom-color'])) $options['bottom-color'] = "#F9F9F9";
+if (!isset($translucence_options['site-color'])) $translucence_options['site-color'] = "#FFFFFF";
+if (!isset($translucence_options['title-box-color'])) $translucence_options['title-box-color'] = "#FFFFFF";
+if (!isset($translucence_options['description-box-color'])) $translucence_options['description-box-color'] = "#FFFFFF";
+if (!isset($translucence_options['header-color'])) $translucence_options['header-color'] = "#F9F9F9";
+if (!isset($translucence_options['top-color'])) $translucence_options['top-color'] = "#F9F9F9";
+if (!isset($translucence_options['left01-color'])) $translucence_options['left01-color'] = "#F9F9F9";
+if (!isset($translucence_options['content-color'])) $translucence_options['content-color'] = "#FFFFFF";
+if (!isset($translucence_options['right01-color'])) $translucence_options['right01-color'] = "#F9F9F9";
+if (!isset($translucence_options['right02-color'])) $translucence_options['right02-color'] = "#F9F9F9";
+if (!isset($translucence_options['bottom-color'])) $translucence_options['bottom-color'] = "#F9F9F9";
 
-if (!isset($options['site-opacity'])) $options['site-opacity'] = "0";
-if (!isset($options['title-box-opacity'])) $options['title-box-opacity'] = ".3";
-if (!isset($options['description-box-opacity'])) $options['description-box-opacity'] = ".2";
+if (!isset($translucence_options['site-opacity'])) $translucence_options['site-opacity'] = "0";
+if (!isset($translucence_options['title-box-opacity'])) $translucence_options['title-box-opacity'] = ".3";
+if (!isset($translucence_options['description-box-opacity'])) $translucence_options['description-box-opacity'] = ".2";
 
-if (!isset($options['header-opacity'])) $options['header-opacity'] = ".6";
-if (!isset($options['top-opacity'])) $options['top-opacity'] = ".8";
-if (!isset($options['left01-opacity'])) $options['left01-opacity'] = ".6";
-if (!isset($options['content-opacity'])) $options['content-opacity'] = "1";
-if (!isset($options['right01-opacity'])) $options['right01-opacity'] = ".3";
-if (!isset($options['right02-opacity'])) $options['right02-opacity'] = "0";
-if (!isset($options['bottom-opacity'])) $options['bottom-opacity'] = "0";
+if (!isset($translucence_options['header-opacity'])) $translucence_options['header-opacity'] = ".6";
+if (!isset($translucence_options['top-opacity'])) $translucence_options['top-opacity'] = ".8";
+if (!isset($translucence_options['left01-opacity'])) $translucence_options['left01-opacity'] = ".6";
+if (!isset($translucence_options['content-opacity'])) $translucence_options['content-opacity'] = "1";
+if (!isset($translucence_options['right01-opacity'])) $translucence_options['right01-opacity'] = ".3";
+if (!isset($translucence_options['right02-opacity'])) $translucence_options['right02-opacity'] = "0";
+if (!isset($translucence_options['bottom-opacity'])) $translucence_options['bottom-opacity'] = "0";
 
-if (!isset($options['site-border-style'])) $options['site-border-style'] = "none";
-if (!isset($options['header-border-style'])) $options['header-border-style'] = "dotted";
-if (!isset($options['top-border-style'])) $options['top-border-style'] = "solid";
-if (!isset($options['content-border-style'])) $options['content-border-style'] = "solid";
-if (!isset($options['left01-border-style'])) $options['left01-border-style'] = "dotted";
-if (!isset($options['right01-border-style'])) $options['right01-border-style'] = "dotted";
-if (!isset($options['right02-border-style'])) $options['right02-border-style'] = "dotted";
-if (!isset($options['bottom-border-style'])) $options['bottom-border-style'] = "dotted";
+if (!isset($translucence_options['site-border-style'])) $translucence_options['site-border-style'] = "none";
+if (!isset($translucence_options['header-border-style'])) $translucence_options['header-border-style'] = "dotted";
+if (!isset($translucence_options['top-border-style'])) $translucence_options['top-border-style'] = "solid";
+if (!isset($translucence_options['content-border-style'])) $translucence_options['content-border-style'] = "solid";
+if (!isset($translucence_options['left01-border-style'])) $translucence_options['left01-border-style'] = "dotted";
+if (!isset($translucence_options['right01-border-style'])) $translucence_options['right01-border-style'] = "dotted";
+if (!isset($translucence_options['right02-border-style'])) $translucence_options['right02-border-style'] = "dotted";
+if (!isset($translucence_options['bottom-border-style'])) $translucence_options['bottom-border-style'] = "dotted";
 
-if (!isset($options['header-width'])) $options['header-width'] = $options['site-width'];
-if (!isset($options['left01-width'])) $options['left01-width'] = "0";
-if (!isset($options['right01-width'])) $options['right01-width'] = "200";
-if (!isset($options['right02-width'])) $options['right02-width'] = "0";
+if (!isset($translucence_options['header-width'])) $translucence_options['header-width'] = $translucence_options['site-width'];
+if (!isset($translucence_options['left01-width'])) $translucence_options['left01-width'] = "0";
+if (!isset($translucence_options['right01-width'])) $translucence_options['right01-width'] = "200";
+if (!isset($translucence_options['right02-width'])) $translucence_options['right02-width'] = "0";
 
-if (!isset($options['post-single-sidebar'])) $options['post-single-sidebar'] = "right01";
-if (!isset($options['category-single-sidebar'])) $options['category-single-sidebar'] = "right01";
-if (!isset($options['tag-single-sidebar'])) $options['tag-single-sidebar'] = "right01";
-if (!isset($options['author-single-sidebar'])) $options['author-single-sidebar'] = "right01";
-if (!isset($options['search-single-sidebar'])) $options['search-single-sidebar'] = "right01";
-if (!isset($options['archives-single-sidebar'])) $options['archives-single-sidebar'] = "right01";
+if (!isset($translucence_options['post-single-sidebar'])) $translucence_options['post-single-sidebar'] = "right01";
+if (!isset($translucence_options['category-single-sidebar'])) $translucence_options['category-single-sidebar'] = "right01";
+if (!isset($translucence_options['tag-single-sidebar'])) $translucence_options['tag-single-sidebar'] = "right01";
+if (!isset($translucence_options['author-single-sidebar'])) $translucence_options['author-single-sidebar'] = "right01";
+if (!isset($translucence_options['search-single-sidebar'])) $translucence_options['search-single-sidebar'] = "right01";
+if (!isset($translucence_options['archives-single-sidebar'])) $translucence_options['archives-single-sidebar'] = "right01";
 
 
 /*********************************************************

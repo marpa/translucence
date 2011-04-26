@@ -16,8 +16,8 @@
 	 */
 	// A second sidebar for widgets, just because.
 	
-	global $options;
-	if ( is_active_sidebar( 'secondary-widget-area' ) && $options['right02-width'] != '0') : ?>
+	global $translucence_options;
+	if ( is_active_sidebar( 'secondary-widget-area' ) && $translucence_options['right02-width'] != '0') : ?>
 
 		<div id="secondary" class="widget-area" role="complementary" style="<?php translucence_box_display('secondary') ?>">
 			<div class="toggle" style="margin-right: -15px;">

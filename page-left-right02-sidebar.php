@@ -13,8 +13,8 @@
  */
 
 get_header(); 
-global $options;
-$content_width = $options['site-width'] - $options['left01-width'] - $options['right02-width'] - 175;
+global $translucence_options;
+$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - $translucence_options['right02-width'] - 175;
 ?>
 
 <div id="container">

@@ -11,115 +11,115 @@ Author URI:
 */
 
 // Theme name and url (Variations can override with their own name and url)
-$options['theme-name'] = "2010 Translucence";
-$options['theme-url'] = "http://segueproject.org/wordpress/themes/";
+$translucence_options['theme-name'] = "2010 Translucence";
+$translucence_options['theme-url'] = "http://segueproject.org/wordpress/themes/";
 
 // set the default background variation 
 // now done by translucence_get_variation_default_background() 
-//if (!isset($options['background'])) $options['background'] = "translucence-gray-white";
+//if (!isset($translucence_options['background'])) $translucence_options['background'] = "translucence-gray-white";
 
-$options['background_color'] = "#FFFFFF";
-$options['background_image'] = "";
-$options['background_position'] = "top center";
-$options['background_repeat'] = "repeat-x";
-$options['background_attachment'] = "scroll";
+$translucence_options['background_color'] = "#FFFFFF";
+$translucence_options['background_image'] = "";
+$translucence_options['background_position'] = "top center";
+$translucence_options['background_repeat'] = "repeat-x";
+$translucence_options['background_attachment'] = "scroll";
 
-$options['background-source-url'] = "";
-$options['background-source-credit'] = "";
+$translucence_options['background-source-url'] = "";
+$translucence_options['background-source-credit'] = "";
 
 
-$options['site-margin-top'] = "0";	
-//$options['page-image-width'] = $options['site-width']-50;
-$options['custom-header-width-offset'] = 7;
+$translucence_options['site-margin-top'] = "0";	
+//$translucence_options['page-image-width'] = $translucence_options['site-width']-50;
+$translucence_options['custom-header-width-offset'] = 7;
 
-$options['header-text-padding-left'] = "10";
-//$options['site-title-size'] = "30";
+$translucence_options['header-text-padding-left'] = "10";
+//$translucence_options['site-title-size'] = "30";
 
 // define border widths
-$options['content-border-width'] = "1px";
+$translucence_options['content-border-width'] = "1px";
 
-$options['header-outer-border-style'] = "none";
-$options['header-border02-height'] = 0;
+$translucence_options['header-outer-border-style'] = "none";
+$translucence_options['header-border02-height'] = 0;
 
 // define text shadow options for site-title and post-title
-$options['header-text-shadow-color'] = "#444444";
-//$options['header-text-shadow-offset'] = "1px 1px";
-//$options['header-text-shadow-blur'] = "2px";
-$options['post-text-shadow-color'] = "#CCCCCC";
-$options['post-text-shadow-offset'] = "1px 1px";
-$options['post-text-shadow-blur'] = "0.05em";
+$translucence_options['header-text-shadow-color'] = "#444444";
+//$translucence_options['header-text-shadow-offset'] = "1px 1px";
+//$translucence_options['header-text-shadow-blur'] = "2px";
+$translucence_options['post-text-shadow-color'] = "#CCCCCC";
+$translucence_options['post-text-shadow-offset'] = "1px 1px";
+$translucence_options['post-text-shadow-blur'] = "0.05em";
 
 // define default link colors
-if (isset($options['linkcolor'])) {
-	$options['header-blogtitle-color'] = $options['linkcolor']; 
-	$options['content-link-color'] = $options['linkcolor'];
-	$options['top-link-color'] = $options['linkcolor'];
-	$options['bottom-link-color'] = $options['linkcolor'];
-	$options['left01-link-color'] = $options['linkcolor'];
-	$options['right01-link-color'] = $options['linkcolor'];
-	$options['right02-link-color'] = $options['linkcolor'];
-	$options['transparent-heading-color'] = $options['linkcolor'];
-	$options['transparent-link-color'] = $options['linkcolor'];
-	$options['transparent-text-color'] = $options['linkcolor'];
+if (isset($translucence_options['linkcolor'])) {
+	$translucence_options['header-blogtitle-color'] = $translucence_options['linkcolor']; 
+	$translucence_options['content-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['top-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['bottom-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['left01-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['right01-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['right02-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-heading-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-link-color'] = $translucence_options['linkcolor'];
+	$translucence_options['transparent-text-color'] = $translucence_options['linkcolor'];
 } else {
-	$options['header-blogtitle-color'] = "#003366";
-	$options['content-link-color'] = "#003366";
-	$options['top-link-color'] = "#003366";
-	$options['bottom-link-color'] = "#003366";
-	$options['left01-link-color'] = "#003366";
-	$options['right01-link-color'] = "#003366";
-	$options['right02-link-color'] = "#003366";
-	$options['linkcolor'] = "#003366";
-	$options['transparent-heading-color'] = "#003366";
-	$options['transparent-link-color'] = "#003366";
-	$options['transparent-text-color'] = "#003366";
+	$translucence_options['header-blogtitle-color'] = "#003366";
+	$translucence_options['content-link-color'] = "#003366";
+	$translucence_options['top-link-color'] = "#003366";
+	$translucence_options['bottom-link-color'] = "#003366";
+	$translucence_options['left01-link-color'] = "#003366";
+	$translucence_options['right01-link-color'] = "#003366";
+	$translucence_options['right02-link-color'] = "#003366";
+	$translucence_options['linkcolor'] = "#003366";
+	$translucence_options['transparent-heading-color'] = "#003366";
+	$translucence_options['transparent-link-color'] = "#003366";
+	$translucence_options['transparent-text-color'] = "#003366";
 }
 
 // define default background link and text colors
-$options['bgtextcolor'] = "#999999";
-$options['bglinkcolor'] = "#666666";
+$translucence_options['bgtextcolor'] = "#999999";
+$translucence_options['bglinkcolor'] = "#666666";
 
 // define default widget heading colors
-$options['left01-heading-color'] = "#999999";
-$options['right01-heading-color'] = "#999999";
-$options['right02-heading-color'] = "#999999";
+$translucence_options['left01-heading-color'] = "#999999";
+$translucence_options['right01-heading-color'] = "#999999";
+$translucence_options['right02-heading-color'] = "#999999";
 
 // define default tagline text color
-if (isset($options['textcolor'])) {
-	$options['header-blogdescription-color'] = $options['textcolor']; 
+if (isset($translucence_options['textcolor'])) {
+	$translucence_options['header-blogdescription-color'] = $translucence_options['textcolor']; 
 } else {
-	$options['header-blogdescription-color'] = "#333333";
-	$options['textcolor'] = "#333333";
+	$translucence_options['header-blogdescription-color'] = "#333333";
+	$translucence_options['textcolor'] = "#333333";
 }
 
 /******************************************************************************
  * Define margins
  ******************************************************************************/
 
-$options['header-meta-left-margin'] = "0px";
-$options['header-meta-right-margin'] = "0px";
-$options['footer-meta-left-margin'] = "10px";
-$options['footer-meta-right-margin'] = "10px";
+$translucence_options['header-meta-left-margin'] = "0px";
+$translucence_options['header-meta-right-margin'] = "0px";
+$translucence_options['footer-meta-left-margin'] = "10px";
+$translucence_options['footer-meta-right-margin'] = "10px";
 
-$options['left01-margin-right'] = "1";
-$options['content-margin-right'] = "1";
-$options['right01-margin-right'] = "1";
-$options['right02-margin-right'] = "0";
+$translucence_options['left01-margin-right'] = "1";
+$translucence_options['content-margin-right'] = "1";
+$translucence_options['right01-margin-right'] = "1";
+$translucence_options['right02-margin-right'] = "0";
 
-$options['left01-margin-top'] = "5";
-$options['content-margin-top'] = "0";
-$options['right01-margin-top'] = "5";
-$options['right02-margin-top'] = "10";
+$translucence_options['left01-margin-top'] = "5";
+$translucence_options['content-margin-top'] = "0";
+$translucence_options['right01-margin-top'] = "5";
+$translucence_options['right02-margin-top'] = "10";
 
 
 /******************************************************************************
  * Miscellaneous options
  ******************************************************************************/
 
-$options['thread-even-bgcolor'] = "#FFFFFF";
-$options['thread-alt-bgcolor'] = "#f8f8f8";
-$options['commentfield'] = "#000000";
-$options['searchbox-color'] = "#FFFFFF";
+$translucence_options['thread-even-bgcolor'] = "#FFFFFF";
+$translucence_options['thread-alt-bgcolor'] = "#f8f8f8";
+$translucence_options['commentfield'] = "#000000";
+$translucence_options['searchbox-color'] = "#FFFFFF";
 
 
 

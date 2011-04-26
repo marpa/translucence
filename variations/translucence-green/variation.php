@@ -11,24 +11,24 @@ Tags: one-column, two-columns, three-columns, left-sidebar, right-sidebar, theme
 */
 
 
-if ($options['background'] == "translucence-green") {
+if ($translucence_options['background'] == "translucence-green") {
 
 	// option values
-	$options['background_image_file'] = "green01.png";
-	$options['background_image_directory'] = "translucence-green";
-	$options['background_image'] = "url('".get_bloginfo("template_directory");
-	$options['background_image'] .= "/variations/".$options['background_image_directory'];
-	$options['background_image'] .= "/".$options['background_image_file']."')";
-	$options['background_repeat'] = "repeat";
-	$options['background_position'] = "center top";		
-	$options['background_color'] = "#83A776";
-	$options['bgtextcolor'] = "#444444";
-	$options['bglinkcolor'] = "#333333";
-	$options['bgbordercolor'] = "#666666";	
+	$translucence_options['background_image_file'] = "green01.png";
+	$translucence_options['background_image_directory'] = "translucence-green";
+	$translucence_options['background_image'] = "url('".get_bloginfo("template_directory");
+	$translucence_options['background_image'] .= "/variations/".$translucence_options['background_image_directory'];
+	$translucence_options['background_image'] .= "/".$translucence_options['background_image_file']."')";
+	$translucence_options['background_repeat'] = "repeat";
+	$translucence_options['background_position'] = "center top";		
+	$translucence_options['background_color'] = "#83A776";
+	$translucence_options['bgtextcolor'] = "#444444";
+	$translucence_options['bglinkcolor'] = "#333333";
+	$translucence_options['bgbordercolor'] = "#666666";	
 	
-	$options['transparent-heading-color'] = "#333333";
-	$options['transparent-link-color']  = "#FFFFFF";
-	$options['transparent-text-color']  = "#555555";
+	$translucence_options['transparent-heading-color'] = "#333333";
+	$translucence_options['transparent-link-color']  = "#FFFFFF";
+	$translucence_options['transparent-text-color']  = "#555555";
 
 		
 }
