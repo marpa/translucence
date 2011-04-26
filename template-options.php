@@ -529,7 +529,7 @@ function translucence_headermeta_right() {
 
 function translucence_get_global_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     global $custom_header_set, $custom_background_set, $active_options;
        
 	ob_start();
@@ -821,7 +821,7 @@ function translucence_get_global_options() {
 
 function translucence_get_custom_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     global $custom_header_set, $custom_background_set;
     
     ob_start();
@@ -864,7 +864,7 @@ function translucence_get_custom_options() {
 
 function translucence_get_layout_options() {
 	global $variation_config, $options, $options_values, $model_content_width, $variations;
-    global $translucence_options_id, $_POST, $active_options;
+    global $translucence_options_id, $active_options;
     
     ob_start();
     if (in_array('layout-options', $active_options)) {
@@ -940,7 +940,7 @@ function translucence_get_layout_options() {
 
 function translucence_get_topmenu_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     
     ob_start();
     print "<div style='padding: 10px;'>";
@@ -963,7 +963,7 @@ function translucence_get_topmenu_options() {
 
 function translucence_get_post_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;
+    global $translucence_options_id;
         
     ob_start();
     print "<div>";
@@ -1101,7 +1101,7 @@ function translucence_get_post_options() {
 
 function translucence_get_left01_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
    	global $current_widgets;
     
     ob_start();
@@ -1148,7 +1148,7 @@ function translucence_get_left01_options() {
 
 function translucence_get_right01_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
    	global $current_widgets;
     
     ob_start();
@@ -1247,7 +1247,7 @@ function translucence_get_right02_options() {
 
 function translucence_get_footer_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     
     ob_start();
     print "<div>";
@@ -1273,7 +1273,7 @@ function translucence_get_footer_options() {
 
 function translucence_get_footer_widgets($order) {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     global $current_widgets;
     
     ob_start();
@@ -1303,7 +1303,7 @@ function translucence_get_footer_widgets($order) {
 
 function translucence_footermeta_right() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
 
     ob_start();
     print"<input name='theme-name' type='hidden' value='".$options['theme-name']."'>";
@@ -1324,7 +1324,7 @@ function translucence_footermeta_right() {
 
 function translucence_footermeta_left() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     
     ob_start();
     print "<div style='font-size: 9px;'>";
@@ -1366,7 +1366,7 @@ function translucence_footermeta_left() {
  ******************************************************************************/
 function translucence_get_footermeta_options() {
 	global $variation_config, $options, $options_values, $variations;
-    global $translucence_options_id, $_POST;	
+    global $translucence_options_id;	
     
 	ob_start();
 	print "<div class='options'>";
