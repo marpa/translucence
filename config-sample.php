@@ -129,7 +129,7 @@ $translucence_config['preset_widgets']['secondary-widget-area'][] = "rss-links-2
 
 $translucence_config['header_meta_left_options']['blogs']['option_name'] = "blogs";
 $translucence_config['header_meta_left_options']['blogs']['option_label'] = "Blog Sign Up";
-$translucence_config['header_meta_left_options']['blogs']['option_value'] = "";
+$translucence_config['header_meta_left_options']['blogs']['option_value'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
 
 $translucence_config['header_meta_left_options']['custom']['option_name'] = "custom";
 $translucence_config['header_meta_left_options']['custom']['option_label'] = "Custom";
