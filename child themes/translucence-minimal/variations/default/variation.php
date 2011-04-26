@@ -206,12 +206,12 @@ if (!isset($options['archives-single-sidebar'])) $options['archives-single-sideb
  * options value defaults
  * actual px values need to be adjusted for padding
  *********************************************************/	
-$options_values['mode'] = array(
+$translucence_options_values['mode'] = array(
 	'Basic' => 'basic',
 	'Advanced' => 'advanced'
 	);
 
-$options_values['site-width'] = array(
+$translucence_options_values['site-width'] = array(
 	'1000px' => '1000',
 	'950px' => '950',
 	'900px' => '900',
@@ -220,7 +220,7 @@ $options_values['site-width'] = array(
 	'750px' => '750'
 	);
 
-$options_values['header-width'] = array(
+$translucence_options_values['header-width'] = array(
 	'1000px' => '1000',
 	'975px' => '975',
 	'950px' => '950',
@@ -232,7 +232,7 @@ $options_values['header-width'] = array(
 	'750px' => '750'
 	);
 
-$options_values['header-text-size'] = array(
+$translucence_options_values['header-text-size'] = array(
 	'14px' => '14',
 	'15px' => '15',
 	'16px' => '16',
@@ -248,7 +248,7 @@ $options_values['header-text-size'] = array(
 	'60px' => '60',
 	);
 
-$options_values['header-text-offset'] = array(
+$translucence_options_values['header-text-offset'] = array(
 	'5px' => '5px',
 	'10px' => '10px',
 	'15px' => '15px',
@@ -260,7 +260,7 @@ $options_values['header-text-offset'] = array(
 
 
 
-$options_values['header-opacity'] = array(
+$translucence_options_values['header-opacity'] = array(
 	'100%' => '1',
 	'90%' => '.9',
 	'80%' => '.8',
@@ -273,14 +273,14 @@ $options_values['header-opacity'] = array(
 	'0%'=> '0'
 	);
 	
-$options_values['header-text-display'] = array(
+$translucence_options_values['header-text-display'] = array(
 	'Hide' => 'hide',
 	'Top' => 'top',
 	'Middle' => 'middle',
 	'Bottom' => 'bottom'
 	);
 
-$options_values['text-shadow-offset'] = array(
+$translucence_options_values['text-shadow-offset'] = array(
 	'0px' => '0px 0px',
 	'1px' => '1px 1px',
 	'2px' => '2px 2px',
@@ -289,7 +289,7 @@ $options_values['text-shadow-offset'] = array(
 	'5px' => '5px 5px'
 	);
 
-$options_values['text-shadow-blur'] = array(
+$translucence_options_values['text-shadow-blur'] = array(
 	'0px' => '0px',
 	'1px' => '1px',
 	'2px' => '2px',
@@ -302,32 +302,32 @@ $options_values['text-shadow-blur'] = array(
 	);
 
 	
-$options_values['border-style'] = array(
+$translucence_options_values['border-style'] = array(
 	'No Border' => 'none',
 	'Dotted Border' => 'dotted',
 	'Solid Border' => 'solid'
 	);
 
-$options_values['content-border'] = array(
+$translucence_options_values['content-border'] = array(
 	'None' => 'none',
 	'Solid' => 'solid',
 	);
 
 
-$options_values['background_repeat'] = array(
+$translucence_options_values['background_repeat'] = array(
 	'No Repeat' => 'no-repeat',
 	'Repeat Horizontally' => 'repeat-y',
 	'Repeat Vertically' => 'repeat-x',
 	'Repeat Both' => 'repeat'
 	);
 
-$options_values['background_position'] = array(
+$translucence_options_values['background_position'] = array(
 	'Center Top' => 'center top',
 	'Center Bottom' => 'center bottom'
 	);
 
 
-$options_values['sidebar-width'] = array(
+$translucence_options_values['sidebar-width'] = array(
 	'175px' => '125',
 	'200px' => '150',
 	'225px' => '175',
@@ -338,7 +338,7 @@ $options_values['sidebar-width'] = array(
 	'hidden'	=> '0'
 	);
 
-$options_values['sidebar-opacity'] = array(
+$translucence_options_values['sidebar-opacity'] = array(
 	'100%' => '1',
 	'90%' => '.9',
 	'80%' => '.8',
@@ -351,7 +351,7 @@ $options_values['sidebar-opacity'] = array(
 	'0%'=> '0'
 	);
 
-$options_values['header-color'] = array(
+$translucence_options_values['header-color'] = array(
 	'White' => '#FFFFFF',
 	'Silver' => '#F9F9F9',
 	'Gray' => '#F3F3F3',
@@ -363,7 +363,7 @@ $options_values['header-color'] = array(
 	);
 
 
-$options_values['sidebar-color'] = array(
+$translucence_options_values['sidebar-color'] = array(
 	'White' => '#FFFFFF',
 	'Silver' => '#F9F9F9',
 	'Gray' => '#F3F3F3',
@@ -373,7 +373,7 @@ $options_values['sidebar-color'] = array(
 	);
 
 
-$options_values['header-block-height'] = array(
+$translucence_options_values['header-block-height'] = array(
 	'50px' => '50',
 	'70px' => '70',
 	'100px' => '100',
@@ -386,7 +386,7 @@ $options_values['header-block-height'] = array(
 	'300px' => '300'
 	);
 	
-$options_values['linkcolor'] = array(
+$translucence_options_values['linkcolor'] = array(
 	'Dark Blue' => '#003366',
 	'Light Blue' => '#0066cc',
 	'Red' => '#990000',
@@ -395,18 +395,18 @@ $options_values['linkcolor'] = array(
 	'Gold'	=>	'#625B1D'
 	);
 
-$options_values['entry-text-align'] = array(
+$translucence_options_values['entry-text-align'] = array(
 	'Justify' => 'justify',
 	'Left' => 'left'
 );
 	
-$options_values['entry-link-style'] = array(
+$translucence_options_values['entry-link-style'] = array(
 	'No Underline' => 'none',
 	'Underline' => 'underline',
 	'Underline &amp; Highlight' => 'ww'
 );
 
-$options_values['textcolor'] = array(
+$translucence_options_values['textcolor'] = array(
 	'20% Gray' => '#CCCCCC',
 	'30% Gray' => '#888888',
 	'40% Gray' => '#777777',
@@ -417,7 +417,7 @@ $options_values['textcolor'] = array(
 	'Black' => '#222222'
 );
 
-$options_values['text-size'] = array(
+$translucence_options_values['text-size'] = array(
 	'12px' => '12',
 	'13px' => '13',
 	'14px' => '14',
@@ -427,14 +427,14 @@ $options_values['text-size'] = array(
 );
 
 
-$options_values['category-link-style'] = array(
+$translucence_options_values['category-link-style'] = array(
 		'Left Sidebar Box' => 'left-sidebar-box',
 		'Right Sidebar Box' => 'right-sidebar-box',
 		'2nd Right Sidebar Box' => 'right02-sidebar-box',
 		'Yellow Box' => 'yellow-box'
 );
 
-$options_values['tag-link-style'] = array(
+$translucence_options_values['tag-link-style'] = array(
 		'Left Sidebar Box' => 'left-sidebar-box',
 		'Right Sidebar Box' => 'right-sidebar-box',
 		'2nd Right Sidebar Box' => 'right02-sidebar-box',
@@ -442,7 +442,7 @@ $options_values['tag-link-style'] = array(
 );
 
 
-$options_values['sidebar-display'] = array(
+$translucence_options_values['sidebar-display'] = array(
 	'Left Sidebar' => 'left01',
 	'1st Right Sidebar' => 'right01',
 	'2nd Right Sidebar' => 'right02',
