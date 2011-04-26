@@ -9,14 +9,14 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
  ******************************************************************************/
 
 function translucence_theme_options_init() {
-	global $theme_options;
+	global $translucence_options_id;
 	
-	register_setting( $theme_options, $theme_options, 'translucence_validate_options' );	
+	register_setting( $translucence_options_id, $translucence_options_id, 'translucence_validate_options' );	
 	
 }
 
 function translucence_theme_options_update() {
-	global $theme_options, $options;
+	global $translucence_options_id, $options;
 	
 	// get theme option value lists for selected variation theme option
 	translucence_get_variation_options();
@@ -28,7 +28,7 @@ function translucence_theme_options_update() {
 	$options['css'] = translucence_options_css();
 	
 	// update theme options 
-	update_option($theme_options, $options);
+	update_option($translucence_options_id, $options);
 	
 				
 }
@@ -53,7 +53,7 @@ function translucence_add_menu_admin_bar() {
  *********************************************************/
  
 function translucence_validate_options($input) {
-	global $allowedposttags, $variation_config, $theme_options; 
+	global $allowedposttags, $variation_config, $translucence_options_id; 
 	global $options_values, $variations;
 
 	$options_mode = translucence_get_option_modes();
@@ -1169,13 +1169,13 @@ function translucence_option_feedback() {
  ******************************************************************************/
 
 function translucence_delete_options() {
-    global $options, $theme_options;
+    global $options, $translucence_options_id;
 	
 	$options = array();
 	
-	delete_option($theme_options); 	
+	delete_option($translucence_options_id); 	
 	
-	add_option($theme_options, array('init' => 1));  	
+	add_option($translucence_options_id, array('init' => 1));  	
 
 }
 
