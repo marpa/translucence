@@ -107,7 +107,7 @@ if ( ! function_exists( 'translucence_setup' ) ):
  */
 function translucence_setup() {
 	global $variation_config;
-	global $_POST, $options, $options_values, $variations;
+	global $options, $options_values, $variations;
 	global $translucence_options_id;
 
 	/*********************************************************
