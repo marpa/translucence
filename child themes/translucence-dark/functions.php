@@ -54,7 +54,7 @@ function translucence_add_config() {
    if (file_exists(dirname(__FILE__).'/config.php')) {
 		require_once('config.php');
 	}
-return $variation_config;
+return $translucence_config;
 }
 
 /******************************************************************************
@@ -77,7 +77,7 @@ return $variation_config;
  *
  * copy variations from 2010-translucence for use in this child theme
  * alternatively, specify which variations to not include in this child theme
- * in the config.php $variation_config['variations_disabled']
+ * in the config.php $translucence_config['variations_disabled']
  ******************************************************************************/
 
 // function translucence_get_variations_source() {
