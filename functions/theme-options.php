@@ -293,7 +293,7 @@ if (!function_exists('translucence_get_variation_default')) {
 }
 
 /******************************************************************************
- * get default theme options from variation_config
+ * get default theme options from translucence_config
  * (see config-sample.php or config.php)
  ******************************************************************************/
 function translucence_get_variation_default_config() {
@@ -397,7 +397,7 @@ if (!function_exists('translucence_get_variations_source')) {
 }
 
 /******************************************************************************
- * get options for variations (based on options['background'])
+ * get options for variations (based on translucence_options['background'])
  * 
  ******************************************************************************/
 
@@ -417,9 +417,9 @@ function translucence_get_variation_options() {
 	 * Defaults for variations
 	 * variations use defaults unless otherwise specified
 	 * variations can have default option values and default option value lists
-	 * option value lists are the option values users can select in the theme model UI
+	 * option value lists are the option values users can select in the theme options UI
 	 * (variation info is extracted from variation.php file using same functions
-	 * used to extract theme info from theme style.php
+	 * used to extract theme info from theme style.css
 	 ******************************************************************************/
 	
 	$translucence_variations = array();
@@ -851,8 +851,6 @@ function translucence_set_derivative_options() {
 		
 		// text, link and highlight color adjustment for low opacity settings
 		if ($translucence_options[$box.'-opacity'] < .7) {
-			//$translucence_options[$box.'-blogtitle-color'] = $translucence_options['transparent-blogtitle-color'];
-			//$translucence_options[$box.'-blogdescription-color'] = $translucence_options['transparent-blogdescription-color'];
 			$translucence_options[$box.'-heading-color'] = $translucence_options['transparent-heading-color'];
 			$translucence_options[$box.'-link-color'] = $translucence_options['transparent-link-color'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['transparent-text-color'];		
