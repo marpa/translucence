@@ -7,7 +7,7 @@
 
 function translucence_theme_options_do_page() {
 	global $translucence_config, $translucence_options_id, $translucence_options, $translucence_options_values, $translucence_variations, $translucence_header_image;
-    global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image, $model_site_width;
+    global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image, $translucence_model_site_width;
     global $syndication_image;
 
 	if ($translucence_options['revert'] == 1) {
@@ -55,8 +55,7 @@ function translucence_theme_options_do_page() {
 	 * Define theme layout model values
 	 *********************************************************/
 	
-	$model_site_width = $translucence_options['site-width']+80;
-	//$model_site_width = $model_site_width."";	
+	$translucence_model_site_width = $translucence_options['site-width']+80;
 	
 	$model_right_sidebar_width = $translucence_options['right01-width']+50;
     $model_right_sidebar_width02 = $translucence_options['right02-width']+50;
@@ -90,7 +89,7 @@ function translucence_theme_options_do_page() {
 		<?php settings_fields( $translucence_options_id ); ?>
 		<?php $translucence_options = get_option($translucence_options_id); ?>
 	
-		<table width = '<?php print $model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
+		<table width = '<?php print $translucence_model_site_width; ?>' cellpadding='0' style='background-color: transparent;'>
 		<tr>
 			<td width='20%'>
 			<span class='submit'><input type='submit' value='<?php _e( 'Update', '2010-translucence' ); ?>' name='save'/></span>
@@ -241,7 +240,7 @@ function translucence_theme_options_do_page() {
  ******************************************************************************/
 function translucence_get_theme_model_css() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_variations;
-    global $translucence_options_id, $model_site_width;
+    global $translucence_options_id, $translucence_model_site_width;
     global $translucence_custom_header_image, $syndication_image;
 
 	ob_start();
@@ -253,7 +252,7 @@ function translucence_get_theme_model_css() {
 			background-color: ".$translucence_options['background_color'].";
 			background-repeat: ".$translucence_options['background_repeat'].";
 			background-attachment: ".$translucence_options['background_attachment'].";
- 			width: ".$model_site_width."px;
+ 			width: ".$translucence_model_site_width."px;
 			background-color: ".$translucence_options['background_color'].";
 			color: #000000;
 			padding: 1px 0px 0px 0px;
