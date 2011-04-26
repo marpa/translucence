@@ -171,11 +171,11 @@ $translucence_config['footer_meta_left_options']['custom']['option_value'] = "";
 
 $translucence_config['custom_header']['none']['url'] = "%s/images/headers/transparent.png";
 $translucence_config['custom_header']['none']['thumbnail_url'] = "%s/images/headers/transparent-thumbnail.png";
-$translucence_config['custom_header']['none']['description'] = __( 'None', 'translucence' );
+$translucence_config['custom_header']['none']['description'] = __( 'None', '2010-translucence' );
 
 $translucence_config['custom_header']['whitegradient']['url'] = "%s/images/headers/whitegradient-1200x200.png";
 $translucence_config['custom_header']['whitegradient']['thumbnail_url'] = "%s/images/headers/whitegradient-1200x200-thumbnail.png";
-$translucence_config['custom_header']['whitegradient']['description'] = __( 'White Gradient', 'translucence' );
+$translucence_config['custom_header']['whitegradient']['description'] = __( 'White Gradient', '2010-translucence' );
 
 /******************************************************************************
  * Model UI Options
