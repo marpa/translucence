@@ -585,9 +585,7 @@ function translucence_set_derivative_options() {
 	 * Header left links (derived from  header_meta_left_options)
 	 ******************************************************************************/
 	
-	if ($translucence_options['header-meta-left'] == 'blogs' && $translucence_config['header_meta_left_options']['blogs'] == "") {
-		$translucence_options['headerleft'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
-	} else if ($translucence_options['header-meta-left'] == 'custom') {
+	if ($translucence_options['header-meta-left'] == 'custom') {
 		$translucence_options['headerleft'] = stripslashes($translucence_options['headerleftcustom']);
 	} else {
 		$translucence_options['headerleft'] = $translucence_config['header_meta_left_options'][$translucence_options['header-meta-left']]['option_value'];					
