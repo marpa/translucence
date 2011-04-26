@@ -14,10 +14,13 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
+		<new author='alex' date='2011-04-24'>
+			Added template translations for French and Japanese localization
+		</new>			
 		<change author='alex' date='2011-04-12'>
 			refactored and reactivated preset widgets so that preset widgets can be defined in theme config and will be
 			created when theme is activated.
-		</change>
+		</change>	
 		<change author='alex' date='2011-04-08'>
 			moved theme options initiation to theme config file for greater child theme default variation options.
 		</change>
