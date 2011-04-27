@@ -102,7 +102,10 @@ function translucence_theme_options_do_page() {
 			</td>
 			<td width='80%' align='left'>
 			<?php
-			// Widget set options
+			/******************************************************************************
+			 * Widget Set Options
+			 ******************************************************************************/
+
 			if (in_array("activated-widgets", $translucence_config['model'])) {				
 				print "<div>Widgets: ";
 				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 12px;' onchange='this.form.submit();'>";			
