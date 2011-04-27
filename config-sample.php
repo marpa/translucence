@@ -113,13 +113,16 @@ $translucence_config['archives-single-sidebar'] = "right01";
 /******************************************************************************
  * Preset Widgets
  * Specify what widgets to include when Translucence is initially activated
+ *
+ *
  ******************************************************************************/
-
 $translucence_config['preset_widgets']['default']['primary-widget-area'][] = "pages-2";
-$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "recent-posts-2";
-$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "categories-2";
-$translucence_config['preset_widgets']['default']['secondary-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['default']['secondary-widget-area'][] = "rss-links-2";
+
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "pages-2";
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-posts-2";
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "categories-2";
+$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "rss-links-2";
 
 $translucence_config['preset_widgets']['course']['primary-widget-area'][] = "pages-2";
 $translucence_config['preset_widgets']['course']['primary-widget-area'][] = "archives-2";
@@ -128,6 +131,10 @@ $translucence_config['preset_widgets']['course']['primary-widget-area'][] = "cat
 $translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-posts-2";
 $translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-comments-2";
 $translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "categories-2";
+$translucence_config['preset_widgets']['blog']['secondary-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['blog']['first-footer-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['blog']['second-footer-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "links-2";
 
 /******************************************************************************
  * Header meta left options
