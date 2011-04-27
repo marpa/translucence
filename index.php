@@ -34,10 +34,10 @@ get_header(); ?>
 		?>
 		</div><!-- #content -->
 	
-	<?php if (is_active_sidebar("primary-widget-area")  && $translucence_options['right01-width'] != '0') : // Only display sidebar if single. ?>
+	<?php if ($translucence_options['right01-width'] != '0') : // Only display sidebar if is not hidden. ?>
 		<?php get_sidebar('primary'); ?>	
 	<?php endif; ?>	
-	<?php if (is_active_sidebar("secondary-widget-area")  && $translucence_options['right02-width'] != '0' ) : // Only display sidebar if single. ?>
+	<?php if ($translucence_options['right02-width'] != '0' ) : // Only display sidebar if is not hidden. ?>
 		<?php get_sidebar('secondary'); ?>	
 	<?php endif; ?>		
 

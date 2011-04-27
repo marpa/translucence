@@ -1,6 +1,6 @@
 <?php
 /**
- * The Sidebar containing the primary and secondary widget areas.
+ * The Sidebar containing the secondary widget areas.
  *
  * @package WordPress
  * @subpackage 2010 Translucence
@@ -16,16 +16,22 @@
 	 */
 	// A second sidebar for widgets, just because.
 	
-	global $translucence_options;
-	if ( is_active_sidebar( 'secondary-widget-area' ) && $translucence_options['right02-width'] != '0') : ?>
+	global $translucence_options; ?>
 
-		<div id="secondary" class="widget-area" role="complementary" style="<?php translucence_box_display('secondary') ?>">
-			<div class="toggle" style="margin-right: -15px;">
-			<a id="togglesecondary" href="javascript:toggle('secondary','sidebar',<?php print translucence_get_box_widths(); ?>)">&laquo;</a>
-			</div>
-			<ul class="xoxo">
-				<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
-			</ul>
-		</div><!-- #secondary .widget-area -->
+	<div id="secondary" class="widget-area" role="complementary" style="<?php translucence_box_display('secondary') ?>">
+		<div class="toggle" style="margin-right: -15px;">
+		<a id="togglesecondary" href="javascript:toggle('secondary','sidebar',<?php print translucence_get_box_widths(); ?>)">&laquo;</a>
+		</div>
+		<ul class="xoxo">
+			<?php 				
+			if ( !is_active_sidebar( 'secondary-widget-area' )) {
+				translucence_get_default_widgets('secondary-widget-area');
+								
+			} else {
+				dynamic_sidebar( 'secondary-widget-area' ); 		
+			}
+			?>
 
-<?php endif; ?>
+		</ul>
+	</div><!-- #secondary .widget-area -->
+
