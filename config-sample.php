@@ -317,6 +317,7 @@ $translucence_config['variations_disabled'] = array();
 
 // $translucence_config['variations_disabled'][] = 'translucence-white';
 // $translucence_config['variations_disabled'][] = 'translucence-black';
+// $translucence_config['variations_disabled'][] = 'translucence-dark-gray';
 // $translucence_config['variations_disabled'][] = 'translucence-green';	
 // $translucence_config['variations_disabled'][] = 'translucence-yellow';
 // $translucence_config['variations_disabled'][] = 'translucence-yellow-white';
