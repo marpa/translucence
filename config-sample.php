@@ -113,28 +113,51 @@ $translucence_config['archives-single-sidebar'] = "right01";
 /******************************************************************************
  * Preset Widgets
  * Specify what widgets to include when Translucence is initially activated
+ * possible values are: 
  *
+ * pages-2&title=&sortby=&exclude=
+ * page sortby can be: post_date, post_modified, menu_order, 
+ * recent-posts-2&title=&number=5
+ * recent-comments-2&title=&number=5
+ * links-2&title=&category= 
+ * archives-2&title=&dropdown=0&count=1 
+ * categories-2&title=&hierarchical=1&dropdown=1&count=1
+ * tagcloud-2&title=&taxonomy=post_tags or tagcloud-2&title=&taxonomy=category
+ * text-2&title=Text&text=&filter=
+ * calendar-2&title=
  *
  ******************************************************************************/
-$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "pages-2";
+// these are widgets that are preset when the site is created.
+// NOTE: these widgets do NOT appear in Appearance > Widget and disappear
+// when widgets are manually added
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "pages-2&title=&sortby=menu_order&exclude=";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['default']['primary-widget-area'][] = "archives-2&title=&dropdown=1&count=1";
 
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "pages-2";
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-posts-2";
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "categories-2";
-$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "rss-links-2";
+// these widgets do appear in the Appearance > Widget and can be selected by users in Appearance > Theme Options
+// When these widget sets are selected, they replace all existing widgets
+// NOTE: widgets that have been customized (i.e. RSS widget) will be moved to inactive widgets
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "pages-2&title=&sortby=post_modified&exclude=";
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
+$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=1&count=1";
+$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "calendar-2&title=";
+$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
 
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "pages-2";
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "archives-2";
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "categories-2";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "pages-2&title=Course Information&sortby=post_date&exclude=";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "recent-posts-2&title=Announcements&number=5";
+$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "categories-2&title=Assignments&hierarchical=1&dropdown=0&count=1";
+$translucence_config['preset_widgets']['course']['secondary-widget-area'][] = "calendar-2&title=Test Calendar";
 
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-posts-2";
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-comments-2";
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "categories-2";
-$translucence_config['preset_widgets']['blog']['secondary-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['blog']['first-footer-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['blog']['second-footer-widget-area'][] = "links-2";
-$translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "links-2";
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
+$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=1&count=1";
+$translucence_config['preset_widgets']['blog']['secondary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
+$translucence_config['preset_widgets']['blog']['first-footer-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['blog']['second-footer-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "links-2&title=&category=";
 
 /******************************************************************************
  * Header meta left options
