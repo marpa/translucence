@@ -385,18 +385,14 @@ function translucence_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 	
-	
 	// Pre-set Widgets
 	if (isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
 		$preset_widgets = $translucence_config['preset_widgets'][$translucence_options['widgets']];
-		
-	} else if (isset($translucence_config['preset_widgets']) && is_array($translucence_config['preset_widgets'])) {
-		$preset_widgets = $translucence_config['preset_widgets'][$translucence_config['activated-widgets']];
-		
+				
 	} else {	
 		$preset_widgets = array (
 			'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
-			'secondary-widget-area'  => array( 'links-2', 'rss-links-2' )
+			'secondary-widget-area'  => array( 'links-2' )
 			);
 	}
 
@@ -404,21 +400,48 @@ function translucence_widgets_init() {
 
 	// set default widgets only if no widgets have been set for the site
     if ( isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
-		
-		// set activated widgets back to "default"
+   		
+   		foreach ($translucence_config['preset_widgets'][$translucence_options['widgets']] as $sidebar => $widgets) {
+   			//printpre($sidebar);
+
+   				foreach ($widgets as $widget) {
+   					$widget_args = explode("&", $widget);
+					foreach ($widget_args as $widget_arg) {
+						if (ereg("=", $widget_arg)) {
+							$args = explode("=", $widget_arg);
+							$arg_array[$args[0]] = $args[1];							
+						}
+					}
+
+					if (ereg("pages", $widget_args[0])) {
+						update_option( 'widget_pages', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("posts", $widget_args[0])) {
+						update_option( 'widget_recent-posts', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("comments", $widget_args[0])) {
+						update_option( 'widget_recent-comments', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("categories", $widget_args[0])) {
+						update_option( 'widget_categories', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("archives", $widget_args[0])) {
+						update_option( 'widget_archives', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("links", $widget_args[0])) {
+						update_option( 'widget_links', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("tagcloud", $widget_args[0])) {
+						update_option( 'widget_tag_cloud', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					} else if (ereg("calendar", $widget_args[0])) {
+						update_option( 'widget_calendar', array( 2 => $arg_array, '_multiwidget' => 1 ) );
+					}
+					$presets[$sidebar][] = $widget_args[0];
+				}
+
+   			
+   		}
+
+		// set options for widgets and activated widgets back to "default"
+		$translucence_options['widgets'] = "default";
 		$translucence_options['activated-widgets'] = "default";
     	translucence_theme_options_update();
-   
-		update_option( 'widget_search', array( 2 => array( 'title' => '' ), '_multiwidget' => 1 ) );
-		update_option( 'widget_pages', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-		update_option( 'widget_recent-posts', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-		update_option( 'widget_recent-comments', array( 2 => array( 'title' => '', 'number' => 5 ), '_multiwidget' => 1 ) );
-		update_option( 'widget_categories', array( 2 => array( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-		update_option( 'widget_archives', array( 2 => array( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
-		update_option( 'widget_links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
-		update_option( 'widget_rss-links', array( 2 => array( 'title' => ''), '_multiwidget' => 1 ) );
 
-		update_option( 'sidebars_widgets', apply_filters('translucence_preset_widgets',$preset_widgets ));
+		update_option( 'sidebars_widgets', apply_filters('translucence_preset_widgets',$presets ));
 
   	}
   	
@@ -426,6 +449,55 @@ function translucence_widgets_init() {
 
 // Runs our code at the end to check that everything needed has loaded
 add_action( 'widgets_init', 'translucence_widgets_init' );
+
+/**
+ * Gets default widgets if none have been added
+ *
+ * Referenced on all sidebar template
+ *
+ * @since 2010 Translucence 1.0
+ * @return string the_widget template tags
+ */
+
+function translucence_get_default_widgets ($sidebar) {
+	global $translucence_config;
+	
+	$widget_sidebar_args = array(
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h3 class="title widget-title">',
+		'after_title' => '</h3>'
+	);
+		
+	$default_widgets = "";
+	foreach ($translucence_config['preset_widgets']['default'][$sidebar] as $sidebar_widget) {
+
+		if (ereg("pages", $sidebar_widget)) {			
+			$default_widgets .= the_widget('WP_Widget_Pages' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("recent-posts", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Recent_Posts' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("recent-comments", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Recent_Comments' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("categories", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Categories' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("links-2", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Links' , 'title=' , $widget_sidebar_args );
+		} else if (ereg("archives", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Archives' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("tagcloud", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Tag_Cloud' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("text", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Text' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("rss", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_RSS' , $sidebar_widget , $widget_sidebar_args );
+		} else if (ereg("calendar", $sidebar_widget)) {
+			$default_widgets .= the_widget('WP_Widget_Calendar' , $sidebar_widget , $widget_sidebar_args );
+		}			
+	}
+
+	return $default_widgets;
+}
+
 
  /**
  * Adds breadcrumbs to child pages
