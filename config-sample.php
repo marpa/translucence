@@ -30,8 +30,11 @@ $translucence_config['background'] = "translucence-gray-white";
  * Default Variation Configuration
  * Specify what theme options to use as the default
  ******************************************************************************/
+$translucence_config['activated-theme'] = "0";
 $translucence_config['activated-widgets'] = "default";
 $translucence_config['widgets'] = "default";
+$translucence_config['added-content'] = "default";
+$translucence_config['content'] = "default";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
@@ -113,6 +116,7 @@ $translucence_config['archives-single-sidebar'] = "right01";
 /******************************************************************************
  * Preset Widgets
  * Specify what widgets to include when Translucence is initially activated
+ * or when a widget set is loaded
  * possible values are: 
  *
  * pages-2&title=&sortby=&exclude=
@@ -158,6 +162,39 @@ $translucence_config['preset_widgets']['blog']['secondary-widget-area'][] = "tag
 $translucence_config['preset_widgets']['blog']['first-footer-widget-area'][] = "links-2&title=&category=";
 $translucence_config['preset_widgets']['blog']['second-footer-widget-area'][] = "links-2&title=&category=";
 $translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "links-2&title=&category=";
+
+/******************************************************************************
+ * Preset Content
+ * Specify what content to include when Translucence is initially activated
+ * or when a content set is loaded
+ * possible values are: 
+ *
+ * post_title= post_content= post_status= post_date= post_author=
+ * post_type= post_category post_tag= post_parent=
+ *
+ ******************************************************************************/
+ // this is content that are preset when the site is created.
+// NOTE: this content can be edited or deleted in posts, pages, categories or post tages
+
+//first specify parent posts
+$translucence_config['preset_content']['default']['post'][] = 
+"post_title=Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+
+//then specify child posts (requires looking up post ID of parent..
+ $translucence_config['preset_content']['default']['post'][] = 
+"post_title=Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+
+//first specify parent posts
+$translucence_config['preset_content']['course']['post'][] = 
+"post_title=Course Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+
+//then specify child posts (requires looking up post ID of parent..
+ $translucence_config['preset_content']['course']['post'][] = 
+"post_title=Course Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+ $translucence_config['preset_content']['course']['post'][] = 
+"post_title=Course Child Page 2&post_content=This is another child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+
+ 
 
 /******************************************************************************
  * Header meta left options
@@ -219,10 +256,14 @@ $translucence_config['custom_header']['whitegradient']['description'] = __( 'Whi
  * Model UI Options
  * This is a list of all the theme options that will be displayed in the 
  * theme options UI
+ * comment out any options you don't what to include in the theme options UI
+ * see: theme-options.php
  ******************************************************************************/
-
+$translucence_config['model'][]  = 'activated-theme';
 $translucence_config['model'][]  = 'widgets';
 $translucence_config['model'][]  = 'activated-widgets';
+$translucence_config['model'][]  = 'content';
+$translucence_config['model'][]  = 'added-content';
 
 $translucence_config['model'][]  = 'site-width';
 $translucence_config['model'][]  = 'background_image_url';
