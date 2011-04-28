@@ -179,27 +179,24 @@ $translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "
 // NOTE: this content can be edited or deleted in posts, pages, categories or post tages
 
 //first specify categories
-$translucence_config['preset_content']['default']['category'][] = 
-"term=Test Category&description=This is a test category&slug=test-category&parent=";
+$translucence_config['preset_content']['default']['category'][] = "term=Test Category&description=This is a test category&slug=test-category&parent=";
 
 //then specify parent posts
-$translucence_config['preset_content']['default']['post'][] = 
-"post_title=Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+$translucence_config['preset_content']['default']['post'][] = "post_title=Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
 
 //then specify child posts (requires looking up post ID of parent..
- $translucence_config['preset_content']['default']['post'][] = 
-"post_title=Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+ $translucence_config['preset_content']['default']['post'][] = "post_title=Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
 
 //first specify categories, tags
-//$translucence_config['preset_content']['course']['category'][] = "term=Assignments&description=This is an assignment category&slug=assignments&parent=";
-//$translucence_config['preset_content']['course']['tag'][] = "term=cool&description=This a cool tag&slug=cool&parent=";
+$translucence_config['preset_content']['course']['category'][] = "term=Assignments&description=This is an assignment category&slug=assignments&parent=";
+$translucence_config['preset_content']['course']['tag'][] = "term=cool&description=This a cool tag&slug=cool&parent=";
 
 //first specify parent posts
-//$translucence_config['preset_content']['course']['post'][] = "post_title=Course Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+$translucence_config['preset_content']['course']['post'][] = "post_title=Course Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
 
 //then specify child posts (requires looking up post ID of parent..
- $translucence_config['preset_content']['course']['post'][] = "post_title=Course post&post_content=This is a child post&post_status=publish&post_date=&post_author=&post_type=post&post_category=Assignments&post_parent=";
-// $translucence_config['preset_content']['course']['post'][] = "post_title=Course Page &post_content=This is another child page&post_status=publish&post_type=page";
+ $translucence_config['preset_content']['course']['post'][] = "post_title=Course post&post_content=This is a child post&post_status=publish&post_date=&post_author=&post_type=post&post_category=Assignments&tags_input=cool&post_parent=";
+ $translucence_config['preset_content']['course']['post'][] = "post_title=Course Child Page&post_content=This is child page&post_status=publish&post_type=page&post_parent=Course Parent Page";
 
  
 
