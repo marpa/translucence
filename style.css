@@ -13,6 +13,9 @@ Tags: custom-colors, custom-header, theme-options, one-column, two-columns, thre
 
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
 /* based on Twenty Ten CSS
+/* IMPORTANT: this file only contains Transclucence core css
+/* see: options-css.php for additional css with embedded theme options
+/* RECOMMENDATION: make most/all css modifications in options-css.php
 -------------------------------------------------------------- */
 
 html, body, div, span, applet, object, iframe,
