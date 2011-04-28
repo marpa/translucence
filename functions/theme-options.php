@@ -44,7 +44,7 @@ function translucence_theme_options_update() {
 	
 	// if content set is selected to be added then add that content
 	if ($translucence_options['content'] != "default") {
-		translucence_add_default_content();
+		translucence_add_default_content($translucence_options['content']);
 		$translucence_options['added-content'] = "default";
 		$translucence_options['content'] = "default";
 	}

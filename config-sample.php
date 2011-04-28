@@ -190,9 +190,9 @@ $translucence_config['preset_content']['course']['post'][] =
 
 //then specify child posts (requires looking up post ID of parent..
  $translucence_config['preset_content']['course']['post'][] = 
-"post_title=Course Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+"post_title=Course Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Course Parent Page";
  $translucence_config['preset_content']['course']['post'][] = 
-"post_title=Course Child Page 2&post_content=This is another child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+"post_title=Course Child Page 2&post_content=This is another child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Course Parent Page";
 
  
 

@@ -514,12 +514,12 @@ function translucence_get_default_widgets ($sidebar) {
  * @since 2010 Translucence 1.0
  */
 
-function translucence_add_default_content () {
+function translucence_add_default_content ($content) {
 	global $translucence_config, $user_ID, $translucence_options;
 
 	//printpre($translucence_config['preset_content']['default']['post']);
 	$post_parent = array();
-	foreach ($translucence_config['preset_content']['default']['post'] as $post) {
+	foreach ($translucence_config['preset_content'][$content]['post'] as $post) {
 		
 		$post_args = explode("&", $post);
 		$parent = 0;
@@ -556,7 +556,7 @@ function translucence_add_default_content () {
 			}			
 			
 		}
-
+		//printpre($new_post);
 		$post_id = wp_insert_post($new_post);
 		if ($parent == 1)
 			$post_parent[$post_id] = $new_post['post_title'];
