@@ -314,6 +314,30 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+		} else if (preg_match("/content/", $option)) {
+			if (in_array($value, array_keys($translucence_config['preset_content']))) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+		} else if (preg_match("/added-content/", $option)) {
+			if (in_array($value, array_keys($translucence_config['preset_content']))) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+		} else if (preg_match("/activated-theme/", $option)) {
+			if ($value == 0 || $value == 1) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
 
 		}
 	}
@@ -367,8 +391,13 @@ if (!function_exists('translucence_get_variation_default')) {
 function translucence_get_variation_default_config() {
 	global $translucence_config, $translucence_options;
 	
+	if (!isset($translucence_options['activated-theme'])) $translucence_options['activated-theme'] = $translucence_config['activated-theme'];
 	if (!isset($translucence_options['activated-widgets'])) $translucence_options['activated-widgets'] = $translucence_config['activated-widgets'];
 	if (!isset($translucence_options['widgets'])) $translucence_options['widgets'] = $translucence_config['widgets'];
+	
+	if (!isset($translucence_options['content'])) $translucence_options['content'] = $translucence_config['content'];
+	if (!isset($translucence_options['added-content'])) $translucence_options['added-content'] = $translucence_config['added-content'];
+	
 	if (!isset($translucence_options['headermeta'])) $translucence_options['headermeta'] = $translucence_config['headermeta'];
 	if (!isset($translucence_options['background'])) $translucence_options['background'] = $translucence_config['background'];
 	if (!isset($translucence_options['site-title-color'])) $translucence_options['site-title-color'] = $translucence_config['site-title-color'];
@@ -653,6 +682,7 @@ function translucence_set_derivative_options() {
 	/******************************************************************************
 	 * Blog title and description display option 
 	 * (derived from header-text-display and header-block-height options)
+	 * ugh, i really need to refactor this...
 	 ******************************************************************************/
 	
 	
