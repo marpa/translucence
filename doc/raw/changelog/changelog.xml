@@ -14,9 +14,21 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
+		<new author='alex' date='2011-04-27'>
+			added default theme option for adding sets of posts, categories and tags.
+		</new>				
+		<new author='alex' date='2011-04-27'>
+			added default widgets for inactive sidebars and widget set theme options.
+		</new>				
+		<new author='alex' date='2011-04-26'>
+			included 3 sample child themes, Child, Minimal and Dark.
+		</new>				
+		<change author='alex' date='2011-04-25'>
+			updated names of all custom variables with translucence prefix
+		</change>		
 		<new author='alex' date='2011-04-24'>
 			Added template translations for French and Japanese localization
-		</new>			
+		</new>				
 		<change author='alex' date='2011-04-12'>
 			refactored and reactivated preset widgets so that preset widgets can be defined in theme config and will be
 			created when theme is activated.
