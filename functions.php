@@ -515,55 +515,75 @@ function translucence_get_default_widgets ($sidebar) {
  */
 
 function translucence_add_default_content ($content) {
-	global $translucence_config, $user_ID, $translucence_options;
+	global $translucence_config, $translucence_options;
 
-	//printpre($translucence_config['preset_content']['default']['post']);
 	$post_parent = array();
-	foreach ($translucence_config['preset_content'][$content]['post'] as $post) {
+	$current_user = wp_get_current_user();
+	if ( 0 != $current_user->ID ) $user_ID = $current_user->ID;
+	
+	foreach ($translucence_config['preset_content'][$content] as $content_type => $content_args) {
+		$new_post = array();
+		$term = "";
+		$category_ID = array();
 		
-		$post_args = explode("&", $post);
-		$parent = 0;
-		
-		foreach ($post_args as $post_arg) {
-			if (ereg("=", $post_arg)) {
-				$args = explode("=", $post_arg);
-				
-				if ($args[0] == "post_date") {
-					$new_post[$args[0]] = date('Y-m-d H:i:s');
-					
-				} else if ($args[0] == "post_author") {
-					$new_post[$args[0]] = $user_ID;
-					
-				} else if ($args[0] == "post_title") {
-					$new_post[$args[0]] = $args[1];
-
-				} else if ($args[0] == "post_parent") {
-					if (isset($args[1]) && $args[1] !="") {
-						if (in_array($args[1], $post_parent)) {
-							$post_parent_id = array_keys($post_parent, $args[1]);
-							$new_post['post_parent'] = $post_parent_id[0];
-						}							
-					} else {
-						$parent = 1;
-					}					
-				} else if ($args[0] == "post_category") {
-					$category_ID = get_cat_ID( $args[1] );
-					if (isset($category_ID))
-						$new_post[$args[0]] = $category_ID;					
-				} else {
-					$new_post[$args[0]] = $args[1];
-				}
-			}			
+		foreach ($translucence_config['preset_content'][$content][$content_type] as $type) {
+			$post_args = explode("&", $type);
+			$parent = 0;
 			
+			foreach ($post_args as $post_arg) {
+				if (ereg("=", $post_arg)) {
+					$args = explode("=", $post_arg);
+					
+					if ($args[0] == "post_date") {
+						$new_post[$args[0]] = date('Y-m-d H:i:s');
+						
+					} else if ($args[0] == "post_author") {
+						$new_post[$args[0]] = $user_ID;
+						
+					} else if ($args[0] == "post_title") {
+						$new_post[$args[0]] = $args[1];
+	
+					} else if ($args[0] == "post_parent") {
+						if (isset($args[1]) && $args[1] !="") {
+							if (in_array($args[1], $post_parent)) {
+								$post_parent_id = array_keys($post_parent, $args[1]);
+								$new_post['post_parent'] = $post_parent_id[0];
+							}							
+						} else {
+							$parent = 1;
+						}					
+					} else if ($args[0] == "post_category") {
+						if (isset($args[1]) && $args[1] !="") {
+							$categories = term_exists( $args[1], 'category');
+							$category_ID[] = $categories['term_id'];
+						}
+						if (isset($category_ID))
+							$new_post[$args[0]] = $category_ID;	
+
+					} else if ($args[0] == "term") {
+						$term = $args[1];
+
+					} else {
+						$new_post[$args[0]] = $args[1];
+					}
+				}			
+				
+			}
+			//printpre($new_post);			
+			if ($content_type == "post") {
+				$post_id = wp_insert_post($new_post);
+				if ($parent == 1) $post_parent[$post_id] = $new_post['post_title'];
+				
+			} else if ($content_type == "category") {
+				$taxonomy = "category";
+				$post_id = wp_insert_term($term, $taxonomy, $new_post);
+				//$category[$post_id] = $new_post['cat_name'];
+			
+			} else if ($content_type == "tag") {
+			
+			}	
 		}
-		//printpre($new_post);
-		$post_id = wp_insert_post($new_post);
-		if ($parent == 1)
-			$post_parent[$post_id] = $new_post['post_title'];
-
 	}
-
-
 }
 
  /**
