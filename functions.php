@@ -155,6 +155,7 @@ function translucence_setup() {
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
+	
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
@@ -222,6 +223,7 @@ function translucence_setup() {
 
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 	register_default_headers( $translucence_config['custom_header'] );
+	
 }
 endif;
 
@@ -240,6 +242,7 @@ function translucence_add_options_css() {
 	print $translucence_options['css'];
 
 	// IE hack opacity options
+	// need IE hack for tag-link-box and cat-link-box
 	print $translucence_options['header-color-ie']."\n"; 
 	print $translucence_options['title-box-color-ie']."\n"; 
 	print $translucence_options['description-box-color-ie']."\n"; 
@@ -400,11 +403,10 @@ function translucence_widgets_init() {
 
 	$current_widgets = get_option ('sidebars_widgets');
 
-	// set default widgets only if no widgets have been set for the site
+	// set widgets only if current widget is not default
     if ( isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
    		
    		foreach ($translucence_config['preset_widgets'][$translucence_options['widgets']] as $sidebar => $widgets) {
-   			//printpre($sidebar);
 
    				foreach ($widgets as $widget) {
    					$widget_args = explode("&", $widget);
@@ -455,7 +457,7 @@ add_action( 'widgets_init', 'translucence_widgets_init' );
 /**
  * Gets default widgets if none have been added
  *
- * Referenced on all sidebar template
+ * Referenced on all sidebar template files
  *
  * @since 2010 Translucence 1.0
  * @return string the_widget template tags
@@ -769,7 +771,7 @@ function translucence_page_links($post, $order) {
 		$num_children = get_pages("child_of=".$post->ID);
 	}
 	
-	if ($_COOKIE['hidetoc'] == 1) {
+	if (isset($_COOKIE['hidetoc']) && $_COOKIE['hidetoc'] == 1) {
 		$page_links_label = "[".__( 'show page links', '2010-translucence' )."]";
 	} else {
 		$page_links_label = "[".__( 'hide page links', '2010-translucence' )."]";
@@ -787,8 +789,6 @@ function translucence_page_links($post, $order) {
 	} else if (count($num_children) > 1 && $order == "after") {
 		print $children;
 	}
-	
-
 }
 
  /**
@@ -801,7 +801,7 @@ function translucence_page_links($post, $order) {
 
 function translucence_page_links_display() {	
 
-	if ($_COOKIE['hidetoc'] == 1 && !is_admin()) {
+	if (isset($_COOKIE['hidetoc']) && $_COOKIE['hidetoc'] == 1 && !is_admin()) {
 		$display = "display: none;";
 	} else {
 		$display = "display: block;";
