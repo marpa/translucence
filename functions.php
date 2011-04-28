@@ -500,6 +500,69 @@ function translucence_get_default_widgets ($sidebar) {
 	return $default_widgets;
 }
 
+/**
+ * Adds default content or content sets
+ *
+ * @uses wp_insert_post() to add posts
+ * @uses get_posts() to get post ID of parent post
+ * @uses wp_insert_category() to create new categories
+ * @uses get_cat_ID() to get category ID from names
+ *
+ *
+ * @since 2010 Translucence 1.0
+ */
+
+function translucence_add_default_content () {
+	global $translucence_config, $user_ID, $translucence_options;
+
+	//printpre($translucence_config['preset_content']['default']['post']);
+	$post_parent = array();
+	foreach ($translucence_config['preset_content']['default']['post'] as $post) {
+		
+		$post_args = explode("&", $post);
+		$parent = 0;
+		
+		foreach ($post_args as $post_arg) {
+			if (ereg("=", $post_arg)) {
+				$args = explode("=", $post_arg);
+				
+				if ($args[0] == "post_date") {
+					$new_post[$args[0]] = date('Y-m-d H:i:s');
+					
+				} else if ($args[0] == "post_author") {
+					$new_post[$args[0]] = $user_ID;
+					
+				} else if ($args[0] == "post_title") {
+					$new_post[$args[0]] = $args[1];
+
+				} else if ($args[0] == "post_parent") {
+					if (isset($args[1]) && $args[1] !="") {
+						if (in_array($args[1], $post_parent)) {
+							$post_parent_id = array_keys($post_parent, $args[1]);
+							$new_post['post_parent'] = $post_parent_id[0];
+						}							
+					} else {
+						$parent = 1;
+					}					
+				} else if ($args[0] == "post_category") {
+					$category_ID = get_cat_ID( $args[1] );
+					if (isset($category_ID))
+						$new_post[$args[0]] = $category_ID;					
+				} else {
+					$new_post[$args[0]] = $args[1];
+				}
+			}			
+			
+		}
+
+		$post_id = wp_insert_post($new_post);
+		if ($parent == 1)
+			$post_parent[$post_id] = $new_post['post_title'];
+
+	}
+
+
+}
 
  /**
  * Adds breadcrumbs to child pages
