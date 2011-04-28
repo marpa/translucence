@@ -101,30 +101,54 @@ function translucence_theme_options_do_page() {
 
 			</td>
 			<td width='80%' align='left'>
+			<div>
 			<?php
+			print "<input type='hidden' value='".$translucence_options['activated-theme']."' name='".$translucence_options_id."[activated-theme]'/>";
 			/******************************************************************************
 			 * Widget Set Options
 			 ******************************************************************************/
 
 			if (in_array("activated-widgets", $translucence_config['model'])) {				
-				print "<div>Widgets: ";
+				print __('Widgets', '2010-translucence');
 				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 12px;' onchange='this.form.submit();'>";			
 					$widget_sets = array_keys($translucence_config['preset_widgets']);
 					foreach ($widget_sets as $widget_set) {
 						print "\n<option value='".$widget_set."'".($translucence_options['activated-widgets'] == $widget_set ? ' selected' : '') . ">".$widget_set."</option>";
 					}	
-				print "</select>";
+				print "</select> ";
 
 				if ($translucence_options['activated-widgets'] != "default" ) {
-					print "<span style='font-size: 10px;'> Choosing these widgets will replace all existing widgets</span>";
+					print "<span style='font-size: 10px;'> ".__('Choosing these widgets will replace all existing widgets', '2010-translucence')."</span>";
 					print "<span class='submit'><input type='submit' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/></span>";
 				} else {
 					print "<input type='hidden' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/>";
 				}
 
-				print "</div>";
 			}
+			/******************************************************************************
+			 * Content Set Options
+			 ******************************************************************************/
+
+			if (in_array("added-content", $translucence_config['model'])) {				
+				print __('Content', '2010-translucence');
+				print "<select name='".$translucence_options_id."[added-content]' style='font-size: 12px;' onchange='this.form.submit();'>";			
+					$content_sets = array_keys($translucence_config['preset_content']);
+					foreach ($content_sets as $content_set) {
+						print "\n<option value='".$content_set."'".($translucence_options['added-content'] == $content_set ? ' selected' : '') . ">".$content_set."</option>";
+					}	
+				print "</select>";
+
+				if ($translucence_options['added-content'] != "default" ) {
+					print "<span style='font-size: 10px;'> ".__('New posts, pages, tags and categories will be added to your site.', '2010-translucence')."</span>";
+					print "<span class='submit'><input type='submit' value='".$translucence_options['added-content']."' name='".$translucence_options_id."[content]'/></span>";
+				} else {
+					print "<input type='hidden' value='".$translucence_options['added-content']."' name='".$translucence_options_id."[content]'/>";
+				}
+
+			}
+
 			?>
+			</div>
 			</td>
 			<td width='20%'>
 			</td>
