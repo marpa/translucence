@@ -149,6 +149,8 @@ function translucence_setup() {
 		$translucence_options = get_option($translucence_options_id);
 	}
 	
+	//printpre($translucence_options['activated-theme']);
+	// need to add activated-theme option to translucence_validate_options()
 	if ( is_admin() || !isset($translucence_options['activated-theme'])) {
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
