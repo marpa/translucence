@@ -571,13 +571,18 @@ function translucence_add_default_content ($content) {
 			}
 			//printpre($new_post);			
 			if ($content_type == "post") {
-				$post_id = wp_insert_post($new_post);
+				if ($new_post['post_type'] == "page") {
+					$new_post['post_type'] = "post";	
+					$post_id = wp_insert_post($new_post);
+					set_post_type($post_id, "page");
+				} else {
+					$post_id = wp_insert_post($new_post);
+				}
 				if ($parent == 1) $post_parent[$post_id] = $new_post['post_title'];
 				
 			} else if ($content_type == "category") {
 				$taxonomy = "category";
 				$post_id = wp_insert_term($term, $taxonomy, $new_post);
-				//$category[$post_id] = $new_post['cat_name'];
 			
 			} else if ($content_type == "tag") {
 			
