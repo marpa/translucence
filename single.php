@@ -90,10 +90,10 @@ $content_width = translucence_get_content_width ("post");
 
 
 
-<?php if ( $translucence_options['post-sidebar-right-display'] == "show" && $translucence_options['right01-width'] != '0') : // Only display sidebar if single. ?>
+<?php if ( $translucence_options['post-sidebar-right-display'] == "show" && $translucence_options['right01-width'] != '0') : // When to display 1st right sidebar. ?>
 	<?php get_sidebar('primary'); ?>	
 <?php endif; ?>	
-<?php if ( $translucence_options['post-sidebar-right02-display'] == "show" && $translucence_options['right02-width'] != '0') : // Only display sidebar if single. ?>
+<?php if ( $translucence_options['post-sidebar-right02-display'] == "show" && $translucence_options['right02-width'] != '0') : // When to display 2nd right sidebar. ?>
 	<?php get_sidebar('secondary'); ?>	
 <?php endif; ?>	
 

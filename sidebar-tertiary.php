@@ -14,7 +14,7 @@
 	 * then the sidebar simply doesn't exist, so we'll hard-code in
 	 * some default sidebar stuff just in case.
 	 */
-	// A tertiary sidebar for widgets, just because.
+	// A tertiary sidebar for widgets, just because... because.
 	
 	global $translucence_options; ?>
 
