@@ -1064,20 +1064,6 @@ function translucence_set_derivative_options() {
 	}
 	
 	/******************************************************************************
-	 * calculate width of footer widget areas based on site width
-	 ******************************************************************************/
-	$active_widgets = 0;
-	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
-	
-	if ($active_widgets > 0)
-		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
-	
-	//printpre($translucence_options['footer-widget-width']);
-
-	/******************************************************************************
 	 * Entry text line height
 	 ******************************************************************************/
 	$translucence_options['entry-line-height'] = $translucence_options['entry-text-size'] + round($translucence_options['entry-text-size']/2);
