@@ -988,7 +988,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( 'Left Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("sidebar-1") && $translucence_options['left01-width'] == 0) {
-			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
+			print "<span class='warning' style='font-size: 10px'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		//width
 		translucence_get_option_selector ("", "left01-width", $translucence_options_values['sidebar-width']);
@@ -998,7 +998,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( '1st Right Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("primary-widget-area") && $translucence_options['right01-width'] == 0) {
-			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
+			print "<span class='warning' style='font-size: 10px'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right01-width", $translucence_options_values['sidebar-width']);
@@ -1011,7 +1011,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( '2nd Right Sidebar', '2010-translucence')."</div>\n";	
 		// hidden widgets warning
 		if (is_active_sidebar("secondary-widget-area") && $translucence_options['right02-width'] == 0) {
-			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
+			print "<span class='warning' style='font-size: 10px'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right02-width", $translucence_options_values['sidebar-width']);
