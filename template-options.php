@@ -101,51 +101,67 @@ function translucence_theme_options_do_page() {
 
 			</td>
 			<td width='80%' align='left'>
-			<div>
+			
 			<?php
 			print "<input type='hidden' value='".$translucence_options['activated-theme']."' name='".$translucence_options_id."[activated-theme]'/>";
 			/******************************************************************************
 			 * Widget Set Options
 			 ******************************************************************************/
+			print "<div>";
 
-			if (in_array("activated-widgets", $translucence_config['model'])) {				
-				print __('Widgets', '2010-translucence');
+			
+			if (in_array("activated-widgets", $translucence_config['model'])) {
+			
+				// widget set label
+				print __('Widgets', '2010-translucence');				
+
+				// widget set select field
 				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 12px;' onchange='this.form.submit();'>";			
 					$widget_sets = array_keys($translucence_config['preset_widgets']);
 					foreach ($widget_sets as $widget_set) {
 						print "\n<option value='".$widget_set."'".($translucence_options['activated-widgets'] == $widget_set ? ' selected' : '') . ">".$widget_set."</option>";
 					}	
 				print "</select> ";
-
+				
+				// widget set description and activate button
 				if ($translucence_options['activated-widgets'] != "default" ) {
-					print "<span style='font-size: 10px;'> ".__('Choosing these widgets will replace all existing widgets', '2010-translucence')."</span>";
-					print "<span class='submit'><input type='submit' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/></span>";
+					print " <span style='font-size: 10px;'> ".__(' widget set will <span class=\'warning\'>replace</span> existing widgets.', '2010-translucence')."</span>";
+					print "<span class='submit'><input type='submit' value='".__('Activate New Widgets', '2010-translucence')."' name='".$translucence_options_id."[widgets]'/></span>";
 				} else {
-					print "<input type='hidden' value='".$translucence_options['activated-widgets']."' name='".$translucence_options_id."[widgets]'/>";
+					print "<input type='hidden' value='default' name='".$translucence_options_id."[widgets]'/>";
 				}
 
+
 			}
+			print "</div>";
 			/******************************************************************************
 			 * Content Set Options
 			 ******************************************************************************/
-
-			if (in_array("added-content", $translucence_config['model'])) {				
+			print "<div>";
+			
+			if (in_array("added-content", $translucence_config['model'])) {
+				//content set label
 				print __('Content', '2010-translucence');
+
+				// content set select field
 				print "<select name='".$translucence_options_id."[added-content]' style='font-size: 12px;' onchange='this.form.submit();'>";			
 					$content_sets = array_keys($translucence_config['preset_content']);
 					foreach ($content_sets as $content_set) {
 						print "\n<option value='".$content_set."'".($translucence_options['added-content'] == $content_set ? ' selected' : '') . ">".$content_set."</option>";
 					}	
-				print "</select>";
-
+				print "</select> ";
+				
+				// widget set description and activate button
 				if ($translucence_options['added-content'] != "default" ) {
 					print "<span style='font-size: 10px;'> ".__('New posts, pages, tags and categories will be added to your site.', '2010-translucence')."</span>";
-					print "<span class='submit'><input type='submit' value='".$translucence_options['added-content']."' name='".$translucence_options_id."[content]'/></span>";
-				} else {
-					print "<input type='hidden' value='".$translucence_options['added-content']."' name='".$translucence_options_id."[content]'/>";
-				}
+					print " <span class='submit'><input type='submit' value='".__('Add New Content', '2010-translucence')."' name='".$translucence_options_id."[content]'/></span>";
 
+				} else {
+					print "<input type='hidden' value='default' name='".$translucence_options_id."[content]'/>";
+				}
+				
 			}
+			print "</div>";
 
 			?>
 			</div>
@@ -507,6 +523,10 @@ function translucence_get_theme_model_css() {
 			margin-left: 5px;
 			padding-top: ".$translucence_options['header-text-padding-top']."px;
 			color: ".$translucence_options['site-title-color'].";
+		}
+		
+		.warning {
+			color: #900;
 		}
 
 
@@ -979,7 +999,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( 'Left Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("sidebar-1") && $translucence_options['left01-width'] == 0) {
-			print "<span style='font-size: 10px; color: #990000;'></span>";
+			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		//width
 		translucence_get_option_selector ("", "left01-width", $translucence_options_values['sidebar-width']);
@@ -989,7 +1009,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( '1st Right Sidebar', '2010-translucence')."</div>\n";
 		// hidden widgets warning
 		if (is_active_sidebar("primary-widget-area") && $translucence_options['right01-width'] == 0) {
-			print "<span style='font-size: 10px; color: #990000;'>".__( 'hidden widgets!', '2010-translucence')."</span>";
+			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right01-width", $translucence_options_values['sidebar-width']);
@@ -1002,7 +1022,7 @@ function translucence_get_layout_options() {
 		print "<div>".__( '2nd Right Sidebar', '2010-translucence')."</div>\n";	
 		// hidden widgets warning
 		if (is_active_sidebar("secondary-widget-area") && $translucence_options['right02-width'] == 0) {
-			print "<span style='font-size: 10px; color: #990000;'>".__( 'hidden widgets!', '2010-translucence')."</span>";
+			print "<span class='warning'>".__( 'hidden widgets!', '2010-translucence')."</span>";
 		}
 		// width
 		translucence_get_option_selector ("", "right02-width", $translucence_options_values['sidebar-width']);
