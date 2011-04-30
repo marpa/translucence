@@ -100,29 +100,24 @@ function translucence_theme_options_do_page() {
 			<span class='submit'><input type='submit' value='<?php _e( 'Revert to Default', '2010-translucence' ); ?>' name='<?php echo $translucence_options_id ?>[reset]'/></span>
 
 			</td>
-			<td width='80%' align='left'>
+			<td width='80%'>
 			
 			<?php
 			print "<input type='hidden' value='".$translucence_options['activated-theme']."' name='".$translucence_options_id."[activated-theme]'/>";
 			/******************************************************************************
 			 * Widget Set Options
 			 ******************************************************************************/
-			print "<div>";
-
-			
-			if (in_array("activated-widgets", $translucence_config['model'])) {
-			
+			print "<div style='font-size: 10px;'>";			
+			if (in_array("activated-widgets", $translucence_config['model'])) {			
 				// widget set label
-				print __('Widgets', '2010-translucence');				
-
+				print __('Widgets', '2010-translucence').": ";				
 				// widget set select field
-				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 12px;' onchange='this.form.submit();'>";			
+				print "<select name='".$translucence_options_id."[activated-widgets]' style='font-size: 10px;' onchange='this.form.submit();'>";			
 					$widget_sets = array_keys($translucence_config['preset_widgets']);
 					foreach ($widget_sets as $widget_set) {
 						print "\n<option value='".$widget_set."'".($translucence_options['activated-widgets'] == $widget_set ? ' selected' : '') . ">".$widget_set."</option>";
 					}	
-				print "</select> ";
-				
+				print "</select> ";				
 				// widget set description and activate button
 				if ($translucence_options['activated-widgets'] != "default" ) {
 					print " <span style='font-size: 10px;'> ".__(' widget set will <span class=\'warning\'>replace</span> existing widgets.', '2010-translucence')."</span>";
@@ -130,27 +125,22 @@ function translucence_theme_options_do_page() {
 				} else {
 					print "<input type='hidden' value='default' name='".$translucence_options_id."[widgets]'/>";
 				}
-
-
 			}
 			print "</div>";
 			/******************************************************************************
 			 * Content Set Options
 			 ******************************************************************************/
-			print "<div>";
-			
+			print "<div style='font-size: 10px;'>";			
 			if (in_array("added-content", $translucence_config['model'])) {
 				//content set label
-				print __('Content', '2010-translucence');
-
+				print __('Content', '2010-translucence').": ";
 				// content set select field
-				print "<select name='".$translucence_options_id."[added-content]' style='font-size: 12px;' onchange='this.form.submit();'>";			
+				print "<select name='".$translucence_options_id."[added-content]' style='font-size: 10px;' onchange='this.form.submit();'>";			
 					$content_sets = array_keys($translucence_config['preset_content']);
 					foreach ($content_sets as $content_set) {
 						print "\n<option value='".$content_set."'".($translucence_options['added-content'] == $content_set ? ' selected' : '') . ">".$content_set."</option>";
 					}	
-				print "</select> ";
-				
+				print "</select> ";				
 				// widget set description and activate button
 				if ($translucence_options['added-content'] != "default" ) {
 					print "<span style='font-size: 10px;'> ".__('New posts, pages, tags and categories will be added to your site.', '2010-translucence')."</span>";
@@ -158,8 +148,7 @@ function translucence_theme_options_do_page() {
 
 				} else {
 					print "<input type='hidden' value='default' name='".$translucence_options_id."[content]'/>";
-				}
-				
+				}				
 			}
 			print "</div>";
 
