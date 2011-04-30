@@ -133,21 +133,6 @@ function translucence_setup() {
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
 	
-	/******************************************************************************
-	 * calculate width of footer widget areas based on site width
-	 ******************************************************************************/
-	$active_widgets = 0;
-	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
-	
-	if ($active_widgets > 0)
-		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
-	
-	//printpre($translucence_options['footer-widget-width']);
-
-	
 	//define name of theme options and css
 	$theme_id = strtolower($translucence_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
@@ -164,13 +149,27 @@ function translucence_setup() {
 		$translucence_options = get_option($translucence_options_id);
 	}
 	
+	/******************************************************************************
+	 * calculate width of footer widget areas based on site width
+	 ******************************************************************************/
+	$active_widgets = 0;
+	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
+	
+	if ($active_widgets > 0)
+		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
+	
+//	printpre($translucence_options['footer-widget-width']);
+	
 	//printpre($translucence_options['activated-theme']);
 	// need to add activated-theme option to translucence_validate_options()
 	if ( is_admin() || !isset($translucence_options['activated-theme'])) {
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
-	
+
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
