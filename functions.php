@@ -133,6 +133,21 @@ function translucence_setup() {
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );
 	
+	/******************************************************************************
+	 * calculate width of footer widget areas based on site width
+	 ******************************************************************************/
+	$active_widgets = 0;
+	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
+	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
+	
+	if ($active_widgets > 0)
+		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
+	
+	//printpre($translucence_options['footer-widget-width']);
+
+	
 	//define name of theme options and css
 	$theme_id = strtolower($translucence_config['theme-name']);
 	$theme_id = str_replace(" ", "_", $theme_id);
@@ -544,15 +559,20 @@ function translucence_add_default_content ($content) {
 						$new_post[$args[0]] = $args[1];
 	
 					} else if ($args[0] == "post_parent") {
+						// if a parent is specified...
 						if (isset($args[1]) && $args[1] !="") {
+							// is the parent specified $args[1] included in this content set...
 							if (in_array($args[1], $post_parent)) {
 								$post_parent_id = array_keys($post_parent, $args[1]);
 								$new_post['post_parent'] = $post_parent_id[0];
-							}							
+							}
+						// if no parent specified then mark to be added to $post_parent array
 						} else {
 							$parent = 1;
-						}					
+						}
+					
 					} else if ($args[0] == "post_category") {
+						// if a category is specified... get its id
 						if (isset($args[1]) && $args[1] !="") {
 							$categories = term_exists( $args[1], 'category');
 							$category_ID[] = $categories['term_id'];
@@ -571,6 +591,8 @@ function translucence_add_default_content ($content) {
 			}
 			//printpre($new_post);			
 			if ($content_type == "post") {
+				// this is a hack to avoid issues with 
+				// using wp_insert_post with pages...
 				if ($new_post['post_type'] == "page") {
 					$new_post['post_type'] = "post";	
 					$post_id = wp_insert_post($new_post);
