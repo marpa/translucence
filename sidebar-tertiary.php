@@ -25,7 +25,7 @@
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'tertiary-widget-area' )) {
-				translucence_get_default_widgets('tertiary-widget-area');
+				//translucence_get_default_widgets('tertiary-widget-area');
 								
 			} else {
 				dynamic_sidebar( 'tertiary-widget-area' ); 		

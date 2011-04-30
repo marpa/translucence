@@ -25,7 +25,7 @@
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'secondary-widget-area' )) {
-				translucence_get_default_widgets('secondary-widget-area');
+				//translucence_get_default_widgets('secondary-widget-area');
 								
 			} else {
 				dynamic_sidebar( 'secondary-widget-area' ); 		
