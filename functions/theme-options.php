@@ -44,7 +44,7 @@ function translucence_theme_options_update() {
 	
 	// if content set is selected to be added then add that content
 	if ($translucence_options['content'] != "default") {
-		translucence_add_default_content($translucence_options['content']);
+		translucence_add_default_content($translucence_options['added-content']);
 		$translucence_options['added-content'] = "default";
 		$translucence_options['content'] = "default";
 	}
@@ -298,14 +298,6 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
-		} else if (preg_match("/widgets/", $option)) {
-			if (in_array($value, array_keys($translucence_config['preset_widgets']))) {
-				$input[$option] = $value;
-				$validated[] = $option;
-			} else {
-				$input[$option] = null;
-				$not_validated[] = $option;
-			}
 		} else if (preg_match("/activated-widgets/", $option)) {
 			if (in_array($value, array_keys($translucence_config['preset_widgets']))) {
 				$input[$option] = $value;
@@ -314,8 +306,9 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
-		} else if (preg_match("/content/", $option)) {
-			if (in_array($value, array_keys($translucence_config['preset_content']))) {
+		} else if (preg_match("/widgets/", $option)) {
+			$valid_input = __('Activate New Widgets', '2010-translucence');
+			if ($value == $valid_input || $value == "default") {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -324,6 +317,15 @@ function translucence_validate_options($input) {
 			}
 		} else if (preg_match("/added-content/", $option)) {
 			if (in_array($value, array_keys($translucence_config['preset_content']))) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+		} else if (preg_match("/content/", $option)) {
+			$valid_input = __('Add New Content', '2010-translucence');
+			if ($value == $valid_input || $value == "default") {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {
@@ -1182,16 +1184,7 @@ function translucence_option_feedback() {
 		$error = "true";
 
 	} else {
-
-		if ($translucence_options['background_color'] == '#0F0F0F') {
-						
-			if ($translucence_options['header-image-options'] == "whitegradient") {
-				$message .= " <br/>The white gradient image really doesn't look good here.  Best to upload your own custom image or use none.";
-				$error = "true";
-			} 
-
-		} 		
-		
+				
 		if (is_active_sidebar("tertiary-widget-area") && $translucence_options['left01-width'] == 0) {
 			$message .= " <br/>".__( 'Your left sidebar is hidden but contains widgets.', '2010-translucence' );
 			$error = "true";

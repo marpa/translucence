@@ -406,8 +406,8 @@ function translucence_widgets_init() {
 	
 	// Pre-set Widgets
 	if (isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
-		$preset_widgets = $translucence_config['preset_widgets'][$translucence_options['widgets']];
-				
+		$preset_widgets = $translucence_config['preset_widgets'][$translucence_options['activated-widgets']];
+			
 	} else {	
 		$preset_widgets = array (
 			'primary-widget-area'  => array( 'pages-2', 'recent-posts-2', 'categories-2' ),
@@ -419,8 +419,7 @@ function translucence_widgets_init() {
 
 	// set widgets only if current widget is not default
     if ( isset($translucence_options['widgets']) && $translucence_options['widgets'] != "default") {
-   		
-   		foreach ($translucence_config['preset_widgets'][$translucence_options['widgets']] as $sidebar => $widgets) {
+   		foreach ($translucence_config['preset_widgets'][$translucence_options['activated-widgets']] as $sidebar => $widgets) {
 
    				foreach ($widgets as $widget) {
    					$widget_args = explode("&", $widget);
