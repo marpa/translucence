@@ -308,7 +308,7 @@ function translucence_validate_options($input) {
 			}
 		} else if (preg_match("/widgets/", $option)) {
 			$valid_input = __('Activate New Widgets', '2010-translucence');
-			if ($value == $valid_input || $value == "default") {
+			if ($value == $valid_input || $value == "default" || $value == "initialize") {
 				$input[$option] = $value;
 				$validated[] = $option;
 			} else {

@@ -23,7 +23,7 @@
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'primary-widget-area' )) {
-				translucence_get_default_widgets('primary-widget-area');
+				//translucence_get_default_widgets('primary-widget-area');
 								
 			} else {
 				dynamic_sidebar( 'primary-widget-area' ); 		
