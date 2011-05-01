@@ -28,22 +28,6 @@ function translucence_options_css() {
 		$translucence_options['site-description-color'] = "#".$translucence_options['site-description-color'];
 	}
 
-	/******************************************************************************
-	 * calculate width of footer widget areas based on site width
-	 ******************************************************************************/
-	$active_widgets = 0;
-	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
-	
-	if ($active_widgets > 0)
-		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
-	
-// 	printpre($translucence_options['site-width']);
-// 	printpre($active_widgets);
-
-
 	// calculate the width of the content div based on widths of sidebars
 	// sidebar width = sidebar width + 50
 	// if sidebar width = 0 then width = 0

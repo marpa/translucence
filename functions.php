@@ -896,8 +896,22 @@ function translucence_box_display ($box) {
 	global $translucence_options;
 	
 	$cookie_name = "hide".$box;
+	
+	if ($box == "footer") {
+		$active_widgets = 0;
+		if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
+		if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
+		if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
+		if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
+		
+		if ($active_widgets > 0) {
+			$box_width = round($translucence_options['site-width']/$active_widgets)-10;
+			print "display: block; width: ".$box_width."px;";
+		} else {
+			print "display: none; width: 0px;";
+		}
 				
-	if ($_COOKIE[$cookie_name] == 1 && !is_admin()) {		
+	} else if ($_COOKIE[$cookie_name] == 1 && !is_admin()) {		
 		print "display: none; width: 0px;";
 	} else {
 		if ($box == "primary") {			

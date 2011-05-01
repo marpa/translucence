@@ -33,18 +33,6 @@ function translucence_options_css() {
 		$translucence_options['site-description-color'] = "#".$translucence_options['site-description-color'];
 	}
 
-	/******************************************************************************
-	 * calculate width of footer widget areas based on site width
-	 ******************************************************************************/
-	$active_widgets = 0;
-	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
-	
-	if ($active_widgets > 0)
-		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
-
 	// calculate the width of the content div based on widths of sidebars
 	// sidebar width = sidebar width + 50
 	// if sidebar width = 0 then width = 0
@@ -375,9 +363,9 @@ div.menu,
 
 #footer-widget-area {
 	border-top: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-top']?>;
-	border-bottom: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-bottom']?>;
-	border-left: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-left']?>;
-	border-right: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-right']?>;	
+	border-bottom: 1px <?php print $translucence_options['bottom-border-style']?> transparent;
+	<!-- border-left: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-left']?>; -->
+	<!-- border-right: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-right']?>; -->	
 	
 	color:  <?php print $translucence_options['bottom-text-color']?>;
 	background-color: <?php print $translucence_options['bottom-color-rgb']?>;
@@ -391,8 +379,8 @@ div.menu,
 	background-color: <?php print $translucence_options['bottom-color-hover-rgb']?>;
 	border-top: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-top']?>;
 	border-bottom: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-bottom']?>;
-	border-left: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-left']?>;
-	border-right: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-right']?>;		
+	<!-- border-left: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-left']?>; -->
+	<!-- border-right: 1px <?php print $translucence_options['bottom-hover-border-style']?> <?php print $translucence_options['bottom-border-right']?>;		 -->
 }	
 
 #footer-widget-area .widget-area {
