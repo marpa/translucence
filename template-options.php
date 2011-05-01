@@ -104,6 +104,7 @@ function translucence_theme_options_do_page() {
 			
 			<?php
 			print "<input type='hidden' value='".$translucence_options['activated-theme']."' name='".$translucence_options_id."[activated-theme]'/>";
+			print "<input type='hidden' value='".$translucence_options['footer-widget-width']."' name='".$translucence_options_id."[footer-widget-width]'/>";
 			/******************************************************************************
 			 * Widget Set Options
 			 ******************************************************************************/
@@ -119,9 +120,13 @@ function translucence_theme_options_do_page() {
 					}	
 				print "</select> ";				
 				// widget set description and activate button
+				//printpre($translucence_config['preset_widgets'][$translucence_options['activated-widgets']]['description']);
 				if ($translucence_options['activated-widgets'] != "default" ) {
-					print " <span style='font-size: 10px;'> ".__(' widget set will <span class=\'warning\'>replace</span> existing widgets.', '2010-translucence')."</span>";
 					print "<span class='submit'><input type='submit' value='".__('Activate New Widgets', '2010-translucence')."' name='".$translucence_options_id."[widgets]'/></span>";
+					print " <span style='font-size: 10px;'> (".__('will <span class=\'warning\'>replace</span> existing widgets.', '2010-translucence').")</span>";
+					print "<div style='margin-left: 100px;'>";
+					print " <span style='font-size: 10px; font-style: italic'> ".$translucence_config['preset_widgets'][$translucence_options['activated-widgets']]['description'][0]."</span> ";
+					print "</div>";
 				} else {
 					print "<input type='hidden' value='default' name='".$translucence_options_id."[widgets]'/>";
 				}
@@ -143,9 +148,11 @@ function translucence_theme_options_do_page() {
 				print "</select> ";				
 				// widget set description and activate button
 				if ($translucence_options['added-content'] != "default" ) {
-					print "<span style='font-size: 10px;'> ".__('New posts, pages, tags and categories will be added to your site.', '2010-translucence')."</span>";
 					print " <span class='submit'><input type='submit' value='".__('Add New Content', '2010-translucence')."' name='".$translucence_options_id."[content]'/></span>";
-
+					print "<span style='font-size: 10px;'> ".__('New posts, pages, tags and categories will be <span class=\'notify\'>added</span> to your site.', '2010-translucence')."</span>";
+					print "<div style='margin-left: 100px;'>";
+					print " <span style='font-size: 10px; font-style: italic'> ".$translucence_config['preset_content'][$translucence_options['added-content']]['description'][0]."</span> ";					
+					print "</div>";
 				} else {
 					print "<input type='hidden' value='default' name='".$translucence_options_id."[content]'/>";
 				}				
@@ -318,7 +325,7 @@ function translucence_get_theme_model_css() {
 			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
-		
+				
 		#wphead h1 a {
 			text-decoration: none;
 			border-bottom: none;
@@ -516,6 +523,12 @@ function translucence_get_theme_model_css() {
 		
 		.warning {
 			color: #900;
+			font-weight: bold;
+		}
+
+		.notify {
+			color: #009933;
+			font-weight: bold;
 		}
 
 
@@ -1306,6 +1319,7 @@ function translucence_get_right01_options() {
 		translucence_get_option_selector ("", "right01-border-style", $translucence_options_values['border-style']);
 		
 		$current_widgets = get_option ('sidebars_widgets');
+		//printpre($current_widgets);
 	
 		if (is_active_sidebar("primary-widget-area")) {
 			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
