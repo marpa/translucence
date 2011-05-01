@@ -229,20 +229,20 @@ $translucence_config['preset_content']['course']['post'][] =
 //then specify child posts (requires looking up post ID of parent..
  $post_content = "This page describes the requirements for this class.";
  $translucence_config['preset_content']['course']['post'][] = 
- "post_type=page&post_title=Requirements&post_content=".$post_content."&post_status=publish&post_parent=Overview";
+ "post_type=page&post_title=Requirements&post_content=".$post_content."&post_status=publish&post_parent=01 Overview";
 
  $post_content = "This page describes the readings for this class.";
  $translucence_config['preset_content']['course']['post'][] = 
- "post_type=page&post_title=Readings&post_content=".$post_content."&post_status=publish&post_parent=Overview";
+ "post_type=page&post_title=Readings&post_content=".$post_content."&post_status=publish&post_parent=01 Overview";
 
 
  $post_content = "This page describes the 1st assignment for this class.";
  $translucence_config['preset_content']['course']['post'][] = 
- "post_type=page&post_title=Assignment 01&post_content=".$post_content."&post_status=publish&post_parent=Assignments";
+ "post_type=page&post_title=Assignment 01&post_content=".$post_content."&post_status=publish&post_parent=02 Assignments";
 
  $post_content = "This page describes the 2nd assignment for this class.";
  $translucence_config['preset_content']['course']['post'][] = 
- "post_type=page&post_title=Assignment 02&post_content=".$post_content."&post_status=publish&post_parent=Assignments";
+ "post_type=page&post_title=Assignment 02&post_content=".$post_content."&post_status=publish&post_parent=02 Assignments";
 
  $post_content = "This is a sample assignment submission post that has been assigned the category of assignment 01";
  $translucence_config['preset_content']['course']['post'][] = 
