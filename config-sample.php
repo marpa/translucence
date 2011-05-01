@@ -143,25 +143,33 @@ $translucence_config['preset_widgets']['default']['primary-widget-area'][] = "ar
 // these widgets do appear in the Appearance > Widget and can be selected by users in Appearance > Theme Options
 // When these widget sets are selected, they replace all existing widgets
 // NOTE: widgets that have been customized (i.e. RSS widget) will be moved to inactive widgets
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "pages-2&title=&sortby=post_modified&exclude=";
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
-$translucence_config['preset_widgets']['blog-and-pages']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=1&count=1";
-$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "calendar-2&title=";
-$translucence_config['preset_widgets']['blog-and-pages']['secondary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
+$translucence_config['preset_widgets']['projects']['description'][] = 
+"includes widgets for pages, recent posts, recent comments, categories, calendar, tag cloud.
+";
 
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "pages-2&title=Course Information&sortby=post_date&exclude=";
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "recent-posts-2&title=Announcements&number=5";
-$translucence_config['preset_widgets']['course']['primary-widget-area'][] = "categories-2&title=Assignments&hierarchical=1&dropdown=0&count=1";
-$translucence_config['preset_widgets']['course']['secondary-widget-area'][] = "calendar-2&title=Test Calendar";
+$translucence_config['preset_widgets']['projects']['primary-widget-area'][] = "pages-2&title=&sortby=post_modified&exclude=";
+$translucence_config['preset_widgets']['projects']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
+$translucence_config['preset_widgets']['projects']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
+$translucence_config['preset_widgets']['projects']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=1&count=1";
+$translucence_config['preset_widgets']['projects']['secondary-widget-area'][] = "calendar-2&title=";
+$translucence_config['preset_widgets']['projects']['secondary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
 
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
-$translucence_config['preset_widgets']['blog']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=1&count=1";
-$translucence_config['preset_widgets']['blog']['secondary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
-$translucence_config['preset_widgets']['blog']['first-footer-widget-area'][] = "links-2&title=&category=";
-$translucence_config['preset_widgets']['blog']['second-footer-widget-area'][] = "links-2&title=&category=";
-$translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['courses']['description'][] = 
+"includes widgets for course information, announcements and assignments.";
+$translucence_config['preset_widgets']['courses']['primary-widget-area'][] = "pages-2&title=Course Information&sortby=post_date&exclude=";
+$translucence_config['preset_widgets']['courses']['primary-widget-area'][] = "recent-posts-2&title=Announcements&number=5";
+$translucence_config['preset_widgets']['courses']['primary-widget-area'][] = "categories-2&title=Assignments&hierarchical=1&dropdown=0&count=1";
+$translucence_config['preset_widgets']['courses']['secondary-widget-area'][] = "calendar-2&title=Test Calendar";
+
+$translucence_config['preset_widgets']['blogs']['description'][] = 
+"includes widgets for recent posts, recent comments, categories and tags";
+$translucence_config['preset_widgets']['blogs']['primary-widget-area'][] = "recent-posts-2&title=&number=5";
+$translucence_config['preset_widgets']['blogs']['primary-widget-area'][] = "recent-comments-2&title=&number=5";
+$translucence_config['preset_widgets']['blogs']['primary-widget-area'][] = "categories-2&title=&hierarchical=1&dropdown=0&count=1";
+$translucence_config['preset_widgets']['blogs']['primary-widget-area'][] = "tag_cloud-2&title=&taxonomy=post_tags";
+$translucence_config['preset_widgets']['blogs']['first-footer-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['blogs']['second-footer-widget-area'][] = "links-2&title=&category=";
+$translucence_config['preset_widgets']['blogs']['third-footer-widget-area'][] = "links-2&title=&category=";
 
 /******************************************************************************
  * Preset Content
@@ -170,7 +178,7 @@ $translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "
  * possible values are: 
  *
  * post_title= post_content= post_status= post_date= post_author=
- * post_type= post_category post_tag= post_parent=
+ * post_type= post_category tags_input= post_parent=
  *
  * term= description= slug= parent=
  *
@@ -179,24 +187,66 @@ $translucence_config['preset_widgets']['blog']['third-footer-widget-area'][] = "
 // NOTE: this content can be edited or deleted in posts, pages, categories or post tages
 
 //first specify categories
-$translucence_config['preset_content']['default']['category'][] = "term=Test Category&description=This is a test category&slug=test-category&parent=";
+$translucence_config['preset_content']['default']['category'][] = 
+"term=Test Category&description=This is a test category&slug=test-category&parent=";
 
 //then specify parent posts
-$translucence_config['preset_content']['default']['post'][] = "post_title=Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+$translucence_config['preset_content']['default']['post'][] = 
+"post_title=Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
 
 //then specify child posts (requires looking up post ID of parent..
- $translucence_config['preset_content']['default']['post'][] = "post_title=Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+ $translucence_config['preset_content']['default']['post'][] = 
+ "post_title=Child Page&post_content=This is a child page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=Parent Page";
+
+// Course Content Set - posts, pages, categories and tags useful for teaching, learning and research
+// description of content set
+$translucence_config['preset_content']['course']['description'][] = 
+"pages for course information and pages, posts and categories for assignments. 
+";
 
 //first specify categories, tags
-$translucence_config['preset_content']['course']['category'][] = "term=Assignments&description=This is an assignment category&slug=assignments&parent=";
-$translucence_config['preset_content']['course']['tag'][] = "term=cool&description=This a cool tag&slug=cool&parent=";
+$translucence_config['preset_content']['course']['category'][] = 
+"term=Assignments&description=This is an assignment category&slug=assignments&parent=";
+$translucence_config['preset_content']['course']['category'][] = 
+"term=Assignment 01&description=This is an assignment category&slug=assignments&parent=";
+$translucence_config['preset_content']['course']['category'][] = 
+"term=Assignment 01&description=This is an assignment category&slug=assignments&parent=";
+
+
+$translucence_config['preset_content']['course']['tag'][] = 
+"term=cool&description=This a cool tag&slug=cool&parent=";
 
 //first specify parent posts
-$translucence_config['preset_content']['course']['post'][] = "post_title=Course Parent Page&post_content=This is a parent page&post_status=publish&post_date=&post_author=&post_type=page&post_category=&post_parent=";
+$post_content = "This page should contain general information about the course.";
+$translucence_config['preset_content']['course']['post'][] = 
+"post_type=page&post_title=01 Overview&post_content=".$post_content."&post_status=publish&post_date=&post_author=&post_category=&post_parent=";
+
+$post_content = "This page describes the assignments for this class.";
+$translucence_config['preset_content']['course']['post'][] = 
+"post_type=page&post_title=02 Assignments&post_content=".$post_content."&post_status=publish&post_date=&post_author=&post_category=&post_parent=";
+
 
 //then specify child posts (requires looking up post ID of parent..
- $translucence_config['preset_content']['course']['post'][] = "post_title=Course post&post_content=This is a child post&post_status=publish&post_date=&post_author=&post_type=post&post_category=Assignments&tags_input=cool&post_parent=";
- $translucence_config['preset_content']['course']['post'][] = "post_title=Course Child Page&post_content=This is child page&post_status=publish&post_type=page&post_parent=Course Parent Page";
+ $post_content = "This page describes the requirements for this class.";
+ $translucence_config['preset_content']['course']['post'][] = 
+ "post_type=page&post_title=Requirements&post_content=".$post_content."&post_status=publish&post_parent=Overview";
+
+ $post_content = "This page describes the readings for this class.";
+ $translucence_config['preset_content']['course']['post'][] = 
+ "post_type=page&post_title=Readings&post_content=".$post_content."&post_status=publish&post_parent=Overview";
+
+
+ $post_content = "This page describes the 1st assignment for this class.";
+ $translucence_config['preset_content']['course']['post'][] = 
+ "post_type=page&post_title=Assignment 01&post_content=".$post_content."&post_status=publish&post_parent=Assignments";
+
+ $post_content = "This page describes the 2nd assignment for this class.";
+ $translucence_config['preset_content']['course']['post'][] = 
+ "post_type=page&post_title=Assignment 02&post_content=".$post_content."&post_status=publish&post_parent=Assignments";
+
+ $post_content = "This is a sample assignment submission post that has been assigned the category of assignment 01";
+ $translucence_config['preset_content']['course']['post'][] = 
+ "post_type=post&post_title=Assignment Post&post_content=".$post_content."&post_status=publish&post_date=&post_author=&post_category=Assignment 01&post_parent=";
 
  
 
