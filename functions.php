@@ -148,21 +148,7 @@ function translucence_setup() {
 	} else {	
 		$translucence_options = get_option($translucence_options_id);
 	}
-	
-	/******************************************************************************
-	 * calculate width of footer widget areas based on site width
-	 ******************************************************************************/
-	$active_widgets = 0;
-	if ( is_active_sidebar( 'first-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'second-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'third-footer-widget-area' ) ) $active_widgets ++;
-	if ( is_active_sidebar( 'fourth-footer-widget-area' ) ) $active_widgets ++;
-	
-	if ($active_widgets > 0)
-		$translucence_options['footer-widget-width'] = round($translucence_options['site-width']/$active_widgets)-10;
-	
-//	printpre($translucence_options['footer-widget-width']);
-	
+		
 	//printpre($translucence_options['activated-theme']);
 	// need to add activated-theme option to translucence_validate_options()
 	if ( is_admin() || !isset($translucence_options['activated-theme'])) {
@@ -439,11 +425,14 @@ function translucence_widgets_init() {
    		foreach ($translucence_config['preset_widgets'][$translucence_options['activated-widgets']] as $sidebar => $widgets) {
 
    				foreach ($widgets as $widget) {
-   					$widget_args = explode("&", $widget);
+
+					$widget_args = explode("&", $widget);
 					foreach ($widget_args as $widget_arg) {
 						if (ereg("=", $widget_arg)) {
 							$args = explode("=", $widget_arg);
 							$arg_array[$args[0]] = $args[1];							
+						} else {
+							$arg_array = array();
 						}
 					}
 
@@ -465,6 +454,7 @@ function translucence_widgets_init() {
 						update_option( 'widget_calendar', array( 2 => $arg_array, '_multiwidget' => 1 ) );
 					}
 					$presets[$sidebar][] = $widget_args[0];
+
 				}
 
    			
