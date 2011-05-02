@@ -35,6 +35,7 @@ $translucence_config['activated-widgets'] = "default";
 $translucence_config['widgets'] = "default";
 $translucence_config['added-content'] = "default";
 $translucence_config['content'] = "default";
+$translucence_config['variation-type'] = "default";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
@@ -318,6 +319,7 @@ $translucence_config['model'][]  = 'widgets';
 $translucence_config['model'][]  = 'activated-widgets';
 $translucence_config['model'][]  = 'content';
 $translucence_config['model'][]  = 'added-content';
+$translucence_config['model'][]  = 'variation-type';
 
 $translucence_config['model'][]  = 'site-width';
 $translucence_config['model'][]  = 'background_image_url';

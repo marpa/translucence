@@ -340,6 +340,14 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+		} else if (preg_match("/variation-type/", $option)) {
+			if (in_array($value, $translucence_options_values['variation-type'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
 
 		}
 	}
@@ -396,6 +404,7 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['activated-theme'])) $translucence_options['activated-theme'] = $translucence_config['activated-theme'];
 	if (!isset($translucence_options['activated-widgets'])) $translucence_options['activated-widgets'] = $translucence_config['activated-widgets'];
 	if (!isset($translucence_options['widgets'])) $translucence_options['widgets'] = $translucence_config['widgets'];
+	if (!isset($translucence_options['variation-type'])) $translucence_options['variation-type'] = $translucence_config['variation-type'];
 	
 	if (!isset($translucence_options['content'])) $translucence_options['content'] = $translucence_config['content'];
 	if (!isset($translucence_options['added-content'])) $translucence_options['added-content'] = $translucence_config['added-content'];
