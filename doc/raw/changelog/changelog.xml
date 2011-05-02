@@ -14,11 +14,14 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
-		<new author='alex' date='2011-04-27'>
-			added default theme option for adding sets of posts, categories and tags.
+		<new author='alex' date='2011-05-02'>
+			added theme option for default or customizable variations.
 		</new>				
 		<new author='alex' date='2011-04-27'>
-			added default widgets for inactive sidebars and widget set theme options.
+			added theme option for adding sets of posts, categories and tags.
+		</new>				
+		<new author='alex' date='2011-04-27'>
+			added default widgets and widget set theme options.
 		</new>				
 		<new author='alex' date='2011-04-26'>
 			included 3 sample child themes, Child, Minimal and Dark.
