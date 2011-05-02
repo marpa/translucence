@@ -19,7 +19,6 @@ $translucence_config['theme-name'] = "2010 Translucence Dark";
 
 $translucence_config['theme-parent'] = "2010-translucence";
 
-
 /******************************************************************************
  * Default Variation
  * Specify which variation to use as the default
@@ -37,16 +36,22 @@ $translucence_config['activated-widgets'] = "default";
 $translucence_config['widgets'] = "default";
 $translucence_config['added-content'] = "default";
 $translucence_config['content'] = "default";
-
-$translucence_config['site-title-color'] = "#D9D323";
-$translucence_config['site-description-color'] = "#FFFFFF";
+$translucence_config['variation-type'] = "default";
 
 $translucence_config['headermeta'] = "off";
 $translucence_config['options-mode'] = "basic";
 $translucence_config['revert'] = 1;
 
-$translucence_config['site-width'] = "950";
+$translucence_config['footer-meta-left'] = "custom";
+$translucence_config['header-meta-left'] = "custom";
+$translucence_config['headerleftcustom'] = "";
+$translucence_config['footerleftcustom'] = "";
 
+$translucence_config['header-image-options'] = "none";
+$translucence_config['site-padding-top'] = "20";
+$translucence_config['site-padding-bottom'] = "20";
+
+$translucence_config['site-width'] = "950";
 $translucence_config['header-block-height'] = "100";
 $translucence_config['site-title-size'] = "30";
 $translucence_config['site-description-size'] = "14";
@@ -56,53 +61,9 @@ $translucence_config['header-text-shadow-blur'] = "2px";
 $translucence_config['entry-text-size'] = "14";
 $translucence_config['entry-line-height'] = "20";
 
-$translucence_config['footer-meta-left'] = "custom";
-$translucence_config['header-meta-left'] = "custom";
-$translucence_config['headerleftcustom'] = "";
-$translucence_config['footerleftcustom'] = "";
-
-$translucence_config['header-image-options'] = "none";
-
 $translucence_config['header-text-display'] = "middle";
 $translucence_config['entry-link-style'] = "ww";
 $translucence_config['entry-text-align'] = "left";
-$translucence_config['tag-links-color'] = "#FFF8C6";
-$translucence_config['cat-links-color'] = "#e9e9c9";
-
-$translucence_config['site-padding-top'] = "20";
-$translucence_config['site-padding-bottom'] = "20";
-
-$translucence_config['site-color'] = "#FFFFFF";
-$translucence_config['title-box-color'] = "#FFFFFF";
-$translucence_config['description-box-color'] = "#FFFFFF";
-$translucence_config['header-color'] = "#F9F9F9";
-$translucence_config['top-color'] = "#F9F9F9";
-$translucence_config['left01-color'] = "#F9F9F9";
-$translucence_config['content-color'] = "#FFFFFF";
-$translucence_config['right01-color'] = "#F9F9F9";
-$translucence_config['right02-color'] = "#F9F9F9";
-$translucence_config['bottom-color'] = "#F9F9F9";
-
-$translucence_config['site-opacity'] = "0";
-$translucence_config['title-box-opacity'] = ".0";
-$translucence_config['description-box-opacity'] = ".0";
-
-$translucence_config['header-opacity'] = ".6";
-$translucence_config['top-opacity'] = ".0";
-$translucence_config['left01-opacity'] = ".6";
-$translucence_config['content-opacity'] = "1";
-$translucence_config['right01-opacity'] = ".3";
-$translucence_config['right02-opacity'] = "0";
-$translucence_config['bottom-opacity'] = "0";
-
-$translucence_config['site-border-style'] = "none";
-$translucence_config['header-border-style'] = "dotted";
-$translucence_config['top-border-style'] = "none";
-$translucence_config['content-border-style'] = "solid";
-$translucence_config['left01-border-style'] = "dotted";
-$translucence_config['right01-border-style'] = "dotted";
-$translucence_config['right02-border-style'] = "dotted";
-$translucence_config['bottom-border-style'] = "dotted";
 
 $translucence_config['header-width'] = $translucence_config['site-width'];
 $translucence_config['left01-width'] = "0";
@@ -115,6 +76,48 @@ $translucence_config['tag-single-sidebar'] = "right01";
 $translucence_config['author-single-sidebar'] = "right01";
 $translucence_config['search-single-sidebar'] = "right01";
 $translucence_config['archives-single-sidebar'] = "right01";
+
+// color, opacity and border options
+
+$translucence_config['site-title-color'] = "#D9D323";
+$translucence_config['site-description-color'] = "#FFFFFF";
+
+$translucence_config['tag-links-color'] = "#262626";
+$translucence_config['cat-links-color'] = "#262626";
+
+$translucence_config['site-color'] = "#262626";
+$translucence_config['title-box-color'] = "#262626";
+$translucence_config['description-box-color'] = "#262626";
+
+$translucence_config['header-color'] = "#262626";
+$translucence_config['top-color'] = "#262626";
+$translucence_config['left01-color'] = "#262626";
+$translucence_config['content-color'] = "#262626";
+$translucence_config['right01-color'] = "#262626";
+$translucence_config['right02-color'] = "#262626";
+$translucence_config['bottom-color'] = "#262626";
+
+$translucence_config['site-opacity'] = "0";
+$translucence_config['title-box-opacity'] = ".0";
+$translucence_config['description-box-opacity'] = ".0";
+
+$translucence_config['header-opacity'] = ".6";
+$translucence_config['top-opacity'] = ".0";
+$translucence_config['left01-opacity'] = ".6";
+$translucence_config['content-opacity'] = ".9";
+$translucence_config['right01-opacity'] = ".3";
+$translucence_config['right02-opacity'] = "0";
+$translucence_config['bottom-opacity'] = ".3";
+
+$translucence_config['site-border-style'] = "none";
+$translucence_config['header-border-style'] = "dotted";
+$translucence_config['top-border-style'] = "none";
+$translucence_config['content-border-style'] = "solid";
+$translucence_config['left01-border-style'] = "dotted";
+$translucence_config['right01-border-style'] = "dotted";
+$translucence_config['right02-border-style'] = "none";
+$translucence_config['bottom-border-style'] = "dotted";
+
 
 /******************************************************************************
  * Preset Widgets
@@ -318,6 +321,7 @@ $translucence_config['model'][]  = 'widgets';
 $translucence_config['model'][]  = 'activated-widgets';
 $translucence_config['model'][]  = 'content';
 $translucence_config['model'][]  = 'added-content';
+$translucence_config['model'][]  = 'variation-type';
 
 $translucence_config['model'][]  = 'site-width';
 $translucence_config['model'][]  = 'background_image_url';
