@@ -649,7 +649,7 @@ div.menu li {
 }
 
 #access a {
-	color:  <?php print $translucence_options['textcolor']?>;	
+	color:  <?php print $translucence_options['top-link-color']?>;
 	display: block;
 	line-height: 38px;
 	padding: 0 10px;
@@ -686,6 +686,7 @@ div.menu li {
 }
 
 #access ul ul a {
+	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-rgb']?>;
 	line-height: 1em;
 	border-top: 1px solid transparent;
@@ -708,7 +709,7 @@ div.menu li {
 	border-bottom: 1px solid transparent;		
 	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
 	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
-	text-decoration: none;	
+	text-decoration: underline;	
 
 }
 
