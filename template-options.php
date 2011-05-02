@@ -916,6 +916,7 @@ function translucence_get_global_options() {
 	print "<div style='font-size: 10px;'>";
 	if ($translucence_options['options-mode'] != "global" && $translucence_options['options-mode'] != "advanced") {
 		print __( 'For more site and header options see', '2010-translucence' ).": ";
+		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"basic\", \"".$translucence_options_id."\")'>Basic Options</a> | ";
 		print "<a style='color: #003366;' href='javascript:setThemeOptionsMode(\"global\", \"".$translucence_options_id."\")'>Global Options</a>";	
 	} else {
 		print __( 'For basic options see', '2010-translucence' ).": ";
