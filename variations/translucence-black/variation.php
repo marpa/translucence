@@ -50,6 +50,56 @@ if ($translucence_options['background'] == "translucence-black") {
 	$translucence_options['searchbox-color'] = "#262626";
 
 	/******************************************************************************
+	 * Default options for this variation
+	 ******************************************************************************/
+	
+	if ($translucence_options['variation-type'] == "default") {	
+
+		$translucence_options['header-text-shadow-offset'] = "1px 1px";
+		$translucence_options['header-text-shadow-blur'] = "2px";
+		
+		$translucence_options['site-title-color'] = "#EBD336";
+		$translucence_options['site-description-color'] = "#CCCCCC";
+		
+		$translucence_options['tag-links-color'] = "#262626";
+		$translucence_options['cat-links-color'] = "#262626";
+		
+		$translucence_options['site-color'] = "#262626";
+		$translucence_options['title-box-color'] = "#262626";
+		$translucence_options['description-box-color'] = "#262626";
+		
+		$translucence_options['header-color'] = "#262626";
+		$translucence_options['top-color'] = "#262626";
+		$translucence_options['left01-color'] = "#262626";
+		$translucence_options['content-color'] = "#262626";
+		$translucence_options['right01-color'] = "#262626";
+		$translucence_options['right02-color'] = "#262626";
+		$translucence_options['bottom-color'] = "#262626";
+		
+		$translucence_options['site-opacity'] = "0";
+		$translucence_options['title-box-opacity'] = ".0";
+		$translucence_options['description-box-opacity'] = ".0";
+		
+		$translucence_options['header-opacity'] = ".6";
+		$translucence_options['top-opacity'] = ".0";
+		$translucence_options['left01-opacity'] = ".6";
+		$translucence_options['content-opacity'] = ".9";
+		$translucence_options['right01-opacity'] = ".3";
+		$translucence_options['right02-opacity'] = "0";
+		$translucence_options['bottom-opacity'] = ".3";
+		
+		$translucence_options['site-border-style'] = "none";
+		$translucence_options['header-border-style'] = "dotted";
+		$translucence_options['top-border-style'] = "none";
+		$translucence_options['content-border-style'] = "solid";
+		$translucence_options['left01-border-style'] = "dotted";
+		$translucence_options['right01-border-style'] = "dotted";
+		$translucence_options['right02-border-style'] = "none";
+		$translucence_options['bottom-border-style'] = "dotted";
+		
+	}
+
+	/******************************************************************************
 	 * theme option value lists
 	 ******************************************************************************/
 

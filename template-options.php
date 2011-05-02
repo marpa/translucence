@@ -649,6 +649,9 @@ function translucence_get_global_options() {
 					print "\n<option value='".$value."'".($translucence_options['background'] == $value ? ' selected' : '') . ">".$label."</option>";
 			}	
 		print "</select>";
+		print __( '', '2010-translucence' )."<span class='option-label'>";
+		translucence_get_option_selector ("", "variation-type", $translucence_options_values['variation-type'], 'active');
+		print "</span>";
 		print "</div>";
 		
 		if ($translucence_custom_background_set == 1) {
@@ -689,14 +692,16 @@ function translucence_get_global_options() {
 			$translucence_title = __( 'width', '2010-translucence' );
 			translucence_get_option_selector ($translucence_title, "site-width", $translucence_options_values['site-width']);
 			// site color
-			$translucence_title = __( 'color', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "site-color", $translucence_options_values['sidebar-color']);
-			// site opacity
-			$translucence_title = __( 'opacity', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "site-opacity", $translucence_options_values['header-opacity']);
-			// site border
-			$translucence_title = __( 'border', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "site-border-style", $translucence_options_values['border-style']);
+			if ($translucence_options['variation-type'] == "custom") {
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "site-color", $translucence_options_values['sidebar-color']);
+				// site opacity
+				$translucence_title = __( 'opacity', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "site-opacity", $translucence_options_values['header-opacity']);
+				// site border
+				$translucence_title = __( 'border', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "site-border-style", $translucence_options_values['border-style']);
+			}
 		print "</td>";
 		print "</tr>";
 	// if not in active_options print out as hidden fields
@@ -716,14 +721,18 @@ function translucence_get_global_options() {
 			$translucence_title = __( 'height', '2010-translucence' );
 			translucence_get_option_selector ($translucence_title, "header-block-height", $translucence_options_values['header-block-height']);
 			// header color
-			$translucence_title = __( 'color', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "header-color", $translucence_options_values['header-color']);
-			// header opacity
-			$translucence_title = __( 'opacity', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "header-opacity", $translucence_options_values['header-opacity']);
-			// header border
-			$translucence_title = __( 'border', '2010-translucence' );
-			translucence_get_option_selector ($translucence_title, "header-border-style", $translucence_options_values['border-style']);
+			if ($translucence_options['variation-type'] == "custom") {
+				$translucence_title = __( 'color', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "header-color", $translucence_options_values['header-color']);
+			}
+			if ($translucence_options['variation-type'] == "custom") {
+				// header opacity
+				$translucence_title = __( 'opacity', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "header-opacity", $translucence_options_values['header-opacity']);
+				// header border
+				$translucence_title = __( 'border', '2010-translucence' );
+				translucence_get_option_selector ($translucence_title, "header-border-style", $translucence_options_values['border-style']);
+			}
 		print "</td>";	
 		print "</tr>";
 	// if not in active_options print out as hidden fields
@@ -748,17 +757,17 @@ function translucence_get_global_options() {
 				translucence_get_option_selector ($translucence_title, "site-title-size", $translucence_options_values['header-text-size']);
 			}
 			// header-text-color options
-			if (in_array("site-title-color", $translucence_config['model'])) {	
+			if (in_array("site-title-color", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {	
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_field ($translucence_title, "site-title-color", 6);
 			}
 			// header-text-offset options		
-			if (in_array("header-text-shadow-offset", $translucence_config['model'])) {
+			if (in_array("header-text-shadow-offset", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {
 				$translucence_title = __( 'offset', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "header-text-shadow-offset", $translucence_options_values['text-shadow-offset']);
 			}	
 			// header-text-blur options		
-			if (in_array("header-text-shadow-blur", $translucence_config['model'])) {	
+			if (in_array("header-text-shadow-blur", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {	
 				$translucence_title = __( 'blur', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "header-text-shadow-blur", $translucence_options_values['text-shadow-blur']);
 			}
@@ -767,7 +776,7 @@ function translucence_get_global_options() {
 		if (in_array('site-title-box-options', $active_options) || $translucence_custom_header_set == 1) {
 		
 			// header-text-box options		
-			if (in_array("title-box-color", $translucence_config['model'])) {	
+			if (in_array("title-box-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {	
 				print "<span class='option-label'> ".__( 'Site Title Box', '2010-translucence' )."</span>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "title-box-color", $translucence_options_values['header-color']);
@@ -824,7 +833,7 @@ function translucence_get_global_options() {
 		}
 		if (in_array('site-description-color', $active_options)) {
 			// header-description-color options		
-			if (in_array("site-description-color", $translucence_config['model'])) {
+			if (in_array("site-description-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {
 				print "<span class='option-label'>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_field ($translucence_title, "site-description-color", 6);
@@ -837,7 +846,7 @@ function translucence_get_global_options() {
 		
 		if (in_array('description-box-color', $active_options) || $translucence_custom_header_set == 1) {
 	
-			if (in_array("description-box-color", $translucence_config['model'])) {	
+			if (in_array("description-box-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {	
 				print "<span class='option-label'> ".__( 'Tagline box', '2010-translucence' )."</span><span class='option-label'>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "description-box-color", $translucence_options_values['header-color']);
@@ -988,11 +997,13 @@ function translucence_get_layout_options() {
     if (in_array('layout-options', $active_options)) {
 		print "<div class='options' style='background-color: transparent; clear: both;'>";
 		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$translucence_model_content_width." px &rarr;<br/>";
-		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
-		print "<span style='font-size: 10px;'>".__( 'Content', '2010-translucence')."</span>\n";	
-		translucence_get_option_selector ("", "content-color", $translucence_options_values['sidebar-color']);
-		translucence_get_option_selector ("", "content-opacity", $translucence_options_values['sidebar-opacity']);
-		translucence_get_option_selector ("", "content-border-style", $translucence_options_values['border-style']);				
+		
+		if ($translucence_options['variation-type'] == "custom") {
+			print "<span style='font-size: 10px;'>".__( 'Content', '2010-translucence')."</span>\n";		
+			translucence_get_option_selector ("", "content-color", $translucence_options_values['sidebar-color']);
+			translucence_get_option_selector ("", "content-opacity", $translucence_options_values['sidebar-opacity']);
+			translucence_get_option_selector ("", "content-border-style", $translucence_options_values['border-style']);
+		}
 		print "</div>";
 	
 		print "<table style='width: 100%;'>";
@@ -1074,11 +1085,11 @@ function translucence_get_topmenu_options() {
     print "<div style='padding: 10px;'>";
 		//print "<span style='padding-top: 0px; font-size: 10px; float: left;'>Navigation</span>";
 		print "<div style='font-size: 8px; float: left; margin-bottom: 10px;'>";
-	
+		if ($translucence_options['variation-type'] == "custom") {
 			translucence_get_option_selector ("", "top-color", $translucence_options_values['sidebar-color']);
 			translucence_get_option_selector ("", "top-opacity", $translucence_options_values['sidebar-opacity']);
 			translucence_get_option_selector ("", "top-border-style", $translucence_options_values['border-style']);
-		
+		}
 		print"</div>";
 
 	print "</div>";
@@ -1163,7 +1174,8 @@ function translucence_get_post_options() {
 				translucence_get_option_selector ("", "entry-text-align", $translucence_options_values['entry-text-align']);
 				print "		 							
 				</td>								
-				</tr>						<tr>
+				</tr>
+				<tr>
 				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$translucence_options['textcolor'].";'>".__( 'Text', '2010-translucence' )."</span></td>							
 				<td style='border-bottom: 1px dotted; text-align: right;'>";
 				
@@ -1177,7 +1189,9 @@ function translucence_get_post_options() {
 				<td style='border-bottom: 1px dotted;'><span style='font-size: 10px; color:".$translucence_options['linkcolor'].";'>".__( 'Link', '2010-translucence' )." ".__( 'color', '2010-translucence' )."</span></td>
 				<td style='border-bottom: 1px dotted; text-align: right;'>";							
 				// link color options
-				translucence_get_option_selector ("", "linkcolor", $translucence_options_values['linkcolor']);
+				if ($translucence_options['variation-type'] == "custom") {
+					translucence_get_option_selector ("", "linkcolor", $translucence_options_values['linkcolor']);
+				}
 				print "
 				</td>								
 				</tr>						
@@ -1189,8 +1203,10 @@ function translucence_get_post_options() {
 				// category link style
 				print "
 				<td style='border-bottom: 1px dotted;'><span class='catlinks' style='font-size: 10px;'><a href='#'>".__( 'Categories', '2010-translucence' )."</a></span></td>
-				<td style='border-bottom: 1px dotted; text-align: right;'>";						
-				translucence_get_option_selector ("", "cat-links-color", $translucence_options_values['sidebar-color']);
+				<td style='border-bottom: 1px dotted; text-align: right;'>";
+				if ($translucence_options['variation-type'] == "custom") {
+					translucence_get_option_selector ("", "cat-links-color", $translucence_options_values['sidebar-color']);
+				}
 				print "
 				</td>								
 				</tr><tr>";
@@ -1198,8 +1214,10 @@ function translucence_get_post_options() {
 				// Tag link style
 				print "
 				<td style='border-bottom: 1px dotted;'><span class='taglinks' style='font-size: 10px;'><a href='#'>".__( 'Tags', '2010-translucence' )."</a></span></td>
-				<td style='border-bottom: 1px dotted; text-align: right;'>\n";							
-				translucence_get_option_selector ("", "tag-links-color", $translucence_options_values['sidebar-color']);
+				<td style='border-bottom: 1px dotted; text-align: right;'>\n";
+				if ($translucence_options['variation-type'] == "custom") {
+					translucence_get_option_selector ("", "tag-links-color", $translucence_options_values['sidebar-color']);
+				}
 				print "
 				</td>
 				</tr><tr>";
@@ -1254,13 +1272,14 @@ function translucence_get_left01_options() {
     print "<div>";
 	if ($translucence_options['left01-width'] != 0) {
 		print "<div style='font-size: 10px; text-align: center; color: ".$translucence_options['left01-heading-color'].";'>&larr; ".$translucence_options['left01-width']." px &rarr;</div>";
-		// opacity
-		translucence_get_option_selector ("", "left01-opacity", $translucence_options_values['sidebar-opacity']);
-		// color
-		translucence_get_option_selector ("", "left01-color", $translucence_options_values['sidebar-color']);
-		// border
-		translucence_get_option_selector ("", "left01-border-style", $translucence_options_values['border-style']);
-		
+		if ($translucence_options['variation-type'] == "custom") {
+			// opacity
+			translucence_get_option_selector ("", "left01-opacity", $translucence_options_values['sidebar-opacity']);
+			// color
+			translucence_get_option_selector ("", "left01-color", $translucence_options_values['sidebar-color']);
+			// border
+			translucence_get_option_selector ("", "left01-border-style", $translucence_options_values['border-style']);
+		}
 		$current_widgets = get_option ('sidebars_widgets');
 		
 		if (is_active_sidebar("tertiary-widget-area")) {
@@ -1312,13 +1331,14 @@ function translucence_get_right01_options() {
     print "<div>";
 	if ($translucence_options['right01-width'] != 0) {
 		print "<div style='font-size: 10px; text-align: center; color: ".$translucence_options['right01-heading-color'].";'>&larr; ".$translucence_options['right01-width']." px &rarr;</div>";
-		// opacity
-		translucence_get_option_selector ("", "right01-opacity", $translucence_options_values['sidebar-opacity']);
-		// color
-		translucence_get_option_selector ("", "right01-color", $translucence_options_values['sidebar-color']);
-		// border
-		translucence_get_option_selector ("", "right01-border-style", $translucence_options_values['border-style']);
-		
+		if ($translucence_options['variation-type'] == "custom") {
+			// opacity
+			translucence_get_option_selector ("", "right01-opacity", $translucence_options_values['sidebar-opacity']);
+			// color
+			translucence_get_option_selector ("", "right01-color", $translucence_options_values['sidebar-color']);
+			// border
+			translucence_get_option_selector ("", "right01-border-style", $translucence_options_values['border-style']);
+		}
 		$current_widgets = get_option ('sidebars_widgets');
 		//printpre($current_widgets);
 	
@@ -1371,12 +1391,14 @@ function translucence_get_right02_options() {
     print "<div>";
 	if ($translucence_options['right02-width'] != 0) {
 		print "<div style='font-size: 10px; text-align: center; color: ".$translucence_options['right02-heading-color'].";'>&larr; ".$translucence_options['right02-width']." px &rarr;</div>";
-		// opacity
-		translucence_get_option_selector ("", "right02-opacity", $translucence_options_values['sidebar-opacity']);
-		// color
-		translucence_get_option_selector ("", "right02-color", $translucence_options_values['sidebar-color']);
-		// border
-		translucence_get_option_selector ("", "right02-border-style", $translucence_options_values['border-style']);
+		if ($translucence_options['variation-type'] == "custom") {
+			// opacity
+			translucence_get_option_selector ("", "right02-opacity", $translucence_options_values['sidebar-opacity']);
+			// color
+			translucence_get_option_selector ("", "right02-color", $translucence_options_values['sidebar-color']);
+			// border
+			translucence_get_option_selector ("", "right02-border-style", $translucence_options_values['border-style']);
+		}
 		
 		$current_widgets = get_option ('sidebars_widgets');
 		
@@ -1617,6 +1639,7 @@ function translucence_get_active_options($translucence_options_mode) {
 
 		if ($translucence_options_mode == "basic") {
 			$active_options[]  = 'options-mode';
+			$active_options[]  = 'variation-type';
 			$active_options[]  = 'site-options';
 	// 		$active_options[]  = 'header-options';
 			$active_options[]  = 'layout-options';
@@ -1656,6 +1679,7 @@ function translucence_get_active_options($translucence_options_mode) {
 
 		
 		} else if ($translucence_options_mode == "post") {
+			$active_options[]  = 'variation-type';
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'entry-text-align';
 			$active_options[]  = 'entry-text-size';
@@ -1666,6 +1690,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'entry-link-style';		
 
 		} else if ($translucence_options_mode == "layout") {
+			$active_options[]  = 'variation-type';
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'layout-options';
 			$active_options[]  = 'left01-width';
@@ -1691,6 +1716,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'bottom-color';
 			
 		} else if ($translucence_options_mode == "sidebar") {
+			$active_options[]  = 'variation-type';
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'post-single-sidebar';
 			$active_options[]  = 'author-single-sidebar';
@@ -1719,6 +1745,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'bottom-color';
 		
 		} else if ($translucence_options_mode == "global") {
+			$active_options[]  = 'variation-type';
 			$active_options[]  = 'options-mode';
 			$active_options[]  = 'site-options';
 			$active_options[]  = 'header-options';

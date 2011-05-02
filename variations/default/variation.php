@@ -127,6 +127,11 @@ $translucence_options['searchbox-color'] = "#FFFFFF";
  * options value defaults
  * actual px values need to be adjusted for padding
  *********************************************************/	
+$translucence_options_values['variation-type'] = array(
+	'Default' => 'default',
+	'Customize' => 'custom'
+	);
+
 $translucence_options_values['mode'] = array(
 	'Basic' => 'basic',
 	'Advanced' => 'advanced'
