@@ -11,7 +11,7 @@ function translucence_theme_options_do_page() {
 	global $translucence_config;
 	global $translucence_options_id, $translucence_options, $translucence_options_values;
 	global $translucence_custom_header_set, $translucence_custom_background_set, $translucence_custom_header_image; 
-    global $translucence_syndication_image, $translucence_model_site_width;
+    global $translucence_syndication_image, $translucence_model_site_width, $translucence_model_content_width;
 
 	if ($translucence_options['revert'] == 1) {
 		translucence_option_feedback();
@@ -64,7 +64,7 @@ function translucence_theme_options_do_page() {
     $model_right_sidebar_width02 = $translucence_options['right02-width']+50;
     $model_left_sidebar_width = $translucence_options['left01-width']+50;	
 	
-	$model_content_width = $translucence_options['site-width'] - ($translucence_options['left01-width'] + $translucence_options['right01-width'] + $translucence_options['right02-width'] + 220);
+	$translucence_model_content_width = $translucence_options['site-width'] - ($translucence_options['left01-width'] + $translucence_options['right01-width'] + $translucence_options['right02-width'] + 220);
 	
 
 	/*********************************************************
@@ -981,12 +981,13 @@ function translucence_get_custom_options() {
  */
 
 function translucence_get_layout_options() {
-	global $translucence_config, $translucence_options, $translucence_options_values, $model_content_width;
+	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_model_content_width;
     global $translucence_options_id, $active_options;
     
     ob_start();
     if (in_array('layout-options', $active_options)) {
 		print "<div class='options' style='background-color: transparent; clear: both;'>";
+		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$translucence_model_content_width." px &rarr;<br/>";
 		print "<div style='font-size: 10px; text-align: center;'>&larr; ".$model_content_width." px &rarr;<br/>";		
 		print "<span style='font-size: 10px;'>".__( 'Content', '2010-translucence')."</span>\n";	
 		translucence_get_option_selector ("", "content-color", $translucence_options_values['sidebar-color']);
