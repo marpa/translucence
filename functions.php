@@ -139,19 +139,21 @@ function translucence_setup() {
  	$translucence_options_id = $theme_id."_options";
 
 	// initialize or get theme options	
-	if (is_array(get_option($theme_id."_settings"))) {
-		$translucence_options = get_option($theme_id."_settings");
-		delete_option($theme_id."_settings"); 
-		
-	} else if (!is_array(get_option($translucence_options_id))) {
+	if (!is_array(get_option($translucence_options_id))) {
 		add_option($translucence_options_id, array('init' => 1));
-	} else {	
+	} else {
 		$translucence_options = get_option($translucence_options_id);
 	}
 		
-	//printpre($translucence_options['activated-theme']);
-	// need to add activated-theme option to translucence_validate_options()
+	// initialize theme options to defaults if theme has not been activated
 	if ( is_admin() || !isset($translucence_options['activated-theme'])) {
+		// if translucence 2x settings exist use these as defaults
+		if (is_array(get_option($theme_id."_settings")) && $translucence_options['activated-theme'] != 1) {
+			$translucence_options = get_option($theme_id."_settings");
+			$translucence_options['variation-type'] = "custom";
+			delete_option($theme_id."_settings"); 
+			delete_option($theme_id."_css"); 	
+		}
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
