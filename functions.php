@@ -413,7 +413,7 @@ function translucence_widgets_init() {
 	$init_post = get_post($init_post_id);
 	
 	if (is_object($init_post) && strtotime($init_post->post_date) > strtotime('-1 minute')) {	
-		printpre("default widgets");
+		//printpre("default widgets");
 		$translucence_options['activated-widgets'] = 'default';
 		$translucence_options['widgets'] = "initialize";	
 	}
