@@ -654,8 +654,8 @@ div.menu li {
 	line-height: 38px;
 	padding: 0 10px;
 	text-decoration: none;
-	border-top: 1px solid transparent;
-	border-bottom: 1px solid transparent;
+	border: 1px solid transparent;
+
 }
 			
 #access ul ul {
@@ -672,8 +672,8 @@ div.menu li {
 	z-index: 99999;
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;
-	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
+	border-left: 1px solid  <?php print $translucence_options['top-border-left']?>;
+	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
 }
 
 #access ul ul li {
@@ -691,25 +691,28 @@ div.menu li {
 	line-height: 1em;
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;
+	border-left: 1px solid  <?php print $translucence_options['top-border-left']?>;
+	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
 	padding: 10px;
 	width: 160px;
 	height: auto;
 }	
 
+
 #access li:hover > a,
 #access ul ul:hover > a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-hover03-rgb']?>;
-	
+
 	box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;		
-	
+	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
+				
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;		
-	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
-	text-decoration: underline;	
+	border-left: 1px solid  <?php print $translucence_options['top-border-left']?>;
+	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
+	text-decoration: none;	
 
 }
 
@@ -745,6 +748,7 @@ div.menu li {
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
+	background-color: <?php print $translucence_options['top-color-hover03-rgb']?>;
 	border-bottom: 1px transparent;	
 }
 
