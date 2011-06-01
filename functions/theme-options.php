@@ -868,7 +868,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#F9F9F9";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#F9F9F9";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#F9F9F9";
 
 		// gray blue
 		} else if ($translucence_options[$box.'-color'] == '#364559') {
@@ -880,7 +880,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
 			$translucence_options[$box.'-highlight-color'] = "#364559";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#2F3646";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#2F3646";
 			
 		// black
 		} else if ($translucence_options[$box.'-color'] == '#000000' || $translucence_options[$box.'-color'] == '#262626') {
@@ -892,7 +892,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#262626";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#333333";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#333333";
 			
 		// green	
 		} else if ($translucence_options[$box.'-color'] == '#4a6339') {
@@ -904,7 +904,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = "#FFFFFF";
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#83A776";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#3A4A2D";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#3A4A2D";
 			
 		// muted yellow
 		}  else if ($translucence_options[$box.'-color'] == '#e9e9c9') {
@@ -916,7 +916,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#e9e9c9";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#CBCEB5";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#CBCEB5";
 			
 		// light green
 		}  else if ($translucence_options[$box.'-color'] == '#83A776') {
@@ -929,8 +929,9 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
 			$translucence_options[$box.'-highlight-color'] = "#4a6339";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#3A4A2D";
-			
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#3A4A2D";
+		
+		// yellow
 		}  else if ($translucence_options[$box.'-color'] == '#FFF8C6') {
 			$translucence_options[$box.'-border-top'] = "#CCCCCC";
 			$translucence_options[$box.'-border-left'] = "#CCCCCC";
@@ -940,7 +941,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#F9F9F9";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#ECECC3";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#ECECC3";
 			
 		// all other colors
 		}  else {
@@ -952,6 +953,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
 			$translucence_options[$box.'-highlight-color'] = "#F9F9F9";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#F9F9F9";
 			
 		} 
 		
@@ -1013,7 +1015,6 @@ function translucence_set_derivative_options() {
 		// need to refine top bar opacity settings....
 		if ($box == "top") {
 			$translucence_options['top-color-hover02-rgb'] = "rgba(".translucence_hex2rgb($translucence_options['top-color']).", .9)";
-			//$translucence_options['top-color-hover03-rgb'] = "rgba(".translucence_hex2rgb($translucence_options['top-color']).", 1)";
 		}
 		
 		/******************************************************************************
@@ -1048,6 +1049,10 @@ function translucence_set_derivative_options() {
 			$area = "#content";
 		} else if ($box == "header") {
 			$area = ".headerblock";
+		} else if ($box == "cat-links") {
+			$area = ".catlinks a";		
+		} else if ($box == "tag-links") {
+			$area = ".taglinks a";		
 		} else {
 			$area = ".".$box;
 		}
@@ -1060,12 +1065,13 @@ function translucence_set_derivative_options() {
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
-			$translucence_options['submenu-color-ie'] = "#access ul ul a ";
-			$translucence_options['submenu-color-ie'] .= "{background: ".$translucence_options[$box.'-color'].";}";
-			$translucence_options['submenu-color-ie'] = "#access li:hover > a, #access ul ul :hover > a ";
-			$translucence_options['submenu-color-ie'] .= "{background: ".$translucence_options[$box.'-color-hover03-rgb'].";}";
-			
-			
+// 			$translucence_options['submenu-color-ie'] = "#access .sub-menu, #access .children";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], 1)."}";
+// 			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+// 			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+						
 		}
 		
 		if ($box == "description-box") {

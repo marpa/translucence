@@ -659,7 +659,7 @@ div.menu li {
 }
 			
 #access ul ul {
-	background-color: <?php print $translucence_options['top-color-hover02-rgb']?>;
+	background-color: <?php print $translucence_options['top-color']?>;
 	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
@@ -687,12 +687,11 @@ div.menu li {
 
 #access ul ul a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
-	background-color: <?php print $translucence_options['top-color-rgb']?>;
 	line-height: 1em;
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;
-	border-left: 1px solid  <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
 	padding: 10px;
 	width: 160px;
 	height: auto;
@@ -702,7 +701,7 @@ div.menu li {
 #access li:hover > a,
 #access ul ul:hover > a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
-	background-color: <?php print $translucence_options['top-color-hover03-rgb']?>;
+	background-color: <?php print $translucence_options['top-color-hover03']?>;
 
 	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
@@ -710,8 +709,8 @@ div.menu li {
 				
 	border-top: 1px solid transparent;
 	border-bottom: 1px solid transparent;		
-	border-left: 1px solid  <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
 	text-decoration: none;	
 
 }
@@ -748,7 +747,7 @@ div.menu li {
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
-	background-color: <?php print $translucence_options['top-color-hover03-rgb']?>;
+	background-color: <?php print $translucence_options['top-color-hover03']?>;
 	border-bottom: 1px transparent;	
 }
 
