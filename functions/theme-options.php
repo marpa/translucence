@@ -880,7 +880,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
 			$translucence_options[$box.'-highlight-color'] = "#364559";
-			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#0F1116";
+			if ($box == "top") $translucence_options[$box.'-color-hover03-rgb'] = "#2F3646";
 			
 		// black
 		} else if ($translucence_options[$box.'-color'] == '#000000' || $translucence_options[$box.'-color'] == '#262626') {
