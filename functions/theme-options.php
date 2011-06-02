@@ -880,7 +880,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
 			$translucence_options[$box.'-highlight-color'] = "#364559";
-			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#2F3646";
+			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#0B1B2F";
 			
 		// black
 		} else if ($translucence_options[$box.'-color'] == '#000000' || $translucence_options[$box.'-color'] == '#262626') {
@@ -889,8 +889,8 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-border-bottom'] = "#666666";
 			$translucence_options[$box.'-border-right'] = "#666666";
 			$translucence_options[$box.'-heading-color'] = "#FFFFFF";
-			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
-			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
+			$translucence_options[$box.'-link-color'] = "#FFFFCC";
+			$translucence_options[$box.'-text-color'] = "#CCCCCC";
 			$translucence_options[$box.'-highlight-color'] = "#262626";
 			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#333333";
 			
@@ -902,7 +902,7 @@ function translucence_set_derivative_options() {
 			$translucence_options[$box.'-border-right'] = "#666666";
 			$translucence_options[$box.'-heading-color'] = "#FFFFFF";
 			$translucence_options[$box.'-link-color'] = "#FFFFFF";
-			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
+			$translucence_options[$box.'-text-color'] = "#EEEEEE";
 			$translucence_options[$box.'-highlight-color'] = "#83A776";
 			if ($box == "top") $translucence_options[$box.'-color-hover03'] = "#3A4A2D";
 			
