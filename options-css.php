@@ -733,7 +733,7 @@ div.menu li {
 	border-bottom: 1px none transparent;	
 }	
 
-#access ul li.current_page_item > a,
+#access ul li.current_page_item.page_item > a,
 #access ul li.current_page_ancestor > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
@@ -747,7 +747,7 @@ div.menu li {
 
 }
 
-* html #access ul li.current_page_item a,
+* html #access ul li.current_page_item.page_item a,
 * html #access ul li.current_page_ancestor > a,
 * html #access ul li.current-menu-ancestor a,
 * html #access ul li.current-menu-item a,
