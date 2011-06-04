@@ -64,6 +64,10 @@ if ( ! isset( $content_width ) )
 	return $translucence_config;
 	}
 }
+
+if (file_exists(dirname(__FILE__).'/functions-plugins.php')) {
+	require_once('functions-plugins.php');
+}
  
 // this theme may have child themes that override this config.
 $translucence_config = translucence_add_config();
