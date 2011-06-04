@@ -42,23 +42,8 @@ $content_width = translucence_get_content_width ("post");
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', '2010-translucence' ), 'after' => '</div>' ) ); ?>
 					</div><!-- .entry-content -->
-
-<?php if ( get_the_author_meta( 'description' ) ) : // If a user has filled out their description, show a bio on their entries  ?>
-					<div id="entry-author-info">
-						<div id="author-avatar">
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentyten_author_bio_avatar_size', 60 ) ); ?>
-						</div><!-- #author-avatar -->
-						<div id="author-description">
-							<h2><?php printf( esc_attr__( 'About %s', '2010-translucence' ), get_the_author() ); ?></h2>
-							<?php the_author_meta( 'description' ); ?>
-							<div id="author-link">
-								<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-									<?php printf( __( 'View all posts by %s <span class="meta-nav">&raquo;</span>', '2010-translucence' ), get_the_author() ); ?>
-								</a>
-							</div><!-- #author-link	-->
-						</div><!-- #author-description -->
-					</div><!-- #entry-author-info -->
-<?php endif; ?>
+					
+					<?php translucence_get_author() ?>
 					
 					<?php  $tags_list = get_the_tag_list( '', ' ' ); ?>
 					<?php if ( $tags_list ):?>
