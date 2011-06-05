@@ -601,7 +601,10 @@ div.menu,
 	background-color: <?php print $translucence_options['top-color-rgb']?>;
 	display: block;
 	float: left;
+	border-top: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-top']?>;
 	border-bottom: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-bottom']?>;	
+	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
+	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
 	width: <?php print $menu_width?>px;
 	margin-top: <?php print $translucence_options['top-margin-top']?>px;
 	margin-bottom: 20px; 
@@ -631,26 +634,26 @@ div.menu ul {
 div.menu li {
 	float: left;
 	position: relative;
-	box-shadow: 0px 0px 0px <?php print $translucence_options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 0px 0px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 0px <?php print $translucence_options['header-text-shadow-color']?>;	
 }
 
 #access a {
-	color:  <?php print $translucence_options['textcolor']?>;	
+	color:  <?php print $translucence_options['top-link-color']?>;
 	display: block;
-	border-top: 1px solid transparent;
-	border-bottom: 1px solid transparent;
 	line-height: 38px;
 	padding: 0 10px;
 	text-decoration: none;
+	border: 1px solid transparent;
+
 }
 			
 #access ul ul {
-	background-color: <?php print $translucence_options['top-color-hover02-rgb']?>;
-	box-shadow: 0px 0px 3px <?php print $translucence_options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 0px 3px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 3px <?php print $translucence_options['header-text-shadow-color']?>;	
+	background: <?php print $translucence_options['top-color-hover02-rgb']?>;
+	background: <?php print $translucence_options['top-color-hover02-rgba']?>;
+
+	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
+
 	display: none;
 	position: absolute;
 	top: 38px;
@@ -658,10 +661,12 @@ div.menu li {
 	float: left;
 	width: 180px;
 	z-index: 99999;
-
-	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
+	border-top: 1px none transparent;
+	border-bottom: 1px none transparent;
+	border-left: 1px solid <?php print $translucence_options['top-border-left']?>;
+	border-right: 1px solid <?php print $translucence_options['top-border-right']?>;
 }
+
 
 #access ul ul li {
 	min-width: 180px;
@@ -673,39 +678,40 @@ div.menu li {
 }
 
 #access ul ul a {
-	background-color: <?php print $translucence_options['top-color-rgb']?>;
+	color:  <?php print $translucence_options['top-child-link-color']?>;
 	line-height: 1em;
 	border-top: 1px solid transparent;
-	border-bottom: 1px solid transparent;	
+	border-bottom: 1px solid transparent;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
 	padding: 10px;
-	width: 160px;
+	width: 158px;
 	height: auto;
-}	
+}
+
 
 #access li:hover > a,
 #access ul ul:hover > a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
-	background-color: <?php print $translucence_options['top-color-hover03-rgb']?>;
+	background-color: <?php print $translucence_options['top-color-hover03']?>;
+
 	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
-	
+				
 	border-top: 1px solid transparent;
-	border-bottom: 1px solid <?php print $translucence_options['top-border-bottom']?>;	
-	border-left: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-left']?>;
-	border-right: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-right']?>;
+	border-bottom: 1px solid transparent;		
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
 	text-decoration: none;	
+
 }
 
 #access ul li:hover > ul {
 	display: block;
-	border-bottom: 1px solid <?php print $translucence_options['top-border-bottom']?>;	
+	border-bottom: 1px solid transparent;	
 }
 
-#access .sub-menu,
-#access .children {
-
-}
 
 #access .sub-menu ul,
 #access .children ul {
@@ -713,23 +719,32 @@ div.menu li {
 }
 
 #access .sub-menu ul li {
-	border-bottom: none;
+	border-bottom: 1px none transparent;	
 }	
 
-#access ul li.current_page_item > a,
+#access ul li.current_page_item.page_item > a,
+#access ul li.current_page_ancestor > a,
 #access ul li.current-menu-ancestor > a,
 #access ul li.current-menu-item > a,
 #access ul li.current-menu-parent > a {
-	color:  <?php print $translucence_options['top-child-text-color']?>;
+	color:  <?php print $translucence_options['top-child-link-color']?>;
+	background-color: <?php print $translucence_options['top-color-hover03']?>;
+
+	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+
 }
 
-* html #access ul li.current_page_item a,
+* html #access ul li.current_page_item.page_item a,
+* html #access ul li.current_page_ancestor > a,
 * html #access ul li.current-menu-ancestor a,
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
-	border-bottom: 1px solid <?php print $translucence_options['top-border-bottom']?>;
+	background-color: <?php print $translucence_options['top-color-hover03']?>;
+	border-bottom: 1px transparent;	
 }
 
 /* End Access (top navigation bar)
