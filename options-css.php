@@ -659,7 +659,8 @@ div.menu li {
 }
 			
 #access ul ul {
-	background-color: <?php print $translucence_options['top-color']?>;
+	background: <?php print $translucence_options['top-color-hover02-rgb']?>;
+	background: <?php print $translucence_options['top-color-hover02-rgba']?>;
 
 	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;

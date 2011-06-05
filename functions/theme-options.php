@@ -1014,7 +1014,8 @@ function translucence_set_derivative_options() {
 		
 		// need to refine top bar opacity settings....
 		if ($box == "top") {
-			$translucence_options['top-color-hover02-rgb'] = "rgba(".translucence_hex2rgb($translucence_options['top-color']).", .9)";
+			$translucence_options['top-color-hover02-rgba'] = "rgba(".translucence_hex2rgb($translucence_options['top-color']).", .9)";
+			$translucence_options['top-color-hover02-rgb'] = "rgb(".translucence_hex2rgb($translucence_options['top-color']).")";
 		}
 		
 		/******************************************************************************
