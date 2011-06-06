@@ -116,7 +116,7 @@ function translucence_setup() {
 	 * set options version
 	 *********************************************************/ 
 	$translucence_options_version = "2.3.1";
-	
+		
 	/*********************************************************
 	 * Register theme javascript
 	 *********************************************************/ 
@@ -250,11 +250,11 @@ function translucence_add_options_css() {
 	// IE hack opacity options
 	// need IE hack for tag-link-box and cat-link-box
 	print $translucence_options['header-color-ie']."\n"; 
-	print $translucence_options['title-box-color-ie']."\n"; 
+	print $translucence_options['title-box-color-ie']."\n";
 	print $translucence_options['description-box-color-ie']."\n"; 
 	print $translucence_options['right02-color-ie']."\n"; 
 	print $translucence_options['top-color-ie']."\n"; 
-	print $translucence_options['submenu-color-ie']."\n"; 
+//	print $translucence_options['submenu-color-ie']."\n"; 
 	print $translucence_options['content-color-ie']."\n"; 
 	print $translucence_options['bottom-color-ie']."\n"; 
 	print $translucence_options['left01-color-ie']."\n"; 

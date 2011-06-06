@@ -1076,8 +1076,10 @@ function translucence_set_derivative_options() {
 		}
 		
 		if ($box == "description-box") {
-			$translucence_options[$box.'-color-ie'] = "#ie-description-box .description-box {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
-		}		
+			$translucence_options[$box.'-color-ie'] = "#site-description {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+		} else if ($box == "title-box") {
+			$translucence_options[$box.'-color-ie'] = "#site-title a {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+		}
 		
 		// visibility and padding of bars
 		if (isset($translucence_options[$box.'-width']) && $translucence_options[$box.'-width'] == '0') {	

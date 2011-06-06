@@ -131,18 +131,16 @@ a:hover {
 #site-title a {
 	color: #003366;
 	display: block;
-	padding-left: 10px;
-	margin-bottom: 7px;
 	text-shadow: #444444 1px 1px 2px;
 }
  
 #site-title a:hover {
 	display: block;
-	padding-left: 10px;
 	color: 003366;
 	border-bottom: none;
 }
  
+/*
 .headerblock #site-description {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 	display: block;
@@ -150,6 +148,7 @@ a:hover {
 	color: #333333;
 	font-size: 14px;
 }
+*/
 
 .widget-title {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
@@ -1252,60 +1251,6 @@ DESCRIPTION: 1-3 column fixed layout
  
 /* The main theme structure */	
 
-.title-box {
-	position: relative;
-	top: 30px;
-	display: inline;
-	background-color: rgba(249, 249, 249, .5);
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-	padding: 3px 0px 3px 1px;
-	margin-left: 10px;
-}
-
-#ie-title-box .title-box {
-	display: inline;
-	padding: 15px 0px 15px 1px;
-	margin-top: -15px;
-	margin-bottom: -15px;
-}
-
-#ie8-title-box .title-box {
-	display: block;
-	padding: 15px 0px 15px 1px;
-	margin-top: -15px;
-	margin-bottom: -15px;
-	width: 100%;
-}
-
-
-.description-box {
-	position: relative;
-	top: 30px;
-	background-color: rgba(249, 249, 249, .5);
-	border-top: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-	padding: 3px 10px 3px 1px;
-	margin-left: 10px;
-}
- 
-.headerblock #site-description {
-	position: relative;
-	top: 40px;
-	display: block;
-	padding-left: 15px;
-	color: #333333;
-	font-size: 14px;
-}
-
-#ie-description-box .description-box {
-	display: block;
-	padding: 3px 3px 3px 3px;
-}
 
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)

@@ -177,54 +177,33 @@ div.menu,
 	border-right: 1px <?php print $translucence_options['header-hover-border-style']?> <?php print $translucence_options['header-border-right']?>;	 
 }
 
-#branding #site-title {
-	color: <?php print $translucence_options['site-title-color']?>;
-	font-size: <?php print $translucence_options['site-title-size']?>px;
-	font-weight: normal;
-	border-bottom: none;
-	text-shadow: <?php print $translucence_options['header-text-shadow-color']?> <?php print $translucence_options['header-text-shadow-offset']?> <?php print $translucence_options['header-text-shadow-blur']?>;
-}
 
 .title-box {
-	position: relative;
-	top: <?php print $translucence_options['header-text-padding-top']?>px;
-	background-color: <?php print $translucence_options['title-box-color-rgb']?>;
-	border-top: 1px none #CCCCCC;
-	border-bottom: 1px none #CCCCCC;
-	border-left: 1px none #CCCCCC;
-	border-right: 1px none #CCCCCC;
-	padding: 3px 10px 3px 1px;
+	margin-top: <?php print $translucence_options['header-text-padding-top']?>px;
 	margin-left: 10px;
 }
 
-#ie-title-box .title-box {
-	padding-top: <?php print $translucence_options['ie-site-title-padding']?>px;
-	padding-bottom: <?php print $translucence_options['ie-site-title-padding']?>px;
-	margin-top: -<?php print $translucence_options['ie-site-title-padding']?>px;
-	margin-bottom: -<?php print $translucence_options['ie-site-title-padding']?>px;
+#site-title {
+	margin-bottom: 5px;
 }
-
-.description-box {
-	position: relative;
-	top: <?php print $translucence_options['header-text-padding-top']?>px;
-	background-color: <?php print $translucence_options['description-box-color-rgb']?>;
-	border-top: 1px none #CCCCCC;
-	border-bottom: 1px none #CCCCCC;
-	border-left: 1px none #CCCCCC;
-	border-right: 1px none #CCCCCC;
-	padding: 3px 10px 3px 1px;
-	margin-left: 10px;
-}
-
 
 #site-title a {
-	font-size: <?php print $translucence_options['site-title-size']?>px;
-	color: <?php print $translucence_options['site-title-color']?>;
 	display: <?php print $translucence_options['show-header-text']?>;
-	padding-top: 25px;
-	padding-left: 10px;
-	margin-bottom: 7px;
+	background: <?php print $translucence_options['title-box-color-rgb']?>;
+	color: <?php print $translucence_options['site-title-color']?>;
+	font-size: <?php print $translucence_options['site-title-size']?>px;
+	line-height: <?php print $translucence_options['site-title-size']?>px;
+	padding: 3px 3px 3px 3px;
 	text-shadow: <?php print $translucence_options['header-text-shadow-color']?> <?php print $translucence_options['header-text-shadow-offset']?> <?php print $translucence_options['header-text-shadow-blur']?>;
+}
+
+#ie-site-title a {
+	margin-top: -10px;
+	margin-bottom: -10px;
+}
+
+#ie8-site-title a {
+	background: <?php print $translucence_options['title-box-color'] ?>;
 }
 
 #site-title a:hover {
@@ -233,13 +212,16 @@ div.menu,
 	border-bottom: none;
 }
 
-.headerblock #site-description {
-	position: relative;
-	top: <?php print $translucence_options['description-text-padding-top']?>px;
+#site-description {
 	display: <?php print $translucence_options['show-header-text']?>;
-	padding-left: 15px;
 	color: <?php print $translucence_options['site-description-color']?>;
+	background-color: <?php print $translucence_options['description-box-color-rgb']?>;
 	font-size: <?php print $translucence_options['site-description-size']?>px;
+	margin-left: 5px;
+}
+
+#ie8-site-description {
+	background: <?php print $translucence_options['description-box-color'] ?>;
 }
 
 /* Misc full width area settings */
@@ -662,9 +644,9 @@ div.menu li {
 	background: <?php print $translucence_options['top-color-hover02-rgb']?>;
 	background: <?php print $translucence_options['top-color-hover02-rgba']?>;
 
-	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
-	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
+	box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
+	-moz-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
+	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;	
 
 	display: none;
 	position: absolute;
