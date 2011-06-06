@@ -105,19 +105,18 @@
 							// echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
 				endif; ?>					
 
-				
-				<?php $heading_tag = ( is_home() || is_front_page() ) ? 'div' : 'div'; ?>
-				<<?php echo $heading_tag; ?> id="site-title">
-					<!--[if lt IE 8]> <div id="ie-title-box"> <![endif]-->
-					<!--[if IE 8]> <div id="ie8-title-box"> <![endif]-->
-					<div class="title-box">
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				<div class="title-box">
+					<div id="site-title">
+						<!--[if lt IE 8]> <span id="ie-site-title"> <![endif]-->
+						<!--[if IE 8]> <span id="ie8-site-title"> <![endif]-->					
+						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>					
+						<!--[if IE]> </span> <![endif]-->
 					</div>
-					<!--[if IE]> </div> <![endif]-->
-				</<?php echo $heading_tag; ?>>
-				<!--[if IE]> <div id="ie-description-box"> <![endif]-->
-				<div id="site-description" class="description-box"><?php bloginfo( 'description' ); ?></div>				
-				<!--[if IE]> </div> <![endif]-->
+					<div id="site-description">	
+					<!--[if IE 8]> <span id="ie8-site-description"> <![endif]-->
+					<?php bloginfo( 'description' ); ?>		
+					<!--[if IE]> </span> <![endif]-->
+					</div>
 				</div>
 			</div><!-- #branding -->
 
