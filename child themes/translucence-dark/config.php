@@ -19,6 +19,7 @@ $translucence_config['theme-name'] = "2010 Translucence Dark";
 
 $translucence_config['theme-parent'] = "2010-translucence";
 
+
 /******************************************************************************
  * Default Variation
  * Specify which variation to use as the default
@@ -117,7 +118,6 @@ $translucence_config['left01-border-style'] = "dotted";
 $translucence_config['right01-border-style'] = "dotted";
 $translucence_config['right02-border-style'] = "none";
 $translucence_config['bottom-border-style'] = "dotted";
-
 
 /******************************************************************************
  * Preset Widgets
@@ -254,6 +254,7 @@ $translucence_config['preset_content']['course']['post'][] =
  $translucence_config['preset_content']['course']['post'][] = 
  "post_type=post&post_title=Assignment Post&post_content=".$post_content."&post_status=publish&post_date=&post_author=&post_category=Assignment 01&post_parent=";
 
+ 
 
 /******************************************************************************
  * Header meta left options
@@ -321,7 +322,7 @@ $translucence_config['model'][]  = 'widgets';
 $translucence_config['model'][]  = 'activated-widgets';
 $translucence_config['model'][]  = 'content';
 $translucence_config['model'][]  = 'added-content';
-$translucence_config['model'][]  = 'variation-type';
+$translucence_config['model'][] = "variation-type";
 
 $translucence_config['model'][]  = 'site-width';
 $translucence_config['model'][]  = 'background_image_url';
