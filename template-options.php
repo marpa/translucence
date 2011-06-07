@@ -192,11 +192,11 @@ function translucence_theme_options_do_page() {
 					<div id='masthead'>
 						<div id='branding'>
 							<div class='headerblock'>
-								<h1 id='site-title'>								
-									<span class='title-box'><a href='index.php'><?php print get_bloginfo('name') ?></a></span>
-								</h1>
-								<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
-							</div>							
+								<div id='title-box'>
+									<div id='site-title'><a href='index.php'><?php print get_bloginfo('name') ?></a></div>
+									<div id='site-description'><?php print get_bloginfo('description') ?></div>
+								</div>	
+							</div>	
 						</div><!-- #branding -->
 						<div id='access' role='navigation'> 
 							<!-- top navigation links -->
@@ -350,6 +350,11 @@ function translucence_get_theme_model_css() {
 		
 		#site-heading {
 			border-bottom: none;
+		}
+
+		#title-box {
+			margin-top: 25px;
+			margin-left: 10px;
 		}
 				
 		.headerblock h1 {
