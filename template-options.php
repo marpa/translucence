@@ -134,9 +134,10 @@ function translucence_theme_options_do_page() {
 			print "</div>";
 			/******************************************************************************
 			 * Content Set Options
+			 * NOT IMPLEMENTED YET....
 			 ******************************************************************************/
 			print "<div style='font-size: 10px;'>";			
-			if (in_array("added-content", $translucence_config['model'])) {
+			if (in_array("added-content-not-implemented", $translucence_config['model'])) {
 				//content set label
 				print __('Content', '2010-translucence').": ";
 				// content set select field
@@ -529,16 +530,7 @@ function translucence_get_theme_model_css() {
 		.notify {
 			color: #009933;
 			font-weight: bold;
-		}
-
-
-		".$translucence_options['header-color-ie']."
-		".$translucence_options['top-color-ie']."
-		".$translucence_options['content-color-ie']." 
-		".$translucence_options['bottom-color-ie']."
-		".$translucence_options['left01-color-ie']."
-		".$translucence_options['right01-color-ie']."
-		".$translucence_options['right02-color-ie']."		
+		}		
 		</style>	
 	";
 
