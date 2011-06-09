@@ -1209,6 +1209,8 @@ code {
 		margin: 24pt 0 0;
 		width: 95% !important;
 		border: none !important;
+		color: #000 !important;
+		background: #fff !important;
 	}
 	.wp-caption p {
 		font-size: 11pt;
