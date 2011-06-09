@@ -963,7 +963,18 @@ function translucence_set_derivative_options() {
 		$translucence_options['cat-links-border-style'] = "solid";
 		$translucence_options['tag-links-border-style'] = "solid";
 		
+		// if border-style is none, then set to solid and set color to transparent
 		if (isset($translucence_options[$box.'-border-style']) && $translucence_options[$box.'-border-style'] == "none") {
+			
+			if ($box == "header") {
+				$translucence_options['headerblock-border-style'] = "solid";
+				$translucence_options[$box.'-border-left'] = "transparent";
+				$translucence_options[$box.'-border-right'] = "transparent";
+				$translucence_options[$box.'-border-top'] = "transparent";
+				$translucence_options[$box.'-border-bottom'] = "transparent";
+				$translucence_options['headerblock-hover-border-style'] = "solid";
+			}
+			
 			$translucence_options[$box.'-hover-border-style'] = "none";
 			if ($box == "top") {
 				$translucence_options['top-border-left'] = "transparent";
@@ -971,6 +982,10 @@ function translucence_set_derivative_options() {
 			}
 		} else {
 			$translucence_options[$box.'-hover-border-style'] = "solid";
+			if ($box == "header") {
+				$translucence_options['headerblock-border-style'] = $translucence_options[$box.'-border-style'];
+				$translucence_options['headerblock-hover-border-style'] = "solid";			
+			}
 		}
 				
 		/******************************************************************************

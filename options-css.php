@@ -160,10 +160,10 @@ div.menu,
 .headerblock {
 	color: <?php print $translucence_options['header-text-color']?>;
 	background-color: <?php print $translucence_options['header-color-rgb']?>;
-	border-top: 1px <?php print $translucence_options['header-border-style']?> <?php print $translucence_options['header-border-top']?>;
-	border-bottom: 1px <?php print $translucence_options['header-border-style']?> <?php print $translucence_options['header-border-bottom']?>;
-	border-left: 1px <?php print $translucence_options['header-border-style']?> <?php print $translucence_options['header-border-left']?>;
-	border-right: 1px <?php print $translucence_options['header-border-style']?> <?php print $translucence_options['header-border-right']?>;				
+	border-top: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-top']?>;
+	border-bottom: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-bottom']?>;
+	border-left: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-left']?>;
+	border-right: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-right']?>;				
 	padding-top: 0px;
 	width: <?php print $header_width?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
@@ -171,10 +171,10 @@ div.menu,
 
 .headerblock:hover {
 	background-color: <?php print $translucence_options['header-color-hover-rgb']?>;
-	border-top: 1px <?php print $translucence_options['header-hover-border-style']?> <?php print $translucence_options['header-border-top']?>;
-	border-bottom: 1px <?php print $translucence_options['header-hover-border-style']?> <?php print $translucence_options['header-border-bottom']?>;
-	border-left: 1px <?php print $translucence_options['header-hover-border-style']?> <?php print $translucence_options['header-border-left']?>;
-	border-right: 1px <?php print $translucence_options['header-hover-border-style']?> <?php print $translucence_options['header-border-right']?>;	 
+	border-top: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-top']?>;
+	border-bottom: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-bottom']?>;
+	border-left: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-left']?>;
+	border-right: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-right']?>;	 
 }
 
 
