@@ -1174,8 +1174,10 @@ code {
 		line-height: 1.4em;
 		margin: 0;
 		padding: 0;
+		color: #000 !important;
+		text-shadow: none !important;
 	}
-
+	
 	.entry-content {
 		font-size: 14pt;
 		line-height: 1.6em;
@@ -1186,6 +1188,7 @@ code {
 	#access,
 	#branding img,
 	#respond,
+	#wp-bar,
 	.comment-edit-link,
 	.edit-link,
 	.post-link,
