@@ -107,10 +107,10 @@
 
 				<div class="title-box">
 					<div id="site-title">
-						<!--[if lt IE 8]> <span id="ie-site-title"> <![endif]-->
-						<!--[if IE 8]> <span id="ie8-site-title"> <![endif]-->					
+						<!--[if lt IE 8]> <div id="ie-site-title"> <![endif]-->
+						<!--[if IE 8]> <div id="ie8-site-title"> <![endif]-->					
 						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>					
-						<!--[if IE]> </span> <![endif]-->
+						<!--[if IE]> </div> <![endif]-->
 					</div>
 					<div id="site-description">	
 					<!--[if IE 8]> <span id="ie8-site-description"> <![endif]-->

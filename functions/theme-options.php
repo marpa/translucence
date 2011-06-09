@@ -1077,7 +1077,7 @@ function translucence_set_derivative_options() {
 		 * Generate IE only CSS for opacity settings
 		 ******************************************************************************/
 		
-	   $translucence_options[$box.'-color-ie'] = $area." {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+	   $translucence_options[$box.'-color-ie'] = $area." {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
@@ -1086,14 +1086,15 @@ function translucence_set_derivative_options() {
 // 			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
 // 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
 // 			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
-// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
-						
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";					
 		}
 		
 		if ($box == "description-box") {
-			$translucence_options[$box.'-color-ie'] = "#site-description {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+			$translucence_options[$box.'-color-ie'] = "#site-description {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."};";
+			$translucence_options[$box.'-color-ie8'] = "background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";";
 		} else if ($box == "title-box") {
-			$translucence_options[$box.'-color-ie'] = "#site-title a {".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+			$translucence_options[$box.'-color-ie'] = "#site-title a {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";}";
+			$translucence_options[$box.'-color-ie8'] = "background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";";
 		}
 		
 		// visibility and padding of bars
@@ -1376,10 +1377,10 @@ function translucence_ie_opacity_css ($color, $opacity) {
 	if ($opacity == "0") $hex_opacity = "00";
 	$hex_rgba = "#".$hex_opacity.$color;
 	
-	$out = "*background:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=";
+	$out = "progid:DXImageTransform.Microsoft.gradient(startColorstr=";
 	$out .= $hex_rgba;
 	$out .= ",endColorstr=";
 	$out .= $hex_rgba;
-	$out .= ");zoom: 1;";
+	$out .= ");zoom: 1";
 	return $out;
 }

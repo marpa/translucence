@@ -184,7 +184,7 @@ div.menu,
 }
 
 #site-title {
-	margin-bottom: 5px;
+	margin-bottom: 5px;	
 }
 
 #site-title a {
@@ -202,8 +202,10 @@ div.menu,
 	margin-bottom: -10px;
 }
 
-#ie8-site-title a {
-	background: <?php print $translucence_options['title-box-color'] ?>;
+#ie8-site-title {
+	<?php print $translucence_options['title-box-color-ie8'] ?>
+	display: inline-block;
+	padding: 3px 3px 3px 3px;
 }
 
 #site-title a:hover {
@@ -215,13 +217,14 @@ div.menu,
 #site-description {
 	display: <?php print $translucence_options['show-header-text']?>;
 	color: <?php print $translucence_options['site-description-color']?>;
-	background-color: <?php print $translucence_options['description-box-color-rgb']?>;
+	background: <?php print $translucence_options['description-box-color-rgb']?>;
 	font-size: <?php print $translucence_options['site-description-size']?>px;
 	margin-left: 5px;
 }
 
 #ie8-site-description {
-	background: <?php print $translucence_options['description-box-color'] ?>;
+	<?php print $translucence_options['description-box-color-ie8'] ?>
+	display: inline-block;
 }
 
 /* Misc full width area settings */
