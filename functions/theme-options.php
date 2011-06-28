@@ -401,6 +401,9 @@ if (!function_exists('translucence_get_variation_default')) {
 function translucence_get_variation_default_config() {
 	global $translucence_config, $translucence_options;
 	
+	if (!isset($translucence_options['theme-name'])) $translucence_options['theme-name'] = $translucence_config['theme-name'];
+	if (!isset($translucence_options['theme-url'])) $translucence_options['theme-url'] = $translucence_config['theme-url'];
+	
 	if (!isset($translucence_options['activated-theme'])) $translucence_options['activated-theme'] = $translucence_config['activated-theme'];
 	if (!isset($translucence_options['activated-widgets'])) $translucence_options['activated-widgets'] = $translucence_config['activated-widgets'];
 	if (!isset($translucence_options['widgets'])) $translucence_options['widgets'] = $translucence_config['widgets'];
