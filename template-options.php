@@ -193,8 +193,8 @@ function translucence_theme_options_do_page() {
 					<div id='masthead'>
 						<div id='branding'>
 							<div class='headerblock'>
-								<div class='title-box'>								
-									<div id='site-title'><a href='index.php'><?php print get_bloginfo('name') ?></a></div>
+								<div id='title-box'>								
+									<div id='site-title'><a href='index.php'><?php print get_bloginfo('name') ?></a></div><br/>
 									<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
 								</div>
 							</div>							
@@ -533,6 +533,24 @@ function translucence_get_theme_model_css() {
 		}		
 		</style>	
 	";
+	print "<!--[if IE]>";
+	print "<style type='text/css'>";
+	print $translucence_options['header-color-ie']."\n"; 
+	print $translucence_options['title-box-color-ie']."\n";
+	print $translucence_options['description-box-color-ie']."\n"; 
+	print $translucence_options['right02-color-ie']."\n"; 
+	print $translucence_options['top-color-ie']."\n"; 
+//	print $translucence_options['submenu-color-ie']."\n"; 
+	print $translucence_options['content-color-ie']."\n"; 
+	print $translucence_options['bottom-color-ie']."\n"; 
+	print $translucence_options['left01-color-ie']."\n"; 
+	print $translucence_options['right01-color-ie']."\n"; 
+	print $translucence_options['right02-color-ie']."\n"; 
+	print $translucence_options['cat-links-color-ie']."\n";
+	print $translucence_options['tag-links-color-ie']."\n";
+	print "#access ul ul {border-left: 1px solid #ccc; border-right: 1px solid #ccc;}";
+	print "</style>";
+	print "<![endif]-->";
 
 	$translucence_theme_model_css = ob_get_contents();
 	ob_end_clean();
