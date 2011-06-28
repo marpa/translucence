@@ -701,9 +701,11 @@ function translucence_set_derivative_options() {
 	
 	
 	if ($translucence_options['header-text-display'] != "hide") {
-		$translucence_options['show-header-text'] = "inline";
+		$translucence_options['show-header-text'] = "inline-block";
+		$translucence_options['show-header-text-ie7'] = "inline";
 	} else {
 		$translucence_options['show-header-text'] = "none";
+		$translucence_options['show-header-text-ie7'] = "none";
 	}
 	
 	if ($translucence_options['header-text-display'] == "top") {
