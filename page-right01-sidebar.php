@@ -40,7 +40,7 @@ $content_width = $translucence_options['site-width'] - $translucence_options['ri
 					<?php } else { ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					<?php } ?>
-					<?php translucence_page_links($post, 'before'); ?>
+					<?php //translucence_page_links($post, 'before'); ?>
 					  
 					<div class="entry-content">
 						<?php the_content(); ?>
