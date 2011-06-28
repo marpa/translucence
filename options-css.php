@@ -881,9 +881,14 @@ a:hover {
 	background-color: <?php print $translucence_options['entry-link-hover-background_color']?>;
 }
 
+.entry-content a:link,
 .entry-content a:visited {
 	color: <?php print $translucence_options['linkcolor_visited']?>;		
 	border-bottom: 1px <?php print $translucence_options['entry-link-border']?>;
+}
+
+.entry-summary a:link {
+	color: <?php print $translucence_options['linkcolor']?>;
 }
 
 /* Entry-more links */
