@@ -1003,7 +1003,7 @@ function translucence_get_custom_options() {
 function translucence_get_layout_options() {
 	global $translucence_config, $translucence_options, $translucence_options_values, $translucence_model_content_width;
     global $translucence_options_id, $active_options;
-    
+
     ob_start();
     if (in_array('layout-options', $active_options)) {
 		print "<div class='options' style='background-color: transparent; clear: both;'>";
@@ -1059,8 +1059,14 @@ function translucence_get_layout_options() {
 		print "<a href='javascript:setThemeOptionsMode(\"sidebar\", \"".$translucence_options_id."\")'>".__( 'Sidebar Options', '2010-translucence')."</a>";
 		print "</div>";
 		
+		if ($translucence_options['options-mode'] == "layout") {
+			print "<input type='hidden' name='".$translucence_options_id."[site-title-color]' value = '".$translucence_options['site-title-color']."'/>";
+			print "<input type='hidden' name='".$translucence_options_id."[site-description-color]' value = '".$translucence_options['site-description-color']."'/>";
+		}
+		
 	// if not in active_options print out as hidden fields	
 	} else {
+		
 		translucence_get_option_selector ("", "content-color", $translucence_options_values['sidebar-color']);
 		translucence_get_option_selector ("", "content-opacity", $translucence_options_values['sidebar-opacity']);
 		translucence_get_option_selector ("", "content-border-style", $translucence_options_values['border-style']);	
@@ -1165,6 +1171,12 @@ function translucence_get_post_options() {
 	$translucence_title = "<span style='font-size: 9px;'>".__( 'archives page', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>archives page includes</span><br/>", "archives-single-sidebar", $translucence_options_values['sidebar-display']);
 	print "</div>";
+	
+	if ($translucence_options['options-mode'] == "sidebar" || $translucence_options['options-mode'] == "post") {
+		print "<input type='hidden' name='".$translucence_options_id."[site-title-color]' value = '".$translucence_options['site-title-color']."'/>";
+		print "<input type='hidden' name='".$translucence_options_id."[site-description-color]' value = '".$translucence_options['site-description-color']."'/>";
+	}
+
 				
 	/*********************************************************
 	 * Text, Link, Category and Tag options
