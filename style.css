@@ -62,6 +62,10 @@ a img {
 	border: none;
 }
 
+audio {
+	background-color: #333;
+}
+
 
 /* =Fonts and links
 * Add Translucence child default Site title and headers fonts and link color
