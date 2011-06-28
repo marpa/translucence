@@ -242,14 +242,13 @@ endif;
  */
 
 function translucence_add_options_css() {
-	global $translucence_options, $translucence_options_id; 
-	
+	global $translucence_options, $translucence_options_id; 	
 	
 	print "<style type='text/css'>";
 	print $translucence_options['css'];
 	print "</style>";
+	
 	// IE hack opacity options
-	// need IE hack for tag-link-box and cat-link-box
 	print "<!--[if IE]>";
 	print "<style type='text/css'>";
 	print $translucence_options['header-color-ie']."\n"; 
@@ -265,6 +264,7 @@ function translucence_add_options_css() {
 	print $translucence_options['right02-color-ie']."\n"; 
 	print $translucence_options['cat-links-color-ie']."\n";
 	print $translucence_options['tag-links-color-ie']."\n";
+	print "#access ul ul {border-left: 1px solid #ccc; border-right: 1px solid #ccc;}";
 	print "</style>";
 	print "<![endif]-->";
 	
