@@ -178,54 +178,43 @@ div.menu,
 }
 
 
-.title-box {
+#title-box {
 	margin-top: <?php print $translucence_options['header-text-padding-top']?>px;
 	margin-left: 10px;
 }
 
-#site-title {
-	margin-bottom: 5px;	
+#title-box #site-title {
+	background: <?php print $translucence_options['title-box-color-rgb']?>;
+	margin-bottom: 1px;
+	padding: 3px 3px 3px 3px;
+	display: <?php print $translucence_options['show-header-text']?>;
+	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
+	zoom:1;
 }
 
 #site-title a {
-	display: <?php print $translucence_options['show-header-text']?>;
-	background: <?php print $translucence_options['title-box-color-rgb']?>;
 	color: <?php print $translucence_options['site-title-color']?>;
 	font-size: <?php print $translucence_options['site-title-size']?>px;
 	line-height: <?php print $translucence_options['site-title-size']?>px;
-	padding: 3px 3px 3px 3px;
 	text-shadow: <?php print $translucence_options['header-text-shadow-color']?> <?php print $translucence_options['header-text-shadow-offset']?> <?php print $translucence_options['header-text-shadow-blur']?>;
 }
 
-#ie-site-title a {
-	margin-top: -10px;
-	margin-bottom: -10px;
-}
-
-#ie8-site-title {
-	<?php print $translucence_options['title-box-color-ie8'] ?>
-	display: inline-block;
-	padding: 3px 3px 3px 3px;
-}
-
 #site-title a:hover {
-	display: <?php print $translucence_options['show-header-text']?>;
 	color: <?php print $translucence_options['site-title-color']?>;
 	border-bottom: none;
 }
 
 #site-description {
-	display: <?php print $translucence_options['show-header-text']?>;
 	color: <?php print $translucence_options['site-description-color']?>;
-	background: <?php print $translucence_options['description-box-color-rgb']?>;
 	font-size: <?php print $translucence_options['site-description-size']?>px;
+	background: <?php print $translucence_options['description-box-color-rgb']?>;
+	padding: 1px 1px 1px 1px;
 	margin-left: 5px;
+	display: <?php print $translucence_options['show-header-text']?>;
+	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
+	zoom:1;
 }
 
-#ie8-site-description {
-	<?php print $translucence_options['description-box-color-ie8'] ?>
-	display: inline-block;
-}
 
 /* Misc full width area settings */
 

@@ -1255,27 +1255,6 @@ DESCRIPTION: 1-3 column fixed layout
 -------------------------------------------------------------- */
  
 /* The main theme structure */	
-
-#title-box {
-	margin-top: 25px;
-	margin-left: 10px;
-}
-
-#site-title {
-	margin-bottom: 5px;
-}
-
-#site-title a {
-	padding: 3px 3px 3px 3px;
-}
-
-
-#ie-site-title a {
-	margin-top: -10px;
-	margin-bottom: -10px;
-}
-
-
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	

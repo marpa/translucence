@@ -94,30 +94,23 @@
 		<div id="masthead">
 			<div id="branding" role="banner">
 
-				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';" style="cursor: pointer;">
-				
-				<?php
+				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';" style="cursor: pointer;">			
+					<?php
 					if ( is_singular() &&
 							has_post_thumbnail( $post->ID ) &&
 							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= HEADER_IMAGE_WIDTH ) :
-					
-							// echo get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-				endif; ?>					
-
-				<div class="title-box">
-					<div id="site-title">
-						<!--[if lt IE 8]> <div id="ie-site-title"> <![endif]-->
-						<!--[if IE 8]> <div id="ie8-site-title"> <![endif]-->					
-						<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>					
-						<!--[if IE]> </div> <![endif]-->
-					</div>
-					<div id="site-description">	
-					<!--[if IE 8]> <span id="ie8-site-description"> <![endif]-->
-					<?php bloginfo( 'description' ); ?>		
-					<!--[if IE]> </span> <![endif]-->
-					</div>
-				</div>
+							$image[1] >= HEADER_IMAGE_WIDTH ) :	
+					endif; ?>					
+	
+					<div id="title-box">
+						<div id="site-title">				
+							<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+						</div><br/>
+						<div id="site-description">	
+							<?php bloginfo( 'description' ); ?>		
+						</div>
+					</div><!-- #title-box -->
+				</div><!-- headerblock -->
 			</div><!-- #branding -->
 
 			<div id="access" role="navigation">
