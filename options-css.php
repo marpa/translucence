@@ -163,7 +163,7 @@ div.menu,
 	border-top: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-top']?>;
 	border-bottom: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-bottom']?>;
 	border-left: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-left']?>;
-	border-right: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-right']?>;				
+	border-right: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-right']?>;
 	padding-top: 0px;
 	width: <?php print $header_width?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
