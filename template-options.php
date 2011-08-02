@@ -326,6 +326,10 @@ function translucence_get_theme_model_css() {
 			padding: 1px 0px 0px 0px;
 			border: 1px solid #CCCCCC;
 		}
+		
+		a:hover {
+		  border-bottom: none;
+		}
 				
 		#wphead h1 a {
 			text-decoration: none;
