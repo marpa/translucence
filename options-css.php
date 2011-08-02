@@ -384,27 +384,30 @@ div.menu,
 /* Begin widget links */
 #tertiary a {
 	color: <?php print $translucence_options['left01-link-color']?>;
-	border-bottom:1px none <?php print $translucence_options['left01-link-color']?>;
+	padding: 3px;
+	border: 1px solid transparent;
 }
 		
 #tertiary a:hover {
 	color: <?php print $translucence_options['left01-link-color']?>;
-	border-bottom:1px solid <?php print $translucence_options['left01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['left01-link-color']?>;
 }
 
 #tertiary .toggle a:hover {
 	text-decoration: none;	
-	border: 1px dotted <?php print $translucence_options['left01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['left01-border-top']?>;
 }
 
 #primary a {
+	display: block;
 	color: <?php print $translucence_options['right01-link-color']?>;
-	border-bottom:1px none <?php print $translucence_options['right01-link-color']?>;
+	padding: 3px;
+	border: 1px solid transparent;
 }
 		
 #primary a:hover {
 	color: <?php print $translucence_options['right01-link-color']?>;
-	border-bottom:1px solid <?php print $translucence_options['right01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['right01-border-top']?>;
 }
 
 #primary .toggle a:hover {
@@ -415,12 +418,13 @@ div.menu,
 
 #secondary a {
 	color: <?php print $translucence_options['right02-link-color']?>;
-	border-bottom:1px none <?php print $translucence_options['right02-link-color']?>;
+	padding: 3px;
+	border: 1px solid transparent;
 }
 
 #secondary a:hover {
 	color: <?php print $translucence_options['right02-link-color']?>;
-	border-bottom:1px solid <?php print $translucence_options['right02-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['right02-border-top']?>;
 }
 
 #secondary .toggle a:hover {
@@ -442,8 +446,6 @@ div.menu,
 	border: 1px dotted transparent;
 }
 
-
-
 #footer-widget-area a {
 	color: <?php print $translucence_options['bottom-link-color']?>;		
 }
@@ -452,6 +454,13 @@ div.menu,
 	color: <?php print $translucence_options['bottom-link-color']?>;	
 	border-bottom: 1px solid <?php print $translucence_options['bottom-link-color']?>;	
 }
+
+#tertiary .tagcloud a,
+#primary .tagcloud a,
+#secondary .tagcloud a {
+	display: inline;
+}
+
 /* End widget links */
 
 /* Begin widget headings */
