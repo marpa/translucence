@@ -554,6 +554,65 @@ div.menu,
 }
 /* End widget search form */
 
+/* Begin sidebar calendar */
+#tertiary #wp-calendar tbody {
+	color: <?php print $translucence_options['left01-text-color']?>;
+}
+
+#tertiary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['left01-link-color']?>;
+	padding: 2px;
+}
+
+#tertiary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
+}
+
+
+#primary #wp-calendar tbody {
+	color: <?php print $translucence_options['right01-text-color']?>;
+}
+
+#primary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['right01-link-color']?>;
+	padding: 2px;
+}
+
+#primary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['right01-link-color']?>;
+}
+
+#secondary #wp-calendar tbody {
+	color: <?php print $translucence_options['right02-text-color']?>;
+}
+
+#secondary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['right02-link-color']?>;
+	padding: 2px;
+}
+
+#secondary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['right02-link-color']?>;
+}
+
+
+#footer-widget-area #wp-calendar tbody {
+	color: <?php print $translucence_options['bottom-text-color']?>;
+}
+
+#footer-widget-area #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['bottom-link-color']?>;
+	padding: 2px;
+}
+
+#footer-widget-area #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['bottom-link-color']?>;
+}
+
+
+
+/* End sidebar calendar */
+
 /* Begin widget area separators */
 #colophon {
 	border-top: 1px <?php print $translucence_options['colophon-border-type']?> #000;
@@ -813,8 +872,8 @@ div.menu li {
 -------------------------------------------------------------- */	
 
 #wp-calendar tbody td {
-	background-color: <?php print $translucence_options['content-highlight-color-rgb']?>;
-	border: 1px solid #fff;
+	background-color: transparent;
+	border: 1px solid transparent;
 
 }
 
