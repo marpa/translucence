@@ -404,6 +404,10 @@ div.menu,
 	padding: 3px;
 	border: 1px solid transparent;
 }
+
+#primary #recentcomments a {
+	display: inline;
+}
 		
 #primary a:hover {
 	color: <?php print $translucence_options['right01-link-color']?>;
