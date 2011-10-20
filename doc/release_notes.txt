@@ -5,7 +5,7 @@ Translucence v. 2.3.1 (the future)
 What is Translucence?
 ------------------
 Translucence is a customizable, flexible and extensible theme for WordPress based on
-the WordPress twentyten default theme
+the WordPress twentyten default theme.
 
 
 Current Version Notes
@@ -25,7 +25,7 @@ Documentation
 ---------------------
 Translucence documentation can be found online at:
 
-http://segueproject.org/themes/translucence-documentation/
+http://segueproject.org/themes-translucence/
 
 
 Installation

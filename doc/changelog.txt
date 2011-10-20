@@ -9,6 +9,80 @@ development standards.
 		
 		
 	* Change: 
+		updated title of inline page listing to be title of parent post.
+		(2011-09-92 - Alex Chapin)
+		
+	* Change: 
+		updated calendar widget styles to work better with translucent sidebars.
+		(2011-08-02 - Alex Chapin)
+		
+	* Change: 
+		updated widget link styles to display as blocks for better usability on
+		mobile and touch platforms.
+		(2011-08-01 - Alex Chapin)
+		
+	* Change: 
+		refactored markup and css for displaying site title and description for
+		better cross-browser compatibility.
+		(2011-06-06 - Alex Chapin)
+		
+	* Change: 
+		refined print css for better printing of site.
+		(2011-06-04 - Alex Chapin)
+		
+	* New feature: 
+		added a translucence_get_author function to abstract this functionality in
+		order to make it easier to extend with plugins (such as the co-author
+		plugin). 
+		(2011-06-04 - Alex Chapin)
+		
+	* New feature: 
+		added functions-plugins.php for adding plugin specific functions.
+		(2011-06-04 - Alex Chapin)
+		
+	* New feature: 
+		included new Metrics child theme.
+		(2011-05-13 - Alex Chapin)
+		
+	* New feature: 
+		added theme option for default or customizable variations.
+		(2011-05-02 - Alex Chapin)				
+		
+	* New feature: 
+		added theme option for adding sets of posts, categories and tags.
+		(2011-04-27 - Alex Chapin)				
+		
+	* New feature: 
+		added default widgets and widget set theme options.
+		(2011-04-27 - Alex Chapin)				
+		
+	* New feature: 
+		included 3 sample child themes, Child, Minimal and Dark.
+		(2011-04-26 - Alex Chapin)				
+		
+	* Change: 
+		updated names of all custom variables with translucence prefix
+		(2011-04-25 - Alex Chapin)		
+		
+	* New feature: 
+		Added template translations for French and Japanese localization
+		(2011-04-24 - Alex Chapin)				
+		
+	* Change: 
+		refactored and reactivated preset widgets so that preset widgets can be
+		defined in theme config and will be created when theme is activated.
+		(2011-04-12 - Alex Chapin)	
+		
+	* Change: 
+		moved theme options initiation to theme config file for greater child theme
+		default variation options.
+		(2011-04-08 - Alex Chapin)
+		
+	* New feature: 
+		added a new variation, Dark Gray Translucence
+		(2011-04-06 - Alex Chapin)		
+		
+	* Change: 
 		updated all page templates to use translucence_page_links function.
 		(2011-03-30 - Alex Chapin)
 		

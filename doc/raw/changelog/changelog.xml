@@ -14,6 +14,31 @@
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.
 		</releaseNotes>
+		<change author='alex' date='2011-09-92'>
+			updated title of inline page listing to be title of parent post.
+		</change>
+		<change author='alex' date='2011-08-02'>
+			updated calendar widget styles to work better with translucent sidebars.
+		</change>
+		<change author='alex' date='2011-08-01'>
+			updated widget link styles to display as blocks for better usability on mobile and touch platforms.
+		</change>
+		<change author='alex' date='2011-06-06'>
+			refactored markup and css for displaying site title and description for better cross-browser compatibility.
+		</change>
+		<change author='alex' date='2011-06-04'>
+			refined print css for better printing of site.
+		</change>
+		<new author='alex' date='2011-06-04'>
+			added a translucence_get_author function to abstract this functionality in order to make it easier
+			to extend with plugins (such as the co-author plugin).
+		</new>
+		<new author='alex' date='2011-06-04'>
+			added functions-plugins.php for adding plugin specific functions.
+		</new>
+		<new author='alex' date='2011-05-13'>
+			included new Metrics child theme.
+		</new>
 		<new author='alex' date='2011-05-02'>
 			added theme option for default or customizable variations.
 		</new>				
