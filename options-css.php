@@ -383,9 +383,14 @@ div.menu,
 
 /* Begin widget links */
 #tertiary a {
+	display: inline;
 	color: <?php print $translucence_options['left01-link-color']?>;
 	padding: 3px;
 	border: 1px solid transparent;
+}
+
+#tertiary .page_item a {
+	display: block;
 }
 		
 #tertiary a:hover {
@@ -399,14 +404,14 @@ div.menu,
 }
 
 #primary a {
-	display: block;
+	display: inline;
 	color: <?php print $translucence_options['right01-link-color']?>;
 	padding: 3px;
 	border: 1px solid transparent;
 }
 
-#primary #recentcomments a {
-	display: inline;
+#primary .page_item a {
+	display: block;
 }
 		
 #primary a:hover {
@@ -419,11 +424,15 @@ div.menu,
 	border: 1px dotted <?php print $translucence_options['right01-link-color']?>;
 }
 
-
 #secondary a {
+	display: inline;
 	color: <?php print $translucence_options['right02-link-color']?>;
 	padding: 3px;
 	border: 1px solid transparent;
+}
+
+#secondary .page_item a {
+	display: block;
 }
 
 #secondary a:hover {
