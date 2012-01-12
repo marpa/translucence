@@ -877,9 +877,20 @@ div.menu li {
 	padding: 10px;
 }
 
-.pagenav:hover {
-	background-color: <?php print $translucence_options['content-highlight-color-hover-rgb']?>;
+.pagenav ul .page_item a {
+	display: block;
+	padding: 3px;
+	border: 1px solid transparent;
+	margin: 1px;
 }
+
+.pagenav ul .page_item a:hover {
+	color: <?php print $translucence_options['linkcolor']?>;
+	border: 1px dotted <?php print $translucence_options['linkcolor']?>;
+	background-color: transparent;
+}
+
+
 
 /* End widget navigation
 -------------------------------------------------------------- */	
@@ -892,8 +903,9 @@ div.menu li {
 
 }
 
-.pagenav .current_page_item a {
+.pagenav ul .current_page_item a {
 	color: <?php print $translucence_options['content-text-color']?>;
+	border: 1px dotted <?php print $translucence_options['linkcolor']?>;
 }
 
 .pagenav .current_page_item > ul.children a {

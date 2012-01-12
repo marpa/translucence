@@ -1419,7 +1419,6 @@ DESCRIPTION: 1-3 column fixed layout
 
 .pagenav .current_page_item {
 	display: block;
-	font-style: italic;
 }
 
 .pagenav a {
