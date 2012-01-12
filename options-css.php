@@ -389,8 +389,7 @@ div.menu,
 	border: 1px solid transparent;
 }
 
-#tertiary .page_item a,
-#tertiary .cat-item a {
+#tertiary .page_item a {
 	display: block;
 	padding: 3px;
 }
@@ -400,8 +399,7 @@ div.menu,
 	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
 }
 
-#tertiary .page_item a:hover,
-#tertiary .cat-item a:hover {
+#tertiary .page_item a:hover {
 	color: <?php print $translucence_options['left01-link-color']?>;
 	border: 1px dotted <?php print $translucence_options['left01-border-top']?>;
 }
@@ -418,8 +416,7 @@ div.menu,
 	border: 1px solid transparent;
 }
 
-#primary .page_item a,
-#primary .cat-item a {
+#primary .page_item a {
 	display: block;
 	padding: 3px;
 }
@@ -429,8 +426,7 @@ div.menu,
 	border-bottom: 1px solid <?php print $translucence_options['right01-link-top']?>;
 }
 
-#primary .page_item a:hover,
-#primary .cat-item a:hover {
+#primary .page_item a:hover {
 	color: <?php print $translucence_options['right01-link-color']?>;
 	border: 1px dotted <?php print $translucence_options['right01-border-top']?>;
 }
@@ -447,8 +443,7 @@ div.menu,
 	border: 1px solid transparent;
 }
 
-#secondary .page_item a,
-#secondary .cat-item a {
+#secondary .page_item a {
 	display: block;
 	padding: 3px;
 }
@@ -459,8 +454,7 @@ div.menu,
 	border-bottom: 1px solid <?php print $translucence_options['right02-link-top']?>;
 }
 
-#secondary .page_item a:hover,
-#secondary .cat-item a:hover {
+#secondary .page_item a:hover {
 	color: <?php print $translucence_options['right02-link-color']?>;
 	border: 1px dotted <?php print $translucence_options['right02-border-top']?>;
 }
