@@ -2,10 +2,11 @@
 Translucence Change Log
 
 
-v. 2.3.1 (the future)
+v. 2.3.1 (2012-01-13)
 ----------------------------------------------------
 This release refactors theme functions to better conform to WordPress theme
-development standards.
+development standards. This release also improves usability on mobile and touch
+enabled UIs
 		
 		
 	* Change: 

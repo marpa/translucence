@@ -1,5 +1,5 @@
 
-Translucence v. 2.3.1 (the future)
+Translucence v. 2.3.1 (2012-01-13)
 =================================
 
 What is Translucence?
@@ -11,7 +11,8 @@ the WordPress twentyten default theme.
 Current Version Notes
 ---------------------
 This release refactors theme functions to better conform to WordPress theme
-development standards.
+development standards. This release also improves usability on mobile and touch
+enabled UIs
 
 
 Downloads
@@ -51,10 +52,11 @@ Bug Tracker
 ===================================================================
 
 
-v. 2.3.1 (the future)
+v. 2.3.1 (2012-01-13)
 ----------------------------------------------------
 This release refactors theme functions to better conform to WordPress theme
-development standards.
+development standards. This release also improves usability on mobile and touch
+enabled UIs
 
 
 
