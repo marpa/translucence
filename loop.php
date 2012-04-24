@@ -162,11 +162,11 @@
 
 			<div class="entry-meta">
 				<?php twentyten_posted_on(); ?>
-			</div><!-- .entry-meta -->
+			</div><!-- .entry-meta -->			
 			<?php if ( count( get_the_category() ) ) : ?>
-				<span class="catlinks">
-					<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
-				</span>
+			<span class="catlinks">
+			<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
+			</span>
 			<?php endif; ?>
 
 	<?php if ( is_search() ) : // Only display excerpts for archives and search. ?>
