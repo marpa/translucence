@@ -866,10 +866,6 @@ function translucence_set_derivative_options() {
 		// white
 		if ($translucence_options[$box.'-color'] == '#FFFFFF') {
 			$translucence_options[$box.'-border-color'] = "#CCCCCC";
-			$translucence_options[$box.'-border-top'] = "#CCCCCC";
-			$translucence_options[$box.'-border-left'] = "#CCCCCC";
-			$translucence_options[$box.'-border-bottom'] = "#CCCCCC";
-			$translucence_options[$box.'-border-right'] = "#CCCCCC";
 			$translucence_options[$box.'-heading-color'] = "#666666";
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
@@ -879,10 +875,6 @@ function translucence_set_derivative_options() {
 		// gray blue
 		} else if ($translucence_options[$box.'-color'] == '#364559') {
 			$translucence_options[$box.'-border-color'] = "#666666";
-			$translucence_options[$box.'-border-top'] = "#666666";
-			$translucence_options[$box.'-border-left'] = "#666666";
-			$translucence_options[$box.'-border-bottom'] = "#666666";
-			$translucence_options[$box.'-border-right'] = "#666666";
 			$translucence_options[$box.'-heading-color'] = "#CCCC99";
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
@@ -892,10 +884,6 @@ function translucence_set_derivative_options() {
 		// black
 		} else if ($translucence_options[$box.'-color'] == '#000000' || $translucence_options[$box.'-color'] == '#262626') {
 			$translucence_options[$box.'-border-color'] = "#666666";
-			$translucence_options[$box.'-border-top'] = "#666666";
-			$translucence_options[$box.'-border-left'] = "#666666";
-			$translucence_options[$box.'-border-bottom'] = "#666666";
-			$translucence_options[$box.'-border-right'] = "#666666";
 			$translucence_options[$box.'-heading-color'] = "#FFFFFF";
 			$translucence_options[$box.'-link-color'] = "#FFFFCC";
 			$translucence_options[$box.'-text-color'] = "#CCCCCC";
@@ -905,10 +893,6 @@ function translucence_set_derivative_options() {
 		// green	
 		} else if ($translucence_options[$box.'-color'] == '#4a6339') {
 			$translucence_options[$box.'-border-color'] = "#666666";
-			$translucence_options[$box.'-border-top'] = "#666666";
-			$translucence_options[$box.'-border-left'] = "#666666";
-			$translucence_options[$box.'-border-bottom'] = "#666666";
-			$translucence_options[$box.'-border-right'] = "#666666";
 			$translucence_options[$box.'-heading-color'] = "#FFFFFF";
 			$translucence_options[$box.'-link-color'] = "#FFFFFF";
 			$translucence_options[$box.'-text-color'] = "#EEEEEE";
@@ -918,10 +902,6 @@ function translucence_set_derivative_options() {
 		// muted yellow
 		}  else if ($translucence_options[$box.'-color'] == '#e9e9c9') {
 			$translucence_options[$box.'-border-color'] = "#666666";
-			$translucence_options[$box.'-border-top'] = "#999999";
-			$translucence_options[$box.'-border-left'] = "#999999";
-			$translucence_options[$box.'-border-bottom'] = "#999999";
-			$translucence_options[$box.'-border-right'] = "#999999";
 			$translucence_options[$box.'-heading-color'] = "#AAA448";
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
@@ -931,10 +911,6 @@ function translucence_set_derivative_options() {
 		// light green
 		}  else if ($translucence_options[$box.'-color'] == '#83A776') {
 			$translucence_options[$box.'-border-color'] = "#585858";
-			$translucence_options[$box.'-border-top'] = "#585858";
-			$translucence_options[$box.'-border-left'] = "#585858";
-			$translucence_options[$box.'-border-bottom'] = "#585858";
-			$translucence_options[$box.'-border-right'] = "#585858";
 			$translucence_options[$box.'-heading-color'] = "#c7c6a7";
 			$translucence_options[$box.'-link-color'] = "#FFFFFF";
 			$translucence_options[$box.'-link-color'] = "#EEEEEE";
@@ -945,10 +921,6 @@ function translucence_set_derivative_options() {
 		// yellow
 		}  else if ($translucence_options[$box.'-color'] == '#FFF8C6') {
 			$translucence_options[$box.'-border-color'] = "#CCCCCC";
-			$translucence_options[$box.'-border-top'] = "#CCCCCC";
-			$translucence_options[$box.'-border-left'] = "#CCCCCC";
-			$translucence_options[$box.'-border-bottom'] = "#CCCCCC";
-			$translucence_options[$box.'-border-right'] = "#CCCCCC";
 			$translucence_options[$box.'-heading-color'] = "#333333";
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
@@ -958,10 +930,6 @@ function translucence_set_derivative_options() {
 		// all other colors
 		}  else {
 			$translucence_options[$box.'-border-color'] = "#CCCCCC";
-			$translucence_options[$box.'-border-top'] = "#CCCCCC";
-			$translucence_options[$box.'-border-left'] = "#CCCCCC";
-			$translucence_options[$box.'-border-bottom'] = "#CCCCCC";
-			$translucence_options[$box.'-border-right'] = "#CCCCCC";
 			$translucence_options[$box.'-heading-color'] = "#333333";
 			$translucence_options[$box.'-link-color'] = $translucence_options['linkcolor'];
 			$translucence_options[$box.'-text-color'] = $translucence_options['textcolor'];
