@@ -37,21 +37,6 @@
 </div>
 <?php endif; ?>
 
-<?php /* display link to new post if user is at least an author */?>
-<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
-	<div class='post-link' style="float: left; width: 58%;">
-	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php"><?php _e( 'New Post', '2010-translucence' ); ?></a>
-	</div>
-<?php endif; ?>
-
-<?php /* display link to new post if user is at least an author */?>
-<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?> 
-	<div class='post-link' style="float: right; width: 40%;">
-	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=page"><?php _e( 'New Page', '2010-translucence' ); ?></a>
-	</div>
-<?php endif; ?>
-
-
 <div style="display: block;">
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>

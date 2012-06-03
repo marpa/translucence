@@ -24,14 +24,6 @@ $content_width = $translucence_options['site-width'] - $translucence_options['ri
 <?php print translucence_toggle_links(); ?>	
 <?php print translucence_get_breadcrumbs($post); ?>
 
-<?php /* display link to new post if user is at least an author */?>
-<?php if (current_user_can( 'edit_posts' ) && !is_archive() && !is_search()) : ?>
-	<div class='post-link' style="float: right; width: 40%;">
-	<a href="<?php echo home_url(); ?>/wp-admin/post-new.php?post_type=page">New Page</a>
-	</div>
-<?php endif; ?>
-
-
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
