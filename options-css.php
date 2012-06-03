@@ -87,13 +87,10 @@ div.menu,
 
 #wrapper {
 	background-color: <?php print $translucence_options['site-color-rgb']?>;
-	
-	box-shadow: 0px 0px <?php print $translucence_options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
 	-moz-box-shadow: 0px 0px <?php print $translucence_options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
 	-webkit-box-shadow: 0px 0px <?php print $translucence_options['site-border-shadow'] ?>px rgba(0,0,0,0.2);
-	
-	border: 1px <?php print $translucence_options['site-border-style'] ?> <?php print $translucence_options['site-border-color']?>;
-	
+	box-shadow: 0px 0px <?php print $translucence_options['site-border-shadow'] ?>px rgba(0,0,0,0.2);	
+	border: 1px <?php print $translucence_options['site-border-style'] ?> <?php print $translucence_options['site-border-color']?>;	
 	margin-top: 1px;
 	margin-bottom: 10px;
 	padding: <?php print $translucence_options['site-padding-top'] ?>px <?php print $translucence_options['site-padding-bottom'] ?>px;
@@ -699,9 +696,9 @@ div.menu li {
 	background: <?php print $translucence_options['top-color-hover02-rgb']?>;
 	background: <?php print $translucence_options['top-color-hover02-rgba']?>;
 
-	box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;	
+	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
+	box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;	
 
 	display: none;
 	position: absolute;
@@ -741,9 +738,9 @@ div.menu li {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-hover03']?>;
 
-	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
-	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
+	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
 				
 	border: 1px solid transparent;
 	text-decoration: none;	
@@ -772,9 +769,9 @@ div.menu li {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-hover03']?>;
 
-	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
+	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 
 }
 
