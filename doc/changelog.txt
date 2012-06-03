@@ -2,23 +2,6 @@
 Translucence Change Log
 
 
-v. 2.3.2 (2012-06-03)
-----------------------------------------------------
-This release refactors theme css to reduce and simplify it. This release also add
-minor revisions to UI
-		
-		
-	* Change: 
-		Refactor theme options css to use shorter consolidated syntax.
-		(2012-06-13 - Alex Chapin)
-		
-	* Change: 
-		Remove new post and new pages links from front end view.
-		(2012-06-13 - Alex Chapin)
-	
-
-
-
 v. 2.3.1 (2012-01-13)
 ----------------------------------------------------
 This release refactors theme functions to better conform to WordPress theme
@@ -28,7 +11,7 @@ enabled UIs
 		
 	* Change: 
 		updated title of inline page listing to be title of parent post.
-		(2011-09-02 - Alex Chapin)
+		(2011-09-92 - Alex Chapin)
 		
 	* Change: 
 		updated calendar widget styles to work better with translucent sidebars.
