@@ -16,7 +16,7 @@
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged, $translucence_options;
+	global $page, $paged, $translucence_options, $blog_id;
 
 	wp_title( '|', true, 'right' );
 
@@ -62,7 +62,8 @@
 	
 	<div class="headermeta_right">
 		<span class="bgtextcolor">
-		<?php print stripslashes($translucence_options['headerright']);?>	
+		<?php print translucence_display_privacy($blog_id); ?>
+		<?php print stripslashes($translucence_options['headerright']);?>
 		</span><br/>
 	</div>
 	<div class="headermeta_left">

@@ -55,5 +55,21 @@ function translucence_get_author() {
 }
 
 
+function translucence_display_privacy($blog_id) {
+	
+	$blog_public = get_blog_option($blog_id,'blog_public');
+	if ( '1' == $blog_public || '0' == $blog_public) {
+		return '';
+	}
+	if ( '-1' == $blog_public ) {
+		return 'Network Users Only ';
+	}
+	if ( '-2' == $blog_public ) {
+		return 'Site Members Only ';
+	}
+	if ( '-3' == $blog_public ) {
+		return 'Site Admins Only ';
+	}
+}
 
 ?>
