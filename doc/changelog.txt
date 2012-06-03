@@ -9,6 +9,11 @@ minor revisions to UI
 		
 		
 	* Change: 
+		Update right header meta-area options to allow for custom text/links with
+		same options as header left meta-area.
+		(2012-06-13 - Alex Chapin)
+		
+	* Change: 
 		Refactor theme options css to use shorter consolidated syntax.
 		(2012-06-13 - Alex Chapin)
 		
