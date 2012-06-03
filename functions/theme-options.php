@@ -127,6 +127,11 @@ function translucence_validate_options($input) {
 		} else if ($option == "footerleftcustom") {
 			$input['footerleftcustom'] = wp_kses($input['footerleftcustom'], $allowedposttags);
 			$validated[] = $option;
+			
+		} else if ($option == "headerrightcustom") {
+			$input['headerrightcustom'] = wp_kses($input['headerrightcustom'], $allowedposttags);
+			$validated[] = $option;
+
 		
 		// validate all options that specify a width
 		} else if (preg_match("/width/", $option)) {
@@ -258,6 +263,17 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+
+		// validate header-meta-right options
+		} else if (preg_match("/header-meta-right/", $option)) {
+			if (array_key_exists($value, $translucence_config['header_meta_right_options'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
+
 
 		// validate footer-meta-left options
 		} else if (preg_match("/footer-meta-left/", $option)) {
@@ -435,6 +451,9 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['header-meta-left'])) $translucence_options['header-meta-left'] = $translucence_config['header-meta-left'];
 	if (!isset($translucence_options['headerleftcustom'])) $translucence_options['headerleftcustom'] = $translucence_config['headerleftcustom'];
 	if (!isset($translucence_options['footerleftcustom'])) $translucence_options['footerleftcustom'] = $translucence_config['footerleftcustom'];
+
+	if (!isset($translucence_options['header-meta-right'])) $translucence_options['header-meta-right'] = $translucence_config['header-meta-right'];
+	if (!isset($translucence_options['headerrightcustom'])) $translucence_options['headerrightcustom'] = $translucence_config['headerrightcustom'];
 	
 	if (!isset($translucence_options['header-image-options'])) $translucence_options['header-image-options'] = $translucence_config['header-image-options'];
 	
@@ -663,15 +682,11 @@ function translucence_set_derivative_options() {
 	/******************************************************************************
 	 * Header right links (derived from header_meta_right_options)
 	 ******************************************************************************/
-
-	if (isset($translucence_config['header_meta_right_options'])) {
 	
-		if (isset($headermeta) && $headermeta == 'on') {
-			$translucence_options['headerright'] = "Menus | Widgets | Design";
-						
-		} else {
-			$translucence_options['headerright'] = "";
-		}
+	if ($translucence_options['header-meta-right'] == 'custom') {
+		$translucence_options['headerright'] = stripslashes($translucence_options['headerrightcustom']);
+	} else {
+		$translucence_options['headerright'] = $translucence_config['header_meta_right_options'][$translucence_options['header-meta-right']]['option_value'];					
 	}
 	
 	/******************************************************************************

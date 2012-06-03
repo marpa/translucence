@@ -55,6 +55,7 @@ $translucence_config['entry-line-height'] = "20";
 
 $translucence_config['footer-meta-left'] = "custom";
 $translucence_config['header-meta-left'] = "custom";
+$translucence_config['header-meta-right'] = "custom";
 $translucence_config['headerleftcustom'] = "";
 $translucence_config['footerleftcustom'] = "";
 
@@ -270,17 +271,14 @@ $translucence_config['header_meta_left_options']['custom']['option_value'] = "";
  * (this is the html content options for the upper right corner of the blog)
  ******************************************************************************/
 
-$translucence_config['header_meta_right_options']['option_name'] = "";
-$translucence_config['header_meta_right_options']['option_label'] = "";
-$translucence_config['header_meta_right_options']['option_value'] = "";
+$translucence_config['header_meta_right_options']['blogs']['option_name'] = "blogs";
+$translucence_config['header_meta_right_options']['blogs']['option_label'] = "Blog Sign Up";
+$translucence_config['header_meta_right_options']['blogs']['option_value'] = "<a href='".get_bloginfo('url')."/wp-signup.php' title='View your Blogs'>WordPress</a>";
 
-$translucence_config['header_meta_right_options']['option_name'] = "show";
-$translucence_config['header_meta_right_options']['option_label'] = "Show";
-$translucence_config['header_meta_right_options']['option_value'] = "on";
+$translucence_config['header_meta_right_options']['custom']['option_name'] = "custom";
+$translucence_config['header_meta_right_options']['custom']['option_label'] = "Custom";
+$translucence_config['header_meta_right_options']['custom']['option_value'] = "";
 
-$translucence_config['header_meta_right_options']['option_name'] = "hide";
-$translucence_config['header_meta_right_options']['option_label'] = "Hide";
-$translucence_config['header_meta_right_options']['option_value'] = "off";
 	
 
 /******************************************************************************
@@ -330,6 +328,8 @@ $translucence_config['model'][]  = 'bgtextcolor';
 $translucence_config['model'][]  = 'header-width';
 $translucence_config['model'][]  = 'headerleftcustom';
 $translucence_config['model'][]  = 'header-meta-left';
+$translucence_config['model'][]  = 'headerrightcustom';
+$translucence_config['model'][]  = 'header-meta-right';
 $translucence_config['model'][]  = 'header-image-options';
 $translucence_config['model'][]  = 'header-text-display';
 $translucence_config['model'][]  = 'header-block-height';

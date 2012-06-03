@@ -611,20 +611,33 @@ function translucence_headermeta_left() {
  */
 
 function translucence_headermeta_right() {
-	global $translucence_config, $translucence_options;
+	global $translucence_config, $translucence_options, $translucence_options_id;
 	
 	ob_start();
-	print "<span class='metatext'>";
-	print $translucence_options['headerright'];
+	print "<div class='metatext'>";
 	
-	// Log in link options
-	if ($translucence_options['headermeta'] == "on") {
-		print __( 'Menus | Widgets | Options', '2010-translucence' );
-		print " | ".wp_get_current_user()->display_name;
-		//print " - Log out";
+	if ($translucence_options['headerright'] == "") {
+		print "no links defined...";				
+	} else {
+		print $translucence_options['headerright'];
 	}
-	
-	print "</span>";
+			
+	// if header right links selection is custom
+	if ($translucence_options['header-meta-right'] == 'custom') {
+		print "
+			<input id='headerrightdo' type='hidden' name='headerrightdo' value='0'/> - 			
+			<a href='javascript: document.getElementById(\"headerrightedit\").style.display = \"block\"; document.getElementById(\"headerrightdo\").value = \"1\"; exit; '>edit</a>					
+			<div id='headerrightedit' style='display: none;'>					
+			<textarea name='".$translucence_options_id."[headerrightcustom].' style='width: 100%; height: 50px; font-size: 10px;' class='code'>";
+			print stripslashes(stripslashes(trim($translucence_options['headerrightcustom'])));
+			print "</textarea>		
+			&nbsp;&nbsp;&nbsp;
+			<a href='javascript: document.getElementById(\"headerrightedit\").style.display = \"none\"; document.getElementById(\"headerrightdo\").value = \"0\"; exit;'>Cancel</a> - 
+			<span class='submit'><input type='submit' value='Update' name='save'/></span>
+			</div>
+		";
+	}
+	print "</div>";
 	$headermeta_right = ob_get_contents();
 	ob_end_clean();
 	return $headermeta_right;
@@ -897,7 +910,7 @@ function translucence_get_global_options() {
 			// headermeta left options	
 			print "<td style='width: 50%'>"; 
 			if (in_array("header-meta-left", $translucence_config['model'])) {
-				print "<span style='font-size: 9px;'>".__( 'Header Links', '2010-translucence' )."</span>\n";
+				print "<span style='font-size: 9px;'>".__( 'Left Header Links', '2010-translucence' )."</span>\n";
 				print "<select name='".$translucence_options_id."[header-meta-left]' style='font-size: 10px;'  onchange='this.form.submit();'>";
 				foreach (array_keys($translucence_config['header_meta_left_options']) as $meta_left_option) {						
 					print "<option value='".$translucence_config['header_meta_left_options'][$meta_left_option]['option_name']."' ";
@@ -910,14 +923,16 @@ function translucence_get_global_options() {
 					
 			// headermeta right options	
 			print "<td style='width: 50%; text-align: right;'>";	
-			if (in_array("headermeta", $translucence_config['model'])) {	
+			if (in_array("header-meta-right", $translucence_config['model'])) {	
 				print "
-				<span style='font-size: 9px;'>".__( 'Editing Quick Links', '2010-translucence' ).":</span>
-				<select name='".$translucence_options_id."[headermeta]' style='font-size: 10px;' onchange='this.form.submit();'>
-					<option value='on' ".($translucence_options['headermeta'] == 'on' ? ' selected' : '') . ">".__( 'Show', '2010-translucence' )."</option>
-					<option value='off' ".($translucence_options['headermeta'] == 'off' ? ' selected' : '') . ">".__( 'Hide', '2010-translucence' )."</option>
-				</select>";
-			}
+				<span style='font-size: 9px;'>".__( 'Right Header Links', '2010-translucence' ).":</span>\n";
+				print "<select name='".$translucence_options_id."[header-meta-right]' style='font-size: 10px;'  onchange='this.form.submit();'>";
+				foreach (array_keys($translucence_config['header_meta_right_options']) as $meta_right_option) {						
+					print "<option value='".$translucence_config['header_meta_right_options'][$meta_right_option]['option_name']."' ";
+					print ($translucence_options['header-meta-right'] == $translucence_config['header_meta_right_options'][$meta_left_option]['option_name'] ? ' selected' : '') . ">";
+					print $translucence_config['header_meta_right_options'][$meta_right_option]['option_label']."</option>";						
+				}
+				print "</select>";			}
 			print "</td>";		
 		print "</tr>";	
 		print "</table>";
