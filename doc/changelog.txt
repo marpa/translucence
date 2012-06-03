@@ -8,6 +8,11 @@ This release refactors theme css to reduce and simplify it. This release also ad
 minor revisions to UI
 		
 		
+	* New feature: 
+		Added display of a given site's privacy setting to the right header
+		meta-area. 
+		(2012-06-13 - Alex Chapin)
+		
 	* Change: 
 		Update right header meta-area options to allow for custom text/links with
 		same options as header left meta-area.

@@ -15,6 +15,9 @@
 			This release refactors theme css to reduce and simplify it.  This release
 			also add minor revisions to UI
 		</releaseNotes>
+		<new author='alex' date='2012-06-13'>
+			Added display of a given site's privacy setting to the right header meta-area.
+		</new>
 		<change author='alex' date='2012-06-13'>
 			Update right header meta-area options to allow for custom text/links with same options as 
 			header left meta-area.
