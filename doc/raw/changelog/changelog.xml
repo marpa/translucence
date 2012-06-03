@@ -10,12 +10,24 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
+	<version number="2.3.2" date="2012-06-03">
+		<releaseNotes>
+			This release refactors theme css to reduce and simplify it.  This release
+			also add minor revisions to UI
+		</releaseNotes>
+		<change author='alex' date='2012-06-13'>
+			Refactor theme options css to use shorter consolidated syntax.
+		</change>
+		<change author='alex' date='2012-06-13'>
+			Remove new post and new pages links from front end view.
+		</change>
+	</version>
 	<version number="2.3.1" date="2012-01-13">
 		<releaseNotes>
 			This release refactors theme functions to better conform to WordPress theme development standards.  This release
 			also improves usability on mobile and touch enabled UIs
 		</releaseNotes>
-		<change author='alex' date='2011-09-92'>
+		<change author='alex' date='2011-09-02'>
 			updated title of inline page listing to be title of parent post.
 		</change>
 		<change author='alex' date='2011-08-02'>

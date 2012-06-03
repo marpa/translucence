@@ -154,10 +154,8 @@ div.menu,
 
 .headerblock {
 	color: <?php print $translucence_options['header-text-color']?>;
-	background-color: <?php print $translucence_options['header-color-rgb']?>;
-	
-	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>;
-	
+	background-color: <?php print $translucence_options['header-color-rgb']?>;	
+	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>;	
 	padding-top: 0px;
 	width: <?php print $header_width?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
@@ -233,19 +231,15 @@ div.menu,
 #content {
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
-	margin-right: <?php print $translucence_options['content-margin-right']?>px;
-	
+	margin-right: <?php print $translucence_options['content-margin-right']?>px;	
 	width: <?php print $content_width?>px;
 	color: <?php print $translucence_options['textcolor']?>;
-	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	padding: 20px;
-	
+	background-color: <?php print $translucence_options['content-color-rgb']?>;	
 	border: <?php print $translucence_options['content-border-width'] ?> <?php print $translucence_options['content-border-style'] ?> <?php print $translucence_options['content-border-color']?>;
-		
+	padding: 20px;		
 	font-size: <?php print $translucence_options['entry-text-size']?>px;
 	line-height: <?php print $translucence_options['entry-line-height']?>px;
 }
-
 
 
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
@@ -254,13 +248,10 @@ div.menu,
 #tertiary {
 	float: left;
 	margin-top: <?php print $translucence_options['left01-margin-top']?>px;
-	margin-right: <?php print $translucence_options['left01-margin-right']?>px;
-	
+	margin-right: <?php print $translucence_options['left01-margin-right']?>px;	
 	color: <?php print $translucence_options['left01-text-color']?>;
-	background-color: <?php print $translucence_options['left01-color-rgb']?>;
-	
-	border: 1px <?php print $translucence_options['left01-border-style']?> <?php print $translucence_options['left01-border-color']?>;
-	
+	background-color: <?php print $translucence_options['left01-color-rgb']?>;	
+	border: 1px <?php print $translucence_options['left01-border-style']?> <?php print $translucence_options['left01-border-color']?>;	
 	width: <?php print $translucence_options['left01-width']?>px;
 	display: <?php print $translucence_options['left01-visibility']?>;
 	padding-top: 10px;
@@ -277,13 +268,10 @@ div.menu,
 	float: left;
 	margin-top: <?php print $translucence_options['right01-margin-top']?>px;
 	margin-right: <?php print $translucence_options['right01-margin-right']?>px;
-	margin-bottom: auto;
-	
+	margin-bottom: auto;	
 	color: <?php print $translucence_options['right01-text-color']?>;
-	background-color: <?php print $translucence_options['right01-color-rgb']?>;
-	
+	background-color: <?php print $translucence_options['right01-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['right01-border-style']?> <?php print $translucence_options['right01-border-color']?>;
-
 	width: <?php print $translucence_options['right01-width']?>px;
 	display: <?php print $translucence_options['right01-visibility']?>;
 	padding-top: 10px;
@@ -301,12 +289,9 @@ div.menu,
 	float: left;
 	margin-top: <?php print $translucence_options['right02-margin-top']?>px;
 	margin-right: <?php print $translucence_options['right02-margin-right']?>px;
-
 	color: <?php print $translucence_options['right02-text-color']?>;
-	background-color: <?php print $translucence_options['right02-color-rgb']?>;
-	
+	background-color: <?php print $translucence_options['right02-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['right02-border-style']?> <?php print $translucence_options['right02-border-color']?>;
-
 	width: <?php print $translucence_options['right02-width']?>px;
 	display: <?php print $translucence_options['right02-visibility']?>;
 	padding-top: 10px;
@@ -323,8 +308,7 @@ div.menu,
 #footer-widget-area {
 	border: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-color']?>;		
 	color:  <?php print $translucence_options['bottom-text-color']?>;
-	background-color: <?php print $translucence_options['bottom-color-rgb']?>;
-	
+	background-color: <?php print $translucence_options['bottom-color-rgb']?>;	
 	overflow: hidden;
 	width: <?php print $header_width?>px;
 	padding: 20px 0px 0px 4px;
@@ -649,8 +633,7 @@ div.menu,
 	background-color: <?php print $translucence_options['top-color-rgb']?>;
 	display: block;
 	float: left;
-	border: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-color']?>;
-	
+	border: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-color']?>;	
 	width: <?php print $menu_width?>px;
 	margin-top: <?php print $translucence_options['top-margin-top']?>px;
 	margin-bottom: 20px; 
@@ -695,11 +678,9 @@ div.menu li {
 #access ul ul {
 	background: <?php print $translucence_options['top-color-hover02-rgb']?>;
 	background: <?php print $translucence_options['top-color-hover02-rgba']?>;
-
 	-moz-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;
 	box-shadow: 0px 0px 2px <?php print $translucence_options['header-text-shadow-color']?>;	
-
 	display: none;
 	position: absolute;
 	top: 38px;
@@ -737,11 +718,9 @@ div.menu li {
 #access ul ul:hover > a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-hover03']?>;
-
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
-	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;	
-				
+	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;					
 	border: 1px solid transparent;
 	text-decoration: none;	
 }
@@ -768,7 +747,6 @@ div.menu li {
 #access ul li.current-menu-parent > a {
 	color:  <?php print $translucence_options['top-child-link-color']?>;
 	background-color: <?php print $translucence_options['top-color-hover03']?>;
-
 	-moz-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	-webkit-box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
 	box-shadow: 0px 0px 1px <?php print $translucence_options['header-text-shadow-color']?>;
@@ -852,7 +830,6 @@ div.menu li {
 
 .pagenav a, .pagenav a:visited {
 	color: <?php print $translucence_options['entry-link-color']?>;
-
 }
 
 .pagenav ul .current_page_item a {
@@ -1086,8 +1063,7 @@ ins {
 .taglinks a {	
 	color: <?php print $translucence_options['tag-links-link-color']?>;	
 	background-color: <?php print $translucence_options['tag-links-color-rgb']?>;
-	border: 1px <?php print $translucence_options['tag-links-border-style']?> <?php print $translucence_options['tag-links-border-color']?>;
-	
+	border: 1px <?php print $translucence_options['tag-links-border-style']?> <?php print $translucence_options['tag-links-border-color']?>;	
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
@@ -1103,11 +1079,9 @@ ins {
 /* Begin category links */
 
 .catlinks a {	
-	color: <?php print $translucence_options['cat-links-link-color']?>;
-	
+	color: <?php print $translucence_options['cat-links-link-color']?>;	
 	background-color: <?php print $translucence_options['cat-links-color-rgb']?>;
-	border: 1px <?php print $translucence_options['cat-links-border-style']?> <?php print $translucence_options['cat-links-border-color']?>;
-	
+	border: 1px <?php print $translucence_options['cat-links-border-style']?> <?php print $translucence_options['cat-links-border-color']?>;	
 	cursor:pointer; 
 	display:inline-block; 
 	margin:2px 0.2em; padding:0.1em 0.2em;	
