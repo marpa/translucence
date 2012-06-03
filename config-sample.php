@@ -39,7 +39,6 @@ $translucence_config['variation-type'] = "default";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
-$translucence_config['headermeta'] = "off";
 $translucence_config['options-mode'] = "basic";
 $translucence_config['revert'] = 1;
 
@@ -332,7 +331,6 @@ $translucence_config['model'][]  = 'header-width';
 $translucence_config['model'][]  = 'headerleftcustom';
 $translucence_config['model'][]  = 'header-meta-left';
 $translucence_config['model'][]  = 'header-image-options';
-$translucence_config['model'][]  = 'headermeta';
 $translucence_config['model'][]  = 'header-text-display';
 $translucence_config['model'][]  = 'header-block-height';
 $translucence_config['model'][]  = 'topbar-bg-color';

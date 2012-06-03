@@ -62,22 +62,7 @@
 	
 	<div class="headermeta_right">
 		<span class="bgtextcolor">
-		<?php print stripslashes($translucence_options['headerright']);
-		
-		if ($translucence_options['headermeta'] == "on") {
-			if (current_user_can( 'moderate_comments' )) print "<a href='".get_bloginfo('url')."/wp-admin/nav-menus.php'>Menus</a>";
-			if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Widgets</a>";
-			if (current_user_can( 'edit_theme_options' )) print " | <a href='".get_bloginfo('url')."/wp-admin/themes.php?page=Variations'>Design</a>";
-			
-			if (current_user_can( 'edit_posts' )) {
-				print " | <a href='".get_bloginfo('url')."/wp-admin/profile.php'>";
-				print wp_get_current_user()->display_name."</a>";
-			}
-			
-			if (is_user_logged_in() == 'true') print "";	
-			//print wp_loginout('','')."";
-		}
-		?>	
+		<?php print stripslashes($translucence_options['headerright']);?>	
 		</span><br/>
 	</div>
 	<div class="headermeta_left">
