@@ -15,6 +15,10 @@
 			This release refactors theme css to reduce and simplify it.  This release
 			also add minor revisions to UI
 		</releaseNotes>
+		<fix author='alex' date='2012-06-13'>
+			Fixed bug in default header config that prevented child themes from configuring their
+			own default headers.
+		</fix>		
 		<new author='alex' date='2012-06-13'>
 			Added display of a given site's privacy setting to the right header meta-area.
 		</new>
