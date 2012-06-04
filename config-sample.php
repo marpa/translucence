@@ -296,12 +296,12 @@ $translucence_config['footer_meta_left_options']['custom']['option_value'] = "";
  * Custom headers
  ******************************************************************************/
 
-$translucence_config['custom_header']['none']['url'] = "%s/images/headers/transparent.png";
-$translucence_config['custom_header']['none']['thumbnail_url'] = "%s/images/headers/transparent-thumbnail.png";
+$translucence_config['custom_header']['none']['url'] = get_template_directory_uri()."/images/headers/transparent.png";
+$translucence_config['custom_header']['none']['thumbnail_url'] = get_template_directory_uri()."/images/headers/transparent-thumbnail.png";
 $translucence_config['custom_header']['none']['description'] = __( 'None', '2010-translucence' );
 
-$translucence_config['custom_header']['whitegradient']['url'] = "%s/images/headers/whitegradient-1200x200.png";
-$translucence_config['custom_header']['whitegradient']['thumbnail_url'] = "%s/images/headers/whitegradient-1200x200-thumbnail.png";
+$translucence_config['custom_header']['whitegradient']['url'] = get_template_directory_uri()."/images/headers/whitegradient-1200x200.png";
+$translucence_config['custom_header']['whitegradient']['thumbnail_url'] = get_template_directory_uri()."/images/headers/whitegradient-1200x200-thumbnail.png";
 $translucence_config['custom_header']['whitegradient']['description'] = __( 'White Gradient', '2010-translucence' );
 
 /******************************************************************************

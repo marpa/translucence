@@ -293,9 +293,7 @@ function translucence_header_style() {
 	}
 	
 	if ($custom_header == "" && $translucence_options['header-image-options'] != "none") {
-		$header_image = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
-		$custom_header = str_replace('%s', '', $header_image);
-		//$custom_header = get_stylesheet_directory_uri().$custom_header;
+		$custom_header  = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
 	}
 
 	?>	

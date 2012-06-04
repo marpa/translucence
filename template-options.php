@@ -38,7 +38,7 @@ function translucence_theme_options_do_page() {
 	if ($translucence_custom_header_set == 0 && $translucence_options['header-image-options'] != "none") {
 		$custom_header = $translucence_config['custom_header'][$translucence_options['header-image-options']]['url'];
 		$custom_header = str_replace('%s', '', $custom_header);
-		$translucence_custom_header_image = get_template_directory_uri().$custom_header;
+		$translucence_custom_header_image = $custom_header;
 		$translucence_custom_header_set = 1;
 	}
 
