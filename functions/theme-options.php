@@ -964,7 +964,7 @@ function translucence_set_derivative_options() {
 			
 			if ($box == "header") {
 				$translucence_options['headerblock-border-style'] = "solid";
-				$translucence_options[$box.'-border'] = "transparent";
+				$translucence_options[$box.'-border-color'] = "transparent";
 				$translucence_options[$box.'-border-left'] = "transparent";
 				$translucence_options[$box.'-border-right'] = "transparent";
 				$translucence_options[$box.'-border-top'] = "transparent";
