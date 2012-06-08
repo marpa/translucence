@@ -114,6 +114,8 @@ $translucence_config['author-single-sidebar'] = "right01";
 $translucence_config['search-single-sidebar'] = "right01";
 $translucence_config['archives-single-sidebar'] = "right01";
 
+$translucence_config['default-post-display'] = "titles";
+
 /******************************************************************************
  * Preset Widgets
  * Specify what widgets to include when Translucence is initially activated
@@ -377,6 +379,7 @@ $translucence_config['model'][]  = 'tag-single-sidebar';
 $translucence_config['model'][]  = 'author-single-sidebar';
 $translucence_config['model'][]  = 'search-single-sidebar';
 $translucence_config['model'][]  = 'archives-single-sidebar';
+$translucence_config['model'][]  = 'default-post-display';
 $translucence_config['model'][]  = 'entry-text-align';
 $translucence_config['model'][]  = 'header-text-shadow-offset';
 $translucence_config['model'][]  = 'header-text-shadow-blur';

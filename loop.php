@@ -17,6 +17,7 @@
  * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
+ global $translucence_options;
 ?>
 <div class="toggle" style="float: left;">
 	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
@@ -144,25 +145,32 @@
 	<?php else : ?>
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', '2010-translucence' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-
+			<?php if ( $translucence_options['default-post-display'] != "titles")  : ?>
 			<div class="entry-meta">
 				<?php twentyten_posted_on(); ?>
-			</div><!-- .entry-meta -->			
+			</div><!-- .entry-meta -->
+			<?php endif; ?>
 			<?php if ( count( get_the_category() ) ) : ?>
 			<span class="catlinks">
 			<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
 			</span>
 			<?php endif; ?>
 
-	<?php if ( is_search() ) : // Only display excerpts for archives and search. ?>
+	<?php if ( is_search() ) : // Only display excerpts for  search. ?>		
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->
 	<?php else : ?>
+		<?php if ( $translucence_options['default-post-display'] == "excerpt") : ?>
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
+		<?php elseif ( $translucence_options['default-post-display'] != "titles")  : ?>
 			<div class="entry-content">
 				<?php the_content( __( 'More <span class="meta-nav">&rarr;</span>', '2010-translucence' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', '2010-translucence' ), 'after' => '</div>' ) ); ?>
-			</div><!-- .entry-content -->
+			</div><!-- .entry-content -->		
+		<?php endif; ?>
 	<?php endif; ?>
 
 			<div class="entry-utility">

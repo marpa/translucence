@@ -509,6 +509,8 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['author-single-sidebar'])) $translucence_options['author-single-sidebar'] = $translucence_config['author-single-sidebar'];
 	if (!isset($translucence_options['search-single-sidebar'])) $translucence_options['search-single-sidebar'] = $translucence_config['search-single-sidebar'];
 	if (!isset($translucence_options['archives-single-sidebar'])) $translucence_options['archives-single-sidebar'] = $translucence_config['archives-single-sidebar'];
+
+	if (!isset($translucence_options['default-post-display'])) $translucence_options['default-post-display'] = $translucence_config['default-post-display'];
 	
 }
 
