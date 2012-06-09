@@ -939,7 +939,6 @@ function translucence_get_global_options() {
 	// if not in active_options print out as hidden fields
 	} else {
 		print "<input type='hidden' name='".$translucence_options_id."[header-meta-left]' value='".$translucence_options['header-meta-left']."'/>";
-		print "<input type='hidden' name='".$translucence_options_id."[headermeta]' value='".$translucence_options['headermeta']."'/>";
 	}
 
 	print "<div style='font-size: 10px;'>";
@@ -1815,7 +1814,6 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'description-box-color';
 			$active_options[]  = 'description-box-opacity';
 			$active_options[]  = 'header_meta_left_options';
-			$active_options[]  = 'headermeta';
 			//$active_options[]  = '';
 			
 
