@@ -161,11 +161,11 @@
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->
 	<?php else : ?>
-		<?php if ( $translucence_options['default-post-display'] == "excerpt") : ?>
+		<?php if ( $translucence_options['default-post-display'] == "title-excerpt") : ?>
 			<div class="entry-summary">
 				<?php the_excerpt(); ?>
 			</div><!-- .entry-summary -->
-		<?php elseif ( $translucence_options['default-post-display'] != "titles")  : ?>
+		<?php elseif ( $translucence_options['default-post-display'] != "title")  : ?>
 			<div class="entry-content">
 				<?php the_content( __( 'More <span class="meta-nav">&rarr;</span>', '2010-translucence' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', '2010-translucence' ), 'after' => '</div>' ) ); ?>

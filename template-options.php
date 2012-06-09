@@ -939,6 +939,7 @@ function translucence_get_global_options() {
 	// if not in active_options print out as hidden fields
 	} else {
 		print "<input type='hidden' name='".$translucence_options_id."[header-meta-left]' value='".$translucence_options['header-meta-left']."'/>";
+		//print "<input type='hidden' name='".$translucence_options_id."[headermeta]' value='".$translucence_options['headermeta']."'/>";
 	}
 
 	print "<div style='font-size: 10px;'>";
@@ -1059,7 +1060,13 @@ function translucence_get_layout_options() {
 		print "</td>";
 		print "</tr>";
 		print "<tr>";
-		print "<td></td>";
+		
+		// Default Post Display
+		print "<td>";
+		print "<div>".__( 'Default Post Display', '2010-translucence')."</div>\n";
+		translucence_get_option_selector ("", "default-post-display", $translucence_options_values['post-display']);
+		print "</td>";
+		
 		// 2nd Right sidebar
 		print "<td style='text-align: right;'>";
 		print "<div>".__( '2nd Right Sidebar', '2010-translucence')."</div>\n";	
@@ -1737,6 +1744,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'left01-width';
 			$active_options[]  = 'right01-width';
 			$active_options[]  = 'right02-width';
+			$active_options[]  = 'default-post-display';
 			$active_options[]  = 'top-border-style';
 			$active_options[]  = 'content-border-style';
 			$active_options[]  = 'left01-border-style';
@@ -1814,6 +1822,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'description-box-color';
 			$active_options[]  = 'description-box-opacity';
 			$active_options[]  = 'header_meta_left_options';
+		//	$active_options[]  = 'headermeta';
 			//$active_options[]  = '';
 			
 

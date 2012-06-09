@@ -379,4 +379,11 @@ $translucence_options_values['sidebar-display'] = array(
 	'No Sidebars' => 'none',
 );
 
+$translucence_options_values['post-display'] = array(
+		'Title Only' => 'title',
+		'Title & Excerpt' => 'title-excerpt',
+		'Title & Full Post' => 'title-full'
+);
+
+
 ?>

@@ -364,6 +364,14 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+		} else if (preg_match("/default-post-display/", $option)) {
+			if (in_array($value, $translucence_options_values['post-display'])) {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
 
 		}
 	}
