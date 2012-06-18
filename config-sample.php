@@ -114,7 +114,7 @@ $translucence_config['author-single-sidebar'] = "right01";
 $translucence_config['search-single-sidebar'] = "right01";
 $translucence_config['archives-single-sidebar'] = "right01";
 
-$translucence_config['default-post-display'] = "title-excerpt";
+$translucence_config['default-post-display'] = "title-full";
 
 /******************************************************************************
  * Preset Widgets

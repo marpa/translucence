@@ -1175,9 +1175,11 @@ function translucence_get_post_options() {
 	$translucence_title = "<span style='font-size: 9px;'>".__( 'category archive', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
 	translucence_get_option_selector ("<span style='font-size: 9px;'>category archive includes</span>", "category-single-sidebar", $translucence_options_values['sidebar-display']);
 	print "</div>";
-	
-	print "<div><span class='entry'>".__( 'Categories', '2010-translucence' ).": </span><span class='catlinks'><a href='#'>".__( 'Category', '2010-translucence' )."</a></span></div>";
-	print "<div><br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
+	print "<div><span class='entry'>".__( 'Categories', '2010-translucence' ).": </span><span class='catlinks'><a href='#'>".__( 'Category', '2010-translucence' )."</a></span></div>";	
+	// post display options
+	if ($translucence_options['default-post-display'] != "title") {
+		print "<div><br/>Lorem ipsum dolor sit amet, <span class='entry-visited'>visited link</span> adipiscing elit. Donec ac felis non mauris tristique vehicula. Nunc commodo, justo vel imperdiet cursus, leo dui <a href='#'>link</a>, vel bibendum neque justo nec ipsum. Aliquam erat volutpat. <a href='#'>another link</a> leo tellus, sagittis id mollis non, pretium a tellus.</div>";
+	}
 	// tag sidebar options
 	print "<div style='float: right; clear: left; font-size: 10px;'>\n";
 	$translucence_title = "<span style='font-size: 9px;'>".__( 'tag archive', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
