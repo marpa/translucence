@@ -185,6 +185,10 @@ function translucence_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', '2010-translucence' ),
 	) );
+	
+	// Add support for a variety of post formats
+	add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
+
 
 	// This theme allows users to set a custom background
 	add_custom_background();
