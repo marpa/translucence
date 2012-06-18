@@ -15,6 +15,19 @@
 			This release refactors theme css to reduce and simplify it.  This release
 			also add minor revisions to UI
 		</releaseNotes>
+		<new author='alex' date='the future'>
+			Added a theme configuration for Category and Tag labels.
+		</new>
+		<new author='alex' date='the future'>
+			Added a list of sub-categories on category pages.
+		</new>
+		<new author='alex' date='the future'>
+			Added theme option for displaying categories and tags, before or after post content
+		</new>
+		<new author='alex' date='the future'>
+			Added theme option for post display settings (title only, title and except, title
+			and full text)
+		</new>
 		<fix author='alex' date='2012-06-13'>
 			Fixed bug in default header config that prevented child themes from configuring their
 			own default headers.
