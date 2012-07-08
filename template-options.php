@@ -1333,7 +1333,7 @@ function translucence_get_left01_options() {
 		$current_widgets = get_option ('sidebars_widgets');
 		
 		if (is_active_sidebar("tertiary-widget-area")) {
-			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['left01-link-color'].";'>";
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['left01-link-color'].";'>";
 			print "<a href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 			print "</div><br/>";				
 			if (is_array($current_widgets['tertiary-widget-area'])) {
@@ -1348,10 +1348,13 @@ function translucence_get_left01_options() {
 			}
 			
 		} else {
-			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['left01-link-color']."'>";			
-			print "<a style='color:".$translucence_options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['left01-link-color'].";'>";		
+			print "<a style='color:".$translucence_options['left01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
+			print "</div><br/>";
+			print "<div class='widgetbox' style='color: ".$translucence_options['left01-heading-color']."; border-color: ".$translucence_options['left01-heading-color'].";'>";
 			print "<div style='font-size: 10px; padding-left: 10px; color: ".$translucence_options['left01-heading-color'].";'>no widgets...</div>";
 			print "<div style='font-size: 9px; padding-left: 10px; color: ".$translucence_options['left01-heading-color'].";'>add widgets or use defaults...</div>";
+			print "</div>";
 			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
 		}					
 	}
@@ -1393,7 +1396,7 @@ function translucence_get_right01_options() {
 		//printpre($current_widgets);
 	
 		if (is_active_sidebar("primary-widget-area")) {
-			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
 			print "<a style='' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Edit Widgets</a>";
 			print "</div><br/>";
 			if (is_array($current_widgets['primary-widget-area'])) {
@@ -1408,10 +1411,13 @@ function translucence_get_right01_options() {
 			}
 			
 		} else {
-			print "<div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
-			print "<a style='color:".$translucence_options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right01-link-color'].";'>";
+			print "<a style='color:".$translucence_options['right01-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
+			print "</div><br/>";
+			print "<div class='widgetbox' style='color: ".$translucence_options['right01-heading-color']."; border-color: ".$translucence_options['right01-heading-color'].";'>";
 			print "<div style='font-size: 10px; padding-left: 10px; color: ".$translucence_options['right01-heading-color'].";'>no widgets...</div>";
 			print "<div style='font-size: 9px; padding-left: 10px; color: ".$translucence_options['right01-heading-color'].";'>add widgets or use defaults...</div>";
+			print "</div>";
 			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
 		}					
 	}
@@ -1468,9 +1474,13 @@ function translucence_get_right02_options() {
 			}
 			
 		} else {
-			print "<a style='color:".$translucence_options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a></div>";
+			print "<br/><br/><div class='post-link' style='font-size: 10px; border-color: ".$translucence_options['right02-link-color']."'>";
+			print "<a style='color:".$translucence_options['right02-link-color'].";' href='".get_bloginfo('url')."/wp-admin/widgets.php'>Add Widgets</a>";
+			print "</div><br/>";
+			print "<div class='widgetbox' style='color: ".$translucence_options['right02-heading-color']."; border-color: ".$translucence_options['right02-heading-color'].";'>";
 			print "<div style='font-size: 10px; padding-left: 10px; color: ".$translucence_options['right02-heading-color'].";'>no widgets...</div>";
 			print "<div style='font-size: 9px; padding-left: 10px; color: ".$translucence_options['right02-heading-color'].";'>add widgets or use defaults...</div>";
+			print "</div>";
 			//print "<div class='submit'><input type='submit' value='Add Default Widgets' name='default_widgets'/></div>";
 		}					
 
