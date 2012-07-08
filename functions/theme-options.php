@@ -684,7 +684,11 @@ function translucence_set_derivative_options() {
 	 ******************************************************************************/
 	
 	if ($translucence_options['header-meta-left'] == 'custom') {
-		$translucence_options['headerleft'] = stripslashes($translucence_options['headerleftcustom']);
+		if (stripslashes($translucence_options['headerleftcustom']) != "") {
+			$translucence_options['headerleft'] = stripslashes($translucence_options['headerleftcustom']);
+		} else {
+			$translucence_options['headerleft'] = "&nbsp;";
+		}
 	} else {
 		$translucence_options['headerleft'] = $translucence_config['header_meta_left_options'][$translucence_options['header-meta-left']]['option_value'];					
 	}
