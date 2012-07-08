@@ -513,7 +513,7 @@ div.menu,
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 108px;
+	width: 80%;
 	padding: 2px;			
 }
 
@@ -521,7 +521,7 @@ div.menu,
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 108px;
+	width: 80%;
 	padding: 2px;				
 }
 
@@ -529,7 +529,7 @@ div.menu,
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 108px;
+	width: 80%;
 	padding: 2px;			
 }
 /* End widget search form */

@@ -51,6 +51,11 @@
 	 */
 	wp_head();
 ?>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery('#s').inline_label({text: "Search Site..."});
+});
+</script>
 <meta name="primary_width" content="<?php echo $translucence_options['right01-width'] ?>" />
 <meta name="secondary_width" content="<?php echo $translucence_options['right02-width'] ?>" />
 <meta name="tertiary_width" content="<?php echo $translucence_options['left01-width'] ?>" />

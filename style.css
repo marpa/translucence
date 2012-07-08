@@ -966,8 +966,11 @@ h3#reply-title {
 	list-style: square;
 	margin-left: 1.3em;
 }
+#searchsubmit {
+	display: none; /* Hides the search button */
+}
 .widget_search #s {/* This keeps the search inputs in line */
-	width: 60%;
+	width: 80%;
 }
 .widget_search label {
 	display: none;

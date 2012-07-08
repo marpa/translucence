@@ -129,6 +129,8 @@ function translucence_setup() {
 	if ( !is_admin() ) { 
 		wp_register_script('display.control', get_template_directory_uri() . '/js/display.control.js');
 		wp_enqueue_script('display.control');
+		wp_register_script('jquery.inline_label', get_template_directory_uri() . '/js/jquery.inline_label.js'); 
+		wp_enqueue_script('jquery.inline_label');		
 	} else {
 		wp_register_script('admin.control', get_template_directory_uri(). '/js/admin.control.js');
 		wp_enqueue_script('admin.control');	
