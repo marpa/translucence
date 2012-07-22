@@ -801,9 +801,9 @@ function translucence_get_global_options() {
 		}		
 		
 		if (in_array('site-title-box-options', $active_options) || $translucence_custom_header_set == 1) {
-		
+			translucence_get_option_field ("Color: #", "site-title-color", 6);
 			// header-text-box options		
-			if (in_array("title-box-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {	
+			if (in_array("title-box-color", $translucence_config['model'])) {	
 				print "<span class='option-label'> ".__( 'Site Title Box', '2010-translucence' )."</span>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "title-box-color", $translucence_options_values['header-color']);
@@ -832,7 +832,7 @@ function translucence_get_global_options() {
 	// if not in active_options print out as hidden fields
 	} else {
 		translucence_get_option_selector ("size: ", "site-title-size", $translucence_options_values['header-text-size']);
-		translucence_get_option_field ("Color: #", "site-title-color", 6);
+		//translucence_get_option_field ("Color: #", "site-title-color", 6);
 		translucence_get_option_selector ("offset: ", "header-text-shadow-offset", $translucence_options_values['text-shadow-offset']);
 		translucence_get_option_selector ("blur: ", "header-text-shadow-blur", $translucence_options_values['text-shadow-blur']);			
 		translucence_get_option_selector ("color: ", "title-box-color", $translucence_options_values['header-color']);
@@ -860,7 +860,7 @@ function translucence_get_global_options() {
 		}
 		if (in_array('site-description-color', $active_options)) {
 			// header-description-color options		
-			if (in_array("site-description-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {
+			if (in_array("site-description-color", $translucence_config['model'])) {
 				print "<span class='option-label'>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_field ($translucence_title, "site-description-color", 6);
@@ -873,7 +873,7 @@ function translucence_get_global_options() {
 		
 		if (in_array('description-box-color', $active_options) || $translucence_custom_header_set == 1) {
 	
-			if (in_array("description-box-color", $translucence_config['model']) && $translucence_options['variation-type'] == "custom") {	
+			if (in_array("description-box-color", $translucence_config['model'])) {	
 				print "<span class='option-label'> ".__( 'Tagline box', '2010-translucence' )."</span><span class='option-label'>";
 				$translucence_title = __( 'color', '2010-translucence' );
 				translucence_get_option_selector ($translucence_title, "description-box-color", $translucence_options_values['header-color']);
@@ -1706,9 +1706,12 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'site-title-options';
 			$active_options[]  = 'site-title-color';
 			$active_options[]  = 'site-title-size';
+			$active_options[]  = 'title-box-opacity';
+			$active_options[]  = 'title-box-color';
  	 		$active_options[]  = 'tagline-options';
  			$active_options[]  = 'site-description-size';
  			$active_options[]  = 'site-description-color';
+ 			$active_options[]  = 'description-box-color';
 	// 		$active_options[]  = 'headermeta-options';
 			$active_options[]  = 'site-width';
 			//$active_options[]  = 'site-color';
