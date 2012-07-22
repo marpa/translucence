@@ -784,10 +784,10 @@ function translucence_get_global_options() {
 				translucence_get_option_selector ($translucence_title, "site-title-size", $translucence_options_values['header-text-size']);
 			}
 			// header-text-color options
-			if (in_array("site-title-color", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {	
-				$translucence_title = __( 'color', '2010-translucence' );
-				translucence_get_option_field ($translucence_title, "site-title-color", 6);
-			}
+// 			if (in_array("site-title-color", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {	
+// 				$translucence_title = __( 'color', '2010-translucence' );
+// 				translucence_get_option_field ($translucence_title, "site-title-color", 6);
+// 			}
 			// header-text-offset options		
 			if (in_array("header-text-shadow-offset", $translucence_config['model']) &&  $translucence_options['variation-type'] == "custom") {
 				$translucence_title = __( 'offset', '2010-translucence' );
@@ -862,7 +862,7 @@ function translucence_get_global_options() {
 			// header-description-color options		
 			if (in_array("site-description-color", $translucence_config['model'])) {
 				print "<span class='option-label'>";
-				$translucence_title = __( 'color', '2010-translucence' );
+				$translucence_title = __( 'Color #', '2010-translucence' );
 				translucence_get_option_field ($translucence_title, "site-description-color", 6);
 				print "</span>";
 			}
