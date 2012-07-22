@@ -510,27 +510,45 @@ div.menu,
 
 /* Begin sidebar search form */
 #tertiary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 80%;
-	padding: 2px;			
+	width: 70%;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 28px;				
 }
 
 #primary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 80%;
-	padding: 2px;				
+	width: 70%;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 28px;				
 }
 
 #secondary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
 	background-color: <?php print $translucence_options['searchbox-color']?>;
 	color: <?php print $translucence_options['linkcolor']?>;
 	border: 1px solid #999999;
-	width: 80%;
-	padding: 2px;			
+	width: 70%;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 28px;				
 }
 /* End widget search form */
 
