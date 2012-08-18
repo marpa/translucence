@@ -28,6 +28,22 @@
 			Added theme option for post display settings (title only, title and except, title
 			and full text)
 		</new>
+		<change author='alex' date='2012-07-22'>
+			Added title and description box color and opacity options to basic options mode
+		</change>
+		<change author='alex' date='2012-07-22'>
+			Updated entry header css to include h4.
+		</change>
+		<fix author='alex' date='2012-07-08'>
+			Fixed invalid css in theme options UI.
+		</fix>		
+		<change author='alex' date='2012-07-08'>
+			Updated search css to include inline label, hide search button and include
+			background image of search icon.
+		</change>
+		<new author='alex' date='2012-06-18'>
+			Added theme support for post formats.
+		</new>
 		<fix author='alex' date='2012-06-13'>
 			Fixed bug in default header config that prevented child themes from configuring their
 			own default headers.
@@ -35,6 +51,11 @@
 		<new author='alex' date='2012-06-13'>
 			Added display of a given site's privacy setting to the right header meta-area.
 		</new>
+		<change author='alex' date='2012-06-13'>
+			Update right header meta-area options to allow for custom text/links with same options as 
+			header left meta-area.
+		</change>
+
 		<change author='alex' date='2012-06-13'>
 			Update right header meta-area options to allow for custom text/links with same options as 
 			header left meta-area.

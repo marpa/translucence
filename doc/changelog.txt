@@ -8,6 +8,46 @@ This release refactors theme css to reduce and simplify it. This release also ad
 minor revisions to UI
 		
 		
+	* New feature: 
+		Added a theme configuration for Category and Tag labels.
+		(the future - Alex Chapin)
+		
+	* New feature: 
+		Added a list of sub-categories on category pages.
+		(the future - Alex Chapin)
+		
+	* New feature: 
+		Added theme option for displaying categories and tags, before or after post
+		content 
+		(the future - Alex Chapin)
+		
+	* New feature: 
+		Added theme option for post display settings (title only, title and except,
+		title and full text)
+		(the future - Alex Chapin)
+		
+	* Change: 
+		Added title and description box color and opacity options to basic options
+		mode 
+		(2012-07-22 - Alex Chapin)
+		
+	* Change: 
+		Updated entry header css to include h4.
+		(2012-07-22 - Alex Chapin)
+		
+	* Bug Fix: 
+		Fixed invalid css in theme options UI.
+		(2012-07-08 - Alex Chapin)		
+		
+	* Change: 
+		Updated search css to include inline label, hide search button and include
+		background image of search icon.
+		(2012-07-08 - Alex Chapin)
+		
+	* New feature: 
+		Added theme support for post formats.
+		(2012-06-18 - Alex Chapin)
+		
 	* Bug Fix: 
 		Fixed bug in default header config that prevented child themes from
 		configuring their own default headers.
@@ -17,6 +57,12 @@ minor revisions to UI
 		Added display of a given site's privacy setting to the right header
 		meta-area. 
 		(2012-06-13 - Alex Chapin)
+		
+	* Change: 
+		Update right header meta-area options to allow for custom text/links with
+		same options as header left meta-area.
+		(2012-06-13 - Alex Chapin)
+
 		
 	* Change: 
 		Update right header meta-area options to allow for custom text/links with
