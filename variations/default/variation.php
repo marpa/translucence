@@ -49,6 +49,9 @@ $translucence_options['post-text-shadow-color'] = "#CCCCCC";
 $translucence_options['post-text-shadow-offset'] = "1px 1px";
 $translucence_options['post-text-shadow-blur'] = "0.05em";
 
+// define whether or not to display links to sub-pages on pages
+//$translucence_options['page-links-display'] = "true";
+
 // define default link colors
 if (isset($translucence_options['linkcolor'])) {
 	$translucence_options['header-blogtitle-color'] = $translucence_options['linkcolor']; 
@@ -385,5 +388,9 @@ $translucence_options_values['post-display'] = array(
 		'Title & Full Post' => 'title-full'
 );
 
+$translucence_options_values['page-links-display'] = array(
+		'Show Page Links' => 'true',
+		'Hide Page Links' => 'false'
+);
 
 ?>

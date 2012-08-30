@@ -115,6 +115,7 @@ $translucence_config['search-single-sidebar'] = "right01";
 $translucence_config['archives-single-sidebar'] = "right01";
 
 $translucence_config['default-post-display'] = "title-full";
+$translucence_config['page-links-display'] = "true";
 
 /******************************************************************************
  * Preset Widgets
@@ -402,6 +403,8 @@ $translucence_config['model'][]  = 'header-text-shadow-offset';
 $translucence_config['model'][]  = 'header-text-shadow-blur';
 $translucence_config['model'][]  = 'site-description-color';
 $translucence_config['model'][]  = 'site-description-size';
+
+$translucence_config['model'][]  = 'page-links-display';
 
 //  primary options not exposed in theme model
 $translucence_config['model'][]  = 'left01-margin-right';

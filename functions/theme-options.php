@@ -372,6 +372,14 @@ function translucence_validate_options($input) {
 				$input[$option] = null;
 				$not_validated[] = $option;
 			}
+		} else if (preg_match("/page-links-display/", $option)) {
+			if ($value == "true" || $value == "false") {
+				$input[$option] = $value;
+				$validated[] = $option;
+			} else {
+				$input[$option] = null;
+				$not_validated[] = $option;
+			}
 
 		}
 	}
@@ -407,7 +415,7 @@ function translucence_validate_options($input) {
  * @return string path to default variation file
  */
  
-if (!function_exists('translucence_get_variation_default')) {
+if (!function_exists('translucence_get_variation_default')) {	
 	function translucence_get_variation_default() {
 		if (file_exists(get_template_directory() .'/variations/default/variation.php')) {
 			$variation_default = get_template_directory() .'/variations/default/variation.php';
@@ -519,6 +527,7 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['archives-single-sidebar'])) $translucence_options['archives-single-sidebar'] = $translucence_config['archives-single-sidebar'];
 
 	if (!isset($translucence_options['default-post-display'])) $translucence_options['default-post-display'] = $translucence_config['default-post-display'];
+	if (!isset($translucence_options['page-links-display'])) $translucence_options['page-links-display'] = $translucence_config['page-links-display'];
 	
 }
 
@@ -560,7 +569,7 @@ function translucence_get_variation_options() {
 	/******************************************************************************
 	 * Default options and option value lists
 	 ******************************************************************************/
-
+	
 	if (file_exists(translucence_get_variation_default())) {
 		$variation_default = translucence_get_variation_default();
 		include($variation_default);

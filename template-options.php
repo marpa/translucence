@@ -83,7 +83,7 @@ function translucence_theme_options_do_page() {
  	print translucence_get_theme_model_css();
 
 // 	printpre($translucence_options['activated-widgets']);
-// 	printpre($translucence_options['widgets']);
+//  printpre($translucence_options['page-links-display']);
 	/******************************************************************************
 	 * Theme Options Introduction with Update and Revert buttons
 	 ******************************************************************************/
@@ -1193,6 +1193,13 @@ function translucence_get_post_options() {
 	translucence_get_option_selector ("<span style='font-size: 9px;'>search archive includes</span><br/>", "search-single-sidebar", $translucence_options_values['sidebar-display']);
 	print "</div>";
 
+	// page links display options
+	print "<div style=' font-size: 10px;'>";
+	$translucence_title = "<span style='font-size: 9px;'>".__( 'page links', '2010-translucence' )." ".__( 'display', '2010-translucence' )."</span>";
+	translucence_get_option_selector ("<span style='font-size: 9px;'>page links display</span><br/>", "page-links-display", $translucence_options_values['page-links-display']);
+	print "</div>";
+
+
 	// archives sidebar options
 	print "<div style=' font-size: 10px;'>";
 	$translucence_title = "<span style='font-size: 9px;'>".__( 'archives page', '2010-translucence' )." ".__( 'include', '2010-translucence' )."</span>";
@@ -1738,6 +1745,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'right01-border-style';
 			$active_options[]  = 'right02-border-style';
 			$active_options[]  = 'bottom-border-style';
+			$active_options[]  = 'page-links-display';
 
 
 		
@@ -1760,6 +1768,7 @@ function translucence_get_active_options($translucence_options_mode) {
 			$active_options[]  = 'right01-width';
 			$active_options[]  = 'right02-width';
 			$active_options[]  = 'default-post-display';
+			$active_options[]  = 'page-links-display';
 			$active_options[]  = 'top-border-style';
 			$active_options[]  = 'content-border-style';
 			$active_options[]  = 'left01-border-style';

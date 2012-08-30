@@ -24,6 +24,8 @@
 		<new author='alex' date='the future'>
 			Added theme option for displaying categories and tags, before or after post content
 		</new>
+		<new author='alex' date='2012-08-30'>
+			Added theme option for displaying links to sub-pages or related-pages on page templates
 		</new>
 		<change author='alex' date='2012-07-22'>
 			Added title and description box color and opacity options to basic options mode
@@ -56,7 +58,6 @@
 			Update right header meta-area options to allow for custom text/links with same options as 
 			header left meta-area.
 		</change>
-
 		<change author='alex' date='2012-06-13'>
 			Update right header meta-area options to allow for custom text/links with same options as 
 			header left meta-area.

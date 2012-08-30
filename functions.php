@@ -874,6 +874,7 @@ endif;
  * @since Tranlucence 2.3.1
  */
 function translucence_page_links($post, $order) {
+global $translucence_options;
 
 	if ($post->post_parent) {
 		$children = wp_list_pages("title_li=<h3>".get_the_title($post->post_parent)."</h3>&child_of=".$post->post_parent."&echo=0");
@@ -883,7 +884,7 @@ function translucence_page_links($post, $order) {
 		$num_children = get_pages("child_of=".$post->ID);
 	}
 	
-	if (isset($_COOKIE['hidetoc']) && $_COOKIE['hidetoc'] == 1) {
+	if (isset($_COOKIE['hidetoc']) && $_COOKIE['hidetoc'] == 0 && $translucence_options['page-links-display'] == "true") {
 		$page_links_label = "[".__( 'show page links', '2010-translucence' )."]";
 	} else {
 		$page_links_label = "[".__( 'hide page links', '2010-translucence' )."]";
@@ -898,7 +899,7 @@ function translucence_page_links($post, $order) {
 		print $children;
 		print "</ul>";						
 		print "</div>"; 
-	} else if (count($num_children) > 1 && $order == "after") {
+	} else if (count($num_children) > 1 && $order == "after" && $translucence_options['page-links-display'] == "true") {
 		print $children;
 	}
 }
