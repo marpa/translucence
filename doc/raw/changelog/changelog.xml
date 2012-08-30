@@ -24,9 +24,6 @@
 		<new author='alex' date='the future'>
 			Added theme option for displaying categories and tags, before or after post content
 		</new>
-		<new author='alex' date='the future'>
-			Added theme option for post display settings (title only, title and except, title
-			and full text)
 		</new>
 		<change author='alex' date='2012-07-22'>
 			Added title and description box color and opacity options to basic options mode
@@ -41,6 +38,10 @@
 			Updated search css to include inline label, hide search button and include
 			background image of search icon.
 		</change>
+		<new author='alex' date='2012-06-18'>
+			Added theme option for post display settings (title only, title and except, title
+			and full text)
+		</new>
 		<new author='alex' date='2012-06-18'>
 			Added theme support for post formats.
 		</new>
