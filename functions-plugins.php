@@ -57,7 +57,12 @@ function translucence_get_author() {
 
 function translucence_display_privacy($blog_id) {
 	
-	$blog_public = get_blog_option($blog_id,'blog_public');
+	if ( is_multisite() ) {
+		$blog_public = get_blog_option($blog_id,'blog_public');
+	} else {
+  		$blog_public = get_option('blog_public');
+	}
+	
 	if ( '1' == $blog_public || '0' == $blog_public) {
 		return '';
 	}
