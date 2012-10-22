@@ -9,10 +9,6 @@ minor revisions to UI
 		
 		
 	* New feature: 
-		Added a theme configuration for Category and Tag labels.
-		(the future - Alex Chapin)
-		
-	* New feature: 
 		Added a list of sub-categories on category pages.
 		(the future - Alex Chapin)
 		
@@ -22,9 +18,27 @@ minor revisions to UI
 		(the future - Alex Chapin)
 		
 	* New feature: 
-		Added theme option for post display settings (title only, title and except,
-		title and full text)
-		(the future - Alex Chapin)
+		Added support for displaying category and tag custom base names.
+		(2012-10-22 - Crystal Barton)
+		
+	* Change: 
+		Changed css for displaying more (i.e. continue reading) so styles were
+		consistently applied to various post display settings (i.e. with excerpts)
+		(2012-10-22 - Crystal Barton)
+		
+	* Bug Fix: 
+		Fixed function related to privacy plugin display so it would not cause
+		errors in non multi-site instances of WordPress
+		(2012-10-22 - Crystal Barton)		
+		
+	* Change: 
+		Updated entry header css to include h4.
+		(2012-07-22 - Alex Chapin)
+		
+	* New feature: 
+		Added theme option for displaying links to sub-pages or related-pages on
+		page templates
+		(2012-08-30 - Alex Chapin)
 		
 	* Change: 
 		Added title and description box color and opacity options to basic options
@@ -45,6 +59,11 @@ minor revisions to UI
 		(2012-07-08 - Alex Chapin)
 		
 	* New feature: 
+		Added theme option for post display settings (title only, title and except,
+		title and full text)
+		(2012-06-18 - Alex Chapin)
+		
+	* New feature: 
 		Added theme support for post formats.
 		(2012-06-18 - Alex Chapin)
 		
@@ -62,7 +81,6 @@ minor revisions to UI
 		Update right header meta-area options to allow for custom text/links with
 		same options as header left meta-area.
 		(2012-06-13 - Alex Chapin)
-
 		
 	* Change: 
 		Update right header meta-area options to allow for custom text/links with

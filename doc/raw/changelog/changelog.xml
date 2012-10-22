@@ -16,14 +16,25 @@
 			also add minor revisions to UI
 		</releaseNotes>
 		<new author='alex' date='the future'>
-			Added a theme configuration for Category and Tag labels.
-		</new>
-		<new author='alex' date='the future'>
 			Added a list of sub-categories on category pages.
 		</new>
 		<new author='alex' date='the future'>
 			Added theme option for displaying categories and tags, before or after post content
 		</new>
+		<new author='crystal' date='2012-10-22'>
+			Added support for displaying category and tag custom base names.
+		</new>
+		<change author='crystal' date='2012-10-22'>
+			Changed css for displaying more (i.e. continue reading) so styles were consistently
+			applied to various post display settings (i.e. with excerpts)
+		</change>
+		<fix author='crystal' date='2012-10-22'>
+			Fixed function related to privacy plugin display so it would not cause errors
+			in non multi-site instances of WordPress
+		</fix>		
+		<change author='alex' date='2012-07-22'>
+			Updated entry header css to include h4.
+		</change>
 		<new author='alex' date='2012-08-30'>
 			Added theme option for displaying links to sub-pages or related-pages on page templates
 		</new>
@@ -302,12 +313,13 @@
 		<url></url>
 	</info>
 	<info>
-		<title>Bug Tracker</title>
-		<url></url>
+		<title>Issues</title>
+		<url>https://github.com/marpa/translucence/issues?</url>
 	</info>
 	
 	<authors>
 		<name short="alex">Alex Chapin</name>
+		<name short="crystal">Crystal Barton</name>
 	</authors>
 	<reporters>
 		<reporter short="alex">

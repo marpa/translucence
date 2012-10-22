@@ -35,9 +35,9 @@ See the INSTALL.txt file:
 
 
 
-Bug Tracker
+Issues
 ---------------------
-
+https://github.com/marpa/translucence/issues?
 
 
 
