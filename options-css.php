@@ -965,6 +965,25 @@ a:hover {
 	border-bottom: 1px dotted <?php print $translucence_options['content-link-color']?>;
 }
 
+.continue-reading {
+	display: block;
+	height:30px;
+	line-height:30px;
+	margin-top:5px;
+	text-align: center;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	text-decoration: none;
+	background-color:transparent;
+}
+
+.continue-reading:hover {
+	color: <?php print $translucence_options['linkcolor']?>;
+	border-top: 1px solid <?php print $translucence_options['content-link-color']?>;
+	border-bottom: 1px dotted <?php print $translucence_options['content-link-color']?>;
+}
+
+
 /* Entry-content headers */
 
 .entry-content h2, .entry-content h3, .entry-content h1 {
