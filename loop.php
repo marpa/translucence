@@ -151,8 +151,10 @@
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 			<?php if ( count( get_the_category() ) ) : ?>
-			<span class="catlinks">
-			<?php printf( __( '<span class="%1$s">Categories: </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
+			<span class="catlinks"><?php
+			$category_base = get_option('category_base');
+			$category_base = ($category_base ? ucwords(str_replace(array('-', '/'),array(' ',' &raquo; '),$category_base)) : 'Categories');
+			printf( __( '<span class="%1$s">'.$category_base.': </span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-cat-links', get_the_category_list( ', ' ) ); ?>
 			</span>
 			<?php endif; ?>
 
@@ -178,8 +180,10 @@
 					$tags_list = get_the_tag_list( '', ', ' );
 					if ( $tags_list ):
 				?>
-					<div class="taglinks">
-						<?php printf( __( '<span class="%1$s">Tags:</span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
+					<div class="taglinks"><?php
+						$tag_base = get_option('tag_base');
+						$tag_base = ($tag_base ? ucwords(str_replace(array('-', '/'),array(' ',' &raquo; '),$tag_base)) : 'Tags');
+						printf( __( '<span class="%1$s">'.$tag_base.':</span> %2$s', '2010-translucence' ), 'entry-utility-prep entry-utility-prep-tag-links', $tags_list ); ?>
 					</div>
 				<?php endif; ?>
 				<div class="comments-link"><?php comments_popup_link( __( 'No comments &raquo;', '2010-translucence' ), __( '1 Comment &raquo;', '2010-translucence' ), __( '% Comments &raquo;', '2010-translucence' ) ); ?></div>

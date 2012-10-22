@@ -27,7 +27,9 @@ $content_width = translucence_get_content_width ("tag");
 			</div>
 
 				<h1 class="page-title"><?php
-					printf( __( 'Tags &raquo; %s', '2010-translucence' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					$tag_base = get_option('tag_base');
+					$tag_base = ($tag_base ? ucwords(str_replace(array('-', '/'),array(' ',' &raquo; '),$tag_base)) : 'Tags');
+					printf( __($tag_base.' &raquo; %s', '2010-translucence' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?></h1>
 
 <?php
