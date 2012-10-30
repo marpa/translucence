@@ -14,10 +14,6 @@ if ( ! function_exists( 'translucence_options_css' ) ) :
 function translucence_options_css() {
 	global $translucence_options, $translucence_config;
 	global $translucence_options_id;
-
-	$site_width = $translucence_options['site-width'];
-	$header_width = $translucence_options['site-width']-7;
-	$menu_width =$translucence_options['site-width']-7;
 	
 	// add # to theme option for site-title and description
 	if (!preg_match("/\#/", $translucence_options['site-title-color'])) {
@@ -34,7 +30,6 @@ function translucence_options_css() {
 	 * CSS definitions for all classes in this theme that have been modified by theme options
 	 * See: template-options.php for this theme's html
 	 ******************************************************************************/
-
 ?>
 
 /* =css translucence theme options update
@@ -61,7 +56,7 @@ div.menu,
 #main,
 #wrapper {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 #wrapper {
@@ -76,7 +71,7 @@ div.menu,
 }
 
 .sitewrapper {
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: <?php print $translucence_options['site-margin-top']?>px;
@@ -128,7 +123,7 @@ div.menu,
 	
 #branding {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;		
+	width: <?php print $translucence_options['site-width']?>px;		
 }
 
 .headerblock {
@@ -136,7 +131,7 @@ div.menu,
 	background-color: <?php print $translucence_options['header-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>;	
 	padding-top: 0px;
-	width: <?php print $header_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
 }
 
@@ -188,7 +183,7 @@ div.menu,
 
 #footer {
 	clear: both;
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 /* Full width content with no sidebar; used for attachment pages */
@@ -214,7 +209,7 @@ div.menu,
 	width: <?php print $translucence_options['content-width']?>px;
 	color: <?php print $translucence_options['textcolor']?>;
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	padding: 20px;	
+	padding: <?php print $translucence_options['content-padding'] ?>px;	
 	border: <?php print $translucence_options['content-border-width'] ?> <?php print $translucence_options['content-border-style'] ?> <?php print $translucence_options['content-border-color']?>;		
 	font-size: <?php print $translucence_options['entry-text-size']?>px;
 	line-height: <?php print $translucence_options['entry-line-height']?>px;
@@ -288,7 +283,7 @@ div.menu,
 	color:  <?php print $translucence_options['bottom-text-color']?>;
 	background-color: <?php print $translucence_options['bottom-color-rgb']?>;	
 	overflow: hidden;
-	width: <?php print $header_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 	padding: 20px 0px 0px 4px;
 }
 
@@ -628,7 +623,7 @@ div.menu,
 	display: block;
 	float: left;
 	border: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-color']?>;	
-	width: <?php print $menu_width?>px;
+	width: <?php print $transluncence_options['site-width']?>px;
 	margin-top: <?php print $translucence_options['top-margin-top']?>px;
 	margin-bottom: 20px; 
 }
@@ -637,14 +632,14 @@ div.menu,
 div.menu {
 	font-size: 13px;
 	margin-left: 12px;
-	width: <?php print $menu_width?>px;
+	width: <?php print $transluncence_options['site-width']?>px;
 }
 
 #access .menu-header,
 div.menu,
 #main {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 #access .menu-header ul,

@@ -492,6 +492,7 @@ function translucence_get_variation_default_config() {
 	
 	if (!isset($translucence_options['site-padding-top'])) $translucence_options['site-padding-top'] = $translucence_config['site-padding-top'];
 	if (!isset($translucence_options['site-padding-bottom'])) $translucence_options['site-padding-bottom'] = $translucence_config['site-padding-bottom'];
+	if (!isset($translucence_options['content-padding'])) $translucence_options['content-padding'] = $translucence_config['content-padding'];
 	
 	if (!isset($translucence_options['site-color'])) $translucence_options['site-color'] = $translucence_config['site-color'];
 	if (!isset($translucence_options['title-box-color'])) $translucence_options['title-box-color'] = $translucence_config['title-box-color'];
@@ -1160,7 +1161,7 @@ function translucence_set_derivative_options() {
 		$right02_width = 2 + $translucence_options['right02-width'] + ($translucence_options['right02-padding']*2);
 	}
 	
-	$content_width = $translucence_options['site-width'] - 20 - 20 - 2 - $translucence_options['content-margin-right'] - $left01_width - $right01_width - $right02_width;
+	$content_width = $translucence_options['site-width'] - 2 - $translucence_options['content-margin-right'] - ($translucence_options['content-padding'] * 2) - $left01_width - $right01_width - $right02_width;
 	
 	$total = $translucence_options['site-width'];
 	
