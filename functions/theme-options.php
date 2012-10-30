@@ -4,6 +4,9 @@ add_action( 'admin_init', 'translucence_theme_options_init' );
 add_action( 'admin_menu', 'translucence_variation_add_page' );
 add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar', 70 );
 
+
+
+
  /**
  * Initialize plugin to white list theme options
  *
@@ -14,10 +17,11 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar', 70 );
 
 function translucence_theme_options_init() {
 	global $translucence_options_id;
-	
 	register_setting( $translucence_options_id, $translucence_options_id, 'translucence_validate_options' );	
-	
 }
+
+
+
 
  /**
  * Updates theme options
@@ -51,9 +55,10 @@ function translucence_theme_options_update() {
 	
 	// update theme options 
 	update_option($translucence_options_id, $translucence_options);
-	
-				
 }
+
+
+
 
  /**
  * Add Theme Options page to edit_theme_options
@@ -67,6 +72,9 @@ function translucence_variation_add_page() {
 	
     add_theme_page('Theme Options', 'Theme Options', 'edit_theme_options', 'variations', 'translucence_theme_options_do_page');
 }
+
+
+
 
  /**
  * Adds link to Theme Options in the Admin Bar
@@ -85,6 +93,9 @@ function translucence_add_menu_admin_bar() {
         
     $wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' =>__( 'Theme Options', 'options' ), 'href' => admin_url()."themes.php?page=variations" ) );
 }
+
+
+
 
  /**
  * Validate primary options (options exposed to user in theme options UI)
@@ -1129,6 +1140,35 @@ function translucence_set_derivative_options() {
 		}
 		
 	}
+	
+	/******************************************************************************
+	 * Calculates the overall width of the sidebars and the content container.
+	 ******************************************************************************/
+
+	$left01_width = 0;
+	if ($translucence_options['left01-width'] > 0) {
+		$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + ($translucence_options['left01-padding']*2);
+	}
+
+	$right01_width = 0;
+	if ($translucence_options['right01-width'] != 0) {
+		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + ($translucence_options['right01-padding']*2);
+	}
+
+	$right02_width = 0;
+	if ($translucence_options['right02-width'] != 0) {
+		$right02_width = 2 + $translucence_options['right02-width'] + ($translucence_options['right02-padding']*2);
+	}
+	
+	$content_width = $translucence_options['site-width'] - 20 - 20 - 2 - $translucence_options['content-margin-right'] - $left01_width - $right01_width - $right02_width;
+	
+	$total = $translucence_options['site-width'];
+	
+	$translucence_options['content-width'] = $content_width;
+	$translucence_options['overall-content-width'] = $translucence_options['site-width'] - $left01_width - $right01_width - $right02_width;
+	$translucence_options['overall-left01-width'] = $left01_width;
+	$translucence_options['overall-right01-width'] = $right01_width;
+	$translucence_options['overall-right02-width'] = $right02_width;
 
 	/******************************************************************************
 	 * Display colophon with border only if footer-widget-area has no border

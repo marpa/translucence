@@ -27,30 +27,6 @@ function translucence_options_css() {
 	if (!preg_match("/\#/", $translucence_options['site-description-color'])) {
 		$translucence_options['site-description-color'] = "#".$translucence_options['site-description-color'];
 	}
-
-	// calculate the width of the content div based on widths of sidebars
-	$left01_width = 0;
-	if ($translucence_options['left01-width'] > 0) {
-		$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + ($translucence_options['left01-padding']*2);
-	}
-
-	$right01_width = 0;
-	if ($translucence_options['right01-width'] != 0) {
-		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + ($translucence_options['right01-padding']*2);
-	}
-
-	$right02_width = 0;
-	if ($translucence_options['right02-width'] != 0) {
-		$right02_width = 2 + $translucence_options['right02-width'] + ($translucence_options['right02-padding']*2);
-	}
-	
-	$content_width = $translucence_options['site-width'] - 20 - 20 - 2 - $translucence_options['content-margin-right'] - $left01_width - $right01_width - $right02_width;
-	
-	$total = $translucence_options['site-width'];
-	
-	$translucence_options['overall-left01-width'] = $left01_width;
-	$translucence_options['overall-right01-width'] = $right01_width;
-	$translucence_options['overall-right02-width'] = $right02_width;
 	
 	ob_start();
 	
@@ -235,7 +211,7 @@ div.menu,
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
 	margin-right: <?php print $translucence_options['content-margin-right']?>px;
-	width: <?php print $content_width?>px;
+	width: <?php print $translucence_options['content-width']?>px;
 	color: <?php print $translucence_options['textcolor']?>;
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
 	padding: 20px;	
