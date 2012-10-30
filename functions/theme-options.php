@@ -1,8 +1,8 @@
 <?php // 2010 Translucence theme options
 
 add_action( 'admin_init', 'translucence_theme_options_init' );
-add_action('admin_menu', 'translucence_variation_add_page');
-add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
+add_action( 'admin_menu', 'translucence_variation_add_page' );
+add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar', 70 );
 
  /**
  * Initialize plugin to white list theme options

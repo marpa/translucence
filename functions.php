@@ -933,17 +933,15 @@ function translucence_page_links_display() {
  */
 
 function translucence_toggle_links() {	
-	?>
-	<div class="toggle" style="float: left;">
-	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<div class="toggle" style="float: right;">
-	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<div class="toggle">
-	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<?php
+	global $translucence_options;
+
+	if( $translucence_options['left01-width'] > 0 )
+		echo "<span class=\"togglelink\" style=\"float:left; cursor:pointer;\" title=\"Toggle Left Sidebar\" sidebar=\"tertiary\">&laquo;</span>";
+	if( $translucence_options['right02-width'] > 0 )
+		echo "<span class=\"togglelink\" style=\"float:right; cursor:pointer; margin-left:10px;\" title=\"Toggle Far Right Sidebar\" sidebar=\"secondary\">&raquo;</span>";
+	if( $translucence_options['right01-width'] > 0 )
+		echo "<span class=\"togglelink\" style=\"float:right; cursor:pointer;\" title=\"Toggle Right Sidebar\" sidebar=\"primary\">&raquo;</span>";
+	echo "<div style=\"clear:both\"></div>";
 }
 
  /**

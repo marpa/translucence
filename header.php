@@ -56,10 +56,140 @@ jQuery(document).ready(function(){
 	jQuery('#s').inline_label({text: "Search Site..."});
 });
 </script>
-<meta name="primary_width" content="<?php echo $translucence_options['right01-width'] ?>" />
-<meta name="secondary_width" content="<?php echo $translucence_options['right02-width'] ?>" />
-<meta name="tertiary_width" content="<?php echo $translucence_options['left01-width'] ?>" />
-<meta name="content_width" content="<?php echo translucence_get_box_widths('content'); ?>" />
+
+
+
+<script>
+jQuery(document).ready(function($) {
+	$('.togglelink').click( function() {
+	
+		// get the sidebar object and its width.
+		var sidebar_id = $(this).attr("sidebar");
+		var sidebar = $('#'+sidebar_id);
+		if( sidebar_id == undefined ) return;
+		var sidebar_width = parseInt($(sidebar).attr('overall-width'), 10);
+
+		// get the current width of the content.
+		var current_content_width = $('#content').width();
+
+		var margin_name = 'margin-right';
+		var adj_object_id = 'content';
+		switch( sidebar_id )
+		{
+			case "primary":
+				break;
+				
+			case "secondary":
+				margin_name = 'margin-right';
+				if( $('#primary').is(':visible') )
+					adj_object_id = 'primary';
+				break;
+			
+			case "tertiary":
+				margin_name = 'margin-left';
+				break;
+				
+			default:
+				return; break;
+		}
+		
+		var adj_object = $('#'+adj_object_id);
+		var current_margin = parseInt( $(adj_object).css(margin_name).replace('px','') );
+			
+		var showing_sidebar = false;
+		if( $(sidebar).is(':visible') )
+		{
+			// hide the sidebar.
+			$(sidebar).hide();
+			
+			// change margin of adjacent object.
+			$(adj_object).css(margin_name, (current_margin + sidebar_width) + 'px');
+			
+			// animate content width change and adjacent object margin.
+			if(adj_object_id == 'content')
+			{
+				var css = {};
+				css['width'] = (current_content_width + sidebar_width) + 'px';
+				css[margin_name] = current_margin + 'px';
+
+				$("#content").stop().animate( css, 100, 'linear' );
+			}
+			else
+			{
+				var css = {};
+				css[margin_name] = current_margin + 'px';
+
+				$("#content").stop().animate( {
+						width: (current_content_width + sidebar_width) + 'px'
+					}, 100, 'linear'
+				);
+
+				$(adj_object).stop().animate( css, 100, 'linear' );
+			}
+		}
+		else
+		{
+			showing_sidebar = true;
+			if(adj_object_id == 'content')
+			{
+				var css = {};
+				css['width'] = (current_content_width - sidebar_width) + 'px';
+				css[margin_name] = (current_margin + sidebar_width) + 'px';
+
+				$("#content").stop().animate( css, 100, 'linear', function() {
+					var css = {};
+					css[margin_name] = current_margin + 'px';
+					$('#content').css(css);
+					$(sidebar).show();
+				} );
+			}
+			else
+			{
+				var css = {};
+				css[margin_name] = (current_margin + sidebar_width) + 'px';
+
+				$("#content").stop().animate( {
+						width: (current_content_width - sidebar_width) + 'px'
+					}, 100, 'linear'
+				);
+
+				$(adj_object).stop().animate( css, 100, 'linear', function() {
+					var css = {};
+					css[margin_name] = current_margin + 'px';
+					$(adj_object).css(css);
+					$(sidebar).show();
+				} );
+			}
+		}
+		
+		var arrow = '';
+		switch( sidebar_id )
+		{
+			case "primary":
+			case "secondary":
+				if( showing_sidebar ) arrow = '&raquo;';
+				else arrow = '&laquo;';
+				break;
+			
+			case "tertiary":
+				if( showing_sidebar ) arrow = '&laquo;';
+				else arrow = '&raquo;';
+				break;
+				
+			default:
+				return; break;
+		}
+
+		var togglelinks = $('.togglelink');
+		for( var i = 0; i < togglelinks.length; i++ )
+		{
+			var link = togglelinks[i];
+			if( $(link).attr("sidebar") == sidebar_id )
+				$(link).html(arrow);
+		}
+	});
+});
+</script>
 </head>
 
 <body <?php body_class(); ?> >

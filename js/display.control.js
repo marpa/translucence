@@ -65,6 +65,7 @@ function setToggleFromCookie () {
 
 // Toggle the visibility of the object, update content width to new context and update toggle links
 function toggle(obj, context, primary_width, secondary_width, tertiary_width, content_width) {
+return;
 	var box = document.getElementById(obj);
 	var box_display = getCookie("hide"+obj);
 	var cookieprimary = getCookie("hideprimary");

@@ -29,26 +29,29 @@ function translucence_options_css() {
 	}
 
 	// calculate the width of the content div based on widths of sidebars
-	// sidebar width = sidebar width + 50
-	// if sidebar width = 0 then width = 0
 	$left01_width = 0;
-	if ($translucence_options['left01-width'] != 0) {
-		$left01_width = $translucence_options['left01-width'] + 50;
+	if ($translucence_options['left01-width'] > 0) {
+		$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + ($translucence_options['left01-padding']*2);
 	}
 
 	$right01_width = 0;
 	if ($translucence_options['right01-width'] != 0) {
-		$right01_width = $translucence_options['right01-width'] + 50;
+		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + ($translucence_options['right01-padding']*2);
 	}
 
 	$right02_width = 0;
 	if ($translucence_options['right02-width'] != 0) {
-		$right02_width = $translucence_options['right02-width'] + 50;
+		$right02_width = 2 + $translucence_options['right02-width'] + ($translucence_options['right02-padding']*2);
 	}
-			
-	$content_width = $translucence_options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
-	$total = ($translucence_options['left01-width'] + $translucence_options['right01-width'] + $translucence_options['right02-width']+$content_width);
-
+	
+	$content_width = $translucence_options['site-width'] - 20 - 20 - 2 - $translucence_options['content-margin-right'] - $left01_width - $right01_width - $right02_width;
+	
+	$total = $translucence_options['site-width'];
+	
+	$translucence_options['overall-left01-width'] = $left01_width;
+	$translucence_options['overall-right01-width'] = $right01_width;
+	$translucence_options['overall-right02-width'] = $right02_width;
+	
 	ob_start();
 	
 	/******************************************************************************
@@ -231,7 +234,7 @@ div.menu,
 #content {
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
-	margin-right: <?php print $translucence_options['content-margin-right']?>px;	
+	margin-right: <?php print $translucence_options['content-margin-right']?>px;
 	width: <?php print $content_width?>px;
 	color: <?php print $translucence_options['textcolor']?>;
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
@@ -262,7 +265,7 @@ div.menu,
 
 #tertiary:hover {
 	background-color: <?php print $translucence_options['left01-color-hover-rgb']?>;
-	border-top: 1px <?php print $translucence_options['left01-hover-border-style']?> <?php print $translucence_options['left01-border-color']?>;
+	border: 1px <?php print $translucence_options['left01-hover-border-style']?> <?php print $translucence_options['left01-border-color']?>;
 }
 		
 #primary {
@@ -665,7 +668,7 @@ div.menu {
 div.menu,
 #main {
 	margin: 0 auto;
-	width: <?php print $header_width?>px;
+	width: <?php print $site_width?>px;
 }
 
 #access .menu-header ul,

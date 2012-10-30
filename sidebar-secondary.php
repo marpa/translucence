@@ -18,10 +18,8 @@
 	
 	global $translucence_options; ?>
 
-	<div id="secondary" class="widget-area" role="complementary" style="<?php translucence_box_display('secondary') ?>">
-		<div class="toggle" style="margin-right: -15px;">
-		<a id="togglesecondary" href="javascript:toggle('secondary','sidebar',<?php print translucence_get_box_widths(); ?>)">&laquo;</a>
-		</div>
+	<div id="secondary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-right02-width']; ?>">
+		<!--<span class="togglelink" style="float:right; cursor:pointer" sidebar="secondary">&raquo;</span>-->
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'secondary-widget-area' )) {
