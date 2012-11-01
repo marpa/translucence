@@ -192,7 +192,8 @@ div.menu,
 	width: 95%;
 }
 
-/* =Content and Container
+/* =Content and 
+
 -------------------------------------------------------------- */	
 
 #container {
@@ -213,6 +214,7 @@ div.menu,
 	border: <?php print $translucence_options['content-border-width'] ?> <?php print $translucence_options['content-border-style'] ?> <?php print $translucence_options['content-border-color']?>;		
 	font-size: <?php print $translucence_options['entry-text-size']?>px;
 	line-height: <?php print $translucence_options['entry-line-height']?>px;
+	position:relative;
 }
 
 
@@ -232,6 +234,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['left01-padding']?>px;
 	padding-right: <?php print $translucence_options['left01-padding']?>px;	
+	position:relative;
 }
 
 #tertiary:hover {
@@ -252,6 +255,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['right01-padding']?>px;
 	padding-right: <?php print $translucence_options['right01-padding']?>px;	
+	position:relative;
 }
 
 #primary:hover {
@@ -271,6 +275,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['right02-padding']?>px;
 	padding-right: <?php print $translucence_options['right02-padding']?>px;
+	position:relative;
 }
 
 #secondary:hover {
@@ -394,6 +399,156 @@ div.menu,
 	text-decoration: none;	
 	border: 1px dotted <?php print $translucence_options['entry-link-color']?>;
 }
+
+/* begin CRYSTAL's togglelink code */
+
+span.togglelink
+{
+	padding:2px;
+	display:inline-block;
+}
+
+span.togglelink > span
+{
+	cursor:pointer;
+	width:13px;
+	height:13px;
+	background-color: #ccc;
+	border: 1px dotted black;
+	color: black;
+	text-align:center;
+	line-height:13px;
+	display:inline-block;
+	position:relative;
+}
+
+span.togglelink > span:hover
+{
+	border: 1px solid;
+}
+
+#content span.togglelink
+{
+	display:none;
+}
+
+#content span.togglelink > span
+{
+	background-color: <?php print $translucence_options['content-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#primary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['right01-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#secondary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['right02-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#tertiary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['left01-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#content span.togglelink > span:hover, #primary span.togglelink > span:hover,
+#secondary span.togglelink > span:hover, #tertiary span.togglelink > span:hover
+{
+	border: 1px solid;
+}
+
+#primary span.togglelink, #secondary span.togglelink
+{
+	position:absolute;
+	top:-2px;
+	right:0px;
+}
+
+#tertiary span.togglelink
+{
+	position:absolute;
+	top:-2px;
+	left:0px;
+}
+
+span.togglelink > span.arrow-left
+{
+	width:8px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+span.togglelink > span.arrow-left > span
+{
+	position:absolute;
+	top:-1px;
+	left:-8px;
+}
+
+span.togglelink > span.arrow-right
+{
+	width:8px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+span.togglelink > span.arrow-right > span
+{
+	position:absolute;
+	top:-1px;
+	left:3px;
+}
+
+span.togglelink > span.circle-close
+{
+	border-radius: 40px;
+}
+
+span.togglelinks-box
+{
+	display:inline-block;
+}
+
+span.left-togglelinks-box
+{
+	position:absolute;
+	top:2px;
+	left:0px;
+}
+
+span.right-togglelinks-box
+{
+	position:absolute;
+	top:2px;
+	right:0px;
+}
+
+span.togglelinks-box .togglelink
+{
+	margin-left:10px;
+}
+
+span.togglelinks-box .togglelink:first-child
+{
+	margin-left:0px;
+}
+
+div.togglelinks-box-spacer
+{
+	margin-top:15px;
+}
+
+/* end CRYSTAL's togglelink code */
+
 
 #toc .toggle a:hover {
 	text-decoration: underline;	

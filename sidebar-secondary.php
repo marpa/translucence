@@ -19,12 +19,15 @@
 	global $translucence_options; ?>
 
 	<div id="secondary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-right02-width']; ?>">
-		<!--<span class="togglelink" style="float:right; cursor:pointer" sidebar="secondary">&raquo;</span>-->
+		<span class="togglelink" style="float:right; cursor:pointer" sidebar="secondary">
+			<span class="square-close">
+				<span>&times;</span>
+			</span>
+		</span>
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'secondary-widget-area' )) {
 				//translucence_get_default_widgets('secondary-widget-area');
-								
 			} else {
 				dynamic_sidebar( 'secondary-widget-area' ); 		
 			}

@@ -8,6 +8,10 @@
  * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
+ 
+ // Starting the session 
+session_start(); 
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -66,7 +70,7 @@ jQuery(document).ready(function($) {
 		// get the sidebar object and its width.
 		var sidebar_id = $(this).attr("sidebar");
 		var sidebar = $('#'+sidebar_id);
-		if( sidebar_id == undefined ) return;
+		if( sidebar.length == 0 ) return;
 		var sidebar_width = parseInt($(sidebar).attr('overall-width'), 10);
 
 		// get the current width of the content.
@@ -126,6 +130,8 @@ jQuery(document).ready(function($) {
 
 				$(adj_object).stop().animate( css, 100, 'linear' );
 			}
+			
+			sessionStorage.setItem(sidebar_id, 'hide');
 		}
 		else
 		{
@@ -160,35 +166,41 @@ jQuery(document).ready(function($) {
 					$(sidebar).show();
 				} );
 			}
+			
+			sessionStorage.setItem(sidebar_id, 'show');
 		}
 		
-		var arrow = '';
-		switch( sidebar_id )
-		{
-			case "primary":
-			case "secondary":
-				if( showing_sidebar ) arrow = '&raquo;';
-				else arrow = '&laquo;';
-				break;
-			
-			case "tertiary":
-				if( showing_sidebar ) arrow = '&laquo;';
-				else arrow = '&raquo;';
-				break;
-				
-			default:
-				return; break;
+		// get content togglelink element.
+		if( showing_sidebar ) {
+			$("#content span.togglelink[sidebar='"+sidebar_id+"']").hide();
 		}
-
-		var togglelinks = $('.togglelink');
-		for( var i = 0; i < togglelinks.length; i++ )
-		{
-			var link = togglelinks[i];
-			if( $(link).attr("sidebar") == sidebar_id )
-				$(link).html(arrow);
+		else {
+			$("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
 		}
 	});
+	
+	var sidebars = [ 'primary', 'secondary', 'tertiary' ];
+	for( i  in sidebars )
+	{
+		var sidebar_id = sidebars[i];
+		var show_sidebar = sessionStorage.getItem( sidebar_id );
+		if( show_sidebar === false ) {
+			sessionStorage.setItem( sidebar_id, 'show' );
+		}
+		else {
+			if( show_sidebar === 'hide' ) {
+				var sidebar = $('#'+sidebar_id);
+				if( sidebar.length === 0 ) continue;
+				
+				$(sidebar).hide();
+				$('#content').width( $('#content').width() + parseInt($(sidebar).attr('overall-width')) );
+				$("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
+			}
+		}
+	}
+	
 });
+
 </script>
 </head>
 

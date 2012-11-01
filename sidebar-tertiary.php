@@ -18,8 +18,12 @@
 	
 	global $translucence_options; ?>
 
-	<div id="tertiary" class="widget-area" role="complementary"  overall-width="<?php echo $translucence_options['overall-left01-width']; ?>">
-		<span class="togglelink" style="float:right; cursor:pointer" sidebar="tertiary">&raquo;</span>
+	<div id="tertiary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-left01-width']; ?>">
+		<span class="togglelink" style="float:left; cursor:pointer" sidebar="tertiary">
+			<span class="square-close">
+				<span>&times;</span>
+			</span>
+		</span>
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'tertiary-widget-area' )) {

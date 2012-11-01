@@ -922,12 +922,37 @@ function translucence_toggle_links() {
 	global $translucence_options;
 
 	if( $translucence_options['left01-width'] > 0 )
-		echo "<span class=\"togglelink\" style=\"float:left; cursor:pointer;\" title=\"Toggle Left Sidebar\" sidebar=\"tertiary\">&laquo;</span>";
-	if( $translucence_options['right02-width'] > 0 )
-		echo "<span class=\"togglelink\" style=\"float:right; cursor:pointer; margin-left:10px;\" title=\"Toggle Far Right Sidebar\" sidebar=\"secondary\">&raquo;</span>";
-	if( $translucence_options['right01-width'] > 0 )
-		echo "<span class=\"togglelink\" style=\"float:right; cursor:pointer;\" title=\"Toggle Right Sidebar\" sidebar=\"primary\">&raquo;</span>";
-	echo "<div style=\"clear:both\"></div>";
+	{
+		echo "<span class=\"togglelinks-box left-togglelinks-box\">";
+			echo "<span class=\"togglelink\" title=\"toggle left sidebar\" sidebar=\"tertiary\">";
+				echo "<span class=\"arrow-left\">";
+					echo "&nbsp;<span>&larr;</span>";
+				echo "</span>";
+			echo "</span>";
+		echo "</span>";
+	}
+	
+	if( ($translucence_options['right01-width'] > 0) || ($translucence_options['right02-width'] > 0) )
+	{
+		echo "<span class=\"togglelinks-box right-togglelinks-box\">";
+		if( $translucence_options['right01-width'] > 0 )
+		{
+			echo "<span class=\"togglelink\" title=\"toggle right sidebar\" sidebar=\"primary\">";
+				echo "<span class=\"arrow-right\">";
+					echo "&nbsp;<span>&rarr;</span>";
+				echo "</span>";
+			echo "</span>";
+		}
+		if( $translucence_options['right02-width'] > 0 )
+		{
+			echo "<span class=\"togglelink\" title=\"toggle far right sidebar\" sidebar=\"secondary\">";
+				echo "<span class=\"arrow-right\">";
+					echo "&nbsp;<span>&rarr;</span>";
+				echo "</span>";
+			echo "</span>";
+		}
+		echo "</span>";
+	}
 }
 
  /**
