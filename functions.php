@@ -56,10 +56,11 @@ if ( ! isset( $content_width ) )
 
  if (!function_exists('translucence_add_config')) {
 	function translucence_add_config() {
-	   if (file_exists(dirname(__FILE__).'/config.php')) {
-			require_once('config.php');
-		} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
+	   if (file_exists(dirname(__FILE__).'/config-sample.php')) {
 			require_once('config-sample.php');
+		}
+		if (file_exists(dirname(__FILE__).'/config.php')) {
+			require_once('config.php');
 		}
 	return $translucence_config;
 	}
