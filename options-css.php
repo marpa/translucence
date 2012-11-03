@@ -119,63 +119,75 @@ div.menu,
 
 #header {
 	padding: 0 0 0 0px;
+	margin-top: <?php print $translucence_options['header-top-margin']?>px;
 }
 	
 #branding {
 	margin: 0 auto;
-	width: <?php print $translucence_options['site-width']?>px;		
-}
-
-.headerblock {
-	color: <?php print $translucence_options['header-text-color']?>;
-	background-color: <?php print $translucence_options['header-color-rgb']?>;	
-	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>;	
-	padding-top: 0px;
-	width: <?php print $translucence_options['site-width']?>px;
+	width: <?php print ($translucence_options['site-width'] - 2)?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
+	color: <?php print $translucence_options['header-text-color']?>;
+	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>; 
+	background-color: <?php print $translucence_options['header-color-rgb']?>;
+	position: relative;
 }
 
-.headerblock:hover {
+#branding:hover {
 	background-color: <?php print $translucence_options['header-color-hover-rgb']?>;
 	border: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-color']?>; 
 }
 
 
-#title-box {
-	margin-top: <?php print $translucence_options['header-text-padding-top']?>px;
-	margin-left: 10px;
+#branding .headerblock {
+	margin: 0 auto;
+	width: <?php print ($translucence_options['site-width'] - 2)?>px;
+	height: <?php print $translucence_options['header-block-height']?>px;
+	position: absolute;
+	color: transparent;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	cursor:pointer;
 }
 
-#title-box #site-title {
-	background: <?php print $translucence_options['title-box-color-rgb']?>;
-	margin-bottom: 1px;
-	padding: 3px 3px 3px 3px;
-	display: <?php print $translucence_options['show-header-text']?>;
-	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
-	zoom:1;
+#branding #title-box {
+	height: <?php print $translucence_options['title-box-height']?>px;
+	position: absolute;
+	top: <?php print $translucence_options['title-box-top']?>px;
+	left: <?php print $translucence_options['title-box-left']?>px;
+	margin-top: <?php print $translucence_options['title-box-top-margin']?>px;
 }
 
-#site-title a {
+#branding #title-box a {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #title-box a:hover {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #site-title {
 	color: <?php print $translucence_options['site-title-color']?>;
+	background-color: <?php print $translucence_options['title-box-color-rgb']?>;
+	height: <?php print ($translucence_options['site-title-size'] + 6)?>px;
+	margin-bottom: 4px;
+	display:inline-block;
+	padding:0 3px;
 	font-size: <?php print $translucence_options['site-title-size']?>px;
-	line-height: <?php print $translucence_options['site-title-size']?>px;
+	line-height: <?php print ($translucence_options['site-title-size'] + 6)?>px;
 	text-shadow: <?php print $translucence_options['header-text-shadow-color']?> <?php print $translucence_options['header-text-shadow-offset']?> <?php print $translucence_options['header-text-shadow-blur']?>;
 }
 
-#site-title a:hover {
-	color: <?php print $translucence_options['site-title-color']?>;
-	border-bottom: none;
-}
-
-#site-description {
+#branding #site-description {
 	color: <?php print $translucence_options['site-description-color']?>;
+	background-color: <?php print $translucence_options['description-box-color-rgb']?>;
 	font-size: <?php print $translucence_options['site-description-size']?>px;
-	background: <?php print $translucence_options['description-box-color-rgb']?>;
-	padding: 1px 1px 1px 1px;
-	margin-left: 5px;
-	display: <?php print $translucence_options['show-header-text']?>;
-	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
-	zoom:1;
+	line-height: <?php print ($translucence_options['site-description-size'] + 2)?>px;
+	display:inline-block;
+	padding:0 3px;
+	cursor:pointer;
 }
 
 
@@ -192,8 +204,7 @@ div.menu,
 	width: 95%;
 }
 
-/* =Content and 
-
+/* =Content and Container
 -------------------------------------------------------------- */	
 
 #container {

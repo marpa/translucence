@@ -193,11 +193,13 @@ function translucence_theme_options_do_page() {
 					<div id='masthead'>
 						<div id='branding'>
 							<div class='headerblock'>
-								<div id='title-box'>								
-									<div id='site-title'><a href='index.php'><?php print get_bloginfo('name') ?></a></div><br/>
-									<div id='site-description' class='description-box'><?php print get_bloginfo('description') ?></div>
-								</div>
-							</div>							
+							</div>
+							<span id='title-box'>
+								<a href='index.php'>							
+									<div id='site-title'><?php print get_bloginfo('name') ?></div><br/>
+									<div id='site-description'><?php print get_bloginfo('description') ?></div>
+								</a>
+							</span>
 						</div><!-- #branding -->
 						<div id='access' role='navigation'> 
 							<!-- top navigation links -->
@@ -338,7 +340,7 @@ function translucence_get_theme_model_css() {
 
 		.headerblock {
 			background-image: url(".$translucence_custom_header_image.");
-			background-position: right center;
+			background-position: center center;
 			background-repeat: no-repeat;
 		}
 		
@@ -820,7 +822,8 @@ function translucence_get_global_options() {
 					<option value='middle' ".($translucence_options['header-text-display'] == 'middle' ? ' selected' : '') . ">".__( 'Middle', '2010-translucence' )."</option>
 					<option value='top' ".($translucence_options['header-text-display'] == 'top' ? ' selected' : '') . ">".__( 'Top', '2010-translucence' )."</option>
 					<option value='bottom' ".($translucence_options['header-text-display'] == 'bottom' ? ' selected' : '') . ">".__( 'Bottom', '2010-translucence' )."</option>
-					<option value='hide' ".($translucence_options['header-text-display'] == 'hide' ? ' selected' : '') . ">".__( 'hide', '2010-translucence' )."</option>
+					<option value='hide' ".($translucence_options['header-text-display'] == 'hide' ? ' selected' : '') . ">".__( 'Hide', '2010-translucence' )."</option>
+					<option value='above' ".($translucence_options['header-text-display'] == 'above' ? ' selected' : '') . ">".__( 'Above', '2010-translucence' )."</option>
 				</select>
 				</span></span>";
 			}

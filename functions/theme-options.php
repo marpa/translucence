@@ -1,11 +1,8 @@
 <?php // 2010 Translucence theme options
 
 add_action( 'admin_init', 'translucence_theme_options_init' );
-add_action( 'admin_menu', 'translucence_variation_add_page' );
-add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar', 70 );
-
-
-
+add_action('admin_menu', 'translucence_variation_add_page');
+add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar' ,  70);
 
  /**
  * Initialize plugin to white list theme options
@@ -17,6 +14,7 @@ add_action( 'admin_bar_menu', 'translucence_add_menu_admin_bar', 70 );
 
 function translucence_theme_options_init() {
 	global $translucence_options_id;
+	
 	register_setting( $translucence_options_id, $translucence_options_id, 'translucence_validate_options' );	
 }
 
@@ -444,6 +442,12 @@ if (!function_exists('translucence_get_variation_default')) {
 function translucence_get_variation_default_config() {
 	global $translucence_config, $translucence_options;
 	
+	//foreach( $translucence_config as $key => $value )
+	//{
+	//	if( !isset($translucence_options[$key]) )
+	//		$translucence_options[$key] = $value;
+	//}
+	
 	if (!isset($translucence_options['theme-name'])) $translucence_options['theme-name'] = $translucence_config['theme-name'];
 	if (!isset($translucence_options['theme-url'])) $translucence_options['theme-url'] = $translucence_config['theme-url'];
 	
@@ -758,37 +762,37 @@ function translucence_set_derivative_options() {
 		$translucence_options['show-header-text-ie7'] = "none";
 	}
 	
-	if ($translucence_options['header-text-display'] == "top") {
-		$translucence_options['header-text-padding-top'] = 10;
+	$translucence_options['title-box-height'] = $translucence_options['site-title-size'] + $translucence_options['site-description-size'] + 6 + 4 + 2;
+	$translucence_options['header-top-margin'] = 0;
+	
+	switch( $translucence_options['header-text-display'] )
+	{
+		case "top":
+		case "hide":
+			$translucence_options['title-box-top'] = 10;
+			$translucence_options['title-box-left'] = 10;
+			$translucence_options['title-box-top-margin'] = 0;
+			break;
 		
-	} else if ($translucence_options['header-text-display'] == "middle") {
-		if ($translucence_options['header-block-height'] == 50) {
-			$translucence_options['header-text-padding-top'] = 5;
-		} else if ($translucence_options['header-block-height'] == 70) {
-			$translucence_options['header-text-padding-top'] = 10;
-		} else if ($translucence_options['header-block-height'] == 100) {
-			$translucence_options['header-text-padding-top'] = 25;		
-		} else if ($translucence_options['header-block-height'] == 125) {
-			$translucence_options['header-text-padding-top'] = 45;		
-		} else if ($translucence_options['header-block-height'] == 150) {
-			$translucence_options['header-text-padding-top'] = 55;		
-		} else if ($translucence_options['header-block-height'] == 175) {
-			$translucence_options['header-text-padding-top'] = 65;		
-		} else if ($translucence_options['header-block-height'] == 200) {
-			$translucence_options['header-text-padding-top'] = 80;
-		} else if ($translucence_options['header-block-height'] == 225) {
-			$translucence_options['header-text-padding-top'] = 90;
-		} else if ($translucence_options['header-block-height'] == 250) {
-			$translucence_options['header-text-padding-top'] = 110;
-		} else if ($translucence_options['header-block-height'] == 300) {
-			$translucence_options['header-text-padding-top'] = 145;
-		}
+		case "middle":
+			$translucence_options['title-box-top'] = $translucence_options['header-block-height'] / 2;
+			$translucence_options['title-box-left'] = 10;
+			$translucence_options['title-box-top-margin'] = $translucence_options['title-box-height'] / 2 * -1;
+			break;
 		
-	} else if ($translucence_options['header-text-display'] == "bottom") {
-		$translucence_options['header-text-padding-top'] = $translucence_options['header-block-height'] - 50;
+		case "bottom":
+			$translucence_options['title-box-top'] = $translucence_options['header-block-height'] - 10;
+			$translucence_options['title-box-left'] = 10;
+			$translucence_options['title-box-top-margin'] = $translucence_options['title-box-height'] * -1;
+			break;
 		
-	} else {
-		$translucence_options['header-text-padding-top'] = 15;
+		case "above":
+		default:
+			$translucence_options['title-box-top'] = -10;
+			$translucence_options['title-box-left'] = 10;
+			$translucence_options['title-box-top-margin'] = $translucence_options['title-box-height'] * -1;
+			$translucence_options['header-top-margin'] = $translucence_options['title-box-height'] + 10;
+			break;
 	}
 	
 	$translucence_options['description-text-padding-top'] = $translucence_options['header-text-padding-top'] + 12;

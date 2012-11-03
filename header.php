@@ -226,25 +226,24 @@ jQuery(document).ready(function($) {
 	<div id="header">
 		<div id="masthead">
 			<div id="branding" role="banner">
-
-				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';" style="cursor: pointer;">			
-					<?php
-					if ( is_singular() &&
-							has_post_thumbnail( $post->ID ) &&
-							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= HEADER_IMAGE_WIDTH ) :	
-					endif; ?>					
-	
-					<div id="title-box">
-						<div id="site-title">				
-							<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			
+				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';">
+				
+					<!-- Anything to appear behind the title should be here... -->
+				
+				</div>
+			
+				<span id="title-box">
+					<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+						<div id="site-title">			
+							<?php bloginfo( 'name' ); ?>
 						</div><br/>
 						<div id="site-description">	
 							<?php bloginfo( 'description' ); ?>		
 						</div>
-					</div><!-- #title-box -->
-				</div><!-- headerblock -->
-			</div><!-- #branding -->
+					</a>
+				</span>
+			</div><!-- branding -->
 
 			<div id="access" role="navigation">
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
