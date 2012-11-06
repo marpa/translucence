@@ -10,17 +10,11 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
-	<version number="2.3.2" date="2012-06-03">
+	<version number="2.3.2" date="2012-11-06">
 		<releaseNotes>
 			This release refactors theme css to reduce and simplify it.  This release
 			also add minor revisions to UI
 		</releaseNotes>
-		<new author='alex' date='the future'>
-			Added a list of sub-categories on category pages.
-		</new>
-		<new author='alex' date='the future'>
-			Added theme option for displaying categories and tags, before or after post content
-		</new>
 		<new author='crystal' date='2012-10-22'>
 			Added support for displaying category and tag custom base names.
 		</new>
@@ -314,7 +308,7 @@
 	</info>
 	<info>
 		<title>Issues</title>
-		<url>https://github.com/marpa/translucence/issues?</url>
+		<url>https://github.com/marpa/translucence/issues/</url>
 	</info>
 	
 	<authors>

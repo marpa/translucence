@@ -2,20 +2,11 @@
 Translucence Change Log
 
 
-v. 2.3.2 (2012-06-03)
+v. 2.3.2 (2012-11-06)
 ----------------------------------------------------
 This release refactors theme css to reduce and simplify it. This release also add
 minor revisions to UI
 		
-		
-	* New feature: 
-		Added a list of sub-categories on category pages.
-		(the future - Alex Chapin)
-		
-	* New feature: 
-		Added theme option for displaying categories and tags, before or after post
-		content 
-		(the future - Alex Chapin)
 		
 	* New feature: 
 		Added support for displaying category and tag custom base names.

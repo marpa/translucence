@@ -1,5 +1,5 @@
 
-Translucence v. 2.3.2 (2012-06-03)
+Translucence v. 2.3.2 (2012-11-06)
 =================================
 
 What is Translucence?
@@ -37,7 +37,7 @@ See the INSTALL.txt file:
 
 Issues
 ---------------------
-https://github.com/marpa/translucence/issues?
+https://github.com/marpa/translucence/issues/
 
 
 
@@ -51,7 +51,7 @@ https://github.com/marpa/translucence/issues?
 ===================================================================
 
 
-v. 2.3.2 (2012-06-03)
+v. 2.3.2 (2012-11-06)
 ----------------------------------------------------
 This release refactors theme css to reduce and simplify it. This release also add
 minor revisions to UI
