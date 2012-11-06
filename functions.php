@@ -145,6 +145,20 @@ function translucence_setup() {
 	$theme_id = str_replace(" ", "_", $theme_id);
  	$translucence_options_id = $theme_id."_options";
 
+	// initialize or get theme options
+	$theme = wp_get_theme();
+	$translucence_version = $theme->Version;
+	$translucence_options = get_option($translucence_options_id);
+	if( (is_admin()) ||
+		!($translucence_options) || 
+	    !(isset($translucence_options['version'])) || 
+	     ($translucence_options['version'] !== $translucence_version) )
+	{
+		$translucence_options['version'] = $translucence_version;
+ 		translucence_theme_options_update();
+ 	}
+ 	
+/*
 	// initialize or get theme options	
 	if (!is_array(get_option($translucence_options_id))) {
 		add_option($translucence_options_id, array('init' => 1));
@@ -164,7 +178,7 @@ function translucence_setup() {
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
-
+*/
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
