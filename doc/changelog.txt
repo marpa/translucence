@@ -2,6 +2,19 @@
 Translucence Change Log
 
 
+v. 3.0.0 (the future)
+----------------------------------------------------
+This release refactors how the header image, site title and description are
+displayed. Significant changes are also made to the sidebar toggle UI. Finally,
+theme configuration and options are refactored in order to support theme options
+version updating and configuration extensibility.
+		
+		
+		
+	
+
+
+
 v. 2.3.2 (2012-11-06)
 ----------------------------------------------------
 This release refactors theme css to reduce and simplify it. This release also add

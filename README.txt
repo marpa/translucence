@@ -1,5 +1,5 @@
 
-Translucence v. 2.3.2 (2012-11-06)
+Translucence v. 3.0.0 (the future)
 =================================
 
 What is Translucence?
@@ -10,8 +10,10 @@ the WordPress twentyten default theme.
 
 Current Version Notes
 ---------------------
-This release refactors theme css to reduce and simplify it. This release also add
-minor revisions to UI
+This release refactors how the header image, site title and description are
+displayed. Significant changes are also made to the sidebar toggle UI. Finally,
+theme configuration and options are refactored in order to support theme options
+version updating and configuration extensibility.
 
 
 Downloads
@@ -40,6 +42,11 @@ Issues
 https://github.com/marpa/translucence/issues/
 
 
+Wiki
+---------------------
+https://github.com/marpa/translucence/wiki
+
+
 
 
 
@@ -49,6 +56,15 @@ https://github.com/marpa/translucence/issues/
 | Prior Translucence Release Notes
 | (See the Translucence change log for more details)
 ===================================================================
+
+
+v. 3.0.0 (the future)
+----------------------------------------------------
+This release refactors how the header image, site title and description are
+displayed. Significant changes are also made to the sidebar toggle UI. Finally,
+theme configuration and options are refactored in order to support theme options
+version updating and configuration extensibility.
+
 
 
 v. 2.3.2 (2012-11-06)

@@ -10,6 +10,16 @@
 <!DOCTYPE changelog SYSTEM "../dtds/changelog.dtd">
 
 <changelog name="Translucence">
+	<version number="3.0.0" date="the future">
+		<releaseNotes>
+			This release refactors how the header image, site title and description
+			are displayed.  Significant changes are also made to the sidebar toggle UI.
+			Finally, theme configuration and options are refactored in order to support
+			theme options version updating and configuration extensibility.
+		</releaseNotes>
+		
+		
+	</version>	
 	<version number="2.3.2" date="2012-11-06">
 		<releaseNotes>
 			This release refactors theme css to reduce and simplify it.  This release
@@ -309,6 +319,10 @@
 	<info>
 		<title>Issues</title>
 		<url>https://github.com/marpa/translucence/issues/</url>
+	</info>
+	<info>
+		<title>Wiki</title>
+		<url>https://github.com/marpa/translucence/wiki</url>
 	</info>
 	
 	<authors>
