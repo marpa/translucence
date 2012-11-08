@@ -151,6 +151,7 @@ div.menu,
 }
 
 #branding #title-box {
+	display: <?php print $translucence_options['show-header-text']?>;
 	height: <?php print $translucence_options['title-box-height']?>px;
 	position: absolute;
 	top: <?php print $translucence_options['title-box-top']?>px;
