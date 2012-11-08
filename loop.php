@@ -19,15 +19,6 @@
  */
  global $translucence_options;
 ?>
-<div class="toggle" style="float: left;">
-	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle" style="float: right;">
-	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
-<div class="toggle">
-	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-</div>
 
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>
 <div style = "width: 100%; float: right;">

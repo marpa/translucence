@@ -24,7 +24,9 @@ get_header(); ?>
 	<?php endif; ?>	
 	
 		<div id="content" role="main">
-	
+
+		<?php print translucence_toggle_links(); ?>	
+
 		<?php
 		/* Run the loop to output the posts.
 		 * If you want to overload this in a child theme then include a file

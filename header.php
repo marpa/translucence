@@ -8,6 +8,10 @@
  * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
+ 
+ // Starting the session 
+session_start(); 
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -56,10 +60,7 @@ jQuery(document).ready(function(){
 	jQuery('#s').inline_label({text: "Search Site..."});
 });
 </script>
-<meta name="primary_width" content="<?php echo $translucence_options['right01-width'] ?>" />
-<meta name="secondary_width" content="<?php echo $translucence_options['right02-width'] ?>" />
-<meta name="tertiary_width" content="<?php echo $translucence_options['left01-width'] ?>" />
-<meta name="content_width" content="<?php echo translucence_get_box_widths('content'); ?>" />
+
 </head>
 
 <body <?php body_class(); ?> >
@@ -84,25 +85,25 @@ jQuery(document).ready(function(){
 	<div id="header">
 		<div id="masthead">
 			<div id="branding" role="banner">
-
-				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';" style="cursor: pointer;">			
-					<?php
-					if ( is_singular() &&
-							has_post_thumbnail( $post->ID ) &&
-							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= HEADER_IMAGE_WIDTH ) :	
-					endif; ?>					
-	
-					<div id="title-box">
-						<div id="site-title">				
-							<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+			
+				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';">
+				
+					<!-- Anything to appear behind the title should be here... -->
+					<?php if( function_exists('boom_header_image') ) boom_header_image(); ?>
+					
+				</div>
+			
+				<span id="title-box">
+					<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+						<div id="site-title">			
+							<?php bloginfo( 'name' ); ?>
 						</div><br/>
 						<div id="site-description">	
 							<?php bloginfo( 'description' ); ?>		
 						</div>
-					</div><!-- #title-box -->
-				</div><!-- headerblock -->
-			</div><!-- #branding -->
+					</a>
+				</span>
+			</div><!-- branding -->
 
 			<div id="access" role="navigation">
 			  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>

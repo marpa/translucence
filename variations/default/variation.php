@@ -206,7 +206,8 @@ $translucence_options_values['header-text-display'] = array(
 	'Hide' => 'hide',
 	'Top' => 'top',
 	'Middle' => 'middle',
-	'Bottom' => 'bottom'
+	'Bottom' => 'bottom',
+	'Above' => 'above'
 	);
 
 $translucence_options_values['text-shadow-offset'] = array(

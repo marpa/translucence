@@ -69,6 +69,7 @@ $translucence_config['cat-links-color'] = "#e9e9c9";
 
 $translucence_config['site-padding-top'] = "20";
 $translucence_config['site-padding-bottom'] = "20";
+$translucence_config['content-padding'] = 20;
 
 $translucence_config['site-color'] = "#FFFFFF";
 $translucence_config['title-box-color'] = "#FFFFFF";

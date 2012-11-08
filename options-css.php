@@ -14,10 +14,6 @@ if ( ! function_exists( 'translucence_options_css' ) ) :
 function translucence_options_css() {
 	global $translucence_options, $translucence_config;
 	global $translucence_options_id;
-
-	$site_width = $translucence_options['site-width'];
-	$header_width = $translucence_options['site-width']-7;
-	$menu_width =$translucence_options['site-width']-7;
 	
 	// add # to theme option for site-title and description
 	if (!preg_match("/\#/", $translucence_options['site-title-color'])) {
@@ -27,35 +23,13 @@ function translucence_options_css() {
 	if (!preg_match("/\#/", $translucence_options['site-description-color'])) {
 		$translucence_options['site-description-color'] = "#".$translucence_options['site-description-color'];
 	}
-
-	// calculate the width of the content div based on widths of sidebars
-	// sidebar width = sidebar width + 50
-	// if sidebar width = 0 then width = 0
-	$left01_width = 0;
-	if ($translucence_options['left01-width'] != 0) {
-		$left01_width = $translucence_options['left01-width'] + 50;
-	}
-
-	$right01_width = 0;
-	if ($translucence_options['right01-width'] != 0) {
-		$right01_width = $translucence_options['right01-width'] + 50;
-	}
-
-	$right02_width = 0;
-	if ($translucence_options['right02-width'] != 0) {
-		$right02_width = $translucence_options['right02-width'] + 50;
-	}
-			
-	$content_width = $translucence_options['site-width'] - ($left01_width + $right01_width + $right02_width + 70);
-	$total = ($translucence_options['left01-width'] + $translucence_options['right01-width'] + $translucence_options['right02-width']+$content_width);
-
+	
 	ob_start();
 	
 	/******************************************************************************
 	 * CSS definitions for all classes in this theme that have been modified by theme options
 	 * See: template-options.php for this theme's html
 	 ******************************************************************************/
-
 ?>
 
 /* =css translucence theme options update
@@ -82,7 +56,7 @@ div.menu,
 #main,
 #wrapper {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 #wrapper {
@@ -97,7 +71,7 @@ div.menu,
 }
 
 .sitewrapper {
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: <?php print $translucence_options['site-margin-top']?>px;
@@ -145,63 +119,76 @@ div.menu,
 
 #header {
 	padding: 0 0 0 0px;
+	margin-top: <?php print $translucence_options['header-top-margin']?>px;
 }
 	
 #branding {
 	margin: 0 auto;
-	width: <?php print $site_width?>px;		
-}
-
-.headerblock {
-	color: <?php print $translucence_options['header-text-color']?>;
-	background-color: <?php print $translucence_options['header-color-rgb']?>;	
-	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>;	
-	padding-top: 0px;
-	width: <?php print $header_width?>px;
+	width: <?php print ($translucence_options['site-width'] - 2)?>px;
 	height: <?php print $translucence_options['header-block-height']?>px;
+	color: <?php print $translucence_options['header-text-color']?>;
+	border: 1px <?php print $translucence_options['headerblock-border-style']?> <?php print $translucence_options['header-border-color']?>; 
+	background-color: <?php print $translucence_options['header-color-rgb']?>;
+	position: relative;
 }
 
-.headerblock:hover {
+#branding:hover {
 	background-color: <?php print $translucence_options['header-color-hover-rgb']?>;
 	border: 1px <?php print $translucence_options['headerblock-hover-border-style']?> <?php print $translucence_options['header-border-color']?>; 
 }
 
 
-#title-box {
-	margin-top: <?php print $translucence_options['header-text-padding-top']?>px;
-	margin-left: 10px;
+#branding .headerblock {
+	margin: 0 auto;
+	width: <?php print ($translucence_options['site-width'] - 2)?>px;
+	height: <?php print $translucence_options['header-block-height']?>px;
+	position: absolute;
+	color: transparent;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	cursor:pointer;
 }
 
-#title-box #site-title {
-	background: <?php print $translucence_options['title-box-color-rgb']?>;
-	margin-bottom: 1px;
-	padding: 3px 3px 3px 3px;
+#branding #title-box {
 	display: <?php print $translucence_options['show-header-text']?>;
-	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
-	zoom:1;
+	height: <?php print $translucence_options['title-box-height']?>px;
+	position: absolute;
+	top: <?php print $translucence_options['title-box-top']?>px;
+	left: <?php print $translucence_options['title-box-left']?>px;
+	margin-top: <?php print $translucence_options['title-box-top-margin']?>px;
 }
 
-#site-title a {
+#branding #title-box a {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #title-box a:hover {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #site-title {
 	color: <?php print $translucence_options['site-title-color']?>;
+	background-color: <?php print $translucence_options['title-box-color-rgb']?>;
+	height: <?php print ($translucence_options['site-title-size'] + 6)?>px;
+	margin-bottom: 4px;
+	display:inline-block;
+	padding:0 3px;
 	font-size: <?php print $translucence_options['site-title-size']?>px;
-	line-height: <?php print $translucence_options['site-title-size']?>px;
+	line-height: <?php print ($translucence_options['site-title-size'] + 6)?>px;
 	text-shadow: <?php print $translucence_options['header-text-shadow-color']?> <?php print $translucence_options['header-text-shadow-offset']?> <?php print $translucence_options['header-text-shadow-blur']?>;
 }
 
-#site-title a:hover {
-	color: <?php print $translucence_options['site-title-color']?>;
-	border-bottom: none;
-}
-
-#site-description {
+#branding #site-description {
 	color: <?php print $translucence_options['site-description-color']?>;
+	background-color: <?php print $translucence_options['description-box-color-rgb']?>;
 	font-size: <?php print $translucence_options['site-description-size']?>px;
-	background: <?php print $translucence_options['description-box-color-rgb']?>;
-	padding: 1px 1px 1px 1px;
-	margin-left: 5px;
-	display: <?php print $translucence_options['show-header-text']?>;
-	*display: <?php print $translucence_options['show-header-text-ie7'] ?>;
-	zoom:1;
+	line-height: <?php print ($translucence_options['site-description-size'] + 2)?>px;
+	display:inline-block;
+	padding:0 3px;
+	cursor:pointer;
 }
 
 
@@ -209,7 +196,7 @@ div.menu,
 
 #footer {
 	clear: both;
-	width: <?php print $site_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 /* Full width content with no sidebar; used for attachment pages */
@@ -231,14 +218,15 @@ div.menu,
 #content {
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
-	margin-right: <?php print $translucence_options['content-margin-right']?>px;	
-	width: <?php print $content_width?>px;
+	margin-right: <?php print $translucence_options['content-margin-right']?>px;
+	width: <?php print $translucence_options['content-width']?>px;
 	color: <?php print $translucence_options['textcolor']?>;
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	padding: 20px;	
+	padding: <?php print $translucence_options['content-padding'] ?>px;	
 	border: <?php print $translucence_options['content-border-width'] ?> <?php print $translucence_options['content-border-style'] ?> <?php print $translucence_options['content-border-color']?>;		
 	font-size: <?php print $translucence_options['entry-text-size']?>px;
 	line-height: <?php print $translucence_options['entry-line-height']?>px;
+	position:relative;
 }
 
 
@@ -258,11 +246,12 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['left01-padding']?>px;
 	padding-right: <?php print $translucence_options['left01-padding']?>px;	
+	position:relative;
 }
 
 #tertiary:hover {
 	background-color: <?php print $translucence_options['left01-color-hover-rgb']?>;
-	border-top: 1px <?php print $translucence_options['left01-hover-border-style']?> <?php print $translucence_options['left01-border-color']?>;
+	border: 1px <?php print $translucence_options['left01-hover-border-style']?> <?php print $translucence_options['left01-border-color']?>;
 }
 		
 #primary {
@@ -278,6 +267,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['right01-padding']?>px;
 	padding-right: <?php print $translucence_options['right01-padding']?>px;	
+	position:relative;
 }
 
 #primary:hover {
@@ -297,6 +287,7 @@ div.menu,
 	padding-top: 10px;
 	padding-left: <?php print $translucence_options['right02-padding']?>px;
 	padding-right: <?php print $translucence_options['right02-padding']?>px;
+	position:relative;
 }
 
 #secondary:hover {
@@ -309,7 +300,7 @@ div.menu,
 	color:  <?php print $translucence_options['bottom-text-color']?>;
 	background-color: <?php print $translucence_options['bottom-color-rgb']?>;	
 	overflow: hidden;
-	width: <?php print $header_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 	padding: 20px 0px 0px 4px;
 }
 
@@ -420,6 +411,156 @@ div.menu,
 	text-decoration: none;	
 	border: 1px dotted <?php print $translucence_options['entry-link-color']?>;
 }
+
+/* begin CRYSTAL's togglelink code */
+
+span.togglelink
+{
+	padding:2px;
+	display:inline-block;
+}
+
+span.togglelink > span
+{
+	cursor:pointer;
+	width:13px;
+	height:13px;
+	background-color: #ccc;
+	border: 1px dotted black;
+	color: black;
+	text-align:center;
+	line-height:13px;
+	display:inline-block;
+	position:relative;
+}
+
+span.togglelink > span:hover
+{
+	border: 1px solid;
+}
+
+#content span.togglelink
+{
+	display:none;
+}
+
+#content span.togglelink > span
+{
+	background-color: <?php print $translucence_options['content-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#primary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['right01-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#secondary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['right02-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#tertiary span.togglelink > span
+{
+	background-color: <?php print $translucence_options['left01-color-rgb']?>;
+	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#content span.togglelink > span:hover, #primary span.togglelink > span:hover,
+#secondary span.togglelink > span:hover, #tertiary span.togglelink > span:hover
+{
+	border: 1px solid;
+}
+
+#primary span.togglelink, #secondary span.togglelink
+{
+	position:absolute;
+	top:-2px;
+	right:0px;
+}
+
+#tertiary span.togglelink
+{
+	position:absolute;
+	top:-2px;
+	left:0px;
+}
+
+span.togglelink > span.arrow-left
+{
+	width:8px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+span.togglelink > span.arrow-left > span
+{
+	position:absolute;
+	top:-1px;
+	left:-8px;
+}
+
+span.togglelink > span.arrow-right
+{
+	width:8px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+span.togglelink > span.arrow-right > span
+{
+	position:absolute;
+	top:-1px;
+	left:3px;
+}
+
+span.togglelink > span.circle-close
+{
+	border-radius: 40px;
+}
+
+span.togglelinks-box
+{
+	display:inline-block;
+}
+
+span.left-togglelinks-box
+{
+	position:absolute;
+	top:2px;
+	left:0px;
+}
+
+span.right-togglelinks-box
+{
+	position:absolute;
+	top:2px;
+	right:0px;
+}
+
+span.togglelinks-box .togglelink
+{
+	margin-left:10px;
+}
+
+span.togglelinks-box .togglelink:first-child
+{
+	margin-left:0px;
+}
+
+div.togglelinks-box-spacer
+{
+	margin-top:15px;
+}
+
+/* end CRYSTAL's togglelink code */
+
 
 #toc .toggle a:hover {
 	text-decoration: underline;	
@@ -649,7 +790,7 @@ div.menu,
 	display: block;
 	float: left;
 	border: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-color']?>;	
-	width: <?php print $menu_width?>px;
+	width: <?php print $transluncence_options['site-width']?>px;
 	margin-top: <?php print $translucence_options['top-margin-top']?>px;
 	margin-bottom: 20px; 
 }
@@ -658,14 +799,14 @@ div.menu,
 div.menu {
 	font-size: 13px;
 	margin-left: 12px;
-	width: <?php print $menu_width?>px;
+	width: <?php print $transluncence_options['site-width']?>px;
 }
 
 #access .menu-header,
 div.menu,
 #main {
 	margin: 0 auto;
-	width: <?php print $header_width?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 #access .menu-header ul,

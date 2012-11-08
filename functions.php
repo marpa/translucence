@@ -40,6 +40,7 @@
  * @subpackage 2010_Translucence
  * @since 2010 Translucence 1.0
  */
+
  
 /**
 * Set the content width based on the theme's design and stylesheet.
@@ -52,16 +53,24 @@ if ( ! isset( $content_width ) )
 
 /**
  * Get the translucence config.
-*/
+ * If this function is called by a child theme, it will load the parent's
+ * config-sample.php file before loading the child's config.php file.  This
+ * will allow the child to only overwrite select items in their config.php.
+ */
+ if (!function_exists('translucence_add_config')) 
+ {
+	function translucence_add_config() 
+	{		
+		$config_sample_file = get_theme_root().'/'.get_template().'/config-sample.php';
+		$config_file = get_theme_root().'/'.get_stylesheet().'/config.php';
+		
+		if( file_exists($config_sample_file) )
+			require_once($config_sample_file);
 
- if (!function_exists('translucence_add_config')) {
-	function translucence_add_config() {
-	   if (file_exists(dirname(__FILE__).'/config.php')) {
-			require_once('config.php');
-		} else if (file_exists(dirname(__FILE__).'/config-sample.php')) {
-			require_once('config-sample.php');
-		}
-	return $translucence_config;
+		if( file_exists($config_file) )
+			require_once($config_file);
+
+		return $translucence_config;
 	}
 }
 
@@ -144,6 +153,20 @@ function translucence_setup() {
 	$theme_id = str_replace(" ", "_", $theme_id);
  	$translucence_options_id = $theme_id."_options";
 
+	// initialize or get theme options
+	$theme = wp_get_theme();
+	$translucence_version = $theme->Version;
+	$translucence_options = get_option($translucence_options_id);
+	if( (is_admin()) ||
+		!($translucence_options) || 
+	    !(isset($translucence_options['version'])) || 
+	     ($translucence_options['version'] !== $translucence_version) )
+	{
+		$translucence_options['version'] = $translucence_version;
+ 		translucence_theme_options_update();
+ 	}
+ 	
+/*
 	// initialize or get theme options	
 	if (!is_array(get_option($translucence_options_id))) {
 		add_option($translucence_options_id, array('init' => 1));
@@ -163,7 +186,7 @@ function translucence_setup() {
 		$translucence_options['activated-theme'] = 1;
 		translucence_theme_options_update();
 	}
-
+*/
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
@@ -207,7 +230,7 @@ function translucence_setup() {
 	
 	//$header_image = "%s/variations/".$translucence_config['header_image_options'][$translucence_options['header-image-options']]['option_value'];
 	
-	$header_image_width = $translucence_options['site-width'] - $translucence_options['custom-header-width-offset'];
+	$header_image_width = $translucence_options['site-width'];
 	$header_image_height = $translucence_options['header-block-height'];
 	//$header_image = $translucence_options['header-block-height'];	
 	
@@ -305,9 +328,9 @@ function translucence_header_style() {
 	?>	
 	<style type="text/css">
 	.headerblock {
-		background-color: <?php echo HEADER_BGCOLOR; ?>;
+		/* background-color: <?php echo HEADER_BGCOLOR; ?>; */
 		<?php if ($custom_header != "") print "background-image: url('".$custom_header."');\n"; ?>
-		background-position: right;
+		background-position: center center;
 		background-repeat: no-repeat;
 	}
 	</style>	
@@ -716,56 +739,36 @@ function translucence_get_author_info() {
  * @return int width of content box in pixels
  ******************************************************************************/
 
-function translucence_get_content_width ($template) {
+function translucence_get_content_width($page) {
 	global $translucence_options;
 
-	if ($template == "page") {
-		$width_adjust = 50;
-		if ($translucence_options['left01-width'] == 0) {
-			$left01_width = 0;
-		} else {
-			$left01_width = $translucence_options['left01-width']+$width_adjust;
-		}
-		
-		if ($translucence_options['right01-width'] == 0) {
-			$right01_width = 0;
-		} else {
-			$right01_width = $translucence_options['right01-width']+$width_adjust;
-		}
-
-		if ($translucence_options['right02-width'] == 0) {
-			$right02_width = 0;
-		} else {
-			$right02_width = $translucence_options['right02-width']+$width_adjust;
-		}
-		
-		$content_width = $translucence_options['site-width'] -  ($left01_width + $right01_width + $right02_width + 70);
-		
-	} else {
-	
-		if ($translucence_options[$template.'-sidebar-left-display'] != "show" ) {
-			$left01_width = 0;
-		} else {
-			$left01_width = $translucence_options['left01-width']+50;
-		}
-		
-		if ($translucence_options[$template.'-sidebar-right-display'] != "show" ) {
-			$right01_width = 0;
-		} else {
-			$right01_width = $translucence_options['right01-width']+50;
-		}
-		
-		if ($translucence_options[$template.'-sidebar-right02-display'] != "show" ) {
-			$right02_width = 0;
-		} else {
-			$right02_width = $translucence_options['right02-width']+50;
-		}
-		
-		$content_width = $translucence_options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
+	switch($page)
+	{
+		case 'post':
+		case 'category':
+		case 'tag':
+		case 'author':
+		case 'search':
+		case 'archive':
+			$style = $translucence_options[$page.'-single-sidebar'];
+			if( $style == 'none' )
+				return $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+			
+			$width = $translucence_options['site-width'];
+			if( strstr($style, 'left01') )
+				$width -= $translucence_options['overall-left01-width'];
+			if( strstr($style, 'right01') )
+				$width -= $translucence_options['overall-right01-width'];
+			if( strstr($style, 'right02') )
+				$width -= $translucence_options['overall-right02-width'];
+			$width -= (2 + 1 + ($translucence_options['content-padding'] * 2));
+			return $width;
+			break;
+			
+		default:
+			return $translucence_options['content_width'];
+			break;
 	}
-	
-	//$content_width = $translucence_options['site-width'] -  $left01_width - $right01_width - $right02_width - 70;
-	return $content_width;
 }
 
  /**
@@ -780,6 +783,7 @@ function translucence_get_content_width ($template) {
 function translucence_get_box_widths ($box = 'all') {
 	global $translucence_options;
 	
+	$content_width = 0;
 	if (is_single()) {
 		$content_width = translucence_get_content_width ("post");
 	} else if (is_category()){
@@ -794,19 +798,24 @@ function translucence_get_box_widths ($box = 'all') {
 		$content_width = translucence_get_content_width ("archives");
 	} else {
 		if (is_page_template('page-right01-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['right01-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-right01-width'];
 		} else if (is_page_template('page-right02-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['right02-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-right02-width'];
 		} else if (is_page_template('page-right-both-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['right01-width']  - $translucence_options['right02-width'] - 175;
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-right01-width']  - $translucence_options['overall-right02-width'];
 		} else if (is_page_template('page-left-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - 125;
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-left01-width'];
 		} else if (is_page_template('page-left-right01-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - $translucence_options['right01-width'] - 175;
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-left01-width'] - $translucence_options['overall-right01-width'];
 		} else if (is_page_template('page-left-right02-sidebar.php')) {
-			$content_width = $translucence_options['site-width'] - $translucence_options['left01-width'] - $translucence_options['right02-width'] - 175;
-		} else {
+			$content_width = $translucence_options['site-width'] - $translucence_options['overall-left01-width'] - $translucence_options['overall-right02-width'];
+		} 
+		
+		if( $content_width == 0 ) {
 			$content_width = translucence_get_content_width ("page");
+		}
+		else {
+			$content_width -= (2 + ($translucence_options['content-padding'] * 2));
 		}
 	}
 	
@@ -933,17 +942,40 @@ function translucence_page_links_display() {
  */
 
 function translucence_toggle_links() {	
-	?>
-	<div class="toggle" style="float: left;">
-	<a id="togglecontenttertiary" href="javascript:toggle('tertiary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<div class="toggle" style="float: right;">
-	<a id="togglecontentsecondary" href="javascript:toggle('secondary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<div class="toggle">
-	<a id="togglecontentprimary" href="javascript:toggle('primary','content',<?php print translucence_get_box_widths(); ?>)">&nbsp;</a>
-	</div>
-	<?php
+	global $translucence_options;
+
+	if( $translucence_options['left01-width'] > 0 )
+	{
+		echo "<span class=\"togglelinks-box left-togglelinks-box\">";
+			echo "<span class=\"togglelink\" title=\"toggle left sidebar\" sidebar=\"tertiary\">";
+				echo "<span class=\"arrow-left\">";
+					echo "&nbsp;<span>&larr;</span>";
+				echo "</span>";
+			echo "</span>";
+		echo "</span>";
+	}
+	
+	if( ($translucence_options['right01-width'] > 0) || ($translucence_options['right02-width'] > 0) )
+	{
+		echo "<span class=\"togglelinks-box right-togglelinks-box\">";
+		if( $translucence_options['right01-width'] > 0 )
+		{
+			echo "<span class=\"togglelink\" title=\"toggle right sidebar\" sidebar=\"primary\">";
+				echo "<span class=\"arrow-right\">";
+					echo "&nbsp;<span>&rarr;</span>";
+				echo "</span>";
+			echo "</span>";
+		}
+		if( $translucence_options['right02-width'] > 0 )
+		{
+			echo "<span class=\"togglelink\" title=\"toggle far right sidebar\" sidebar=\"secondary\">";
+				echo "<span class=\"arrow-right\">";
+					echo "&nbsp;<span>&rarr;</span>";
+				echo "</span>";
+			echo "</span>";
+		}
+		echo "</span>";
+	}
 }
 
  /**
