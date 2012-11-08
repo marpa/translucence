@@ -40,6 +40,7 @@
  * @subpackage 2010_Translucence
  * @since 2010 Translucence 1.0
  */
+
  
 /**
 * Set the content width based on the theme's design and stylesheet.
@@ -52,17 +53,24 @@ if ( ! isset( $content_width ) )
 
 /**
  * Get the translucence config.
-*/
+ * If this function is called by a child theme, it will load the parent's
+ * config-sample.php file before loading the child's config.php file.  This
+ * will allow the child to only overwrite select items in their config.php.
+ */
+ if (!function_exists('translucence_add_config')) 
+ {
+	function translucence_add_config() 
+	{		
+		$config_sample_file = get_theme_root().'/'.get_template().'/config-sample.php';
+		$config_file = get_theme_root().'/'.get_stylesheet().'/config.php';
+		
+		if( file_exists($config_sample_file) )
+			require_once($config_sample_file);
 
- if (!function_exists('translucence_add_config')) {
-	function translucence_add_config() {
-	   if (file_exists(dirname(__FILE__).'/config-sample.php')) {
-			require_once('config-sample.php');
-		}
-		if (file_exists(dirname(__FILE__).'/config.php')) {
-			require_once('config.php');
-		}
-	return $translucence_config;
+		if( file_exists($config_file) )
+			require_once($config_file);
+
+		return $translucence_config;
 	}
 }
 
