@@ -61,147 +61,6 @@ jQuery(document).ready(function(){
 });
 </script>
 
-
-
-<script>
-jQuery(document).ready(function($) {
-	$('.togglelink').click( function() {
-	
-		// get the sidebar object and its width.
-		var sidebar_id = $(this).attr("sidebar");
-		var sidebar = $('#'+sidebar_id);
-		if( sidebar.length == 0 ) return;
-		var sidebar_width = parseInt($(sidebar).attr('overall-width'), 10);
-
-		// get the current width of the content.
-		var current_content_width = $('#content').width();
-
-		var margin_name = 'margin-right';
-		var adj_object_id = 'content';
-		switch( sidebar_id )
-		{
-			case "primary":
-				break;
-				
-			case "secondary":
-				margin_name = 'margin-right';
-				if( $('#primary').is(':visible') )
-					adj_object_id = 'primary';
-				break;
-			
-			case "tertiary":
-				margin_name = 'margin-left';
-				break;
-				
-			default:
-				return; break;
-		}
-		
-		var adj_object = $('#'+adj_object_id);
-		var current_margin = parseInt( $(adj_object).css(margin_name).replace('px','') );
-			
-		var showing_sidebar = false;
-		if( $(sidebar).is(':visible') )
-		{
-			// hide the sidebar.
-			$(sidebar).hide();
-			
-			// change margin of adjacent object.
-			$(adj_object).css(margin_name, (current_margin + sidebar_width) + 'px');
-			
-			// animate content width change and adjacent object margin.
-			if(adj_object_id == 'content')
-			{
-				var css = {};
-				css['width'] = (current_content_width + sidebar_width) + 'px';
-				css[margin_name] = current_margin + 'px';
-
-				$("#content").stop().animate( css, 100, 'linear' );
-			}
-			else
-			{
-				var css = {};
-				css[margin_name] = current_margin + 'px';
-
-				$("#content").stop().animate( {
-						width: (current_content_width + sidebar_width) + 'px'
-					}, 100, 'linear'
-				);
-
-				$(adj_object).stop().animate( css, 100, 'linear' );
-			}
-			
-			sessionStorage.setItem(sidebar_id, 'hide');
-		}
-		else
-		{
-			showing_sidebar = true;
-			if(adj_object_id == 'content')
-			{
-				var css = {};
-				css['width'] = (current_content_width - sidebar_width) + 'px';
-				css[margin_name] = (current_margin + sidebar_width) + 'px';
-
-				$("#content").stop().animate( css, 100, 'linear', function() {
-					var css = {};
-					css[margin_name] = current_margin + 'px';
-					$('#content').css(css);
-					$(sidebar).show();
-				} );
-			}
-			else
-			{
-				var css = {};
-				css[margin_name] = (current_margin + sidebar_width) + 'px';
-
-				$("#content").stop().animate( {
-						width: (current_content_width - sidebar_width) + 'px'
-					}, 100, 'linear'
-				);
-
-				$(adj_object).stop().animate( css, 100, 'linear', function() {
-					var css = {};
-					css[margin_name] = current_margin + 'px';
-					$(adj_object).css(css);
-					$(sidebar).show();
-				} );
-			}
-			
-			sessionStorage.setItem(sidebar_id, 'show');
-		}
-		
-		// get content togglelink element.
-		if( showing_sidebar ) {
-			$("#content span.togglelink[sidebar='"+sidebar_id+"']").hide();
-		}
-		else {
-			$("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
-		}
-	});
-	
-	var sidebars = [ 'primary', 'secondary', 'tertiary' ];
-	for( i  in sidebars )
-	{
-		var sidebar_id = sidebars[i];
-		var show_sidebar = sessionStorage.getItem( sidebar_id );
-		if( show_sidebar === false ) {
-			sessionStorage.setItem( sidebar_id, 'show' );
-		}
-		else {
-			if( show_sidebar === 'hide' ) {
-				var sidebar = $('#'+sidebar_id);
-				if( sidebar.length === 0 ) continue;
-				
-				$(sidebar).hide();
-				$('#content').width( $('#content').width() + parseInt($(sidebar).attr('overall-width')) );
-				$("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
-			}
-		}
-	}
-	
-});
-
-</script>
 </head>
 
 <body <?php body_class(); ?> >
@@ -230,7 +89,8 @@ jQuery(document).ready(function($) {
 				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';">
 				
 					<!-- Anything to appear behind the title should be here... -->
-				
+					<?php if( function_exists('boom_header_image') ) boom_header_image(); ?>
+					
 				</div>
 			
 				<span id="title-box">
