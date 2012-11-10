@@ -472,8 +472,10 @@ span.togglelink > span:hover
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
-#content span.togglelink > span:hover, #primary span.togglelink > span:hover,
-#secondary span.togglelink > span:hover, #tertiary span.togglelink > span:hover
+#content span.togglelink > span:hover, 
+#primary span.togglelink > span:hover,
+#secondary span.togglelink > span:hover, 
+#tertiary span.togglelink > span:hover
 {
 	border: 1px solid;
 }
