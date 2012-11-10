@@ -447,28 +447,22 @@ span.togglelink > span:hover
 #content span.togglelink > span
 {
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
+	border: 1px solid <?php print $translucence_options['content-border-color']?>;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #primary span.togglelink > span
 {
-	background-color: <?php print $translucence_options['right01-color-rgb']?>;
-	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #secondary span.togglelink > span
 {
-	background-color: <?php print $translucence_options['right02-color-rgb']?>;
-	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #tertiary span.togglelink > span
 {
-	background-color: <?php print $translucence_options['left01-color-rgb']?>;
-	border: 1px dotted <?php print $translucence_options['textcolor']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
