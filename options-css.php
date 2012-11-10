@@ -425,7 +425,7 @@ span.togglelink > span
 	cursor:pointer;
 	width:13px;
 	height:13px;
-	background-color: #ccc;
+	background-color: transparent;
 	border: 1px dotted black;
 	color: black;
 	text-align:center;
@@ -453,16 +453,22 @@ span.togglelink > span:hover
 
 #primary span.togglelink > span
 {
+	background-color: transparent;
+	border: 1px solid <?php print $translucence_options['right01-border-color']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #secondary span.togglelink > span
 {
+	background-color: transparent;
+	border: 1px solid <?php print $translucence_options['right02-border-color']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #tertiary span.togglelink > span
 {
+	background-color: transparent;
+	border: 1px solid <?php print $translucence_options['left01-border-color']?>;;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
