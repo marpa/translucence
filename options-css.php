@@ -1054,15 +1054,13 @@ h1, h2, h3, h4 {
 	color: <?php print $translucence_options['linkcolor']?>;
 }
 
-a, h2 a:hover, h3 a:hover {
+a:link, a:hover, a:visited, a:active, h2 a:hover, h3 a:hover {
 	color: <?php print $translucence_options['linkcolor']?>;
 	text-decoration: none;
 }
 
 a:hover {
-	color: <?php print $translucence_options['linkcolor']?>;
 	border-bottom:1px solid <?php print $translucence_options['linkcolor']?>;
-	text-decoration: none;
 }
 
 /* Entry-content links */
