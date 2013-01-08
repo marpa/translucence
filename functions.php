@@ -1223,17 +1223,6 @@ function twentyten_posted_in() {
 endif;
 
 
-
-function translucence_slider_header()
-{
-	if( function_exists('boom_header_image') ) {
-		boom_header_image();
-	}
-}
-add_filter( 'translucence_behind_header_title', 'translucence_slider_header' );
-
-
-
 /*********************************************************
  * debugging
  *********************************************************/
