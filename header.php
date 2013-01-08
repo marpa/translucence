@@ -89,7 +89,7 @@ jQuery(document).ready(function(){
 				<div class="headerblock" onclick="location.href='<?php echo home_url(); ?>';">
 				
 					<!-- Anything to appear behind the title should be here... -->
-					<?php if( function_exists('boom_header_image') ) boom_header_image(); ?>
+					<?php apply_filters( 'translucence_behind_header_title', NULL ); ?>
 					
 				</div>
 			
