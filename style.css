@@ -1437,4 +1437,8 @@ DESCRIPTION: 1-3 column fixed layout
 	color: #003366;
 }
 
-
+/* Misc
+-------------------------------------------------------------- */	
+img#wpstats {
+	display:none
+}
