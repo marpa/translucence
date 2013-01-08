@@ -31,8 +31,11 @@ $content_width = translucence_get_content_width ("tag");
 					$tag_base = ($tag_base ? ucwords(str_replace(array('-', '/'),array(' ',' &raquo; '),$tag_base)) : 'Tags');
 					printf( __($tag_base.' &raquo; %s', '2010-translucence' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 				?></h1>
+				<?php
+					$tag_description = tag_description();
+					if ( ! empty( $tag_description ) )
+						echo '<div class="archive-meta">' . $tag_description . '</div>';
 
-<?php
 /* Run the loop for the tag archive to output the posts
  * If you want to overload this in a child theme then include a file
  * called loop-tag.php and that will be used instead.
