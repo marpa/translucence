@@ -144,8 +144,8 @@ a:hover {
 	border-bottom: none;
 }
 
-.headerblock {
-	z-index: -1;
+#title-box {
+	z-index: 100;
 }
 /*
 .headerblock #site-description {
