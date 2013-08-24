@@ -1105,6 +1105,8 @@ function translucence_set_derivative_options() {
 			$area = ".catlinks a";		
 		} else if ($box == "tag-links") {
 			$area = ".taglinks a";		
+		} else if ($box == "site") {
+			$area = "#wrapper";	
 		} else {
 			$area = ".".$box;
 		}
