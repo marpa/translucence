@@ -1128,7 +1128,7 @@ function translucence_set_derivative_options() {
 		}
 		
 		if ($box == "description-box") {
-			$translucence_options[$box.'-color-ie'] = "#site-description {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."};";
+			$translucence_options[$box.'-color-ie'] = "#site-description {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";}";
 			$translucence_options[$box.'-color-ie8'] = "background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";";
 		} else if ($box == "title-box") {
 			$translucence_options[$box.'-color-ie'] = "#site-title {background:transparent;filter:".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity']).";}";
