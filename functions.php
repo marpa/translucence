@@ -278,8 +278,9 @@ function translucence_add_options_css() {
 	print "</style>";
 	
 	// IE hack opacity options
-	print "<!--[if IE]>";
+	print "<!--[if lt IE 9]>";
 	print "<style type='text/css'>";
+	print $translucence_options['site-color-ie']."\n"; 
 	print $translucence_options['header-color-ie']."\n"; 
 	print $translucence_options['title-box-color-ie']."\n";
 	print $translucence_options['description-box-color-ie']."\n"; 
