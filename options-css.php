@@ -423,7 +423,7 @@ span.togglelink
 span.togglelink > span
 {
 	cursor:pointer;
-	width:13px;
+	width:16px;
 	height:13px;
 	background-color: transparent;
 	border: 1px dotted transparent;
@@ -455,6 +455,7 @@ span.togglelink > span:hover
 {
 	background-color: transparent;
 	border: 1px solid transparent;
+	height:22px;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
@@ -462,6 +463,7 @@ span.togglelink > span:hover
 {
 	background-color: transparent;
 	border: 1px solid transparent;
+	height:22px;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
@@ -469,6 +471,7 @@ span.togglelink > span:hover
 {
 	background-color: transparent;
 	border: 1px solid transparent;
+	height:22px;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
@@ -496,20 +499,22 @@ span.togglelink > span:hover
 
 span.togglelink > span.arrow-left
 {
-	margin-left:10px;
+	margin-left:2px;
 	margin-right:10px;
+	height:22px;
 }
 
 span.togglelink > span.arrow-left > span
 {
 	top:-1px;
-	left:-3px;
+	left:-8px;
 }
 
 span.togglelink > span.arrow-right
 {
 	margin-left:10px;
-	margin-right:10px;
+	margin-right:2px;
+	height:22px;
 }
 
 span.togglelink > span.arrow-right > span
