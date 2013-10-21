@@ -19,9 +19,9 @@
 	global $translucence_options; ?>
 
 	<div id="secondary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-right02-width']; ?>">
-		<span class="togglelink" style="float:right; cursor:pointer" sidebar="secondary">
+		<span class="togglelink" style="float:right; cursor:pointer" sidebar="secondary" title="Hide Sidebar">
 			<span class="square-close">
-				<span>&times;</span>
+				<span>&lt;</span>
 			</span>
 		</span>
 		<ul class="xoxo">

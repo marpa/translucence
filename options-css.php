@@ -426,7 +426,7 @@ span.togglelink > span
 	width:13px;
 	height:13px;
 	background-color: transparent;
-	border: 1px dotted black;
+	border: 1px dotted transparent;
 	color: black;
 	text-align:center;
 	line-height:13px;
@@ -447,28 +447,28 @@ span.togglelink > span:hover
 #content span.togglelink > span
 {
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	border: 1px solid <?php print $translucence_options['content-border-color']?>;
+	border: 1px solid transparent
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #primary span.togglelink > span
 {
 	background-color: transparent;
-	border: 1px solid <?php print $translucence_options['right01-border-color']?>;;
+	border: 1px solid transparent;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #secondary span.togglelink > span
 {
 	background-color: transparent;
-	border: 1px solid <?php print $translucence_options['right02-border-color']?>;;
+	border: 1px solid transparent;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
 #tertiary span.togglelink > span
 {
 	background-color: transparent;
-	border: 1px solid <?php print $translucence_options['left01-border-color']?>;;
+	border: 1px solid transparent;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
@@ -484,40 +484,36 @@ span.togglelink > span:hover
 {
 	position:absolute;
 	top:-2px;
-	right:0px;
+	left:0px;
 }
 
 #tertiary span.togglelink
 {
 	position:absolute;
 	top:-2px;
-	left:0px;
+	right:0px;
 }
 
 span.togglelink > span.arrow-left
 {
-	width:8px;
 	margin-left:10px;
 	margin-right:10px;
 }
 
 span.togglelink > span.arrow-left > span
 {
-	position:absolute;
 	top:-1px;
-	left:-8px;
+	left:-3px;
 }
 
 span.togglelink > span.arrow-right
 {
-	width:8px;
 	margin-left:10px;
 	margin-right:10px;
 }
 
 span.togglelink > span.arrow-right > span
 {
-	position:absolute;
 	top:-1px;
 	left:3px;
 }
