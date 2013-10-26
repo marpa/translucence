@@ -7,10 +7,16 @@
  * @since 2010 Translucence 1.0
  */
 
-get_header(); 
+get_header();
+global $translucence_options, $use_mobile_site; 
 $this_category = get_category($cat);
 $cat_id = $this_category->term_id;
-$content_width = translucence_get_content_width ("category");
+
+if( $use_mobile_site ) {
+	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+} else {
+	$content_width = translucence_get_content_width ("category");
+}
 ?>
 
 		<div id="container">

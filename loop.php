@@ -17,7 +17,12 @@
  * @subpackage 2010_Translucence
  * @since Twenty Ten 1.0
  */
- global $translucence_options;
+
+global $translucence_options, $use_mobile_site;
+
+if( $use_mobile_site ) {
+	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+}
 ?>
 
 <?php if (!is_single() && !is_archive() && !is_search()) : ?>

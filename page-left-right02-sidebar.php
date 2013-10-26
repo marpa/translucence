@@ -13,8 +13,13 @@
  */
 
 get_header(); 
-global $translucence_options;
+global $translucence_options, $use_mobile_site;
+
+if( $use_mobile_site ) {
+	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+} else {	
 $content_width = $translucence_options['site-width'] - $translucence_options['overall-left01-width'] - $translucence_options['overall-right02-width'] - 2 - $translucence_options['content-margin-right'] - ($translucence_options['content-padding'] * 2);
+}
 ?>
 
 <div id="container">
