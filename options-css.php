@@ -243,7 +243,7 @@ div.menu,
 	border: 1px <?php print $translucence_options['left01-border-style']?> <?php print $translucence_options['left01-border-color']?>;	
 	width: <?php print $translucence_options['left01-width']?>px;
 	display: <?php print $translucence_options['left01-visibility']?>;
-	padding-top: 10px;
+	padding-top: 15px;
 	padding-left: <?php print $translucence_options['left01-padding']?>px;
 	padding-right: <?php print $translucence_options['left01-padding']?>px;	
 	position:relative;
@@ -264,7 +264,7 @@ div.menu,
 	border: 1px <?php print $translucence_options['right01-border-style']?> <?php print $translucence_options['right01-border-color']?>;
 	width: <?php print $translucence_options['right01-width']?>px;
 	display: <?php print $translucence_options['right01-visibility']?>;
-	padding-top: 10px;
+	padding-top: 15px;
 	padding-left: <?php print $translucence_options['right01-padding']?>px;
 	padding-right: <?php print $translucence_options['right01-padding']?>px;	
 	position:relative;
@@ -284,7 +284,7 @@ div.menu,
 	border: 1px <?php print $translucence_options['right02-border-style']?> <?php print $translucence_options['right02-border-color']?>;
 	width: <?php print $translucence_options['right02-width']?>px;
 	display: <?php print $translucence_options['right02-visibility']?>;
-	padding-top: 10px;
+	padding-top: 15px;
 	padding-left: <?php print $translucence_options['right02-padding']?>px;
 	padding-right: <?php print $translucence_options['right02-padding']?>px;
 	position:relative;
@@ -389,153 +389,31 @@ div.menu,
 
 /* begin CRYSTAL's togglelink code */
 
-span.togglelink
-{
-	padding:2px;
-	display:inline-block;
-}
 
-span.togglelink > span
-{
-	cursor:pointer;
-	width:16px;
-	height:13px;
-	background-color: transparent;
-	border: 1px dotted transparent;
-	color: black;
-	text-align:center;
-	line-height:13px;
-	display:inline-block;
-	position:relative;
-}
-
-span.togglelink > span:hover
-{
-	border: 1px solid;
-}
-
-#content span.togglelink
-{
-	display:none;
-}
-
-#content span.togglelink > span
+#content .togglelink
 {
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
 	border: 1px solid transparent
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
-#primary span.togglelink > span
+#primary .togglelink,
+#secondary .togglelink,
+#tertiary .togglelink 
 {
 	background-color: transparent;
 	border: 1px solid transparent;
-	height:22px;
 	color: <?php print $translucence_options['textcolor']?>;
 }
 
-#secondary span.togglelink > span
+#content .togglelink:hover, 
+#primary .togglelink:hover,
+#secondary .togglelink:hover, 
+#tertiary .togglelink:hover
 {
-	background-color: transparent;
-	border: 1px solid transparent;
-	height:22px;
-	color: <?php print $translucence_options['textcolor']?>;
+	color: <?php print $translucence_options['linkcolor']?>;
 }
 
-#tertiary span.togglelink > span
-{
-	background-color: transparent;
-	border: 1px solid transparent;
-	height:22px;
-	color: <?php print $translucence_options['textcolor']?>;
-}
-
-#content span.togglelink > span:hover, 
-#primary span.togglelink > span:hover,
-#secondary span.togglelink > span:hover, 
-#tertiary span.togglelink > span:hover
-{
-	border: 1px solid;
-}
-
-#primary span.togglelink, #secondary span.togglelink
-{
-	position:absolute;
-	top:-2px;
-	left:0px;
-}
-
-#tertiary span.togglelink
-{
-	position:absolute;
-	top:-2px;
-	right:0px;
-}
-
-span.togglelink > span.arrow-left
-{
-	margin-left:2px;
-	margin-right:10px;
-	height:22px;
-}
-
-span.togglelink > span.arrow-left > span
-{
-	top:-1px;
-	left:-8px;
-}
-
-span.togglelink > span.arrow-right
-{
-	margin-left:10px;
-	margin-right:2px;
-	height:22px;
-}
-
-span.togglelink > span.arrow-right > span
-{
-	top:-1px;
-	left:3px;
-}
-
-span.togglelink > span.circle-close
-{
-	border-radius: 40px;
-}
-
-span.togglelinks-box
-{
-	display:inline-block;
-}
-
-span.left-togglelinks-box
-{
-	position:absolute;
-	top:2px;
-	left:0px;
-}
-
-span.right-togglelinks-box
-{
-	position:absolute;
-	top:2px;
-	right:0px;
-}
-
-span.togglelinks-box .togglelink
-{
-	margin-left:10px;
-}
-
-span.togglelinks-box .togglelink:first-child
-{
-	margin-left:0px;
-}
-
-div.togglelinks-box-spacer
-{
-	margin-top:15px;
-}
 
 /* end CRYSTAL's togglelink code */
 
@@ -1353,6 +1231,7 @@ a.comment-edit-link {
 small, .nocomments, .postmetadata, blockquote, strike {		
 	color: <?php print $translucence_options['content-text-color']?>;
 }	
+
 
 	<?php
 	
