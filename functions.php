@@ -124,6 +124,7 @@ function translucence_setup() {
 	global $translucence_config;
 	global $translucence_options, $translucence_options_values, $translucence_variations;
 	global $translucence_options_id;
+	global $use_mobile_site;
 
 	/*********************************************************
 	 * set options version
@@ -281,10 +282,149 @@ endif;
  */
 
 function translucence_add_options_css() {
-	global $translucence_options, $translucence_options_id; 	
+	global $translucence_options, $translucence_options_id, $use_mobile_site; 	
 	
 	print "<style type='text/css'>";
 	print $translucence_options['css'];
+	
+	if( $use_mobile_site) {
+		printpre("mobile");
+ 		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+		print "
+		#primary {padding-left: 2px;}
+		#primary {margin-top: 20px; display: none;}
+		#secondary {margin-top: 20px; display: none;}
+		#tertiary {margin-top: 20px; display: none;}
+		#content {margin-top: 20px; width: ".$content_width."px;}
+		#primary,
+		#secondary,
+		#tertiary,
+		#footer {
+			font-size: 170%;
+			line-height: 170%;
+			padding: 15px 10px 0px 10px;
+		}
+		
+		#primary .togglelink {
+			font-size: 250%;
+		}
+
+		#secondary .togglelink {
+			font-size: 250%;
+		}
+
+		#tertiary .togglelink {
+			font-size: 250%;
+		}
+		
+		#branding #site-title {
+			font-size: 350%;
+			padding: 10px;
+		}
+		
+		#branding #site-description {
+			font-size: 250%;
+			padding: 10px;
+		}
+		
+		.breadcrumbs {
+			margin-top: 30px;
+			font-size: 150%;
+		}
+		
+		#nav-above {
+			margin-top: 50px;
+			font-size: 150%;
+		}
+		
+		#syndication {
+			display: none;
+		}
+
+		#access .menu-header, div.menu {
+			font-size: 200%;
+		}
+		
+		#primary h2, 
+		#primary h3,
+		#secondary h2, 
+		#secondary h3,
+		#tertiary h2, 
+		#tertiary h3,
+		#footer h2,
+		#footer h3	
+		{
+			font-size: 150%;
+		}
+
+		.widget-area ul ul {
+			margin-left: 0.2em;
+		}
+
+		.widget-area ul ul li {
+			margin: 15px 0px 0px -10px;
+			border-bottom: 1px solid;
+		}
+
+		
+		.widget-container {
+			margin: 10px 2px 5px 0;
+		}
+	
+		#content .togglelink {
+			font-size: 400%;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		
+		.left-togglelinks-box {
+			position: absolute;
+			top: 10px;
+			left: 5px;
+		}
+
+		.right-togglelinks-box {
+			position: absolute;
+			top: 10px;
+			right: 5px;
+		}
+
+		
+		#content .entry-title {
+			font-size: 350%;
+			margin-top: 50px;	
+		}
+
+		#content .entry-content,
+		#content .entry-summary,
+		#content .archive-meta {
+			font-size: 250%;
+			line-height: 150%;
+		}
+	
+		#content .catlinks,
+		#content .taglinks {
+			font-size: 200%;
+			line-height: 150%;
+		}
+		
+		#entry-author-info {
+			margin-top: 50px;
+		}
+
+		";
+ 		
+	} else {
+		printpre("not mobile");
+	}
+		
+// 	if (wp_is_mobile()) {
+// 		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+// 		print "#primary {display: none;}";
+// 		print "#secondary {display: none;}";
+// 		print "#tertiary {display: none;}";
+// 		print "#content {width: ".$content_width."px;}";
+// 	}	
 	print "</style>";
 	
 	// IE hack opacity options
