@@ -28,6 +28,7 @@ if( $use_mobile_site ) {
 <div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php print translucence_toggle_links(); ?>
+<div class="clearfix"></div>
 <?php print translucence_get_breadcrumbs($post); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
