@@ -152,7 +152,7 @@ function click_togglelink( togglelink )
 	
 	// get content togglelink element.
 	if( showing_sidebar ) {
-		jQuery("#content span.togglelink[sidebar='"+sidebar_id+"']").hide();
+		jQuery("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
 	}
 	else {
 		jQuery("#content span.togglelink[sidebar='"+sidebar_id+"']").show();
