@@ -1263,11 +1263,34 @@ DESCRIPTION: 1-3 column fixed layout
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
+#content .togglelink {
+	padding:2px;
+	cursor:pointer;
+	font-size: 14px;
+	background-color: transparent;
+	border: 1px dotted transparent;
+	text-align:center;
+	display:inline-block;
+}
 
 #primary .togglelink,
+#secondary .togglelink,
+#tertiary .togglelink {
+	font-size: 14px;
 }
 
+.left-togglelinks-box {
+	position: absolute;
+	top: 0px;
+	left: 5px;
 }
+
+.right-togglelinks-box {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+}
+
 
 #toc .toggle {
 	float: right;
