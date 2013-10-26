@@ -17,11 +17,9 @@
 	global $translucence_options; ?>
 	
 	<div id="primary" class="widget-area" role="complementary" overall-width="<?php print $translucence_options['overall-right01-width']; ?>">
-		<span class="togglelink" style="float:left; cursor:pointer" sidebar="primary" title="Hide Sidebar">
-			<span class="square-close">
-				<span>&lt;</span>
-			</span>
-		</span>
+		<div class="togglelink" style="float:left; cursor:pointer" sidebar="primary" title="Hide Sidebar">
+			
+		</div>
 		<ul class="xoxo">
 			<?php 				
 			if ( !is_active_sidebar( 'primary-widget-area' )) {
