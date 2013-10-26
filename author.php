@@ -55,18 +55,19 @@ $author = get_userdata($wp_the_query->query_vars['author']);
 		</div><!-- #entry-author-info -->
 <div id="entry-author-pages">
 <div id="toc" class="toc">
+
 <?php 
 $authorpages = wp_list_pages("title_li=&author=".$author->ID."&echo=0");
 $num_authorpages = get_pages("authors=".$author->ID);
 if ($authorpages && count($num_authorpages) > 0) { ?>
 <h3>Pages by <?php print $author->display_name; ?></h3>
 <div class="toggle">
-	<a id="togglelink" href="javascript:toggleToc()">[show page links]</a>
+	<a id="toggletoc" href="javascript:toggleToc()">[show page links]</a>
 </div>
 <?php } ?>
 <?php
 	if ($authorpages && count($num_authorpages) > 0 && $author->ID != 0) {
-		print "<div class='pagenav' style='margin-bottom: 15px;'>";
+		print "<div id='authorpages' class='pagenav' style='margin-bottom: 15px;'>";
 		print "<ul>";	
 		print $authorpages;
 		print "</ul>";

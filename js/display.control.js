@@ -209,18 +209,20 @@ function getCookie(c_name)
 
 
 /**
- *
+ * Toggles the display of author pages on the author page
  */
 function toggleToc() 
 {
 	//alert("update");
-	var toc = document.getElementById('toc');
+	var toc = document.getElementById('authorpages');
 	
 	if (toc) {
+		
 		var toc = toc.getElementsByTagName('ul')[0];
-		var toggleLink = document.getElementById('togglelink');
-	
-		if (toc && toggleLink && toc.style.display == 'none') {
+		//alert(toc);
+		var toggleLink = document.getElementById('toggletoc');
+		//alert(toc.style.display);
+		if (toc && toggleLink && toc.style.display != 'block') {
 			changeText(toggleLink, "[hide page links]");
 			toc.style.display = 'block';
 			document.cookie = "hidetoc=0";

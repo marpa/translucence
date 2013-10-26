@@ -1304,6 +1304,10 @@ DESCRIPTION: 1-3 column fixed layout
 	text-decoration: underline;
 }
 
+#authorpages ul {
+	display: none;
+}
+
 /* =widget navigation
 -------------------------------------------------------------- */	
 
