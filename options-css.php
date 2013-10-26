@@ -539,12 +539,6 @@ div.togglelinks-box-spacer
 
 /* end CRYSTAL's togglelink code */
 
-
-#toc .toggle a:hover {
-	text-decoration: underline;	
-	border: 1px dotted transparent;
-}
-
 #footer-widget-area a {
 	color: <?php print $translucence_options['bottom-link-color']?>;		
 }
