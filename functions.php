@@ -77,6 +77,10 @@ if ( ! isset( $content_width ) )
 if (file_exists(dirname(__FILE__).'/functions-plugins.php')) {
 	require_once('functions-plugins.php');
 }
+
+if (file_exists(dirname(__FILE__).'/mobile-detect/namespaced/Detection/MobileDetect.php')) {
+	require_once( get_template_directory() . '/mobile-detect/namespaced/Detection/MobileDetect.php');
+}
  
 // this theme may have child themes that override this config.
 $translucence_config = translucence_add_config();
@@ -259,6 +263,12 @@ function translucence_setup() {
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 	register_default_headers( $translucence_config['custom_header'] );
 	
+	// Determine what kind of device is being used
+	$use_mobile_site = FALSE;
+	$detect = new Mobile_Detect;
+	if ( !$detect->isMobile() && !$detect->isTablet() ) {
+		$use_mobile_site = TRUE;
+	}	
 }
 endif;
 
