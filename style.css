@@ -1264,21 +1264,9 @@ DESCRIPTION: 1-3 column fixed layout
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
 
-.toggle {
-	float: right;
-	width: 20px;
-	padding-left: 1px;
-	padding-right: 1px;
-	display: block;
-	line-height: 12px;
-	font-size: 12px;
-	text-align: center;
-	margin: 1px;
-	border: 1px dotted transparent;	
+#primary .togglelink,
 }
 
-#content .toggle {
-	margin-top: -15px;
 }
 
 #toc .toggle {
@@ -1289,49 +1277,9 @@ DESCRIPTION: 1-3 column fixed layout
 	margin-right: 0px;
 }
 
-
-#primary .toggle a, 
-#secondary .toggle a, 
-#tertiary .toggle a {
-	padding-top: 0px;
-	display: block;
-	font-size: 16px;
-	text-decoration: none;
-	border-right: 1px dotted transparent;
-	border-left: 1px dotted transparent;
-	border-top: 1px dotted transparent;
-	border-bottom: 1px dotted transparent;
-}
-
-#content .toggle a {
-	display: block;
-	font-size: 16px;
-	text-decoration: none;
-	border-right: 1px dotted transparent;
-	border-left: 1px dotted transparent;
-	border-top: 1px dotted transparent;
-	border-bottom: 1px dotted transparent;
-}
-
-#toc .toggle a {
-	display: block;
-	font-size: 10px;
-	text-decoration: none;
-	border: 1px dotted transparent;	
-}
-
-
-#primary .toggle a:hover,
-#secondary .toggle a:hover,
-#tertiary .toggle a:hover, 
-#content .toggle a:hover {
-	text-decoration: none;	
-}
-
 #toc .toggle a:hover {
 	text-decoration: underline;
 }
- 
 
 /* =widget navigation
 -------------------------------------------------------------- */	
