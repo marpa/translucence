@@ -129,7 +129,7 @@ function translucence_setup() {
 	/*********************************************************
 	 * set options version
 	 *********************************************************/ 
-	$translucence_options_version = "2.3.1";
+	$translucence_options_version = "2.3.2";
 		
 	/*********************************************************
 	 * Register theme javascript
