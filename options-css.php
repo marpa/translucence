@@ -344,12 +344,6 @@ div.menu,
 	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;
 }
 
-
-#tertiary .toggle a:hover {
-	text-decoration: none;	
-	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;
-}
-
 #primary a {
 	display: inline;
 	color: <?php print $translucence_options['right01-link-color']?>;
@@ -369,12 +363,6 @@ div.menu,
 #primary .page_item a:hover {
 	color: <?php print $translucence_options['right01-link-color']?>;
 	border: 1px dotted <?php print $translucence_options['right01-border-color']?>;
-}
-
-
-#primary .toggle a:hover {
-	text-decoration: none;	
-	border: 1px dotted <?php print $translucence_options['right01-link-color']?>;
 }
 
 #secondary a {
@@ -398,19 +386,6 @@ div.menu,
 	border: 1px dotted <?php print $translucence_options['right02-border-color']?>;
 }
 
-#secondary .toggle a:hover {
-	text-decoration: none;	
-	border: 1px dotted <?php print $translucence_options['right02-link-color']?>;
-}
-
-#content .toggle a {
-	color: <?php print $translucence_options['entry-link-color']?>;
-}
-
-#content .toggle a:hover {
-	text-decoration: none;	
-	border: 1px dotted <?php print $translucence_options['entry-link-color']?>;
-}
 
 /* begin CRYSTAL's togglelink code */
 
