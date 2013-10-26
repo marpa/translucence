@@ -11,7 +11,7 @@
  */
 jQuery(document).ready( function() {
 	jQuery('.togglelink').click(function() { click_togglelink(this) });
-	setup_togglelinks();
+	if (!is_mobile) setup_togglelinks();
 });
 
 
