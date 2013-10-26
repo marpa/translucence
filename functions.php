@@ -267,7 +267,7 @@ function translucence_setup() {
 	// Determine what kind of device is being used
 	$use_mobile_site = FALSE;
 	$detect = new Mobile_Detect;
-	if ( !$detect->isMobile() && !$detect->isTablet() ) {
+	if ( $detect->isMobile() && !$detect->isTablet() ) {
 		$use_mobile_site = TRUE;
 	}	
 }
