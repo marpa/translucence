@@ -1095,7 +1095,10 @@ function translucence_page_links_display() {
 function translucence_toggle_links() {	
 	global $translucence_options;
 
-	if( $translucence_options['left01-width'] > 0 )
+	if( $translucence_options['left01-width'] > 0
+		&& !is_page_template('page-right01-sidebar.php')
+		&& !is_page_template('page-right02-sidebar.php')
+		&& !is_page_template('page-right-both-sidebar.php') )
 	{
 		echo "<div class=\"togglelinks-box left-togglelinks-box\">";
 			echo "<div class=\"togglelink\" title=\"Show left sidebar\" sidebar=\"tertiary\">";
@@ -1104,16 +1107,21 @@ function translucence_toggle_links() {
 		echo "</div>";
 	}
 	
-	if( ($translucence_options['right01-width'] > 0) || ($translucence_options['right02-width'] > 0) )
+	if( $translucence_options['right01-width'] > 0 
+		|| $translucence_options['right02-width'] > 0 ) 
 	{
-		echo "<span class=\"togglelinks-box right-togglelinks-box\">";
-		if( $translucence_options['right01-width'] > 0 )
+		echo "<div class=\"togglelinks-box right-togglelinks-box\">";
+		if( $translucence_options['right01-width'] > 0 
+			&& !is_page_template('page-left-sidebar.php') 
+			&& !is_page_template('page-right02-sidebar.php') )
 		{
 			echo "<div class=\"togglelink\" title=\"Show right sidebar\" sidebar=\"primary\">";
 			echo "&#9776;";
 			echo "</div>";
 		}
-		if( $translucence_options['right02-width'] > 0 )
+		if( $translucence_options['right02-width'] > 0 
+			&& !is_page_template('page-left-sidebar.php')
+			&& !is_page_template('page-right01-sidebar.php') )
 		{
 			echo "<div class=\"togglelink\" title=\"Show 2nd right sidebar\" sidebar=\"secondary\">";
 			echo "&#9776;";
