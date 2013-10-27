@@ -166,6 +166,10 @@ div.menu,
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
 
+<?php 
+$variation_css = ob_get_clean();
+ob_start(); 
+?>
 #tertiary {
 	margin-top: <?php print $translucence_options['left01-margin-top']?>px;
 	margin-right: <?php print $translucence_options['left01-margin-right']?>px;	
@@ -183,6 +187,66 @@ div.menu,
 	background-color: <?php print $translucence_options['left01-color-hover-rgb']?>;
 	border: 1px <?php print $translucence_options['left01-hover-border-style']?> <?php print $translucence_options['left01-border-color']?>;
 }
+
+#tertiary a {
+	color: <?php print $translucence_options['left01-link-color']?>;
+}
+		
+#tertiary a:hover {
+	color: <?php print $translucence_options['left01-link-color']?>;
+	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
+}
+
+#tertiary .page_item a:hover {
+	color: <?php print $translucence_options['left01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;
+}
+
+#tertiary h2, #tertiary h3 {
+	color: <?php print $translucence_options['left01-heading-color']?>;
+	border-bottom: 1px none #CCCCCC;
+}
+
+#tertiary ul ul li, #tertiary ul ol li {
+	color: <?php print $translucence_options['left01-text-color']?>;
+}
+
+#tertiary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
+	background-color: <?php print $translucence_options['searchbox-color']?>;
+	color: <?php print $translucence_options['linkcolor']?>;
+}
+
+#tertiary #wp-calendar tbody {
+	color: <?php print $translucence_options['left01-text-color']?>;
+}
+
+#tertiary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['left01-link-color']?>;
+	padding: 2px;
+}
+
+#tertiary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
+}
+
+#tertiary .widget_pages li.current_page_item,
+#tertiary .widget_pages li.current-cat,
+#tertiary .widget_nav_menu li.current-menu-item {
+	background-color: <?php print $translucence_options['left01-highlight-color-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $translucence_options['left01-border-color']?>;
+}
+
+<?php 
+if ($translucence_options['left01-visibility'] == "none") {
+	ob_end_clean();
+	ob_start(); 
+}
+
+$variation_css .= ob_get_clean();
+ob_start(); 
+?>
 		
 #primary {
 	margin-top: <?php print $translucence_options['right01-margin-top']?>px;
@@ -203,6 +267,66 @@ div.menu,
 	border: 1px <?php print $translucence_options['right01-hover-border-style']?> <?php print $translucence_options['right01-border-color']?>;
 }
 
+#primary a {
+	color: <?php print $translucence_options['right01-link-color']?>;
+}
+		
+#primary a:hover {
+	color: <?php print $translucence_options['right01-link-color']?>;
+	border-bottom: 1px solid <?php print $translucence_options['right01-link-color']?>;
+}
+
+#primary .page_item a:hover {
+	color: <?php print $translucence_options['right01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['right01-border-color']?>;
+}
+
+#primary h2, #primary h3 {
+	color: <?php print $translucence_options['right01-heading-color']?>;
+	border-bottom: 1px none #CCCCCC;
+}
+
+#primary ul ul li, #primary ul ol li {
+	color: <?php print $translucence_options['right01-text-color']?>;
+}
+
+#primary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
+	background-color: <?php print $translucence_options['searchbox-color']?>;
+	color: <?php print $translucence_options['linkcolor']?>;
+}
+
+#primary #wp-calendar tbody {
+	color: <?php print $translucence_options['right01-text-color']?>;
+}
+
+#primary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['right01-link-color']?>;
+	padding: 2px;
+}
+
+#primary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['right01-link-color']?>;
+}
+
+#primary .widget_pages li.current_page_item,  
+#primary .widget_categories li.current-cat,
+#primary .widget_nav_menu li.current-menu-item {
+	background-color: <?php print $translucence_options['right01-highlight-color-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $translucence_options['right01-border-color']?>;
+}
+
+<?php 
+if ($translucence_options['right01-visibility'] == "none") {
+	ob_end_clean();
+	ob_start(); 
+}
+
+$variation_css .= ob_get_clean();
+ob_start(); 
+?>
+
 #secondary {
 	margin-top: <?php print $translucence_options['right02-margin-top']?>px;
 	margin-right: <?php print $translucence_options['right02-margin-right']?>px;
@@ -220,6 +344,67 @@ div.menu,
 	background-color: <?php print $translucence_options['right02-color-hover-rgb']?>;
 	border: 1px <?php print $translucence_options['right02-hover-border-style']?> <?php print $translucence_options['right02-border-color']?>;
 }
+
+#secondary a {
+	color: <?php print $translucence_options['right02-link-color']?>;
+}
+
+#secondary a:hover {
+	color: <?php print $translucence_options['right02-link-color']?>;
+	border-bottom: 1px solid <?php print $translucence_options['right02-link-color']?>;
+}
+
+#secondary .page_item a:hover {
+	color: <?php print $translucence_options['right02-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['right02-border-color']?>;
+}
+
+#secondary h2, #secondary h3 {
+	color: <?php print $translucence_options['right02-heading-color']?>;
+	border-bottom: 1px none #CCCCCC;
+}
+
+#secondary ul ul li, #secondary ul ol li {
+	color: <?php print $translucence_options['right02-text-color']?>;
+}
+
+#secondary  #searchform #s {
+	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
+	background-color: <?php print $translucence_options['searchbox-color']?>;
+	color: <?php print $translucence_options['linkcolor']?>;
+}
+
+#secondary #wp-calendar tbody {
+	color: <?php print $translucence_options['right02-text-color']?>;
+}
+
+#secondary #wp-calendar a {
+	border-bottom: 1px dotted <?php print $translucence_options['right02-link-color']?>;
+	padding: 2px;
+}
+
+#secondary #wp-calendar a:hover {
+	border-bottom: 1px solid <?php print $translucence_options['right02-link-color']?>;
+}
+
+#secondary .widget_pages li.current_page_item,
+#secondary .widget_pages li.current-cat,
+#secondary .widget_nav_menu li.current-menu-item {
+	background-color: <?php print $translucence_options['right02-highlight-color-rgb']?>;
+	padding: 3px;
+	border: 1px solid <?php print $translucence_options['right02-border-color']?>;
+}
+
+<?php 
+if ($translucence_options['right02-visibility'] == "none") {
+	ob_end_clean();
+	ob_start(); 
+}
+
+$variation_css .= ob_get_clean();
+ob_start(); 
+?>
+
 
 #footer-widget-area {
 	border: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-color']?>;		
@@ -240,48 +425,6 @@ div.menu,
 
 
 /* Begin widget links */
-#tertiary a {
-	color: <?php print $translucence_options['left01-link-color']?>;
-}
-		
-#tertiary a:hover {
-	color: <?php print $translucence_options['left01-link-color']?>;
-	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
-}
-
-#tertiary .page_item a:hover {
-	color: <?php print $translucence_options['left01-link-color']?>;
-	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;
-}
-
-#primary a {
-	color: <?php print $translucence_options['right01-link-color']?>;
-}
-		
-#primary a:hover {
-	color: <?php print $translucence_options['right01-link-color']?>;
-	border-bottom: 1px solid <?php print $translucence_options['right01-link-color']?>;
-}
-
-#primary .page_item a:hover {
-	color: <?php print $translucence_options['right01-link-color']?>;
-	border: 1px dotted <?php print $translucence_options['right01-border-color']?>;
-}
-
-#secondary a {
-	display: inline;
-	border: 1px solid transparent;
-}
-
-#secondary a:hover {
-	color: <?php print $translucence_options['right02-link-color']?>;
-	border-bottom: 1px solid <?php print $translucence_options['right02-link-color']?>;
-}
-
-#secondary .page_item a:hover {
-	color: <?php print $translucence_options['right02-link-color']?>;
-	border: 1px dotted <?php print $translucence_options['right02-border-color']?>;
-}
 
 
 /* Begin toggle links */
@@ -321,21 +464,6 @@ div.menu,
 
 /* Begin widget headings */
 
-#primary h2, #primary h3 {
-	color: <?php print $translucence_options['right01-heading-color']?>;
-	border-bottom: 1px none #CCCCCC;
-}
-
-#secondary h2, #secondary h3 {
-	color: <?php print $translucence_options['right02-heading-color']?>;
-	border-bottom: 1px none #CCCCCC;
-}
-
-#tertiary h2, #tertiary h3 {
-	color: <?php print $translucence_options['left01-heading-color']?>;
-	border-bottom: 1px none #CCCCCC;
-}
-
 #footer-widget-area h2, #footer-widget-area h3 {
 	color: <?php print $translucence_options['bottom-heading-color']?>;
 	border-bottom: 1px solid <?php print $translucence_options['bottom-heading-color']?>;
@@ -343,17 +471,6 @@ div.menu,
 /* End widget headings */
 
 /* Begin widget list css */
-#tertiary ul ul li, #tertiary ul ol li {
-	color: <?php print $translucence_options['left01-text-color']?>;
-}
-
-#primary ul ul li, #primary ul ol li {
-	color: <?php print $translucence_options['right01-text-color']?>;
-}
-
-#secondary ul ul li, #secondary ul ol li {
-	color: <?php print $translucence_options['right02-text-color']?>;
-}
 
 #footer-widget-area ul ul li, .footer-widget-area ul ol li {
 	color: <?php print $translucence_options['bottom-text-color']?>;
@@ -361,66 +478,9 @@ div.menu,
 /* End widget list css */
 
 /* Begin sidebar search form */
-#tertiary  #searchform #s {
-	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
-	background-color: <?php print $translucence_options['searchbox-color']?>;
-	color: <?php print $translucence_options['linkcolor']?>;
-}
-
-#primary  #searchform #s {
-	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
-	background-color: <?php print $translucence_options['searchbox-color']?>;
-	color: <?php print $translucence_options['linkcolor']?>;
-}
-
-#secondary  #searchform #s {
-	background: url(<?php print get_template_directory_uri() ?>/images/search.png) no-repeat 5px 6px;
-	background-color: <?php print $translucence_options['searchbox-color']?>;
-	color: <?php print $translucence_options['linkcolor']?>;
-}
 /* End widget search form */
 
 /* Begin sidebar calendar */
-#tertiary #wp-calendar tbody {
-	color: <?php print $translucence_options['left01-text-color']?>;
-}
-
-#tertiary #wp-calendar a {
-	border-bottom: 1px dotted <?php print $translucence_options['left01-link-color']?>;
-	padding: 2px;
-}
-
-#tertiary #wp-calendar a:hover {
-	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
-}
-
-
-#primary #wp-calendar tbody {
-	color: <?php print $translucence_options['right01-text-color']?>;
-}
-
-#primary #wp-calendar a {
-	border-bottom: 1px dotted <?php print $translucence_options['right01-link-color']?>;
-	padding: 2px;
-}
-
-#primary #wp-calendar a:hover {
-	border-bottom: 1px solid <?php print $translucence_options['right01-link-color']?>;
-}
-
-#secondary #wp-calendar tbody {
-	color: <?php print $translucence_options['right02-text-color']?>;
-}
-
-#secondary #wp-calendar a {
-	border-bottom: 1px dotted <?php print $translucence_options['right02-link-color']?>;
-	padding: 2px;
-}
-
-#secondary #wp-calendar a:hover {
-	border-bottom: 1px solid <?php print $translucence_options['right02-link-color']?>;
-}
-
 
 #footer-widget-area #wp-calendar tbody {
 	color: <?php print $translucence_options['bottom-text-color']?>;
@@ -434,7 +494,6 @@ div.menu,
 #footer-widget-area #wp-calendar a:hover {
 	border-bottom: 1px solid <?php print $translucence_options['bottom-link-color']?>;
 }
-
 
 
 /* End sidebar calendar */
@@ -539,29 +598,7 @@ div.menu,
 /* =widget navigation
 -------------------------------------------------------------- */	
 
-#primary .widget_pages li.current_page_item,  
-#primary .widget_categories li.current-cat,
-#primary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $translucence_options['right01-highlight-color-rgb']?>;
-	padding: 3px;
-	border: 1px solid <?php print $translucence_options['right01-border-color']?>;
-}
 
-#secondary .widget_pages li.current_page_item,
-#secondary .widget_pages li.current-cat,
-#secondary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $translucence_options['right02-highlight-color-rgb']?>;
-	padding: 3px;
-	border: 1px solid <?php print $translucence_options['right02-border-color']?>;
-}
-
-#tertiary .widget_pages li.current_page_item,
-#tertiary .widget_pages li.current-cat,
-#tertiary .widget_nav_menu li.current-menu-item {
-	background-color: <?php print $translucence_options['left01-highlight-color-rgb']?>;
-	padding: 3px;
-	border: 1px solid <?php print $translucence_options['left01-border-color']?>;
-}
 
 /* End widget navigation
 -------------------------------------------------------------- */	
@@ -916,7 +953,7 @@ small, .nocomments, .postmetadata, blockquote, strike {
 	 * Get above css and return to  translucence_theme_options_init() in theme-options.php
 	 ******************************************************************************/
 
-	$variation_css = ob_get_contents();
+	$variation_css .= ob_get_contents();
 	ob_end_clean();
 	return $variation_css;
 
