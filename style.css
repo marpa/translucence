@@ -133,6 +133,16 @@ a:hover {
 	text-shadow: #444444 1px 1px 2px;
 }
 
+#branding #title-box a {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #title-box a:hover {
+	text-decoration:none;
+	border:0;
+}
+
 #site-title a {
 	color: #003366;
 	display: block;

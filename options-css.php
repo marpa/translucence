@@ -123,16 +123,6 @@ div.menu,
 	margin-top: <?php print $translucence_options['title-box-top-margin']?>px;
 }
 
-#branding #title-box a {
-	text-decoration:none;
-	border:0;
-}
-
-#branding #title-box a:hover {
-	text-decoration:none;
-	border:0;
-}
-
 #branding #site-title {
 	color: <?php print $translucence_options['site-title-color']?>;
 	background-color: <?php print $translucence_options['title-box-color-rgb']?>;
