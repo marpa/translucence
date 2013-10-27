@@ -34,6 +34,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 }
 body {
+	margin-top: 10px;
 	line-height: 1;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -345,7 +346,133 @@ textarea {
 	overflow: hidden;
 	padding: 1px 0 0 0;
 }
+
+#access .menu-header,
+div.menu,
+#branding,
+#main,
+#wrapper {
+	margin: 0 auto;
+}
+
+#wrapper {
+	margin: 0 auto;
+	margin-top: 1px;
+	margin-bottom: 10px;
+}
+
+.sitewrapper {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* The theme meta areas */
+
+.headermeta_left {
+	font-size: 12px;
+	width: 50%;	
+	text-align: left;
+}
+
+.headermeta_right {
+	font-size: 12px;
+	width: 45%;
+	text-align: right;
+	float: right;
+	clear: left;
+}
+
+.footermeta_left {
+	font-size: 12px;
+	width: 50%;	
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.footermeta_right {
+	font-size: 12px;
+	width: 40%;
+	text-align: right;
+	float: right;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}			
+
+/* The theme header area */
+
+#header {
+	padding: 0 0 0 0px;
+}
+	
+#branding {
+	margin: 0 auto;
+	position: relative;
+}
+
+#branding .headerblock {
+	margin: 0 auto;
+	position: absolute;
+	color: transparent;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	cursor:pointer;
+}
+
+#branding #title-box {
+	position: absolute;
+}
+
+#branding #title-box a {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #title-box a:hover {
+	text-decoration:none;
+	border:0;
+}
+
+#branding #site-title {
+	margin-bottom: 4px;
+	display:inline-block;
+	padding:0 3px;
+}
+
+#branding #site-description {
+	display:inline-block;
+	padding:0 3px;
+	cursor:pointer;
+}
+
+/* Misc full width area settings */
+
+#footer {
+	clear: both;
+}
+
+/* Full width content with no sidebar; used for attachment pages */
+.single-attachment #content {
+	margin: 0 auto;
+	width: 95%;
+}
+
+/* =Content and Container
+-------------------------------------------------------------- */	
+/* =Content and Container
+-------------------------------------------------------------- */	
+
+#container {
+	overflow: hidden;
+	margin: 0 0px 0 0;
+	padding: 0px 0px 0px 0px;
+	width: 100%;			
+}
+
 #content {
+	float: left;
+	position:relative;
 	margin-bottom: 25px;
 }
 
@@ -434,7 +561,6 @@ textarea {
 .page-title a:hover {
 
 }
-
 
 #entry-author-info {
 	border: 1px solid #CCCCCC;
@@ -1263,6 +1389,51 @@ DESCRIPTION: 1-3 column fixed layout
  
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
+#primary,
+#secondary,
+#tertiary {
+	float: left;
+	position:relative;
+}
+
+#footer-widget-area {
+	overflow: hidden;
+	padding: 20px 0px 0px 4px;
+}
+
+#footer-widget-area .widget-area {
+	float: left;
+	background-color: transparent;
+	margin-right: 1px;
+}
+
+#footer-widget-area #fourth {
+	margin-right: 0;
+}
+
+/* Begin widget links */
+
+#primary a,
+#secondary a {
+	display: inline;
+	border: 1px solid transparent;
+}
+
+#tertiary a {
+	display: inline;
+	padding: 3px;
+	border: 1px solid transparent;
+}
+
+#primary .page_item a,
+#secondary .page_item a,
+#tertiary .page_item a {
+	display: block;
+	padding: 3px;
+}
+		
+/* Begin toggle links */
+
 #content .togglelink {
 	padding:2px;
 	cursor:pointer;
@@ -1277,6 +1448,8 @@ DESCRIPTION: 1-3 column fixed layout
 #secondary .togglelink,
 #tertiary .togglelink {
 	font-size: 14px;
+	background-color: transparent;
+	border: 1px solid transparent;
 }
 
 .left-togglelinks-box {
@@ -1290,7 +1463,6 @@ DESCRIPTION: 1-3 column fixed layout
 	top: 0px;
 	right: 5px;
 }
-
 
 #toc .toggle {
 	float: right;
@@ -1307,6 +1479,153 @@ DESCRIPTION: 1-3 column fixed layout
 #authorpages ul {
 	display: none;
 }
+
+/* Begin tag cloud */
+
+#tertiary .tagcloud a,
+#primary .tagcloud a,
+#secondary .tagcloud a {
+	display: inline;
+}
+
+/* Begin widget headings */
+		
+#primary h2, #primary h3, 
+#secondary h2, #secondary h3,
+#tertiary h2, #tertiary h3 {
+	padding-left: 2px;
+	border-bottom: 1px none #CCCCCC;
+}
+
+#footer-widget-area h2, #footer-widget-area h3 {
+	padding-left: 2px;
+}
+
+/* End widget headings */
+
+/* Begin widget list css */
+#primary ul ul li, #primary ul ol li,
+#secondary ul ul li, #secondary ul ol li,
+#tertiary ul ul li, #tertiary ul ol li {
+	list-style-type:none;
+	margin: 5px 0px 0px -10px;
+}
+/* End widget list css */
+
+/* Begin sidebar search form */
+#tertiary  #searchform #s,
+#primary  #searchform #s,
+#secondary  #searchform #s {
+	border: 1px solid #999999;
+	width: 70%;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 14px;
+	height: 22px;
+	line-height: 1.2em;
+	padding: 4px 10px 4px 28px;				
+}
+/* End widget search form */
+
+/* Begin widget area separators */
+#colophon {
+	margin-top: -4px;
+	overflow: hidden;
+	padding: 0px 0;
+}
+						
+/* End widget area separators */
+
+-------------------------------------------------------------- */	
+/* =Access (top navigation bar)
+-------------------------------------------------------------- */
+			
+#access {
+	display: block;
+	float: left;
+	margin-bottom: 20px; 
+}
+
+#access .menu-header,
+div.menu {
+	font-size: 13px;
+	margin-left: 12px;
+}
+
+#access .menu-header,
+div.menu,
+#main {
+	margin: 0 auto;
+}
+
+#access .menu-header ul,
+div.menu ul {
+	list-style: none;
+	margin: 0;
+}
+
+#access .menu-header li,
+div.menu li {
+	float: left;
+	position: relative;
+}
+
+#access a {
+	display: block;
+	line-height: 38px;
+	padding: 0 10px;
+	text-decoration: none;
+	border: 1px solid transparent;
+
+}
+			
+#access ul ul {
+	display: none;
+	position: absolute;
+	top: 38px;
+	left: 0;
+	float: left;
+	width: 180px;
+	z-index: 99999;
+	border-top: 1px none transparent;
+	border-bottom: 1px none transparent;
+}
+
+
+#access ul ul li {
+	min-width: 180px;
+}
+
+#access ul ul ul {
+	left: 100%;
+	top: 0;
+}
+
+#access ul ul a {
+	line-height: 1em;
+	border: 1px solid transparent;
+	padding: 10px;
+	width: 158px;
+	height: auto;
+}
+
+#access ul li:hover > ul {
+	display: block;
+	border-bottom: 1px solid transparent;	
+}
+
+#access .sub-menu ul,
+#access .children ul {
+	
+}
+
+#access .sub-menu ul li {
+	border-bottom: 1px none transparent;	
+}
+
+/* End Access (top navigation bar)
+-------------------------------------------------------------- */	
+
 
 /* =widget navigation
 -------------------------------------------------------------- */	
@@ -1384,6 +1703,13 @@ DESCRIPTION: 1-3 column fixed layout
 	margin-bottom: 15px
 }
 
+.pagenav ul .page_item a {
+	display: block;
+	padding: 3px;
+	border: 1px solid transparent;
+	margin: 1px;
+}
+
 #content .pagenav h3 {
 	margin-bottom: 5px;
 }
@@ -1409,6 +1735,176 @@ DESCRIPTION: 1-3 column fixed layout
 	font-style: normal;
 	color: #003366;
 }
+
+/* =calendar and table css
+-------------------------------------------------------------- */	
+
+#wp-calendar tbody td {
+	background-color: transparent;
+	border: 1px solid transparent;
+
+}
+
+/* Begin post/page entry css
+-------------------------------------------------------------- */						
+
+/* Entry titles */
+#content .entry-title {
+	font-weight: normal;
+	line-height: 1.3em;
+	margin-bottom: 0;				
+	display: block;
+	text-align: left;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#content .entry-title a {
+	display: block;
+	border-bottom: none;
+}
+
+/* Entry Headers */
+h1, h2, h3, h4 {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+a:link, a:hover, a:visited, a:active, h2 a:hover, h3 a:hover {
+	text-decoration: none;
+}
+
+/* Entry-more links */
+.more-link {
+	display: block;			
+	text-align: center;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	text-decoration: none;
+}
+
+.continue-reading {
+	display: block;
+	height:30px;
+	line-height:30px;
+	margin-top:5px;
+	text-align: center;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px dotted #CCCCCC;
+	text-decoration: none;
+	background-color:transparent;
+}
+
+/* Entry-content headers */
+
+.entry-content h2, .entry-content h3, .entry-content h1 {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.entry-content h2:hover, .entry-content h3:hover, .entry-content h1:hover {
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.entry-content h2 a, .entry-content h3 a, .entry-content h1 a {
+	display: block;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.entry-content h2 a:hover, .entry-content h3 a:hover, .entry-content h1 a:hover {
+	display: block;
+	border-bottom: none;
+	text-decoration: none;
+}
+
+.entry-content h2 a:visited, .entry-content h3 a:visited, .entry-content h1 a:visited {
+	display: block;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+/* Entry-meta  */
+.entry-meta {
+	font-size: 12px;
+}
+
+.page-link a:link,
+.page-link a:visited {
+	font-weight: normal;
+	padding: 0.2em 0.4em;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+}
+
+/* Post metadata */
+.postmetadata.alt {
+	clear: both;
+	text-align: center;
+	margin-top: 10px;
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px none #CCCCCC;
+}
+			
+.postmetadata.alt a {
+	display: block;
+	padding-bottom: 2px;
+	border-bottom: 1px dotted #CCCCCC;
+	text-decoration: none;
+}
+
+.postmetadata.alt a:hover {
+	background-color: transparent;
+}
+
+.tagcloud a {
+	padding: 2px;
+}
+
+.taglinks a {	
+	cursor:pointer; 
+	display:inline-block; 
+	margin:2px 0.2em; padding:0.1em 0.2em;	
+}
+
+/* Begin category links */
+
+.catlinks a {	
+	cursor:pointer; 
+	display:inline-block; 
+	margin:2px 0.2em; padding:0.1em 0.2em;	
+}
+
+/* Begin editing UI links */
+
+.edit-link {
+	clear: both;
+	display: block;
+}
+
+.post-link a {
+	display: block;
+	text-align: center;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.post-link a:hover {
+	display: block;
+}
+
+.edit-link a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	padding: 1px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.edit-link a:hover {
+	background-color: transparent;
+	text-decoration: none;
+}
+
+	
 
 /* Misc
 -------------------------------------------------------------- */	
