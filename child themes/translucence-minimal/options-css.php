@@ -490,7 +490,7 @@ div.menu,
 /* End widget headings */
 
 /* Begin widget list css */
-#tertiary ul ul li, .tertiary ul ol li {
+#tertiary ul ul li, #tertiary ul ol li {
 	color: <?php print $translucence_options['left01-text-color']?>;
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
@@ -502,13 +502,13 @@ div.menu,
 	margin: 5px 0px 0px -10px;
 }
 
-#secondary ul ul li, .secondary ul ol li {
+#secondary ul ul li, #secondary ul ol li {
 	color: <?php print $translucence_options['right02-text-color']?>;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
 }
 
-#footer-widget-area ul ul li, .footer-widget-area ul ol li {
+#footer-widget-area ul ul li, #footer-widget-area ul ol li {
 	color: <?php print $translucence_options['bottom-text-color']?>;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
