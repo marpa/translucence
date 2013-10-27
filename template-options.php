@@ -329,13 +329,105 @@ function translucence_get_theme_model_css() {
 			border: 1px solid #CCCCCC;
 		}
 		
-		a:hover {
-		  border-bottom: none;
-		}
-				
 		#wphead h1 a {
 			text-decoration: none;
 			border-bottom: none;
+		}
+		
+		a, a:hover {
+		  border-bottom: none;
+		  text-decoration: none;
+		}
+		
+		#wrapper {
+			margin: 0 auto;
+			margin-top: 1px;
+			margin-bottom: 10px;
+		}
+
+		.sitewrapper {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/* The theme meta areas */
+
+		.headermeta_left {
+			font-size: 12px;
+			width: 50%;	
+			text-align: left;
+		}
+
+		.headermeta_right {
+			font-size: 12px;
+			width: 45%;
+			text-align: right;
+			float: right;
+			clear: left;
+		}
+
+		.footermeta_left {
+			font-size: 12px;
+			width: 50%;	
+			text-align: left;
+			padding-top: 5px;
+			padding-bottom: 10px;
+		}
+
+		.footermeta_right {
+			font-size: 12px;
+			width: 40%;
+			text-align: right;
+			float: right;
+			padding-top: 5px;
+			padding-bottom: 10px;
+		}			
+
+		/* The theme header area */
+
+		#header {
+			padding: 0 0 0 0px;
+		}
+	
+		#branding {
+			margin: 0 auto;
+			position: relative;
+		}
+
+		#branding .headerblock {
+			margin: 0 auto;
+			position: absolute;
+			color: transparent;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+			cursor:pointer;
+		}
+
+		#branding #title-box {
+			position: absolute;
+		}
+
+		#branding #title-box a {
+			text-decoration:none;
+			border:0;
+		}
+
+		#branding #title-box a:hover {
+			text-decoration:none;
+			border:0;
+		}
+
+		#branding #site-title {
+			margin-bottom: 4px;
+			display:inline-block;
+			padding:0 3px;
+		}
+
+		#branding #site-description {
+			display:inline-block;
+			padding:0 3px;
+			cursor:pointer;
 		}
 
 		.headerblock {
@@ -344,26 +436,56 @@ function translucence_get_theme_model_css() {
 			background-repeat: no-repeat;
 		}
 		
-		.headerblock #site-description {
-			font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+		#content {
 			float: left;
-			clear: left;
+			position:relative;
+			margin-bottom: 25px;
 		}
 		
-		#branding #site-title {
-			font-family: 'Helvetica Neue', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+		#primary,
+		#secondary,
+		#tertiary {
 			float: left;
+			position:relative;
+		}
+
+		#footer-widget-area {
+			overflow: hidden;
+			padding: 20px 0px 0px 4px;
+		}
+
+		#footer-widget-area .widget-area {
+			float: left;
+			background-color: transparent;
+			margin-right: 1px;
+		}
+
+		#footer-widget-area #fourth {
+			margin-right: 0;
 		}
 		
-		#site-heading {
+		#syndication{
+			width: 100%; 
+			text-align: right;
+			font-size: 11px;
+			padding: 0px 0 10px 0;
+			white-space:nowrap;
+		}
+		
+		#syndication a.feed {
+			padding: 5px 2px 0px 23px;
+			background: url(".$translucence_syndication_image.") no-repeat 0 1px;
 			border-bottom: none;
-		}
-				
-		.headerblock h1 {
-			display: inline;
-			margin: 0px;
-		}
-				
+		}	
+		
+		.catlinks a,
+		.taglinks a {
+			border: 1px solid #666666;
+			cursor: pointer;
+			display: inline-block;
+			margin: 2px 0.2em;
+			padding: 0.1em 0.2em;
+		}				
 		.options {
 			margin-top: 5px;
 			margin-bottom: 5px;
@@ -422,20 +544,6 @@ function translucence_get_theme_model_css() {
 			border: 1px solid #CCCCCC;
 		}
 		
-		
-		#syndication{
-			width: 100%; 
-			text-align: right;
-			font-size: 11px;
-			padding: 0px 0 10px 0;
-			white-space:nowrap;
-		}
-		
-		#syndication a.feed {
-			padding: 5px 2px 0px 23px;
-			background: url(".$translucence_syndication_image.") no-repeat 0 1px;
-			border-bottom: none;
-		}	
 		
 		.widgetbox {
 			font-size: 10px;
