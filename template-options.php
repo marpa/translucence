@@ -448,6 +448,18 @@ function translucence_get_theme_model_css() {
 			float: left;
 			position:relative;
 		}
+		
+		#primary {
+			display:".$translucence_options['right01-visibility']."
+		}
+
+		#secondary {
+			display:".$translucence_options['right02-visibility']."
+		}
+		
+		#tertiary {
+			display:".$translucence_options['left01-visibility']."
+		}
 
 		#footer-widget-area {
 			overflow: hidden;
