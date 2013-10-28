@@ -329,7 +329,7 @@ function translucence_add_options_css() {
 		}
 		
 		.breadcrumbs {
-			margin-top: 30px;
+			margin-top: 50px;
 			font-size: 150%;
 		}
 		
@@ -356,6 +356,7 @@ function translucence_add_options_css() {
 		#footer h3	
 		{
 			font-size: 150%;
+			margin-left: -10px;
 		}
 
 		.widget-area ul ul {
@@ -369,7 +370,7 @@ function translucence_add_options_css() {
 
 		
 		.widget-container {
-			margin: 10px 2px 5px 0;
+			margin: 10px 2px 5px 5px;
 		}
 	
 		#content .togglelink {
@@ -388,6 +389,10 @@ function translucence_add_options_css() {
 			position: absolute;
 			top: 10px;
 			right: 5px;
+		}
+		
+		#content {
+			padding-top: 30px;
 		}
 		
 		#content .entry-title {
