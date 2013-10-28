@@ -484,7 +484,28 @@ ob_start();
 	border-top: 1px <?php print $translucence_options['colophon-border-type']?> #000;
 }
 
+/* =toggle links
 -------------------------------------------------------------- */	
+#content .togglelink {
+	background-color: <?php print $translucence_options['content-color-rgb']?>;
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#primary .togglelink,
+#secondary .togglelink,
+#tertiary .togglelink {
+	color: <?php print $translucence_options['textcolor']?>;
+}
+
+#content .togglelink:hover, 
+#primary .togglelink:hover,
+#secondary .togglelink:hover, 
+#tertiary .togglelink:hover {
+	color: <?php print $translucence_options['linkcolor']?>;
+}
+
+
+
 /* =Access (top navigation bar)
 -------------------------------------------------------------- */
 			
