@@ -733,9 +733,13 @@ function translucence_set_derivative_options() {
 	 * if no border on top nav, then no space between header image and nav
 	 ******************************************************************************/
 	if ($translucence_options['top-border-style'] == "solid" || $translucence_options['top-border-style'] == "dotted") {
-		$translucence_options['top-margin-top'] = "1";
+		$translucence_options['top-margin-top'] = "-1";
+		$translucence_options['top-margin-left'] = "1";
+		$translucence_options['menu-width'] = $translucence_options['site-width'] - 4;
 	} else {
-		$translucence_options['top-margin-top'] = "0";
+		$translucence_options['top-margin-top'] = "-1";
+		$translucence_options['top-margin-left'] = "1";
+		$translucence_options['menu-width'] = $translucence_options['site-width'] - 2;
 	}
 
 	/******************************************************************************
