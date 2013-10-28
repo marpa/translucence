@@ -325,6 +325,7 @@ function translucence_add_options_css() {
 		#branding #site-description {
 			font-size: 250%;
 			padding: 10px;
+			display: none;
 		}
 		
 		.breadcrumbs {
@@ -388,7 +389,6 @@ function translucence_add_options_css() {
 			top: 10px;
 			right: 5px;
 		}
-
 		
 		#content .entry-title {
 			font-size: 350%;
@@ -410,6 +410,16 @@ function translucence_add_options_css() {
 		
 		#entry-author-info {
 			margin-top: 50px;
+		}
+		
+		.entry-meta {
+			font-size: 200%;
+			line-height: 150%;
+		}
+		
+		#author-description {
+			font-size: 200%;
+			line-height: 150%;		
 		}
 
 		";
