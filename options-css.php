@@ -186,6 +186,9 @@ div.menu,
 <?php 
 $variation_css = ob_get_clean();
 ob_start(); 
+
+/* =tertiary widget area
+-------------------------------------------------------------- */	
 ?>
 #tertiary {
 	margin-top: <?php print $translucence_options['left01-margin-top']?>px;
@@ -263,6 +266,9 @@ if ($translucence_options['left01-visibility'] == "none") {
 
 $variation_css .= ob_get_clean();
 ob_start(); 
+
+/* =primary widget area
+-------------------------------------------------------------- */	
 ?>
 		
 #primary {
@@ -342,6 +348,9 @@ if ($translucence_options['right01-visibility'] == "none") {
 
 $variation_css .= ob_get_clean();
 ob_start(); 
+
+/* =secondary widget area
+-------------------------------------------------------------- */	
 ?>
 
 #secondary {
@@ -420,8 +429,10 @@ if ($translucence_options['right02-visibility'] == "none") {
 
 $variation_css .= ob_get_clean();
 ob_start(); 
-?>
 
+/* =footer widget area
+-------------------------------------------------------------- */	
+?>
 
 #footer-widget-area {
 	border: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-color']?>;		
@@ -440,33 +451,6 @@ ob_start();
 	width: <?php print $translucence_options['footer-widget-width']?>px;
 }
 
-
-/* Begin widget links */
-
-
-/* Begin toggle links */
-
-#content .togglelink {
-	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	color: <?php print $translucence_options['textcolor']?>;
-}
-
-#primary .togglelink,
-#secondary .togglelink,
-#tertiary .togglelink {
-	color: <?php print $translucence_options['textcolor']?>;
-}
-
-#content .togglelink:hover, 
-#primary .togglelink:hover,
-#secondary .togglelink:hover, 
-#tertiary .togglelink:hover {
-	color: <?php print $translucence_options['linkcolor']?>;
-}
-
-
-/* Begin footer widget area */
-
 #footer-widget-area a {
 	color: <?php print $translucence_options['bottom-link-color']?>;		
 }
@@ -476,28 +460,10 @@ ob_start();
 	border-bottom: 1px solid <?php print $translucence_options['bottom-link-color']?>;	
 }
 
-
-/* End widget links */
-
-/* Begin widget headings */
-
 #footer-widget-area h2, #footer-widget-area h3 {
 	color: <?php print $translucence_options['bottom-heading-color']?>;
 	border-bottom: 1px solid <?php print $translucence_options['bottom-heading-color']?>;
 }
-/* End widget headings */
-
-/* Begin widget list css */
-
-#footer-widget-area ul ul li, .footer-widget-area ul ol li {
-	color: <?php print $translucence_options['bottom-text-color']?>;
-}
-/* End widget list css */
-
-/* Begin sidebar search form */
-/* End widget search form */
-
-/* Begin sidebar calendar */
 
 #footer-widget-area #wp-calendar tbody {
 	color: <?php print $translucence_options['bottom-text-color']?>;
@@ -513,16 +479,9 @@ ob_start();
 }
 
 
-/* End sidebar calendar */
-
-/* Begin widget area separators */
 #colophon {
 	border-top: 1px <?php print $translucence_options['colophon-border-type']?> #000;
 }
-						
-/* End widget area separators */
-
-/* End Widget Areas (primary, secondary, tertiary, footer-widget-area)
 
 -------------------------------------------------------------- */	
 /* =Access (top navigation bar)
