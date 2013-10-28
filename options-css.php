@@ -165,6 +165,15 @@ div.menu,
 
 /* =Widget Areas (primary, secondary, tertiary, footer-widget-area)
 -------------------------------------------------------------- */	
+#tertiary {
+	display: <?php print $translucence_options['left01-visibility']?>;
+}
+#primary {
+	display: <?php print $translucence_options['right01-visibility']?>;
+}
+#secondary {
+	display: <?php print $translucence_options['right02-visibility']?>;
+}
 
 <?php 
 $variation_css = ob_get_clean();
