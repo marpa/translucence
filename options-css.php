@@ -24,6 +24,14 @@ function translucence_options_css() {
 		$translucence_options['site-description-color'] = "#".$translucence_options['site-description-color'];
 	}
 	
+	if ($translucence_options['top-border-style'] == "none") {
+		$menu_width = $translucence_options['site-width'] - 2;
+		$menu_margin = 1;
+	} else {
+		$menu_width = $translucence_options['site-width'] - 4;
+		$menu_margin = 1;
+	}
+	
 	ob_start();
 	
 	/******************************************************************************
@@ -419,7 +427,7 @@ ob_start();
 	border: 1px <?php print $translucence_options['bottom-border-style']?> <?php print $translucence_options['bottom-border-color']?>;		
 	color:  <?php print $translucence_options['bottom-text-color']?>;
 	background-color: <?php print $translucence_options['bottom-color-rgb']?>;	
-	width: <?php print $translucence_options['site-width']?>px;
+	width: <?php print $menu_width?>px;
 }
 
 #footer-widget-area:hover {
@@ -524,13 +532,16 @@ ob_start();
 	color: <?php print $translucence_options['top-text-color']?>;
 	background-color: <?php print $translucence_options['top-color-rgb']?>;
 	border: 1px <?php print $translucence_options['top-border-style']?> <?php print $translucence_options['top-border-color']?>;	
-	width: <?php print $transluncence_options['site-width']?>px;
+	display: block;
+	float: left;
+	margin-left: <?php print $menu_margin?>px;
+	width: <?php print $menu_width?>px;
 	margin-top: <?php print $translucence_options['top-margin-top']?>px;
 }
 
 #access .menu-header,
 div.menu {
-	width: <?php print $transluncence_options['site-width']?>px;
+	width: <?php print $translucence_options['site-width']?>px;
 }
 
 #access .menu-header,
