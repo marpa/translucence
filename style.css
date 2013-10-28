@@ -158,15 +158,6 @@ a:hover {
 #title-box {
 	z-index: 100;
 }
-/*
-.headerblock #site-description {
-	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-	display: block;
-	padding-left: 15px;
-	color: #333333;
-	font-size: 14px;
-}
-*/
 
 .widget-title {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
