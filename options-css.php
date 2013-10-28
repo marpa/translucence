@@ -476,6 +476,9 @@ ob_start();
 	border-bottom: 1px solid <?php print $translucence_options['bottom-link-color']?>;
 }
 
+#footer-widget-area ul ul li, .footer-widget-area ul ol li {
+	color: <?php print $translucence_options['bottom-text-color']?>;
+}
 
 #colophon {
 	border-top: 1px <?php print $translucence_options['colophon-border-type']?> #000;
