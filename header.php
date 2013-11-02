@@ -21,7 +21,7 @@ session_start();
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged, $translucence_options, $blog_id;
+	global $page, $paged, $translucence_options, $blog_id, $use_mobile_site;
 
 	wp_title( '|', true, 'right' );
 
