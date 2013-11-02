@@ -61,7 +61,6 @@ jQuery(document).ready(function(){
 	jQuery('#s').inline_label({text: "Search Site..."});	
 });
 var is_mobile = <?php if( $use_mobile_site ) { echo 'true'; } else { echo 'false'; } ?>;
-
 </script>
 
 </head>
