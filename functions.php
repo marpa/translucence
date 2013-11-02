@@ -78,8 +78,8 @@ if (file_exists(dirname(__FILE__).'/functions-plugins.php')) {
 	require_once('functions-plugins.php');
 }
 
-if (file_exists(dirname(__FILE__).'/mobile-detect/namespaced/Detection/MobileDetect.php')) {
-	require_once( get_template_directory() . '/mobile-detect/namespaced/Detection/MobileDetect.php');
+if (file_exists(dirname(__FILE__).'/mobile-detect/Mobile_Detect.php')) {
+	require_once( get_template_directory() . '/mobile-detect/Mobile_Detect.php');
 }
  
 // this theme may have child themes that override this config.
