@@ -288,7 +288,7 @@ function translucence_add_options_css() {
 	print $translucence_options['css'];
 	
 	if( $use_mobile_site) {
-		printpre("mobile");
+		//printpre("mobile");
  		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
 		print "
 		#primary {padding-left: 2px;}
@@ -433,13 +433,6 @@ function translucence_add_options_css() {
 		printpre("not mobile");
 	}
 		
-// 	if (wp_is_mobile()) {
-// 		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
-// 		print "#primary {display: none;}";
-// 		print "#secondary {display: none;}";
-// 		print "#tertiary {display: none;}";
-// 		print "#content {width: ".$content_width."px;}";
-// 	}	
 	print "</style>";
 	
 	// IE hack opacity options
