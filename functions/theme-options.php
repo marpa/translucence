@@ -1168,21 +1168,27 @@ function translucence_set_derivative_options() {
 	 ******************************************************************************/
 
 	$left01_width = 0;
+	$left01_padding = $translucence_options['left01-padding-left'] + $translucence_options['left01-padding-right'];
 	if ($translucence_options['left01-width'] > 0) {
-		$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + ($translucence_options['left01-padding']*2);
+			$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + $left01_padding;
 	}
 
 	$right01_width = 0;
+	$right01_padding = $translucence_options['right01-padding-left'] + $translucence_options['right01-padding-right'];
 	if ($translucence_options['right01-width'] != 0) {
-		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + ($translucence_options['right01-padding']*2);
+		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + $right01_padding;
 	}
 
 	$right02_width = 0;
+	$right02_padding = $translucence_options['right02-padding-left'] + $translucence_options['right02-padding-right'];
 	if ($translucence_options['right02-width'] != 0) {
-		$right02_width = 2 + $translucence_options['right02-width'] + ($translucence_options['right02-padding']*2);
+		$right02_width = 2 + $translucence_options['right02-margin-right'] + $translucence_options['right02-width'] + $right02_padding;
 	}
 	
-	$content_width = $translucence_options['site-width'] - 2 - $translucence_options['content-margin-right'] - ($translucence_options['content-padding'] * 2) - $left01_width - $right01_width - $right02_width;
+	$content_width = 0;
+	$content_padding = $translucence_options['content-padding-left'] + $translucence_options['content-padding-right'];
+	
+	$content_width = $translucence_options['site-width'] - 2 - $translucence_options['content-margin-right'] - $content_padding - $left01_width - $right01_width - $right02_width;
 	
 	$total = $translucence_options['site-width'];
 	
