@@ -7,7 +7,8 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); 
+get_header();
+global $translucence_options; 
 $content_width = translucence_get_content_width ("search");
 ?>
 
