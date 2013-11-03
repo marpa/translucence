@@ -13,11 +13,9 @@
  */
 
 get_header(); 
-global $translucence_options, $use_mobile_site;
+global $translucence_options;
 
-if( $use_mobile_site ) {
-	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
-}
+$content_width = translucence_get_content_width("page");
 ?>
 
 <div id="container">
@@ -25,7 +23,7 @@ if( $use_mobile_site ) {
 	<?php get_sidebar('tertiary'); ?>
 <?php endif;  ?>
 
-<div id="content" role="main">
+<div id="content" role="main" style="width: <?php print $content_width; ?>px;?>">
 
 <?php print translucence_toggle_links(); ?>	
 <div class="clearfix"></div>
