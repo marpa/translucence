@@ -8,15 +8,11 @@
  */
 
 get_header();
-global $translucence_options, $use_mobile_site; 
+global $translucence_options; 
 $this_category = get_category($cat);
 $cat_id = $this_category->term_id;
 
-if( $use_mobile_site ) {
-	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
-} else {
-	$content_width = translucence_get_content_width ("category");
-}
+$content_width = translucence_get_content_width ("category");
 ?>
 
 		<div id="container">

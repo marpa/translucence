@@ -8,16 +8,10 @@
  */
 
 get_header(); 
-global $translucence_options, $use_mobile_site;
+global $translucence_options;
 
-if( $use_mobile_site ) {
-	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
-} else {
-	$content_width = translucence_get_content_width ("author");
-}
-
+$content_width = translucence_get_content_width ("author");
 $author = get_userdata($wp_the_query->query_vars['author']);
-
 ?>
 
 		<div id="container">
@@ -26,7 +20,7 @@ $author = get_userdata($wp_the_query->query_vars['author']);
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 <?php print translucence_toggle_links(); ?>
-
+<div class="clearfix"></div>
 <?php
 	/* Queue the first post, that way we know who
 	 * the author is when we try to get their name,

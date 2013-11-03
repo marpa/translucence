@@ -8,14 +8,12 @@
  */
 
 get_header(); 
-global $translucence_options, $use_mobile_site;
+global $translucence_options;
 $this_tag = get_tags($tag);
 $tag_id = get_query_var('tag_id');
-if( $use_mobile_site ) {
-	$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
-} else {
-	$content_width = translucence_get_content_width ("tag");
-}
+
+$content_width = translucence_get_content_width ("tag");
+
 ?>
 
 	<div id="container">

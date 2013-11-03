@@ -14,7 +14,8 @@
 
 get_header(); 
 global $translucence_options;
-$content_width = $translucence_options['site-width'] - $translucence_options['overall-left01-width'] - $translucence_options['overall-right01-width'] - 2 - $translucence_options['content-margin-right'] - ($translucence_options['content-padding'] * 2);
+	
+$content_width = translucence_get_content_width("page");
 ?>
 
 <div id="container">
