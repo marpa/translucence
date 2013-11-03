@@ -1637,18 +1637,16 @@ div.menu li {
 -------------------------------------------------------------- */	
 
 .widget_pages li.page_item ul.children,
-.widget_nav_menu li.menu-item ul.sub-menu,
-.pagenav li.page_item ul.children {
+.widget_nav_menu li.menu-item ul.sub-menu {
 	display: none;
 }
 
-#entry-author-pages .pagenav li.page_item ul.children {
+#entry-author-pages {
 	display: block;
 }
 
 .widget_pages li.current_page_item > ul.children, 
-.widget_nav_menu li.current-menu-item > ul.sub-menu,
-.pagenav li.current_page_item > ul.children {
+.widget_nav_menu li.current-menu-item > ul.sub-menu {
 	display: block;
 }
 
@@ -1696,24 +1694,10 @@ div.menu li {
 }
 
 .pagenav {
-	background-color: #F9F9F9;
-	color: #444444;
-	width: 97%;
-	float: right;
-	
-	font-size: 12px;
-	list-style: none;
-	border: 1px solid #CCCCCC;
-	padding: 10px;
-
-	margin-bottom: 15px
 }
 
 .pagenav ul .page_item a {
-	display: block;
-	padding: 3px;
-	border: 1px solid transparent;
-	margin: 1px;
+
 }
 
 #content .pagenav h3 {
@@ -1721,20 +1705,19 @@ div.menu li {
 }
 
 .pagenav ul {
-	list-style: none;
-	margin: 0px 0px 5px 1.5em;
+
 }
 
 .pagenav .current_page_item {
-	display: block;
+
 }
 
 .pagenav a {
-	color: #003366;
+
 }
 
 .pagenav .current_page_item a {
-	color: #444444;
+
 }
 
 .pagenav .current_page_item > ul.children a {

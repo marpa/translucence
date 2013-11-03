@@ -603,31 +603,6 @@ div.menu,
 .breadcrumbs a {
 	color: <?php print $translucence_options['linkcolor']?>;
 }
-
-.pagenav {
-	background-color: <?php print $translucence_options['content-highlight-color-rgb']?>;
-	color: <?php print $translucence_options['content-text-color']?>;
-}
-
-.pagenav ul .page_item a:hover {
-	color: <?php print $translucence_options['linkcolor']?>;
-	border: 1px dotted <?php print $translucence_options['linkcolor']?>;
-	background-color: transparent;
-}
-
-.pagenav a, .pagenav a:visited {
-	color: <?php print $translucence_options['entry-link-color']?>;
-}
-
-.pagenav ul .current_page_item a {
-	color: <?php print $translucence_options['content-text-color']?>;
-	border: 1px dotted <?php print $translucence_options['linkcolor']?>;
-}
-
-.pagenav .current_page_item > ul.children a {
-	font-style: normal;
-	color: <?php print $translucence_options['entry-link-color']?>;
-}
 	
 /* =calendar and table css
 -------------------------------------------------------------- */	
