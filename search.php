@@ -17,7 +17,8 @@ $content_width = translucence_get_content_width ("search");
 		<?php get_sidebar('tertiary'); ?>
 		<?php endif; ?>	
 			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
-
+<?php print translucence_toggle_links(); ?>
+<div class="clearfix"></div>
 <?php if ( have_posts() ) : ?>
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '2010-translucence' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				<?php
