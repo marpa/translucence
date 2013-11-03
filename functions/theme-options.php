@@ -1142,12 +1142,23 @@ function translucence_set_derivative_options() {
 		// visibility and padding of bars
 		if (isset($translucence_options[$box.'-width']) && $translucence_options[$box.'-width'] == '0') {	
 			$translucence_options[$box.'-visibility'] = "none";
-			$translucence_options[$box.'-padding'] = "25";
 		
 		// if visible bar padding
 		} else {
 			$translucence_options[$box.'-visibility'] = "block";
-			$translucence_options[$box.'-padding'] = "25";
+			if (!isset($translucence_options[$box.'-padding'])) {
+				$translucence_options[$box.'-padding'] = "25";
+			}
+			if (!isset($translucence_options[$box.'-padding-top'])) {
+				$translucence_options[$box.'-padding-top'] = "15";
+			}
+			if (!isset($translucence_options[$box.'-padding-left'])) {
+				$translucence_options[$box.'-padding-left'] = "25";
+			}
+			if (!isset($translucence_options[$box.'-padding-right'])) {
+				$translucence_options[$box.'-padding-right'] = "25";
+			}
+			
 		}
 		
 	}
