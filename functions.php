@@ -1108,12 +1108,54 @@ function translucence_page_links_display() {
 
 function translucence_toggle_links() {	
 	global $translucence_options;
+	
+	$show_left = TRUE;
+	$show_right01 = TRUE;
+	$show_right02 = TRUE;
+	if ($translucence_options['left01-width'] == 0) $show_left = FALSE;
+	if ($translucence_options['right01-width'] == 0) $show_right01 = FALSE;
+	if ($translucence_options['right02-width'] == 0) $show_right02 = FALSE;
+	
+	$types = array(
+		"post" => "is_single", 
+		"category" => "is_category", 
+		"tag" => "is_tag", 
+		"author" => "is_author", 
+		"search" => "is_search", 
+		"archives" => "is_archive"
+	);
+	
+	foreach ($types as $type => $is_type) {
+		if ($translucence_options[$type.'-sidebar-left-display'] == "hide" && $is_type()) $show_left = FALSE;
+		if ($translucence_options[$type.'-sidebar-right-display'] == "hide" && $is_type()) $show_right01 = FALSE;
+		if ($translucence_options[$type.'-sidebar-right02-display'] == "hide" && $is_type()) $show_right02 = FALSE;
+		if ($is_type()) break;
+	}
+	
+	if ($show_left == TRUE && (
+		is_page_template('page-right01-sidebar.php')
+		|| is_page_template('page-right02-sidebar.php')
+		|| is_page_template('page-right-both-sidebar.php')
+		|| is_page_template('page-no-sidebar.php')) ) {
+			$show_left = FALSE;
+	}
 
-	if( $translucence_options['left01-width'] > 0
-		&& !is_page_template('page-right01-sidebar.php')
-		&& !is_page_template('page-right02-sidebar.php')
-		&& !is_page_template('page-right-both-sidebar.php') )
-	{
+	if ($show_right01 == TRUE && (
+		is_page_template('page-left-sidebar.php')
+		|| is_page_template('page-right02-sidebar.php')
+		|| is_page_template('page-no-sidebar.php')) ) {
+			$show_right01 = FALSE;
+	}
+
+	if ($show_right02 == TRUE && (
+		is_page_template('page-left-sidebar.php')
+		|| is_page_template('page-right01-sidebar.php')
+		|| is_page_template('page-no-sidebar.php')) ) {
+			$show_right02 = FALSE;
+	}
+
+	
+	if ($show_left == TRUE) {
 		echo "<div class=\"togglelinks-box left-togglelinks-box\">";
 			echo "<div class=\"togglelink\" title=\"Show left sidebar\" sidebar=\"tertiary\">";
 			echo "&#9776;";
@@ -1121,26 +1163,22 @@ function translucence_toggle_links() {
 		echo "</div>";
 	}
 	
-	if( $translucence_options['right01-width'] > 0 
-		|| $translucence_options['right02-width'] > 0 ) 
-	{
+	if ($translucence_options['right01-width'] > 0 
+		|| $translucence_options['right02-width'] > 0 ) {
 		echo "<div class=\"togglelinks-box right-togglelinks-box\">";
-		if( $translucence_options['right01-width'] > 0 
-			&& !is_page_template('page-left-sidebar.php') 
-			&& !is_page_template('page-right02-sidebar.php') )
-		{
+				
+		if ($show_right01 == TRUE) {
 			echo "<div class=\"togglelink\" title=\"Show right sidebar\" sidebar=\"primary\">";
 			echo "&#9776;";
 			echo "</div>";
 		}
-		if( $translucence_options['right02-width'] > 0 
-			&& !is_page_template('page-left-sidebar.php')
-			&& !is_page_template('page-right01-sidebar.php') )
-		{
+		
+		if ($show_right02 == TRUE) {
 			echo "<div class=\"togglelink\" title=\"Show 2nd right sidebar\" sidebar=\"secondary\">";
 			echo "&#9776;";
 			echo "</div>";
 		}
+				
 		echo "</div>";
 	}
 }
