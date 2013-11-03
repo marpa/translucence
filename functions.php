@@ -346,6 +346,7 @@ function translucence_add_options_css() {
 		#access .menu-header, div.menu {
 			font-size: 200%;
 		}
+	
 		
 		#primary h2, 
 		#primary h3,
@@ -394,6 +395,10 @@ function translucence_add_options_css() {
 		
 		#content {
 			padding-top: 30px;
+		}
+		
+		#content .page-title {
+			margin-top: 50px;
 		}
 		
 		#content .entry-title {
