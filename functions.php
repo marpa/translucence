@@ -1092,7 +1092,7 @@ global $translucence_options;
 		$children = wp_list_pages("title_li=<h3>".get_the_title($post->post_parent)."</h3>&child_of=".$post->post_parent."&echo=0");
 		$num_children = get_pages("child_of=".$post->post_parent);
 	} else {
-		$children = wp_list_pages("title_li=<h3>".get_the_title($post->post_parent)."</h3>&child_of=".$post->ID."&echo=0");
+		$children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0");
 		$num_children = get_pages("child_of=".$post->ID);
 	}
 	
