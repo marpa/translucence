@@ -155,11 +155,13 @@ div.menu,
 	width: <?php print $translucence_options['content-width']?>px;
 	color: <?php print $translucence_options['textcolor']?>;
 	background-color: <?php print $translucence_options['content-color-rgb']?>;
-	padding: <?php print $translucence_options['content-padding'] ?>px;	
-	padding-top: 5px;
 	border: <?php print $translucence_options['content-border-width'] ?> <?php print $translucence_options['content-border-style'] ?> <?php print $translucence_options['content-border-color']?>;		
 	font-size: <?php print $translucence_options['entry-text-size']?>px;
 	line-height: <?php print $translucence_options['entry-line-height']?>px;
+	padding-top: <?php print $translucence_options['content-padding-top']?>px;
+	padding-left: <?php print $translucence_options['content-padding-left']?>px;
+	padding-right: <?php print $translucence_options['content-padding-right']?>px;	
+
 }
 
 
@@ -190,9 +192,9 @@ ob_start();
 	background-color: <?php print $translucence_options['left01-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['left01-border-style']?> <?php print $translucence_options['left01-border-color']?>;	
 	width: <?php print $translucence_options['left01-width']?>px;
-	padding-top: 15px;
-	padding-left: <?php print $translucence_options['left01-padding']?>px;
-	padding-right: <?php print $translucence_options['left01-padding']?>px;	
+	padding-top: <?php print $translucence_options['left01-padding-top']?>px;
+	padding-left: <?php print $translucence_options['left01-padding-left']?>px;
+	padding-right: <?php print $translucence_options['left01-padding-right']?>px;	
 }
 
 #tertiary:hover {
@@ -271,9 +273,9 @@ ob_start();
 	background-color: <?php print $translucence_options['right01-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['right01-border-style']?> <?php print $translucence_options['right01-border-color']?>;
 	width: <?php print $translucence_options['right01-width']?>px;
-	padding-top: 15px;
-	padding-left: <?php print $translucence_options['right01-padding']?>px;
-	padding-right: <?php print $translucence_options['right01-padding']?>px;	
+	padding-top: <?php print $translucence_options['right01-padding-top']?>px;
+	padding-left: <?php print $translucence_options['right01-padding-left']?>px;
+	padding-right: <?php print $translucence_options['right01-padding-right']?>px;	
 }
 
 #primary:hover {
@@ -351,9 +353,9 @@ ob_start();
 	background-color: <?php print $translucence_options['right02-color-rgb']?>;	
 	border: 1px <?php print $translucence_options['right02-border-style']?> <?php print $translucence_options['right02-border-color']?>;
 	width: <?php print $translucence_options['right02-width']?>px;
-	padding-top: 15px;
-	padding-left: <?php print $translucence_options['right02-padding']?>px;
-	padding-right: <?php print $translucence_options['right02-padding']?>px;
+	padding-top: <?php print $translucence_options['right02-padding-top']?>px;
+	padding-left: <?php print $translucence_options['right02-padding-left']?>px;
+	padding-right: <?php print $translucence_options['right02-padding-right']?>px;	
 }
 
 #secondary:hover {
