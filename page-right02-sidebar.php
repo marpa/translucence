@@ -22,7 +22,8 @@ $content_width = translucence_get_content_width("page");
 
 <div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
-<?php print translucence_toggle_links(); ?>	
+<?php print translucence_toggle_links(); ?>
+<div class="clearfix"></div>	
 <?php print translucence_get_breadcrumbs($post); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
