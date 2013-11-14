@@ -1123,12 +1123,12 @@ function translucence_set_derivative_options() {
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
-// 			$translucence_options['submenu-color-ie'] = "#access .sub-menu, #access .children";
-// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], 1)."}";
-// 			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
-// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
-// 			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
-// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";					
+			$translucence_options['submenu-color-ie'] = "#access .sub-menu, #access .children";
+			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], 1)."}";
+			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
+			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
+			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";					
 		}
 		
 		if ($box == "description-box") {
