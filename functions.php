@@ -929,8 +929,8 @@ function translucence_get_content_width($page) {
 					$width -= $translucence_options['overall-right01-width'];
 				if( strstr($style, 'right02') )
 					$width -= $translucence_options['overall-right02-width'];
-				$width -= (2 + 1 + ($translucence_options['content-padding-left'] + $translucence_options['content-padding-right']));
 			}
+			$width -= (2 + 1 + ($translucence_options['content-padding-left'] + $translucence_options['content-padding-right']));
 			return $width;
 			break;
 		case 'page':
