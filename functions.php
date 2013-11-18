@@ -136,7 +136,7 @@ function translucence_setup() {
 	/*********************************************************
 	 * set options version
 	 *********************************************************/ 
-	$translucence_options_version = "2.3.2";
+	$translucence_options_version = "2.3.3";
 		
 	/*********************************************************
 	 * Register theme javascript
@@ -298,13 +298,26 @@ function translucence_add_options_css() {
 	if( $mobile_support->use_mobile_site ) 
 	{
 		//printpre("mobile");
- 		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
+ 		//$content_width = $translucence_options['site-width'] - ($translucence_options['content-border-width'] * 2) - 1 - ($translucence_options['content-padding'] * 2);
+ 		//printpre($translucence_options);
+ 		//echo "CONTENT WIDTH: ".$translucence_options['content-width'];
+ 		
+ 		
+		$sidebar_overall_width = $translucence_options['site-width'] * 0.5;
+		$sidebar_width = $sidebar_overall_width - 1 - 20;
+ 		
+ 		$primary_sidebar_width = $sidebar_width - ($translucence_options['right01-border-width'] * 2);
+ 		$secondary_sidebar_width = $sidebar_width - ($translucence_options['right02-border-width'] * 2);
+ 		$tertiary_sidebar_width = $sidebar_width - ($translucence_options['left01-border-width'] * 2);
+ 		
+ 		
+ 		
 		print "
 		#primary {padding-left: 2px;}
 		#primary {margin-top: 20px; display: none;}
 		#secondary {margin-top: 20px; display: none;}
 		#tertiary {margin-top: 20px; display: none;}
-		#content {margin-top: 20px; width: ".$content_width."px;}
+		#content {margin-top: 20px; width: ".$translucence_options['content-width']."px;}
 		#primary,
 		#secondary,
 		#tertiary,
@@ -312,6 +325,18 @@ function translucence_add_options_css() {
 			font-size: 170%;
 			line-height: 170%;
 			padding: 15px 10px 0px 10px;
+		}
+		
+		#primary { width: ".$primary_sidebar_width."px; }
+		#secondary { width: ".$secondary_sidebar_width."px; }
+		#tertiary { width: ".$tertiary_sidebar_width."px; }
+		
+		#primary,
+		#secondary,
+		#tertiary {
+			font-size:300%;
+			margin-left:0px;
+			margin-right:0px;
 		}
 		
 		#primary .togglelink {
@@ -916,6 +941,10 @@ function translucence_get_content_width($page)
 {
 	global $translucence_options, $mobile_support;
 
+	$width = $translucence_options['site-width'];
+	$width -= $translucence_options['content-border-width'] * 2;
+	$width -= $translucence_options['content-padding-left'] + $translucence_options['content-padding-right'];
+
 	if( $mobile_support->use_mobile_site )
 		return $width;
 
@@ -927,62 +956,99 @@ function translucence_get_content_width($page)
 		case 'author':
 		case 'search':
 		case 'archive':
+		case 'attachment':
+					
 			$style = $translucence_options[$page.'-single-sidebar'];
-			if( $style == 'none' )
-				return $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding-left'] + $translucence_options['content-padding-right']);
+			if( $style === 'none' )
+				return $width;
+
+			$use_left_sidebar = false;
+			$use_right_sidebar = false;
 			
-			$width = $translucence_options['site-width'];
-			if ($use_mobile_site) {
-				$width = $translucence_options['site-width'];
-			} else {
-				if( strstr($style, 'left01') )
-					$width -= $translucence_options['overall-left01-width'];
-				if( strstr($style, 'right01') )
-					$width -= $translucence_options['overall-right01-width'];
-				if( strstr($style, 'right02') )
-					$width -= $translucence_options['overall-right02-width'];
+			if( strstr($style, 'left01') )
+			{
+				$width -= $translucence_options['overall-left01-width'];
+				$use_left_sidebar = true;
 			}
-			$width -= (2 + 1 + ($translucence_options['content-padding-left'] + $translucence_options['content-padding-right']));
+			
+			if( strstr($style, 'right01') )
+			{
+				$width -= $translucence_options['overall-right01-width'];
+				$use_right_sidebar = true;
+			}
+			
+			if( strstr($style, 'right02') )
+			{
+				$width -= $translucence_options['overall-right02-width'];
+				$use_right_sidebar = true;
+			}
+			
+			if( $use_left_sidebar )
+				$width -= $translucence_options['content-margin-left'];
+			if( $use_right_sidebar )
+				$width -= $translucence_options['content-margin-right'];
+			
 			return $width;
 			break;
+
 		case 'page':
-			$width = $translucence_options['site-width'];
-			$content_padding = $translucence_options['content-padding-left'] + $translucence_options['content-padding-right'] + $translucence_options['content-margin-right'];
-			$template_name = basename(get_page_template());
-			
-			if ($use_mobile_site) {
-				$width = $translucence_options['site-width'];
-				
-			} else if (strstr($template_name, 'left-sidebar')) {
-				$width -= $translucence_options['overall-left01-width'] + 2 + $content_padding;
-			
-			} else if (strstr($template_name, 'left-right01-sidebar')) {
-				$width -= $translucence_options['overall-left01-width'] + $translucence_options['overall-right01-width'] + 2  + $content_padding;
-			
-			} else if (strstr($template_name, 'left-right02-sidebar')) {
-				$width -= $translucence_options['overall-left01-width'] + $translucence_options['overall-right02-width'] + 2 + $content_padding;
-
-			} else if (strstr($template_name, 'right-both-sidebar')) {
-				$width -= $translucence_options['overall-right01-width'] + $translucence_options['overall-right02-width'] + 2 +  $content_padding;
-
-			} else if (strstr($template_name, 'right01-sidebar')) {
-				$width -= $translucence_options['overall-right01-width'] + 2 +  $content_padding;
-			
-			} else if (strstr($template_name, 'right02-sidebar')) {
-				$width -= $translucence_options['overall-right02-width'] + 2 +  $content_padding;
-			
-			} else if (strstr($template_name, 'no-sidebar')) {
-				$width -= 2 +  $content_padding;
-
-			} else {
-				$width = $translucence_options['content_width'];
+		
+			switch( get_page_template_slug(get_the_ID()) )
+			{
+				case 'page-left-right01-sidebar.php':
+					$width -= $translucence_options['overall-left01-width'];
+					$width -= $translucence_options['overall-right01-width'];
+					$width -= $translucence_options['content-margin-left'];
+					$width -= $translucence_options['content-margin-right'];
+					break;
+				case 'page-left-right02-sidebar.php':
+					$width -= $translucence_options['overall-left01-width'];
+					$width -= $translucence_options['overall-right02-width'];
+					$width -= $translucence_options['content-margin-left'];
+					$width -= $translucence_options['content-margin-right'];
+					break;
+				case 'page-left-sidebar.php':
+					$width -= $translucence_options['overall-left01-width'];
+					$width -= $translucence_options['content-margin-left'];
+					break;
+				case 'page-no-sidebar.php':
+					break;
+				case 'page-right-both-sidebar.php':
+					$width -= $translucence_options['overall-right01-width'];
+					$width -= $translucence_options['overall-right02-width'];
+					$width -= $translucence_options['content-margin-right'];
+					break;
+				case 'page-right01-sidebar.php':
+					$width -= $translucence_options['overall-right01-width'];
+					$width -= $translucence_options['content-margin-right'];
+					break;
+				case 'page-right02-sidebar.php':
+					$width -= $translucence_options['overall-right02-width'];
+					$width -= $translucence_options['content-margin-right'];
+					break;
+				default:
+					$width = $translucence_options['content-width'];
+					break;
 			}
+
+			/*					
+			echo 'SITE WIDTH: '.$translucence_options['site-width'].'<br/>';
+			echo 'CONTENT WIDTH: -'.($translucence_options['content-border-width'] * 2).'<br/>';
+			echo 'CONTENT WIDTH: -'.($translucence_options['content-padding-left'] + $translucence_options['content-padding-right']).'<br/>';
+			echo 'CONTENT WIDTH: -'.$translucence_options['content-margin-right'].'<br/>';
+			echo 'CONTENT WIDTH: -'.$translucence_options['overall-left01-width'].'<br/>';
+			echo 'CONTENT WIDTH: -'.$translucence_options['overall-right01-width'].'<br/>';
+			echo 'CONTENT WIDTH: -'.$translucence_options['overall-right02-width'].'<br/>';
+			echo $width;
+			*/
 
 			return $width;
 			break;		
+
 		default:
-			return $translucence_options['content_width'];
+			return $translucence_options['content-width'];
 			break;
+
 	}
 }
 
@@ -1159,12 +1225,54 @@ function translucence_page_links_display() {
 function translucence_toggle_links() {	
 	global $translucence_options;
 	
-	$show_left = TRUE;
-	$show_right01 = TRUE;
-	$show_right02 = TRUE;
-	if ($translucence_options['left01-width'] == 0) $show_left = FALSE;
-	if ($translucence_options['right01-width'] == 0) $show_right01 = FALSE;
-	if ($translucence_options['right02-width'] == 0) $show_right02 = FALSE;
+
+	switch( get_page_template_slug(get_the_ID()) )
+	{
+		case 'page-left-right01-sidebar.php':
+			$show_left = true;
+			$show_right01 = true;
+			$show_right02 = false;
+			break;
+		case 'page-left-right02-sidebar.php':
+			$show_left = true;
+			$show_right01 = false;
+			$show_right02 = true;			
+			break;
+		case 'page-left-sidebar.php':
+			$show_left = true;
+			$show_right01 = false;
+			$show_right02 = false;			
+			break;
+		case 'page-no-sidebar.php':
+			$show_left = false;
+			$show_right01 = false;
+			$show_right02 = false;			
+			break;
+		case 'page-right-both-sidebar.php':
+			$show_left = false;
+			$show_right01 = true;
+			$show_right02 = true;			
+			break;
+		case 'page-right01-sidebar.php':
+			$show_left = false;
+			$show_right01 = true;
+			$show_right02 = false;			
+			break;
+		case 'page-right02-sidebar.php':
+			$show_left = false;
+			$show_right01 = false;
+			$show_right02 = true;			
+			break;
+		default:
+			$show_left = true;
+			$show_right01 = true;
+			$show_right02 = true;
+			break;
+	}
+	
+	if ($translucence_options['left01-width'] == 0) $show_left = false;
+	if ($translucence_options['right01-width'] == 0) $show_right01 = false;
+	if ($translucence_options['right02-width'] == 0) $show_right02 = false;
 	
 	$types = array(
 		"post" => "is_single", 
@@ -1176,33 +1284,16 @@ function translucence_toggle_links() {
 	);
 	
 	foreach ($types as $type => $is_type) {
-		if ($translucence_options[$type.'-sidebar-left-display'] == "hide" && $is_type()) $show_left = FALSE;
-		if ($translucence_options[$type.'-sidebar-right-display'] == "hide" && $is_type()) $show_right01 = FALSE;
-		if ($translucence_options[$type.'-sidebar-right02-display'] == "hide" && $is_type()) $show_right02 = FALSE;
-		if ($is_type()) break;
+		if( $is_type() )
+		{
+			if ($translucence_options[$type.'-sidebar-left-display'] == "hide") $show_left = false;
+			if ($translucence_options[$type.'-sidebar-right-display'] == "hide") $show_right01 = false;
+			if ($translucence_options[$type.'-sidebar-right02-display'] == "hide") $show_right02 = false;
+		
+			break;
+		}
 	}
 	
-	if ($show_left == TRUE && (
-		is_page_template('page-right01-sidebar.php')
-		|| is_page_template('page-right02-sidebar.php')
-		|| is_page_template('page-right-both-sidebar.php')
-		|| is_page_template('page-no-sidebar.php')) ) {
-			$show_left = FALSE;
-	}
-
-	if ($show_right01 == TRUE && (
-		is_page_template('page-left-sidebar.php')
-		|| is_page_template('page-right02-sidebar.php')
-		|| is_page_template('page-no-sidebar.php')) ) {
-			$show_right01 = FALSE;
-	}
-
-	if ($show_right02 == TRUE && (
-		is_page_template('page-left-sidebar.php')
-		|| is_page_template('page-right01-sidebar.php')
-		|| is_page_template('page-no-sidebar.php')) ) {
-			$show_right02 = FALSE;
-	}
 
 	
 	if ($show_left == TRUE) {
@@ -1213,8 +1304,8 @@ function translucence_toggle_links() {
 		echo "</div>";
 	}
 	
-	if ($translucence_options['right01-width'] > 0 
-		|| $translucence_options['right02-width'] > 0 ) {
+	if ($show_right01 || $show_right02 ) 
+	{
 		echo "<div class=\"togglelinks-box right-togglelinks-box\">";
 				
 		if ($show_right01 == TRUE) {

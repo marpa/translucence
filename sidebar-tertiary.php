@@ -16,9 +16,16 @@
 	 */
 	// A tertiary sidebar for widgets, just because... because.
 	
-	global $translucence_options; ?>
+	global $translucence_options, $mobile_support; ?>
 
-	<div id="tertiary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-left01-width']; ?>">
+	<?php
+	
+		$overall_width = $translucence_options['overall-left01-width'];
+		if( $mobile_support->use_mobile_site )
+			$overall_width = $translucence_options['site-width'] * 0.5;
+	?>
+
+	<div id="tertiary" class="widget-area" role="complementary" overall-width="<?php print $overall_width; ?>">
 		<div class="togglelink" style="float:right; cursor:pointer" sidebar="tertiary" title="Hide Sidebar">
 						
 		</div>

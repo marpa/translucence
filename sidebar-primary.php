@@ -14,9 +14,16 @@
 	 * then the sidebar simply doesn't exist, so we'll hard-code in
 	 * some default sidebar stuff just in case.
 	 */
-	global $translucence_options; ?>
+	global $translucence_options, $mobile_support; ?>
 	
-	<div id="primary" class="widget-area" role="complementary" overall-width="<?php print $translucence_options['overall-right01-width']; ?>">
+	<?php
+	
+		$overall_width = $translucence_options['overall-right01-width'];
+		if( $mobile_support->use_mobile_site )
+			$overall_width = $translucence_options['site-width'] * 0.5;
+	?>
+	
+	<div id="primary" class="widget-area" role="complementary" overall-width="<?php print $overall_width; ?>">
 		<div class="togglelink" style="float:left; cursor:pointer" sidebar="primary" title="Hide Sidebar">
 			
 		</div>

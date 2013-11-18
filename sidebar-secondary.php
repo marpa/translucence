@@ -16,9 +16,16 @@
 	 */
 	// A second sidebar for widgets, just because.
 	
-	global $translucence_options; ?>
+	global $translucence_options, $mobile_support; ?>
 
-	<div id="secondary" class="widget-area" role="complementary" overall-width="<?php echo $translucence_options['overall-right02-width']; ?>">
+	<?php
+	
+		$overall_width = $translucence_options['overall-right02-width'];
+		if( $mobile_support->use_mobile_site )
+			$overall_width = $translucence_options['site-width'] * 0.5;
+	?>
+
+	<div id="secondary" class="widget-area" role="complementary" overall-width="<?php print $overall_width; ?>">
 		<div class="togglelink" style="float:right; cursor:pointer" sidebar="secondary" title="Hide Sidebar">
 			
 		</div>

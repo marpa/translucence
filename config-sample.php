@@ -67,8 +67,8 @@ $translucence_config['entry-text-align'] = "left";
 $translucence_config['tag-links-color'] = "#FFF8C6";
 $translucence_config['cat-links-color'] = "#e9e9c9";
 
-$translucence_config['site-padding-top'] = "20";
-$translucence_config['site-padding-bottom'] = "20";
+$translucence_config['site-padding-top'] = 20;
+$translucence_config['site-padding-bottom'] = 20;
 $translucence_config['content-padding'] = 20;
 
 $translucence_config['site-color'] = "#FFFFFF";
@@ -103,10 +103,19 @@ $translucence_config['right01-border-style'] = "dotted";
 $translucence_config['right02-border-style'] = "dotted";
 $translucence_config['bottom-border-style'] = "dotted";
 
+$translucence_config['content-margin-left'] = 0;
+$translucence_config['content-margin-right'] = 0;
+$translucence_config['left01-margin-left'] = 0;
+$translucence_config['left01-margin-right'] = 1;
+$translucence_config['right01-margin-left'] = 1;
+$translucence_config['right01-margin-right'] = 0;
+$translucence_config['right02-margin-left'] = 1;
+$translucence_config['right01-margin-right'] = 0;
+
 $translucence_config['header-width'] = $translucence_config['site-width'];
-$translucence_config['left01-width'] = "0";
-$translucence_config['right01-width'] = "200";
-$translucence_config['right02-width'] = "0";
+$translucence_config['left01-width'] = 0;
+$translucence_config['right01-width'] = 200;
+$translucence_config['right02-width'] = 0;
 
 $translucence_config['post-single-sidebar'] = "right01";
 $translucence_config['category-single-sidebar'] = "right01";
@@ -408,9 +417,13 @@ $translucence_config['model'][]  = 'site-description-size';
 $translucence_config['model'][]  = 'page-links-display';
 
 //  primary options not exposed in theme model
+$translucence_config['model'][]  = 'left01-margin-left';
 $translucence_config['model'][]  = 'left01-margin-right';
+$translucence_config['model'][]  = 'right01-margin-left';
 $translucence_config['model'][]  = 'right01-margin-right';
+$translucence_config['model'][]  = 'right02-margin-left';
 $translucence_config['model'][]  = 'right02-margin-right';
+$translucence_config['model'][]  = 'content-margin-left';
 $translucence_config['model'][]  = 'content-margin-right';
 
 $translucence_config['model'][]  = 'left01-margin-top';

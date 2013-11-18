@@ -21,8 +21,8 @@ function translucence_options_css() {
 	global $translucence_options_id;
 
 	$site_width = $translucence_options['site-width'];
-	$header_width = $translucence_options['site-width']-7;
-	$menu_width =$translucence_options['site-width']-7;
+	$header_width = $translucence_options['site-width'] - ($translucence_options['header-border-width'] * 2);
+	$menu_width =$translucence_options['site-width'] - ($translucence_options['menu-border-width'] * 2);
 	
 	// add # to theme option for site-title and description
 	if (!preg_match("/\#/", $translucence_options['site-title-color'])) {
@@ -252,6 +252,7 @@ div.menu,
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
 	margin-right: <?php print $translucence_options['content-margin-right']?>px;
+	margin-left: <?php print $translucence_options['content-margin-left']?>px;
 	
 	width: <?php print $content_width?>px;
 	color: <?php print $translucence_options['textcolor']?>;
@@ -298,7 +299,7 @@ div.menu,
 #primary {
 	float: left;
 	margin-top: <?php print $translucence_options['right01-margin-top']?>px;
-	margin-right: <?php print $translucence_options['right01-margin-right']?>px;
+	margin-left: <?php print $translucence_options['right01-margin-left']?>px;
 	margin-bottom: auto;
 	
 	color: <?php print $translucence_options['right01-text-color']?>;
@@ -322,7 +323,7 @@ div.menu,
 #secondary {
 	float: left;
 	margin-top: <?php print $translucence_options['right02-margin-top']?>px;
-	margin-right: <?php print $translucence_options['right02-margin-right']?>px;
+	margin-left: <?php print $translucence_options['right02-margin-left']?>px;
 
 	color: <?php print $translucence_options['right02-text-color']?>;
 	background-color: <?php print $translucence_options['right02-color-rgb']?>;
@@ -490,7 +491,7 @@ div.menu,
 /* End widget headings */
 
 /* Begin widget list css */
-#tertiary ul ul li, #tertiary ul ol li {
+#tertiary ul ul li, .tertiary ul ol li {
 	color: <?php print $translucence_options['left01-text-color']?>;
 	list-style-type:none;
 	margin: 5px 0px 0px -10px;
@@ -502,13 +503,13 @@ div.menu,
 	margin: 5px 0px 0px -10px;
 }
 
-#secondary ul ul li, #secondary ul ol li {
+#secondary ul ul li, .secondary ul ol li {
 	color: <?php print $translucence_options['right02-text-color']?>;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;
 }
 
-#footer-widget-area ul ul li, #footer-widget-area ul ol li {
+#footer-widget-area ul ul li, .footer-widget-area ul ol li {
 	color: <?php print $translucence_options['bottom-text-color']?>;
 	list-style-type:none;
 	margin: 3px 0 0px -10px;

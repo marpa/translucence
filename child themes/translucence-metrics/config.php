@@ -405,9 +405,13 @@ $translucence_config['model'][]  = 'site-description-color';
 $translucence_config['model'][]  = 'site-description-size';
 
 //  primary options not exposed in theme model
+$translucence_config['model'][]  = 'left01-margin-left';
 $translucence_config['model'][]  = 'left01-margin-right';
+$translucence_config['model'][]  = 'right01-margin-left';
 $translucence_config['model'][]  = 'right01-margin-right';
+$translucence_config['model'][]  = 'right02-margin-left';
 $translucence_config['model'][]  = 'right02-margin-right';
+$translucence_config['model'][]  = 'content-margin-left';
 $translucence_config['model'][]  = 'content-margin-right';
 
 $translucence_config['model'][]  = 'left01-margin-top';

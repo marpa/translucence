@@ -104,15 +104,16 @@ $translucence_options['header-meta-right-margin'] = "0px";
 $translucence_options['footer-meta-left-margin'] = "10px";
 $translucence_options['footer-meta-right-margin'] = "10px";
 
-$translucence_options['left01-margin-right'] = "1";
-$translucence_options['content-margin-right'] = "1";
-$translucence_options['right01-margin-right'] = "1";
-$translucence_options['right02-margin-right'] = "0";
+$translucence_options['left01-margin-right'] = 1;
+$translucence_options['content-margin-left'] = 0;
+$translucence_options['content-margin-right'] = 0;
+$translucence_options['right01-margin-left'] = 1;
+$translucence_options['right02-margin-left'] = 1;
 
-$translucence_options['left01-margin-top'] = "5";
-$translucence_options['content-margin-top'] = "0";
-$translucence_options['right01-margin-top'] = "5";
-$translucence_options['right02-margin-top'] = "10";
+$translucence_options['left01-margin-top'] = 5;
+$translucence_options['content-margin-top'] = 0;
+$translucence_options['right01-margin-top'] = 5;
+$translucence_options['right02-margin-top'] = 10;
 
 
 /******************************************************************************

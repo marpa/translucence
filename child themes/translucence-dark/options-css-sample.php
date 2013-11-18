@@ -274,6 +274,7 @@ div.menu,
 	float: left;
 	margin-top: <?php print $translucence_options['content-margin-top']?>px;
 	margin-right: <?php print $translucence_options['content-margin-right']?>px;
+	margin-left: <?php print $translucence_options['content-margin-left']?>px;
 	
 	width: <?php print $content_width?>px;
 	color: <?php print $translucence_options['textcolor']?>;
@@ -324,7 +325,7 @@ div.menu,
 #primary {
 	float: left;
 	margin-top: <?php print $translucence_options['right01-margin-top']?>px;
-	margin-right: <?php print $translucence_options['right01-margin-right']?>px;
+	margin-left: <?php print $translucence_options['right01-margin-left']?>px;
 	margin-bottom: auto;
 	
 	color: <?php print $translucence_options['right01-text-color']?>;
@@ -353,7 +354,7 @@ div.menu,
 #secondary {
 	float: left;
 	margin-top: <?php print $translucence_options['right02-margin-top']?>px;
-	margin-right: <?php print $translucence_options['right02-margin-right']?>px;
+	margin-left: <?php print $translucence_options['right02-margin-left']?>px;
 
 	color: <?php print $translucence_options['right02-text-color']?>;
 	background-color: <?php print $translucence_options['right02-color-rgb']?>;

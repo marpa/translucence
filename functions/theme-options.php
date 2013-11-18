@@ -530,6 +530,15 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['right02-border-style'])) $translucence_options['right02-border-style'] = $translucence_config['right02-border-style'];
 	if (!isset($translucence_options['bottom-border-style'])) $translucence_options['bottom-border-style'] = $translucence_config['bottom-border-style'];
 	
+	if (!isset($translucence_options['content-margin-left'])) $translucence_options['content-margin-left'] = $translucence_config['content-margin-left'];
+	if (!isset($translucence_options['content-margin-right'])) $translucence_options['content-margin-right'] = $translucence_config['content-margin-right'];
+	if (!isset($translucence_options['left01-margin-left'])) $translucence_options['left01-margin-left'] = $translucence_config['left01-margin-left'];
+	if (!isset($translucence_options['left01-margin-right'])) $translucence_options['left01-margin-right'] = $translucence_config['left01-margin-right'];
+	if (!isset($translucence_options['right01-margin-left'])) $translucence_options['right01-margin-left'] = $translucence_config['right01-margin-left'];
+	if (!isset($translucence_options['right01-margin-right'])) $translucence_options['right01-margin-right'] = $translucence_config['right01-margin-right'];
+	if (!isset($translucence_options['right02-margin-left'])) $translucence_options['right02-margin-left'] = $translucence_config['right02-margin-left'];
+	if (!isset($translucence_options['right02-margin-right'])) $translucence_options['right02-margin-right'] = $translucence_config['right02-margin-right'];
+	
 	if (!isset($translucence_options['header-width'])) $translucence_options['header-width'] = $translucence_config['header-width'];
 	if (!isset($translucence_options['left01-width'])) $translucence_options['left01-width'] = $translucence_config['left01-width'];
 	if (!isset($translucence_options['right01-width'])) $translucence_options['right01-width'] = $translucence_config['right01-width'];
@@ -734,12 +743,12 @@ function translucence_set_derivative_options() {
 	 ******************************************************************************/
 	if ($translucence_options['top-border-style'] == "solid" || $translucence_options['top-border-style'] == "dotted") {
 		$translucence_options['top-margin-top'] = "-1";
-		$translucence_options['top-margin-left'] = "1";
-		$translucence_options['menu-width'] = $translucence_options['site-width'] - 4;
-	} else {
-		$translucence_options['top-margin-top'] = "-1";
-		$translucence_options['top-margin-left'] = "1";
+		$translucence_options['top-margin-left'] = 0;
 		$translucence_options['menu-width'] = $translucence_options['site-width'] - 2;
+	} else {
+		$translucence_options['top-margin-top'] = 0;
+		$translucence_options['top-margin-left'] = 0;
+		$translucence_options['menu-width'] = $translucence_options['site-width'];
 	}
 
 	/******************************************************************************
@@ -1005,23 +1014,34 @@ function translucence_set_derivative_options() {
 		// if border-style is none, then set to solid and set color to transparent
 		if (isset($translucence_options[$box.'-border-style']) && $translucence_options[$box.'-border-style'] == "none") {
 			
-			if ($box == "header") {
-				$translucence_options['headerblock-border-style'] = "solid";
-				$translucence_options[$box.'-border-color'] = "transparent";
-				$translucence_options[$box.'-border-left'] = "transparent";
-				$translucence_options[$box.'-border-right'] = "transparent";
-				$translucence_options[$box.'-border-top'] = "transparent";
-				$translucence_options[$box.'-border-bottom'] = "transparent";
-				$translucence_options['headerblock-hover-border-style'] = "solid";
+			switch( $box )
+			{
+				case 'header':
+					$translucence_options['headerblock-border-style'] = "none";
+					$translucence_options['headerblock-hover-border-style'] = "none";
+					$translucence_options['header-border-width'] = 0;
+					break;
+					
+				case 'left01':
+				case 'right01':
+				case 'right02':
+				case 'content':
+				case 'site':
+					$translucence_options[$box.'-border-width'] = 0;
+					break;
+					
+				case 'top':
+					$translucence_options['top-border-left'] = "transparent";
+					$translucence_options['top-border-right'] = "transparent";
+					break;
 			}
-			
+
 			$translucence_options[$box.'-hover-border-style'] = "none";
-			if ($box == "top") {
-				$translucence_options['top-border-left'] = "transparent";
-				$translucence_options['top-border-right'] = "transparent";
-			}
+			
 		} else {
 			$translucence_options[$box.'-hover-border-style'] = "solid";
+			$translucence_options[$box.'-border-width'] = 1;
+
 			if ($box == "header") {
 				$translucence_options['headerblock-border-style'] = $translucence_options[$box.'-border-style'];
 				$translucence_options['headerblock-hover-border-style'] = "solid";			
@@ -1123,12 +1143,12 @@ function translucence_set_derivative_options() {
 
 		// set the IE submenu-color opacity for top bar
 		if ($box == "top") {
-			$translucence_options['submenu-color-ie'] = "#access .sub-menu, #access .children";
-			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], 1)."}";
-			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
-			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
-			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
-			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";					
+// 			$translucence_options['submenu-color-ie'] = "#access .sub-menu, #access .children";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], 1)."}";
+// 			$translucence_options['submenu-color-ie'] .= "#access .sub-menu li:hover > a,  #access .sub-menu ul ul:hover > a";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";
+// 			$translucence_options['submenu-color-ie'] .= "#access .children li:hover > a,  #access .children ul ul:hover > a";
+// 			$translucence_options['submenu-color-ie'] .= "{".translucence_ie_opacity_css($translucence_options[$box.'-color'], $translucence_options[$box.'-opacity'])."}";					
 		}
 		
 		if ($box == "description-box") {
@@ -1167,28 +1187,65 @@ function translucence_set_derivative_options() {
 	 * Calculates the overall width of the sidebars and the content container.
 	 ******************************************************************************/
 
+	$translucence_options['content-margin-left'] = 0;
+	$translucence_options['content-margin-right'] = 0;
+
+	$translucence_options['left01-margin-left'] = 0;
+	$translucence_options['left01-margin-right'] = 1;
+
+	$translucence_options['right01-margin-left'] = 1;
+	$translucence_options['right01-margin-right'] = 0;
+
+	$translucence_options['right02-margin-left'] = 1;
+	$translucence_options['right02-margin-right'] = 0;
+
 	$left01_width = 0;
-	$left01_padding = $translucence_options['left01-padding-left'] + $translucence_options['left01-padding-right'];
-	if ($translucence_options['left01-width'] > 0) {
-			$left01_width = 2 + $translucence_options['left01-margin-right'] + $translucence_options['left01-width'] + $left01_padding;
+	if ($translucence_options['left01-width'] != 0) 
+	{
+		$left01_width = $translucence_options['left01-width'];
+		$left01_width += ($translucence_options['left01-border-width'] * 2);
+		$left01_width += $translucence_options['left01-padding-left'] + $translucence_options['left01-padding-right'];
+		$left01_width += $translucence_options['left01-margin-right'];
 	}
 
 	$right01_width = 0;
-	$right01_padding = $translucence_options['right01-padding-left'] + $translucence_options['right01-padding-right'];
-	if ($translucence_options['right01-width'] != 0) {
-		$right01_width = 2 + $translucence_options['right01-margin-right'] + $translucence_options['right01-width'] + $right01_padding;
+	if ($translucence_options['right01-width'] != 0)
+	{
+		$right01_width = $translucence_options['right01-width'];
+		$right01_width += ($translucence_options['right01-border-width'] * 2);
+		$right01_width += $translucence_options['right01-padding-left'] + $translucence_options['right01-padding-right'];
+		$right01_width += $translucence_options['right01-margin-left'];
+		if( $translucence_options['right02-width'] !== 0 )
+			$right01_width += $translucence_options['right01-margin-right'];
+		else
+			$translucence_options['right01-margin-right'] = 0;
 	}
 
 	$right02_width = 0;
-	$right02_padding = $translucence_options['right02-padding-left'] + $translucence_options['right02-padding-right'];
-	if ($translucence_options['right02-width'] != 0) {
-		$right02_width = 2 + $translucence_options['right02-margin-right'] + $translucence_options['right02-width'] + $right02_padding;
+	if ($translucence_options['right02-width'] != 0) 
+	{
+		$right02_width = $translucence_options['right02-width'];
+		$right02_width += ($translucence_options['right02-border-width'] * 2);
+		$right02_width += $translucence_options['right02-padding-left'] + $translucence_options['right02-padding-right'];
+		$right02_width += $translucence_options['right02-margin-left'];
 	}
 	
-	$content_width = 0;
-	$content_padding = $translucence_options['content-padding-left'] + $translucence_options['content-padding-right'];
-	
-	$content_width = $translucence_options['site-width'] - 2 - $translucence_options['content-margin-right'] - $content_padding - $left01_width - $right01_width - $right02_width;
+	$content_width = $translucence_options['site-width'];
+	$content_width -= ($translucence_options['content-border-width'] * 2);
+	$content_width -= $translucence_options['content-padding-left'] + $translucence_options['content-padding-right'];	
+	if( $left01_width > 0 )
+		$content_width -= $translucence_options['content-margin-left'];
+	else
+		$translucence_options['content-margin-left'] = 0;
+
+	if( $right01_width + $right02_width > 0 )
+		$content_width -= $translucence_options['content-margin-right'];
+	else
+		$translucence_options['content-margin-right'] = 0;
+
+	$content_width -= $left01_width;
+	$content_width -= $right01_width;
+	$content_width -= $right02_width;
 	
 	$total = $translucence_options['site-width'];
 	
