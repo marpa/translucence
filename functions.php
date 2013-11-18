@@ -960,7 +960,7 @@ function translucence_get_content_width($page) {
 				$width -= $translucence_options['overall-right02-width'] + 2 +  $content_padding;
 			
 			} else if (strstr($template_name, 'no-sidebar')) {
-				$width = $translucence_options['site-width'];
+				$width -= 2 +  $content_padding;
 
 			} else {
 				$width = $translucence_options['content_width'];
