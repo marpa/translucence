@@ -7,10 +7,13 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header();
+$content_width = translucence_get_content_width ("attachment");
+ ?>
 
 		<div id="container" class="single-attachment">
-			<div id="content" role="main">
+		
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 

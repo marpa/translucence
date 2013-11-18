@@ -25,7 +25,7 @@ else
 	<?php get_sidebar('tertiary'); ?>	
 <?php endif; ?>	
 
-			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;" margins="<?php print $translucence_options['content-margin-left']; ?>:<?php print $translucence_options['content-margin-right']; ?>">
 <?php print translucence_toggle_links(); ?>	
 
 		<?php

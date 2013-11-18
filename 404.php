@@ -7,10 +7,12 @@
  * @since Twenty Ten 1.0
  */
 
-get_header(); ?>
+get_header();
+$content_width = translucence_get_content_width ("404");
+ ?>
 
 	<div id="container">
-		<div id="content" role="main">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 
 			<div id="post-0" class="post error404 not-found">
 				<h1 class="entry-title"><?php _e( 'Not Found', '2010-translucence' ); ?></h1>

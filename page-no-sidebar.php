@@ -20,7 +20,7 @@ $content_width = translucence_get_content_width("page");
 
 <div id="container">
 
-	<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
+			<div id="content" role="main" style="width: <?php print $content_width; ?>px;">
 	
 	<?php print translucence_get_breadcrumbs($post); ?>
 			
