@@ -21,7 +21,7 @@ session_start();
 	/*
 	 * Print the <title> tag based on what is being viewed.
 	 */
-	global $page, $paged, $translucence_options, $blog_id, $use_mobile_site;
+	global $page, $paged, $translucence_options, $blog_id, $mobile_support;
 
 	wp_title( '|', true, 'right' );
 
@@ -60,7 +60,8 @@ session_start();
 jQuery(document).ready(function(){
 	jQuery('#s').inline_label({text: "Search Site..."});	
 });
-var is_mobile = <?php if( $use_mobile_site ) { echo 'true'; } else { echo 'false'; } ?>;
+var is_mobile = <?php if( $mobile_support->is_mobile ) { echo 'true'; } else { echo 'false'; } ?>;
+var use_mobile_site = <?php if( $mobile_support->use_mobile_site ) { echo 'true'; } else { echo 'false'; } ?>;
 </script>
 
 </head>
@@ -118,3 +119,4 @@ var is_mobile = <?php if( $use_mobile_site ) { echo 'true'; } else { echo 'false
 	
 
 	<div id="main">
+	

@@ -51,6 +51,13 @@
 if ( ! isset( $content_width ) )
 	$content_width = 373;
 
+//----------------------------------------------------------------------------------------
+// Setup mobile support.
+//----------------------------------------------------------------------------------------
+require_once( dirname(__FILE__).'/classes/mobile-support.php' );
+$mobile_support = new Mobile_Support;
+
+
 /**
  * Get the translucence config.
  * If this function is called by a child theme, it will load the parent's
@@ -78,9 +85,9 @@ if (file_exists(dirname(__FILE__).'/functions-plugins.php')) {
 	require_once('functions-plugins.php');
 }
 
-if (file_exists(dirname(__FILE__).'/mobile-detect/Mobile_Detect.php')) {
-	require_once( get_template_directory() . '/mobile-detect/Mobile_Detect.php');
-}
+//if (file_exists(dirname(__FILE__).'/mobile-detect/Mobile_Detect.php')) {
+//	require_once( get_template_directory() . '/mobile-detect/Mobile_Detect.php');
+//}
  
 // this theme may have child themes that override this config.
 $translucence_config = translucence_add_config();
@@ -124,7 +131,7 @@ function translucence_setup() {
 	global $translucence_config;
 	global $translucence_options, $translucence_options_values, $translucence_variations;
 	global $translucence_options_id;
-	global $use_mobile_site;
+//	global $use_mobile_site;
 
 	/*********************************************************
 	 * set options version
@@ -265,11 +272,11 @@ function translucence_setup() {
 	register_default_headers( $translucence_config['custom_header'] );
 	
 	// Determine what kind of device is being used
-	$use_mobile_site = FALSE;
-	$detect = new Mobile_Detect;
-	if ( $detect->isMobile() && !$detect->isTablet() ) {
-		$use_mobile_site = TRUE;
-	}	
+//	$use_mobile_site = FALSE;
+//	$detect = new Mobile_Detect;
+//	if ( $detect->isMobile() && !$detect->isTablet() ) {
+//		$use_mobile_site = TRUE;
+//	}	
 	//printpre ($translucence_options);
 }
 endif;
@@ -283,12 +290,13 @@ endif;
  */
 
 function translucence_add_options_css() {
-	global $translucence_options, $translucence_options_id, $use_mobile_site; 	
+	global $translucence_options, $translucence_options_id, $mobile_support;	
 	
 	print "<style type='text/css'>";
 	print $translucence_options['css'];
 	
-	if( $use_mobile_site) {
+	if( $mobile_support->use_mobile_site ) 
+	{
 		//printpre("mobile");
  		$content_width = $translucence_options['site-width'] - 2 - 1 - ($translucence_options['content-padding'] * 2);
 		print "
@@ -904,8 +912,12 @@ function translucence_get_author_info() {
  * @return int width of content box in pixels
  ******************************************************************************/
 
-function translucence_get_content_width($page) {
-	global $translucence_options, $use_mobile_site;
+function translucence_get_content_width($page)
+{
+	global $translucence_options, $mobile_support;
+
+	if( $mobile_support->use_mobile_site )
+		return $width;
 
 	switch($page)
 	{
