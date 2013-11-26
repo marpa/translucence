@@ -118,8 +118,6 @@ function click_togglelink_mobile( togglelink )
 	var sidebar = jQuery('#'+sidebar_id);
 	if( sidebar.length == 0 ) return;
 	
-	if( jQuery(sidebar).is(':visible') ) return;
-	
 	var sidebar_width = parseInt(jQuery(sidebar).attr('overall-width'), 10);
 
 	switch( sidebar_id )
@@ -142,7 +140,27 @@ function click_togglelink_mobile( togglelink )
 		default:
 			return; break;
 	}
-	
+
+	//------------------------------------------------------------------------------------
+	// Hide, if visible.
+	//------------------------------------------------------------------------------------
+
+	if( jQuery(sidebar).is(':visible') )
+	{
+		var css = {};
+		css[content_margin_name] = sidebar_width + 1;	
+
+		jQuery(sidebar).hide();
+		jQuery('#content').css( css );
+
+		css['width'] = jQuery('#content').width() + parseInt( jQuery(sidebar).attr('overall-width') );
+		css['margin-left'] = css['margin-right'] = '0px';	
+		jQuery("#content").stop().animate( css, 100, 'linear' );
+
+
+		return;
+	}
+		
 	//------------------------------------------------------------------------------------
 	// Hide other sidebars.
 	//------------------------------------------------------------------------------------
