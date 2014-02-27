@@ -1426,7 +1426,10 @@ DESCRIPTION: 1-3 column fixed layout
 
 #primary .page_item a,
 #secondary .page_item a,
-#tertiary .page_item a {
+#tertiary .page_item a,
+#primary .menu-item a,
+#secondary .menu-item a,
+#tertiary .menu-item a {
 	display: block;
 	padding: 3px;
 }
@@ -1510,12 +1513,46 @@ DESCRIPTION: 1-3 column fixed layout
 	margin: 5px 0px 0px -15px;
 }
 
-#primary ul .children, #primary ul .children,
-#secondary ul .children, #secondary ul .children,
-#tertiary ul .children, #tertiary ul .children {
+#primary ul .children, #primary ul .sub-menu,
+#secondary ul .children, #secondary ul .sub-menu,
+#tertiary ul .children, #tertiary ul .sub-menu {
 	list-style-type:none;
 	margin: 5px 0px 0px 30px;
 }
+
+#primary .widget_categories li.cat-item ul.children,
+#secondary .widget_categories li.cat-item ul.children,
+#tertiary .widget_categories li.cat-item ul.children {
+	display: none;
+}
+
+#primary .widget_categories li.cat-item,
+#secondary .widget_categories li.cat-item,
+#tertiary .widget_categories li.cat-item {
+	border: 1px solid transparent;
+	padding: 3px;
+}
+
+
+#primary .widget_categories li.current-cat-parent ul.children,
+#secondary .widget_categories li.current-cat-parent ul.children,
+#tertiary .widget_categories li.current-cat-parent ul.children {
+	display: block;
+}
+
+#primary .widget_categories li.current-cat ul.children,
+#secondary .widget_categories li.current-cat ul.children,
+#tertiary .widget_categories li.current-cat ul.children {
+	display: block;
+}
+
+
+#primary ul .widget_categories li.current-cat,
+#secondary ul .widget_categories li.current-cat,
+#tertiary ul .widget_categories li.current-cat {
+	display: block;
+}
+
 
 /* End widget list css */
 

@@ -212,10 +212,19 @@ ob_start();
 	border-bottom: 1px solid <?php print $translucence_options['left01-link-color']?>;
 }
 
-#tertiary .page_item a:hover {
+#tertiary .page_item a:hover,
+#tertiary .menu-item a:hover {
 	color: <?php print $translucence_options['left01-link-color']?>;
 	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;
 }
+
+#primary .widget_categories li.cat-item:hover,
+#secondary .widget_categories li.cat-item:hover,
+#tertiary .widget_categories li.cat-item:hover {
+	color: <?php print $translucence_options['left01-link-color']?>;
+	border: 1px dotted <?php print $translucence_options['left01-border-color']?>;;
+}
+
 
 #tertiary h2, #tertiary h3 {
 	color: <?php print $translucence_options['left01-heading-color']?>;
@@ -246,7 +255,7 @@ ob_start();
 }
 
 #tertiary .widget_pages li.current_page_item,
-#tertiary .widget_pages li.current-cat,
+#tertiary .widget_categories li.current-cat,
 #tertiary .widget_nav_menu li.current-menu-item {
 	background-color: <?php print $translucence_options['left01-highlight-color-rgb']?>;
 	padding: 3px;
