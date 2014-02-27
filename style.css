@@ -1665,7 +1665,7 @@ div.menu li {
 }
 
 #secondary .widget_pages li.current_page_item,
-#secondary .widget_pages li.current-cat,
+#secondary .widget_categories li.current-cat,
 #secondary .widget_nav_menu li.current-menu-item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding: 3px;
@@ -1673,7 +1673,7 @@ div.menu li {
 }
 
 #tertiary .widget_pages li.current_page_item,
-#tertiary .widget_pages li.current-cat,
+#tertiary .widget_categories li.current-cat,
 #tertiary .widget_nav_menu li.current-menu-item {
 	background-color: rgba(249, 249, 249, 0.4);
 	padding: 3px;
