@@ -109,7 +109,10 @@ var use_mobile_site = <?php if( $mobile_support->use_mobile_site ) { echo 'true'
 							<?php bloginfo( 'name' ); ?>
 						</div><br/>
 						<div id="site-description">	
-							<?php bloginfo( 'description' ); ?>		
+							<?php print wp_kses(
+								html_entity_decode( get_bloginfo( 'description' ) ), 
+								array("br"=>array())
+							); ?>		
 						</div>
 					</a>
 				</span>
