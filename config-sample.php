@@ -36,7 +36,7 @@ $translucence_config['widgets'] = "default";
 $translucence_config['added-content'] = "default";
 $translucence_config['content'] = "default";
 $translucence_config['variation-type'] = "default";
-$translucence_config['headermeta'] = "";
+$translucence_config['headermeta'] = "off";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
