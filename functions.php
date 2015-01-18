@@ -97,12 +97,32 @@ $translucence_config = translucence_add_config();
 require_once( get_template_directory() . '/template-options.php');
 require_once( get_template_directory() . '/options-css.php');
 
+/** Tell WordPress to run translucence_enqueue_scripts() when the 'wp_enqueue_scripts' hook is run. */
+add_action( 'wp_enqueue_scripts', 'translucence_enqueue_scripts' );
+
+/** Tell WordPress to run translucence_admin_enqueue_scripts() when the 'admin_enqueue_scripts' hook is run. */
+add_action( 'admin_enqueue_scripts', 'translucence_admin_enqueue_scripts' );
 
 /** Tell WordPress to run translucence_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'translucence_setup' );
 
 /** Tell WordPress to add theme options css when the 'wp-head' hook is run in header.php */
 add_action('wp_head', 'translucence_add_options_css');
+
+
+function translucence_admin_enqueue_scripts() {
+	// add conditional to check for admin pages
+	wp_register_script('admin.control', get_template_directory_uri(). '/js/admin.control.js');
+	wp_enqueue_script('admin.control');
+}
+
+function translucence_enqueue_scripts() {
+	wp_enqueue_script('jquery');      
+	wp_register_script('display.control', get_template_directory_uri() . '/js/display.control.js');
+	wp_enqueue_script('display.control');
+	wp_register_script('jquery.inline_label', get_template_directory_uri() . '/js/jquery.inline_label.js'); 
+	wp_enqueue_script('jquery.inline_label');		
+}
 
 
 if ( ! function_exists( 'translucence_setup' ) ):
@@ -143,19 +163,19 @@ function translucence_setup() {
 	 *********************************************************/ 
 	 
 	// front end javascript
-	if ( !is_admin() ) { 
-	   wp_enqueue_script('jquery');      
-	}
-	
-	if ( !is_admin() ) { 
-		wp_register_script('display.control', get_template_directory_uri() . '/js/display.control.js');
-		wp_enqueue_script('display.control');
-		wp_register_script('jquery.inline_label', get_template_directory_uri() . '/js/jquery.inline_label.js'); 
-		wp_enqueue_script('jquery.inline_label');		
-	} else {
-		wp_register_script('admin.control', get_template_directory_uri(). '/js/admin.control.js');
-		wp_enqueue_script('admin.control');	
-	}
+// 	if ( !is_admin() ) { 
+// 	   wp_enqueue_script('jquery');      
+// 	}
+// 	
+// 	if ( !is_admin() ) { 
+// 		wp_register_script('display.control', get_template_directory_uri() . '/js/display.control.js');
+// 		wp_enqueue_script('display.control');
+// 		wp_register_script('jquery.inline_label', get_template_directory_uri() . '/js/jquery.inline_label.js'); 
+// 		wp_enqueue_script('jquery.inline_label');		
+// 	} else {
+// 		wp_register_script('admin.control', get_template_directory_uri(). '/js/admin.control.js');
+// 		wp_enqueue_script('admin.control');	
+// 	}
 	
 	// include theme options
 	require_once ( get_template_directory() . '/functions/theme-options.php' );

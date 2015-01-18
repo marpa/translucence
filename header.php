@@ -10,7 +10,7 @@
  */
  
  // Starting the session 
-session_start(); 
+//session_start(); 
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
