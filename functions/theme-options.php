@@ -493,6 +493,7 @@ function translucence_get_variation_default_config() {
 	if (!isset($translucence_options['entry-text-align'])) $translucence_options['entry-text-align'] = $translucence_config['entry-text-align'];
 	if (!isset($translucence_options['tag-links-color'])) $translucence_options['tag-links-color'] = $translucence_config['tag-links-color'];
 	if (!isset($translucence_options['cat-links-color'])) $translucence_options['cat-links-color'] = $translucence_config['cat-links-color'];
+	if (!isset($translucence_options['header-text-padding-top'])) $translucence_options['header-text-padding-top'] = $translucence_config['header-text-padding-top'];
 	
 	if (!isset($translucence_options['site-padding-top'])) $translucence_options['site-padding-top'] = $translucence_config['site-padding-top'];
 	if (!isset($translucence_options['site-padding-bottom'])) $translucence_options['site-padding-bottom'] = $translucence_config['site-padding-bottom'];

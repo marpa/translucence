@@ -110,7 +110,7 @@ $translucence_config['left01-margin-right'] = 1;
 $translucence_config['right01-margin-left'] = 1;
 $translucence_config['right01-margin-right'] = 0;
 $translucence_config['right02-margin-left'] = 1;
-$translucence_config['right01-margin-right'] = 0;
+$translucence_config['right02-margin-right'] = 0;
 
 $translucence_config['header-width'] = $translucence_config['site-width'];
 $translucence_config['left01-width'] = 0;
