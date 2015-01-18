@@ -228,7 +228,8 @@ function translucence_setup() {
 
 
 	// This theme allows users to set a custom background
-	add_custom_background();
+	//add_custom_background();
+	add_theme_support( 'custom-background');
 
 	// Your changeable header business starts here
 	//define( 'HEADER_TEXTCOLOR', '' );
