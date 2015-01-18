@@ -1484,7 +1484,7 @@ function translucence_delete_options() {
 	$color = trim($color);
 	$rgb_color = false;
    
-	if (eregi("^[0-9ABCDEFabcdef\#]+$", $color)) {
+	if (preg_match("/^[0-9ABCDEFabcdef\#]+$/i", $color)) {
 		$color = str_replace('#','', $color);
 		$l = strlen($color) == 3 ? 1 : (strlen($color) == 6 ? 2 : false);
 	}
@@ -1513,11 +1513,11 @@ function translucence_ie_opacity_css ($color, $opacity) {
 	$color = trim($color);
 	$out = false;
 	
-	if (eregi("^[0-9]+(,| |.)+[0-9]+(,| |.)+[0-9]+$", $color)) {
+	if (preg_match("/^[0-9]+(,| |.)+[0-9]+(,| |.)+[0-9]+$/i", $color)) {
 		$color = translucence_hex2rgb($color);
 	}
 	
-	$color = ereg_replace("#", "", $color);
+	$color = preg_replace("/#/", "", $color);
 	$hex_opacity = strtoupper(dechex($opacity*255));
 	if ($opacity == "0") $hex_opacity = "00";
 	$hex_rgba = "#".$hex_opacity.$color;
