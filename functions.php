@@ -264,7 +264,24 @@ function translucence_setup() {
 
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See translucence_admin_header_style(), below.
-	add_custom_image_header( 'translucence_header_style', 'translucence_admin_header_style' );
+//	add_custom_image_header( 'translucence_header_style', 'translucence_admin_header_style' );
+	
+	$defaults = array(
+		'default-image'          => '',
+		'random-default'         => false,
+		'width'                  => 0,
+		'height'                 => 0,
+		'flex-height'            => false,
+		'flex-width'             => false,
+		'default-text-color'     => '',
+		'header-text'            => true,
+		'uploads'                => true,
+		'wp-head-callback'       => 'translucence_header_style',
+		'admin-head-callback'    => 'translucence_admin_header_style',
+		'admin-preview-callback' => '',
+	);
+	
+	add_theme_support( 'custom-header', $defaults );
 
 	// ... and thus ends the changeable header business.
 
