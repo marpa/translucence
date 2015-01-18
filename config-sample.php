@@ -36,6 +36,7 @@ $translucence_config['widgets'] = "default";
 $translucence_config['added-content'] = "default";
 $translucence_config['content'] = "default";
 $translucence_config['variation-type'] = "default";
+$translucence_config['headermeta'] = "";
 
 $translucence_config['site-title-color'] = "#003366";
 $translucence_config['site-description-color'] = "#999999";
@@ -62,6 +63,7 @@ $translucence_config['footerleftcustom'] = "";
 $translucence_config['header-image-options'] = "none";
 
 $translucence_config['header-text-display'] = "middle";
+$translucence_config['header-text-padding-top'] = 0;
 $translucence_config['entry-link-style'] = "ww";
 $translucence_config['entry-text-align'] = "left";
 $translucence_config['tag-links-color'] = "#FFF8C6";
